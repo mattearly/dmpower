@@ -13,6 +13,6 @@ www.athenstechgiants.com
 How-to use.
 
 1. Compile using a c++ compilier in terminal. 
-2. Run 'make' while in directory.
+2. Run 'clean' then 'make' while in directory.
 3. Run ./DM-Power
 
