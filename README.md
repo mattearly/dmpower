@@ -5,9 +5,11 @@ matthewjearly@gmail.com
 athenstechgiants@gmail.com
 www.athenstechgiants.com
 
-8-3-15 release includes features:
 
-1. Player Character creation.
+Features included in the master:
+
+1. D&D 5e Player Character creation from the Player's Handbook
+2. Magic Item Rolling Charts from the DMG
 
 
 How-to use.
