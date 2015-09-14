@@ -8,6 +8,7 @@
 //  
 
 #include "campaign.h"
+#include "item_gen.h"
 #include <fstream>
 #include <cstdlib>
 
@@ -26,7 +27,7 @@ int main() {
     do {
         cout << "----------MAIN MENU----------" << endl
 			 << "1. Player Characters" << endl
-    		 << "2. Magical Items & Rewards" << endl
+                         << "2. Magical Items & Rewards" << endl
 			 << "3. Save & Quit" << endl
 			 << "4. Quit without saving" << endl
 			 << "-----------------------------" << endl << endl;
@@ -36,8 +37,10 @@ int main() {
             case 1:
                 mygame.pc_menu();
                 break;
-            case 2:
-                mygame.treasure_menu();
+            case 2: {
+                Magic_Items gen;
+                gen.treasure_menu();
+            }
                 break;
             case 3:
                 save_file(loadSuccess, loadedFile, mygame);

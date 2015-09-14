@@ -74,3 +74,8 @@ int rollstats_standard() {
 	cout << "Rolls: " << r1 << ", " << r2 << ", " << r3 << endl;
 	return (r1 + r2 + r3);
 }
+
+int randomNumber(const int& start, const int& end) {
+    std::uniform_int_distribution<int> totalroll(start, end);
+    return totalroll(mgen);
+}

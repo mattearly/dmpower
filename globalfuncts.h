@@ -72,5 +72,7 @@ int rollstats_hi_power();
 
 int rollstats_standard();
 
+int randomNumber(const int&, const int&);
+
 
 #endif /* defined(__dm_power_poly__globalfuncts__) */

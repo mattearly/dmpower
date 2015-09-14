@@ -1,6 +1,6 @@
 #makefile for DM-Power-Final
 #MACROS
-OBJS = main.o campaign.o characters.o races.o gear.o globalfuncts.o
+OBJS = main.o campaign.o characters.o races.o gear.o globalfuncts.o item_gen.o
 EXES = DM-Power
 FLAGS = -c -std=c++11
 CC = g++
@@ -31,3 +31,6 @@ gear.o: gear.cpp gear.h
 
 globalfuncts.o: globalfuncts.cpp globalfuncts.h
 	$(CC) $(FLAGS) globalfuncts.cpp
+
+item_gen.o: item_gen.cpp item_gen.h
+	$(CC) $(FLAGS) item_gen.cpp

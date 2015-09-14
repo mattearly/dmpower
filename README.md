@@ -10,11 +10,12 @@ Features included in the master:
 
 1. D&D 5e Player Character creation from the Player's Handbook
 2. Magic Item Rolling Charts from the DMG
+3. Scroll Generator based on spells in the PHB
 
 
 How-to use.
 
-1. Compile using a c++ compilier in terminal. 
-2. Run 'clean' then 'make' while in directory.
+1. Have a c++ compiler.
+2. Use Console/Terminal or whatever and type 'make' while in file directory.
 3. Run ./DM-Power
 
