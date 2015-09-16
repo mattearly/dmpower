@@ -2237,7 +2237,7 @@ string Magic_Items::GenerateScroll(const int& lvl) const{
     switch (lvl) {
     case 1:
         scroll = "Level 1 Scroll of ";
-        ss = randomNumber(1, 62);
+        ss = randomNumber(1, 61);
         switch (ss) {
         case 1:
             scroll += "Alarm (ranger, wizard)";
@@ -2422,8 +2422,6 @@ string Magic_Items::GenerateScroll(const int& lvl) const{
         case 61:
             scroll += "Wrathful Smite (paladin)";
             break;
-        case 62:
-            scroll += "Trouser Snake (druid, sorcerer, warlock, wizard)";
         }
         cout << endl;
         break;
@@ -3307,7 +3305,7 @@ void Magic_Items::SingleScroll(const int& lvl) const {
     switch (lvl) {
     case 1:
         cout << "\n Level 1 Scroll of -> ";
-        ss = randomNumber(1, 62);
+        ss = randomNumber(1, 61);
         switch (ss) {
         case 1:
             cout << "Alarm (ranger, wizard)";
@@ -3492,8 +3490,6 @@ void Magic_Items::SingleScroll(const int& lvl) const {
         case 61:
             cout << "Wrathful Smite (paladin)";
             break;
-        case 62:
-            cout << "Trouser Snake (druid, sorcerer, warlock, wizard)";
         }
         cout << endl;
         break;
