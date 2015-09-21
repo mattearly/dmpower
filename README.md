@@ -20,12 +20,6 @@ How-to use:
 3. Type ./dmpower in terminal to run
 
 
-Known Issues:
-
-1. Paladin spell slots and abilities don't seem to display properly (needs logic fixing) or level up properly via the edit menu.
-
-
-
 Things to add in the future:
 
 1. Ability to give items to characters.
