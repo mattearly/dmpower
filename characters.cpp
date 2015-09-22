@@ -1286,6 +1286,7 @@ void Paladin::setClassDetails(const int &l) {
     if (l >= 15) forth_ss++;
     if (l >= 17) { forth_ss++; fifth_ss = 1; }
     if (l >= 19) fifth_ss++;
+    //level up menus
     if (levelupmenus == 0 && l >= 4) {
         cout << "Paladin level 4 Level Up menu:\n\n";
         levelUpStats();
@@ -3199,6 +3200,8 @@ void Generic_Character_Class::updateCharacter(const Campaign& game) {
                 cout << "Current level is " << level << "\n\n";
                 int newlvl = getNumber("Enter new higher level: ", level+1, 20);
                 setClassDetails(newlvl);
+                setProficiencyBonus();
+
             }
         }
             break;
