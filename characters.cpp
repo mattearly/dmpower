@@ -3615,19 +3615,18 @@ void Generic_Character_Class::printClassAbilities() const {
     }
     if (divine_health == true) cout << "Divine Health, ";
     if (sacred_oath == true) {
-        cout << "Oath Spells, Channel Divinity: ";
         if (oath_of_devotion == true) {
-            cout << "Oath of Devotion[";
+            cout << "Oath of Devotion[Tenets, Oath Spells, Channel Divinity(Sacred Weapon, Turn the Unholy)";
             if (sacred_oath_feature >= 1) cout << ", Aura of Devotion";
             if (sacred_oath_feature >= 2) cout << ", Purity of Spirit";
             if (sacred_oath_feature == 3) cout << ", Holy Nimbus";
         } else if (oath_of_ancients == true) {
-            cout << "Oath of Ancients[";
+            cout << "Oath of the Ancients[Tenets, Oath Spells, Channel Divinity(Nature's Wrath, Turn the Faithless)";
             if (sacred_oath_feature >= 1) cout << ", Aura of Warding";
             if (sacred_oath_feature >= 2) cout << ", Undying Sentinel";
             if (sacred_oath_feature == 3) cout << ", Elder Champion";
         } else if (oath_of_vengence == true) {
-            cout << "Oath of Vengence[";
+            cout << "Oath of Vengence[Tenets, Oath Spells, Channel Divinity(Abjure Enemy, Vow of Enmity)";
             if (sacred_oath_feature >= 1) cout << ", Relentless Avenger";
             if (sacred_oath_feature >= 2) cout << ", Soul of Vengeance";
             if (sacred_oath_feature == 3) cout << ", Avenging Angel";
