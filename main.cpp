@@ -26,30 +26,35 @@ int main() {
     load_file(loadSuccess, loadedFile, mygame);
     do {
         cout << "----------MAIN MENU----------" << endl
-			 << "1. Player Characters" << endl
-                         << "2. Magical Items & Rewards" << endl
-			 << "3. Save & Quit" << endl
-			 << "4. Quit without saving" << endl
-			 << "-----------------------------" << endl << endl;
-        choice = getNumber("Choice: ", 1, 4);
+             << "1. Player Characters" << endl
+             << "2. Magical Items & Gold" << endl
+             << "3. XP Calculator" << endl
+             << "4. Save & Quit" << endl
+             << "5. Quit without saving" << endl
+             << "-----------------------------" << endl << endl;
+        choice = getNumber("Choice: ", 1, 5);
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         switch (choice) {
-            case 1:
-                mygame.pc_menu();
-                break;
-            case 2: {
-                Magic_Items gen;
-                gen.treasure_menu();
-            }
-                break;
-            case 3:
-                save_file(loadSuccess, loadedFile, mygame);
-                break;
-            case 4:
-				cout << "Exiting Program.\n";
-            default: break;
+        case 1:
+            mygame.pc_menu();
+            break;
+        case 2: {
+            Magic_Items gen;
+            gen.treasure_menu();
         }
-    } while ( choice < 3 );
+            break;
+        case 3:
+            cout << "XP per member = " << xpgenerator() << endl << endl;
+            pressEnterToContinue();
+            break;
+        case 4:
+            save_file(loadSuccess, loadedFile, mygame);
+            break;
+        case 5:
+            cout << "Exiting Program.\n";
+        default: break;
+        }
+    } while ( choice < 4 );
     return EXIT_SUCCESS;
 }
 void load_file(bool& ls, string& lf, Campaign& game) {

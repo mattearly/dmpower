@@ -74,5 +74,7 @@ int rollstats_standard();
 
 int randomNumber(const int&, const int&);
 
+float xpgenerator();
+
 
 #endif /* defined(__dm_power_poly__globalfuncts__) */
