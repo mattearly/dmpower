@@ -25,7 +25,7 @@ My overall goal is to make this program simple enough that it does not require a
         * One-offs or lists of CR's 
         * Adds up and splits with the party
 
-#### This is the in the master-core version.
+#### This is the master-core version.
 
 * Stick with this version to stick with the official books.
 * This will be actively updated and added to. There will be even more tools and features in the future.
