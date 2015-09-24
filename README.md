@@ -1,5 +1,5 @@
 # DM-Power
-DM-Power is powerful quick command line interface tool for DM's running 5th edition Dungeons and Dragons. It is made entirely on C++. It uses data from the D&D 5e Player's Handbook and Dungeon Master Guide. It uses the core rules that are in the core books. There is no homebrew here. 
+DM-Power is powerful quick command line interface tool for DM's running 5th edition Dungeons and Dragons. It is made entirely on C++. It uses data from the D&D 5e _Player's Handbook_ and _Dungeon Master Guide_. It uses the core rules that are in the core books. There is no homebrew here. 
 
 It does not teach you the game. You will need the books. I recommend buying them from Amazon or any official retailer that supports Hasbro and WotC.
 
@@ -19,7 +19,7 @@ It does not teach you the game. You will need the books. I recommend buying them
   * Level Up tool
   * Permanancy. Load and Save entire character list.
 * Figure out treasure and rewards in seconds!
-  * All Reward Rolling Charts
+  * All reward rolling charts
     * Auto roll or enter your own result.
     * Magic Items
     * Scrolls prefigured out
