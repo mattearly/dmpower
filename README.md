@@ -3,12 +3,10 @@ DM-Power (originally called _its-dm-magic_) is a command line tool for DMs runni
 
 ### Featuring: *DM-Power*
 
-* all the code as of this update is by Matthew Jay Early
-* Personal Email - matthewjearly@gmail.com
-* Business Email - athenstechgiants@gmail.com
-* ATG Website - www.athenstechgiants.com
+* Code by Matthew Jay Early
+* Email - matthewjearly@gmail.com
 
-####Features included in the master-core version:
+#### Features included in the master-core version:
 
 1. D&D 5e Player Character creation from the Player's Handbook
     * New Character creation from level 1 to 20
@@ -16,10 +14,10 @@ DM-Power (originally called _its-dm-magic_) is a command line tool for DMs runni
 2. Magic Item Rolling Charts from the DMG
 3. Scroll Generator based on spells in the PHB
 
-####How-to use:
+#### How-to use:
 
 1. Have a C++ compiler.
-2. Use Console/Terminal or whatever and type 'make' while in file directory.
-3. Type ./dmpower in terminal to run
+2. Use Terminal and type 'make' while in file directory.
+3. Type ./dmpower in terminal to run.
 
 
