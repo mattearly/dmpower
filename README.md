@@ -32,7 +32,7 @@ My overall goal is to make this program simple enough that it does not require a
 * The Load/Save logic is subject to change in major updates to the character generator.
 * I plan on making a side version for my own personal homebrew charts and features.
 
-#### How-to use:
+#### How-to install:
 
 1. Have a C++ compiler. Follow online guides to get one if necessary.
 2. Use Terminal and type 'make' while in this file directory.
