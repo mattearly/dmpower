@@ -5,13 +5,13 @@ It does not teach you the game. You will need the books. I recommend buying them
 
 ### Featuring: *DM-Power*
 
-* Get your game going quick with the unbelievly fast streamlined character creation process for PC's and NPC's alike.
+* Get your game going quick with the unbelievably fast streamlined character creation process for PC's and NPC's alike.
   * All Classes 
   * Races 
   * Levels 
   * Feats 
   * Skills
-  * Prociencies 
+  * Proficiencies 
   * Backgrounds
   * Stats
   * Unlimited Characters
@@ -26,6 +26,7 @@ It does not teach you the game. You will need the books. I recommend buying them
     * Coins, Gems, Valuable Art
   * XP by Challenge Rating calculator.
     * One-offs or lists of CR's 
+    * Adds up and splits with the party
 
 #### This is the in the master-core version.
 
