@@ -6,7 +6,8 @@ It does not teach you the game. You will need the books. I recommend buying them
 ### Featuring: *DM-Power*
 
 * Get going quick with an unbelievably fast streamlined character creation process for PC's or NPC's.
-  * All Classes and Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, Stats
+  * All Classes and Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, and Stats
+    * Based on the logic from the PHB 
   * Unlimited Characters
   * Powerful after creation Character editor for custom changes
   * Level Up tool
