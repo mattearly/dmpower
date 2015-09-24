@@ -6,20 +6,13 @@ It does not teach you the game. You will need the books. I recommend buying them
 ### Featuring: *DM-Power*
 
 * Get going quick with an unbelievably fast streamlined character creation process for PC's or NPC's.
-  * All Classes 
-  * Races 
-  * Levels 
-  * Feats 
-  * Skills
-  * Proficiencies 
-  * Backgrounds
-  * Stats
+  * All Classes and Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, Stats
   * Unlimited Characters
-  * Character editor
+  * Powerful after creation Character editor for custom changes
   * Level Up tool
   * Permanancy. Load and Save entire character list.
 * Figure out treasure and rewards in seconds!
-  * All reward rolling charts
+  * All reward rolling charts from the DMG
     * Auto roll or enter your own result.
     * Magic Items
     * Scrolls prefigured out
