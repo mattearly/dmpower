@@ -3,9 +3,6 @@ DM-Power is powerful quick command line interface tool for DM's running 5th edit
 
 It does not teach you the game. You will need the books. I recommend buying them from Amazon or any official retailer that supports Hasbro and WotC.
 
-Code by **_Matthew Jay Early_** 
-Email me at _matthewjearly@gmail.com_
-
 ### Featuring: *DM-Power*
 
 * Get your game going quick with the unbelievly fast streamlined character creation process for PC's and NPC's alike.
@@ -36,3 +33,9 @@ Email me at _matthewjearly@gmail.com_
 1. Have a C++ compiler. Follow online guides to get one if necessary.
 2. Use Terminal and type 'make' while in this file directory.
 3. Type ./dmpower in terminal to run.
+
+###### About
+* Code by 
+**_Matthew Jay Early_** 
+* Email me at 
+_matthewjearly@gmail.com_
