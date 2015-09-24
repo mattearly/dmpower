@@ -3,8 +3,8 @@ DM-Power is powerful quick command line interface tool for DM's running 5th edit
 
 It does not teach you the game. You will need the books. I recommend buying them from Amazon or any official retailer that supports Hasbro and WotC.
 
-Code by Matthew Jay Early 
-Email: matthewjearly@gmail.com
+Code by **_Matthew Jay Early_** 
+Email me at _matthewjearly@gmail.com_
 
 ### Featuring: *DM-Power*
 
