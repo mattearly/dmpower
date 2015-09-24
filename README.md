@@ -46,5 +46,5 @@ It does not teach you the game. You will need the books. I recommend buying them
 **_Matthew Jay Early_** 
 * Email me at 
 _matthewjearly@gmail.com_
-* Why? I am a D&D enthusiast and a C++ programmer in school and needed a project for when I'm not doing classes. I also love DMing and currently run a season based campaign that is stream and recorded on https://twitch.tv/watchersoffaerun
+* Why? I am a D&D enthusiast and a C++ programmer in school and needed a project for when I'm not doing classes. I also love DMing and currently run a season based campaign that is streamed on https://twitch.tv/watchersoffaerun
 * If you read this WotC, consider reaching out to me and lets work together to make D&D a more enjoyable managable game from the DM's perspective.
