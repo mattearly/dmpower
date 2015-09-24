@@ -1,11 +1,19 @@
 # DM-Power
-DM-Power (originally called _its-dm-magic_) is a command line tool for DMs running 5th edition Dungeons and Dragons. It is made to aid in on the fly dming, planning, random item generation, and NPC or PC creation. It uses data from the Player's Handbook and Dungeon Master Guide. All rights reserved natually as I don't own the content of these books. What it doesn't do: teach you the game. You should have the books and be able to reference the abilites, rules, items, spells, etc.
+DM-Power is powerful quick command line interface tool for DM's running 5th edition Dungeons and Dragons. It is made entirely on C++. It uses data from the D&D 5e Player's Handbook and Dungeon Master Guide. It uses the core rules that are in the core books. There is no homebrew here. 
+
+It does not teach you the game. You will need the books. I recommend buying them from Amazon or any official retailer that supports Hasbro and WotC.
+
+
 
 ### Featuring: *DM-Power*
 
-* Code by Matthew Jay Early
-* Email - matthewjearly@gmail.com
-
+* A powerful, quick, D&D dungeon master tool.
+* An unbelievably fast and streamlined character creation process.
+* All Classes, Races, Levels, Feats, Skills, Prociencies, Backgrounds.
+* All Magic Items & Reward Generation Charts.
+* A simple XP calculator that adds the experience up for you based on CR and splits it with the party.
+* 
+* 
 #### Features included in the master-core version:
 
 1. D&D 5e Player Character creation from the Player's Handbook
