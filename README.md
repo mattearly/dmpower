@@ -5,7 +5,7 @@ It does not teach you the game. You will need the books. I recommend buying them
 
 ### Featuring: *DM-Power*
 
-* Get your game going quick with the unbelievably fast streamlined character creation process for PC's and NPC's alike.
+* Get going quick with an unbelievably fast streamlined character creation process for PC's or NPC's.
   * All Classes 
   * Races 
   * Levels 
