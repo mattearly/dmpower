@@ -10,10 +10,13 @@ My overall goal is to make this program simple enough that it does not require a
 1. Get going quick with an unbelievably fast streamlined character creation process for PC's or NPC's.
     * All Classes and Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, and Stats
         * Based on the logic from the PHB 
-    * Unlimited Characters
+        * Unlimited Characters
     * Powerful after creation character editor for custom changes
-    * Level Up tool
-    * Permanancy. Load and Save entire character list.
+        * Level Up tool
+        * Stat, name, and Alignment editor
+    * Permanancy. Load and Save your entire character list. 
+        * Unlimited different save files.
+        * Made to be one save file per campaign, but your style may vary.
 
 2. Figure out treasure and rewards in seconds!
     * All reward rolling charts from the DMG
