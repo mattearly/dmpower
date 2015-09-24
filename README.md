@@ -6,27 +6,33 @@ It does not teach you the game. You will need the books. I recommend buying them
 ### Featuring: *DM-Power*
 
 * Get your game going quick with the unbelievly fast streamlined character creation process for PC's and NPC's alike.
-   * All Classes 
-   * Races 
-   * Levels 
-   * Feats 
-   * Skills
-   * Prociencies 
-   * Backgrounds
-   * Stats
-   * Character Editor
-   * Level Up Tool
-   * Load and Save
+  * All Classes 
+  * Races 
+  * Levels 
+  * Feats 
+  * Skills
+  * Prociencies 
+  * Backgrounds
+  * Stats
+  * Unlimited Characters
+  * Character editor
+  * Level Up tool
+  * Permanancy. Load and Save entire character list.
 * Figure out treasure and rewards in seconds!
-   * All Magic Items
-   * All Magic Item Rolling Charts
-   * Auto roll or enter your own result.
-   * Scroll Generator
-   * XP by Challenge Rating calculator.
+  * All Reward Rolling Charts
+    * Auto roll or enter your own result.
+    * Magic Items
+    * Scrolls prefigured out
+    * Coins, Gems, Valuable Art
+  * XP by Challenge Rating calculator.
+    * One-offs or lists of CR's 
 
 #### This is the in the master-core version.
 
 * Stick with this version to stick with the official books.
+* This will be actively updated and added to. There will be even more tools and features in the future.
+* The Load/Save logic is subject to change in major updates to the character generator.
+* I plan on making a side version for my own personal homebrew charts and features.
 
 #### How-to use:
 
@@ -39,3 +45,5 @@ It does not teach you the game. You will need the books. I recommend buying them
 **_Matthew Jay Early_** 
 * Email me at 
 _matthewjearly@gmail.com_
+* Why? I am a D&D enthusiast and a C++ programmer in school and needed a project for when I'm not doing classes. I also love DMing and currently run a season based campaign that is stream and recorded on https://twitch.tv/watchersoffaerun
+* If you read this WotC, consider reaching out to me and lets work together to make D&D a more enjoyable managable game from the DM's perspective.
