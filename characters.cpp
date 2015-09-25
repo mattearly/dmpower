@@ -3745,13 +3745,6 @@ void Generic_Character_Class::printClassAbilities() const {
     }
     if (pact_magic == true) cout << "Pact Magic, ";
     if (pact_boon == true) cout << "Pact Boon, ";
-    if (mystic_arcanum >= 6) {
-        cout << "Mystic Arcanum[6th";
-        if (mystic_arcanum >= 7) cout << ", 7th";
-        if (mystic_arcanum >= 8) cout << ", 8th";
-        if (mystic_arcanum >= 9) cout << ", 9th";
-        cout << "], ";
-    }
     if (eldritch_master == true) cout << "Eldritch Master, ";
     //wizard
     if (arcane_recovery == true) cout << "Arcane Recovery, ";
@@ -3832,6 +3825,13 @@ void Generic_Character_Class::printSpellSlots() const {
         if (sorcerer_spells_known > 0) cout << "Sorcerer(" << sorcerer_spells_known << ")";
         if (warlock_spells_known > 0) cout << "Warlock(" << warlock_spells_known << ")";
         if (eldritch_invocations_known > 0) cout << ", Eldritch Invocations(" << eldritch_invocations_known << "), ";
+        if (mystic_arcanum >= 6) {
+            cout << "Mystic Arcanum[6th";
+            if (mystic_arcanum >= 7) cout << ", 7th";
+            if (mystic_arcanum >= 8) cout << ", 8th";
+            if (mystic_arcanum >= 9) cout << ", 9th";
+            cout << "], ";
+        }
         cout << endl;
     }
 }
