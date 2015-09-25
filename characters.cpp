@@ -2657,7 +2657,7 @@ void Generic_Character_Class::setAnyFeat() {
              << "\n 3. Actor               17. Keen Mind            31. Ritual Caster"
              << "\n 4. Charger             18. Lightly Armored      32. Savage Attacker"
              << "\n 5. Crossbow Expert     19. Linguist             33. Sentienl"
-             << "\n 6. Defensive Duelist   20. Luky                 34. Sharpshooter"
+             << "\n 6. Defensive Duelist   20. Lucky                 34. Sharpshooter"
              << "\n 7. Dual Wielder        21. Mage Slayer          35. Shield Master"
              << "\n 8. Dungeon Delver      22. Magic Initiate       36. Skilled"
              << "\n 9. Durable             23. Martial Adept        37. Skulker"

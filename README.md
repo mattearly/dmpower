@@ -13,7 +13,7 @@ My overall goal is to make this program simple enough that it does not require a
         * Unlimited Characters
     * Powerful after creation character editor for custom changes
         * Level Up tool
-        * Stat, name, and Alignment editor
+        * Stat, Name, and Alignment editor
     * Permanancy. Load and Save your entire character list. 
         * Unlimited different save files.
         * Made to be one save file per campaign, but your style may vary.
