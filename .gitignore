@@ -1,0 +1,5 @@
+ # ZZZ not needed for the program to compile or whatever stuff
+ 
+ .directory
+ *.o
+ dmpower
