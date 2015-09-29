@@ -48,3 +48,4 @@ My overall goal is to make this program simple enough that it does not require a
 _matthewjearly@gmail.com_
 * Why? I am a D&D enthusiast and a C++ programmer in school and needed a project for when I'm not doing classes. I also love DMing and currently run a season based campaign that is streamed on https://twitch.tv/watchersoffaerun
 * If you read this WotC, consider reaching out to me and lets work together to make D&D a more enjoyable managable game from the DM's perspective.
+* If you found this program useful, consider donating bitcoin at 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM
