@@ -35,7 +35,7 @@ My overall goal is to make this program simple enough that it does not require a
 * The Load/Save logic is subject to change in major updates to the character generator.
 * I plan on making a side version for my own personal homebrew charts and features.
 
-#### How-to install:
+#### How-to run:
 
 1. Have a C++ compiler. Follow online guides to get one if necessary.
 2. Use Terminal and type 'make' while in this file directory.
@@ -48,4 +48,4 @@ My overall goal is to make this program simple enough that it does not require a
 _matthewjearly@gmail.com_
 * Why? I am a D&D enthusiast and a C++ programmer in school and needed a project for when I'm not doing classes. I also love DMing and currently run a season based campaign that is streamed on https://twitch.tv/watchersoffaerun
 * If you read this WotC, consider reaching out to me and lets work together to make D&D a more enjoyable managable game from the DM's perspective.
-* If you found this program useful, consider donating bitcoin at 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM
+* If you found this program useful, consider donating bitcoin to support this project at 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM
