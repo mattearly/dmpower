@@ -1,5 +1,5 @@
-#ifndef ITEM_GEN_H
-#define ITEM_GEN_H
+#ifndef REWARD_GEN_H
+#define REWARD_GEN_H
 
 #include "gear.h"
 #include "globalfuncts.h"
@@ -41,4 +41,4 @@ private:
     void SingleScroll(const int&) const;
 };
 
-#endif
+#endif  ///REWARD_GEN_H

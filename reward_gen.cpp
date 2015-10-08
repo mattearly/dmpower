@@ -1,4 +1,4 @@
-#include "item_gen.h"
+#include "reward_gen.h"
 
 using namespace std;
 

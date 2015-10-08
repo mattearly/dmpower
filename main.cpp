@@ -8,7 +8,7 @@
 //  
 
 #include "campaign.h"
-#include "item_gen.h"
+#include "reward_gen.h"
 #include <fstream>
 #include <cstdlib>
 
