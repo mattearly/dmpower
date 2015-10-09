@@ -7,7 +7,7 @@ void Magic_Items::treasure_menu() {
     Gear item;
     while (choice != 5) {
         simpleClearScreen();
-        cout << "--->Make a Selection<---\n\n"
+        cout << "------Random-Treasure------\n\n"
              << " 1. Generate Individual Treasure\n"
              << " 2. Generate Treasure Hoard\n"
              << " 3. Figure out Scrolls or Single Spells\n"

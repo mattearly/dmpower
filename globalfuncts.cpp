@@ -104,7 +104,7 @@ float xpgenerator() {
          << "18. 265,000\n"
          << "19. 305,000\n"
          << "20. 355,000\n\n";
-    cin.get();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     pressEnterToContinue();
     do {
         cout << "Challenge Rating Chart\n\n"
