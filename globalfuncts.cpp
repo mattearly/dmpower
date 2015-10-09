@@ -124,8 +124,8 @@ float xpgenerator() {
              << "14. CR 10     31. CR 27\n"
              << "15. CR 11     32. CR 28\n"
              << "16. CR 12     33. CR 29\n"
-             << "17. CR 13     34. CR 30\n\n";
-             << " tip: add 'y' after your choice to continue picking.(ex: 9y)\n\n"
+             << "17. CR 13     34. CR 30\n\n"
+             << " tip: add 'y' after your choice to continue picking.(ex: 9y)\n\n";
         cr = getNumber("Choose CR by the chart(1-34)", 1, 34);
         switch (cr) {
         case 1:

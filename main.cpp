@@ -43,9 +43,11 @@ int main() {
             gen.treasure_menu();
         }
             break;
-        case 3:
-            cout << "XP per member = " << xpgenerator() << endl << endl;
-            pressEnterToContinue();
+        case 3: {
+            float rewardXP = xpgenerator();
+            simpleClearScreen();
+            cout << "XP per member = " << rewardXP << endl << endl;
+	}
             break;
         case 4:
             save_file(loadSuccess, loadedFile, mygame);
@@ -93,4 +95,4 @@ void save_file(const bool& ls, const string& lf, Campaign& game) {
     } else {
         cout << "Save failed.\n";
     }
-}
+} 
