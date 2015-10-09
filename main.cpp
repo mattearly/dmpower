@@ -65,11 +65,13 @@ void load_file(bool& ls, string& lf, Campaign& game) {
     thefile.open( (file + ".dat").c_str() );
     if (thefile.is_open()) {
         game.retrieveCharacter(thefile);
+        simpleClearScreen();
         cout << "File '" << file << "' loaded.\n\n";
         ls = true;
         lf = file;
         thefile.close();
     } else {
+        simpleClearScreen();
         cout << "No file named '" << file << "'. Starting new file.\n\n";
     }
 }
