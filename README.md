@@ -49,6 +49,6 @@ _Based on the 5e books._
 **_Matthew Jay Early_** 
 * Email me at 
 _matthewjearly@gmail.com_
-* Why? I am a D&D enthusiast and a C++ programmer and needed a project for when I'm not doing classes. I enjoy DMing and wanted a program that did the work so I wouldn't have to book dive in the middle of sessions. I currently run a season based campaign that is streamed on [Twitch: Watchers of Faerun](https://twitch.tv/watchersoffaerun)
-* Shoutout to **Wizards of the Coast**. WotC, please consider reaching out to me and lets work together to make D&D a more enjoyable, managable game from the DM's perspective.
-* If you found this program useful, consider donating bitcoin to **support this project** at 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM
+* Why? I am a D&D enthusiast and a C++ programmer and needed a project for when I'm not doing classes. I enjoy DMing and wanted a program that did the book work for me so I wouldn't have to book dive in the middle of sessions and hence have faster, more action packed games. I currently run a season based campaign that is streamed on [Twitch - Watchers of Faerun](https://twitch.tv/watchersoffaerun)
+* Shoutout to **Wizards of the Coast**. WotC, if you read this, please consider reaching out to me and lets work together to make D&D a more enjoyable, managable game from the DM's perspective.
+* If you found this program useful, consider donating Bitcoin to **support this project** at 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM
