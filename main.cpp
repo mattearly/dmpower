@@ -25,12 +25,12 @@ int main() {
     Campaign mygame;
     load_file(loadSuccess, loadedFile, mygame);
     do {
-        cout << "----------MAIN MENU----------" << endl
-             << "1. Player Characters" << endl
-             << "2. Magical Items & Gold" << endl
-             << "3. XP Calculator" << endl
+        cout << "\n----------MAIN MENU----------" << endl
+             << "1. Characters" << endl
+             << "2. Scrolls, Potions, Magical, and Other Items" << endl
+             << "3. Experience Calculator" << endl
              << "4. Save & Quit" << endl
-             << "5. Quit without saving" << endl
+             << "5. Quit" << endl
              << "-----------------------------" << endl << endl;
         choice = getNumber("Choice: ", 1, 5);
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -82,13 +82,13 @@ void save_file(const bool& ls, const string& lf, Campaign& game) {
     } else {
         file = lf;
     }
-        //save into file after above is complete
+    //save into file after above is complete
     os.open((file + ".dat").c_str());
     if (os.is_open()) {
         game.dumpCharacter(os);
         cout << "All data saved in file -> " << file << endl;
         os.close();
     } else {
-		cout << "Save failed.\n";
-	}
+        cout << "Save failed.\n";
+    }
 }
