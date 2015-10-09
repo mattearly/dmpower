@@ -84,7 +84,7 @@ float xpgenerator() {
     float xp = 0;
     int cr = 0;
     char ans;
-    cout << "Level Chart:\n\n"
+    cout << "\nA Reference Level Chart (FYI):\n\n"
          << " 2. 300\n"
          << " 3. 900\n"
          << " 4. 2,700\n"
@@ -104,6 +104,7 @@ float xpgenerator() {
          << "18. 265,000\n"
          << "19. 305,000\n"
          << "20. 355,000\n\n";
+    cin.get();
     pressEnterToContinue();
     do {
         cout << "Challenge Rating Chart\n\n"
@@ -124,6 +125,7 @@ float xpgenerator() {
              << "15. CR 11     32. CR 28\n"
              << "16. CR 12     33. CR 29\n"
              << "17. CR 13     34. CR 30\n\n";
+             << " tip: add 'y' after your choice to continue picking.(ex: 9y)\n\n"
         cr = getNumber("Choose CR by the chart(1-34)", 1, 34);
         switch (cr) {
         case 1:
