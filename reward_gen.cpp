@@ -11,11 +11,11 @@ void Magic_Items::treasure_menu() {
              << " 1. Generate Individual Treasure\n"
              << " 2. Generate Treasure Hoard\n"
              << " 3. Figure out Scrolls or Single Spells\n"
-             // << " 4. Clear All Gear\n"
+                // << " 4. Clear All Gear\n"
              << " 5. Back to Main Menu\n\n";
         choice = getNumber("Choice(1-5): ", 1, 5);
         switch (choice) {
-        case 1: 
+        case 1:
             cout << "Individual Treasure\n\n"
                  << " 1. Challenge 0-4 \n"
                  << " 2. Challenge 5-10 \n"
@@ -65,6 +65,7 @@ void Magic_Items::treasure_menu() {
         default: break;
         }
     }
+    simpleClearScreen();
 }
 void Magic_Items::GenerateIndividualTreasureCR_0_4(){
     vector<Gear> tmplist;
@@ -73,12 +74,12 @@ void Magic_Items::GenerateIndividualTreasureCR_0_4(){
     if (ans == 'Y') gr = rolld100(mgen);
     else gr = getNumber("Roll d100 result: ", 1, 100);
     cout << "Gold Roll = " << gr << endl;
-    if (gr <= 30) { 
+    if (gr <= 30) {
         int copper = 0;
         for (int i(0); i < 5; i++) copper += rolld6(mgen);
         Gear tmp(copper, "cp");
         tmplist.push_back(tmp);
-    } else if (gr <= 60) { 
+    } else if (gr <= 60) {
         int silver = 0;
         for (int i(0); i < 4; i++) silver += rolld6(mgen);
         Gear tmp(silver, "sp");
@@ -109,7 +110,7 @@ void Magic_Items::GenerateIndividualTreasureCR_5_10(){
     if (ans == 'Y') gr = rolld100(mgen);
     else gr = getNumber("Roll d100 result: ", 1, 100);
     cout << "Gold Roll: " << gr << endl;
-    if (gr <= 30) { 
+    if (gr <= 30) {
         int copper = 0;
         for (int i(0); i < 4; i++) copper += rolld6(mgen);
         copper *= 100;
@@ -147,7 +148,7 @@ void Magic_Items::GenerateIndividualTreasureCR_5_10(){
         Gear tmp(gold, "gp");
         tmplist.push_back(tmp);
     } else {
-        int gold = 0; 
+        int gold = 0;
         for (int i(0); i < 2; i++) gold += rolld6(mgen);
         gold *= 10;
         Gear tmp(gold, "gp");
@@ -167,7 +168,7 @@ void Magic_Items::GenerateIndividualTreasureCR_11_16(){
     char ans = getYorN("Have system roll for you?(y/n): ");
     if (ans == 'Y') gr = rolld100(mgen);
     else gr = getNumber("Roll d100 result: ", 1, 100);    cout << "Gold Roll: " << gr << endl;
-    if (gr <= 20) { 
+    if (gr <= 20) {
         int silver = 0;
         for (int i(0); i < 4; i++) silver += rolld6(mgen);
         silver *= 100;
@@ -203,7 +204,7 @@ void Magic_Items::GenerateIndividualTreasureCR_11_16(){
         plat *= 10;
         Gear tmp1(plat, "pp");
         tmplist.push_back(tmp1);
-    } 
+    }
     cout << endl;
     for (auto& it : tmplist) { it.showItem(); }
 }
@@ -214,7 +215,7 @@ void Magic_Items::GenerateIndividualTreasureCR_17(){
     if (ans == 'Y') gr = rolld100(mgen);
     else gr = getNumber("Roll d100 result: ", 1, 100);
     cout << "Gold Roll: " << gr << endl;
-    if (gr <= 15) { 
+    if (gr <= 15) {
         int elec = 0;
         for (int i(0); i < 2; i++) elec += rolld6(mgen);
         elec *= 100;
@@ -241,7 +242,7 @@ void Magic_Items::GenerateIndividualTreasureCR_17(){
         plat *= 100;
         Gear tmp1(plat, "pp");
         tmplist.push_back(tmp1);
-    } 
+    }
     cout << endl;
     for (auto& it : tmplist) { it.showItem(); }
 }
@@ -844,7 +845,7 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
     int mr = 0;
     char ans = getYorN("Have system roll for you?(y/n): ");
     if (ans == 'Y') mr = rolld100(mgen);
-    else mr = getNumber("Roll d100 result: ", 1, 100);    
+    else mr = getNumber("Roll d100 result: ", 1, 100);
     cout << "Magic Item Roll = " << mr << endl;
     if (mr <= 2) {
         cout << "crappiest roll ever :|\n";
