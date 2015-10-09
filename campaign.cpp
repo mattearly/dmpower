@@ -14,13 +14,13 @@ void Campaign::pc_menu() {
     int choice = 0;
     while (choice != 7) {
         simpleClearScreen();
-        cout << "--->Make a Selection<---\n\n"
-             << " 1. Create New Player Character" << endl
-             << " 2. Display PC's Character Sheet" << endl
-             << " 3. Edit a PC" << endl
-             << " 4. List all PC's" << endl
-             << " 5. Delete a PC" << endl
-             << " 6. Delete ALL PC's" << endl
+        cout << "----------Characters-----------\n\n"
+             << " 1. Create New Character" << endl
+             << " 2. See a Character" << endl
+             << " 3. Edit a Character" << endl
+             << " 4. List all Characters" << endl
+             << " 5. Delete a Character" << endl
+             << " 6. Delete ALL Characters" << endl
              << " 7. Back to Main Menu" << endl << endl;
         choice = getNumber("Choice(1-7): ", 1, 7);
         switch (choice) {
@@ -142,32 +142,32 @@ void Campaign::pc_menu() {
             pressEnterToContinue();
             break;
         case 3: {  //EDIT/UPDATE CHARACTER
-                if (character_list.size() < 1) {
-                    cout << "No characters to Edit. Create characters first.\n\n";
-                } else {
-                    bool found = false;
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    string valid_name;
-                    while (!found) {
-                        cout << "Name of Character to Edit/Update: ";
-                        getline(cin, valid_name);
-                        valid_name[0] = toupper(valid_name[0]);
-                        for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
-                            if ((*it)->name == valid_name) {
-                                found = true;
-                            }
-                        }
-                        if (found == false) cout << "\nNo character named " << valid_name << ". List of Charcters:\n\n";
-                        for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
-                            cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
-                        }
-                        cout << endl;
-                    }
+            if (character_list.size() < 1) {
+                cout << "No characters to Edit. Create characters first.\n\n";
+            } else {
+                bool found = false;
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                string valid_name;
+                while (!found) {
+                    cout << "Name of Character to Edit/Update: ";
+                    getline(cin, valid_name);
+                    valid_name[0] = toupper(valid_name[0]);
                     for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
-                        if (valid_name == (*it)->name) (*it)->updateCharacter(*this);
+                        if ((*it)->name == valid_name) {
+                            found = true;
+                        }
                     }
+                    if (found == false) cout << "\nNo character named " << valid_name << ". List of Charcters:\n\n";
+                    for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
+                        cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+                    }
+                    cout << endl;
+                }
+                for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
+                    if (valid_name == (*it)->name) (*it)->updateCharacter(*this);
                 }
             }
+        }
             pressEnterToContinue();
             break;
         case 4: {
@@ -218,6 +218,7 @@ void Campaign::pc_menu() {
         default:;
         }
     }
+    simpleClearScreen();
 }
 bool Campaign::checkname(const string& n) const {
     for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
