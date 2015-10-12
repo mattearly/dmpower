@@ -9,6 +9,7 @@
 
 #include "campaign.h"
 #include "reward_gen.h"
+#include "name_gen.h"
 #include <fstream>
 #include <cstdlib>
 
@@ -29,10 +30,11 @@ int main() {
              << "1. Characters" << endl
              << "2. Scrolls, Potions, Magical, and Other Items" << endl
              << "3. Experience Calculator" << endl
-             << "4. Save & Quit" << endl
-             << "5. Quit" << endl
+             << "4. Name Generator" << endl
+             << "5. Save & Quit" << endl
+             << "6. Quit" << endl
              << "-----------------------------" << endl << endl;
-        choice = getNumber("Choice: ", 1, 5);
+        choice = getNumber("Choice: ", 1, 6);
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         switch (choice) {
         case 1:
@@ -49,14 +51,20 @@ int main() {
             cout << "XP per member = " << rewardXP << endl << endl;
 	}
             break;
-        case 4:
-            save_file(loadSuccess, loadedFile, mygame);
+        case 4:{
+            CharacterName randomName;
+            simpleClearScreen();
+            cout << "Here is a name: " << randomName.grabRandomName() << endl << endl;
+        }
             break;
         case 5:
+            save_file(loadSuccess, loadedFile, mygame);
+            break;
+        case 6:
             cout << "Exiting Program.\n";
         default: break;
         }
-    } while ( choice < 4 );
+    } while ( choice < 5 );
     return EXIT_SUCCESS;
 }
 void load_file(bool& ls, string& lf, Campaign& game) {

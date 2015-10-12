@@ -29,6 +29,8 @@ static std::uniform_int_distribution<int> rolld12(1, 12);
 static std::uniform_int_distribution<int> rolld20(1, 20);
 static std::uniform_int_distribution<int> rolld100(1, 100);
 
+int randomNumber(const int&, const int&);
+
 template<class T>
 T getNumber(const std::string& message, const T& a, const T& b) {
     T goodn = 0;
@@ -71,8 +73,6 @@ void pressEnterToContinue();
 int rollstats_hi_power();
 
 int rollstats_standard();
-
-int randomNumber(const int&, const int&);
 
 float xpgenerator();
 
