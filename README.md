@@ -30,6 +30,8 @@ _It's DM Magic!_
         * One-offs or lists of CR's 
         * Adds up and splits with the party
 
+3. Name Generator!  7732 names from Kismet's list randomized!
+
 #### This is the Master Version.
 _Based on the 5e books._
 
@@ -37,6 +39,11 @@ _Based on the 5e books._
 * This will be actively updated and added to. There will be even more tools and features in the future.
 * The Load/Save logic is subject to change in major updates to the character generator.
 * I plan on making a _side_ version for my own personal homebrew charts and features. This one will remain the Master.
+
+#### HALP!
+
+* If you run into a problem or something unclear - please open an issue ticket.
+* Anything you would like to see added to this program - open a issue ticket with the title FEATURE: in front of the issue name. 
 
 #### How-to run:
 
