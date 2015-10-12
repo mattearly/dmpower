@@ -333,7 +333,7 @@ Generic_Character_Class::Generic_Character_Class() {
     viol = 0;
     rages = 0;
     level = 0;
-    levelupmenus = 0;
+   // levelupmenus = 0;
     hitdicesize = 0;
     move_speed = 0;
     proficiency_bonus = 0;

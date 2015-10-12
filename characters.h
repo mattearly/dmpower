@@ -21,7 +21,7 @@ public:
     bool initialSkillsSet, spellcasting, timeless_body, evasion,
          unarmored_defense, fighting_style, defense, dueling, 
          great_weapon_fighting, protection;
-    int level, levelupmenus, hitdicesize, move_speed, proficiency_bonus, extra_attack, expertise;
+    int level, hitdicesize, move_speed, proficiency_bonus, extra_attack, expertise;
             //CLERIC
     float destroy_undead;
     int channel_divinity, divine_domain_feature, divine_intervention, 
@@ -231,72 +231,85 @@ class Cleric : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+private:
+    int levelupmenus = 0;
 };
 
 class Fighter : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+    int levelupmenus = 0;
 };
 
 class Rogue : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+    int levelupmenus = 0;
 };
 
 class Wizard : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+    int levelupmenus = 0;
 };
 
 class Barbarian : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+    int levelupmenus = 0;
 };
 
 class Druid : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+    int levelupmenus = 0;
 };
 
 class Paladin : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+    int levelupmenus = 0;
 };
 
 class Sorcerer : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+    int levelupmenus = 0;
 };
 
 class Bard : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+    int levelupmenus = 0;
 };
 
 class Monk : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+    int levelupmenus = 0;
 };
 
 class Ranger : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+    int levelupmenus = 0;
 };
 
 class Warlock : public Generic_Character_Class {
 public:
     virtual void setClassDetails(const int& l);
     virtual void updateCharacter(const Campaign&);
+    int levelupmenus = 0;
 };
 
 #endif
