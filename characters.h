@@ -21,8 +21,7 @@ public:
     bool initialSkillsSet, spellcasting, timeless_body, evasion,
          unarmored_defense, fighting_style, defense, dueling, 
          great_weapon_fighting, protection;
-    int level, levelupmenus, hitdicesize, move_speed, proficiency_bonus, 
-        extra_attack, expertise;
+    int level, levelupmenus, hitdicesize, move_speed, proficiency_bonus, extra_attack, expertise;
             //CLERIC
     float destroy_undead;
     int channel_divinity, divine_domain_feature, divine_intervention, 

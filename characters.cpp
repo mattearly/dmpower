@@ -1458,7 +1458,7 @@ void Bard::setClassDetails(const int &l) {
     if (bard_college_feature <= 0 && l >= 6) {
         bard_college_feature++;
         if (college_of_lore == true) additional_magical_secrets = true;
-        if (college_of_valor == true) extra_attack = true;
+        if (college_of_valor == true && extra_attack == 0) extra_attack++;
     }
     if (song_of_rest <= 6 && l >= 9) { song_of_rest = 8; }
     if (bardic_inspiration <= 8 && l >= 10) { bardic_inspiration = 10; }
