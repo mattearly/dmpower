@@ -15,114 +15,114 @@
 class Campaign;
 class Generic_Character_Class {
 public:
-	Generic_Character_Class();
-//CLASS //GENERAL (used by 2 or more classes)
+    Generic_Character_Class();
+    //CLASS //GENERAL (used by 2 or more classes)
     std::string name, alignment, char_class, race;
     bool initialSkillsSet, spellcasting, timeless_body, evasion,
-         unarmored_defense, fighting_style, defense, dueling, 
-         great_weapon_fighting, protection;
+    unarmored_defense, fighting_style, defense, dueling,
+    great_weapon_fighting, protection;
     int level, hitdicesize, move_speed, proficiency_bonus, extra_attack, expertise;
-            //CLERIC
+    //CLERIC
     float destroy_undead;
-    int channel_divinity, divine_domain_feature, divine_intervention, 
-        cleric_cantrips_known;
-    bool divine_domain, knowledge_d, life_d, light_d, nature_d, 
-         tempest_d, trickery_d, war_d;
-            //FIGHTER
-    int action_surge, martial_archtype_feature, indomitable, 
-        eldritch_spells_known;
-    bool second_wind, martial_archtype, archery, two_weapon_fighting, 
-         champion, battle_master, eldritch_knight;
-            //BARBARIAN
+    int channel_divinity, divine_domain_feature, divine_intervention,
+    cleric_cantrips_known;
+    bool divine_domain, knowledge_d, life_d, light_d, nature_d,
+    tempest_d, trickery_d, war_d;
+    //FIGHTER
+    int action_surge, martial_archtype_feature, indomitable,
+    eldritch_spells_known;
+    bool second_wind, martial_archtype, archery, two_weapon_fighting,
+    champion, battle_master, eldritch_knight;
+    //BARBARIAN
     int rages, rage_damage, path_feature, brutal_critical;
-    bool reckless_attack, danger_sense, primal_path, fast_movement, 
-         feral_instinct, relentless_rage, persistant_rage, 
-         indomitable_might, primal_champion, path_of_the_berseker, 
-         path_of_the_totem_warrior, bear_totem, eagle_totem, wolf_totem;
-            //BARD
-    int bardic_inspiration, song_of_rest, bard_college_feature, 
-        magical_secrets, bard_spells_known, bard_cantrips_known;
-    bool jack_of_all_trades, bard_college, font_of_inspiration, 
-         countercharm, superior_inspiration, college_of_lore, 
-         college_of_valor, additional_magical_secrets;
-            //DRUID
+    bool reckless_attack, danger_sense, primal_path, fast_movement,
+    feral_instinct, relentless_rage, persistant_rage,
+    indomitable_might, primal_champion, path_of_the_berseker,
+    path_of_the_totem_warrior, bear_totem, eagle_totem, wolf_totem;
+    //BARD
+    int bardic_inspiration, song_of_rest, bard_college_feature,
+    magical_secrets, bard_spells_known, bard_cantrips_known;
+    bool jack_of_all_trades, bard_college, font_of_inspiration,
+    countercharm, superior_inspiration, college_of_lore,
+    college_of_valor, additional_magical_secrets;
+    //DRUID
     float wild_shape_improvement;
     int druid_circle_feature, druid_cantrips_known;
-    bool druidic, wild_shape, druid_circle, beast_spells, archdruid, 
-         circle_of_the_moon, circle_of_the_land;
-            //MONK
+    bool druidic, wild_shape, druid_circle, beast_spells, archdruid,
+    circle_of_the_moon, circle_of_the_land;
+    //MONK
     int monastic_tradition_feature, ki, unarmored_movement, martial_arts;
-    bool monastic_tradition, deflect_missles, slow_fall, 
-         stunning_strike, ki_empowered_strikes, stillness_of_mind, 
-         purity_of_body, tongue_of_the_sun_and_moon, diamond_soul, 
-         empty_body, perfect_self, way_of_the_open_hand, 
-         way_of_the_four_elements, way_of_the_shadow, 
-         unarmored_movement_improvement;
-            //PALADIN
+    bool monastic_tradition, deflect_missles, slow_fall,
+    stunning_strike, ki_empowered_strikes, stillness_of_mind,
+    purity_of_body, tongue_of_the_sun_and_moon, diamond_soul,
+    empty_body, perfect_self, way_of_the_open_hand,
+    way_of_the_four_elements, way_of_the_shadow,
+    unarmored_movement_improvement;
+    //PALADIN
     int sacred_oath_feature, divine_smite;
-    bool divine_sense, lay_on_hands, divine_health, sacred_oath, 
-         aura_of_protection, aura_of_courage, cleansing_touch, 
-         aura_improvments, oath_of_devotion, oath_of_ancients, 
-         oath_of_vengence;
-            //RANGER
-    int favored_enemy, natural_explorer, ranger_archetype_feature, 
-        ranger_spells_known;
-    bool ranger_archetype, primeval_awareness, lands_stride, 
-         hide_in_plain_sight, vanish, feral_senses, foe_slayer, 
-         hunter, beast_master;
-            //ROGUE
+    bool divine_sense, lay_on_hands, divine_health, sacred_oath,
+    aura_of_protection, aura_of_courage, cleansing_touch,
+    aura_improvments, oath_of_devotion, oath_of_ancients,
+    oath_of_vengence;
+    //RANGER
+    int favored_enemy, natural_explorer, ranger_archetype_feature,
+    ranger_spells_known;
+    bool ranger_archetype, primeval_awareness, lands_stride,
+    hide_in_plain_sight, vanish, feral_senses, foe_slayer,
+    hunter, beast_master;
+    //ROGUE
     int roguish_archetype_feature, arcane_t_spells_known;
-    bool sneak_attack, thieves_cant, cunning_action, roguish_archetype, 
-         uncanny_dodge, reliable_talent, blindsense, slippery_mind, 
-         elusive, stroke_of_luck, thief, assassin, arcane_trickster;
-            //SORCERER
+    bool sneak_attack, thieves_cant, cunning_action, roguish_archetype,
+    uncanny_dodge, reliable_talent, blindsense, slippery_mind,
+    elusive, stroke_of_luck, thief, assassin, arcane_trickster;
+    //SORCERER
     int sorcerous_origin_feature, metamagic, sorcery_points, sorcerer_spells_known, sorcerer_cantrips_known;
-    bool sorcerous_origin, font_of_magic, sorcerous_restoration, 
-         draconic_bloodline, wild_magic;
-            //WARLOCK
+    bool sorcerous_origin, font_of_magic, sorcerous_restoration,
+    draconic_bloodline, wild_magic;
+    //WARLOCK
     int warlock_slot_level, eldritch_invocations_known, warlock_spells_known, warlock_spell_slots, warlock_cantrips_known, otherworldly_patron_feature, mystic_arcanum;
-    bool otherworldly_patron, pact_magic, pact_boon, eldritch_master, 
-         archfey, fiend, great_old_one;
-            //WIZARD
+    bool otherworldly_patron, pact_magic, pact_boon, eldritch_master,
+    archfey, fiend, great_old_one;
+    //WIZARD
     int arcane_tradition_feature, wizard_cantrips_known;
-    bool arcane_recovery, arcane_tradition, spell_mastery, 
-         signature_spell, abjuration, conjuration, divination, 
-         enchantment, evocation, illusion, necromancy, transmutation;
-//landtypes
+    bool arcane_recovery, arcane_tradition, spell_mastery,
+    signature_spell, abjuration, conjuration, divination,
+    enchantment, evocation, illusion, necromancy, transmutation;
+    //landtypes
     bool artic, coast, desert, forest, grassland, mountain, swamp, underdark;
-//creaturetype
+    //creaturetype
     int twohumanoids;
     bool aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, undead;
-//SPELLSLOTS
+    //SPELLSLOTS
     int first_ss, second_ss, third_ss, forth_ss, fifth_ss, sixth_ss, seventh_ss, eighth_ss, ninth_ss, warlock_ss;
-//BACKGROUNDS
+    //BACKGROUNDS
     enum characterbackground { NOBACKGROUND, ACOLYTE, CHARLATAN, CRIMINAL, ENTERTAINER, FOLK_HERO, GUILD_ARTISAN, HERMIT, NOBLE, OUTLANDER, SAGE, SAILOR, SOLDIER, URCHIN };
     characterbackground backgroundofpc;
-//ABILITY SCORES
+    //ABILITY SCORES
     int strength, dexterity, constitution, intelligence, wisdom, charisma;
-//SAVING THROWS
+    //SAVING THROWS
     bool strSave, dexSave, conSave, intSave, wisSave, chaSave;
-//SKILLS
+    //SKILLS
     bool acrobatics, animal_handling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleight_of_hand, stealth, survival;
-//FEATS
+    //FEATS
     bool alert, athlete, actor, charger, crossbow_expert, defensive_duelist, dual_wielder, dungeon_delver, durable, elemental_adept, grappler, great_weapon_master, healer, heavily_armored, heavy_armor_master, inspiring_leader, keen_mind, lightly_armored, linguist, lucky, mage_slayer, magic_initiate, martial_adept, medium_armor_master, mobile, moderately_armored, mounted_combatant, observant, polearm_master, resilient, ritual_caster, savage_attacker, sentinel, sharpshooter, shield_master, skilled, skulker, spell_sniper, tavern_brawler, tough, war_caster, weapon_master;
-//LANGUAGES
+    //LANGUAGES
     bool abyssal, celestial, common, deep_speech, draconic, dwarvish, elvish, giant, gnomish, goblin, gnoll, halfling, infernal, orc, primordial, sylvan, undercommon;
-//FEATURES
+    //FEATURES
     bool artificers_lore, brave, breath_weapon_acid, breath_weapon_ltg, breath_weapon_fire, breath_weapon_poison, breath_weapon_cold, darkvision, draconic_ancestry_black, draconic_ancestry_blue, draconic_ancestry_brass, draconic_ancestry_bronze, draconic_ancestry_copper, draconic_ancestry_gold, draconic_ancestry_green,draconic_ancestry_red, draconic_ancestry_silver, draconic_ancestry_white, drow_magic, drow_weapon_training, dwarven_armor_training, dwarven_combat_training, dwarven_resilience, dwarven_toughness, elf_weapon_training, fey_ancestry, fleet_of_foot, halflinglucky, halfling_nimbleness, hellish_resistance, infernal_legacy, mask_of_the_wild, natural_illusionist, naturally_stealthy, speak_with_small_beasts, stonecunning, stout_resilience, superior_darkvision, trance;
-//RESISTANCES
+    //RESISTANCES
     bool damage_resist_acid, damage_resist_ltg, damage_resist_fire, damage_resist_poison, damage_resist_cold;
-//DISADVANATAGES
+    //DISADVANATAGES
     bool sunlight_sensitivity;
-//ARTISAN TOOLS & SUPPLIES
+    //ARTISAN TOOLS & SUPPLIES
     bool alchemist, brewer, calligrapher, carpenter, cartographer, cobbler, cook, glassblower, jeweler, leatherworker, mason, painter, potter, smith, tinker, weaver, woodcarver;
-//KITS & TOOLS
+    //KITS & TOOLS
     bool disguise, forgery, herbalism, navigator, poisoner, thieves, vehicle;
-//MUSICAL INSTRUMENTS
+    //MUSICAL INSTRUMENTS
     bool bagpipes, drum, dulcimer, flute, lute, lyre, horn, pan_flute, shawm, viol;
 
     
-//CHARACTER CREATION FUNCTIONS (MUTATORS)
+    //CHARACTER CREATION FUNCTIONS (MUTATORS)
     void setName();
     void setRace(Generic_Character_Class &v);
     void setRaceBonuses();
@@ -209,9 +209,9 @@ public:
     void gainWar_caster(bool& s);
     void gainWeapon_master(bool& s);
     void levelUpStats();
-	void assignStats(int & s) ;
+    void assignStats(int & s) ;
 
-//CHARACTER DISPLAYING FUNCTIONS (ACCESSORS)
+    //CHARACTER DISPLAYING FUNCTIONS (ACCESSORS)
     std::string getBackground() const;
     void character_sheet() const;
     void printClassAbilities() const;
