@@ -37,7 +37,7 @@ _Based on the 5e books._
 
 * Stick with this version to stick with the official books.
 * This will be actively updated and added to. There will be even more tools and features in the future.
-* The Load/Save logic is subject to change in major updates to the character generator.
+* The Load/Save logic is subject to change in major updates to the character generator, so have your character written down or something for now.
 * I plan on making a _side_ version for my own personal homebrew charts and features. This one will remain the Master.
 
 #### HALP!
