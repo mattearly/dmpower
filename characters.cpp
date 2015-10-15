@@ -1480,11 +1480,11 @@ void Bard::setClassDetails(const int &l) {
             first_ss = 2;
             break;
         case 2:
-        	bard_spells_known++;
+                bard_spells_known++;
             first_ss++;
             break;
         case 3:
-        	bard_spells_known++;
+                bard_spells_known++;
             first_ss++;
             second_ss = 2;
             break;
@@ -1494,24 +1494,24 @@ void Bard::setClassDetails(const int &l) {
             second_ss++;
             break;
         case 5:
-        	bard_spells_known++;
+                bard_spells_known++;
             third_ss = 2;
             break;
         case 6:
-        	bard_spells_known++;
+                bard_spells_known++;
             third_ss++;
             if (additional_magical_secrets == true) bard_spells_known += 2;
             break;
         case 7:
-        	bard_spells_known++;
+                bard_spells_known++;
             forth_ss = 1;
             break;
         case 8:
-        	bard_spells_known++;
+                bard_spells_known++;
             forth_ss++;
             break;
         case 9:
-        	bard_spells_known++;
+                bard_spells_known++;
             forth_ss++;
             fifth_ss = 1;
             break;
@@ -1521,27 +1521,27 @@ void Bard::setClassDetails(const int &l) {
             bard_spells_known += 2;
             break;
         case 11:
-        	bard_spells_known++;
+                bard_spells_known++;
             sixth_ss = 1;
             break;
         case 13:
-        	bard_spells_known++;
+                bard_spells_known++;
             seventh_ss = 1;
             break;
         case 14:
-        	bard_spells_known += 2;
-        	break;
+                bard_spells_known += 2;
+                break;
         case 15:
-        	bard_spells_known++;
+                bard_spells_known++;
             eighth_ss = 1;
             break;
         case 17:
-        	bard_spells_known++;
+                bard_spells_known++;
             ninth_ss = 1;
             break;
         case 18:
-			bard_spells_known += 2;
-			break;
+                        bard_spells_known += 2;
+                        break;
         case 19:
             sixth_ss++;
             break;
@@ -2075,31 +2075,31 @@ void Generic_Character_Class::setBackground() {
 }
 void Generic_Character_Class::setAllStats() {
     simpleClearScreen();
-	char ans = getYorN("Randomly Generate Stats? [Y/n] ");
-	if (ans == 'Y') {
-		int stats[6];
-		int ss = getNumber("Roll Style:\n\n 1. 4d6 drop lowest\n 2. 3d6 standard\n\nChoice: ", 1, 2);
-		for (int i = 0; i < 6; i++) {
-			if (ss == 1) stats[i] = rollstats_hi_power();
-			else stats[i] = rollstats_standard();
-			if (i == 5) {
-				cout << "Stats are:\n";
-				for (int j = 0; j < 6; j++) {
-					cout << "\n " << stats[j];
-				}
-			}
-		}
-		for (int i = 0; i < 6; i++) {
-			assignStats(stats[i]);
-		}
-	} else { 
-		setStr(getNumber("Enter starting Strength(3-18): ", 3, 18));
-		setDex(getNumber("Enter starting Dexterity(3-18): ", 3, 18));
-		setCon(getNumber("Enter starting Constitution(3-18): ", 3, 18));
-		setInt(getNumber("Enter starting Intelligence(3-18): ", 3, 18));
-		setWis(getNumber("Enter starting Wisdom(3-18): ", 3, 18));
-		setCha(getNumber("Enter starting Charisma(3-18): ", 3, 18));
-	}
+        char ans = getYorN("Randomly Generate Stats? [Y/n] ");
+        if (ans == 'Y') {
+                int stats[6];
+                int ss = getNumber("Roll Style:\n\n 1. 4d6 drop lowest\n 2. 3d6 standard\n\nChoice: ", 1, 2);
+                for (int i = 0; i < 6; i++) {
+                        if (ss == 1) stats[i] = rollstats_hi_power();
+                        else stats[i] = rollstats_standard();
+                        if (i == 5) {
+                                cout << "Stats are:\n";
+                                for (int j = 0; j < 6; j++) {
+                                        cout << "\n " << stats[j];
+                                }
+                        }
+                }
+                for (int i = 0; i < 6; i++) {
+                        assignStats(stats[i]);
+                }
+        } else {
+                setStr(getNumber("Enter starting Strength(3-18): ", 3, 18));
+                setDex(getNumber("Enter starting Dexterity(3-18): ", 3, 18));
+                setCon(getNumber("Enter starting Constitution(3-18): ", 3, 18));
+                setInt(getNumber("Enter starting Intelligence(3-18): ", 3, 18));
+                setWis(getNumber("Enter starting Wisdom(3-18): ", 3, 18));
+                setCha(getNumber("Enter starting Charisma(3-18): ", 3, 18));
+        }
     pressEnterToContinue();
 }
 void Generic_Character_Class::setStr(const int& s) { strength = s; }
@@ -3106,33 +3106,33 @@ void Generic_Character_Class::levelUpStats() {
 }
 void Generic_Character_Class::assignStats(int & s)
 {
-	cout << "\nAssign " << s << " to: \n\n";
+        cout << "\nAssign " << s << " to: \n\n";
 
-	if (strength == 0) cout << " 1. Strength\n";
-	else cout << " 1. Strength(DONE)\n";
+        if (strength == 0) cout << " 1. Strength\n";
+        else cout << " 1. Strength(DONE)\n";
 
-	if (dexterity == 0) cout << " 2. Dexterity\n";
-	else cout << " 2. Dexterity(DONE)\n";
+        if (dexterity == 0) cout << " 2. Dexterity\n";
+        else cout << " 2. Dexterity(DONE)\n";
 
-	if (constitution == 0) cout << " 3. Constitution\n";
-	else cout << " 3. Constitution(DONE)\n";
+        if (constitution == 0) cout << " 3. Constitution\n";
+        else cout << " 3. Constitution(DONE)\n";
 
-	if (intelligence == 0) cout << " 4. Intelligence\n";
-	else cout << " 4. Intelligence(DONE)\n";
+        if (intelligence == 0) cout << " 4. Intelligence\n";
+        else cout << " 4. Intelligence(DONE)\n";
 
-	if (wisdom == 0) cout << " 5. Wisdom\n";
-	else cout << " 5. Wisdom(DONE)\n";
+        if (wisdom == 0) cout << " 5. Wisdom\n";
+        else cout << " 5. Wisdom(DONE)\n";
 
-	if (charisma == 0) cout << " 6. Charisma\n\n";
-	else cout << " 6. Charisma(DONE)\n\n";
+        if (charisma == 0) cout << " 6. Charisma\n\n";
+        else cout << " 6. Charisma(DONE)\n\n";
 
-	int ss = getNumber("Choice: ", 1, 6);
-	if (ss == 1) setStr(s);
-	else if (ss == 2) setDex(s);
-	else if (ss == 3) setCon(s);
-	else if (ss == 4) setInt(s);
-	else if (ss == 5) setWis(s);
-	else setCha(s);
+        int ss = getNumber("Choice: ", 1, 6);
+        if (ss == 1) setStr(s);
+        else if (ss == 2) setDex(s);
+        else if (ss == 3) setCon(s);
+        else if (ss == 4) setInt(s);
+        else if (ss == 5) setWis(s);
+        else setCha(s);
 
 }
 

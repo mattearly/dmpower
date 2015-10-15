@@ -1,4 +1,4 @@
-#makefile for DM-Power-Final
+#makefile for DM-Power
 #MACROS
 OBJS = main.o campaign.o characters.o races.o gear.o globalfuncts.o reward_gen.o name_gen.o
 EXES = dmpower
