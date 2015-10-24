@@ -27,7 +27,7 @@ public:
     float destroy_undead;
     int channel_divinity, divine_domain_feature, divine_intervention,
         cleric_cantrips_known;
-    bool divine_domain, knowledge_d, life_d, light_d, nature_d,
+    bool divine_domain, death_d, knowledge_d, life_d, light_d, nature_d,
          tempest_d, trickery_d, war_d;
             //FIGHTER
     int action_surge, martial_archtype_feature, indomitable,

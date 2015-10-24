@@ -41,4 +41,4 @@ private:
     void SingleScroll(const int&) const;
 };
 
-#endif  ///REWARD_GEN_H
+#endif  //REWARD_GEN_H

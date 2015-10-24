@@ -25,6 +25,7 @@ Generic_Character_Class::Generic_Character_Class() {
     great_weapon_fighting = 0;
     protection = 0;
     divine_domain = 0;
+    death_d = 0;
     knowledge_d = 0;
     life_d = 0;
     light_d = 0;
@@ -419,16 +420,38 @@ void Cleric::setClassDetails(const int& l) {
     spellcasting = true;
     if (divine_domain == false) {
         cout << "Choose a Divine Domain:\n\n"
-        << " 1 - Knowledge\n 2 - Life\n 3 - Light\n 4 - Nature\n"
-        << " 5 - Tempest\n 6 - Trickery\n 7 - War\n\n";
-        int ss = getNumber("Divine Domain Choice(1-7): ", 1, 7);
-        if (ss == 1) knowledge_d = true;
-        if (ss == 2) life_d = true;
-        if (ss == 3) light_d = true;
-        if (ss == 4) nature_d = true;
-        if (ss == 5) tempest_d = true;
-        if (ss == 6) trickery_d = true;
-        if (ss == 7) war_d = true;
+        << " 1 - Death\n 2 - Knowledge\n 3 - Life\n 4 - Light\n"
+        << " 5 - Nature\n 6 - Tempest\n 7 - Trickery\n 8 - War\n\n";
+        int ss = getNumber("Divine Domain Choice(1-8): ", 1, 8);
+        switch (ss) {
+        case 1: 
+            death_d = true;
+            break;
+        case 2: 
+            knowledge_d = true;
+            setLanguage("First Knowledge Domain Language.\n\n");
+            setLanguage("Second Knowledge Domain Language.\n\n");
+            //gain double prof skills from arcana, history, nature, religion
+            break;
+        case 3:
+            life_d = true;
+            break;
+        case 4:
+            light_d = true;
+            break;
+        case 5:
+            nature_d = true;
+            break;
+        case 6:
+            tempest_d = true;
+            break;
+        case 7:
+            trickery_d = true;
+            break;
+        case 8:
+            war_d = true;
+            break;
+        }
         divine_domain = true;
     }
     if (divine_domain_feature == 0 && l >= 2) divine_domain_feature++;
@@ -3104,8 +3127,7 @@ void Generic_Character_Class::levelUpStats() {
     }
     pressEnterToContinue();
 }
-void Generic_Character_Class::assignStats(int & s)
-{
+void Generic_Character_Class::assignStats(int & s) {
         cout << "\nAssign " << s << " to: \n\n";
 
         if (strength == 0) cout << " 1. Strength\n";
@@ -3451,18 +3473,26 @@ void Generic_Character_Class::printClassAbilities() const {
     //clerics
     if (divine_domain == true) {
         cout << "Divine Domain(";
-        if (knowledge_d == true) cout << "Knowledge), ";
-        if (life_d == true) cout << "Life), ";
-        if (light_d == true) cout << "Light), ";
-        if (nature_d == true) cout << "Nature), ";
-        if (tempest_d == true) cout << "Tempest), ";
-        if (trickery_d == true) cout << "Trickery), ";
-        if (war_d == true) cout << "War), ";
+        if (death_d) cout << "Death), ";
+        if (knowledge_d) cout << "Knowledge), ";
+        if (life_d) cout << "Life), ";
+        if (light_d) cout << "Light), ";
+        if (nature_d) cout << "Nature), ";
+        if (tempest_d) cout << "Tempest), ";
+        if (trickery_d) cout << "Trickery), ";
+        if (war_d) cout << "War), ";
     }
     if (divine_domain_feature > 0) {
         cout << "Domain Features[";
-        if (knowledge_d == true) {
-            //blessings of knowledge - gain 2 langs - gain 2 skills
+        if (death_d) {
+            //gain martial weapons
+            cout << "Reaper";
+            if (divine_domain_feature >= 1) cout << ", Touch of Death";
+            if (divine_domain_feature >= 2) cout << ", Inescapable Destruction";
+            if (divine_domain_feature >= 3) cout << ", Divine Strike";
+            if (divine_domain_feature >= 4) cout << ", Improved Reaper";
+        } else if (knowledge_d) {
+            //gain blessings of knowledge - gain 2 langs - gain any 2 skills
             if (divine_domain_feature >= 1) cout << "Knowledge of the Ages";
             if (divine_domain_feature >= 2) cout << ", Read Thoughts";
             if (divine_domain_feature >= 3) cout << ", Potent Spellcasting";
