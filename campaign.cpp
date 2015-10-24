@@ -395,6 +395,7 @@ ofstream& Campaign::dumpCharacter(ofstream& os) {
                 << (*it)->oath_of_devotion << endl
                 << (*it)->oath_of_ancients << endl
                 << (*it)->oath_of_vengence << endl
+                << (*it)->oathbreaker << endl
                 << "ranger" << endl
                 << (*it)->favored_enemy << endl  //ranger
                 << (*it)->natural_explorer << endl
@@ -842,6 +843,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->oath_of_devotion;
         ins >> v->oath_of_ancients;
         ins >> v->oath_of_vengence;
+        ins >> v->oathbreaker;
         ins.get();
         ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "ranger"
         ins >> v->favored_enemy;  //ranger

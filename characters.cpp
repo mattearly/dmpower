@@ -1281,11 +1281,25 @@ void Paladin::setClassDetails(const int &l) {
     if (divine_health == false && l >= 3) divine_health = true;
     if (sacred_oath == false && l >= 3) {
         cout << "Pick a Paladin Oath Path:\n\n"
-        << " 1. Oath of Devotion\n 2. Ancients\n 3. Vengence\n\n";
-        int ss = getNumber("Choice: ", 1, 3);
-        if (ss == 1) oath_of_devotion = true;
-        if (ss == 2) oath_of_ancients = true;
-        if (ss == 3) oath_of_vengence = true;
+        << " 1. Oath of Devotion\n"
+        << " 2. Oath of Ancients\n"
+        << " 3. Oath of Vengence\n"
+        << " 4. Oathbreaker\n\n";
+        int ss = getNumber("Choice: ", 1, 4);
+        switch (ss) {
+        case 1: 
+            oath_of_devotion = true;
+            break;
+        case 2:
+            oath_of_ancients = true;
+            break;
+        case 3:
+            oath_of_vengence = true;
+            break;
+        case 4:
+            oathbreaker = true;
+            break;
+        }
         sacred_oath = true;
     }
     if (extra_attack == 0 && l >= 5) extra_attack++;
@@ -3643,24 +3657,28 @@ void Generic_Character_Class::printClassAbilities() const {
         if (divine_smite == 2) cout << "Improved ";
         cout << "Divine Smite, ";
     }
-    if (divine_health == true) cout << "Divine Health, ";
-    if (sacred_oath == true) {
-        if (oath_of_devotion == true) {
+    if (divine_health) cout << "Divine Health, ";
+    if (sacred_oath) {
+        if (oath_of_devotion) {
             cout << "Oath of Devotion[Tenets, Oath Spells, Channel Divinity(Sacred Weapon, Turn the Unholy)";
             if (sacred_oath_feature >= 1) cout << ", Aura of Devotion";
             if (sacred_oath_feature >= 2) cout << ", Purity of Spirit";
             if (sacred_oath_feature == 3) cout << ", Holy Nimbus";
-        } else if (oath_of_ancients == true) {
+        } else if (oath_of_ancients) {
             cout << "Oath of the Ancients[Tenets, Oath Spells, Channel Divinity(Nature's Wrath, Turn the Faithless)";
             if (sacred_oath_feature >= 1) cout << ", Aura of Warding";
             if (sacred_oath_feature >= 2) cout << ", Undying Sentinel";
             if (sacred_oath_feature == 3) cout << ", Elder Champion";
-        } else if (oath_of_vengence == true) {
+        } else if (oath_of_vengence) {
             cout << "Oath of Vengence[Tenets, Oath Spells, Channel Divinity(Abjure Enemy, Vow of Enmity)";
             if (sacred_oath_feature >= 1) cout << ", Relentless Avenger";
             if (sacred_oath_feature >= 2) cout << ", Soul of Vengeance";
             if (sacred_oath_feature == 3) cout << ", Avenging Angel";
-        }
+        } else if (oathbreaker) {
+            cout << "Oathbreaker[Oath Spells, Channel Divinity(Control Undead, Dreadful Aspect)";
+        }   if (sacred_oath_feature >= 1) cout << ", Aura of Hate";
+            if (sacred_oath_feature >= 2) cout << ", Supernatural Resistance";
+            if (sacred_oath_feature == 3) cout << ", Dread Lord";
         cout << "], ";
     }
     if (aura_of_protection == true) cout << "Aura of Protection, ";
