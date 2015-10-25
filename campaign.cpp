@@ -382,7 +382,9 @@ ofstream& Campaign::dumpCharacter(ofstream& os) {
                 << (*it)->perfect_self << endl
                 << (*it)->way_of_the_open_hand << endl
                 << (*it)->way_of_the_four_elements << endl
+                << (*it)->way_of_the_long_death << endl
                 << (*it)->way_of_the_shadow << endl
+                << (*it)->way_of_the_sun_soul << endl
                 << (*it)->unarmored_movement_improvement << endl
                 << "paladin" << endl
                 << (*it)->sacred_oath_feature << endl //paladin
@@ -832,7 +834,9 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->perfect_self;
         ins >> v->way_of_the_open_hand;
         ins >> v->way_of_the_four_elements;
+        ins >> v->way_of_the_long_death;
         ins >> v->way_of_the_shadow;
+        ins >> v->way_of_the_sun_soul;
         ins >> v->unarmored_movement_improvement;
         ins.get();
         ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "paladin"

@@ -57,8 +57,8 @@ public:
          stunning_strike, ki_empowered_strikes, stillness_of_mind,
          purity_of_body, tongue_of_the_sun_and_moon, diamond_soul,
          empty_body, perfect_self, way_of_the_open_hand,
-         way_of_the_four_elements, way_of_the_shadow,
-         unarmored_movement_improvement;
+         way_of_the_four_elements, way_of_the_long_death, way_of_the_shadow,
+         way_of_the_sun_soul, unarmored_movement_improvement;
             //PALADIN
     int sacred_oath_feature, divine_smite;
     bool divine_sense, lay_on_hands, divine_health, sacred_oath,

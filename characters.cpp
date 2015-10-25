@@ -84,7 +84,9 @@ Generic_Character_Class::Generic_Character_Class() {
     perfect_self = 0;
     way_of_the_open_hand = 0;
     way_of_the_four_elements = 0;
+    way_of_the_long_death = 0;
     way_of_the_shadow = 0;
+    way_of_the_sun_soul = 0;
     unarmored_movement_improvement = 0;
     divine_sense = 0;
     lay_on_hands = 0;
@@ -1633,7 +1635,7 @@ void Monk::setClassDetails(const int &l) {
     hitdicesize = 8;
     strSave = true;
     dexSave = true;
-    if (unarmored_defense == false) unarmored_defense = true;
+    if (!unarmored_defense) unarmored_defense = true;
     if (l >= 1 && l <= 4) martial_arts = 4;
     else if (l >= 5 && l <= 10) martial_arts = 6;
     else if (l >= 11 && l <= 16) martial_arts = 8;
@@ -1644,14 +1646,25 @@ void Monk::setClassDetails(const int &l) {
     else if (l >= 10 && l <= 13) unarmored_movement = 20;
     else if (l >= 14 && l <= 17) unarmored_movement = 25;
     else if (l >- 18 && l <= 20) unarmored_movement = 30;
-    if (monastic_tradition == false && l >= 3) {
+    if (!monastic_tradition && l >= 3) {
         cout << "Monastic Tradition:\n\n"
-        << " 1. Way of the Open Hand\n 2. Way of the Shadow\n"
-        << " 3. Way of the Four Elements\n\n";
-        int ss = getNumber("Tradition choice(1-3): ", 1, 3);
-        if (ss == 1) way_of_the_open_hand = true;
-        if (ss == 2) way_of_the_shadow = true;
-        if (ss == 3) way_of_the_four_elements = true;
+        << " 1. Way of the Open Hand\n 2. Way of the Four Elements\n"
+        << " 3. Way of the Long Death\n 4. Way of the Shadow\n"
+        << " 5. Way of the Sun Soul\n\n";
+        int ss = getNumber("Tradition choice(1-3): ", 1, 5);
+        switch (ss) {
+            case 1: way_of_the_open_hand = true;
+            break;
+            case 2: way_of_the_four_elements = true;
+            break;
+            case 3: way_of_the_long_death = true;
+            break;
+            case 4: way_of_the_shadow = true;
+            break;
+            case 5: way_of_the_sun_soul = true;
+            break;
+            default: cout << "Error setting monk tradition - check code\n\n";
+        }
         monastic_tradition = true;
     }
     if (deflect_missles == false && l >= 3) deflect_missles = true;
@@ -2084,7 +2097,7 @@ void Generic_Character_Class::setBackground() {
     {
         history = true;
         cout << "Skill for Cloistered Scholar Background\n\n Pick from\n"
-             << " 1. Arcana\n 2. Nature\n 3. Religion";
+             << " 1. Arcana\n 2. Nature\n 3. Religion\n\n";
         int tmp = getNumber("Choice: ",1 , 3);
         switch (tmp) {
         case 1: arcana = true; break;
@@ -3858,18 +3871,32 @@ void Generic_Character_Class::printClassAbilities() const {
     if (unarmored_movement > 0) cout << "Unarmored Movement(+" << unarmored_movement << "ft), ";
     if (monastic_tradition == true) {
         cout << "Monastic Tradition(";
-        if (way_of_the_open_hand == true) {
+        if (way_of_the_open_hand) {
             cout << "Way of the Open Hand)[Open Hand Technique";
             if (monastic_tradition_feature >= 1) cout << ", Wholeness of Body";
             if (monastic_tradition_feature >= 2) cout << ", Tranquility";
             if (monastic_tradition_feature >= 3) cout << ", Quivering Palm";
-        } else if (way_of_the_shadow == true) {
+        } else if (way_of_the_shadow) {
             cout << "Way of the Shadow)[Shadow Arts";
             if (monastic_tradition_feature >= 1) cout << ", Shadow Step";
             if (monastic_tradition_feature >= 2) cout << ", Cloak of Shadows";
             if (monastic_tradition_feature >= 3) cout << ", Opportunist";
-        } else if (way_of_the_open_hand == true) {
-            cout << "Way of the Four Elements)[Disciple of the Elements";
+        } else if (way_of_the_four_elements) {
+            cout << "Way of the Four Elements)[Disciple of the Elements, Elemental Disciplines(Elemental Attunement, Fangs of the Fire Snake, Fist of Four Thunders, Fist of Unbroken Air, Rush of the Gale Spirits, Shape the Flowing River, Sweeping Cinder Strike, Water Whip";
+            if (monastic_tradition_feature >= 1) cout << ", Clench of the North Wind, Gong of the Summit";
+            if (monastic_tradition_feature >= 2) cout << ", Eternal Mountain Defense, Flames of the Phoenix, Mist Stance, Ride the Wind";
+            if (monastic_tradition_feature >= 3) cout << ", Breath of Winter, River of Hungry Flame, Wave of Rolling Earth";
+            cout << ")";
+        } else if (way_of_the_long_death) {
+            cout << "Way of the Long Death)[Touch of Death";
+            if (monastic_tradition_feature >= 1) cout << ", Hour of Reaping";
+            if (monastic_tradition_feature >= 2) cout << ", Mastery of Death";
+            if (monastic_tradition_feature >= 3) cout << ", Touch of thet Long Death";
+        } else if (way_of_the_sun_soul) {
+            cout << "Way of the Sun Soul)[Radiant Sun Bolt";
+            if (monastic_tradition_feature >= 1) cout << ", Searing Arc Striket";
+            if (monastic_tradition_feature >= 2) cout << ", Searing Sunburst";
+            if (monastic_tradition_feature >= 3) cout << ", Sun Shield";
         }
         cout << "], ";
     }
