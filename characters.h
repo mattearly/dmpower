@@ -27,7 +27,7 @@ public:
     float destroy_undead;
     int channel_divinity, divine_domain_feature, divine_intervention,
         cleric_cantrips_known;
-    bool divine_domain, death_d, knowledge_d, life_d, light_d, nature_d,
+    bool divine_domain, arcana_d, death_d, knowledge_d, life_d, light_d, nature_d,
          tempest_d, trickery_d, war_d;
             //FIGHTER
     int action_surge, martial_archtype_feature, indomitable,
@@ -99,7 +99,7 @@ public:
 //BACKGROUNDS  1 nobackground 13 phb 12 scag
     enum characterbackground { NOBACKGROUND, ACOLYTE, CHARLATAN, CITY_WATCH, CLAN_CRAFTER, CLOISTERED_SCHOLAR, COURTIER, CRIMINAL, \
         ENTERTAINER, FACTION_AGENT, FAR_TRAVELER, FOLK_HERO, GUILD_ARTISAN, HERMIT, INHERITOR, KNIGHT_OF_THE_ORDER, MERCENARY_VETERAN, NOBLE, OUTLANDER, SAGE, \
-        SAILOR, SOLDIER, URBAN_BOUNTY_HUNTER, URCHIN, UTHGARDT_TRIBE_MEMBER, WATERDHAVIAN };
+        SAILOR, SOLDIER, URBAN_BOUNTY_HUNTER, URCHIN, UTHGARDT_TRIBE_MEMBER, WATERDHAVIAN_NOBLE };
     characterbackground backgroundofpc;
 //ABILITY SCORES
     int strength, dexterity, constitution, intelligence, wisdom, charisma;
@@ -122,7 +122,8 @@ public:
 //KITS & TOOLS
     bool disguise, forgery, herbalism, navigator, poisoner, thieves, vehicle;
 //MUSICAL INSTRUMENTS
-    bool bagpipes, drum, dulcimer, flute, lute, lyre, horn, pan_flute, shawm, viol;
+    bool bagpipes, drum, dulcimer, flute, lute, lyre, horn, pan_flute, shawm, viol; 
+    //sword coast book adds more to do
 
 
 //CHARACTER CREATION FUNCTIONS (MUTATORS)

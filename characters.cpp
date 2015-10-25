@@ -335,7 +335,7 @@ Generic_Character_Class::Generic_Character_Class() {
     viol = 0;
     rages = 0;
     level = 0;
-   // levelupmenus = 0;
+    levelupmenus = 0;
     hitdicesize = 0;
     move_speed = 0;
     proficiency_bonus = 0;
@@ -421,35 +421,40 @@ void Cleric::setClassDetails(const int& l) {
     spellcasting = true;
     if (divine_domain == false) {
         cout << "Choose a Divine Domain:\n\n"
-        << " 1 - Death\n 2 - Knowledge\n 3 - Life\n 4 - Light\n"
-        << " 5 - Nature\n 6 - Tempest\n 7 - Trickery\n 8 - War\n\n";
-        int ss = getNumber("Divine Domain Choice(1-8): ", 1, 8);
+        << " 1. Arcane\n 2. Death\n 3. Knowledge\n 4. Life\n 5. Light\n"
+        << " 6. Nature\n 7. Tempest\n 8. Trickery\n 9. War\n\n";
+        int ss = getNumber("Divine Domain Choice(1-8): ", 1, 9);
         switch (ss) {
-        case 1: 
-            death_d = true;
+        case 1:
+            arcana_d = true;
+            arcana = true;  //gain arcana skill
             break;
         case 2: 
+            death_d = true;
+            //gain martial weapon prof
+            break;
+        case 3: 
             knowledge_d = true;
             setLanguage("First Knowledge Domain Language.\n\n");
             setLanguage("Second Knowledge Domain Language.\n\n");
             //gain double prof skills from arcana, history, nature, religion
             break;
-        case 3:
+        case 4:
             life_d = true;
             break;
-        case 4:
+        case 5:
             light_d = true;
             break;
-        case 5:
+        case 6:
             nature_d = true;
             break;
-        case 6:
+        case 7:
             tempest_d = true;
             break;
-        case 7:
+        case 8:
             trickery_d = true;
             break;
-        case 8:
+        case 9:
             war_d = true;
             break;
         }
@@ -1023,7 +1028,6 @@ void Barbarian::setClassDetails(const int &l) {
     if (danger_sense == false && l >= 2) danger_sense = true;
     if (primal_path == false && l >= 3) {
         cout << "Choose a Primal Path:\n\n";
-        if (character.race == "Dwarf";
         cout << " 1. Path of the Battlerager (Dwarf Only or check with DM)\n 2. Path of the Berserker\n 3. Path of the Totem Warrior.\n\n";
         int ss = getNumber("Choice(1-3): ", 1, 3);
         switch (ss) {
@@ -2065,7 +2069,7 @@ void Generic_Character_Class::setBackground() {
     case 5:  //cloistered scholar
     {
         history = true;
-        cout << "Skill for Cloistered Scholar Background\n\n Pick from\n "
+        cout << "Skill for Cloistered Scholar Background\n\n Pick from\n"
              << " 1. Arcana\n 2. Nature\n 3. Religion";
         int tmp = getNumber("Choice: ",1 , 3);
         switch (tmp) {
@@ -2141,7 +2145,7 @@ void Generic_Character_Class::setBackground() {
     case 14:  //inheritor
     {
         survival = true;
-        cout << "Skill for Inheritor Background\n\n Pick from\n "
+        cout << "Skill for Inheritor Background\n\n Pick from\n"
              << " 1. Arcana\n 2. History\n 3. Religion";
         int tmp = getNumber("Choice: ",1 , 3);
         switch (tmp) {
@@ -2158,7 +2162,7 @@ void Generic_Character_Class::setBackground() {
     case 15:  //knight of the order
     {
         persuasion = true;
-        cout << "Skill for Knight of the Order Background\n\n Pick from\n "
+        cout << "Skill for Knight of the Order Background\n\n Pick from\n"
              << " 1. Arcana\n 2. History\n 3. Nature \n 4. Religion\n\n";
         int tmp = getNumber("Choice: ",1 , 4);
         switch (tmp) {
@@ -2225,7 +2229,7 @@ void Generic_Character_Class::setBackground() {
         for (int i = 0; i < 2; i++) {
             if (i = 0) cout << "First ";
             else cout << "Second ";
-            cout << "Skill for Urban Bounty Hunter Background\n\n Pick from\n "
+            cout << "Skill for Urban Bounty Hunter Background\n\n Pick from\n"
                  << " 1. Deception\n 2. Insight\n 3. Persuasion \n 4. Stealth\n\n";
             int tmp = getNumber("Choice: ",1 , 4);
             switch (tmp) {
@@ -2256,12 +2260,12 @@ void Generic_Character_Class::setBackground() {
         setLanguage("Uthgardt Tribe Member bonus Language.\n\n");
         cout << "Uthgardt Tribe Member background: \n ->gained Athletics, Survival, Artisan tool or Musical instrument, & 1 Lang.\n";
         break;
-    case 25:  //waterdhavian
+    case 25:  //waterdhavian noble
         history = true;
         persuasion = true;
         //gain musical or gaming
-        setLanguage("Waterdhavain bonus Language.\n\n");
-        cout << "Waterdhavian background: \n ->gained History, Persuasion, Musical or Gaming, & 1 Langs.\n";
+        setLanguage("Waterdhavain Noble bonus Language.\n\n");
+        cout << "Waterdhavian Noble background: \n ->gained History, Persuasion, Musical or Gaming, & 1 Langs.\n";
         break;
     default:
         cout << "Error setting background\n\n";
@@ -2853,7 +2857,7 @@ void Generic_Character_Class::setAnyFeat() {
              << "\n 3. Actor               17. Keen Mind            31. Ritual Caster"
              << "\n 4. Charger             18. Lightly Armored      32. Savage Attacker"
              << "\n 5. Crossbow Expert     19. Linguist             33. Sentinel"
-             << "\n 6. Defensive Duelist   20. Lucky                 34. Sharpshooter"
+             << "\n 6. Defensive Duelist   20. Lucky                34. Sharpshooter"
              << "\n 7. Dual Wielder        21. Mage Slayer          35. Shield Master"
              << "\n 8. Dungeon Delver      22. Magic Initiate       36. Skilled"
              << "\n 9. Durable             23. Martial Adept        37. Skulker"
@@ -3214,7 +3218,7 @@ void Generic_Character_Class::gainSharpshooter(bool& s) {
     }
 }
 void Generic_Character_Class::gainShield_master(bool& s) {
-    if (shield_master) {
+    if (!shield_master) {
         shield_master = true;
         cout << "Sheild Master learned!\n";
         s = true;
@@ -3223,7 +3227,7 @@ void Generic_Character_Class::gainShield_master(bool& s) {
     }
 }
 void Generic_Character_Class::gainSkilled(bool& s) {
-    if (skilled == false) {
+    if (!skilled) {
         skilled = true;
         cout << "Skilled learned!\n";
         s = true;
@@ -3581,6 +3585,45 @@ string Generic_Character_Class::getBackground() const {
         case URCHIN :
             tmp = "Urchin";
             break;
+        case CITY_WATCH :   
+            tmp = "City Watch";
+            break;
+        case CLAN_CRAFTER :
+            tmp = "Clan Crafter";
+            break;
+        case CLOISTERED_SCHOLAR :
+            tmp = "Cloistered Scholar";
+            break;
+        case COURTIER:
+            tmp = "Courtier";
+            break;
+        case FACTION_AGENT:
+            tmp = "Faction Agent";
+            break;
+        case FAR_TRAVELER:
+            tmp = "Far Traveler";
+            break;
+        case INHERITOR:
+            tmp = "Inheritoir";
+            break;
+        case KNIGHT_OF_THE_ORDER:
+            tmp = "Knight of the Order";
+            break;
+        case MERCENARY_VETERAN:
+            tmp = "Mercenary Veteran";
+            break;
+        case URBAN_BOUNTY_HUNTER:
+            tmp = "Urban Bounty Hunter";
+            break;
+        case UTHGARDT_TRIBE_MEMBER:
+            tmp = "Uthgardt Tribe Member";
+            break;
+        case WATERDHAVIAN_NOBLE:
+            tmp = "Waterdhavain Noble";
+            break;
+        default:
+            tmp = "Error Displaying Background - Check Code";
+            break;
     }
     return tmp;
 }
@@ -3588,28 +3631,28 @@ void Generic_Character_Class::printClassAbilities() const {
     cout << "-> Class Abilities: ";
     //general
     if (extra_attack > 0) cout << "Extra Attack(" << extra_attack << "), ";
-    if (spellcasting == true) cout << "Spellcasting, ";
-    if (evasion == true) cout << "Evasion, ";
+    if (spellcasting) cout << "Spellcasting, ";
+    if (evasion) cout << "Evasion, ";
     if (expertise > 0) cout << "Expertise(" << expertise << "), ";
-    if (timeless_body == true) cout << "Timeless Body, ";
+    if (timeless_body) cout << "Timeless Body, ";
     //barbarians
     if (brutal_critical > 0) cout << "Brutal Critical(" << brutal_critical << " dice), ";
-    if (danger_sense == true) cout << "Danger Sense, ";
-    if (fast_movement == true) cout << "Fast Movement(+10), ";
-    if (feral_instinct == true) cout << "Feral Instinct, ";
-    if (indomitable_might == true) cout << "Indomintable Might, ";
-    if (persistant_rage == true) cout << "Persistant Rage, ";
-    if (primal_champion == true) cout << "Primal Champion, ";
+    if (danger_sense) cout << "Danger Sense, ";
+    if (fast_movement) cout << "Fast Movement(+10), ";
+    if (feral_instinct) cout << "Feral Instinct, ";
+    if (indomitable_might) cout << "Indomintable Might, ";
+    if (persistant_rage) cout << "Persistant Rage, ";
+    if (primal_champion) cout << "Primal Champion, ";
     if (rage_damage > 0) cout << "Rage Damage(+" << rage_damage << "), ";
     if (rages > 0) cout << "Rage(" << rages << "/day), ";
-    if (reckless_attack == true) cout << "Reckless Attack, ";
-    if (primal_path == true) {
+    if (reckless_attack) cout << "Reckless Attack, ";
+    if (primal_path) {
         if (path_of_the_battlerager) {
             cout << "Path of the Battlerager[Battlerager Armor";
             if (path_feature >= 1) cout << ", Reckless Abandon";
             if (path_feature >= 2) cout << ", Battlerager Charge";
             if (path_feature >= 3) cout << ", Spiked Retribution";
-        else if (path_of_the_berseker == true) {
+        } else if (path_of_the_berseker == true) {
             cout << "Path of the Berserker[Frenzy";
             if (path_feature >= 1) cout << ", Mindless Rage";
             if (path_feature >= 2) cout << ", Intimidating Prescense";
@@ -3651,6 +3694,7 @@ void Generic_Character_Class::printClassAbilities() const {
     //clerics
     if (divine_domain == true) {
         cout << "Divine Domain(";
+        if (arcana_d) cout << "Arcana), ";
         if (death_d) cout << "Death), ";
         if (knowledge_d) cout << "Knowledge), ";
         if (life_d) cout << "Life), ";
@@ -3662,7 +3706,13 @@ void Generic_Character_Class::printClassAbilities() const {
     }
     if (divine_domain_feature > 0) {
         cout << "Domain Features[";
-        if (death_d) {
+        if (arcana_d) {
+            cout << "Arcane Initiate";
+            if (divine_domain_feature >= 1) cout << ", Arcane Abjuration";
+            if (divine_domain_feature >= 2) cout << ", Spell Breaker";
+            if (divine_domain_feature >= 3) cout << ", Potent Spellcasting";
+            if (divine_domain_feature >= 4) cout << ", Arcane Mastery";
+        } else if (death_d) {
             //gain martial weapons
             cout << "Reaper";
             if (divine_domain_feature >= 1) cout << ", Touch of Death";
@@ -4105,7 +4155,7 @@ void Generic_Character_Class::printFeats() const {
     if (savage_attacker == true) cout << "Savage Attacker, ";
     if (sentinel == true) cout << "Sentinel, ";
     if (sharpshooter == true) cout << "Sharpshooter, ";
-    if (shield_master == true) cout << "Shield Master, ";
+    if (shield_master) cout << "Shield Master, ";
     if (skilled == true) cout << "Skilled, ";
     if (skulker == true) cout << "Skulker, ";
     if (spell_sniper == true) cout << "Spell Sniper, ";
@@ -4233,6 +4283,6 @@ void Generic_Character_Class::printResistances() const {
 }
 void Generic_Character_Class::printDisadvantages() const {
     cout << "-> Disadvantages: ";
-    if (sunlight_sensitivity == true) cout << "Sunlight Sensitivty" << endl;
+    if (sunlight_sensitivity) cout << "Sunlight Sensitivty" << endl;
 }
 

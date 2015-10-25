@@ -296,6 +296,7 @@ ofstream& Campaign::dumpCharacter(ofstream& os) {
                 << (*it)->divine_intervention <<endl
                 << (*it)->cleric_cantrips_known << endl
                 << (*it)->divine_domain << endl
+                << (*it)->arcana_d << endl
                 << (*it)->death_d << endl
                 << (*it)->knowledge_d << endl
                 << (*it)->life_d << endl
@@ -739,6 +740,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->divine_intervention;
         ins >> v->cleric_cantrips_known;
         ins >> v->divine_domain;
+        ins >> v->arcana_d;
         ins >> v->death_d;
         ins >> v->knowledge_d;
         ins >> v->life_d;
