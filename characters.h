@@ -96,8 +96,10 @@ public:
     bool aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, undead;
 //SPELLSLOTS
     int first_ss, second_ss, third_ss, forth_ss, fifth_ss, sixth_ss, seventh_ss, eighth_ss, ninth_ss, warlock_ss;
-//BACKGROUNDS
-    enum characterbackground { NOBACKGROUND, ACOLYTE, CHARLATAN, CRIMINAL, ENTERTAINER, FOLK_HERO, GUILD_ARTISAN, HERMIT, NOBLE, OUTLANDER, SAGE, SAILOR, SOLDIER, URCHIN };
+//BACKGROUNDS  1 nobackground 13 phb 12 scag
+    enum characterbackground { NOBACKGROUND, ACOLYTE, CHARLATAN, CITY_WATCH, CLAN_CRAFTER, CLOISTERED_SCHOLAR, COURTIER, CRIMINAL, \
+        ENTERTAINER, FACTION_AGENT, FAR_TRAVELER, FOLK_HERO, GUILD_ARTISAN, HERMIT, INHERITOR, KNIGHT_OF_THE_ORDER, MERCENARY_VETERAN, NOBLE, OUTLANDER, SAGE, \
+        SAILOR, SOLDIER, URBAN_BOUNTY_HUNTER, URCHIN, UTHGARDT_TRIBE_MEMBER, WATERDHAVIAN };
     characterbackground backgroundofpc;
 //ABILITY SCORES
     int strength, dexterity, constitution, intelligence, wisdom, charisma;

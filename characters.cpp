@@ -2008,105 +2008,256 @@ void Generic_Character_Class::setAlignment() {
 void Generic_Character_Class::setBackground() {
     simpleClearScreen();
     cout << "Pick a background for your character.\n\n"
-         << "1. Acolyte         8. Noble"
-         << "\n2. Charlatan       9. Outlander"
-         << "\n3. Criminal       10. Sage"
-         << "\n4. Entertainer    11. Sailor"
-         << "\n5. Folk Hero      12. Soldier"
-         << "\n6. Guild Artisan  13. Urchin"
-         << "\n7. Hermit\n\n";
-    int ss = getNumber("Background choice(1-13): ", 1, 13);
+         << " 1. Acolyte             14. Inheritor\n"
+         << " 2. Charlatan           15. Knight of the Order\n"
+         << " 3. City Watch          16. Mercenary Veteran\n"
+         << " 4. Clan Crafter        17. Noble\n"
+         << " 5. Cloistered Scholar  18. Outlander\n"
+         << " 6. Courtier            19. Sage\n"
+         << " 7. Criminal            20. Sailor\n"
+         << " 8. Entertainer         21. Soldier\n"
+         << " 9. Faction Agent       22. Urban Bounty Hunter\n"
+         << "10. Far Traveler        23. Urchin\n"
+         << "11. Folk Hero           24. Uthgardt Tribe Member\n"
+         << "12. Guild Artisan       25. Waterdhavian Noble\n"
+         << "13. Hermit\n\n";
+
+    int ss = getNumber("Background choice(1-25): ", 1, 25);
     backgroundofpc = static_cast<enum characterbackground>(ss);
-    if (ss == 1) {
+    switch (ss) {
+    case 1:  //acolyte
         insight = true;
         religion = true;
         setLanguage("First Acolyte bonus language.\n\n");
         setLanguage("Second Acolyte bonus language.\n\n");
         cout << "Acolyte background: \n ->gained Insight, Religion, & 2 Langs.\n";
-    }
-    if (ss == 2) {
+        break;
+    case 2:  //charlatan
         deception = true;
         sleight_of_hand = true;
         disguise = true;
         forgery = true;
         cout << "Charlatan background: \n ->gained Deception, Sleight of Hand, Disquise, & Forgery.\n";
-    }
-    if (ss == 3) {
+        break;
+    case 3:  //city watch
+        athletics = true;
+        insight = true;
+        setLanguage("First City Watch bonus language.\n\n");
+        setLanguage("Second City Watch bonus language.\n\n");
+        cout << "City Watch background: \n ->gained Athletics, Insight, & 2 Langs.\n";
+        break;
+    case 4:   //clan crafter
+        history = true;
+        insight = true;
+        setTools(1);
+        if (!dwarvish) dwarvish = true;
+        else setLanguage("Clan Crafter bonus language.\n\n");
+        cout << "Clan Crafter background: \n ->gained History, Insight, 1 Artisan Tool & 1 Langs.\n";
+        break;
+    case 5:  //cloistered scholar
+    {
+        history = true;
+        cout << "Skill for Cloistered Scholar Background\n\n Pick from\n "
+             << " 1. Arcana\n 2. Nature\n 3. Religion";
+        int tmp = getNumber("Choice: ",1 , 3);
+        switch (tmp) {
+        case 1: arcana = true; break;
+        case 2: nature = true; break;
+        case 3: religion = true; break;
+        default: break;
+        }
+        setLanguage("First Cloistered Scholar bonus language.\n\n");
+        setLanguage("Second Cloistered Scholar bonus language.\n\n");
+        cout << "Cloistered Scholar background: \n ->gained History, Choice Skill, & 2 Langs.\n";  
+    }    
+        break;
+    case 6:  //courtier
+        insight = true;
+        persuasion = true;
+        setLanguage("First Courtier bonus language.\n\n");
+        setLanguage("Second Courtier bonus language.\n\n");
+        cout << "Courtier background: \n ->gained Insight, Persuasion, & 2 Langs.\n";
+        break;
+    case 7:  //criminal
         deception = true;
         stealth = true;
         thieves = true;
         //gaming kit here
         cout << "Criminal background: \n ->gained Deception, Stealth, Thieve's Tools, & Gaming Tool.\n";
-    }
-    if (ss == 4) {
+        break;
+    case 8:  //entertainer
         acrobatics = true;
         performance = true;
         disguise = true;
         setInstrument("Choose an Entertainer's instrument.\n\n", 1);
         cout << "Entertainer background:\n ->Acrobatics, Performance, Disguise Kit, & Musical Instrument.\n";
-    }
-    if (ss == 5) {
+        break;
+    case 9:  //faction agent
+        insight = true;
+        setAnySkill("Faction Agent background bonus skill.\n\n",1); //should be int,wis,cha skill choice only
+        setLanguage("First Faction Agent bonus language.\n\n");
+        setLanguage("Second Faction Agent bonus language.\n\n");
+        cout << "Faction Agent background: \n ->gained Insight, int/wis/cha skill, & 2 Langs.\n";
+        break;
+    case 10:  //far traveler
+        insight = true;
+        perception = true;
+        //any instrument or gaming set
+        setLanguage("Far Traveler background bonus language.\n\n");
+        cout << "Acolyte background: \n ->gained Insight, Religion, & 2 Langs.\n";
+        break;
+    case 11:  //folk hero
         animal_handling = true;
         survival = true;
         setTools(1);
         vehicle = true;
         cout << "Folk Hero background:\n ->gained Animal Handling, Survival, Artisan's Tool, & Land Vehicle.\n";
-    }
-    if (ss == 6) {
+
+        break;
+    case 12:  //guild artisan
         insight = true;
         persuasion = true;
         setTools(1);
         setLanguage("Guild Artisan bonus language.\n\n");
         cout << "Guild Artisan background:\n ->gained Insight, Persuasion, Artisan's Tools, & a Language.\n";
-    }
-    if (ss == 7) {
+
+        break;
+    case 13:  //hermit
         medicine = true;
         religion = true;
         herbalism = true;
         setLanguage("Hermit bonus language.\n\n");
         cout << "Hermit background:\n ->gained Medicine, Religion, Herbalism, & a Language.\n";
-    }
-    if (ss == 8) {
-        history = true;
+
+        break;
+    case 14:  //inheritor
+    {
+        survival = true;
+        cout << "Skill for Inheritor Background\n\n Pick from\n "
+             << " 1. Arcana\n 2. History\n 3. Religion";
+        int tmp = getNumber("Choice: ",1 , 3);
+        switch (tmp) {
+        case 1: arcana = true; break;
+        case 2: history = true; break;
+        case 3: religion = true; break;
+        default: break;
+        }
+        //gain musical instrument or gaming tool
+        setLanguage("Inheritor bonus language.\n\n");
+        cout << "Inheritor background: \n ->gained Survival, Choice Skill, Musical Instrument or Gaming set, & 1 Lang.\n";  
+    }  
+     break;
+    case 15:  //knight of the order
+    {
+        persuasion = true;
+        cout << "Skill for Knight of the Order Background\n\n Pick from\n "
+             << " 1. Arcana\n 2. History\n 3. Nature \n 4. Religion\n\n";
+        int tmp = getNumber("Choice: ",1 , 4);
+        switch (tmp) {
+        case 1: arcana = true; break;
+        case 2: history = true; break;
+        case 3: nature = true; break;
+        case 4: religion = true; break;
+        default: break;
+        }
+        //gain musical instrument or gaming tool
+        setLanguage("Knight of the Order bonus language.\n\n");
+        cout << "Knight of the Order background: \n ->gained Persuasion, Choice Skill, Musical Instrument or Gaming set, & 1 Lang.\n";  
+    }  
+        break;
+    case 16:  //mercenary veteran
+        athletics = true;
+        persuasion = true;
+        //gain gaming or vehicle
+        //something else i must be missing
+        cout << "Mercenary Veteran background: \n ->gained Athletics, Persuasion, & gaming set or land vehicle";
+        break;
+    case 17:  //noble
+            history = true;
         persuasion = true;
         //gaming kit here
         setLanguage("Noble bonus language.\n\n");
         cout << "Noble background:\n ->gained History, Persuasion, Gaming Kit, & a Language.\n";
-    }
-    if (ss == 9) {
+
+        break;
+    case 18:  //outlander
         athletics = true;
         survival = true;
         setInstrument("Outlander instrument.\n\n", 1);
         setLanguage("Outlander bonus language.\n\n");
         cout << "Outlander background:\n ->gained Atheltics, Survival, Musical Instrument, & a Language.\n";
-    }
-    if (ss == 10) {
-        arcana = true;
+  
+        break;
+    case 19:  //sage
+       arcana = true;
         history = true;
         setLanguage("First Sage bonus language.\n\n");
         setLanguage("Second Sage bonus language.\n\n");
         cout << "Sage background:\n ->gained Arcana, History, & two Languages.\n";
-    }
-    if (ss == 11) {
-        athletics = true;
+   
+        break;
+    case 20:  //sailor
+           athletics = true;
         perception = true;
         navigator = true;
         vehicle = true;
         cout << "Sailor background:\n ->gained Athletics, Perception, Navigator's Tools, & Water Vehicle.\n";
-    }
-    if (ss == 12) {
-        athletics = true;
+ 
+        break;
+    case 21:  //soldier
+         athletics = true;
         intimidation = true;
         //gaming set here;
         vehicle = true;
         cout << "Soilder background:\n ->gained Athletics, Intimidation, Gaming Set, & Land Vehicle.\n";
-    }
-    if (ss == 13) {
-        sleight_of_hand = true;
+   
+        break;
+    case 22:  //urban bounty hunter  
+    {
+        for (int i = 0; i < 2; i++) {
+            if (i = 0) cout << "First ";
+            else cout << "Second ";
+            cout << "Skill for Urban Bounty Hunter Background\n\n Pick from\n "
+                 << " 1. Deception\n 2. Insight\n 3. Persuasion \n 4. Stealth\n\n";
+            int tmp = getNumber("Choice: ",1 , 4);
+            switch (tmp) {
+            case 1: deception = true; break;
+            case 2: insight = true; break;
+            case 3: persuasion = true; break;
+            case 4: stealth = true; break;
+            default: break;
+            }
+
+        }
+        
+        //gain any 2 tools, gaming, musical, thieves tools)
+        cout << "Knight of the Order background: \n ->gained Choice Skills, Choice instruments/games/thieves.\n";  
+    }         break;
+    case 23:  //urchin
+         sleight_of_hand = true;
         stealth = true;
         disguise = true;
         thieves = true;
         cout << "Urchin background:\n ->gained Sleight of hand, Stealth, Disguise Kit, & Thieves' Tools.\n";
+   
+        break;
+    case 24:  //uthgardt tribe member  
+        athletics = true;
+        survival = true;
+        //gain tool or musical instrument
+        setLanguage("Uthgardt Tribe Member bonus Language.\n\n");
+        cout << "Uthgardt Tribe Member background: \n ->gained Athletics, Survival, Artisan tool or Musical instrument, & 1 Lang.\n";
+        break;
+    case 25:  //waterdhavian
+        history = true;
+        persuasion = true;
+        //gain musical or gaming
+        setLanguage("Waterdhavain bonus Language.\n\n");
+        cout << "Waterdhavian background: \n ->gained History, Persuasion, Musical or Gaming, & 1 Langs.\n";
+        break;
+    default:
+        cout << "Error setting background\n\n";
+        break;
     }
     pressEnterToContinue();
 }
