@@ -64,7 +64,7 @@ public:
     bool divine_sense, lay_on_hands, divine_health, sacred_oath,
          aura_of_protection, aura_of_courage, cleansing_touch,
          aura_improvments, oath_of_devotion, oath_of_ancients,
-         oath_of_vengence, oathbreaker;
+         oath_of_vengeance, oathbreaker, oath_of_the_crown;
             //RANGER
     int favored_enemy, natural_explorer, ranger_archetype_feature,
         ranger_spells_known;
