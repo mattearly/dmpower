@@ -3848,7 +3848,7 @@ void Generic_Character_Class::printClassAbilities() const {
             if (martial_archtype_feature >= 1) cout << ", Royal Envoy";
             if (martial_archtype_feature >= 2) cout << ", Inspiring Surge";
             if (martial_archtype_feature >= 3) cout << ", Bulwark";
-            if (martial_archtype_feature >= 4) cout << ", Uspecified in scag book";
+            if (martial_archtype_feature >= 4) cout << ", Uspecified in Sword Coast Adventurer's Guide book";
         }
         cout << "], ";
     }
