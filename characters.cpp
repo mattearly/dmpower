@@ -49,6 +49,7 @@ Generic_Character_Class::Generic_Character_Class() {
     persistant_rage = 0;
     indomitable_might = 0;
     primal_champion = 0;
+    path_of_the_battlerager = 0;
     path_of_the_berseker = 0;
     path_of_the_totem_warrior = 0;
     bear_totem = 0;
@@ -1021,13 +1022,18 @@ void Barbarian::setClassDetails(const int &l) {
     if (reckless_attack == false && l >= 2) reckless_attack = true;
     if (danger_sense == false && l >= 2) danger_sense = true;
     if (primal_path == false && l >= 3) {
-        cout << "Choose a Primal Path:\n\n"
-        << " 1. Path of the Berserker\n 2. Path of the Totem Warrior.\n\n";
-        int ss = getNumber("Choice(1-2): ", 1, 2);
-        if (ss == 1) {
+        cout << "Choose a Primal Path:\n\n";
+        if (character.race == "Dwarf";
+        cout << " 1. Path of the Battlerager (Dwarf Only or check with DM)\n 2. Path of the Berserker\n 3. Path of the Totem Warrior.\n\n";
+        int ss = getNumber("Choice(1-3): ", 1, 3);
+        switch (ss) {
+        case 1: 
+            path_of_the_battlerager = true;
+            break;
+        case 2:
             path_of_the_berseker = true;
-        }
-        if (ss == 2) {
+            break;
+        case 3: 
             path_of_the_totem_warrior = true;
             cout << "Choose a type for your totem Path:\n\n"
             << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
@@ -1035,6 +1041,8 @@ void Barbarian::setClassDetails(const int &l) {
             if (ss == 1) { bear_totem = true; eagle_totem = false; wolf_totem = false; }
             if (ss == 2) { eagle_totem = true; bear_totem = false; wolf_totem = false; }
             if (ss == 3) { wolf_totem = true; bear_totem = false; eagle_totem = false; }
+            //uthgardt totem options need added but they are minimal effect
+
         }
         primal_path = true;
     }
@@ -3596,7 +3604,12 @@ void Generic_Character_Class::printClassAbilities() const {
     if (rages > 0) cout << "Rage(" << rages << "/day), ";
     if (reckless_attack == true) cout << "Reckless Attack, ";
     if (primal_path == true) {
-        if (path_of_the_berseker == true) {
+        if (path_of_the_battlerager) {
+            cout << "Path of the Battlerager[Battlerager Armor";
+            if (path_feature >= 1) cout << ", Reckless Abandon";
+            if (path_feature >= 2) cout << ", Battlerager Charge";
+            if (path_feature >= 3) cout << ", Spiked Retribution";
+        else if (path_of_the_berseker == true) {
             cout << "Path of the Berserker[Frenzy";
             if (path_feature >= 1) cout << ", Mindless Rage";
             if (path_feature >= 2) cout << ", Intimidating Prescense";

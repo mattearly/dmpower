@@ -38,7 +38,7 @@ public:
     int rages, rage_damage, path_feature, brutal_critical;
     bool reckless_attack, danger_sense, primal_path, fast_movement,
          feral_instinct, relentless_rage, persistant_rage,
-         indomitable_might, primal_champion, path_of_the_berseker,
+         indomitable_might, primal_champion, path_of_the_battlerager, path_of_the_berseker,
          path_of_the_totem_warrior, bear_totem, eagle_totem, wolf_totem;
             //BARD
     int bardic_inspiration, song_of_rest, bard_college_feature,

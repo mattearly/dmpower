@@ -330,6 +330,7 @@ ofstream& Campaign::dumpCharacter(ofstream& os) {
                 << (*it)->persistant_rage << endl
                 << (*it)->indomitable_might << endl
                 << (*it)->primal_champion << endl
+                << (*it)->path_of_the_battlerager << endl
                 << (*it)->path_of_the_berseker << endl
                 << (*it)->path_of_the_totem_warrior << endl
                 << (*it)->bear_totem << endl
@@ -774,6 +775,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->persistant_rage;
         ins >> v->indomitable_might;
         ins >> v->primal_champion;
+        ins >> v->path_of_the_battlerager;
         ins >> v->path_of_the_berseker;
         ins >> v->path_of_the_totem_warrior;
         ins >> v->bear_totem;
