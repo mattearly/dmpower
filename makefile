@@ -9,7 +9,7 @@ CC = g++
 all: $(EXES)
 
 clean: 
-	rm $(OBJS) $(EXES) test.dat tmp.dat temp.dat
+	rm $(OBJS) $(EXES) test.dat
 
 dmpower: $(OBJS)
 	$(CC) $(OBJS) -o dmpower
