@@ -33,7 +33,7 @@ public:
     int action_surge, martial_archtype_feature, indomitable,
         eldritch_spells_known;
     bool second_wind, martial_archtype, archery, two_weapon_fighting,
-         champion, battle_master, eldritch_knight;
+         champion, battle_master, eldritch_knight, purple_dragon_knight;
             //BARBARIAN
     int rages, rage_damage, path_feature, brutal_critical;
     bool reckless_attack, danger_sense, primal_path, fast_movement,

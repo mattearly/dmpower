@@ -40,6 +40,7 @@ Generic_Character_Class::Generic_Character_Class() {
     champion = 0;
     battle_master = 0;
     eldritch_knight = 0;
+    purple_dragon_knight = 0;
     reckless_attack = 0;
     danger_sense = 0;
     primal_path = 0;
@@ -599,11 +600,24 @@ void Fighter::setClassDetails(const int& l) {
         cout << "Figther Martial Archetype:\n\n"
              << " 1. Champion"
              << "\n 2. Battle Master"
-             << "\n 3. Eldritch Knight\n\n";
-        int ss = getNumber("Choose an Archetype(1-3): ", 1, 3);
-        if (ss == 1) champion = true;
-        if (ss == 2) { battle_master = true; setTools(1); }
-        if (ss == 3) eldritch_knight = true;
+             << "\n 3. Eldritch Knight"
+             << "\n 4. Purple Dragon Knight\n\n";
+        int ss = getNumber("Choose an Archetype(1-3): ", 1, 4);
+        switch (ss) {
+            case 1: champion = true;
+            break;
+            case 2: { 
+                battle_master = true;
+                setTools(1); 
+            }
+            break;
+            case 3: eldritch_knight = true;
+            break;
+            case 4: purple_dragon_knight = true;
+            break;
+            default: cout << "Error setting fight archetype.\n\n";
+            break;
+        }
         martial_archtype = true;
     }
     if (levelupmenus == 0 && l >= 4) {
@@ -3809,26 +3823,32 @@ void Generic_Character_Class::printClassAbilities() const {
         cout << "), ";
     }
     if (second_wind == true) cout << "Second Wind, ";
-    if (martial_archtype == true) {
+    if (martial_archtype) {
         cout << "Martial Archetype(";
-        if (champion == true) {
+        if (champion) {
             cout << "Champion)[Improved Critical";
             if (martial_archtype_feature >= 1) cout << ", Remarkable Athlete";
             if (martial_archtype_feature >= 2) cout << ", Additonal Fighting Style";
             if (martial_archtype_feature >= 3) cout << ", Superior Critical";
             if (martial_archtype_feature >= 4) cout << ", Survivor";
-        } else if (battle_master == true) {
+        } else if (battle_master) {
             cout << "Battle Master)[Combat Superiority";
             if (martial_archtype_feature >= 1) cout << ", Know Your Enemy";
             if (martial_archtype_feature >= 2) cout << ", Improved Combat Superiority(d10)";
             if (martial_archtype_feature >= 3) cout << ", Relentless";
             if (martial_archtype_feature >= 4) cout << ", Improved Combat Superiority(d12)";
-        } else {
+        } else if (eldritch_knight) {
             cout << "Eldritch Knight)[Spellcasting";
             if (martial_archtype_feature >= 1) cout << ", War Magic";
             if (martial_archtype_feature >= 2) cout << ", Eldritch Strike";
             if (martial_archtype_feature >= 3) cout << ", Arcane Charge";
             if (martial_archtype_feature >= 4) cout << ", Improved War Magic";
+        } else { //purple dragon knight
+            cout << "Purple Dragon Knight)[Restriction: Knighthood, Rallying Cry";
+            if (martial_archtype_feature >= 1) cout << ", Royal Envoy";
+            if (martial_archtype_feature >= 2) cout << ", Inspiring Surge";
+            if (martial_archtype_feature >= 3) cout << ", Bulwark";
+            if (martial_archtype_feature >= 4) cout << ", Uspecified in scag book";
         }
         cout << "], ";
     }

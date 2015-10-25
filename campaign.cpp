@@ -317,6 +317,7 @@ ofstream& Campaign::dumpCharacter(ofstream& os) {
                 << (*it)->champion << endl
                 << (*it)->battle_master << endl
                 << (*it)->eldritch_knight << endl
+                << (*it)->purple_dragon_knight << endl
                 << "barbarian" << endl
                 << (*it)->rages << endl  //barbarian
                 << (*it)->rage_damage << endl
@@ -762,6 +763,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->champion;
         ins >> v->battle_master;
         ins >> v->eldritch_knight;
+        ins >> v->purple_dragon_knight;
         ins.get();
         ins.ignore(numeric_limits<streamsize>::max(), '\n'); // >> "barbarian"
         ins >> v->rages;  //barbarian
