@@ -606,7 +606,7 @@ void Fighter::setClassDetails(const int& l) {
              << "\n 2. Battle Master"
              << "\n 3. Eldritch Knight"
              << "\n 4. Purple Dragon Knight\n\n";
-        int ss = getNumber("Choose an Archetype(1-3): ", 1, 4);
+        int ss = getNumber("Choose an Archetype(1-4): ", 1, 4);
         switch (ss) {
             case 1: champion = true;
             break;
