@@ -16,7 +16,7 @@ class CharacterName {
 public:
     std::string grabRandomName();
 private:
-	
+
 
 };
 #endif //NAME_GEN_H

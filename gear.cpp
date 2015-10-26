@@ -11,16 +11,16 @@
 using namespace std;
 
 Gear::Gear() {
-	quantity = 0;
-	item_name = "";
+    quantity = 0;
+    item_name = "";
 
 }
 Gear::Gear(const int& q, const string& i){
-	quantity = q;
-	item_name = i;
-	
+    quantity = q;
+    item_name = i;
+
 }
 
 void Gear::showItem() const {
-	cout << quantity << " " << item_name << endl;
+    cout << quantity << " " << item_name << endl;
 }

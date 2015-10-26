@@ -49,7 +49,7 @@ int main() {
             float rewardXP = xpgenerator();
             simpleClearScreen();
             cout << "XP per member = " << rewardXP << endl << endl;
-	}
+        }
             break;
         case 4:{
             CharacterName randomName;

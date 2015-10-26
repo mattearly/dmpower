@@ -7,7 +7,7 @@
 class Gear;
 
 class Magic_Items {
-  
+
 public:
     void treasure_menu(); //REWARD ITEM GENERATOR
     

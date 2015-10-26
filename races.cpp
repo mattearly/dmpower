@@ -91,7 +91,7 @@ void Dwarf::setRaceDetails(Generic_Character_Class &v) {
     cout << "->Dwarf defaults & bonuses applied:\n"
          << "+2 CON, 25ft Move, Darkvision 60ft, Dwarven Resilience, Stonecunning, Dwarven Weapon Training, Langs(Common, Dwarven)\n\n";
     cout << "Choice of Dwarven Tools:\n\n"
-        << " 1. Smith's Tools\n 2. Brewer's Supplies\n 3. Mason's Tools.\n\n";
+         << " 1. Smith's Tools\n 2. Brewer's Supplies\n 3. Mason's Tools.\n\n";
     int ss = getNumber("Tool Choice: ", 1, 3);
     if (ss == 1) { v.smith = true; cout << "Smith's Tools learned!\n"; }
     if (ss == 2) { v.brewer = true; cout << "Brewer's Supplies learned!\n"; }
@@ -100,19 +100,19 @@ void Dwarf::setRaceDetails(Generic_Character_Class &v) {
          << " 1. Hill Dwarf\n 2. Mountain Dwarf.\n\n";
     subr = static_cast<enum dwarftype>(getNumber("Dwarf type(1-2): ", 1, 2));
     switch (subr) {
-        case HILL:
-            v.wisdom += 1;
-            v.dwarven_toughness = true;
-            cout << "Hill Dwarf defaults & bonuses: +1 WIS, Dwarven Toughness(+1 HP/level)\n";
-            break;
-        case MOUNTAIN:
-            v.strength += 2;
-            v.dwarven_armor_training = true;
-            cout << "Mountain Dwarf defaults & bonuses: +2 STR, Dwarven Armor Training(Proficient in Medium and Light Armor)\n";
-            break;
-        case NA:
-        default:
-            break;
+    case HILL:
+        v.wisdom += 1;
+        v.dwarven_toughness = true;
+        cout << "Hill Dwarf defaults & bonuses: +1 WIS, Dwarven Toughness(+1 HP/level)\n";
+        break;
+    case MOUNTAIN:
+        v.strength += 2;
+        v.dwarven_armor_training = true;
+        cout << "Mountain Dwarf defaults & bonuses: +2 STR, Dwarven Armor Training(Proficient in Medium and Light Armor)\n";
+        break;
+    case NA:
+    default:
+        break;
     }
 }
 void Elf::setRaceDetails(Generic_Character_Class &v) {
@@ -129,36 +129,36 @@ void Elf::setRaceDetails(Generic_Character_Class &v) {
     cout << "Elven Subrace:\n\n 1. High\n 2. Wood\n 3. Drow\n\n";
     subr = static_cast<enum elftype>(getNumber("Elf type choice(1-3): ", 1, 3));
     switch (subr) {
-        case HIGH:
-            v.intelligence += 1;
-            v.elf_weapon_training = true;
-            v.wizard_cantrips_known++;
-            v.setLanguage("High Elf bonus language.\n\n");
-            cout << "->High Elf defaults & bonuses applied:\n"
-                 << " +1 INT, Elven Weapon Training, Wizard Cantrip, Extra language\n";
-            break;
-        case WOOD:
-            v.wisdom += 1;
-            v.elf_weapon_training = true;
-            v.fleet_of_foot = true;
-            v.move_speed += 5;
-            v.mask_of_the_wild = true;
-            cout << "->Wood Elf defaults & bonuses:\n"
-                 << "+1 WIS, Elven Weapon Training, +5ft Move, Mask of the Wild.\n";
-            break;
-        case DROW:
-            v.charisma += 1;
-            v.darkvision = false;
-            v.superior_darkvision = true;
-            v.drow_magic = true;
-            v.drow_weapon_training = true;
-            v.sunlight_sensitivity = true;
-            cout << "->Drow Elf defaults & bonuses applied:\n"
-                 << " +1 CHA, Darkvision 120ft, Drow Magic, Drow Weapon Training.\n";
-            break;
-        case NA:
-        default:
-            break;
+    case HIGH:
+        v.intelligence += 1;
+        v.elf_weapon_training = true;
+        v.wizard_cantrips_known++;
+        v.setLanguage("High Elf bonus language.\n\n");
+        cout << "->High Elf defaults & bonuses applied:\n"
+             << " +1 INT, Elven Weapon Training, Wizard Cantrip, Extra language\n";
+        break;
+    case WOOD:
+        v.wisdom += 1;
+        v.elf_weapon_training = true;
+        v.fleet_of_foot = true;
+        v.move_speed += 5;
+        v.mask_of_the_wild = true;
+        cout << "->Wood Elf defaults & bonuses:\n"
+             << "+1 WIS, Elven Weapon Training, +5ft Move, Mask of the Wild.\n";
+        break;
+    case DROW:
+        v.charisma += 1;
+        v.darkvision = false;
+        v.superior_darkvision = true;
+        v.drow_magic = true;
+        v.drow_weapon_training = true;
+        v.sunlight_sensitivity = true;
+        cout << "->Drow Elf defaults & bonuses applied:\n"
+             << " +1 CHA, Darkvision 120ft, Drow Magic, Drow Weapon Training.\n";
+        break;
+    case NA:
+    default:
+        break;
     }
     cout << endl;
     pressEnterToContinue();
@@ -174,22 +174,22 @@ void Gnome::setRaceDetails(Generic_Character_Class &v) {
          << "Now, which kind of Gnome?\n\n 1. Forest\n 2. Rock\n\n";
     subr = static_cast<enum gnometype>(getNumber("Gnome type(1-2): ", 1, 2));
     switch (subr) {
-        case FOREST:
-            v.dexterity += 1;
-            v.natural_illusionist = true;
-            v.speak_with_small_beasts = true;
-            cout << "->Forest Gnome bonuses:\n +1 DEX, Natural Illusionist, Speak with Small Beasts\n";
-            break;
-        case ROCK:
-            v.constitution += 1;
-            v.tinker = true;
-            v.artificers_lore = true;
-            cout << "->Rock Gnome bonuses:\n +1 CON, Tinker, Artificers Lore\n";
-            break;
-        case NA:
-            break;
-        default:
-            break;
+    case FOREST:
+        v.dexterity += 1;
+        v.natural_illusionist = true;
+        v.speak_with_small_beasts = true;
+        cout << "->Forest Gnome bonuses:\n +1 DEX, Natural Illusionist, Speak with Small Beasts\n";
+        break;
+    case ROCK:
+        v.constitution += 1;
+        v.tinker = true;
+        v.artificers_lore = true;
+        cout << "->Rock Gnome bonuses:\n +1 CON, Tinker, Artificers Lore\n";
+        break;
+    case NA:
+        break;
+    default:
+        break;
     }
     pressEnterToContinue();
 }
@@ -206,27 +206,27 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v) {
         if (ss != 0) cout << "Choose another stat to give +1: \n\n";
         if (ss == 0) {
             cout << " 1. +1 Strength\n 2. +1 Dexterity\n 3. +1 Constitution"
-            << "\n 4. +1 Intelligence\n 5. +1 Wisdom\n\n";
+                 << "\n 4. +1 Intelligence\n 5. +1 Wisdom\n\n";
         }
         if (ss == 1) {
             cout << " 1. +1 (can't choose)\n 2. +1 Dexterity\n 3. +1 Constitution"
-            << "\n 4. +1 Intelligence\n 5. +1 Wisdom\n\n";
+                 << "\n 4. +1 Intelligence\n 5. +1 Wisdom\n\n";
         }
         if (ss == 2) {
             cout << " 1. +1 Strength\n 2. (can't choose)\n 3. +1 Constitution"
-            << "\n 4. +1 Intelligence\n 5. +1 Wisdom\n\n";
+                 << "\n 4. +1 Intelligence\n 5. +1 Wisdom\n\n";
         }
         if (ss == 3) {
             cout << " 1. +1 Strength\n 2. +1 Dexterity\n 3. (can't choose)"
-            << "\n 4. +1 Intelligence\n 5. +1 Wisdom\n\n";
+                 << "\n 4. +1 Intelligence\n 5. +1 Wisdom\n\n";
         }
         if (ss == 4) {
             cout << " 1. +1 Strength\n 2. +1 Dexterity\n 3. +1 Constitution"
-            << "\n 4. (can't choose)\n 5. +1 Wisdom\n\n";
+                 << "\n 4. (can't choose)\n 5. +1 Wisdom\n\n";
         }
         if (ss == 5) {
             cout << " 1. +1 Strength\n 2. +1 Dexterity\n 3. +1 Constitution"
-            << "\n 4. +1 Intelligence\n 5. (can't choose)\n\n";
+                 << "\n 4. +1 Intelligence\n 5. (can't choose)\n\n";
         }
         while ((cout << "Enter a number to choose : " && !(cin >> ss)) || ((ss < 1 || ss > 5) || ss == tmp)) {
             std::cin.clear();
@@ -268,20 +268,20 @@ void Halfling::setRaceDetails(Generic_Character_Class &v) {
     cout << "Which kind of Halfling?\n\n 1. Lightfoot\n 2. Stout.\n\n";
     subr = static_cast<enum halflingtype>(getNumber("Halfling Type(1-2): ", 1, 2));
     switch (subr) {
-        case LIGHTFOOT:
-            v.charisma += 1;
-            v.naturally_stealthy = true;
-            cout << "->Lightfoot Halfling bonuses applied:\n"
-                 << " +1 CHA, Naturally Stealthy\n\n";
-            break;
-        case STOUT:
-            v.constitution += 1;
-            v.stout_resilience = true;
-            v.damage_resist_poison = true;
-            cout << "->Stout Halfling bonuses applied:\n"
-                 << " +1 CON, Stout Resilience\n\n";
-        case NA:
-        default:;
+    case LIGHTFOOT:
+        v.charisma += 1;
+        v.naturally_stealthy = true;
+        cout << "->Lightfoot Halfling bonuses applied:\n"
+             << " +1 CHA, Naturally Stealthy\n\n";
+        break;
+    case STOUT:
+        v.constitution += 1;
+        v.stout_resilience = true;
+        v.damage_resist_poison = true;
+        cout << "->Stout Halfling bonuses applied:\n"
+             << " +1 CON, Stout Resilience\n\n";
+    case NA:
+    default:;
     }
     pressEnterToContinue();
 }
@@ -333,16 +333,16 @@ string Dragonborn::getRaceString() const {
 string Dwarf::getRaceString() const {
     string tmp = "";
     switch (subr) {
-        case HILL:
-            tmp += "Hill ";
-            break;
-        case MOUNTAIN:
-            tmp += "Mountain ";
-            break;
-        case NA:
-            break;
-        default:
-            break;
+    case HILL:
+        tmp += "Hill ";
+        break;
+    case MOUNTAIN:
+        tmp += "Mountain ";
+        break;
+    case NA:
+        break;
+    default:
+        break;
 
     }
     return tmp + "Dwarf";
@@ -350,35 +350,35 @@ string Dwarf::getRaceString() const {
 string Elf::getRaceString() const {
     string tmp = "";
     switch (subr) {
-        case HIGH:
-            tmp += "High ";
-            break;
-        case WOOD:
-            tmp += "Wood ";
-            break;
-        case DROW:
-            tmp += "Drow ";
-            break;
-        case NA:
-            break;
-        default:
-            break;
+    case HIGH:
+        tmp += "High ";
+        break;
+    case WOOD:
+        tmp += "Wood ";
+        break;
+    case DROW:
+        tmp += "Drow ";
+        break;
+    case NA:
+        break;
+    default:
+        break;
     }
     return tmp + "Elf";
 }
 string Gnome::getRaceString() const {
     string tmp = "";
     switch (subr) {
-        case FOREST:
-            tmp += "Forest ";
-            break;
-        case ROCK:
-            tmp += "Rock ";
-            break;
-        case NA:
-            break;
-        default:
-            break;
+    case FOREST:
+        tmp += "Forest ";
+        break;
+    case ROCK:
+        tmp += "Rock ";
+        break;
+    case NA:
+        break;
+    default:
+        break;
     }
     return tmp + "Gnome";
 }
@@ -388,16 +388,16 @@ string Halfelf::getRaceString() const {
 string Halfling::getRaceString() const {
     string tmp = "";
     switch (subr) {
-        case LIGHTFOOT:
-            tmp += "Lightfoot ";
-            break;
-        case STOUT:
-            tmp += "Stout ";
-            break;
-        case NA:
-            break;
-        default:
-            break;
+    case LIGHTFOOT:
+        tmp += "Lightfoot ";
+        break;
+    case STOUT:
+        tmp += "Stout ";
+        break;
+    case NA:
+        break;
+    default:
+        break;
     }
     return tmp + "Halfling";
 

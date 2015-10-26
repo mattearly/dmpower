@@ -426,19 +426,19 @@ void Cleric::setClassDetails(const int& l) {
     spellcasting = true;
     if (divine_domain == false) {
         cout << "Choose a Divine Domain:\n\n"
-        << " 1. Arcane\n 2. Death\n 3. Knowledge\n 4. Life\n 5. Light\n"
-        << " 6. Nature\n 7. Tempest\n 8. Trickery\n 9. War\n\n";
+             << " 1. Arcane\n 2. Death\n 3. Knowledge\n 4. Life\n 5. Light\n"
+             << " 6. Nature\n 7. Tempest\n 8. Trickery\n 9. War\n\n";
         int ss = getNumber("Divine Domain Choice(1-8): ", 1, 9);
         switch (ss) {
         case 1:
             arcana_d = true;
             arcana = true;  //gain arcana skill
             break;
-        case 2: 
+        case 2:
             death_d = true;
             //gain martial weapon prof
             break;
-        case 3: 
+        case 3:
             knowledge_d = true;
             setLanguage("First Knowledge Domain Language.\n\n");
             setLanguage("Second Knowledge Domain Language.\n\n");
@@ -608,18 +608,18 @@ void Fighter::setClassDetails(const int& l) {
              << "\n 4. Purple Dragon Knight\n\n";
         int ss = getNumber("Choose an Archetype(1-4): ", 1, 4);
         switch (ss) {
-            case 1: champion = true;
+        case 1: champion = true;
             break;
-            case 2: { 
-                battle_master = true;
-                setTools(1); 
-            }
+        case 2: {
+            battle_master = true;
+            setTools(1);
+        }
             break;
-            case 3: eldritch_knight = true;
+        case 3: eldritch_knight = true;
             break;
-            case 4: purple_dragon_knight = true;
+        case 4: purple_dragon_knight = true;
             break;
-            default: cout << "Error setting fight archetype.\n\n";
+        default: cout << "Error setting fight archetype.\n\n";
             break;
         }
         martial_archtype = true;
@@ -1049,16 +1049,16 @@ void Barbarian::setClassDetails(const int &l) {
         cout << " 1. Path of the Battlerager (Dwarf Only or check with DM)\n 2. Path of the Berserker\n 3. Path of the Totem Warrior.\n\n";
         int ss = getNumber("Choice(1-3): ", 1, 3);
         switch (ss) {
-        case 1: 
+        case 1:
             path_of_the_battlerager = true;
             break;
         case 2:
             path_of_the_berseker = true;
             break;
-        case 3: 
+        case 3:
             path_of_the_totem_warrior = true;
             cout << "Choose a type for your totem Path:\n\n"
-            << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
+                 << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
             ss = getNumber("Choice(1-3): ", 1, 3);
             if (ss == 1) { bear_totem = true; eagle_totem = false; wolf_totem = false; }
             if (ss == 2) { eagle_totem = true; bear_totem = false; wolf_totem = false; }
@@ -1079,7 +1079,7 @@ void Barbarian::setClassDetails(const int &l) {
     if (path_feature == 1 && l >= 10) {
         if (path_of_the_totem_warrior == true) {
             cout << "Change Totem Path option:\n\n"
-            << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
+                 << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
             int ss = getNumber("Choice: ", 1, 3);
             if (ss == 1) { bear_totem = true; eagle_totem = false; wolf_totem = false; }
             if (ss == 2) { eagle_totem = true; bear_totem = false; wolf_totem = false; }
@@ -1092,7 +1092,7 @@ void Barbarian::setClassDetails(const int &l) {
     if (path_feature == 2 && l >= 14) {
         if (path_of_the_totem_warrior == true) {
             cout << "Change Totem Path option:\n\n"
-            << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
+                 << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
             int ss = getNumber("Choice: ", 1, 3);
             if (ss == 1) { bear_totem = true; eagle_totem = false; wolf_totem = false; }
             if (ss == 2) { eagle_totem = true; bear_totem = false; wolf_totem = false; }
@@ -1169,7 +1169,7 @@ void Druid::setClassDetails(const int &l) {
     if (wild_shape == false && l >= 2) wild_shape = true;
     if (druid_circle == false && l >= 2) {
         cout << "Druid Circle:\n\n"
-        << " 1. Circle of the Land\n 2. Circle of the Moon\n\n";
+             << " 1. Circle of the Land\n 2. Circle of the Moon\n\n";
         int ss = getNumber("Choice: ", 1, 2);
         if (ss == 1) {
             cout << "Circle of the Land type:\n\n";
@@ -1297,8 +1297,8 @@ void Paladin::setClassDetails(const int &l) {
     if (lay_on_hands == false) lay_on_hands = true;
     if (fighting_style == false && l >= 2) {
         cout << "Pick a Paladin Fighting Style:\n\n"
-        << " 1. Defense\n 2. Dueling\n"
-        << " 3. Great Weapon Fighting\n 4. Protection\n\n";
+             << " 1. Defense\n 2. Dueling\n"
+             << " 3. Great Weapon Fighting\n 4. Protection\n\n";
         int ss = getNumber("Choice: ", 1, 4);
         if (ss == 1) defense = true;
         if (ss == 2) dueling = true;
@@ -1311,14 +1311,14 @@ void Paladin::setClassDetails(const int &l) {
     if (divine_health == false && l >= 3) divine_health = true;
     if (sacred_oath == false && l >= 3) {
         cout << "Pick a Paladin Oath Path:\n\n"
-        << " 1. Oath of Ancients\n"
-        << " 2. Oath of Devotion\n"
-        << " 3. Oath of the Crown\n"
-        << " 4. Oath of Vengeance\n"
-        << " 5. Oathbreaker\n\n";
+             << " 1. Oath of Ancients\n"
+             << " 2. Oath of Devotion\n"
+             << " 3. Oath of the Crown\n"
+             << " 4. Oath of Vengeance\n"
+             << " 5. Oathbreaker\n\n";
         int ss = getNumber("Choice: ", 1, 5);
         switch (ss) {
-        case 1: 
+        case 1:
             oath_of_ancients = true;
             break;
         case 2:
@@ -1333,7 +1333,7 @@ void Paladin::setClassDetails(const int &l) {
         case 5:
             oathbreaker = true;
             break;
-        default: 
+        default:
             cout << "Error setting Paladin Oath - check code\n\n";
             break;
         }
@@ -1424,7 +1424,7 @@ void Sorcerer::setClassDetails(const int &l) {
     if (spellcasting == false) spellcasting = true;
     if (sorcerous_origin == false) {
         cout << "Sorcerous Origin:\n\n"
-        << " 1. Draconic Bloodline\n 2. Wild Magic\n\n";
+             << " 1. Draconic Bloodline\n 2. Wild Magic\n\n";
         int ss = getNumber("Sorcerous Origin choice: ", 1, 2);
         if (ss == 1) {
             draconic = true;
@@ -1516,7 +1516,7 @@ void Bard::setClassDetails(const int &l) {
     if (song_of_rest == 0 && l >= 2) { song_of_rest = 6; }
     if (bard_college == false && l >= 3) {
         cout << "Bard College:\n\n"
-        << " 1. College of Lore\n 2. College of Valor\n\n";
+             << " 1. College of Lore\n 2. College of Valor\n\n";
         int ss = getNumber("Choice(1-2):  ", 1, 2);
         if (ss == 1) {
             setAnySkill("College of Lore Skills:", 3);
@@ -1554,11 +1554,11 @@ void Bard::setClassDetails(const int &l) {
             first_ss = 2;
             break;
         case 2:
-                bard_spells_known++;
+            bard_spells_known++;
             first_ss++;
             break;
         case 3:
-                bard_spells_known++;
+            bard_spells_known++;
             first_ss++;
             second_ss = 2;
             break;
@@ -1568,24 +1568,24 @@ void Bard::setClassDetails(const int &l) {
             second_ss++;
             break;
         case 5:
-                bard_spells_known++;
+            bard_spells_known++;
             third_ss = 2;
             break;
         case 6:
-                bard_spells_known++;
+            bard_spells_known++;
             third_ss++;
             if (additional_magical_secrets == true) bard_spells_known += 2;
             break;
         case 7:
-                bard_spells_known++;
+            bard_spells_known++;
             forth_ss = 1;
             break;
         case 8:
-                bard_spells_known++;
+            bard_spells_known++;
             forth_ss++;
             break;
         case 9:
-                bard_spells_known++;
+            bard_spells_known++;
             forth_ss++;
             fifth_ss = 1;
             break;
@@ -1595,27 +1595,27 @@ void Bard::setClassDetails(const int &l) {
             bard_spells_known += 2;
             break;
         case 11:
-                bard_spells_known++;
+            bard_spells_known++;
             sixth_ss = 1;
             break;
         case 13:
-                bard_spells_known++;
+            bard_spells_known++;
             seventh_ss = 1;
             break;
         case 14:
-                bard_spells_known += 2;
-                break;
+            bard_spells_known += 2;
+            break;
         case 15:
-                bard_spells_known++;
+            bard_spells_known++;
             eighth_ss = 1;
             break;
         case 17:
-                bard_spells_known++;
+            bard_spells_known++;
             ninth_ss = 1;
             break;
         case 18:
-                        bard_spells_known += 2;
-                        break;
+            bard_spells_known += 2;
+            break;
         case 19:
             sixth_ss++;
             break;
@@ -1657,22 +1657,22 @@ void Monk::setClassDetails(const int &l) {
     else if (l >- 18 && l <= 20) unarmored_movement = 30;
     if (!monastic_tradition && l >= 3) {
         cout << "Monastic Tradition:\n\n"
-        << " 1. Way of the Open Hand\n 2. Way of the Four Elements\n"
-        << " 3. Way of the Long Death\n 4. Way of the Shadow\n"
-        << " 5. Way of the Sun Soul\n\n";
+             << " 1. Way of the Open Hand\n 2. Way of the Four Elements\n"
+             << " 3. Way of the Long Death\n 4. Way of the Shadow\n"
+             << " 5. Way of the Sun Soul\n\n";
         int ss = getNumber("Tradition choice(1-3): ", 1, 5);
         switch (ss) {
-            case 1: way_of_the_open_hand = true;
+        case 1: way_of_the_open_hand = true;
             break;
-            case 2: way_of_the_four_elements = true;
+        case 2: way_of_the_four_elements = true;
             break;
-            case 3: way_of_the_long_death = true;
+        case 3: way_of_the_long_death = true;
             break;
-            case 4: way_of_the_shadow = true;
+        case 4: way_of_the_shadow = true;
             break;
-            case 5: way_of_the_sun_soul = true;
+        case 5: way_of_the_sun_soul = true;
             break;
-            default: cout << "Error setting monk tradition - check code\n\n";
+        default: cout << "Error setting monk tradition - check code\n\n";
         }
         monastic_tradition = true;
     }
@@ -1765,7 +1765,7 @@ void Ranger::setClassDetails(const int &l) {
     }
     if (fighting_style == false && l >= 2) {
         cout << "Ranger Fighting Style:\n\n"
-        << " 1. Archery\n 2. Defense\n 3. Dueling\n 4. Two Weapon Fighting\n\n";
+             << " 1. Archery\n 2. Defense\n 3. Dueling\n 4. Two Weapon Fighting\n\n";
         int ss = getNumber("Fight Style choice: ", 1, 4);
         if (ss == 1) archery = true;
         if (ss == 2) defense = true;
@@ -1776,7 +1776,7 @@ void Ranger::setClassDetails(const int &l) {
     if (spellcasting == false && l >= 2) spellcasting = true;
     if (ranger_archetype == false && l >= 3) {
         cout << "Ranger Archetype:\n\n"
-        << " 1. Hunter\n 2. Beast Master\n\n";
+             << " 1. Hunter\n 2. Beast Master\n\n";
         int ss = getNumber("Archetype choice(1-2): ", 1, 2);
         if (ss == 1) hunter = true;
         if (ss == 2) beast_master = true;
@@ -1893,7 +1893,7 @@ void Warlock::setClassDetails(const int &l) {
     if (pact_magic == false) pact_magic = true;
     if (otherworldly_patron == false) {
         cout << "Choose Warlock Otherworldly Patron:\n\n"
-        << " 1. Archfey\n 2. Fiend\n 3. Great Old One\n\n";
+             << " 1. Archfey\n 2. Fiend\n 3. Great Old One\n\n";
         int ss = getNumber("Patron choice: ", 1, 3);
         if (ss == 1) archfey = true;
         if (ss == 2) fiend = true;
@@ -2116,8 +2116,8 @@ void Generic_Character_Class::setBackground() {
         }
         setLanguage("First Cloistered Scholar bonus language.\n\n");
         setLanguage("Second Cloistered Scholar bonus language.\n\n");
-        cout << "Cloistered Scholar background: \n ->gained History, Choice Skill, & 2 Langs.\n";  
-    }    
+        cout << "Cloistered Scholar background: \n ->gained History, Choice Skill, & 2 Langs.\n";
+    }
         break;
     case 6:  //courtier
         insight = true;
@@ -2192,9 +2192,9 @@ void Generic_Character_Class::setBackground() {
         }
         //gain musical instrument or gaming tool
         setLanguage("Inheritor bonus language.\n\n");
-        cout << "Inheritor background: \n ->gained Survival, Choice Skill, Musical Instrument or Gaming set, & 1 Lang.\n";  
-    }  
-     break;
+        cout << "Inheritor background: \n ->gained Survival, Choice Skill, Musical Instrument or Gaming set, & 1 Lang.\n";
+    }
+        break;
     case 15:  //knight of the order
     {
         persuasion = true;
@@ -2210,8 +2210,8 @@ void Generic_Character_Class::setBackground() {
         }
         //gain musical instrument or gaming tool
         setLanguage("Knight of the Order bonus language.\n\n");
-        cout << "Knight of the Order background: \n ->gained Persuasion, Choice Skill, Musical Instrument or Gaming set, & 1 Lang.\n";  
-    }  
+        cout << "Knight of the Order background: \n ->gained Persuasion, Choice Skill, Musical Instrument or Gaming set, & 1 Lang.\n";
+    }
         break;
     case 16:  //mercenary veteran
         athletics = true;
@@ -2221,7 +2221,7 @@ void Generic_Character_Class::setBackground() {
         cout << "Mercenary Veteran background: \n ->gained Athletics, Persuasion, & gaming set or land vehicle";
         break;
     case 17:  //noble
-            history = true;
+        history = true;
         persuasion = true;
         //gaming kit here
         setLanguage("Noble bonus language.\n\n");
@@ -2234,33 +2234,33 @@ void Generic_Character_Class::setBackground() {
         setInstrument("Outlander instrument.\n\n", 1);
         setLanguage("Outlander bonus language.\n\n");
         cout << "Outlander background:\n ->gained Atheltics, Survival, Musical Instrument, & a Language.\n";
-  
+
         break;
     case 19:  //sage
-       arcana = true;
+        arcana = true;
         history = true;
         setLanguage("First Sage bonus language.\n\n");
         setLanguage("Second Sage bonus language.\n\n");
         cout << "Sage background:\n ->gained Arcana, History, & two Languages.\n";
-   
+
         break;
     case 20:  //sailor
-           athletics = true;
+        athletics = true;
         perception = true;
         navigator = true;
         vehicle = true;
         cout << "Sailor background:\n ->gained Athletics, Perception, Navigator's Tools, & Water Vehicle.\n";
- 
+
         break;
     case 21:  //soldier
-         athletics = true;
+        athletics = true;
         intimidation = true;
         //gaming set here;
         vehicle = true;
         cout << "Soilder background:\n ->gained Athletics, Intimidation, Gaming Set, & Land Vehicle.\n";
-   
+
         break;
-    case 22:  //urban bounty hunter  
+    case 22:  //urban bounty hunter
     {
         for (int i = 0; i < 2; i++) {
             if (i = 0) cout << "First ";
@@ -2279,17 +2279,17 @@ void Generic_Character_Class::setBackground() {
         }
         
         //gain any 2 tools, gaming, musical, thieves tools)
-        cout << "Knight of the Order background: \n ->gained Choice Skills, Choice instruments/games/thieves.\n";  
+        cout << "Knight of the Order background: \n ->gained Choice Skills, Choice instruments/games/thieves.\n";
     }         break;
     case 23:  //urchin
-         sleight_of_hand = true;
+        sleight_of_hand = true;
         stealth = true;
         disguise = true;
         thieves = true;
         cout << "Urchin background:\n ->gained Sleight of hand, Stealth, Disguise Kit, & Thieves' Tools.\n";
-   
+
         break;
-    case 24:  //uthgardt tribe member  
+    case 24:  //uthgardt tribe member
         athletics = true;
         survival = true;
         //gain tool or musical instrument
@@ -2311,31 +2311,31 @@ void Generic_Character_Class::setBackground() {
 }
 void Generic_Character_Class::setAllStats() {
     simpleClearScreen();
-        char ans = getYorN("Randomly Generate Stats? [Y/n] ");
-        if (ans == 'Y') {
-                int stats[6];
-                int ss = getNumber("Roll Style:\n\n 1. 4d6 drop lowest\n 2. 3d6 standard\n\nChoice: ", 1, 2);
-                for (int i = 0; i < 6; i++) {
-                        if (ss == 1) stats[i] = rollstats_hi_power();
-                        else stats[i] = rollstats_standard();
-                        if (i == 5) {
-                                cout << "Stats are:\n";
-                                for (int j = 0; j < 6; j++) {
-                                        cout << "\n " << stats[j];
-                                }
-                        }
+    char ans = getYorN("Randomly Generate Stats? [Y/n] ");
+    if (ans == 'Y') {
+        int stats[6];
+        int ss = getNumber("Roll Style:\n\n 1. 4d6 drop lowest\n 2. 3d6 standard\n\nChoice: ", 1, 2);
+        for (int i = 0; i < 6; i++) {
+            if (ss == 1) stats[i] = rollstats_hi_power();
+            else stats[i] = rollstats_standard();
+            if (i == 5) {
+                cout << "Stats are:\n";
+                for (int j = 0; j < 6; j++) {
+                    cout << "\n " << stats[j];
                 }
-                for (int i = 0; i < 6; i++) {
-                        assignStats(stats[i]);
-                }
-        } else {
-                setStr(getNumber("Enter starting Strength(3-18): ", 3, 18));
-                setDex(getNumber("Enter starting Dexterity(3-18): ", 3, 18));
-                setCon(getNumber("Enter starting Constitution(3-18): ", 3, 18));
-                setInt(getNumber("Enter starting Intelligence(3-18): ", 3, 18));
-                setWis(getNumber("Enter starting Wisdom(3-18): ", 3, 18));
-                setCha(getNumber("Enter starting Charisma(3-18): ", 3, 18));
+            }
         }
+        for (int i = 0; i < 6; i++) {
+            assignStats(stats[i]);
+        }
+    } else {
+        setStr(getNumber("Enter starting Strength(3-18): ", 3, 18));
+        setDex(getNumber("Enter starting Dexterity(3-18): ", 3, 18));
+        setCon(getNumber("Enter starting Constitution(3-18): ", 3, 18));
+        setInt(getNumber("Enter starting Intelligence(3-18): ", 3, 18));
+        setWis(getNumber("Enter starting Wisdom(3-18): ", 3, 18));
+        setCha(getNumber("Enter starting Charisma(3-18): ", 3, 18));
+    }
     pressEnterToContinue();
 }
 void Generic_Character_Class::setStr(const int& s) { strength = s; }
@@ -2642,34 +2642,34 @@ void Generic_Character_Class::increase2statsby1() {
     cout << "Give two differnt stats +1: \n\n";
     for (int i = 0; i < 2; ++i) {
         switch (ss) {
-            case 0:
-                cout<< " 1. +1 Str\n 2. +1 Dex\n 3. +1 Con\n"
-                    << " 4. +1 Int\n 5. +1 Wis\n 6. +1 Cha\n\n";
-                break;
-            case 1:
-                cout<< " 1. (can't choose)\n 2. +1 Dex\n 3. +1 Con\n"
-                    << " 4. +1 Int\n 5. +1 Wis\n 6. +1 Cha\n\n";
-                break;
-            case 2:
-                cout<< " 1. +1 Str\n 2. (can't choose)\n 3. +1 Con\n"
-                    << " 4. +1 Int\n 5. +1 Wis\n 6. +1 Cha\n\n";
-                break;
-            case 3:
-                cout<< " 1. +1 Str\n 2. +1 Dex\n 3. (can't choose)\n"
-                    << " 4. +1 Int\n 5. +1 Wis\n 6. +1 Cha\n\n";
-                break;
-            case 4:
-                cout<< " 1. +1 Str\n 2. +1 Dex\n 3. +1 Con\n"
-                    << " 4. (can't choose)\n 5. +1 Wis\n 6. +1 Cha\n\n";
-                break;
-            case 5:
-                cout<< " 1. +1 Str\n 2. +1 Dex\n 3. +1 Con\n"
-                    << " 4. +1 Int\n 5. (can't choose)\n 6. +1 Cha\n\n";
-                break;
-            case 6:
-                cout<< " 1. +1 Str\n 2. +1 Dex\n 3. +1 Con\n"
-                    << " 4. +1 Int\n 5. +1 Wis\n 6. (can't choose)\n\n";
-            default:;
+        case 0:
+            cout<< " 1. +1 Str\n 2. +1 Dex\n 3. +1 Con\n"
+                << " 4. +1 Int\n 5. +1 Wis\n 6. +1 Cha\n\n";
+            break;
+        case 1:
+            cout<< " 1. (can't choose)\n 2. +1 Dex\n 3. +1 Con\n"
+                << " 4. +1 Int\n 5. +1 Wis\n 6. +1 Cha\n\n";
+            break;
+        case 2:
+            cout<< " 1. +1 Str\n 2. (can't choose)\n 3. +1 Con\n"
+                << " 4. +1 Int\n 5. +1 Wis\n 6. +1 Cha\n\n";
+            break;
+        case 3:
+            cout<< " 1. +1 Str\n 2. +1 Dex\n 3. (can't choose)\n"
+                << " 4. +1 Int\n 5. +1 Wis\n 6. +1 Cha\n\n";
+            break;
+        case 4:
+            cout<< " 1. +1 Str\n 2. +1 Dex\n 3. +1 Con\n"
+                << " 4. (can't choose)\n 5. +1 Wis\n 6. +1 Cha\n\n";
+            break;
+        case 5:
+            cout<< " 1. +1 Str\n 2. +1 Dex\n 3. +1 Con\n"
+                << " 4. +1 Int\n 5. (can't choose)\n 6. +1 Cha\n\n";
+            break;
+        case 6:
+            cout<< " 1. +1 Str\n 2. +1 Dex\n 3. +1 Con\n"
+                << " 4. +1 Int\n 5. +1 Wis\n 6. (can't choose)\n\n";
+        default:;
         }
         while ((cout << "Enter a number to choose: " && !(cin >> ss)) || ((ss < 1 || ss > 6) || ss == tmp)) {
             std::cin.clear();
@@ -2744,34 +2744,34 @@ void Generic_Character_Class::increase1statby2(){
     cout << "Choose a stat to give +2: \n\n";
     for (int i = 0; i < 1; i++) {
         switch (ss) {
-            case 0:
-                cout << " 1. +2 Str\n 2. +2 Dex\n 3. +2 Con"
-                     << "\n 4. +2 Int\n 5. +2 Wis\n 6. +2 Cha\n\n";
-                break;
-            case 1:
-                cout << " 1. (can't choose)\n 2. +2 Dex\n 3. +2 Con"
-                     << "\n 4. +2 Int\n 5. +2 Wis\n 6. +2 Cha\n\n";;
-                break;
-            case 2:
-                cout << " 1. +2 Str\n 2. (can't choose)\n 3. +2 Con"
-                     << "\n 4. +2 Int\n 5. +2 Wis\n 6. +2 Cha\n\n";
-                break;
-            case 3:
-                cout << " 1. +2 Str\n 2. +2 Dex\n 3. (can't choose)"
-                     << "\n 4. +2 Int\n 5. +2 Wis\n 6. +2 Cha\n\n";
-                break;
-            case 4:
-                cout << " 1. +2 Str\n 2. +2 Dex\n 3. +2 Con"
-                     << "\n 4. (can't choose)\n 5. +2 Wis\n 6. +2 Cha\n\n";
-                break;
-            case 5:
-                cout << " 1. +2 Str\n 2. +2 Dex\n 3. +2 Con"
-                     << "\n 4. +2 Int\n 5. (can't choose)\n 6. +2 Cha\n\n";
-                break;
-            case 6:
-                cout << " 1. +2 Str\n 2. +2 Dex\n 3. +2 Con"
-                     << "\n 4. +2 Int\n 5. +2 Wis\n 6. (can't choose)\n\n";
-            default:;
+        case 0:
+            cout << " 1. +2 Str\n 2. +2 Dex\n 3. +2 Con"
+                 << "\n 4. +2 Int\n 5. +2 Wis\n 6. +2 Cha\n\n";
+            break;
+        case 1:
+            cout << " 1. (can't choose)\n 2. +2 Dex\n 3. +2 Con"
+                 << "\n 4. +2 Int\n 5. +2 Wis\n 6. +2 Cha\n\n";;
+            break;
+        case 2:
+            cout << " 1. +2 Str\n 2. (can't choose)\n 3. +2 Con"
+                 << "\n 4. +2 Int\n 5. +2 Wis\n 6. +2 Cha\n\n";
+            break;
+        case 3:
+            cout << " 1. +2 Str\n 2. +2 Dex\n 3. (can't choose)"
+                 << "\n 4. +2 Int\n 5. +2 Wis\n 6. +2 Cha\n\n";
+            break;
+        case 4:
+            cout << " 1. +2 Str\n 2. +2 Dex\n 3. +2 Con"
+                 << "\n 4. (can't choose)\n 5. +2 Wis\n 6. +2 Cha\n\n";
+            break;
+        case 5:
+            cout << " 1. +2 Str\n 2. +2 Dex\n 3. +2 Con"
+                 << "\n 4. +2 Int\n 5. (can't choose)\n 6. +2 Cha\n\n";
+            break;
+        case 6:
+            cout << " 1. +2 Str\n 2. +2 Dex\n 3. +2 Con"
+                 << "\n 4. +2 Int\n 5. +2 Wis\n 6. (can't choose)\n\n";
+        default:;
         }
         while ((cout << "Enter a number to choose: " && !(cin >> ss)) || ((ss < 1 || ss > 6) || ss == tmp)) {
             std::cin.clear();
@@ -3328,46 +3328,46 @@ void Generic_Character_Class::gainWeapon_master(bool& s) {
 void Generic_Character_Class::levelUpStats() {
     int ss = getNumber(" 1 - Increase a Stat by 2\n 2 - Increase two Stats by 1\n 3 - Gain a Feat\n\nLevel Up Choice(1-3): ", 1, 3);
     switch (ss) {
-        case 1:
-            increase1statby2();
-            break;
-        case 2:
-            increase2statsby1();
-            break;
-        case 3:
-            setAnyFeat();
-        default:;
+    case 1:
+        increase1statby2();
+        break;
+    case 2:
+        increase2statsby1();
+        break;
+    case 3:
+        setAnyFeat();
+    default:;
     }
     pressEnterToContinue();
 }
 void Generic_Character_Class::assignStats(int & s) {
-        cout << "\nAssign " << s << " to: \n\n";
+    cout << "\nAssign " << s << " to: \n\n";
 
-        if (strength == 0) cout << " 1. Strength\n";
-        else cout << " 1. Strength(DONE)\n";
+    if (strength == 0) cout << " 1. Strength\n";
+    else cout << " 1. Strength(DONE)\n";
 
-        if (dexterity == 0) cout << " 2. Dexterity\n";
-        else cout << " 2. Dexterity(DONE)\n";
+    if (dexterity == 0) cout << " 2. Dexterity\n";
+    else cout << " 2. Dexterity(DONE)\n";
 
-        if (constitution == 0) cout << " 3. Constitution\n";
-        else cout << " 3. Constitution(DONE)\n";
+    if (constitution == 0) cout << " 3. Constitution\n";
+    else cout << " 3. Constitution(DONE)\n";
 
-        if (intelligence == 0) cout << " 4. Intelligence\n";
-        else cout << " 4. Intelligence(DONE)\n";
+    if (intelligence == 0) cout << " 4. Intelligence\n";
+    else cout << " 4. Intelligence(DONE)\n";
 
-        if (wisdom == 0) cout << " 5. Wisdom\n";
-        else cout << " 5. Wisdom(DONE)\n";
+    if (wisdom == 0) cout << " 5. Wisdom\n";
+    else cout << " 5. Wisdom(DONE)\n";
 
-        if (charisma == 0) cout << " 6. Charisma\n\n";
-        else cout << " 6. Charisma(DONE)\n\n";
+    if (charisma == 0) cout << " 6. Charisma\n\n";
+    else cout << " 6. Charisma(DONE)\n\n";
 
-        int ss = getNumber("Choice: ", 1, 6);
-        if (ss == 1) setStr(s);
-        else if (ss == 2) setDex(s);
-        else if (ss == 3) setCon(s);
-        else if (ss == 4) setInt(s);
-        else if (ss == 5) setWis(s);
-        else setCha(s);
+    int ss = getNumber("Choice: ", 1, 6);
+    if (ss == 1) setStr(s);
+    else if (ss == 2) setDex(s);
+    else if (ss == 3) setCon(s);
+    else if (ss == 4) setInt(s);
+    else if (ss == 5) setWis(s);
+    else setCha(s);
 
 }
 
@@ -3580,86 +3580,86 @@ void Generic_Character_Class::character_sheet() const {
 string Generic_Character_Class::getBackground() const {
     string tmp = "";
     switch (backgroundofpc) {
-        case NOBACKGROUND:
-            break;
-        case ACOLYTE :
-            tmp = "Acolyte";
-            break;
-        case CHARLATAN :
-            tmp = "Charlatan";
-            break;
-        case CRIMINAL :
-            tmp = "Criminal";
-            break;
-        case ENTERTAINER :
-            tmp = "Entertainer";
-            break;
-        case FOLK_HERO :
-            tmp = "Folk Hero";
-            break;
-        case GUILD_ARTISAN :
-            tmp = "Guild Artisan";
-            break;
-        case HERMIT :
-            tmp = "Hermit";
-            break;
-        case NOBLE :
-            tmp = "Noble";
-            break;
-        case OUTLANDER :
-            tmp = "Outlander";
-            break;
-        case SAGE :
-            tmp = "Sage";
-            break;
-        case SAILOR :
-            tmp = "Sailor";
-            break;
-        case SOLDIER :
-            tmp = "Soldier";
-            break;
-        case URCHIN :
-            tmp = "Urchin";
-            break;
-        case CITY_WATCH :   
-            tmp = "City Watch";
-            break;
-        case CLAN_CRAFTER :
-            tmp = "Clan Crafter";
-            break;
-        case CLOISTERED_SCHOLAR :
-            tmp = "Cloistered Scholar";
-            break;
-        case COURTIER:
-            tmp = "Courtier";
-            break;
-        case FACTION_AGENT:
-            tmp = "Faction Agent";
-            break;
-        case FAR_TRAVELER:
-            tmp = "Far Traveler";
-            break;
-        case INHERITOR:
-            tmp = "Inheritoir";
-            break;
-        case KNIGHT_OF_THE_ORDER:
-            tmp = "Knight of the Order";
-            break;
-        case MERCENARY_VETERAN:
-            tmp = "Mercenary Veteran";
-            break;
-        case URBAN_BOUNTY_HUNTER:
-            tmp = "Urban Bounty Hunter";
-            break;
-        case UTHGARDT_TRIBE_MEMBER:
-            tmp = "Uthgardt Tribe Member";
-            break;
-        case WATERDHAVIAN_NOBLE:
-            tmp = "Waterdhavain Noble";
-            break;
-        default:
-            tmp = "Error Displaying Background - Check Code";
-            break;
+    case NOBACKGROUND:
+        break;
+    case ACOLYTE :
+        tmp = "Acolyte";
+        break;
+    case CHARLATAN :
+        tmp = "Charlatan";
+        break;
+    case CRIMINAL :
+        tmp = "Criminal";
+        break;
+    case ENTERTAINER :
+        tmp = "Entertainer";
+        break;
+    case FOLK_HERO :
+        tmp = "Folk Hero";
+        break;
+    case GUILD_ARTISAN :
+        tmp = "Guild Artisan";
+        break;
+    case HERMIT :
+        tmp = "Hermit";
+        break;
+    case NOBLE :
+        tmp = "Noble";
+        break;
+    case OUTLANDER :
+        tmp = "Outlander";
+        break;
+    case SAGE :
+        tmp = "Sage";
+        break;
+    case SAILOR :
+        tmp = "Sailor";
+        break;
+    case SOLDIER :
+        tmp = "Soldier";
+        break;
+    case URCHIN :
+        tmp = "Urchin";
+        break;
+    case CITY_WATCH :
+        tmp = "City Watch";
+        break;
+    case CLAN_CRAFTER :
+        tmp = "Clan Crafter";
+        break;
+    case CLOISTERED_SCHOLAR :
+        tmp = "Cloistered Scholar";
+        break;
+    case COURTIER:
+        tmp = "Courtier";
+        break;
+    case FACTION_AGENT:
+        tmp = "Faction Agent";
+        break;
+    case FAR_TRAVELER:
+        tmp = "Far Traveler";
+        break;
+    case INHERITOR:
+        tmp = "Inheritoir";
+        break;
+    case KNIGHT_OF_THE_ORDER:
+        tmp = "Knight of the Order";
+        break;
+    case MERCENARY_VETERAN:
+        tmp = "Mercenary Veteran";
+        break;
+    case URBAN_BOUNTY_HUNTER:
+        tmp = "Urban Bounty Hunter";
+        break;
+    case UTHGARDT_TRIBE_MEMBER:
+        tmp = "Uthgardt Tribe Member";
+        break;
+    case WATERDHAVIAN_NOBLE:
+        tmp = "Waterdhavain Noble";
+        break;
+    default:
+        tmp = "Error Displaying Background - Check Code";
+        break;
     }
     return tmp;
 }
@@ -3950,7 +3950,7 @@ void Generic_Character_Class::printClassAbilities() const {
             if (sacred_oath_feature >= 2) cout << ", Supernatural Resistance";
             if (sacred_oath_feature == 3) cout << ", Dread Lord";
         } else { //oath of the crown
-            cout << "Oath of the Crown(Tenets, Oath Spells, Channel Divinity(Champion Challenge, Turn the Tide)"; 
+            cout << "Oath of the Crown(Tenets, Oath Spells, Channel Divinity(Champion Challenge, Turn the Tide)";
             if (sacred_oath_feature >= 1) cout << ", Divine Allegiance";
             if (sacred_oath_feature >= 2) cout << ", Unyielding Spirit";
             if (sacred_oath_feature == 3) cout << ", Exalted Champion";

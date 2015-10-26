@@ -13,12 +13,12 @@
 
 class Gear {
 public:
-	Gear();
-	Gear(const int&,const std::string&);
-	void showItem() const;
+    Gear();
+    Gear(const int&,const std::string&);
+    void showItem() const;
 protected:
-	int quantity;
-	std::string item_name;
+    int quantity;
+    std::string item_name;
 
 private:
 
@@ -29,10 +29,10 @@ private:
 // }
 
 // Class Coins : Gear {
-	
+
 // 	Coins(cp, sp, ep, gp, pp, item_AC, item_hardness, item_hitpoints) { 0,0,0,0,0,10,5,2 }
 // 	int cp, sp, ep, gp, pp;
-	
+
 // }
 
 // Class Gemstones : Gear {
@@ -42,11 +42,11 @@ private:
 // }
 
 // Class ArtObjects : Gear {
-	
+
 // }
 
 // Class MagicItems : Gear {
-	
+
 // }
 
 #endif 

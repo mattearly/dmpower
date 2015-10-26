@@ -398,7 +398,7 @@ ofstream& Campaign::dumpCharacter(ofstream& os) {
                 << (*it)->cleansing_touch << endl
                 << (*it)->aura_improvments << endl
                 << (*it)->oath_of_ancients << endl
-                 << (*it)->oath_of_devotion << endl
+                << (*it)->oath_of_devotion << endl
                 << (*it)->oath_of_the_crown << endl
                 << (*it)->oath_of_vengeance << endl
                 << (*it)->oathbreaker << endl
