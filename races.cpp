@@ -305,7 +305,7 @@ void Human::setRaceDetails(Generic_Character_Class &v) {
     v.move_speed = 30;
     cout << "->Human base move speed is " << v.move_speed << ".\n";
     v.common = true;
-    v.setLanguage("->Humans gain know one language of your choice.\n\n");
+    v.setLanguage("->Humans gain 'know one language of your choice.'\n\n");
     pressEnterToContinue();
 }
 void Tiefling::setRaceDetails(Generic_Character_Class &v) {

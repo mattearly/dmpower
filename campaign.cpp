@@ -432,6 +432,8 @@ ofstream& Campaign::dumpCharacter(ofstream& os) {
                 << (*it)->thief << endl
                 << (*it)->assassin << endl
                 << (*it)->arcane_trickster << endl
+                << (*it)->mastermind << endl
+                << (*it)->swashbuckler << endl
                 << "sorcerer" << endl
                 << (*it)->sorcerous_origin_feature << endl  //sorcerer
                 << (*it)->metamagic << endl
@@ -888,6 +890,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->thief;
         ins >> v->assassin;
         ins >> v->arcane_trickster;
+        ins >> v->mastermind;
+        ins >> v->swashbuckler;
         ins.get();
         ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "sorcerer"
         ins >> v->sorcerous_origin_feature;  //sorcerer

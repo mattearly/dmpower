@@ -28,7 +28,7 @@ int main() {
     do {
         cout << "\n----------MAIN MENU----------" << endl
              << "1. Characters" << endl
-             << "2. Scrolls, Potions, Magical, and Other Items" << endl
+             << "2. Magic Item Charts" << endl
              << "3. Experience Calculator" << endl
              << "4. Name Generator" << endl
              << "5. Save & Quit" << endl

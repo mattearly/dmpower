@@ -124,6 +124,8 @@ Generic_Character_Class::Generic_Character_Class() {
     thief = 0;
     assassin = 0;
     arcane_trickster = 0;
+    mastermind = 0;
+    swashbuckler = 0;
     sorcerous_origin = 0;
     font_of_magic = 0;
     sorcerous_restoration = 0;
@@ -743,20 +745,38 @@ void Rogue::setClassDetails(const int& l) {
     if (cunning_action == false && l >= 2) cunning_action = true;
     if (roguish_archetype == false && l >= 3) {
         cout << "Roguish Archetype:\n\n"
-             << " 1. Thief"
-             << "\n 2. Assassin"
-             << "\n 3. Arcane Trickster\n\n";
-        int ss = getNumber("Choose an Archetype(1-3): ", 1, 3);
+             << " 1. Thief\n"
+             << " 2. Assassin\n"
+             << " 3. Arcane Trickster\n"
+             << " 4. Mastermind\n"
+             << " 5. Swashbuckler\n\n";
+        int ss = getNumber("Choose an Archetype(1-5): ", 1, 5);
         switch (ss) {
         case 1:
             thief = true;
             break;
         case 2:
             assassin = true;
+            cout << "Assassin: gained proficiency with Disguise & Poisoner kit.\n\n";
+            disguise = true;
+            poisoner = true;
             break;
         case 3:
             arcane_trickster = true;
             spellcasting = true;
+            break;
+        case 4:
+            mastermind = true;
+            setLanguage("First bonus Rogue::Mastermind Language:\n\n");
+            setLanguage("Second bonus Rogue::Mastermind Language:\n\n");
+            cout << "Mastermind: gained proficiency with Disquise & Forgery Kit\n\n";
+            disguise = true;
+            forgery = true;
+            //gain gaming set
+            break;
+        case 5:
+            swashbuckler = true;
+            break;
         default:;
         }
         roguish_archetype = true;
@@ -2181,9 +2201,9 @@ void Generic_Character_Class::setBackground() {
     case 14:  //inheritor
     {
         survival = true;
-        cout << "Skill for Inheritor Background\n\n Pick from\n"
-             << " 1. Arcana\n 2. History\n 3. Religion";
-        int tmp = getNumber("Choice: ",1 , 3);
+        cout << "Pick a Skill for Inheritor Background:\n\n"
+             << " 1. Arcana\n 2. History\n 3. Religion\n\n";
+        int tmp = getNumber(" Choice: ",1 , 3);
         switch (tmp) {
         case 1: arcana = true; break;
         case 2: history = true; break;
@@ -3993,26 +4013,36 @@ void Generic_Character_Class::printClassAbilities() const {
     if (feral_senses == true) cout << "Feral Senses, ";
     if (foe_slayer == true) cout << "Foe Slayer, ";
     //rogue
-    if (sneak_attack == true) cout << "Sneak Attack, ";
-    if (thieves_cant == true) cout << "Thieves' Cant, ";
-    if (cunning_action == true) cout << "Cunning Action, ";
-    if (roguish_archetype == true) {
+    if (sneak_attack) cout << "Sneak Attack, ";
+    if (thieves_cant) cout << "Thieves' Cant, ";
+    if (cunning_action) cout << "Cunning Action, ";
+    if (roguish_archetype) {
         cout << "Roguish Archetype(";
-        if (thief == true) {
+        if (thief) {
             cout << "Thief)[Fast Hands, Second-Story Work";
             if (roguish_archetype_feature > 0) cout << ", Supreme Sneak";
             if (roguish_archetype_feature > 1) cout << ", Use Magic Device";
             if (roguish_archetype_feature > 2) cout << ", Thief's Reflexes";
-        } else if (assassin == true) {
-            cout << "Assassin)[Prof:Disguise & Poisoner's Kit, Assassinate";
+        } else if (assassin ) {
+            cout << "Assassin)[Assassinate";
             if (roguish_archetype_feature > 0) cout << ", Infiltration Expertise";
             if (roguish_archetype_feature > 1) cout << ", Impostor";
             if (roguish_archetype_feature > 2) cout << ", Death Strike";
-        } else {
-            cout << "Arcane Trickster)[";
-            if (roguish_archetype_feature > 0) cout << "";
-            if (roguish_archetype_feature > 1) cout << ", ";
-            if (roguish_archetype_feature > 2) cout << ", ";
+        } else if (arcane_trickster){
+            cout << "Arcane Trickster)[Spellcasting, Mage Hand Legerdemain";
+            if (roguish_archetype_feature > 0) cout << ", Magical Ambush";
+            if (roguish_archetype_feature > 1) cout << ", Versatile Trickerster";
+            if (roguish_archetype_feature > 2) cout << ", Spell Theif";
+        } else if (mastermind) {
+            cout << "Mastermind)[Master of Intrigue, Master of Tactics";
+            if (roguish_archetype_feature > 0) cout << ", Insightful Manipulation";
+            if (roguish_archetype_feature > 1) cout << ", Misdirection";
+            if (roguish_archetype_feature > 2) cout << ", Soul of Deceit";
+        } else { //swashbuckler
+            cout << "Swashbuckler)[Fancy Footwork, Rakish Audacity";
+            if (roguish_archetype_feature > 0) cout << ", Panache";
+            if (roguish_archetype_feature > 1) cout << ", Elegant Maneuver";
+            if (roguish_archetype_feature > 2) cout << ", Master Duelist";
         }
         cout << "], ";
     }

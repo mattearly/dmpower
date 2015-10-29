@@ -75,7 +75,7 @@ public:
     int roguish_archetype_feature, arcane_t_spells_known;
     bool sneak_attack, thieves_cant, cunning_action, roguish_archetype,
     uncanny_dodge, reliable_talent, blindsense, slippery_mind,
-    elusive, stroke_of_luck, thief, assassin, arcane_trickster;
+    elusive, stroke_of_luck, thief, assassin, arcane_trickster, mastermind, swashbuckler;
     //SORCERER
     int sorcerous_origin_feature, metamagic, sorcery_points, sorcerer_spells_known, sorcerer_cantrips_known;
     bool sorcerous_origin, font_of_magic, sorcerous_restoration,
