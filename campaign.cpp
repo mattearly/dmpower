@@ -445,6 +445,7 @@ ofstream& Campaign::dumpCharacter(ofstream& os) {
                 << (*it)->sorcerous_restoration << endl
                 << (*it)->draconic_bloodline << endl
                 << (*it)->wild_magic << endl
+                << (*it)->storm_sorcery << endl
                 << "warlock" << endl
                 << (*it)->warlock_slot_level << endl //warlock
                 << (*it)->eldritch_invocations_known << endl
@@ -904,6 +905,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->sorcerous_restoration;
         ins >> v->draconic_bloodline;
         ins >> v->wild_magic;
+        ins >> v->storm_sorcery;
         ins.get();
         ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "warlock"
         ins >> v->warlock_slot_level; //warlock

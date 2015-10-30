@@ -131,6 +131,7 @@ Generic_Character_Class::Generic_Character_Class() {
     sorcerous_restoration = 0;
     draconic_bloodline = 0;
     wild_magic = 0;
+    storm_sorcery = 0;
     otherworldly_patron = 0;
     pact_magic = 0;
     pact_boon = 0;
@@ -1444,12 +1445,19 @@ void Sorcerer::setClassDetails(const int &l) {
     if (spellcasting == false) spellcasting = true;
     if (sorcerous_origin == false) {
         cout << "Sorcerous Origin:\n\n"
-             << " 1. Draconic Bloodline\n 2. Wild Magic\n\n";
-        int ss = getNumber("Sorcerous Origin choice: ", 1, 2);
-        if (ss == 1) {
+             << " 1. Draconic Bloodline\n 2. Wild Magic\n 3. Storm Sorcery\n\n";
+        int ss = getNumber("Sorcerous Origin choice: ", 1, 3);
+        switch (ss) {
+        case 1:
             draconic = true;
-            draconic_bloodline = true;
+            draconic_bloodline = true; break;
+        case 2:
+            wild_magic = true; break;
+        case 3:
+            storm_sorcery = true; break;
+        default:;
         }
+
         if (ss == 2) wild_magic = true;
         sorcerous_origin = true;
     }
@@ -4053,18 +4061,23 @@ void Generic_Character_Class::printClassAbilities() const {
     if (elusive == true) cout << "Elusive, ";
     if (stroke_of_luck == true) cout << "Stroke of Luck, ";
     //sorcerer
-    if (sorcerous_origin == true) {
+    if (sorcerous_origin) {
         cout << "Sorcerous Origin(";
-        if (draconic_bloodline == true) {
+        if (draconic_bloodline) {
             cout << "Draconic Bloodline)[Draconic Resilience";
             if (sorcerous_origin_feature >= 1) cout << ", Elemental Affinity";
             if (sorcerous_origin_feature >= 2) cout << ", Draconic Wings";
             if (sorcerous_origin_feature == 3) cout << ", Draconic Presence";
-        } else if (wild_magic == true) {
+        } else if (wild_magic) {
             cout << "Wild Magic)[Surge, Tides of Chaos";
             if (sorcerous_origin_feature >= 1) cout << ", Bend Luck";
             if (sorcerous_origin_feature >= 2) cout << ", Controlled Chaos";
             if (sorcerous_origin_feature == 3) cout << ", Spell Bombardment";
+        } else { //storm sorcery
+            cout << "Storm Sorcery)[Wind Speaker, Tempestuous Magic";
+            if (sorcerous_origin_feature >= 1) cout << ", Heart of the Storm, Storm Guide";
+            if (sorcerous_origin_feature >= 2) cout << ", Storm's Fury";
+            if (sorcerous_origin_feature == 3) cout << ", Wind Soul";
         }
         cout << "], ";
     }

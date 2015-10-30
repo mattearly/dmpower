@@ -79,7 +79,7 @@ public:
     //SORCERER
     int sorcerous_origin_feature, metamagic, sorcery_points, sorcerer_spells_known, sorcerer_cantrips_known;
     bool sorcerous_origin, font_of_magic, sorcerous_restoration,
-    draconic_bloodline, wild_magic;
+    draconic_bloodline, wild_magic, storm_sorcery;
     //WARLOCK
     int warlock_slot_level, eldritch_invocations_known, warlock_spells_known, warlock_spell_slots, warlock_cantrips_known, otherworldly_patron_feature, mystic_arcanum;
     bool otherworldly_patron, pact_magic, pact_boon, eldritch_master,
