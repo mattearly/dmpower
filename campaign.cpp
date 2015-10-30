@@ -15,10 +15,10 @@ void Campaign::pc_menu() {
     while (choice != 7) {
         simpleClearScreen();
         cout << "----------Characters-----------\n\n"
-             << " 1. Create New Character" << endl
-             << " 2. See a Character" << endl
-             << " 3. Edit a Character" << endl
-             << " 4. List all Characters" << endl
+             << " 1. New Character" << endl
+             << " 2. View a Character" << endl    //move to 3
+             << " 3. Edit a Character" << endl      //move to 4
+             << " 4. List all Characters" << endl  //move to 2
              << " 5. Delete a Character" << endl
              << " 6. Delete ALL Characters" << endl
              << " 7. Back to Main Menu" << endl << endl;
@@ -113,7 +113,20 @@ void Campaign::pc_menu() {
             }
         }
             break;
-        case 2: {  //CHARACTER SHEET
+        case 2: {
+            if (character_list.size() < 1) {
+                cout << "Nothing to list. Create some Characters first.\n";
+            } else {
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "\nCharacters built:\n\n";
+                for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
+                    cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+                }
+            }
+        }
+            pressEnterToContinue();
+            break;
+        case 3: {  //CHARACTER SHEET
             if (character_list.size() < 1) {
                 cout << "\nNothing to display. Create characters first.\n";
             } else {
@@ -141,7 +154,7 @@ void Campaign::pc_menu() {
         }
             pressEnterToContinue();
             break;
-        case 3: {  //EDIT/UPDATE CHARACTER
+        case 4: {  //EDIT/UPDATE CHARACTER
             if (character_list.size() < 1) {
                 cout << "No characters to Edit. Create characters first.\n\n";
             } else {
@@ -165,19 +178,6 @@ void Campaign::pc_menu() {
                 }
                 for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
                     if (valid_name == (*it)->name) (*it)->updateCharacter(*this);
-                }
-            }
-        }
-            pressEnterToContinue();
-            break;
-        case 4: {
-            if (character_list.size() < 1) {
-                cout << "Nothing to list. Create some Characters first.\n";
-            } else {
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "\nCharacters built:\n\n";
-                for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
-                    cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
                 }
             }
         }
