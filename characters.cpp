@@ -139,6 +139,7 @@ Generic_Character_Class::Generic_Character_Class() {
     archfey = 0;
     fiend = 0;
     great_old_one = 0;
+    the_undying = 0;
     arcane_recovery = 0;
     arcane_tradition = 0;
     spell_mastery = 0;
@@ -1921,11 +1922,15 @@ void Warlock::setClassDetails(const int &l) {
     if (pact_magic == false) pact_magic = true;
     if (otherworldly_patron == false) {
         cout << "Choose Warlock Otherworldly Patron:\n\n"
-             << " 1. Archfey\n 2. Fiend\n 3. Great Old One\n\n";
-        int ss = getNumber("Patron choice: ", 1, 3);
-        if (ss == 1) archfey = true;
-        if (ss == 2) fiend = true;
-        if (ss == 3) great_old_one = true;
+             << " 1. Archfey\n 2. Fiend\n 3. Great Old One\n 4. The Undying\n\n";
+        int ss = getNumber("Patron choice: ", 1, 4);
+        switch (ss) {
+        case 1: archfey = true; break;
+        case 2: fiend = true; break;
+        case 3: great_old_one = true; break;
+        case 4: the_undying = true; break;
+        default:;
+        }
         otherworldly_patron = true;
     }
     if (pact_boon == false && l >= 3) pact_boon = true;
@@ -3165,16 +3170,16 @@ void Generic_Character_Class::gainMage_slayer(bool& s) {
     }
 }
 void Generic_Character_Class::gainMagic_initiate(bool& s) {
-    if (mage_slayer == false) {
-        mage_slayer = true;
-        cout << "Mage Slayer feat learned!\n";
+    if (magic_initiate == false) {
+        magic_initiate = true;
+        cout << "Magic Initiate feat learned!\n";
         s = true;
     } else {
         cout << "Feat already known\n.";
     }
 }
 void Generic_Character_Class::gainMartial_adept(bool& s) {
-    if (martial_adept == false) {
+    if (!martial_adept) {
         martial_adept = true;
         cout << "Martial Adept feat learned!\n";
         s = true;
@@ -3183,7 +3188,7 @@ void Generic_Character_Class::gainMartial_adept(bool& s) {
     }
 }
 void Generic_Character_Class::gainMedium_armor_master(bool& s) {
-    if (medium_armor_master == false) {
+    if (!medium_armor_master) {
         medium_armor_master = true;
         cout << "Medium Armor Master feat learned!\n";
         s = true;
@@ -3201,7 +3206,7 @@ void Generic_Character_Class::gainMobile(bool& s) {
     }
 }
 void Generic_Character_Class::gainModerately_armored(bool& s) {
-    if (moderately_armored == false) {
+    if (!moderately_armored) {
         moderately_armored = true;
         cout << "Moderately Armored feat learned!\n";
         s = true;
@@ -4088,25 +4093,30 @@ void Generic_Character_Class::printClassAbilities() const {
         if (metamagic == 2) cout << "Metamagic(3), ";
         if (metamagic == 3) cout << "Metamagic(4), ";
     }
-    if (sorcerous_restoration == true) cout << "Sorcerous Restoration, ";
+    if (sorcerous_restoration) cout << "Sorcerous Restoration, ";
     //warlock
-    if (otherworldly_patron == true) {
+    if (otherworldly_patron) {
         cout << "Otherworldly Patron(";
-        if (archfey == true) {
-            cout << "Archfey)[Expanded Spells, Fey Presence";
+        if (archfey) {
+            cout << "Archfey)[Expanded Spell List, Fey Presence";
             if (otherworldly_patron_feature >= 1) cout << ", Misty Escape";
             if (otherworldly_patron_feature >= 2) cout << ", Beguiling Defenses";
             if (otherworldly_patron_feature == 3) cout << ", Dark Delrium";
-        } else if (fiend == true) {
-            cout << "The Fiend)[Expanded Spells, Dark One's Blessing";
+        } else if (fiend) {
+            cout << "The Fiend)[Expanded Spell List, Dark One's Blessing";
             if (otherworldly_patron_feature >= 1) cout << ", Dark One’s Own Luck";
             if (otherworldly_patron_feature >= 2) cout << ", Fiendish Resilience";
             if (otherworldly_patron_feature == 3) cout << ", Hurl Through Hell";
-        } else if (great_old_one == true) {
-            cout << "Great Old One)Expanded Spell List, Awakened Mind";
+        } else if (great_old_one) {
+            cout << "Great Old One)[Expanded Spell List, Awakened Mind";
             if (otherworldly_patron_feature >= 1) cout << ", Entropic Ward";
             if (otherworldly_patron_feature >= 2) cout << ", Thought Shield";
             if (otherworldly_patron_feature == 3) cout << ", Create Thrall";
+        } else { //the_undying
+            cout << "The Undying)[Expanded Spell List, Among the Dead";
+            if (otherworldly_patron_feature >= 1) cout << ", Defy Death";
+            if (otherworldly_patron_feature >= 2) cout << ", Undying Nature";
+            if (otherworldly_patron_feature == 3) cout << ", Indestructable Life";
         }
         cout << "], ";
     }

@@ -461,6 +461,7 @@ ofstream& Campaign::dumpCharacter(ofstream& os) {
                 << (*it)->archfey << endl
                 << (*it)->fiend << endl
                 << (*it)->great_old_one << endl
+                << (*it)->the_undying << endl
                 << "wizard" << endl
                 << (*it)->arcane_tradition_feature << endl //wizard
                 << (*it)->wizard_cantrips_known << endl
@@ -922,6 +923,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->archfey;
         ins >> v->fiend;
         ins >> v->great_old_one;
+        ins >> v->the_undying;
         ins.get();
         ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "wizard"
         ins >> v->arcane_tradition_feature; //wizard

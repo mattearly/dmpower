@@ -83,7 +83,7 @@ public:
     //WARLOCK
     int warlock_slot_level, eldritch_invocations_known, warlock_spells_known, warlock_spell_slots, warlock_cantrips_known, otherworldly_patron_feature, mystic_arcanum;
     bool otherworldly_patron, pact_magic, pact_boon, eldritch_master,
-    archfey, fiend, great_old_one;
+    archfey, fiend, great_old_one, the_undying;
     //WIZARD
     int arcane_tradition_feature, wizard_cantrips_known;
     bool arcane_recovery, arcane_tradition, spell_mastery,
