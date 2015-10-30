@@ -477,6 +477,7 @@ ofstream& Campaign::dumpCharacter(ofstream& os) {
                 << (*it)->illusion << endl
                 << (*it)->necromancy << endl
                 << (*it)->transmutation << endl
+                << (*it)->bladesinging << endl
                 << "landtypes" << endl //landtypes
                 << (*it)->artic << endl
                 << (*it)->coast << endl
@@ -940,6 +941,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->illusion;
         ins >> v->necromancy;
         ins >> v->transmutation;
+        ins >> v->bladesinging;
         ins.get();
         ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "landtypes" //landtypes
         ins >> v->artic;

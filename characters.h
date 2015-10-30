@@ -88,7 +88,7 @@ public:
     int arcane_tradition_feature, wizard_cantrips_known;
     bool arcane_recovery, arcane_tradition, spell_mastery,
     signature_spell, abjuration, conjuration, divination,
-    enchantment, evocation, illusion, necromancy, transmutation;
+    enchantment, evocation, illusion, necromancy, transmutation, bladesinging;
     //landtypes
     bool artic, coast, desert, forest, grassland, mountain, swamp, underdark;
     //creaturetype

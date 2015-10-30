@@ -152,6 +152,7 @@ Generic_Character_Class::Generic_Character_Class() {
     illusion = 0;
     necromancy = 0;
     transmutation = 0;
+    bladesinging = 0;
     artic = 0;
     coast = 0;
     desert = 0;
@@ -428,7 +429,7 @@ void Cleric::setClassDetails(const int& l) {
     wisSave = 1;
     chaSave = 1;
     spellcasting = true;
-    if (divine_domain == false) {
+    if (!divine_domain) {
         cout << "Choose a Divine Domain:\n\n"
              << " 1. Arcane\n 2. Death\n 3. Knowledge\n 4. Life\n 5. Light\n"
              << " 6. Nature\n 7. Tempest\n 8. Trickery\n 9. War\n\n";
@@ -557,7 +558,7 @@ void Cleric::setClassDetails(const int& l) {
         }
     }
     //skills
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         cout << "Clerics start with three Skills.\n";
         for (int i = 0; i < 3; i++) {
@@ -588,7 +589,7 @@ void Fighter::setClassDetails(const int& l) {
     hitdicesize = 10;
     strSave = 1;
     conSave = 1;
-    if (fighting_style == false) {
+    if (!fighting_style) {
         cout << "Fighter Fighting Style:\n\n"
              << " 1. Archery      4. Great Weapon Fighting"
              << "\n 2. Defense      5. Protection"
@@ -602,9 +603,9 @@ void Fighter::setClassDetails(const int& l) {
         if (ss == 6) two_weapon_fighting = true;
         fighting_style = true;
     }
-    if (second_wind == false) second_wind = true;
+    if (!second_wind) second_wind = true;
     if (action_surge == 0 && l >= 2) action_surge++;
-    if (martial_archtype == false && l >= 3) {
+    if (!martial_archtype && l >= 3) {
         cout << "Figther Martial Archetype:\n\n"
              << " 1. Champion"
              << "\n 2. Battle Master"
@@ -702,7 +703,7 @@ void Fighter::setClassDetails(const int& l) {
             if (l >= 20) eldritch_spells_known++;
         }
     }
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         cout << "Figthers start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
@@ -742,10 +743,10 @@ void Rogue::setClassDetails(const int& l) {
     dexSave = 1;
     intSave = 1;
     if (expertise == 0) expertise++;
-    if (sneak_attack == false) sneak_attack = true ;
-    if (thieves_cant == false) thieves_cant = true;
-    if (cunning_action == false && l >= 2) cunning_action = true;
-    if (roguish_archetype == false && l >= 3) {
+    if (!sneak_attack) sneak_attack = true ;
+    if (!thieves_cant) thieves_cant = true;
+    if (!cunning_action && l >= 2) cunning_action = true;
+    if (!roguish_archetype && l >= 3) {
         cout << "Roguish Archetype:\n\n"
              << " 1. Thief\n"
              << " 2. Assassin\n"
@@ -783,17 +784,17 @@ void Rogue::setClassDetails(const int& l) {
         }
         roguish_archetype = true;
     }
-    if (uncanny_dodge == false && l >= 5) uncanny_dodge = true;
+    if (!uncanny_dodge && l >= 5) uncanny_dodge = true;
     if (expertise == 1 && l >= 6) expertise++;
-    if (evasion == false && l >= 7) evasion = true;
+    if (!evasion && l >= 7) evasion = true;
     if (roguish_archetype_feature == 0 && l >= 9) roguish_archetype_feature++;
-    if (reliable_talent == false && l >= 11) reliable_talent = true;
+    if (!reliable_talent && l >= 11) reliable_talent = true;
     if (roguish_archetype_feature == 1 && l >= 13) roguish_archetype_feature++;
-    if (blindsense == false && l >= 14) blindsense = true;
-    if (slippery_mind == false && l >= 15) slippery_mind = true;
-    if (roguish_archetype_feature == false && l >= 17) roguish_archetype_feature++;
-    if (elusive == false && l >= 18) elusive = true;
-    if (stroke_of_luck == false && l == 20) stroke_of_luck = true;
+    if (!blindsense && l >= 14) blindsense = true;
+    if (!slippery_mind && l >= 15) slippery_mind = true;
+    if (!roguish_archetype_feature && l >= 17) roguish_archetype_feature++;
+    if (!elusive && l >= 18) elusive = true;
+    if (!stroke_of_luck && l == 20) stroke_of_luck = true;
     if (arcane_trickster == true) {
         if (l >= 3 && l <= 9) {
             first_ss = 2;
@@ -845,7 +846,7 @@ void Rogue::setClassDetails(const int& l) {
         levelUpStats();
         levelupmenus++;
     }
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         cout << "Rogues start with 4 Skills.\n";
         for (int i = 0; i < 4; i++) {
@@ -894,31 +895,44 @@ void Wizard::setClassDetails(const int &l) {
     hitdicesize = 6;
     intSave = 1;
     wisSave = 1;
-    if (spellcasting == false) spellcasting = true;
-    if (arcane_recovery == false) arcane_recovery = true;
-    if (arcane_tradition == false && l >= 2) {
+    if (!spellcasting) spellcasting = true;
+    if (!arcane_recovery) arcane_recovery = true;
+    if (!arcane_tradition && l >= 2) {
         cout << "Wizard Arcane Tradition:\n\n"
-             << " 1. Abjuration    5. Evocation"
-             << "\n 2. Conjuration   6. Illusion"
-             << "\n 3. Divination    7. Necromancy"
-             << "\n 4. Enchantment   8. Transmutation\n\n";
-        int ss = getNumber("Choose Arcane Tradition(1-8): ", 1, 8);
-        if (ss == 1) abjuration = true;
-        if (ss == 2) conjuration = true;
-        if (ss == 3) divination = true;
-        if (ss == 4) enchantment = true;
-        if (ss == 5) evocation = true;
-        if (ss == 6) illusion = true;
-        if (ss == 7) necromancy = true;
-        if (ss == 8) transmutation = true;
+             << " 1. Abjuration\n"
+             << " 2. Conjuration\n"
+             << " 3. Divination\n"
+             << " 4. Enchantment\n"
+             << " 5. Evocation\n"
+             << " 6. Illusion\n"
+             << " 7. Necromancy\n"
+             << " 8. Transmutation\n"
+             << " 9. Bladesinging(elf only or check with DM)\n\n";
+        int ss = getNumber("Choose Arcane Tradition(1-9): ", 1, 9);
+        switch (ss) {
+        case 1: abjuration = true; break;
+        case 2: conjuration = true; break;
+        case 3: divination = true; break;
+        case 4: enchantment = true; break;
+        case 5: evocation = true; break;
+        case 6: illusion = true; break;
+        case 7: necromancy = true; break;
+        case 8: transmutation = true; break;
+        case 9:
+            bladesinging = true;
+            performance = true;
+            cout << "Bladesinger: gained Performance & proficiency in Light Armor or 1H Weapon\n";
+            break;
+        default:;
+        }
         arcane_tradition = true;
         cout << endl;
     }
     if (arcane_tradition_feature == 0 && l >= 6) arcane_tradition_feature++;
     if (arcane_tradition_feature == 1 && l >= 10) arcane_tradition_feature++;
     if (arcane_tradition_feature == 2 && l >= 14) arcane_tradition_feature++;
-    if (spell_mastery == false && l >= 18) spell_mastery = true;
-    if (signature_spell == false && l == 20) signature_spell = true;
+    if (!spell_mastery && l >= 18) spell_mastery = true;
+    if (!signature_spell && l == 20) signature_spell = true;
     //spellslots
     for (int i = 1; i <= l; i++) {
         switch (i) {
@@ -1002,7 +1016,7 @@ void Wizard::setClassDetails(const int &l) {
         levelUpStats();
         levelupmenus++;
     }
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         cout << "Wizards start with 2 Skills.\n";
         for (int i = 0; i < 2; i++) {
@@ -1063,10 +1077,10 @@ void Barbarian::setClassDetails(const int &l) {
             }
         }
     }
-    if (unarmored_defense == false && l >= 1) unarmored_defense = true;
-    if (reckless_attack == false && l >= 2) reckless_attack = true;
-    if (danger_sense == false && l >= 2) danger_sense = true;
-    if (primal_path == false && l >= 3) {
+    if (!unarmored_defense && l >= 1) unarmored_defense = true;
+    if (!reckless_attack && l >= 2) reckless_attack = true;
+    if (!danger_sense && l >= 2) danger_sense = true;
+    if (!primal_path && l >= 3) {
         cout << "Choose a Primal Path:\n\n";
         cout << " 1. Path of the Battlerager (Dwarf Only or check with DM)\n 2. Path of the Berserker\n 3. Path of the Totem Warrior.\n\n";
         int ss = getNumber("Choice(1-3): ", 1, 3);
@@ -1091,12 +1105,12 @@ void Barbarian::setClassDetails(const int &l) {
         primal_path = true;
     }
     if (extra_attack == 0 && l >= 5) { extra_attack++; }
-    if (fast_movement == false && l >= 5) {
+    if (!fast_movement && l >= 5) {
         fast_movement = true;
         move_speed += 10;
     }
     if (path_feature == 0 && l >= 6) { path_feature++; }
-    if (feral_instinct == false && l >= 7) { feral_instinct = true; }
+    if (!feral_instinct && l >= 7) { feral_instinct = true; }
     if (brutal_critical == 0 && l >= 9) { brutal_critical++; }
     if (path_feature == 1 && l >= 10) {
         if (path_of_the_totem_warrior == true) {
@@ -1109,7 +1123,7 @@ void Barbarian::setClassDetails(const int &l) {
         }
         path_feature++;
     }
-    if (relentless_rage == false && l >= 11) { relentless_rage = true; }
+    if (!relentless_rage && l >= 11) { relentless_rage = true; }
     if (brutal_critical == 1 && l >= 13) { brutal_critical++; }
     if (path_feature == 2 && l >= 14) {
         if (path_of_the_totem_warrior == true) {
@@ -1122,10 +1136,10 @@ void Barbarian::setClassDetails(const int &l) {
         }
         path_feature++;
     }
-    if (persistant_rage == false && l >= 15) { persistant_rage = true; }
+    if (!persistant_rage && l >= 15) { persistant_rage = true; }
     if (brutal_critical == 2 && l >= 17) { brutal_critical++; }
-    if (indomitable_might == false && l >= 18) { indomitable_might = true; }
-    if (primal_champion == false && l >= 20) { primal_champion = true; }
+    if (!indomitable_might && l >= 18) { indomitable_might = true; }
+    if (!primal_champion && l >= 20) { primal_champion = true; }
     if (levelupmenus == 0 && l >= 4) {
         cout << "Barbarian level 4 Level Up menu:\n\n";
         levelUpStats();
@@ -1151,7 +1165,7 @@ void Barbarian::setClassDetails(const int &l) {
         levelUpStats();
         levelupmenus++;
     }
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         cout << "Barbarians start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
@@ -2900,19 +2914,19 @@ void Generic_Character_Class::setFavoredEnemy() {
     while (!good) {
         int ss = getNumber("Choice(1-14): ", 1, 14);
         if (ss == 14) { twohumanoids++; good = true; continue; }
-        if (ss == 1 && aberrations == false) { aberrations = true; good = true; }
-        else if (ss == 2 && beasts == false) { beasts = true; good = true; }
-        else if (ss == 3 && celestials == false) { celestials = true; good = true; }
-        else if (ss == 4 && constructs == false) { constructs = true; good = true; }
-        else if (ss == 5 && dragons == false) { dragons = true; good = true; }
-        else if (ss == 6 && elementals == false) { elementals = true; good = true; }
-        else if (ss == 7 && fey == false) { fey = true; good = true; }
-        else if (ss == 8 && fiends == false) { fiends = true; good = true; }
-        else if (ss == 9 && giants == false) { giants = true; good = true; }
-        else if (ss == 10 && monstrosities == false) { monstrosities = true; good = true; }
-        else if (ss == 11 && oozes == false) { oozes = true; good = true; }
-        else if (ss == 12 && plants == false) { plants = true; good = true; }
-        else if (ss == 13 && undead == false) { undead = true; good = true; }
+        if (ss == 1 && !aberrations) { aberrations = true; good = true; }
+        else if (ss == 2 && !beasts) { beasts = true; good = true; }
+        else if (ss == 3 && !celestials) { celestials = true; good = true; }
+        else if (ss == 4 && !constructs) { constructs = true; good = true; }
+        else if (ss == 5 && !dragons) { dragons = true; good = true; }
+        else if (ss == 6 && !elementals) { elementals = true; good = true; }
+        else if (ss == 7 && !fey) { fey = true; good = true; }
+        else if (ss == 8 && !fiends) { fiends = true; good = true; }
+        else if (ss == 9 && !giants) { giants = true; good = true; }
+        else if (ss == 10 && !monstrosities) { monstrosities = true; good = true; }
+        else if (ss == 11 && !oozes) { oozes = true; good = true; }
+        else if (ss == 12 && !plants) { plants = true; good = true; }
+        else if (ss == 13 && !undead) { undead = true; good = true; }
         else cout << "Already a Favored Enemy - Try again.";
         //gain lang based on new favored enemy - add later;
     }
@@ -2920,7 +2934,7 @@ void Generic_Character_Class::setFavoredEnemy() {
 void Generic_Character_Class::setAnyFeat() {
     bool set = false;
     cout << "List of Feats to choose from:\n\n";
-    while (set == false) {
+    while (!set) {
         cout << " 1. Alert               15. Heavy Armor Master   29. Polearm Master"
              << "\n 2. Athlete             16. Inspiring Leader     30. Resilient"
              << "\n 3. Actor               17. Keen Mind            31. Ritual Caster"
@@ -2981,7 +2995,7 @@ void Generic_Character_Class::setAnyFeat() {
     }
 }
 void Generic_Character_Class::gainAlert(bool& s) {
-    if (alert == false) {
+    if (!alert) {
         alert = true;
         cout << "Alert feat learned!\n";
         s = true;
@@ -2990,7 +3004,7 @@ void Generic_Character_Class::gainAlert(bool& s) {
     }
 }
 void Generic_Character_Class::gainAthlete(bool& s) {
-    if (athlete == false) {
+    if (!athlete) {
         athlete = true;
         cout << "Athlete feat learned!\n";
         s = true;
@@ -2999,7 +3013,7 @@ void Generic_Character_Class::gainAthlete(bool& s) {
     }
 }
 void Generic_Character_Class::gainActor(bool& s) {
-    if (actor == false) {
+    if (!actor) {
         actor = true;
         cout << "Actor feat learned!\n";
         s = true;
@@ -3008,7 +3022,7 @@ void Generic_Character_Class::gainActor(bool& s) {
     }
 }
 void Generic_Character_Class::gainCharger(bool& s) {
-    if (charger == false) {
+    if (!charger) {
         charger = true;
         cout << "Charger feat learned!\n";
         s = true;
@@ -3017,7 +3031,7 @@ void Generic_Character_Class::gainCharger(bool& s) {
     }
 }
 void Generic_Character_Class::gainCrossbow_expert(bool& s) {
-    if (crossbow_expert == false) {
+    if (!crossbow_expert) {
         crossbow_expert = true;
         cout << "Crossbow Expert feat learned!\n";
         s = true;
@@ -3026,7 +3040,7 @@ void Generic_Character_Class::gainCrossbow_expert(bool& s) {
     }
 }
 void Generic_Character_Class::gainDefensive_duelist(bool& s) {
-    if (defensive_duelist == false) {
+    if (!defensive_duelist) {
         defensive_duelist = true;
         cout << "Defensive Dualist feat learned!\n";
         s = true;
@@ -3035,7 +3049,7 @@ void Generic_Character_Class::gainDefensive_duelist(bool& s) {
     }
 }
 void Generic_Character_Class::gainDual_wielder(bool& s) {
-    if (dual_wielder == false) {
+    if (!dual_wielder) {
         dual_wielder = true;
         cout << "Dual Wielder feat learned!\n";
         s = true;
@@ -3044,7 +3058,7 @@ void Generic_Character_Class::gainDual_wielder(bool& s) {
     }
 }
 void Generic_Character_Class::gainDungeon_delver(bool& s) {
-    if (dungeon_delver == false) {
+    if (!dungeon_delver) {
         dungeon_delver = true;
         cout << "Dungeon Delver feat learned!\n";
         s = true;
@@ -3053,7 +3067,7 @@ void Generic_Character_Class::gainDungeon_delver(bool& s) {
     }
 }
 void Generic_Character_Class::gainDurable(bool& s) {
-    if (durable == false) {
+    if (!durable) {
         durable = true;
         cout << "Durable feat learned!\n";
         s = true;
@@ -3062,7 +3076,7 @@ void Generic_Character_Class::gainDurable(bool& s) {
     }
 }
 void Generic_Character_Class::gainElemental_adept(bool& s) {
-    if (elemental_adept == false) {
+    if (!elemental_adept) {
         elemental_adept = true;
         cout << "Elemental Adept feat learned!\n";
         s = true;
@@ -3071,7 +3085,7 @@ void Generic_Character_Class::gainElemental_adept(bool& s) {
     }
 }
 void Generic_Character_Class::gainGrappler(bool& s) {
-    if (grappler == false) {
+    if (!grappler) {
         grappler = true;
         cout << "Grappler feat learned!\n";
         s = true;
@@ -3080,7 +3094,7 @@ void Generic_Character_Class::gainGrappler(bool& s) {
     }
 }
 void Generic_Character_Class::gainGreat_weapon_master(bool& s) {
-    if (great_weapon_master == false) {
+    if (!great_weapon_master) {
         great_weapon_master = true;
         cout << "Great Weapon Master feat learned!\n";
         s = true;
@@ -3089,7 +3103,7 @@ void Generic_Character_Class::gainGreat_weapon_master(bool& s) {
     }
 }
 void Generic_Character_Class::gainHealer(bool& s) {
-    if (healer == false) {
+    if (!healer) {
         healer = true;
         cout << "Healer feat learned!\n";
         s = true;
@@ -3098,7 +3112,7 @@ void Generic_Character_Class::gainHealer(bool& s) {
     }
 }
 void Generic_Character_Class::gainHeavily_armored(bool& s) {
-    if (heavily_armored == false) {
+    if (!heavily_armored) {
         heavily_armored = true;
         cout << "Heavily Armored feat learned!\n";
         s = true;
@@ -3107,7 +3121,7 @@ void Generic_Character_Class::gainHeavily_armored(bool& s) {
     }
 }
 void Generic_Character_Class::gainHeavy_armor_master(bool& s) {
-    if (heavy_armor_master == false) {
+    if (!heavy_armor_master) {
         heavy_armor_master = true;
         cout << "Heavy Armor Master feat learned!\n";
         s = true;
@@ -3116,7 +3130,7 @@ void Generic_Character_Class::gainHeavy_armor_master(bool& s) {
     }
 }
 void Generic_Character_Class::gainInspiring_leader(bool& s) {
-    if (inspiring_leader == false) {
+    if (!inspiring_leader) {
         inspiring_leader = true;
         cout << "Inspiring Leader feat learned!\n";
         s = true;
@@ -3125,7 +3139,7 @@ void Generic_Character_Class::gainInspiring_leader(bool& s) {
     }
 }
 void Generic_Character_Class::gainKeen_mind(bool& s) {
-    if (keen_mind == false) {
+    if (!keen_mind) {
         keen_mind = true;
         cout << "Keen Mind feat learned!\n";
         s = true;
@@ -3134,7 +3148,7 @@ void Generic_Character_Class::gainKeen_mind(bool& s) {
     }
 }
 void Generic_Character_Class::gainLightly_armored(bool& s) {
-    if (lightly_armored == false) {
+    if (!lightly_armored) {
         lightly_armored = true;
         cout << "Lightly Armored feat learned!\n";
         s = true;
@@ -3143,7 +3157,7 @@ void Generic_Character_Class::gainLightly_armored(bool& s) {
     }
 }
 void Generic_Character_Class::gainLinguist(bool& s) {
-    if (linguist == false) {
+    if (!linguist) {
         linguist = true;
         cout << "Linguist feat learned!\n";
         s = true;
@@ -3152,7 +3166,7 @@ void Generic_Character_Class::gainLinguist(bool& s) {
     }
 }
 void Generic_Character_Class::gainLucky(bool& s) {
-    if (lucky == false) {
+    if (!lucky) {
         lucky = true;
         cout << "Lucky feat learned!\n";
         s = true;
@@ -3161,7 +3175,7 @@ void Generic_Character_Class::gainLucky(bool& s) {
     }
 }
 void Generic_Character_Class::gainMage_slayer(bool& s) {
-    if (mage_slayer == false) {
+    if (!mage_slayer) {
         mage_slayer = true;
         cout << "Mage Slayer feat learned!\n";
         s = true;
@@ -3170,7 +3184,7 @@ void Generic_Character_Class::gainMage_slayer(bool& s) {
     }
 }
 void Generic_Character_Class::gainMagic_initiate(bool& s) {
-    if (magic_initiate == false) {
+    if (!magic_initiate) {
         magic_initiate = true;
         cout << "Magic Initiate feat learned!\n";
         s = true;
@@ -3197,7 +3211,7 @@ void Generic_Character_Class::gainMedium_armor_master(bool& s) {
     }
 }
 void Generic_Character_Class::gainMobile(bool& s) {
-    if (mobile == false) {
+    if (!mobile) {
         mobile = true;
         cout << "Mobile feat learned!\n";
         s = true;
@@ -3215,7 +3229,7 @@ void Generic_Character_Class::gainModerately_armored(bool& s) {
     }
 }
 void Generic_Character_Class::gainMounted_combatant(bool& s) {
-    if (mounted_combatant == false) {
+    if (!mounted_combatant) {
         mounted_combatant = true;
         cout << "Mounted Combatant feat learned!\n";
         s = true;
@@ -3224,7 +3238,7 @@ void Generic_Character_Class::gainMounted_combatant(bool& s) {
     }
 }
 void Generic_Character_Class::gainObservant(bool& s) {
-    if (observant == false) {
+    if (!observant) {
         observant = true;
         cout << "Observant feat learned!\n";
         s = true;
@@ -3233,7 +3247,7 @@ void Generic_Character_Class::gainObservant(bool& s) {
     }
 }
 void Generic_Character_Class::gainPolearm_master(bool& s) {
-    if (polearm_master == false) {
+    if (!polearm_master) {
         polearm_master = true;
         cout << "Polearm Master feat learned!\n";
         s = true;
@@ -3242,7 +3256,7 @@ void Generic_Character_Class::gainPolearm_master(bool& s) {
     }
 }
 void Generic_Character_Class::gainResilient(bool& s) {
-    if (resilient == false) {
+    if (!resilient) {
         resilient = true;
         cout << "Resilient learned!\n";
         s = true;
@@ -3251,7 +3265,7 @@ void Generic_Character_Class::gainResilient(bool& s) {
     }
 }
 void Generic_Character_Class::gainRitual_caster(bool& s) {
-    if (ritual_caster == false) {
+    if (!ritual_caster) {
         ritual_caster = true;
         cout << "Ritual Caster learned!\n";
         s = true;
@@ -3260,7 +3274,7 @@ void Generic_Character_Class::gainRitual_caster(bool& s) {
     }
 }
 void Generic_Character_Class::gainRavage_attaker(bool& s) {
-    if (savage_attacker == false) {
+    if (!savage_attacker) {
         savage_attacker = true;
         cout << "Ravage Attacker learned!\n";
         s = true;
@@ -3269,7 +3283,7 @@ void Generic_Character_Class::gainRavage_attaker(bool& s) {
     }
 }
 void Generic_Character_Class::gainSentinel(bool& s) {
-    if (sentinel == false) {
+    if (!sentinel) {
         sentinel = true;
         cout << "Sentinel learned!\n";
         s = true;
@@ -3278,7 +3292,7 @@ void Generic_Character_Class::gainSentinel(bool& s) {
     }
 }
 void Generic_Character_Class::gainSharpshooter(bool& s) {
-    if (sharpshooter == false) {
+    if (!sharpshooter) {
         sharpshooter = true;
         cout << "Sharpshooter learned!\n";
         s = true;
@@ -3305,7 +3319,7 @@ void Generic_Character_Class::gainSkilled(bool& s) {
     }
 }
 void Generic_Character_Class::gainSkulker(bool& s) {
-    if (skulker == false) {
+    if (!skulker) {
         skulker = true;
         cout << "Skulker learned!\n";
         s = true;
@@ -3314,7 +3328,7 @@ void Generic_Character_Class::gainSkulker(bool& s) {
     }
 }
 void Generic_Character_Class::gainSpell_sniper(bool& s) {
-    if(spell_sniper == false) {
+    if(!spell_sniper) {
         spell_sniper = true;
         cout << "Spell Sniper learned!\n";
         s = true;
@@ -3323,7 +3337,7 @@ void Generic_Character_Class::gainSpell_sniper(bool& s) {
     }
 }
 void Generic_Character_Class::gainTavern_brawler(bool& s) {
-    if (tavern_brawler == false) {
+    if (!tavern_brawler) {
         tavern_brawler = true;
         cout << "Tavern Brawler learned!\n";
         s = true;
@@ -3332,7 +3346,7 @@ void Generic_Character_Class::gainTavern_brawler(bool& s) {
     }
 }
 void Generic_Character_Class::gainTough(bool& s) {
-    if (tough == false) {
+    if (!tough) {
         tough = true;
         cout << "Tough learned!\n";
         s = true;
@@ -3341,7 +3355,7 @@ void Generic_Character_Class::gainTough(bool& s) {
     }
 }
 void Generic_Character_Class::gainWar_caster(bool& s) {
-    if (war_caster == false) {
+    if (!war_caster) {
         war_caster = true;
         cout << "War Caster learned!\n";
         s = true;
@@ -3350,7 +3364,7 @@ void Generic_Character_Class::gainWar_caster(bool& s) {
     }
 }
 void Generic_Character_Class::gainWeapon_master(bool& s) {
-    if (weapon_master == false) {
+    if (!weapon_master) {
         weapon_master = true;
         cout << "Weapon Master learned!\n";
         s = true;
@@ -4162,11 +4176,17 @@ void Generic_Character_Class::printClassAbilities() const {
             if (arcane_tradition_feature >= 1) cout << ", Undead Thralls";
             if (arcane_tradition_feature >= 2) cout << ", Inured to Undeath";
             if (arcane_tradition_feature == 3) cout << ", Command Undead";
-        } else if (transmutation == true) {
+        } else if (transmutation) {
             cout << "Tranmuter[Savant, Minor Alchemy";
             if (arcane_tradition_feature >= 1) cout << ", Transmuter's Stone";
             if (arcane_tradition_feature >= 2) cout << ", Shapechanger";
             if (arcane_tradition_feature == 3) cout << ", Master Transmuter";
+        } else { // bladesinging
+            cout << "Bladesinger[Training in War or Song, Blade Song";
+            if (arcane_tradition_feature >= 1) cout << ", Extra Attack";
+            if (arcane_tradition_feature >= 2) cout << ", Song of Defense";
+            if (arcane_tradition_feature == 3) cout << ", Song of Victory";
+
         }
         cout << "], ";
     }
