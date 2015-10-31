@@ -15,13 +15,13 @@ void Campaign::pc_menu() {
     while (choice != 7) {
         simpleClearScreen();
         cout << "----------Characters-----------\n\n"
-             << " 1. New Character" << endl
-             << " 2. List all Characters" << endl
-             << " 3. View a Character" << endl
-             << " 4. Edit a Character" << endl
-             << " 5. Delete a Character" << endl
-             << " 6. Delete ALL Characters" << endl
-             << " 7. Back to Main Menu" << endl << endl;
+             << " 1. NEW Character" << endl
+             << " 2. LIST all Characters" << endl
+             << " 3. VIEW a Character" << endl
+             << " 4. EDIT a Character" << endl
+             << " 5. DELETE a Character" << endl
+             << " 6. DELETE ALL Characters" << endl
+             << " 7. BACK to Main Menu" << endl << endl;
         choice = getNumber("Choice(1-7): ", 1, 7);
         switch (choice) {
         case 1:
