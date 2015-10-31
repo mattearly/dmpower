@@ -345,7 +345,18 @@ Generic_Character_Class::Generic_Character_Class() {
     viol = 0;
     rages = 0;
     level = 0;
-    levelupmenus = 0;
+    clericlevelupmenus = 0;
+    fighterlevelupmenus = 0;
+    roguelevelupmenus = 0;
+    wizardlevelupmenus = 0;
+    barbarianlevelupmenus = 0;
+    druidlevelupmenus = 0;
+    paladinlevelupmenus = 0;
+    sorcererlevelupmenus = 0;
+    bardlevelupmenus = 0;
+    monklevelupmenus = 0;
+    rangerlevelupmenus = 0;
+    warlocklevelupmenus = 0;
     hitdicesize = 0;
     move_speed = 0;
     proficiency_bonus = 0;
@@ -472,46 +483,46 @@ void Cleric::setClassDetails(const int& l) {
     }
     if (divine_domain_feature == 0 && l >= 2) divine_domain_feature++;
     if (channel_divinity == 0 && l >= 2) channel_divinity++;
-    if (levelupmenus == 0 && l >= 4) {
+    if (clericlevelupmenus == 0 && l >= 4) {
         simpleClearScreen();
         cout << "Ability Score Increase Menu for Level 4 Cleric.\n\n";
         levelUpStats();
-        levelupmenus++;
+        clericlevelupmenus++;
     }
     if (destroy_undead == 0 && l >= 5) destroy_undead += .5;
     if (channel_divinity == 1 && l >= 6) channel_divinity++;
     if (divine_domain_feature == 1 && l >= 6) divine_domain_feature++;
     if (destroy_undead == .5 && l >= 8) destroy_undead += .5;
-    if (levelupmenus == 1 && l >= 8) {
+    if (clericlevelupmenus == 1 && l >= 8) {
         simpleClearScreen();
         cout << "Ability Score Increase Menu for Level 8 Cleric.\n\n";
         levelUpStats();
-        levelupmenus++;
+        clericlevelupmenus++;
     }
     if (divine_domain_feature == 2 && l >= 8) divine_domain_feature++;
     if (divine_intervention == 0 && l >= 10) divine_intervention++;
     if (destroy_undead == 1 && l >= 11) destroy_undead++;
-    if (levelupmenus == 2 && l >= 12) {
+    if (clericlevelupmenus == 2 && l >= 12) {
         simpleClearScreen();
         cout << "Ability Score Increase Menu for Level 12 Cleric.\n\n";
         levelUpStats();
-        levelupmenus++;
+        clericlevelupmenus++;
     }
     if (destroy_undead == 2 && l >= 14) destroy_undead++;
-    if (levelupmenus == 3 && l >= 16) {
+    if (clericlevelupmenus == 3 && l >= 16) {
         simpleClearScreen();
         cout << "Ability Score Increase Menu for Level 16 Cleric.\n\n";
         levelUpStats();
-        levelupmenus++;
+        clericlevelupmenus++;
     }
     if (destroy_undead == 3 && l >= 17) destroy_undead++;
     if (divine_domain_feature == 3 && l >= 17) divine_domain_feature++;
     if (channel_divinity == 2 && l >= 18) channel_divinity++;
-    if (levelupmenus == 4 && l >= 19) {
+    if (clericlevelupmenus == 4 && l >= 19) {
         simpleClearScreen();
         cout << "Ability Score Increase Menu for Level 19 Cleric.\n\n";
         levelUpStats();
-        levelupmenus++;
+        clericlevelupmenus++;
     }
     if (divine_intervention == 1 && l >= 20) divine_intervention++;
     //cleric spells
@@ -629,50 +640,50 @@ void Fighter::setClassDetails(const int& l) {
         }
         martial_archtype = true;
     }
-    if (levelupmenus == 0 && l >= 4) {
+    if (fighterlevelupmenus == 0 && l >= 4) {
         cout << "Fighter level 4 Level Up Menu: \n\n";
         levelUpStats();
-        levelupmenus++;
+        fighterlevelupmenus++;
     }
     if (extra_attack == 0 && l >= 5) extra_attack++;
-    if (levelupmenus == 1 && l >= 6) {
+    if (fighterlevelupmenus == 1 && l >= 6) {
         cout << "Fighter level 6 Level Up Menu: \n\n";
         levelUpStats();
-        levelupmenus++;
+        fighterlevelupmenus++;
     }
     if (martial_archtype_feature == 0 && l >= 7) martial_archtype_feature++;
-    if (levelupmenus == 2 && l >= 8) {
+    if (fighterlevelupmenus == 2 && l >= 8) {
         cout << "Fighter level 8 Level Up Menu: \n\n";
         levelUpStats();
-        levelupmenus++;
+        fighterlevelupmenus++;
     }
     if (indomitable == 0 && l >= 9) indomitable++;
     if (martial_archtype_feature == 1 && l >= 10) martial_archtype_feature++;
     if (extra_attack == 1 && l >= 11) extra_attack++;
-    if (levelupmenus == 3 && l >= 12) {
+    if (fighterlevelupmenus == 3 && l >= 12) {
         cout << "Fighter level 12 Level Up Menu: \n\n";
         levelUpStats();
-        levelupmenus++;
+        fighterlevelupmenus++;
     }
     if (indomitable == 1 && l >= 13) indomitable++;
-    if (levelupmenus == 4 && l >= 14) {
+    if (fighterlevelupmenus == 4 && l >= 14) {
         cout << "Fighter level 14 Level Up Menu: \n\n";
         levelUpStats();
-        levelupmenus++;
+        fighterlevelupmenus++;
     }
     if (martial_archtype_feature == 2 && l >= 15) martial_archtype_feature++;
-    if (levelupmenus == 5 && l >= 16) {
+    if (fighterlevelupmenus == 5 && l >= 16) {
         cout << "Fighter level 16 Level Up Menu: \n\n";
         levelUpStats();
-        levelupmenus++;
+        fighterlevelupmenus++;
     }
     if (action_surge == 1 && l >= 17) action_surge++;
     if (indomitable == 2 && l >= 17) indomitable++;
     if (martial_archtype_feature == 3 && l >= 18) martial_archtype_feature++;
-    if (levelupmenus == 6 && l >= 19) {
+    if (fighterlevelupmenus == 6 && l >= 19) {
         cout << "Fighter level 19 Level Up Menu: \n\n";
         levelUpStats();
-        levelupmenus++;
+        fighterlevelupmenus++;
     }
     if (extra_attack == 2 && l >= 20) extra_attack++;
     //spells
@@ -821,30 +832,30 @@ void Rogue::setClassDetails(const int& l) {
             if (l >= 20) arcane_t_spells_known++;
         }
     }
-    if (levelupmenus == 0 && l >= 4) {
+    if (roguelevelupmenus == 0 && l >= 4) {
         cout << "Rogue level 4 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        roguelevelupmenus++;
     }
-    if (levelupmenus == 1 && l >= 8) {
+    if (roguelevelupmenus == 1 && l >= 8) {
         cout << "Rogue level 8 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        roguelevelupmenus++;
     }
-    if (levelupmenus == 2 && l >= 12) {
+    if (roguelevelupmenus == 2 && l >= 12) {
         cout << "Rogue level 12 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        roguelevelupmenus++;
     }
-    if (levelupmenus == 3 && l >= 16) {
+    if (roguelevelupmenus == 3 && l >= 16) {
         cout << "Rogue level 16 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        roguelevelupmenus++;
     }
-    if (levelupmenus == 4 && l >= 19) {
+    if (roguelevelupmenus == 4 && l >= 19) {
         cout << "Rogue level 19 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        roguelevelupmenus++;
     }
     if (!initialSkillsSet) {
         simpleClearScreen();
@@ -991,30 +1002,30 @@ void Wizard::setClassDetails(const int &l) {
         default: break;
         }
     }
-    if (levelupmenus == 0 && l >= 4) {
+    if (wizardlevelupmenus == 0 && l >= 4) {
         cout << "Wizard level 4 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        wizardlevelupmenus++;
     }
-    if (levelupmenus == 1 && l >= 8) {
+    if (wizardlevelupmenus == 1 && l >= 8) {
         cout << "Wizard level 8 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        wizardlevelupmenus++;
     }
-    if (levelupmenus == 2 && l >= 12) {
+    if (wizardlevelupmenus == 2 && l >= 12) {
         cout << "Wizard level 12 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        wizardlevelupmenus++;
     }
-    if (levelupmenus == 3 && l >= 16) {
+    if (wizardlevelupmenus == 3 && l >= 16) {
         cout << "Wizard level 16 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        wizardlevelupmenus++;
     }
-    if (levelupmenus == 4 && l >= 19) {
+    if (wizardlevelupmenus == 4 && l >= 19) {
         cout << "Wizard level 19 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        wizardlevelupmenus++;
     }
     if (!initialSkillsSet) {
         simpleClearScreen();
@@ -1140,30 +1151,30 @@ void Barbarian::setClassDetails(const int &l) {
     if (brutal_critical == 2 && l >= 17) { brutal_critical++; }
     if (!indomitable_might && l >= 18) { indomitable_might = true; }
     if (!primal_champion && l >= 20) { primal_champion = true; }
-    if (levelupmenus == 0 && l >= 4) {
+    if (barbarianlevelupmenus == 0 && l >= 4) {
         cout << "Barbarian level 4 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        barbarianlevelupmenus++;
     }
-    if (levelupmenus == 1 && l >= 8) {
+    if (barbarianlevelupmenus == 1 && l >= 8) {
         cout << "Barbarian level 8 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        barbarianlevelupmenus++;
     }
-    if (levelupmenus == 2 && l >= 12) {
+    if (barbarianlevelupmenus == 2 && l >= 12) {
         cout << "Barbarian level 12 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        barbarianlevelupmenus++;
     }
-    if (levelupmenus == 3 && l >= 16) {
+    if (barbarianlevelupmenus == 3 && l >= 16) {
         cout << "Barbarian level 16 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        barbarianlevelupmenus++;
     }
-    if (levelupmenus == 4 && l >= 19) {
+    if (barbarianlevelupmenus == 4 && l >= 19) {
         cout << "Barbarian level 19 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        barbarianlevelupmenus++;
     }
     if (!initialSkillsSet) {
         simpleClearScreen();
@@ -1263,30 +1274,30 @@ void Druid::setClassDetails(const int &l) {
             if (l == 20) seventh_ss += 1;
         }
     }
-    if (levelupmenus == 0 && l >= 4) {
+    if (druidlevelupmenus == 0 && l >= 4) {
         cout << "Druid level 4 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        druidlevelupmenus++;
     }
-    if (levelupmenus == 1 && l >= 8) {
+    if (druidlevelupmenus == 1 && l >= 8) {
         cout << "Druid level 8 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        druidlevelupmenus++;
     }
-    if (levelupmenus == 2 && l >= 12) {
+    if (druidlevelupmenus == 2 && l >= 12) {
         cout << "Druid level 12 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        druidlevelupmenus++;
     }
-    if (levelupmenus == 3 && l >= 16) {
+    if (druidlevelupmenus == 3 && l >= 16) {
         cout << "Druid level 16 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        druidlevelupmenus++;
     }
-    if (levelupmenus == 4 && l >= 19) {
+    if (druidlevelupmenus == 4 && l >= 19) {
         cout << "Druid level 19 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        druidlevelupmenus++;
     }
     if (initialSkillsSet == false) {
         simpleClearScreen();
@@ -1397,30 +1408,30 @@ void Paladin::setClassDetails(const int &l) {
     if (l >= 17) { forth_ss++; fifth_ss = 1; }
     if (l >= 19) fifth_ss++;
     //level up menus
-    if (levelupmenus == 0 && l >= 4) {
+    if (paladinlevelupmenus == 0 && l >= 4) {
         cout << "Paladin level 4 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        paladinlevelupmenus++;
     }
-    if (levelupmenus == 1 && l >= 8) {
+    if (paladinlevelupmenus == 1 && l >= 8) {
         cout << "Paladin level 8 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        paladinlevelupmenus++;
     }
-    if (levelupmenus == 2 && l >= 12) {
+    if (paladinlevelupmenus == 2 && l >= 12) {
         cout << "Paladin level 12 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        paladinlevelupmenus++;
     }
-    if (levelupmenus == 3 && l >= 16) {
+    if (paladinlevelupmenus == 3 && l >= 16) {
         cout << "Paladin level 16 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        paladinlevelupmenus++;
     }
-    if (levelupmenus == 4 && l >= 19) {
+    if (paladinlevelupmenus == 4 && l >= 19) {
         cout << "Paladin level 19 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        paladinlevelupmenus++;
     }
     if (initialSkillsSet == false) {
         simpleClearScreen();
@@ -1502,21 +1513,21 @@ void Sorcerer::setClassDetails(const int &l) {
     if (l >= 18) fifth_ss++;
     if (l >= 19) sixth_ss++;
     if (l == 20) seventh_ss++;
-    if (levelupmenus == 0 && l >= 4) {
+    if (sorcererlevelupmenus == 0 && l >= 4) {
         cout << "Sorcerer level 4 Level Up menu:\n\n";
-        levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 1 && l >= 8) {
+        levelUpStats(); sorcererlevelupmenus++; }
+    if (sorcererlevelupmenus == 1 && l >= 8) {
         cout << "Sorcerer level 8 Level Up menu:\n\n";
-        levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 2 && l >= 12) {
+        levelUpStats(); sorcererlevelupmenus++; }
+    if (sorcererlevelupmenus == 2 && l >= 12) {
         cout << "Sorcerer level 12 Level Up menu:\n\n";
-        levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 3 && l >= 16) {
+        levelUpStats(); sorcererlevelupmenus++; }
+    if (sorcererlevelupmenus == 3 && l >= 16) {
         cout << "Sorcerer level 16 Level Up menu:\n\n";
-        levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 4 && l >= 19) {
+        levelUpStats(); sorcererlevelupmenus++; }
+    if (sorcererlevelupmenus == 4 && l >= 19) {
         cout << "Sorcerer level 19 Level Up menu:\n\n";
-        levelUpStats(); levelupmenus++; }
+        levelUpStats(); sorcererlevelupmenus++; }
     if (initialSkillsSet == false) {
         simpleClearScreen();
         cout << "Sorcerers start with 2 skills.\n";
@@ -1667,11 +1678,11 @@ void Bard::setClassDetails(const int &l) {
         default: break;
         }
     }
-    if (levelupmenus == 0 && l >= 4) { levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 1 && l >= 8) { levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 2 && l >= 12) { levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 3 && l >= 16) { levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 4 && l >= 19) { levelUpStats(); levelupmenus++; }
+    if (bardlevelupmenus == 0 && l >= 4) { levelUpStats(); bardlevelupmenus++; }
+    if (bardlevelupmenus == 1 && l >= 8) { levelUpStats(); bardlevelupmenus++; }
+    if (bardlevelupmenus == 2 && l >= 12) { levelUpStats(); bardlevelupmenus++; }
+    if (bardlevelupmenus == 3 && l >= 16) { levelUpStats(); bardlevelupmenus++; }
+    if (bardlevelupmenus == 4 && l >= 19) { levelUpStats(); bardlevelupmenus++; }
     if (initialSkillsSet == false) {
         simpleClearScreen();
         setInstrument("Choose 3 Bard instruments.\n\n", 3);
@@ -1736,30 +1747,30 @@ void Monk::setClassDetails(const int &l) {
     if (monastic_tradition_feature == 2 && l >= 17) monastic_tradition_feature++;
     if (empty_body == false && l >= 18) empty_body = true;
     if (perfect_self == false && l == 20) perfect_self = true;
-    if (levelupmenus == 0 && l >= 4) {
+    if (monklevelupmenus == 0 && l >= 4) {
         cout << "Monk level 4 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        monklevelupmenus++;
     }
-    if (levelupmenus == 1 && l >= 8) {
+    if (monklevelupmenus == 1 && l >= 8) {
         cout << "Monk level 8 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        monklevelupmenus++;
     }
-    if (levelupmenus == 2 && l >= 12) {
+    if (monklevelupmenus == 2 && l >= 12) {
         cout << "Monk level 12 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        monklevelupmenus++;
     }
-    if (levelupmenus == 3 && l >= 16) {
+    if (monklevelupmenus == 3 && l >= 16) {
         cout << "Monk level 16 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        monklevelupmenus++;
     }
-    if (levelupmenus == 4 && l >= 19) {
+    if (monklevelupmenus == 4 && l >= 19) {
         cout << "Monk level 19 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        monklevelupmenus++;
     }
     if (initialSkillsSet == false) {
         simpleClearScreen();
@@ -1866,30 +1877,30 @@ void Ranger::setClassDetails(const int &l) {
     if (l >= 15) { ranger_spells_known++; forth_ss++; }
     if (l >= 17) { ranger_spells_known++; forth_ss++; fifth_ss = 1;}
     if (l >= 19) { ranger_spells_known++; fifth_ss++; }
-    if (levelupmenus == 0 && l >= 4) {
+    if (rangerlevelupmenus == 0 && l >= 4) {
         cout << "Ranger level 4 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        rangerlevelupmenus++;
     }
-    if (levelupmenus == 1 && l >= 8) {
+    if (rangerlevelupmenus == 1 && l >= 8) {
         cout << "Ranger level 8 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        rangerlevelupmenus++;
     }
-    if (levelupmenus == 2 && l >= 12) {
+    if (rangerlevelupmenus == 2 && l >= 12) {
         cout << "Ranger level 12 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        rangerlevelupmenus++;
     }
-    if (levelupmenus == 3 && l >= 16) {
+    if (rangerlevelupmenus == 3 && l >= 16) {
         cout << "Ranger level 16 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        rangerlevelupmenus++;
     }
-    if (levelupmenus == 4 && l >= 19) {
+    if (rangerlevelupmenus == 4 && l >= 19) {
         cout << "Ranger level 19 Level Up menu:\n\n";
         levelUpStats();
-        levelupmenus++;
+        rangerlevelupmenus++;
     }
     if (initialSkillsSet == false) {
         simpleClearScreen();
@@ -1974,21 +1985,21 @@ void Warlock::setClassDetails(const int &l) {
     if (l >= 17) { warlock_spells_known++; warlock_spell_slots++; }
     if (l >= 18) { eldritch_invocations_known++; }
     if (l >= 19) { warlock_spells_known++; }
-    if (levelupmenus == 0 && l >= 4) {
+    if (warlocklevelupmenus == 0 && l >= 4) {
         cout << "Warlock level 4 Level Up menu:\n\n";
-        levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 1 && l >= 8) {
+        levelUpStats(); warlocklevelupmenus++; }
+    if (warlocklevelupmenus == 1 && l >= 8) {
         cout << "Warlock level 8 Level Up menu:\n\n";
-        levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 2 && l >= 12) {
+        levelUpStats(); warlocklevelupmenus++; }
+    if (warlocklevelupmenus == 2 && l >= 12) {
         cout << "Warlock level 12 Level Up menu:\n\n";
-        levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 3 && l >= 16) {
+        levelUpStats(); warlocklevelupmenus++; }
+    if (warlocklevelupmenus == 3 && l >= 16) {
         cout << "Warlock level 16 Level Up menu:\n\n";
-        levelUpStats(); levelupmenus++; }
-    if (levelupmenus == 4 && l >= 19) {
+        levelUpStats(); warlocklevelupmenus++; }
+    if (warlocklevelupmenus == 4 && l >= 19) {
         cout << "Warlock level 19 Level Up menu:\n\n";
-        levelUpStats(); levelupmenus++; }
+        levelUpStats(); warlocklevelupmenus++; }
     if (initialSkillsSet == false) {
         simpleClearScreen();
         cout << "Warlocks start with 2 skills.\n";
@@ -2310,7 +2321,7 @@ void Generic_Character_Class::setBackground() {
     case 22:  //urban bounty hunter
     {
         for (int i = 0; i < 2; i++) {
-            if (i = 0) cout << "First ";
+            if (i == 0) cout << "First ";
             else cout << "Second ";
             cout << "Skill for Urban Bounty Hunter Background\n\n Pick from\n"
                  << " 1. Deception\n 2. Insight\n 3. Persuasion \n 4. Stealth\n\n";
@@ -2512,7 +2523,7 @@ void Generic_Character_Class::setProficiencyBonus() {
 }
 void Generic_Character_Class::setAnySkill(const string& message, const int& many) {
     cout << message << "\n";
-    for (int i = 0; i < many; i++) {
+    for (int i = 0; i < many; ++i) {
         if (acrobatics == true) cout << "\n 1. Acrobatics(Already Known)";
         else cout << "\n 1. Acrobatics";
         if (animal_handling == true) cout << "\n 2. Animal Handling(Already Known)";
@@ -3552,7 +3563,7 @@ void Generic_Character_Class::updateCharacter(const Campaign& game) {
         default:;
         }
     } while (ss != 5);
-}
+}/*
 void Cleric::updateCharacter(const Campaign& game) {
     Generic_Character_Class::updateCharacter(game);
 }
@@ -3588,7 +3599,7 @@ void Ranger::updateCharacter(const Campaign& game) {
 }
 void Warlock::updateCharacter(const Campaign& game) {
     Generic_Character_Class::updateCharacter(game);
-}
+}*/
 
 //accessors
 void Generic_Character_Class::character_sheet() const {
@@ -3923,7 +3934,7 @@ void Generic_Character_Class::printClassAbilities() const {
     }
     //monk
     if (martial_arts > 0) cout << "Martial Arts(1d" << martial_arts << "), ";
-    if (ki > 0) cout << "Ki Points(" << ki << ")[flurry of blows, patient defense, step of the wind], ";
+    if (ki > 0) cout << "Ki Points(" << ki << ")[Flurry of Blows, Patient Defense, Step of the Wind], ";
     if (unarmored_movement > 0) cout << "Unarmored Movement(+" << unarmored_movement << "ft), ";
     if (monastic_tradition == true) {
         cout << "Monastic Tradition(";

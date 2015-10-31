@@ -259,7 +259,21 @@ ofstream& Campaign::dumpCharacter(ofstream& os) {
                 << (*it)->race << endl
                 << (*it)->alignment << endl
                 << (*it)->level << endl
-                << (*it)->levelupmenus << endl
+
+                    //class level up menus prep for multiclass functions
+                << (*it)->clericlevelupmenus << endl
+                << (*it)->fighterlevelupmenus << endl
+                << (*it)->roguelevelupmenus << endl
+                << (*it)->wizardlevelupmenus << endl
+                << (*it)->barbarianlevelupmenus << endl
+                << (*it)->druidlevelupmenus << endl
+                << (*it)->paladinlevelupmenus << endl
+                << (*it)->sorcererlevelupmenus << endl
+                << (*it)->bardlevelupmenus << endl
+                << (*it)->monklevelupmenus << endl
+                << (*it)->rangerlevelupmenus << endl
+                << (*it)->warlocklevelupmenus << endl
+
                 << (*it)->backgroundofpc << endl
                 << (*it)->move_speed << endl
                 << (*it)->hitdicesize << endl
@@ -710,7 +724,18 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         getline(ins, v->race);   // >> (*it)->race
         getline(ins, v->alignment);
         ins >> v->level;
-        ins >> v->levelupmenus;
+        ins >> v->clericlevelupmenus;
+        ins >> v->fighterlevelupmenus;
+        ins >> v->roguelevelupmenus;
+        ins >> v->wizardlevelupmenus;
+        ins >> v->barbarianlevelupmenus;
+        ins >> v->druidlevelupmenus;
+        ins >> v->paladinlevelupmenus;
+        ins >> v->sorcererlevelupmenus;
+        ins >> v->bardlevelupmenus;
+        ins >> v->monklevelupmenus;
+        ins >> v->rangerlevelupmenus;
+        ins >> v->warlocklevelupmenus;
         ins >> processor;
         v->backgroundofpc = static_cast<enum Generic_Character_Class::characterbackground>(processor);
         ins >> v->move_speed;
