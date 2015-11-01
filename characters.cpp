@@ -7,6 +7,7 @@
 //
 
 #include "characters.h"
+#include "colors.h"
 using namespace std;
 
 //mutators
@@ -3632,17 +3633,17 @@ void Generic_Character_Class::character_sheet() const {
     cout << "-> Hit Dice: " << level << "d" << hitdicesize << endl;
     cout << "-> Move Speed: " << move_speed << "ft\n";
     cout << "-> Proficiency Bonus: +" << proficiency_bonus;
-    cout << "\n-> Str: " << setw(2) << strength << " " << D_D_Ability_Modifier(strength);
+    cout << "\n->" << MAGENTA << " Str: " << RESET << setw(2) << strength << " " << D_D_Ability_Modifier(strength);
     if (strSave) cout << "  √";
-    cout << "\n-> Dex: " << setw(2) << dexterity << " " << D_D_Ability_Modifier(dexterity);
+    cout << "\n->" << MAGENTA << " Dex: " << RESET << setw(2) << dexterity << " " << D_D_Ability_Modifier(dexterity);
     if (dexSave) cout << "  √";
-    cout << "\n-> Con: " << setw(2) << constitution << " " << D_D_Ability_Modifier(constitution);
+    cout << "\n->" << MAGENTA << " Con: " << RESET << setw(2) << constitution << " " << D_D_Ability_Modifier(constitution);
     if (conSave) cout << "  √";
-    cout << "\n-> Int: " << setw(2) << intelligence << " " << D_D_Ability_Modifier(intelligence);
+    cout << "\n->" << MAGENTA << " Int: " << RESET << setw(2) << intelligence << " " << D_D_Ability_Modifier(intelligence);
     if (intSave) cout << "  √";
-    cout << "\n-> Wis: " << setw(2) << wisdom << " " << D_D_Ability_Modifier(wisdom);
+    cout << "\n->" << MAGENTA << " Wis: " << RESET << setw(2) << wisdom << " " << D_D_Ability_Modifier(wisdom);
     if (wisSave) cout << "  √";
-    cout << "\n-> Cha: " << setw(2) << charisma << " " << D_D_Ability_Modifier(charisma);
+    cout << "\n->" << MAGENTA << " Cha: " << RESET << setw(2) << charisma << " " << D_D_Ability_Modifier(charisma);
     if (chaSave) cout << "  √";
     cout << endl;
     printClassAbilities();
@@ -3742,7 +3743,7 @@ string Generic_Character_Class::getBackground() const {
     return tmp;
 }
 void Generic_Character_Class::printClassAbilities() const {
-    cout << "-> Class Abilities: ";
+    cout << "->" << RED << " Class Abilities: " << RESET;
     //general
     if (extra_attack > 0) cout << "Extra Attack(" << extra_attack << "), ";
     if (spellcasting) cout << "Spellcasting, ";
@@ -4227,14 +4228,14 @@ void Generic_Character_Class::printClassAbilities() const {
 }
 void Generic_Character_Class::printSpellSlots() const {
     if (spellcasting || pact_magic) {
-        cout << "-> Cantrips: ";
+        cout << "->" << MAGENTA << " Cantrips: " << RESET;
         if (bard_cantrips_known > 0) cout << "Bard(" << bard_cantrips_known << ")";
         if (cleric_cantrips_known > 0) cout << "Cleric(" << cleric_cantrips_known << ")";
         if (druid_cantrips_known > 0) cout << "Druid(" << druid_cantrips_known << ")";
         if (wizard_cantrips_known > 0) cout << "Wizard(" << wizard_cantrips_known << ")";
         if (sorcerer_cantrips_known > 0) cout << "Sorcerer(" << sorcerer_cantrips_known << ")";
         if (warlock_cantrips_known > 0) cout << "Warlock(" << warlock_cantrips_known << ")";
-        cout << "\n-> Spell Slots: ";
+        cout << "\n->" << MAGENTA << " Spell Slots: " << RESET;
         if (warlock_slot_level > 0) cout << "Warlock Slot Level(" << warlock_slot_level << ")";
         if (first_ss > 0) cout << first_ss;
         if (second_ss > 0) cout << "/" << second_ss;
@@ -4245,7 +4246,7 @@ void Generic_Character_Class::printSpellSlots() const {
         if (seventh_ss > 0) cout << "/" << seventh_ss;
         if (eighth_ss > 0) cout << "/" << eighth_ss;
         if (ninth_ss > 0) cout << "/" << ninth_ss;
-        cout << "\n-> Spells Known: ";
+        cout << "\n->" << MAGENTA << " Spells Known: " << RESET;
         if (bard_spells_known > 0) cout << "Bard(" << bard_spells_known << ")";
         if (eldritch_spells_known > 0) cout << "Eldritch Knight(" << eldritch_spells_known << ")";
         if (ranger_spells_known > 0) cout << "Ranger(" << ranger_spells_known << ")";
@@ -4264,7 +4265,7 @@ void Generic_Character_Class::printSpellSlots() const {
     }
 }
 void Generic_Character_Class::printSkills() const {
-    cout << "-> Skills: ";
+    cout << "->" << CYAN << " Skills: " << RESET;
     if (acrobatics) cout << "Acrobatics, ";
     if (animal_handling) cout << "Animal Handling, ";
     if (arcana) cout << "Arcana, ";
@@ -4286,7 +4287,7 @@ void Generic_Character_Class::printSkills() const {
     cout << endl;
 }
 void Generic_Character_Class::printFeats() const {
-    cout << "-> Feats: ";
+    cout << "->" << GREEN << " Feats: " << RESET;
     if (alert) cout << "Alert, ";
     if (athlete) cout << "Athlete, ";
     if (actor) cout << "Actor, ";
@@ -4332,7 +4333,7 @@ void Generic_Character_Class::printFeats() const {
     cout << endl;
 }
 void Generic_Character_Class::printOtherAbilities() const {
-    cout << "-> Other Abilities: ";
+    cout << "->" << CYAN << " Other Abilities: " << RESET;
     if (artificers_lore) cout << "Artificer's Lore, ";
     if (brave) cout << "Brave, ";
     if (breath_weapon_acid) cout << "Acid Breath Weapon, ";
@@ -4375,7 +4376,7 @@ void Generic_Character_Class::printOtherAbilities() const {
     cout << endl;
 }
 void Generic_Character_Class::printLangs() const {
-    cout << "-> Languages: ";
+    cout << "->" << CYAN << " Languages: " << RESET;
     if (abyssal) cout << "Abyssal, ";
     if (celestial) cout << "Celestial, ";
     if (common) cout << "Common, ";
@@ -4397,7 +4398,7 @@ void Generic_Character_Class::printLangs() const {
     cout << endl;
 }
 void Generic_Character_Class::printToolsInstruments() const {
-    cout << "-> Artisan's Tools: ";
+    cout << "->" << CYAN << " Artisan's Tools: " << RESET;
     if (alchemist) cout << "Alchemist's supplies, ";
     if (brewer) cout << "Brewer's supplies, ";
     if (calligrapher) cout << "Calligrapher's supplies, ";
@@ -4416,7 +4417,7 @@ void Generic_Character_Class::printToolsInstruments() const {
     if (weaver) cout << "Weaver's tools, ";
     if (woodcarver) cout << "Woodcarver's tools.";
     cout << endl;
-    cout << "-> Other Kits and Tools: ";
+    cout << "->" << CYAN << " Other Kits and Tools: " << RESET;
     if (disguise) cout << "Disguise kit, ";
     if (forgery) cout << "Forgery kit, ";
     if (herbalism) cout << "Herbalism kit, ";
@@ -4425,7 +4426,7 @@ void Generic_Character_Class::printToolsInstruments() const {
     if (thieves) cout << "Thieves' tools, ";
     if (vehicle) cout << "Vehicle(land or water).";
     cout << endl;
-    cout << "-> Musical Instrument(s): ";
+    cout << "->" << CYAN << " Musical Instrument(s): " << RESET;
     if (bagpipes) cout << "Bagpipes, ";
     if (drum) cout << "Drums, ";
     if (dulcimer) cout << "Dulcimer, ";
@@ -4439,7 +4440,7 @@ void Generic_Character_Class::printToolsInstruments() const {
     cout << endl;
 }
 void Generic_Character_Class::printResistances() const {
-    cout << "-> Resistances: ";
+    cout << "->" << GREEN << " Resistances: " << RESET;
     if (damage_resist_acid) cout << "Acid, ";
     if (damage_resist_ltg) cout << "Lightning, ";
     if (damage_resist_fire) cout << "Fire, ";
@@ -4448,7 +4449,7 @@ void Generic_Character_Class::printResistances() const {
     cout << endl;
 }
 void Generic_Character_Class::printDisadvantages() const {
-    cout << "-> Disadvantages: ";
+    cout << "->" << RED << " Disadvantages: " << RESET;
     if (sunlight_sensitivity) cout << "Sunlight Sensitivty" << endl;
 }
 

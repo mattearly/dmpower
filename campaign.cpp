@@ -7,6 +7,7 @@
 //
 
 #include "campaign.h"
+#include "colors.h"
 
 using namespace std;
 
@@ -29,12 +30,12 @@ void Campaign::pc_menu() {
             simpleClearScreen();
             cout << "Create a New Character!\n\n";
             cout << "Character Class:\n\n"
-                 << " 1. Cleric      7. Paladin\n\n"
-                 << " 2. Fighter     8. Sorcerer\n\n"
-                 << " 3. Rogue       9. Bard\n\n"
-                 << " 4. Wizard     10. Monk\n\n"
-                 << " 5. Barbarian  11. Ranger\n\n"
-                 << " 6. Druid      12. Warlock\n\n";
+                 << CYAN << " 1. Cleric" << RED << "      7. Paladin\n\n" << RESET
+                 << RED << " 2. Fighter" << MAGENTA << "     8. Sorcerer\n\n" << RESET
+                 << YELLOW << " 3. Rogue" << WHITE << "       9. Bard\n\n" << RESET
+                 << MAGENTA << " 4. Wizard" << RED << "     10. Monk\n\n" << RESET
+                 << RED << " 5. Barbarian" << GREEN << "  11. Ranger\n\n" << RESET
+                 << GREEN << " 6. Druid" << RED << "      12. Warlock\n\n" << RESET;
             int select_class = getNumber("Class Choice(1-12): ", 1, 12);
             int starting_level = getNumber("\nStarting Level(1-20): ", 1, 20);
             simpleClearScreen();

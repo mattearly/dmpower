@@ -21,6 +21,7 @@ void save_file(const bool&, const string&, Campaign&);
 int main() {
     bool loadSuccess = 0;
     string loadedFile = "";
+    simpleClearScreen();
     cout << "** && ** Dungeon's & Dragons - 5e Core ** && **" << endl;
     int choice = 0;
     Campaign mygame;
