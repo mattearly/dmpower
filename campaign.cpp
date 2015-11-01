@@ -29,15 +29,14 @@ void Campaign::pc_menu() {
             simpleClearScreen();
             cout << "Create a New Character!\n\n";
             cout << "Character Class:\n\n"
-                 << " 1. Cleric      7. Paladin"
-                 << "\n 2. Fighter     8. Sorcerer"
-                 << "\n 3. Rogue       9. Bard"
-                 << "\n 4. Wizard     10. Monk"
-                 << "\n 5. Barbarian  11. Ranger"
-                 << "\n 6. Druid      12. Warlock\n\n";
+                 << " 1. Cleric      7. Paladin\n\n"
+                 << " 2. Fighter     8. Sorcerer\n\n"
+                 << " 3. Rogue       9. Bard\n\n"
+                 << " 4. Wizard     10. Monk\n\n"
+                 << " 5. Barbarian  11. Ranger\n\n"
+                 << " 6. Druid      12. Warlock\n\n";
             int select_class = getNumber("Class Choice(1-12): ", 1, 12);
-            simpleClearScreen();
-            int starting_level = getNumber("Starting Level(1-20): ", 1, 20);
+            int starting_level = getNumber("\nStarting Level(1-20): ", 1, 20);
             simpleClearScreen();
             switch (select_class) {
             case 1:
