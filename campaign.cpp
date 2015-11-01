@@ -36,7 +36,9 @@ void Campaign::pc_menu() {
                  << "\n 5. Barbarian  11. Ranger"
                  << "\n 6. Druid      12. Warlock\n\n";
             int select_class = getNumber("Class Choice(1-12): ", 1, 12);
+            simpleClearScreen();
             int starting_level = getNumber("Starting Level(1-20): ", 1, 20);
+            simpleClearScreen();
             switch (select_class) {
             case 1:
             {
@@ -142,7 +144,7 @@ void Campaign::pc_menu() {
                             found = true;
                         }
                     }
-                    if (found == false) cout << "No character named " << valid_name << ". List of Charcters:\n";
+                    if (!found) cout << "No character named " << valid_name << ". List of Charcters:\n";
                     for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
                         cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
                     }
@@ -170,7 +172,7 @@ void Campaign::pc_menu() {
                             found = true;
                         }
                     }
-                    if (found == false) cout << "\nNo character named " << valid_name << ". List of Charcters:\n\n";
+                    if (!found) cout << "\nNo character named " << valid_name << ". List of Charcters:\n\n";
                     for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
                         cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
                     }
@@ -230,7 +232,7 @@ bool Campaign::checkname(const string& n) const {
     return true;
 }
 void Campaign::makecharacter(Generic_Character_Class *tmp, int& starting_level) {
-    bool goodname= false;
+    bool goodname = false;
     while (!goodname) {
         tmp->setName();
         goodname = checkname(tmp->name);

@@ -114,6 +114,7 @@ void Dwarf::setRaceDetails(Generic_Character_Class &v) {
     default:
         break;
     }
+    pressEnterToContinue();
 }
 void Elf::setRaceDetails(Generic_Character_Class &v) {
     v.dexterity += 2;

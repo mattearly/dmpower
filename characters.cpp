@@ -573,15 +573,15 @@ void Cleric::setClassDetails(const int& l) {
         simpleClearScreen();
         cout << "Clerics start with three Skills.\n";
         for (int i = 0; i < 3; i++) {
-            if (history == true) cout << "\n 1 - History(Already Known)";
+            if (history) cout << "\n 1 - History(Already Known)";
             else cout << "\n 1 - History";
-            if (insight == true) cout << "\n 2 - Insight(Already Known)";
+            if (insight) cout << "\n 2 - Insight(Already Known)";
             else cout << "\n 2 - Insight";
-            if (medicine == true) cout << "\n 3 - Medicine(Already Known)";
+            if (medicine) cout << "\n 3 - Medicine(Already Known)";
             else cout << "\n 3 - Medicine";
-            if (persuasion == true) cout << "\n 4 - Persuasion(Already Known)";
+            if (persuasion) cout << "\n 4 - Persuasion(Already Known)";
             else cout << "\n 4 - Persuasion";
-            if (religion == true) cout << "\n 5 - Religion(Already Known)\n\n";
+            if (religion) cout << "\n 5 - Religion(Already Known)\n\n";
             else cout << "\n 5 - Religion\n\n";
             int ss = getNumber("Choose a skill(1-5): ", 1, 5);
             if (ss == 1) { gainHistory(i); }
@@ -687,7 +687,7 @@ void Fighter::setClassDetails(const int& l) {
     }
     if (extra_attack == 2 && l >= 20) extra_attack++;
     //spells
-    if (eldritch_knight == true) {
+    if (eldritch_knight) {
         if (l >= 3 && l <= 9) {
             first_ss = 2;
             wizard_cantrips_known = 2;
@@ -718,21 +718,21 @@ void Fighter::setClassDetails(const int& l) {
         simpleClearScreen();
         cout << "Figthers start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
-            if (acrobatics == true) cout << "\n 1. Acrobatics(Already Known)";
+            if (acrobatics) cout << "\n 1. Acrobatics(Already Known)";
             else cout << "\n 1. Acrobatics";
-            if (animal_handling == true) cout << "\n 2. Animal Handling(Already Known)";
+            if (animal_handling) cout << "\n 2. Animal Handling(Already Known)";
             else cout << "\n 2. Animal Handling";
-            if (athletics == true) cout << "\n 3. Athletics(Already Known)";
+            if (athletics) cout << "\n 3. Athletics(Already Known)";
             else cout << "\n 3. Athletics";
-            if (history == true) cout << "\n 4. History(Already Known)";
+            if (history) cout << "\n 4. History(Already Known)";
             else cout << "\n 4. History";
-            if (insight == true) cout << "\n 5. Insight(Already Known)";
+            if (insight) cout << "\n 5. Insight(Already Known)";
             else cout << "\n 5. Insight";
-            if (intimidation == true) cout << "\n 6. Intimidation(Already Known)";
+            if (intimidation) cout << "\n 6. Intimidation(Already Known)";
             else cout << "\n 6. Intimidation";
-            if (perception == true) cout << "\n 7. Perception(Already Known)";
+            if (perception) cout << "\n 7. Perception(Already Known)";
             else cout << "\n 7. Perception";
-            if (survival == true) cout << "\n 8. Survival(Already Known)\n\n";
+            if (survival) cout << "\n 8. Survival(Already Known)\n\n";
             else cout << "\n 8. Survival\n\n";
             int ss = getNumber("Choose a skill: ", 1, 8);
             if (ss == 1) { gainAcrobatics(i); }
@@ -806,7 +806,7 @@ void Rogue::setClassDetails(const int& l) {
     if (!roguish_archetype_feature && l >= 17) roguish_archetype_feature++;
     if (!elusive && l >= 18) elusive = true;
     if (!stroke_of_luck && l == 20) stroke_of_luck = true;
-    if (arcane_trickster == true) {
+    if (arcane_trickster) {
         if (l >= 3 && l <= 9) {
             first_ss = 2;
             wizard_cantrips_known = 2;
@@ -861,27 +861,27 @@ void Rogue::setClassDetails(const int& l) {
         simpleClearScreen();
         cout << "Rogues start with 4 Skills.\n";
         for (int i = 0; i < 4; i++) {
-            if (acrobatics == true) cout << "\n 1. Acrobatics(Already Known)";
+            if (acrobatics) cout << "\n 1. Acrobatics(Already Known)";
             else cout << "\n 1. Acrobatics";
-            if (athletics == true) cout << "\n 2. Athletics(Already Known)";
+            if (athletics) cout << "\n 2. Athletics(Already Known)";
             else cout << "\n 2. Athletics";
-            if (deception == true) cout << "\n 3. Deception(Already Known)";
+            if (deception) cout << "\n 3. Deception(Already Known)";
             else cout << "\n 3. Deception";
-            if (insight == true) cout << "\n 4. Insight(Already Known)";
+            if (insight) cout << "\n 4. Insight(Already Known)";
             else cout << "\n 4. Insight";
-            if (intimidation == true) cout << "\n 5. Intimidation(Already Known)";
+            if (intimidation) cout << "\n 5. Intimidation(Already Known)";
             else cout << "\n 5. Intimidation";
-            if (investigation == true) cout << "\n 6. Investigation(Already Known)";
+            if (investigation) cout << "\n 6. Investigation(Already Known)";
             else cout << "\n 6. Investigation";
-            if (perception == true) cout << "\n 7. Perception(Already Known)";
+            if (perception) cout << "\n 7. Perception(Already Known)";
             else cout << "\n 7. Perception";
-            if (performance == true) cout << "\n 8. Performance(Already Known)";
+            if (performance) cout << "\n 8. Performance(Already Known)";
             else cout << "\n 8. Performance";
-            if (persuasion == true) cout << "\n 9. Persuasion(Already Known)";
+            if (persuasion) cout << "\n 9. Persuasion(Already Known)";
             else cout << "\n 9. Persuasion";
-            if (sleight_of_hand == true) cout << "\n10. Sleight of Hand(Already Known)";
+            if (sleight_of_hand) cout << "\n10. Sleight of Hand(Already Known)";
             else cout << "\n10. Sleight of Hand";
-            if (stealth == true) cout << "\n11. Stealth(Already Known)\n\n";
+            if (stealth) cout << "\n11. Stealth(Already Known)\n\n";
             else cout << "\n11. Stealth\n\n";
             int ss = getNumber("Pick a skill(1-11): ", 1, 11);
             if (ss == 1) { gainAcrobatics(i); }
@@ -918,7 +918,7 @@ void Wizard::setClassDetails(const int &l) {
              << " 6. Illusion\n"
              << " 7. Necromancy\n"
              << " 8. Transmutation\n"
-             << " 9. Bladesinging(elf only or check with DM)\n\n";
+             << " 9. Bladesinging (Elf only || check with DM)\n\n";
         int ss = getNumber("Choose Arcane Tradition(1-9): ", 1, 9);
         switch (ss) {
         case 1: abjuration = true; break;
@@ -1031,17 +1031,17 @@ void Wizard::setClassDetails(const int &l) {
         simpleClearScreen();
         cout << "Wizards start with 2 Skills.\n";
         for (int i = 0; i < 2; i++) {
-            if (arcana == true) cout << "\n 1. Arcana(Already Known)";
+            if (arcana) cout << "\n 1. Arcana(Already Known)";
             else cout << "\n 1. Arcana";
-            if (history == true) cout << "\n 2. History(Already Known)";
+            if (history) cout << "\n 2. History(Already Known)";
             else cout << "\n 2. History";
-            if (insight == true) cout << "\n 3. Insight(Already Known)";
+            if (insight) cout << "\n 3. Insight(Already Known)";
             else cout << "\n 3. Insight";
-            if (investigation == true) cout << "\n 4. Investigation(Already Known)";
+            if (investigation) cout << "\n 4. Investigation(Already Known)";
             else cout << "\n 4. Investigation";
-            if (medicine == true) cout << "\n 5. Medicine(Already Known)";
+            if (medicine) cout << "\n 5. Medicine(Already Known)";
             else cout << "\n 5. Medicine";
-            if (religion == true) cout << "\n 6. Relgion(Already Known)\n\n";
+            if (religion) cout << "\n 6. Relgion(Already Known)\n\n";
             else cout << "\n 6. Religion\n\n";
             int ss = getNumber("Choose a Skill(1-5): ", 1, 6);
             if (ss == 1) { gainArcana(i); }
@@ -1124,7 +1124,7 @@ void Barbarian::setClassDetails(const int &l) {
     if (!feral_instinct && l >= 7) { feral_instinct = true; }
     if (brutal_critical == 0 && l >= 9) { brutal_critical++; }
     if (path_feature == 1 && l >= 10) {
-        if (path_of_the_totem_warrior == true) {
+        if (path_of_the_totem_warrior) {
             cout << "Change Totem Path option:\n\n"
                  << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
             int ss = getNumber("Choice: ", 1, 3);
@@ -1137,7 +1137,7 @@ void Barbarian::setClassDetails(const int &l) {
     if (!relentless_rage && l >= 11) { relentless_rage = true; }
     if (brutal_critical == 1 && l >= 13) { brutal_critical++; }
     if (path_feature == 2 && l >= 14) {
-        if (path_of_the_totem_warrior == true) {
+        if (path_of_the_totem_warrior) {
             cout << "Change Totem Path option:\n\n"
                  << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
             int ss = getNumber("Choice: ", 1, 3);
@@ -1180,17 +1180,17 @@ void Barbarian::setClassDetails(const int &l) {
         simpleClearScreen();
         cout << "Barbarians start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
-            if (animal_handling == true) cout << "\n 1. Animal Handling(Already Known)";
+            if (animal_handling) cout << "\n 1. Animal Handling(Already Known)";
             else cout << "\n 1. Animal Handling";
-            if (athletics == true) cout << "\n 2. Athletics(Already Known)";
+            if (athletics) cout << "\n 2. Athletics(Already Known)";
             else cout << "\n 2. Athletics";
-            if (intimidation == true) cout << "\n 3. Intimidation(Already Known)";
+            if (intimidation) cout << "\n 3. Intimidation(Already Known)";
             else cout << "\n 3. Intimidation";
-            if (nature == true) cout << "\n 4. Nature(Already Known)";
+            if (nature) cout << "\n 4. Nature(Already Known)";
             else cout << "\n 4. Nature";
-            if (perception == true) cout << "\n 5. Perception(Already Known)";
+            if (perception) cout << "\n 5. Perception(Already Known)";
             else cout << "\n 5. Perception";
-            if (survival == true) cout << "\n 6. Survival(Already Known)\n\n";
+            if (survival) cout << "\n 6. Survival(Already Known)\n\n";
             else cout << "\n 6. Survival\n\n";
             int ss = getNumber("Choice(1-6): ", 1, 6);
             if (ss == 1) { gainAnimal_Handling(i); }
@@ -1303,21 +1303,21 @@ void Druid::setClassDetails(const int &l) {
         simpleClearScreen();
         cout << "Druids start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
-            if (arcana == true) cout << "\n 1. Arcana(Already Known)";
+            if (arcana) cout << "\n 1. Arcana(Already Known)";
             else cout << "\n 1. Arcana";
-            if (animal_handling == true) cout << "\n 2. Animal Handling(Already Known)";
+            if (animal_handling) cout << "\n 2. Animal Handling(Already Known)";
             else cout << "\n 2. Animal Handling";
-            if (insight == true) cout << "\n 3. Insight(Already Known)";
+            if (insight) cout << "\n 3. Insight(Already Known)";
             else cout << "\n 3. Insight";
-            if (medicine == true) cout << "\n 4. Medicine(Already Known)";
+            if (medicine) cout << "\n 4. Medicine(Already Known)";
             else cout << "\n 4. Medicine";
-            if (nature == true) cout << "\n 5. Nature(Already Known)";
+            if (nature) cout << "\n 5. Nature(Already Known)";
             else cout << "\n 5. Nature";
-            if (perception == true) cout << "\n 6. Perception(Already Known)";
+            if (perception) cout << "\n 6. Perception(Already Known)";
             else cout << "\n 6. Perception";
-            if (religion == true) cout << "\n 7. Religion(Already Known)";
+            if (religion) cout << "\n 7. Religion(Already Known)";
             else cout << "\n 7. Religion";
-            if (survival == true) cout << "\n 8. Survival(Already Known)\n\n";
+            if (survival) cout << "\n 8. Survival(Already Known)\n\n";
             else cout << "\n 8. Survival\n\n";
             int ss = getNumber("Choice: ", 1, 8);
             if (ss == 1) { gainArcana(i); }
@@ -1437,17 +1437,17 @@ void Paladin::setClassDetails(const int &l) {
         simpleClearScreen();
         cout << "Paladins start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
-            if (athletics == true) cout << "\n 1. Athletics(Already Known)";
+            if (athletics) cout << "\n 1. Athletics(Already Known)";
             else cout << "\n 1. Athletics";
-            if (insight == true) cout << "\n 2. Insight(Already Known)";
+            if (insight) cout << "\n 2. Insight(Already Known)";
             else cout << "\n 2. Insight";
-            if (intimidation == true) cout << "\n 3. Intimidation(Already Known)";
+            if (intimidation) cout << "\n 3. Intimidation(Already Known)";
             else cout << "\n 3. Intimidation";
-            if (medicine == true) cout << "\n4. Medicine(Already Known)";
+            if (medicine) cout << "\n4. Medicine(Already Known)";
             else cout << "\n 4. Medicine";
-            if (persuasion == true) cout << "\n 5. Persuasion(Already Known)";
+            if (persuasion) cout << "\n 5. Persuasion(Already Known)";
             else cout << "\n 5. Persuasion";
-            if (religion == true) cout << "\n 6. Religion(Already Known)\n\n";
+            if (religion) cout << "\n 6. Religion(Already Known)\n\n";
             else cout << "\n 6. Religion\n\n";
             int ss = getNumber("Choose a Skill: ", 1, 6);
             if (ss == 1) { gainAthletics(i); }
@@ -1532,17 +1532,17 @@ void Sorcerer::setClassDetails(const int &l) {
         simpleClearScreen();
         cout << "Sorcerers start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
-            if (arcana == true) cout << "\n 1. Aracana(Already Known)";
+            if (arcana) cout << "\n 1. Aracana(Already Known)";
             else cout << "\n 1. Arcana";
-            if (deception == true) cout << "\n 2. Deception(Already Known)";
+            if (deception) cout << "\n 2. Deception(Already Known)";
             else cout << "\n 2. Deception";
-            if (insight == true) cout << "\n 3. Insight(Already Known)";
+            if (insight) cout << "\n 3. Insight(Already Known)";
             else cout << "\n 3. Insight";
-            if (intimidation == true) cout << "\n 4. Intimidation(Already Known)";
+            if (intimidation) cout << "\n 4. Intimidation(Already Known)";
             else cout << "\n 4. Intimidation";
-            if (persuasion == true) cout << "\n 5. Persuasion(Already Known)";
+            if (persuasion) cout << "\n 5. Persuasion(Already Known)";
             else cout << "\n 5. Persuasion";
-            if (religion == true) cout << "\n 6. Religion(Already Known)\n\n";
+            if (religion) cout << "\n 6. Religion(Already Known)\n\n";
             else cout << "\n 6. Religion\n\n";
             int ss = getNumber("Choose a skill: ", 1, 6);
             if (ss == 1) { gainArcana(i); }
@@ -1585,8 +1585,8 @@ void Bard::setClassDetails(const int &l) {
     if (countercharm == false && l >= 6) { countercharm = true; }
     if (bard_college_feature <= 0 && l >= 6) {
         bard_college_feature++;
-        if (college_of_lore == true) additional_magical_secrets = true;
-        if (college_of_valor == true && extra_attack == 0) extra_attack++;
+        if (college_of_lore) additional_magical_secrets = true;
+        if (college_of_valor && extra_attack == 0) extra_attack++;
     }
     if (song_of_rest <= 6 && l >= 9) { song_of_rest = 8; }
     if (bardic_inspiration <= 8 && l >= 10) { bardic_inspiration = 10; }
@@ -1628,7 +1628,7 @@ void Bard::setClassDetails(const int &l) {
         case 6:
             bard_spells_known++;
             third_ss++;
-            if (additional_magical_secrets == true) bard_spells_known += 2;
+            if (additional_magical_secrets) bard_spells_known += 2;
             break;
         case 7:
             bard_spells_known++;
@@ -1776,17 +1776,17 @@ void Monk::setClassDetails(const int &l) {
         simpleClearScreen();
         cout << "Monks start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
-            if (acrobatics == true) cout << "\n 1. Acrobatics(Already Known)";
+            if (acrobatics) cout << "\n 1. Acrobatics(Already Known)";
             else cout << "\n 1. Acrobatics";
-            if (athletics == true) cout << "\n 2. Athletics(Already Known)";
+            if (athletics) cout << "\n 2. Athletics(Already Known)";
             else cout << "\n 2. Athletics";
-            if (history == true) cout << "\n 3. History(Already Known)";
+            if (history) cout << "\n 3. History(Already Known)";
             else cout << "\n 3. History";
-            if (insight == true) cout << "\n 4. Insight(Already Known)";
+            if (insight) cout << "\n 4. Insight(Already Known)";
             else cout << "\n 4. Insight";
-            if (religion == true) cout << "\n 5. Religion(Already Known)";
+            if (religion) cout << "\n 5. Religion(Already Known)";
             else cout << "\n 5. Religion";
-            if (stealth == true) cout << "\n 6. Stealth(Already Known)\n\n";
+            if (stealth) cout << "\n 6. Stealth(Already Known)\n\n";
             else cout << "\n 6. Stealth\n\n";
             int ss = getNumber("Skill choice(1-6): ", 1, 6);
             if (ss == 1) { gainAcrobatics(i); }
@@ -1906,21 +1906,21 @@ void Ranger::setClassDetails(const int &l) {
         simpleClearScreen();
         cout << "Rangers start with 3 skills.\n";
         for (int i = 0; i < 3; i++) {
-            if (animal_handling == true) cout << "\n 1. Animal Handling(Already Known)";
+            if (animal_handling) cout << "\n 1. Animal Handling(Already Known)";
             else cout << "\n 1. Animal Handling";
-            if (athletics == true) cout << "\n 2. Athletics(Already Known)";
+            if (athletics) cout << "\n 2. Athletics(Already Known)";
             else cout << "\n 2. Athletics";
-            if (insight == true) cout << "\n 3. Insight(Already Known)";
+            if (insight) cout << "\n 3. Insight(Already Known)";
             else cout << "\n 3. Insight";
-            if (investigation == true) cout << "\n 4. Investigation(Already Known)";
+            if (investigation) cout << "\n 4. Investigation(Already Known)";
             else cout << "\n 4. Investigation";
-            if (nature == true) cout << "\n 5. Nature(Already Known)";
+            if (nature) cout << "\n 5. Nature(Already Known)";
             else cout << "\n 5. Nature";
-            if (perception == true) cout << "\n 6. Perception(Already Known)";
+            if (perception) cout << "\n 6. Perception(Already Known)";
             else cout << "\n 6. Perception";
-            if (stealth == true) cout << "\n 7. Stealth(Already Known)";
+            if (stealth) cout << "\n 7. Stealth(Already Known)";
             else cout << "\n 7. Stealth";
-            if (survival == true) cout << "\n 8. Survival(Already Known)\n\n";
+            if (survival) cout << "\n 8. Survival(Already Known)\n\n";
             else cout << "\n 8. Survival\n\n";
             int ss = getNumber("Choice(1-8): ", 1, 8);
             if (ss == 1) { gainAnimal_Handling(i); }
@@ -2004,19 +2004,19 @@ void Warlock::setClassDetails(const int &l) {
         simpleClearScreen();
         cout << "Warlocks start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
-            if (arcana == true) cout << "\n 1. Arcana(Already Known)";
+            if (arcana) cout << "\n 1. Arcana(Already Known)";
             else cout << "\n 1. Arcana";
-            if (deception == true) cout << "\n 2. Deception(Already Known)";
+            if (deception) cout << "\n 2. Deception(Already Known)";
             else cout << "\n 2. Deception";
-            if (history == true) cout << "\n 3. History(Already Known)";
+            if (history) cout << "\n 3. History(Already Known)";
             else cout << "\n 3. History";
-            if (intimidation == true) cout << "\n 4. Intimidation(Already Known)";
+            if (intimidation) cout << "\n 4. Intimidation(Already Known)";
             else cout << "\n 4. Intimidation";
-            if (investigation == true) cout << "\n 5. Investigation(Already Known)";
+            if (investigation) cout << "\n 5. Investigation(Already Known)";
             else cout << "\n 5. Investigation";
-            if (nature == true) cout << "\n 6. Nature(Already Known)";
+            if (nature) cout << "\n 6. Nature(Already Known)";
             else cout << "\n 6. Nature";
-            if (religion == true) cout << "\n 7. Religion(Already Known)\n\n";
+            if (religion) cout << "\n 7. Religion(Already Known)\n\n";
             else cout << "\n 7. Religion\n\n";
             int ss = getNumber("Skill choice(1-7): ", 1, 7);
             if (ss == 1) { gainArcana(i); }
@@ -2054,42 +2054,52 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v) {
          << "\n4. Gnome        9. Tiefling"
          << "\n5. Half-elf\n\n";
     int ss = getNumber("Choose Race(1-9): ", 1, 9);
+    simpleClearScreen();
     if (ss == 1) {
         Dragonborn* tmp = new Dragonborn;
         tmp->setRaceDetails(v);
         race = tmp->getRaceString();
+        delete tmp;
     } else if (ss == 2) {
         Dwarf* tmp = new Dwarf;
         tmp->setRaceDetails(v);
         race = tmp->getRaceString();
+        delete tmp;
     } else if (ss == 3) {
         Elf* tmp = new Elf;
         tmp->setRaceDetails(v);
         race = tmp->getRaceString();
+        delete tmp;
     } else if (ss == 4) {
         Gnome* tmp = new Gnome;
         tmp->setRaceDetails(v);
         race = tmp->getRaceString();
+        delete tmp;
     } else if (ss == 5) {
         Halfelf* tmp = new Halfelf;
         tmp->setRaceDetails(v);
         race = tmp->getRaceString();
+        delete tmp;
     } else if (ss == 6) {
         Halfling* tmp = new Halfling;
         tmp->setRaceDetails(v);
         race = tmp->getRaceString();
+        delete tmp;
     } else if (ss == 7) {
         Halforc* tmp = new Halforc;
         tmp->setRaceDetails(v);
         race = tmp->getRaceString();
+        delete tmp;
     } else if (ss == 8) {
         Human* tmp = new Human;
         tmp->setRaceDetails(v);
         race = tmp->getRaceString();
+        delete tmp;
     } else {
         Tiefling* tmp = new Tiefling;
         tmp->setRaceDetails(v);
         race = tmp->getRaceString();
+        delete tmp;
     }
 }
 void Generic_Character_Class::setAlignment() {
@@ -2369,22 +2379,31 @@ void Generic_Character_Class::setBackground() {
 }
 void Generic_Character_Class::setAllStats() {
     simpleClearScreen();
-    char ans = getYorN("Randomly Generate Stats? [Y/n] ");
+    char ans = getYorN("Roll Stats? (y/n) ");
     if (ans == 'Y') {
         int stats[6];
         int ss = getNumber("Roll Style:\n\n 1. 4d6 drop lowest\n 2. 3d6 standard\n\nChoice: ", 1, 2);
+        simpleClearScreen();
         for (int i = 0; i < 6; i++) {
-            if (ss == 1) stats[i] = rollstats_hi_power();
-            else stats[i] = rollstats_standard();
+            if (ss == 1) {
+                stats[i] = rollstats_hi_power();
+            } else {
+                stats[i] = rollstats_standard();
+            }
             if (i == 5) {
-                cout << "Stats are:\n";
+                cout << "\n\n  Your 6 Stats: \n";
                 for (int j = 0; j < 6; j++) {
                     cout << "\n " << stats[j];
                 }
+                cout << endl;
+                pressEnterToContinue();
+                simpleClearScreen();
             }
         }
         for (int i = 0; i < 6; i++) {
             assignStats(stats[i]);
+            simpleClearScreen();
+
         }
     } else {
         setStr(getNumber("Enter starting Strength(3-18): ", 3, 18));
@@ -2393,8 +2412,9 @@ void Generic_Character_Class::setAllStats() {
         setInt(getNumber("Enter starting Intelligence(3-18): ", 3, 18));
         setWis(getNumber("Enter starting Wisdom(3-18): ", 3, 18));
         setCha(getNumber("Enter starting Charisma(3-18): ", 3, 18));
+        pressEnterToContinue();
     }
-    pressEnterToContinue();
+
 }
 void Generic_Character_Class::setStr(const int& s) { strength = s; }
 void Generic_Character_Class::setDex(const int& d) { dexterity = d; }
@@ -2406,39 +2426,39 @@ void Generic_Character_Class::setLanguage(const string& message) {
     bool success = 0;
     while (!success) {
         cout << message;
-        if (abyssal == true) cout << " 1 - Abyssal(Already Known)";
+        if (abyssal) cout << " 1 - Abyssal(Already Known)";
         else cout << " 1 - Abyssal";
-        if (celestial == true) cout << "\n 2 - Celestial(Already Known)";
+        if (celestial) cout << "\n 2 - Celestial(Already Known)";
         else cout << "\n 2 - Celestial";
-        if (deep_speech == true) cout << "\n 3 - Deep Speech(Already Known)";
+        if (deep_speech) cout << "\n 3 - Deep Speech(Already Known)";
         else cout << "\n 3 - Deep Speech";
-        if (draconic == true) cout << "\n 4 - Draconic(Already Known)";
+        if (draconic) cout << "\n 4 - Draconic(Already Known)";
         else cout << "\n 4 - Draconic";
-        if (druidic == true) cout << "\n 5 - Druidic(Already Known)";
+        if (druidic) cout << "\n 5 - Druidic(Already Known)";
         else cout << "\n 5 - Druidic";
-        if (dwarvish == true) cout << "\n 6 - Dwarvish(Already Known)";
+        if (dwarvish) cout << "\n 6 - Dwarvish(Already Known)";
         else cout << "\n 6 - Dwarvish";
-        if (elvish == true) cout << "\n 7 - Elvish(Already Known)";
+        if (elvish) cout << "\n 7 - Elvish(Already Known)";
         else cout << "\n 7 - Elvish";
-        if (giant == true) cout << "\n 8 - Giant(Already Known)";
+        if (giant) cout << "\n 8 - Giant(Already Known)";
         else cout << "\n 8 - Giant";
-        if (gnomish == true) cout << "\n 9 - Gnomish(Already Known)";
+        if (gnomish) cout << "\n 9 - Gnomish(Already Known)";
         else cout << "\n 9 - Gnomish";
-        if (goblin == true) cout << "\n 10 - Goblin(Already Known)";
+        if (goblin) cout << "\n 10 - Goblin(Already Known)";
         else cout << "\n 10 - Goblin";
-        if (gnoll == true) cout << "\n 11 - Gnoll(Already Known)";
+        if (gnoll) cout << "\n 11 - Gnoll(Already Known)";
         else cout << "\n 11 - Gnoll";
-        if (halfling == true) cout << "\n 12 - Halfling(Already Known)";
+        if (halfling) cout << "\n 12 - Halfling(Already Known)";
         else cout << "\n 12 - Halfling";
-        if (infernal == true) cout << "\n 13 - Infernal(Already Known)";
+        if (infernal) cout << "\n 13 - Infernal(Already Known)";
         else cout << "\n 13 - Infernal";
-        if (orc == true) cout << "\n 14 - Orc(Already Known)";
+        if (orc) cout << "\n 14 - Orc(Already Known)";
         else cout << "\n 14 - Orc";
-        if (primordial == true) cout << "\n 15 - Primordial(Already Known)";
+        if (primordial) cout << "\n 15 - Primordial(Already Known)";
         else cout << "\n 15 - Primordial";
-        if (sylvan == true) cout << "\n 16 - Sylvan(Already Known)";
+        if (sylvan) cout << "\n 16 - Sylvan(Already Known)";
         else cout << "\n 16 - Sylvan";
-        if (undercommon == true) cout << "\n 17 - Undercommon(Already Known)\n\n";
+        if (undercommon) cout << "\n 17 - Undercommon(Already Known)\n\n";
         else cout << "\n 17 - Undercommon\n\n";
         int ss = getNumber("Language Choice: ", 1, 17);
         if (ss == 1 && abyssal == 0) { abyssal = true; cout << "Abyssal Language learned!\n"; success = 1;}
@@ -2524,41 +2544,41 @@ void Generic_Character_Class::setProficiencyBonus() {
 void Generic_Character_Class::setAnySkill(const string& message, const int& many) {
     cout << message << "\n";
     for (int i = 0; i < many; ++i) {
-        if (acrobatics == true) cout << "\n 1. Acrobatics(Already Known)";
+        if (acrobatics) cout << "\n 1. Acrobatics(Already Known)";
         else cout << "\n 1. Acrobatics";
-        if (animal_handling == true) cout << "\n 2. Animal Handling(Already Known)";
+        if (animal_handling) cout << "\n 2. Animal Handling(Already Known)";
         else cout << "\n 2. Animal Handling";
-        if (arcana == true) cout << "\n 3. Arcana(Already Known)";
+        if (arcana) cout << "\n 3. Arcana(Already Known)";
         else cout << "\n 3. Arcana";
-        if (athletics == true) cout << "\n 4. Athletics(Already Known)";
+        if (athletics) cout << "\n 4. Athletics(Already Known)";
         else cout << "\n 4. Athletics";
-        if (deception == true) cout << "\n 5. Deception(Already Known)";
+        if (deception) cout << "\n 5. Deception(Already Known)";
         else cout << "\n 5. Deception";
-        if (history == true) cout << "\n 6. History(Already Known)";
+        if (history) cout << "\n 6. History(Already Known)";
         else cout << "\n 6. History";
-        if (insight == true) cout << "\n 7. Insight(Already Known)";
+        if (insight) cout << "\n 7. Insight(Already Known)";
         else cout << "\n 7. Insight";
-        if (intimidation == true) cout << "\n 8. Intimidation(Already Known)";
+        if (intimidation) cout << "\n 8. Intimidation(Already Known)";
         else cout << "\n 8. Intimidation";
-        if (investigation == true) cout << "\n 9. Investigation(Already Known)";
+        if (investigation) cout << "\n 9. Investigation(Already Known)";
         else cout << "\n 9. Investigation";
-        if (medicine == true) cout << "\n10. Medicine(Already Known)";
+        if (medicine) cout << "\n10. Medicine(Already Known)";
         else cout << "\n10. Medicine";
-        if (nature == true) cout << "\n11. Nature(Already Known)";
+        if (nature) cout << "\n11. Nature(Already Known)";
         else cout << "\n11. Nature";
-        if (perception == true) cout << "\n12. Perception(Already Known)";
+        if (perception) cout << "\n12. Perception(Already Known)";
         else cout << "\n12. Perception";
-        if (performance == true) cout << "\n13. Performance(Already Known)";
+        if (performance) cout << "\n13. Performance(Already Known)";
         else cout << "\n13. Performance";
-        if (persuasion == true) cout << "\n14. Persuasion(Already Known)";
+        if (persuasion) cout << "\n14. Persuasion(Already Known)";
         else cout << "\n14. Persuasion";
-        if (religion == true) cout << "\n15. Religion(Already Known)";
+        if (religion) cout << "\n15. Religion(Already Known)";
         else cout << "\n15. Religion";
-        if (sleight_of_hand == true) cout << "\n16. Sleight of Hand(Already Known)";
+        if (sleight_of_hand) cout << "\n16. Sleight of Hand(Already Known)";
         else cout << "\n16. Sleight of Hand";
-        if (stealth == true) cout << "\n17. Stealth(Already Known)";
+        if (stealth) cout << "\n17. Stealth(Already Known)";
         else cout << "\n17. Stealth";
-        if (survival == true) cout << "\n18. Survival(Already Known)\n\n";
+        if (survival) cout << "\n18. Survival(Already Known)\n\n";
         else cout << "\n18. Survival\n\n";
         int ss = getNumber("Skill choice: ", 1, 18);
         if (ss == 1) { gainAcrobatics(i); }
@@ -3430,29 +3450,29 @@ void Generic_Character_Class::assignStats(int & s) {
 }
 
 void Generic_Character_Class::landtype() const {
-    if (artic == true) cout << "Artic, ";
-    if (coast == true) cout << "Coast, ";
-    if (desert == true) cout << "Desert, ";
-    if (forest == true) cout << "Forest, ";
-    if (grassland == true) cout << "Grassland, ";
-    if (mountain == true) cout << "Mountain, ";
-    if (swamp == true) cout << "Swamp, ";
-    if (underdark == true) cout << "Underdark";
+    if (artic) cout << "Artic, ";
+    if (coast) cout << "Coast, ";
+    if (desert) cout << "Desert, ";
+    if (forest) cout << "Forest, ";
+    if (grassland) cout << "Grassland, ";
+    if (mountain) cout << "Mountain, ";
+    if (swamp) cout << "Swamp, ";
+    if (underdark) cout << "Underdark";
 }
 void Generic_Character_Class::creaturetype() const {
-    if (aberrations == true) cout << "Aberration, ";
-    if (beasts == true) cout << "Beasts, ";
-    if (celestials == true) cout << "Celestials, ";
-    if (constructs == true) cout << "Constructs, ";
-    if (dragons == true) cout << "Dragons, ";
-    if (elementals == true) cout << "Elementals, ";
-    if (fey == true) cout << "Fey, ";
-    if (fiends == true) cout << "Fiends, ";
-    if (giants == true) cout << "Giants, ";
-    if (monstrosities == true) cout << "Monstrosities, ";
-    if (oozes == true) cout << "Oozes, ";
-    if (plants == true) cout << "Plants, ";
-    if (undead == true) cout << "Undead, ";
+    if (aberrations) cout << "Aberration, ";
+    if (beasts) cout << "Beasts, ";
+    if (celestials) cout << "Celestials, ";
+    if (constructs) cout << "Constructs, ";
+    if (dragons) cout << "Dragons, ";
+    if (elementals) cout << "Elementals, ";
+    if (fey) cout << "Fey, ";
+    if (fiends) cout << "Fiends, ";
+    if (giants) cout << "Giants, ";
+    if (monstrosities) cout << "Monstrosities, ";
+    if (oozes) cout << "Oozes, ";
+    if (plants) cout << "Plants, ";
+    if (undead) cout << "Undead, ";
     if (twohumanoids > 0) cout << "Humanoids(" << twohumanoids*2 << ")";
 }
 void Generic_Character_Class::updateCharacter(const Campaign& game) {
@@ -3613,17 +3633,17 @@ void Generic_Character_Class::character_sheet() const {
     cout << "-> Move Speed: " << move_speed << "ft\n";
     cout << "-> Proficiency Bonus: +" << proficiency_bonus;
     cout << "\n-> Str: " << setw(2) << strength << " " << D_D_Ability_Modifier(strength);
-    if (strSave == true) cout << "  √";
+    if (strSave) cout << "  √";
     cout << "\n-> Dex: " << setw(2) << dexterity << " " << D_D_Ability_Modifier(dexterity);
-    if (dexSave == true) cout << "  √";
+    if (dexSave) cout << "  √";
     cout << "\n-> Con: " << setw(2) << constitution << " " << D_D_Ability_Modifier(constitution);
-    if (conSave == true) cout << "  √";
+    if (conSave) cout << "  √";
     cout << "\n-> Int: " << setw(2) << intelligence << " " << D_D_Ability_Modifier(intelligence);
-    if (intSave == true) cout << "  √";
+    if (intSave) cout << "  √";
     cout << "\n-> Wis: " << setw(2) << wisdom << " " << D_D_Ability_Modifier(wisdom);
-    if (wisSave == true) cout << "  √";
+    if (wisSave) cout << "  √";
     cout << "\n-> Cha: " << setw(2) << charisma << " " << D_D_Ability_Modifier(charisma);
-    if (chaSave == true) cout << "  √";
+    if (chaSave) cout << "  √";
     cout << endl;
     printClassAbilities();
     printSpellSlots();
@@ -3746,16 +3766,16 @@ void Generic_Character_Class::printClassAbilities() const {
             if (path_feature >= 1) cout << ", Reckless Abandon";
             if (path_feature >= 2) cout << ", Battlerager Charge";
             if (path_feature >= 3) cout << ", Spiked Retribution";
-        } else if (path_of_the_berseker == true) {
+        } else if (path_of_the_berseker) {
             cout << "Path of the Berserker[Frenzy";
             if (path_feature >= 1) cout << ", Mindless Rage";
             if (path_feature >= 2) cout << ", Intimidating Prescense";
             if (path_feature >= 3) cout << ", Retaliation";
         } else {
             cout << "Path of the Totem Warrior";
-            if (bear_totem == true) cout << "(Bear)";
-            if (eagle_totem == true) cout << "(Eagle)";
-            if (wolf_totem == true) cout << "(Wolf)";
+            if (bear_totem) cout << "(Bear)";
+            if (eagle_totem) cout << "(Eagle)";
+            if (wolf_totem) cout << "(Wolf)";
             cout << "[Spirit Seeker, Totem Spirit";
             if (path_feature >= 1) cout << ", Spirit Walker";
             if (path_feature >= 2) cout << ", Aspect of the Beast";
@@ -3763,14 +3783,14 @@ void Generic_Character_Class::printClassAbilities() const {
         }
         cout << "], ";
     }
-    if (relentless_rage == true) cout << "Relentless Rage, ";
+    if (relentless_rage) cout << "Relentless Rage, ";
     //bards
     if (bardic_inspiration > 0) cout << "Bardic Inspiration(d" << bardic_inspiration << "), ";
-    if (jack_of_all_trades == true) cout << "Jack of All Trades, ";
+    if (jack_of_all_trades) cout << "Jack of All Trades, ";
     if (song_of_rest > 0) cout << "Song of Rest(d" << song_of_rest << "), ";
-    if (bard_college == true) {
+    if (bard_college) {
         cout << "Bard College[";
-        if (college_of_lore == true) {
+        if (college_of_lore) {
             cout << "3 Bonus Skills, Cutting Words";
             if (bard_college_feature >= 1) cout << ", Additional Magical Secrets";
             if (bard_college_feature == 2) cout << ", Peerless Skill";
@@ -3781,12 +3801,12 @@ void Generic_Character_Class::printClassAbilities() const {
         }
         cout << "], ";
     }
-    if (font_of_inspiration == true) cout << "Font of Inspiration, ";
-    if (countercharm == true) cout << "Countercharm, ";
+    if (font_of_inspiration) cout << "Font of Inspiration, ";
+    if (countercharm) cout << "Countercharm, ";
     if (magical_secrets > 0) cout << "Magical Secrets(" << magical_secrets << "), ";
-    if (superior_inspiration == true) cout << "Superior Inspiration, ";
+    if (superior_inspiration) cout << "Superior Inspiration, ";
     //clerics
-    if (divine_domain == true) {
+    if (divine_domain) {
         cout << "Divine Domain(";
         if (arcana_d) cout << "Arcana), ";
         if (death_d) cout << "Death), ";
@@ -3819,40 +3839,40 @@ void Generic_Character_Class::printClassAbilities() const {
             if (divine_domain_feature >= 2) cout << ", Read Thoughts";
             if (divine_domain_feature >= 3) cout << ", Potent Spellcasting";
             if (divine_domain_feature >= 4) cout << ", Visions of the Past";
-        } else if (life_d == true) {
+        } else if (life_d) {
             //gain heavy armor prof
             cout << "Disciple of Life";
             if (divine_domain_feature >= 1) cout << ", Preserve Life";
             if (divine_domain_feature >= 2) cout << ", Blessed Healer";
             if (divine_domain_feature >= 3) cout << ", Divine Strike";
             if (divine_domain_feature >= 4) cout << ", Supreme Healing";
-        } else if (light_d == true) {
+        } else if (light_d) {
             cout << "Light Cantrip, Warding Flare";
             if (divine_domain_feature >= 1) cout << ", Radiance of the Dawn";
             if (divine_domain_feature >= 2) cout << ", Improved Flare";
             if (divine_domain_feature >= 3) cout << ", Potent Spellcasting";
             if (divine_domain_feature >= 4) cout << ", Corona of Light";
-        } else if (nature_d == true) {
+        } else if (nature_d) {
             //gain 1 skill - heavy armor prof
             cout << "Druid Cantrip";
             if (divine_domain_feature >= 1) cout << ", Charm Animals & Plants";
             if (divine_domain_feature >= 2) cout << ", Dampen Elements";
             if (divine_domain_feature >= 3) cout << ", Divine Strike";
             if (divine_domain_feature >= 4) cout << ", Master of Nature";
-        } else if (tempest_d == true) {
+        } else if (tempest_d) {
             //gain heavy armor, martial weapons
             cout << "Wrath of the Storm";
             if (divine_domain_feature >= 1) cout << ", Destructive Wrath";
             if (divine_domain_feature >= 2) cout << ", Thunderbolt Strike";
             if (divine_domain_feature >= 3) cout << ", Divine Strike";
             if (divine_domain_feature >= 4) cout << ", Stormborn";
-        } else if (trickery_d == true) {
+        } else if (trickery_d) {
             cout << "Blessing of the Trickster";
             if (divine_domain_feature >= 1) cout << ", Invoke Duplicity";
             if (divine_domain_feature >= 2) cout << ", Cloak of Shadows";
             if (divine_domain_feature >= 3) cout << ", Divine Strike";
             if (divine_domain_feature >= 4) cout << ", Improved Duplicity";
-        } else if (war_d == true) {
+        } else if (war_d) {
             //gain heavy armor, martial weapons
             cout << "War Priest";
             if (divine_domain_feature >= 1) cout << ", Guided Strike";
@@ -3870,11 +3890,11 @@ void Generic_Character_Class::printClassAbilities() const {
         cout << ", ";
     }
     //druids
-    if (druidic == true) cout << "Druidic, ";
-    if (wild_shape == true) cout << "Wild Shape(CR" << wild_shape_improvement << "), ";
-    if (druid_circle == true) {
+    if (druidic) cout << "Druidic, ";
+    if (wild_shape) cout << "Wild Shape(CR" << wild_shape_improvement << "), ";
+    if (druid_circle) {
         cout << "Druid Circle(";
-        if (circle_of_the_moon == true){
+        if (circle_of_the_moon){
             cout << "Moon)[Combat Wild Shape, Circle Forms";
             if (druid_circle_feature >= 1) cout << ", Primal Strike";
             if (druid_circle_feature >= 2) cout << ", Elemental Wild Shape";
@@ -3890,19 +3910,19 @@ void Generic_Character_Class::printClassAbilities() const {
         }
         cout << "], ";
     }
-    if (beast_spells == true) cout << "Beast Spells, ";
-    if (archdruid == true) cout << "Archdruid, ";
-    if (fighting_style == true) {
+    if (beast_spells) cout << "Beast Spells, ";
+    if (archdruid) cout << "Archdruid, ";
+    if (fighting_style) {
         cout << "Fighting Style(";
-        if (archery == true) cout << "Archery";
-        if (defense == true) cout << "Defense";
-        if (dueling == true) cout << "Dueling";
-        if (great_weapon_fighting == true) cout << "Great Weapon Fighting";
-        if (protection == true) cout << "Protection";
-        if (two_weapon_fighting == true) cout << "Two-Weapon Fighting";
+        if (archery) cout << "Archery";
+        if (defense) cout << "Defense";
+        if (dueling) cout << "Dueling";
+        if (great_weapon_fighting) cout << "Great Weapon Fighting";
+        if (protection) cout << "Protection";
+        if (two_weapon_fighting) cout << "Two-Weapon Fighting";
         cout << "), ";
     }
-    if (second_wind == true) cout << "Second Wind, ";
+    if (second_wind) cout << "Second Wind, ";
     if (martial_archtype) {
         cout << "Martial Archetype(";
         if (champion) {
@@ -3936,7 +3956,7 @@ void Generic_Character_Class::printClassAbilities() const {
     if (martial_arts > 0) cout << "Martial Arts(1d" << martial_arts << "), ";
     if (ki > 0) cout << "Ki Points(" << ki << ")[Flurry of Blows, Patient Defense, Step of the Wind], ";
     if (unarmored_movement > 0) cout << "Unarmored Movement(+" << unarmored_movement << "ft), ";
-    if (monastic_tradition == true) {
+    if (monastic_tradition) {
         cout << "Monastic Tradition(";
         if (way_of_the_open_hand) {
             cout << "Way of the Open Hand)[Open Hand Technique";
@@ -3967,20 +3987,20 @@ void Generic_Character_Class::printClassAbilities() const {
         }
         cout << "], ";
     }
-    if (deflect_missles == true) cout << "Deflect Missles, ";
-    if (slow_fall == true) cout << "Slow Fall, ";
-    if (stunning_strike == true) cout << "Stunning Strike, ";
-    if (ki_empowered_strikes == true) cout << "Ki-Empowered Strikes, ";
-    if (stillness_of_mind == true) cout << "Stillness of Mind, ";
-    if (unarmored_movement_improvement == true) cout << "Vertical Movement, ";
-    if (purity_of_body == true) cout << "Purity of Body, ";
-    if (tongue_of_the_sun_and_moon == true) cout << "Tongue of the Sun & Moon, ";
-    if (diamond_soul == true) cout << "Diamond Soul, ";
-    if (empty_body == true) cout << "Empty Body, ";
-    if (perfect_self == true) cout << "Perfect Self, ";
+    if (deflect_missles) cout << "Deflect Missles, ";
+    if (slow_fall) cout << "Slow Fall, ";
+    if (stunning_strike) cout << "Stunning Strike, ";
+    if (ki_empowered_strikes) cout << "Ki-Empowered Strikes, ";
+    if (stillness_of_mind) cout << "Stillness of Mind, ";
+    if (unarmored_movement_improvement) cout << "Vertical Movement, ";
+    if (purity_of_body) cout << "Purity of Body, ";
+    if (tongue_of_the_sun_and_moon) cout << "Tongue of the Sun & Moon, ";
+    if (diamond_soul) cout << "Diamond Soul, ";
+    if (empty_body) cout << "Empty Body, ";
+    if (perfect_self) cout << "Perfect Self, ";
     //paladin
-    if (divine_sense == true) cout << "Divine Sense, ";
-    if (lay_on_hands == true) cout << "Lay on Hands, ";
+    if (divine_sense) cout << "Divine Sense, ";
+    if (lay_on_hands) cout << "Lay on Hands, ";
     if (divine_smite > 0) {
         if (divine_smite == 2) cout << "Improved ";
         cout << "Divine Smite, ";
@@ -4015,10 +4035,10 @@ void Generic_Character_Class::printClassAbilities() const {
         }
         cout << "], ";
     }
-    if (aura_of_protection == true) cout << "Aura of Protection, ";
-    if (aura_of_courage == true) cout << "Aura of Courage, ";
-    if (cleansing_touch == true) cout << "Cleansing Touch, ";
-    if (aura_improvments == true) cout << "Aura Improvements, ";
+    if (aura_of_protection) cout << "Aura of Protection, ";
+    if (aura_of_courage) cout << "Aura of Courage, ";
+    if (cleansing_touch) cout << "Cleansing Touch, ";
+    if (aura_improvments) cout << "Aura Improvements, ";
     //ranger
     if (favored_enemy > 0) {
         cout << "Favored Enemy[";
@@ -4030,14 +4050,14 @@ void Generic_Character_Class::printClassAbilities() const {
         landtype();
         cout << "], ";
     }
-    if (ranger_archetype == true) {
+    if (ranger_archetype) {
         cout << "Ranger Archetype(";
-        if (hunter == true) {
+        if (hunter) {
             cout << "Hunter)[Hunter's Prey";
             if (ranger_archetype_feature >= 1) cout << ", Defensive Tactics";
             if (ranger_archetype_feature >= 2) cout << ", Multiattack";
             if (ranger_archetype_feature == 3) cout << ", Superior Hunter's Defense";
-        } else if (beast_master == true) {
+        } else if (beast_master) {
             cout << "Beast Master)[Ranger's Companion";
             if (ranger_archetype_feature >= 1) cout << ", Exceptional Training";
             if (ranger_archetype_feature >= 2) cout << ", Bestial Fury";
@@ -4045,11 +4065,11 @@ void Generic_Character_Class::printClassAbilities() const {
         }
         cout << "], ";
     }
-    if (primeval_awareness == true) cout << "Primeval Awareness, ";
-    if (lands_stride == true) cout << "Land's Stride, ";
-    if (hide_in_plain_sight == true) cout << "Hide in Plain Sight, ";
-    if (feral_senses == true) cout << "Feral Senses, ";
-    if (foe_slayer == true) cout << "Foe Slayer, ";
+    if (primeval_awareness) cout << "Primeval Awareness, ";
+    if (lands_stride) cout << "Land's Stride, ";
+    if (hide_in_plain_sight) cout << "Hide in Plain Sight, ";
+    if (feral_senses) cout << "Feral Senses, ";
+    if (foe_slayer) cout << "Foe Slayer, ";
     //rogue
     if (sneak_attack) cout << "Sneak Attack, ";
     if (thieves_cant) cout << "Thieves' Cant, ";
@@ -4084,12 +4104,12 @@ void Generic_Character_Class::printClassAbilities() const {
         }
         cout << "], ";
     }
-    if (uncanny_dodge == true) cout << "Uncanny Dodge, ";
-    if (reliable_talent == true) cout << "Reliable Talent, ";
-    if (blindsense == true) cout << "Blindsense, ";
-    if (slippery_mind == true) cout << "Slippery Mind, ";
-    if (elusive == true) cout << "Elusive, ";
-    if (stroke_of_luck == true) cout << "Stroke of Luck, ";
+    if (uncanny_dodge) cout << "Uncanny Dodge, ";
+    if (reliable_talent) cout << "Reliable Talent, ";
+    if (blindsense) cout << "Blindsense, ";
+    if (slippery_mind) cout << "Slippery Mind, ";
+    if (elusive) cout << "Elusive, ";
+    if (stroke_of_luck) cout << "Stroke of Luck, ";
     //sorcerer
     if (sorcerous_origin) {
         cout << "Sorcerous Origin(";
@@ -4111,7 +4131,7 @@ void Generic_Character_Class::printClassAbilities() const {
         }
         cout << "], ";
     }
-    if (font_of_magic == true) cout << "Font of Magic, ";
+    if (font_of_magic) cout << "Font of Magic, ";
     if (sorcery_points > 0) cout << "Sorcery Points(" << sorcery_points << "), ";
     if (metamagic > 0) {
         if (metamagic == 1) cout << "Metamagic(2), ";
@@ -4145,44 +4165,44 @@ void Generic_Character_Class::printClassAbilities() const {
         }
         cout << "], ";
     }
-    if (pact_magic == true) cout << "Pact Magic, ";
-    if (pact_boon == true) cout << "Pact Boon, ";
-    if (eldritch_master == true) cout << "Eldritch Master, ";
+    if (pact_magic) cout << "Pact Magic, ";
+    if (pact_boon) cout << "Pact Boon, ";
+    if (eldritch_master) cout << "Eldritch Master, ";
     //wizard
-    if (arcane_recovery == true) cout << "Arcane Recovery, ";
-    if (arcane_tradition == true ) {
+    if (arcane_recovery) cout << "Arcane Recovery, ";
+    if (arcane_tradition ) {
         cout << "Arcane Tradition(";
-        if (abjuration == true) {
+        if (abjuration) {
             cout << "Abjurer)[Savant, Arcane Ward";
             if (arcane_tradition_feature >= 1) cout << ", Projected Ward";
             if (arcane_tradition_feature >= 2) cout << ", Improved Abjuration";
             if (arcane_tradition_feature == 3) cout << ", Spell Resistance";
-        } else if (conjuration == true) {
+        } else if (conjuration) {
             cout << "Conjurer[Savant, Minor Conjuration";
             if (arcane_tradition_feature >= 1) cout << ", Benign Transposition";
             if (arcane_tradition_feature >= 2) cout << ", Focused Conjuration";
             if (arcane_tradition_feature == 3) cout << ", Durable Summons";
-        } else if (divination == true) {
+        } else if (divination) {
             cout << "Diviner[Savant, Portent";
             if (arcane_tradition_feature >= 1) cout << ", Expert Divination";
             if (arcane_tradition_feature >= 2) cout << ", Third Eye";
             if (arcane_tradition_feature == 3) cout << ", Greater Portent";
-        } else if (enchantment == true) {
+        } else if (enchantment) {
             cout << "Enchanter[Savant, Hypnotic Gaze";
             if (arcane_tradition_feature >= 1) cout << ", Instinctive Charm";
             if (arcane_tradition_feature >= 2) cout << ", Split Enchantment";
             if (arcane_tradition_feature == 3) cout << ", Alter Memories";
-        } else if (evocation == true) {
+        } else if (evocation) {
             cout << "Evoker[Savant, Sculpt Spells";
             if (arcane_tradition_feature >= 1) cout << ", Potent Cantrip";
             if (arcane_tradition_feature >= 2) cout << ", Empowered Evocation";
             if (arcane_tradition_feature == 3) cout << ", Overchannel";
-        } else if (illusion == true) {
+        } else if (illusion) {
             cout << "Illusionist[Savant, Improved Minor Illusion";
             if (arcane_tradition_feature >= 1) cout << ", Malleable Illusions";
             if (arcane_tradition_feature >= 2) cout << ", Illusory Self";
             if (arcane_tradition_feature == 3) cout << ", Illusory Reality";
-        } else if (necromancy == true) {
+        } else if (necromancy) {
             cout << "Necromancer[Savant, Grim Harvest";
             if (arcane_tradition_feature >= 1) cout << ", Undead Thralls";
             if (arcane_tradition_feature >= 2) cout << ", Inured to Undeath";
@@ -4201,12 +4221,12 @@ void Generic_Character_Class::printClassAbilities() const {
         }
         cout << "], ";
     }
-    if (spell_mastery == true) cout << "Spell Mastery, ";
-    if (signature_spell == true) cout << "Signature Spell, ";
+    if (spell_mastery) cout << "Spell Mastery, ";
+    if (signature_spell) cout << "Signature Spell, ";
     cout << endl;
 }
 void Generic_Character_Class::printSpellSlots() const {
-    if (spellcasting == true || pact_magic == true) {
+    if (spellcasting || pact_magic) {
         cout << "-> Cantrips: ";
         if (bard_cantrips_known > 0) cout << "Bard(" << bard_cantrips_known << ")";
         if (cleric_cantrips_known > 0) cout << "Cleric(" << cleric_cantrips_known << ")";
@@ -4245,186 +4265,186 @@ void Generic_Character_Class::printSpellSlots() const {
 }
 void Generic_Character_Class::printSkills() const {
     cout << "-> Skills: ";
-    if (acrobatics == true) cout << "Acrobatics, ";
-    if (animal_handling == true) cout << "Animal Handling, ";
-    if (arcana == true) cout << "Arcana, ";
-    if (athletics == true) cout << "Athletics, ";
-    if (deception == true) cout << "Deception, ";
-    if (history == true) cout << "History, ";
-    if (insight == true) cout << "Insight, ";
-    if (intimidation == true) cout << "Intimidation, ";
-    if (investigation == true) cout << "Investigation, ";
-    if (medicine == true) cout << "Medicine, ";
-    if (nature == true) cout << "Nature, ";
-    if (perception == true) cout << "Perception, ";
-    if (performance == true) cout << "Performance, ";
-    if (persuasion == true) cout << "Persuasion, ";
-    if (religion == true) cout << "Religion, ";
-    if (sleight_of_hand == true) cout << "Sleight of Hand, ";
-    if (stealth == true) cout << "Stealth, ";
-    if (survival == true) cout << "Survival";
+    if (acrobatics) cout << "Acrobatics, ";
+    if (animal_handling) cout << "Animal Handling, ";
+    if (arcana) cout << "Arcana, ";
+    if (athletics) cout << "Athletics, ";
+    if (deception) cout << "Deception, ";
+    if (history) cout << "History, ";
+    if (insight) cout << "Insight, ";
+    if (intimidation) cout << "Intimidation, ";
+    if (investigation) cout << "Investigation, ";
+    if (medicine) cout << "Medicine, ";
+    if (nature) cout << "Nature, ";
+    if (perception) cout << "Perception, ";
+    if (performance) cout << "Performance, ";
+    if (persuasion) cout << "Persuasion, ";
+    if (religion) cout << "Religion, ";
+    if (sleight_of_hand) cout << "Sleight of Hand, ";
+    if (stealth) cout << "Stealth, ";
+    if (survival) cout << "Survival";
     cout << endl;
 }
 void Generic_Character_Class::printFeats() const {
     cout << "-> Feats: ";
-    if (alert == true) cout << "Alert, ";
-    if (athlete == true) cout << "Athlete, ";
-    if (actor == true) cout << "Actor, ";
-    if (charger == true) cout << "Charger, ";
-    if (crossbow_expert == true) cout << "Crossbow Expert, ";
-    if (defensive_duelist == true) cout << "Defensive Duelist, ";
-    if (dual_wielder == true) cout << "Dual Wielder, ";
-    if (dungeon_delver == true) cout << "Dungeon Delver, ";
-    if (durable == true) cout << "Durable, ";
-    if (elemental_adept == true) cout << "Elemental Adept, ";
-    if (grappler == true) cout << "Grappler, ";
-    if (great_weapon_master == true) cout << "Great Weapon Master, ";
-    if (healer == true) cout << "Healer, ";
-    if (heavily_armored == true) cout << "Heavily Armored, ";
-    if (heavy_armor_master == true) cout << "Heavy Armor Master, ";
-    if (inspiring_leader == true) cout << "Inspiring Leader, ";
-    if (keen_mind == true) cout << "Keen Mind, ";
-    if (lightly_armored == true) cout << "Lightly Armored, ";
-    if (linguist == true) cout << "Linguist, ";
-    if (lucky == true) cout << "Lucky, ";
-    if (mage_slayer == true) cout << "Mage Slayer, ";
-    if (magic_initiate == true) cout << "Magic Initiate, ";
-    if (martial_adept == true) cout << "Martial Adept, ";
-    if (medium_armor_master == true) cout << "Medium Armor Master, ";
-    if (mobile == true) cout << "Mobile, ";
-    if (moderately_armored == true) cout << "Moderately Armored, ";
-    if (mounted_combatant == true) cout << "Mounted Combatant, ";
-    if (observant == true) cout << "Observant, ";
-    if (polearm_master == true) cout << "Polearm Master, ";
-    if (resilient == true) cout << "Resilient, ";
-    if (ritual_caster == true) cout << "Ritual Caster, ";
-    if (savage_attacker == true) cout << "Savage Attacker, ";
-    if (sentinel == true) cout << "Sentinel, ";
-    if (sharpshooter == true) cout << "Sharpshooter, ";
+    if (alert) cout << "Alert, ";
+    if (athlete) cout << "Athlete, ";
+    if (actor) cout << "Actor, ";
+    if (charger) cout << "Charger, ";
+    if (crossbow_expert) cout << "Crossbow Expert, ";
+    if (defensive_duelist) cout << "Defensive Duelist, ";
+    if (dual_wielder) cout << "Dual Wielder, ";
+    if (dungeon_delver) cout << "Dungeon Delver, ";
+    if (durable) cout << "Durable, ";
+    if (elemental_adept) cout << "Elemental Adept, ";
+    if (grappler) cout << "Grappler, ";
+    if (great_weapon_master) cout << "Great Weapon Master, ";
+    if (healer) cout << "Healer, ";
+    if (heavily_armored) cout << "Heavily Armored, ";
+    if (heavy_armor_master) cout << "Heavy Armor Master, ";
+    if (inspiring_leader) cout << "Inspiring Leader, ";
+    if (keen_mind) cout << "Keen Mind, ";
+    if (lightly_armored) cout << "Lightly Armored, ";
+    if (linguist) cout << "Linguist, ";
+    if (lucky) cout << "Lucky, ";
+    if (mage_slayer) cout << "Mage Slayer, ";
+    if (magic_initiate) cout << "Magic Initiate, ";
+    if (martial_adept) cout << "Martial Adept, ";
+    if (medium_armor_master) cout << "Medium Armor Master, ";
+    if (mobile) cout << "Mobile, ";
+    if (moderately_armored) cout << "Moderately Armored, ";
+    if (mounted_combatant) cout << "Mounted Combatant, ";
+    if (observant) cout << "Observant, ";
+    if (polearm_master) cout << "Polearm Master, ";
+    if (resilient) cout << "Resilient, ";
+    if (ritual_caster) cout << "Ritual Caster, ";
+    if (savage_attacker) cout << "Savage Attacker, ";
+    if (sentinel) cout << "Sentinel, ";
+    if (sharpshooter) cout << "Sharpshooter, ";
     if (shield_master) cout << "Shield Master, ";
-    if (skilled == true) cout << "Skilled, ";
-    if (skulker == true) cout << "Skulker, ";
-    if (spell_sniper == true) cout << "Spell Sniper, ";
-    if (tavern_brawler == true) cout << "Tavern Brawler, ";
-    if (tough == true) cout << "Tough, ";
-    if (war_caster == true) cout << "War Caster, ";
-    if (weapon_master == true) cout << "Weapon Master.";
+    if (skilled) cout << "Skilled, ";
+    if (skulker) cout << "Skulker, ";
+    if (spell_sniper) cout << "Spell Sniper, ";
+    if (tavern_brawler) cout << "Tavern Brawler, ";
+    if (tough) cout << "Tough, ";
+    if (war_caster) cout << "War Caster, ";
+    if (weapon_master) cout << "Weapon Master.";
     cout << endl;
 }
 void Generic_Character_Class::printOtherAbilities() const {
     cout << "-> Other Abilities: ";
-    if (artificers_lore == true) cout << "Artificer's Lore, ";
-    if (brave == true) cout << "Brave, ";
-    if (breath_weapon_acid == true) cout << "Acid Breath Weapon, ";
-    if (breath_weapon_cold == true) cout << "Cold Breath Weapon, ";
-    if (breath_weapon_fire == true) cout << "Fire Breath Weapon, ";
-    if (breath_weapon_ltg == true) cout << "Lighting Breath Weapon, ";
-    if (breath_weapon_poison == true) cout << "Poison Breath Weapon, ";
-    if (darkvision == true) cout << "Darkvision, ";
-    if (draconic_ancestry_black == true) cout << "Draconic Ancestry(black), ";
-    if (draconic_ancestry_blue == true) cout << "Draconic Ancestry(blue), ";
-    if (draconic_ancestry_brass == true) cout << "Draconic Ancestry(brass), ";
-    if (draconic_ancestry_bronze == true) cout << "Draconic Ancestry(bronze), ";
-    if (draconic_ancestry_copper == true) cout << "Draconic Ancestry(copper), ";
-    if (draconic_ancestry_gold == true) cout << "Draconic Ancestry(gold), ";
-    if (draconic_ancestry_green == true) cout << "Draconic Ancestry(green), ";
-    if (draconic_ancestry_red == true) cout << "Draconic Ancestry(red), ";
-    if (draconic_ancestry_silver == true) cout << "Draconic Ancestry(silver), ";
-    if (draconic_ancestry_white == true) cout << "Draconic Ancestry(white), ";
-    if (drow_magic == true) cout << "Drow Magic, ";
-    if (drow_weapon_training == true) cout << "Drow Weapon Training, ";
-    if (dwarven_armor_training == true) cout << "Dwarven Armor Training, ";
-    if (dwarven_combat_training == true) cout << "Dwarven Combat Training, ";
-    if (dwarven_resilience == true) cout << "Dwarven Resilience, ";
-    if (dwarven_toughness == true) cout << "Dwarven Toughness, ";
-    if (elf_weapon_training == true) cout << "Elf Weapon Training, ";
-    if (fey_ancestry == true) cout << "Fey Ancestry, ";
-    if (fleet_of_foot == true) cout << "Fleet of Foot, ";
-    if (halflinglucky == true) cout << "Lucky(halfling), ";
-    if (halfling_nimbleness == true) cout << "Halfling Nimbleness, ";
-    if (hellish_resistance == true) cout << "Hellish Resistance, ";
-    if (infernal_legacy == true) cout << "Infernal Legacy, ";
-    if (mask_of_the_wild == true) cout << "Mask of the Wild, ";
-    if (natural_illusionist == true) cout << "Natural Illusionist, ";
-    if (naturally_stealthy == true) cout << "Naturally Stealthy, ";
-    if (speak_with_small_beasts == true) cout << "Speak With Small Beasts, ";
-    if (stonecunning == true) cout << "Stonecunning, ";
-    if (stout_resilience == true) cout << "Stout Resilience, ";
-    if (superior_darkvision == true) cout << "Superior Darkvision, ";
-    if (trance == true) cout << "Trance, ";
+    if (artificers_lore) cout << "Artificer's Lore, ";
+    if (brave) cout << "Brave, ";
+    if (breath_weapon_acid) cout << "Acid Breath Weapon, ";
+    if (breath_weapon_cold) cout << "Cold Breath Weapon, ";
+    if (breath_weapon_fire) cout << "Fire Breath Weapon, ";
+    if (breath_weapon_ltg) cout << "Lighting Breath Weapon, ";
+    if (breath_weapon_poison) cout << "Poison Breath Weapon, ";
+    if (darkvision) cout << "Darkvision, ";
+    if (draconic_ancestry_black) cout << "Draconic Ancestry(black), ";
+    if (draconic_ancestry_blue) cout << "Draconic Ancestry(blue), ";
+    if (draconic_ancestry_brass) cout << "Draconic Ancestry(brass), ";
+    if (draconic_ancestry_bronze) cout << "Draconic Ancestry(bronze), ";
+    if (draconic_ancestry_copper) cout << "Draconic Ancestry(copper), ";
+    if (draconic_ancestry_gold) cout << "Draconic Ancestry(gold), ";
+    if (draconic_ancestry_green) cout << "Draconic Ancestry(green), ";
+    if (draconic_ancestry_red) cout << "Draconic Ancestry(red), ";
+    if (draconic_ancestry_silver) cout << "Draconic Ancestry(silver), ";
+    if (draconic_ancestry_white) cout << "Draconic Ancestry(white), ";
+    if (drow_magic) cout << "Drow Magic, ";
+    if (drow_weapon_training) cout << "Drow Weapon Training, ";
+    if (dwarven_armor_training) cout << "Dwarven Armor Training, ";
+    if (dwarven_combat_training) cout << "Dwarven Combat Training, ";
+    if (dwarven_resilience) cout << "Dwarven Resilience, ";
+    if (dwarven_toughness) cout << "Dwarven Toughness, ";
+    if (elf_weapon_training) cout << "Elf Weapon Training, ";
+    if (fey_ancestry) cout << "Fey Ancestry, ";
+    if (fleet_of_foot) cout << "Fleet of Foot, ";
+    if (halflinglucky) cout << "Lucky(halfling), ";
+    if (halfling_nimbleness) cout << "Halfling Nimbleness, ";
+    if (hellish_resistance) cout << "Hellish Resistance, ";
+    if (infernal_legacy) cout << "Infernal Legacy, ";
+    if (mask_of_the_wild) cout << "Mask of the Wild, ";
+    if (natural_illusionist) cout << "Natural Illusionist, ";
+    if (naturally_stealthy) cout << "Naturally Stealthy, ";
+    if (speak_with_small_beasts) cout << "Speak With Small Beasts, ";
+    if (stonecunning) cout << "Stonecunning, ";
+    if (stout_resilience) cout << "Stout Resilience, ";
+    if (superior_darkvision) cout << "Superior Darkvision, ";
+    if (trance) cout << "Trance, ";
     cout << endl;
 }
 void Generic_Character_Class::printLangs() const {
     cout << "-> Languages: ";
-    if (abyssal == true) cout << "Abyssal, ";
-    if (celestial == true) cout << "Celestial, ";
-    if (common == true) cout << "Common, ";
-    if (deep_speech == true) cout << "Deep Speech, ";
-    if (draconic == true) cout << "Draconic, ";
-    if (druidic == true) cout << "Druidic, ";
-    if (dwarvish == true) cout << "Dwarvish, ";
-    if (elvish == true) cout << "Elvish, ";
-    if (giant == true) cout << "Giant, ";
-    if (gnomish == true) cout << "Gnomish, ";
-    if (goblin == true) cout << "Goblin, ";
-    if (gnoll == true) cout << "Gnoll, ";
-    if (halfling == true) cout << "Halfling, ";
-    if (infernal == true) cout << "Infernal, ";
-    if (orc == true) cout << "Orc, ";
-    if (primordial == true) cout << "Primordial, ";
-    if (sylvan == true) cout << "Sylvan, ";
-    if (undercommon == true) cout << "Undercommon.";
+    if (abyssal) cout << "Abyssal, ";
+    if (celestial) cout << "Celestial, ";
+    if (common) cout << "Common, ";
+    if (deep_speech) cout << "Deep Speech, ";
+    if (draconic) cout << "Draconic, ";
+    if (druidic) cout << "Druidic, ";
+    if (dwarvish) cout << "Dwarvish, ";
+    if (elvish) cout << "Elvish, ";
+    if (giant) cout << "Giant, ";
+    if (gnomish) cout << "Gnomish, ";
+    if (goblin) cout << "Goblin, ";
+    if (gnoll) cout << "Gnoll, ";
+    if (halfling) cout << "Halfling, ";
+    if (infernal) cout << "Infernal, ";
+    if (orc) cout << "Orc, ";
+    if (primordial) cout << "Primordial, ";
+    if (sylvan) cout << "Sylvan, ";
+    if (undercommon) cout << "Undercommon.";
     cout << endl;
 }
 void Generic_Character_Class::printToolsInstruments() const {
     cout << "-> Artisan's Tools: ";
-    if (alchemist == true) cout << "Alchemist's supplies, ";
-    if (brewer == true) cout << "Brewer's supplies, ";
-    if (calligrapher == true) cout << "Calligrapher's supplies, ";
-    if (carpenter == true) cout << "Carpenter's tools, ";
-    if (cartographer == true) cout << "Cartographer's tools, ";
-    if (cobbler == true) cout << "Cobbler's tools, ";
-    if (cook == true) cout << "Cook's utensils, ";
-    if (glassblower == true) cout << "Glassblower's tools, ";
-    if (jeweler == true) cout << "Jeweler's tools, ";
-    if (leatherworker == true) cout << "Leatherwoker's tools, ";
-    if (mason == true) cout << "Mason's tools, ";
-    if (painter == true) cout << "Painter's supplies, ";
-    if (potter == true) cout << "Potter's tools, ";
-    if (smith == true) cout << "Smith's tools, ";
-    if (tinker == true) cout << "Tinker's tools, ";
-    if (weaver == true) cout << "Weaver's tools, ";
-    if (woodcarver == true) cout << "Woodcarver's tools.";
+    if (alchemist) cout << "Alchemist's supplies, ";
+    if (brewer) cout << "Brewer's supplies, ";
+    if (calligrapher) cout << "Calligrapher's supplies, ";
+    if (carpenter) cout << "Carpenter's tools, ";
+    if (cartographer) cout << "Cartographer's tools, ";
+    if (cobbler) cout << "Cobbler's tools, ";
+    if (cook) cout << "Cook's utensils, ";
+    if (glassblower) cout << "Glassblower's tools, ";
+    if (jeweler) cout << "Jeweler's tools, ";
+    if (leatherworker) cout << "Leatherwoker's tools, ";
+    if (mason) cout << "Mason's tools, ";
+    if (painter) cout << "Painter's supplies, ";
+    if (potter) cout << "Potter's tools, ";
+    if (smith) cout << "Smith's tools, ";
+    if (tinker) cout << "Tinker's tools, ";
+    if (weaver) cout << "Weaver's tools, ";
+    if (woodcarver) cout << "Woodcarver's tools.";
     cout << endl;
     cout << "-> Other Kits and Tools: ";
-    if (disguise == true) cout << "Disguise kit, ";
-    if (forgery == true) cout << "Forgery kit, ";
-    if (herbalism == true) cout << "Herbalism kit, ";
-    if (navigator == true) cout << "Navigator's tools, ";
-    if (poisoner == true) cout << "Poisoner's kit, ";
-    if (thieves == true) cout << "Thieves' tools, ";
-    if (vehicle == true) cout << "Vehicle(land or water).";
+    if (disguise) cout << "Disguise kit, ";
+    if (forgery) cout << "Forgery kit, ";
+    if (herbalism) cout << "Herbalism kit, ";
+    if (navigator) cout << "Navigator's tools, ";
+    if (poisoner) cout << "Poisoner's kit, ";
+    if (thieves) cout << "Thieves' tools, ";
+    if (vehicle) cout << "Vehicle(land or water).";
     cout << endl;
     cout << "-> Musical Instrument(s): ";
-    if (bagpipes == true) cout << "Bagpipes, ";
-    if (drum == true) cout << "Drums, ";
-    if (dulcimer ==  true) cout << "Dulcimer, ";
-    if (flute == true) cout << "Flute, ";
-    if (lute == true) cout << "Lute, ";
-    if (lyre == true) cout << "Lyre, ";
-    if (horn == true) cout << "Horn, ";
-    if (pan_flute == true) cout << "Pan flute, ";
-    if (shawm == true) cout << "Shawm, ";
-    if (viol == true) cout << "Viol.";
+    if (bagpipes) cout << "Bagpipes, ";
+    if (drum) cout << "Drums, ";
+    if (dulcimer) cout << "Dulcimer, ";
+    if (flute) cout << "Flute, ";
+    if (lute) cout << "Lute, ";
+    if (lyre) cout << "Lyre, ";
+    if (horn) cout << "Horn, ";
+    if (pan_flute) cout << "Pan flute, ";
+    if (shawm) cout << "Shawm, ";
+    if (viol) cout << "Viol.";
     cout << endl;
 }
 void Generic_Character_Class::printResistances() const {
     cout << "-> Resistances: ";
-    if (damage_resist_acid == true) cout << "Acid, ";
-    if (damage_resist_ltg == true) cout << "Lightning, ";
-    if (damage_resist_fire == true) cout << "Fire, ";
-    if (damage_resist_poison == true) cout << "Poison, ";
-    if (damage_resist_cold == true) cout << "Cold";
+    if (damage_resist_acid) cout << "Acid, ";
+    if (damage_resist_ltg) cout << "Lightning, ";
+    if (damage_resist_fire) cout << "Fire, ";
+    if (damage_resist_poison) cout << "Poison, ";
+    if (damage_resist_cold) cout << "Cold";
     cout << endl;
 }
 void Generic_Character_Class::printDisadvantages() const {
