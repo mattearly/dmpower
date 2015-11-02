@@ -27,15 +27,15 @@ void Campaign::pc_menu() {
         switch (choice) {
         case 1:
         {
-            simpleClearScreen();
+            simpleClearScreen();  //non-casters - RED | arcane - MAGENTA | divine - CYAN
             cout << "Create a New Character!\n\n";
             cout << "Character Class:\n\n"
-                 << CYAN << " 1. Cleric" << RED << "      7. Paladin\n\n" << RESET
+                 << CYAN << " 1. Cleric" << "      7. Paladin\n\n" << RESET
                  << RED << " 2. Fighter" << MAGENTA << "     8. Sorcerer\n\n" << RESET
-                 << YELLOW << " 3. Rogue" << WHITE << "       9. Bard\n\n" << RESET
+                 << RED << " 3. Rogue" << MAGENTA << "       9. Bard\n\n" << RESET
                  << MAGENTA << " 4. Wizard" << RED << "     10. Monk\n\n" << RESET
-                 << RED << " 5. Barbarian" << GREEN << "  11. Ranger\n\n" << RESET
-                 << GREEN << " 6. Druid" << RED << "      12. Warlock\n\n" << RESET;
+                 << RED << " 5. Barbarian" << CYAN << "  11. Ranger\n\n" << RESET
+                 << CYAN << " 6. Druid" << MAGENTA << "      12. Warlock\n\n" << RESET;
             int select_class = getNumber("Class Choice(1-12): ", 1, 12);
             int starting_level = getNumber("\nStarting Level(1-20): ", 1, 20);
             simpleClearScreen();
