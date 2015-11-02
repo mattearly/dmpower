@@ -1,5 +1,5 @@
 # DM-Power-Core-Version
-A lightweight yet powerful command line interface tool for DM's running 5th edition Dungeons & Dragons. It is made entirely on C++. It uses data from the D&D 5e _Player's Handbook_ and _Dungeon Master Guide_. It uses the core rules that are in the core books and WoTC/Hasbro owns all the data in these charts, I've merely just put it together in my own way that was most useful to me.
+A lightweight yet powerful command line interface tool for DM's running 5th edition Dungeons & Dragons. It is made entirely on C++. It uses data from the D&D 5e _Player's Handbook_, _Dungeon Master Guide_, & _Sword Coast Adventurer's guide_. It uses the core rules that are in the core books and WoTC/Hasbro owns all the data in these charts, I've merely just put it together in my own way. I own all these books that I am using for the rules and claim fair use if anyone gives me any hassle.
 
 This small program does not teach you the game. You will need the books. I recommend buying them from Amazon, a local game store, or any official retailer that supports Hasbro and WotC. 
 
@@ -10,17 +10,18 @@ _It's DM Magic!_
 
 1. Characters: Get going quick with a streamlined character creation process for Players or Non-Players.
     * **All** Classes and Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, and Stats
-        * Has extra class archetypes & backgrounds from the:
-            * Sword Coast Adventures Guide (SCAG)
-            * DMG
-        * Based on the logic from the PHB & SCAG
-        * Unlimited Characters (limited only by your computer's memory)
-    * Powerful after creation character **editor** for custom changes
-        * Level Up tool
-        * Stat, Name, and Alignment editor
+        * Has extra class archetypes & backgrounds from the _Sword Coast Adventures Guide_ (SCAG) & _DMG_
+        * Based on the logic from the PHB character creation
+    * Powerful after creation character **editor**
+        * _Level Up_ tool that sticks to the charts and prompts everything you need.
+        * Ability Stat, Character Name, and Alignment editor
     * **Permanancy**. Load and Save your entire character list. 
         * Unlimited different save files.
         * Made to be one save file per campaign, but your style may vary.
+    * What the character maker doesn't do (yet)
+	* Items - might hint at what some of your items are but you have to come up with your equipment on your own
+	* Some non-artisan tools and trades from the classes have not been added yet (game sets and vehicles mainly)
+	* Spells - tells you how many cantrips, slots, and known spells but you still have to pick your spells
 
 2. Magic Item Generator: Figure out treasure and rewards in seconds!
     * Reward rolling charts from the DMG
@@ -28,30 +29,29 @@ _It's DM Magic!_
         * Magic Items
         * Scrolls prefigured out
         * Coins, Gems, Valuable Art
-        * Scroll and Spellbook Generator
+        * Scroll Generator - just tell it what level and it gives you a scroll
 
-3. Party Experience Calculator
+3. Party Experience Calculator - add up as many cr's as you want and then split it with the party. Simple yet effective.
 
-4. Name Generator: 7732 names from Kismet's list randomized!
+4. Name Generator: 7732 names from Kismet's list randomized! Pick this option and it gives you a random name.
 
 #### This is the Master Version.
 _Based on the 5e books._
 
-* Stick with this version to stick with the official books.
+* Stick with this version to stick with the official 5e books.
 * This will be actively updated and added to. There will be even more tools and features in the future.
 * The Load/Save logic is subject to change in major updates to the character generator, so have your character written down or something for now.
-* I plan on making a _side_ version for my own personal homebrew charts and features. This one will remain the Master.
-
-#### HALP!
-
-* If you run into a problem or something unclear - please open an issue ticket.
-* Anything you would like to see added to this program - open a issue ticket with the title FEATURE: in front of the issue name. 
 
 #### How-to run:
 
 1. Have a C++ compiler. Follow online guides to get one if necessary.
 2. Use Terminal and type 'make' while in this file directory. Email me if you have trouble.
 3. Type ./dmpower in terminal to run.
+
+#### HALP!
+
+* If you run into a problem or something unclear - please open an issue ticket.
+* Anything you would like to see added to this program - open a issue ticket with the title FEATURE: in front of the issue name. 
 
 ###### About
 * Code by 
