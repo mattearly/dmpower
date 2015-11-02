@@ -7,6 +7,7 @@ My overall goal is to make this program simple enough that it does not require a
 
 ### Featuring: *DM-Power*
 _It's DM Magic!_
+
 1. Characters: Get going quick with a streamlined character creation process for Players or Non-Players.
     * **All** Classes and Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, and Stats
         * Has extra class archetypes & backgrounds from the _Sword Coast Adventures Guide_ (SCAG) & _DMG_
@@ -21,6 +22,7 @@ _It's DM Magic!_
         * Items - might hint at what some of your items are but you have to come up with your equipment on your own
         * Some non-artisan tools and trades from the classes have not been added yet (game sets and vehicles mainly)
         * Spells - tells you how many cantrips, slots, and known spells but you still have to pick your spells
+        
 2. Magic Item Generator: Figure out treasure and rewards in seconds!
     * Reward rolling charts from the DMG
         * Auto roll or enter your own result.
@@ -28,7 +30,9 @@ _It's DM Magic!_
         * Scrolls prefigured out
         * Coins, Gems, Valuable Art
         * Scroll Generator - just tell it what level and it gives you a scroll
+        
 3. Party Experience Calculator - add up as many cr's as you want and then split it with the party. Simple yet effective.
+
 4. Name Generator: 7732 names from Kismet's list randomized! Pick this option and it gives you a random name.
 
 #### This is the Master Version.
