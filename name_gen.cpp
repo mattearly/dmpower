@@ -23,7 +23,10 @@ string CharacterName::grabRandomName() {
         }
 
         getline(fileOfNames, tmpName, '\n');
+    } else {
+        tmpName = "error with name file - check code";
     }
+
     return tmpName;
 
 }
