@@ -25,6 +25,7 @@ Generic_Character_Class::Generic_Character_Class() {
     defense = dueling = 0;
     great_weapon_fighting = 0;
     protection = 0;
+    arcana_d = 0;
     divine_domain = 0;
     death_d = 0;
     knowledge_d = 0;
