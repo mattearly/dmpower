@@ -1,8 +1,8 @@
 # DM-Power-Core-Version
-A lightweight yet powerful command line interface tool for DM's running 5th edition Dungeons & Dragons. It is made entirely on C++.  
-It uses data from the D&D 5e _Player's Handbook_, _Dungeon Master Guide_, & _Sword Coast Adventurer's guide_.  
-This small program does not teach you the game. You will need the books. I recommend buying them from Amazon, a local game store, or any official retailer that supports Hasbro and WotC.   
-My overall goal is to make this program simple enough that it does not require a how-to use document once you get it running.  
+is a lightweight yet powerful command line interface tool for DM's running 5th edition Dungeons & Dragons. It is made entirely on C++.  
+* It uses data from the D&D 5e _Player's Handbook_, _Dungeon Master Guide_, & _Sword Coast Adventurer's guide_.  
+* This small program does not teach you the game. You will need the books. I recommend buying them from Amazon, a local game store, or any official retailer that supports Hasbro and WotC.   
+* My overall goal is to make this program simple enough that it does not require a how-to use document once you get it running.  
 ### Featuring: *DM-Power*  
 _It's DM Magic!_  
 
@@ -50,11 +50,6 @@ _Based on the 5e books._
 
 * If you run into a problem or something unclear - please open an issue ticket.
 * Anything you would like to see added to this program - open a issue ticket with the title FEATURE: in front of the issue name. 
-
-#### Long-Standing To-do
-
-* Be aware that is my first project of magnitude that others may actually want to use - help me learn if you see something that could be done better.
-* As I learn more about coding in general, I sometimes realize that I did things wrong from a professional standpoint (public variables that should be private, etc). So eventually I'll get around to correcting that stuff. For now it just works how it is.
 
 ###### About
 * Code by 
