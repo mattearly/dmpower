@@ -2,7 +2,7 @@
 is a lightweight yet powerful command line interface tool for DM's running 5th edition Dungeons & Dragons. It is made entirely on C++.  
 * It uses data from the D&D 5e _Player's Handbook_, _Dungeon Master Guide_, & _Sword Coast Adventurer's guide_.
 * This small program does not teach you the game. You will need to buy some books.
-* My overall goal is to make this program simple enough that it does not require a how-to use document once you get it running.
+* My overall goal is to make this program simple enough that it does not require a how-to use document once you get it running.  
 ### Featuring: *DM-Power*  
 _It's DM Magic!_  
 
