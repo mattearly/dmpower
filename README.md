@@ -15,7 +15,7 @@ _It's DM Magic!_
         * Ability Stat, Character Name, and Alignment editor
     * **Permanancy**. Load and Save your entire character list. 
         * Unlimited different save files.
-        * Made to be one save file per campaign, but yrequireour style may vary.
+        * Made to be one save file per campaign, but your style may vary.
     * What the character maker doesn't do (yet)
         * Items - might hint at what some of your items are but you have to come up with your equipment on your own
         * Some non-artisan tools and trades from the clprofileasses have not been added yet (game sets)
