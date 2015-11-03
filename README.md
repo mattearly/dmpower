@@ -1,12 +1,10 @@
 # DM-Power-Core-Version
-A lightweight yet powerful command line interface tool for DM's running 5th edition Dungeons & Dragons. It is made entirely on C++. It uses data from the D&D 5e _Player's Handbook_, _Dungeon Master Guide_, & _Sword Coast Adventurer's guide_. It uses the core rules that are in the core books and WoTC/Hasbro owns all the data in these charts, I've merely just put it together in my own way to make it more convenient for me. I own all these books that I am using for the rules and claim fair use if anyone gives me hassle.
-
-This small program does not teach you the game. You will need the books. I recommend buying them from Amazon, a local game store, or any official retailer that supports Hasbro and WotC. 
-
-My overall goal is to make this program simple enough that it does not require a how-to use document once you get it running.
-
-### Featuring: *DM-Power*
-_It's DM Magic!_
+A lightweight yet powerful command line interface tool for DM's running 5th edition Dungeons & Dragons. It is made entirely on C++.  
+It uses data from the D&D 5e _Player's Handbook_, _Dungeon Master Guide_, & _Sword Coast Adventurer's guide_.  
+This small program does not teach you the game. You will need the books. I recommend buying them from Amazon, a local game store, or any official retailer that supports Hasbro and WotC.   
+My overall goal is to make this program simple enough that it does not require a how-to use document once you get it running.  
+### Featuring: *DM-Power*  
+_It's DM Magic!_  
 
 1. Characters: Get going quick with a streamlined character creation process for Players or Non-Players.
     * **All** Classes and Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, and Stats
@@ -17,10 +15,10 @@ _It's DM Magic!_
         * Ability Stat, Character Name, and Alignment editor
     * **Permanancy**. Load and Save your entire character list. 
         * Unlimited different save files.
-        * Made to be one save file per campaign, but your style may vary.
+        * Made to be one save file per campaign, but yrequireour style may vary.
     * What the character maker doesn't do (yet)
         * Items - might hint at what some of your items are but you have to come up with your equipment on your own
-        * Some non-artisan tools and trades from the classes have not been added yet (game sets and vehicles mainly)
+        * Some non-artisan tools and trades from the clprofileasses have not been added yet (game sets and vehicles mainly)
         * Spells - tells you how many cantrips, slots, and known spells but you still have to pick your spells
         
 2. Magic Item Generator: Figure out treasure and rewards in seconds!
