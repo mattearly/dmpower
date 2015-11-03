@@ -1,7 +1,7 @@
 # DM-Power-Core-Version
 is a lightweight yet powerful command line interface tool for DM's running 5th edition Dungeons & Dragons. It is made entirely on C++.  
 * It uses data from the D&D 5e _Player's Handbook_, _Dungeon Master Guide_, & _Sword Coast Adventurer's guide_.
-* This small program does not teach you the game. You will need the books. I recommend buying them from Amazon, a local game store, or any official retailer that supports Hasbro and WotC.
+* This small program does not teach you the game. You will need to buy some books.
 * My overall goal is to make this program simple enough that it does not require a how-to use document once you get it running.
 ### Featuring: *DM-Power*  
 _It's DM Magic!_  
@@ -18,7 +18,7 @@ _It's DM Magic!_
         * Made to be one save file per campaign, but yrequireour style may vary.
     * What the character maker doesn't do (yet)
         * Items - might hint at what some of your items are but you have to come up with your equipment on your own
-        * Some non-artisan tools and trades from the clprofileasses have not been added yet (game sets and vehicles mainly)
+        * Some non-artisan tools and trades from the clprofileasses have not been added yet (game sets)
         * Spells - tells you how many cantrips, slots, and known spells but you still have to pick your spells
         
 2. Magic Item Generator: Figure out treasure and rewards in seconds!
