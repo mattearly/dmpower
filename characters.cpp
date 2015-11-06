@@ -1211,10 +1211,10 @@ void Druid::setClassDetails(const int &l) {
     hitdicesize = 8;
     intSave = true;
     wisSave = true;
-    if (druidic == false) druidic = true; //learn druidic lang
-    if (spellcasting == false) spellcasting = true;
-    if (wild_shape == false && l >= 2) wild_shape = true;
-    if (druid_circle == false && l >= 2) {
+    if (!druidic) druidic = true; //learn druidic lang
+    if (!spellcasting) spellcasting = true;
+    if (!wild_shape && l >= 2) wild_shape = true;
+    if (!druid_circle && l >= 2) {
         cout << "Druid Circle:\n\n"
              << " 1. Circle of the Land\n 2. Circle of the Moon\n\n";
         int ss = getNumber("Choice: ", 1, 2);
@@ -1231,9 +1231,9 @@ void Druid::setClassDetails(const int &l) {
     if (wild_shape_improvement == .5 && l >= 8) wild_shape_improvement += .5;
     if (druid_circle_feature == 1 && l >= 10) druid_circle_feature++;
     if (druid_circle_feature == 2 && l >= 14) druid_circle_feature++;
-    if (timeless_body == false && l >= 18) timeless_body = true;
-    if (beast_spells == false && l >= 18) beast_spells = true;
-    if (archdruid == false && l >= 20) archdruid = true;
+    if (!timeless_body && l >= 18) timeless_body = true;
+    if (!beast_spells && l >= 18) beast_spells = true;
+    if (!archdruid && l >= 20) archdruid = true;
     //druid spells
     if (l >= 1 && l <= 3) {
         druid_cantrips_known = 2;
@@ -1299,7 +1299,7 @@ void Druid::setClassDetails(const int &l) {
         levelUpStats();
         druidlevelupmenus++;
     }
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         cout << "Druids start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
@@ -1340,9 +1340,9 @@ void Paladin::setClassDetails(const int &l) {
     hitdicesize = 10;
     wisSave = true;
     chaSave = true;
-    if (divine_sense == false) divine_sense = true;
-    if (lay_on_hands == false) lay_on_hands = true;
-    if (fighting_style == false && l >= 2) {
+    if (!divine_sense) divine_sense = true;
+    if (!lay_on_hands) lay_on_hands = true;
+    if (!fighting_style && l >= 2) {
         cout << "Pick a Paladin Fighting Style:\n\n"
              << " 1. Defense\n 2. Dueling\n"
              << " 3. Great Weapon Fighting\n 4. Protection\n\n";
@@ -1353,10 +1353,10 @@ void Paladin::setClassDetails(const int &l) {
         if (ss == 4) protection = true;
         fighting_style = true;
     }
-    if (spellcasting == false && l >= 2) spellcasting = true;
+    if (!spellcasting && l >= 2) spellcasting = true;
     if (divine_smite == 0 && l >= 2) divine_smite++;
-    if (divine_health == false && l >= 3) divine_health = true;
-    if (sacred_oath == false && l >= 3) {
+    if (!divine_health && l >= 3) divine_health = true;
+    if (!sacred_oath && l >= 3) {
         cout << "Pick a Paladin Oath Path:\n\n"
              << " 1. Oath of Ancients\n"
              << " 2. Oath of Devotion\n"
@@ -1387,13 +1387,13 @@ void Paladin::setClassDetails(const int &l) {
         sacred_oath = true;
     }
     if (extra_attack == 0 && l >= 5) extra_attack++;
-    if (aura_of_protection == false && l >= 6) aura_of_protection = true;
+    if (!aura_of_protection && l >= 6) aura_of_protection = true;
     if (sacred_oath_feature == 0 && l >= 7) sacred_oath_feature++;
-    if (aura_of_courage == false && l >= 10) aura_of_courage = true;
+    if (!aura_of_courage && l >= 10) aura_of_courage = true;
     if (divine_smite == 1 && l >= 11) divine_smite++;
-    if (cleansing_touch == false && l >= 14) cleansing_touch = true;
+    if (!cleansing_touch && l >= 14) cleansing_touch = true;
     if (sacred_oath_feature == 1 && l >= 15) sacred_oath_feature++;
-    if (aura_improvments == false && l >= 18) aura_improvments = true;
+    if (!aura_improvments && l >= 18) aura_improvments = true;
     if (sacred_oath_feature == 2 && l == 20) sacred_oath_feature++;
     //spells
     if (l >= 2) first_ss = 2;
@@ -1433,7 +1433,7 @@ void Paladin::setClassDetails(const int &l) {
         levelUpStats();
         paladinlevelupmenus++;
     }
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         cout << "Paladins start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
@@ -1468,8 +1468,8 @@ void Sorcerer::setClassDetails(const int &l) {
     hitdicesize = 6;
     conSave = true;
     chaSave = true;
-    if (spellcasting == false) spellcasting = true;
-    if (sorcerous_origin == false) {
+    if (!spellcasting) spellcasting = true;
+    if (!sorcerous_origin) {
         cout << "Sorcerous Origin:\n\n"
              << " 1. Draconic Bloodline\n 2. Wild Magic\n 3. Storm Sorcery\n\n";
         int ss = getNumber("Sorcerous Origin choice: ", 1, 3);
@@ -1485,14 +1485,14 @@ void Sorcerer::setClassDetails(const int &l) {
         }
         sorcerous_origin = true;
     }
-    if (font_of_magic == false && l >= 2) font_of_magic = true;
+    if (!font_of_magic && l >= 2) font_of_magic = true;
     if (metamagic == 0 && l >= 3) metamagic++;
     if (sorcerous_origin_feature == 0 && l >= 6) sorcerous_origin_feature++;
     if (metamagic == 1 && l >= 10) metamagic++;
     if (sorcerous_origin_feature == 1 && l >= 14) sorcerous_origin_feature++;
     if (metamagic == 2 && l >= 17) metamagic++;
     if (sorcerous_origin_feature == 2 && l >= 18) sorcerous_origin_feature++;
-    if (sorcerous_restoration == false && l == 20) sorcerous_restoration = true;
+    if (!sorcerous_restoration && l == 20) sorcerous_restoration = true;
     //spells
     if (l >= 1) { sorcerer_cantrips_known = 4; sorcerer_spells_known = 2; first_ss = 2; }
     if (l >= 2) { sorcerer_spells_known++; first_ss++; sorcery_points = l; }
@@ -1526,7 +1526,7 @@ void Sorcerer::setClassDetails(const int &l) {
     if (sorcererlevelupmenus == 4 && l >= 19) {
         cout << "Sorcerer level 19 Level Up menu:\n\n";
         levelUpStats(); sorcererlevelupmenus++; }
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         cout << "Sorcerers start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
@@ -1562,11 +1562,11 @@ void Bard::setClassDetails(const int &l) {
     hitdicesize = 8;
     chaSave = true;
     dexSave = true;
-    if (spellcasting == false) { spellcasting = true; }
+    if (!spellcasting) { spellcasting = true; }
     if (bardic_inspiration == 0) { bardic_inspiration = 6; }
-    if (jack_of_all_trades == false && l >= 2) { jack_of_all_trades = true; }
+    if (!jack_of_all_trades && l >= 2) { jack_of_all_trades = true; }
     if (song_of_rest == 0 && l >= 2) { song_of_rest = 6; }
-    if (bard_college == false && l >= 3) {
+    if (!bard_college && l >= 3) {
         cout << "Bard College:\n\n"
              << " 1. College of Lore\n 2. College of Valor\n\n";
         int ss = getNumber("Choice(1-2):  ", 1, 2);
@@ -1579,8 +1579,8 @@ void Bard::setClassDetails(const int &l) {
     }
     if (expertise == 0 && l >= 3) { expertise++; }
     if (bardic_inspiration <= 6 && l >= 5) { bardic_inspiration = 8; }
-    if (font_of_inspiration == false && l >= 5) { font_of_inspiration = true; }
-    if (countercharm == false && l >= 6) { countercharm = true; }
+    if (!font_of_inspiration && l >= 5) { font_of_inspiration = true; }
+    if (!countercharm && l >= 6) { countercharm = true; }
     if (bard_college_feature <= 0 && l >= 6) {
         bard_college_feature++;
         if (college_of_lore) additional_magical_secrets = true;
@@ -1596,7 +1596,7 @@ void Bard::setClassDetails(const int &l) {
     if (bardic_inspiration <= 10 && l >= 15) { bardic_inspiration = 12; }
     if (song_of_rest <= 10 && l >= 17) { song_of_rest = 12; }
     if (magical_secrets <= 2 && l >= 18) { magical_secrets++; }
-    if (superior_inspiration == false && l >= 20) { superior_inspiration = true; }
+    if (!superior_inspiration && l >= 20) { superior_inspiration = true; }
     //bard spells
     for (int i = 1; i <= l; i++) {
         switch (i) {
@@ -1681,7 +1681,7 @@ void Bard::setClassDetails(const int &l) {
     if (bardlevelupmenus == 2 && l >= 12) { levelUpStats(); bardlevelupmenus++; }
     if (bardlevelupmenus == 3 && l >= 16) { levelUpStats(); bardlevelupmenus++; }
     if (bardlevelupmenus == 4 && l >= 19) { levelUpStats(); bardlevelupmenus++; }
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         setInstrument("Choose 3 Bard instruments.\n\n", 3);
         setAnySkill("Bards start with 4 skills:", 4);
@@ -1728,23 +1728,23 @@ void Monk::setClassDetails(const int &l) {
         }
         monastic_tradition = true;
     }
-    if (deflect_missles == false && l >= 3) deflect_missles = true;
-    if (slow_fall == false && l >= 4) slow_fall = true;
+    if (!deflect_missles && l >= 3) deflect_missles = true;
+    if (!slow_fall && l >= 4) slow_fall = true;
     if (extra_attack == 0 && l >= 5) extra_attack++;
-    if (stunning_strike == false && l >= 5) stunning_strike = true;
-    if (ki_empowered_strikes == false && l >= 6) ki_empowered_strikes = true;
+    if (!stunning_strike && l >= 5) stunning_strike = true;
+    if (!ki_empowered_strikes && l >= 6) ki_empowered_strikes = true;
     if (monastic_tradition_feature == 0 && l >= 6) monastic_tradition_feature++;
-    if (evasion == false && l >= 7) evasion = true;
-    if (stillness_of_mind == false && l >= 7) stillness_of_mind = true;
-    if (unarmored_movement_improvement == false && l >= 9) unarmored_movement_improvement = true;
-    if (purity_of_body == false && l >= 10) purity_of_body = true;
+    if (!evasion && l >= 7) evasion = true;
+    if (!stillness_of_mind && l >= 7) stillness_of_mind = true;
+    if (!unarmored_movement_improvement && l >= 9) unarmored_movement_improvement = true;
+    if (!purity_of_body && l >= 10) purity_of_body = true;
     if (monastic_tradition_feature == 1 && l >= 11) monastic_tradition_feature++;
-    if (tongue_of_the_sun_and_moon == false && l >= 13) tongue_of_the_sun_and_moon = true;
-    if (diamond_soul == false && l >= 14) diamond_soul = true;
-    if (timeless_body == false && l >= 15) timeless_body = true;
+    if (!tongue_of_the_sun_and_moon && l >= 13) tongue_of_the_sun_and_moon = true;
+    if (!diamond_soul && l >= 14) diamond_soul = true;
+    if (!timeless_body && l >= 15) timeless_body = true;
     if (monastic_tradition_feature == 2 && l >= 17) monastic_tradition_feature++;
-    if (empty_body == false && l >= 18) empty_body = true;
-    if (perfect_self == false && l == 20) perfect_self = true;
+    if (!empty_body && l >= 18) empty_body = true;
+    if (!perfect_self && l == 20) perfect_self = true;
     if (monklevelupmenus == 0 && l >= 4) {
         cout << "Monk level 4 Level Up menu:\n\n";
         levelUpStats();
@@ -1770,7 +1770,7 @@ void Monk::setClassDetails(const int &l) {
         levelUpStats();
         monklevelupmenus++;
     }
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         cout << "Monks start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
@@ -1815,7 +1815,7 @@ void Ranger::setClassDetails(const int &l) {
         setLandtype();
         natural_explorer++;
     }
-    if (fighting_style == false && l >= 2) {
+    if (!fighting_style && l >= 2) {
         cout << "Ranger Fighting Style:\n\n"
              << " 1. Archery\n 2. Defense\n 3. Dueling\n 4. Two Weapon Fighting\n\n";
         int ss = getNumber("Fight Style choice: ", 1, 4);
@@ -1825,8 +1825,8 @@ void Ranger::setClassDetails(const int &l) {
         if (ss == 4) two_weapon_fighting = true;
         fighting_style = true;
     }
-    if (spellcasting == false && l >= 2) spellcasting = true;
-    if (ranger_archetype == false && l >= 3) {
+    if (!spellcasting && l >= 2) spellcasting = true;
+    if (!ranger_archetype && l >= 3) {
         cout << "Ranger Archetype:\n\n"
              << " 1. Hunter\n 2. Beast Master\n\n";
         int ss = getNumber("Archetype choice(1-2): ", 1, 2);
@@ -1834,7 +1834,7 @@ void Ranger::setClassDetails(const int &l) {
         if (ss == 2) beast_master = true;
         ranger_archetype = true;
     }
-    if (primeval_awareness == false && l >= 3) primeval_awareness = true;
+    if (!primeval_awareness && l >= 3) primeval_awareness = true;
     if (extra_attack == 0 && l >= 5) extra_attack++;
     if (favored_enemy == 1 && l >= 6) {
         cout << "Ranger Favored Enemy:\n\n";
@@ -1847,23 +1847,23 @@ void Ranger::setClassDetails(const int &l) {
         natural_explorer++;
     }
     if (ranger_archetype_feature == 0 && l >= 7) ranger_archetype_feature++;
-    if (lands_stride == false && l >= 8) lands_stride = true;
+    if (!lands_stride && l >= 8) lands_stride = true;
     if (natural_explorer == 2 && l >= 10) {
         cout << "Natural Explorer land type:";
         setLandtype();
         natural_explorer++;
     }
-    if (hide_in_plain_sight == false && l >= 10) hide_in_plain_sight = true;
+    if (!hide_in_plain_sight && l >= 10) hide_in_plain_sight = true;
     if (ranger_archetype_feature == 1 && l >= 11) ranger_archetype_feature++;
     if (favored_enemy == 2 && l >= 14) {
         cout << "Ranger Favored Enemy:\n\n";
         setFavoredEnemy();
         favored_enemy++;
     }
-    if (vanish == false && l >= 14) vanish = true;
+    if (!vanish && l >= 14) vanish = true;
     if (ranger_archetype_feature == 2 && l >= 15) ranger_archetype_feature++;
-    if (feral_senses == false && l >= 18) feral_senses = true;
-    if (foe_slayer == false && l == 20) foe_slayer = true;
+    if (!feral_senses && l >= 18) feral_senses = true;
+    if (!foe_slayer && l == 20) foe_slayer = true;
     // spells
     if (l >= 2) { ranger_spells_known = 2; first_ss = 2; }
     if (l >= 3) { ranger_spells_known++; first_ss++; }
@@ -1900,7 +1900,7 @@ void Ranger::setClassDetails(const int &l) {
         levelUpStats();
         rangerlevelupmenus++;
     }
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         cout << "Rangers start with 3 skills.\n";
         for (int i = 0; i < 3; i++) {
@@ -1942,8 +1942,8 @@ void Warlock::setClassDetails(const int &l) {
     hitdicesize = 8;
     intSave = true;
     chaSave = true;
-    if (pact_magic == false) pact_magic = true;
-    if (otherworldly_patron == false) {
+    if (!pact_magic) pact_magic = true;
+    if (!otherworldly_patron) {
         cout << "Choose Warlock Otherworldly Patron:\n\n"
              << " 1. Archfey\n 2. Fiend\n 3. Great Old One\n 4. The Undying\n\n";
         int ss = getNumber("Patron choice: ", 1, 4);
@@ -1956,7 +1956,7 @@ void Warlock::setClassDetails(const int &l) {
         }
         otherworldly_patron = true;
     }
-    if (pact_boon == false && l >= 3) pact_boon = true;
+    if (!pact_boon && l >= 3) pact_boon = true;
     if (otherworldly_patron_feature == 0 && l >= 6) otherworldly_patron_feature++;
     if (otherworldly_patron_feature == 1 && l >= 10) otherworldly_patron_feature++;
     if (mystic_arcanum == 0 && l >= 11) mystic_arcanum += 6;
@@ -1964,7 +1964,7 @@ void Warlock::setClassDetails(const int &l) {
     if (otherworldly_patron_feature == 2 && l >= 14) otherworldly_patron_feature++;
     if (mystic_arcanum == 7 && l >= 15) mystic_arcanum++;
     if (mystic_arcanum == 8 && l >= 17) mystic_arcanum++;
-    if (eldritch_master == false && l == 20) eldritch_master = true;
+    if (!eldritch_master && l == 20) eldritch_master = true;
     //spells
     if (l >= 1) { warlock_cantrips_known += 2; warlock_spells_known += 2; warlock_spell_slots++; warlock_slot_level++; }
     if (l >= 2) { warlock_spells_known++; warlock_spell_slots++; eldritch_invocations_known += 2; }
@@ -1998,7 +1998,7 @@ void Warlock::setClassDetails(const int &l) {
     if (warlocklevelupmenus == 4 && l >= 19) {
         cout << "Warlock level 19 Level Up menu:\n\n";
         levelUpStats(); warlocklevelupmenus++; }
-    if (initialSkillsSet == false) {
+    if (!initialSkillsSet) {
         simpleClearScreen();
         cout << "Warlocks start with 2 skills.\n";
         for (int i = 0; i < 2; i++) {
@@ -2601,109 +2601,109 @@ void Generic_Character_Class::setAnySkill(const string& message, const int& many
     }
 }
 void Generic_Character_Class::gainAcrobatics(int& i) {
-    if (acrobatics == false) {
+    if (!acrobatics) {
         acrobatics = true;
         cout << "Acrobatics skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainAnimal_Handling(int& i) {
-    if (animal_handling == false) {
+    if (!animal_handling) {
         animal_handling = true;
         cout << "Animal Handling skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainArcana(int& i) {
-    if (arcana == false) {
+    if (!arcana) {
         arcana = true;
         cout << "Arcana skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainAthletics(int& i) {
-    if (athletics == false) {
+    if (!athletics) {
         athletics = true;
         cout << "Athletics skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainDeception(int& i) {
-    if (deception == false) {
+    if (!deception) {
         deception = true;
         cout << "Deception skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainHistory(int& i) {
-    if (history == false) {
+    if (!history) {
         history = true;
         cout << "History skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainInsight(int& i) {
-    if (insight == false) {
+    if (!insight) {
         insight = true;
         cout << "Insight skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainIntimidation(int& i) {
-    if (intimidation == false) {
+    if (!intimidation) {
         intimidation = true;
         cout << "Initimdation skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainInvestigation(int& i) {
-    if (investigation == false) {
+    if (!investigation) {
         investigation = true;
         cout << "Investigation skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainMedicine(int& i) {
-    if (medicine == false) {
+    if (!medicine) {
         medicine = true;
         cout << "Medicine skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainNature(int& i) {
-    if (nature == false) {
+    if (!nature) {
         nature = true;
         cout << "Nature skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainPerception(int& i) {
-    if (perception == false) {
+    if (!perception) {
         perception = true;
         cout << "Perception skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainPerformance(int& i) {
-    if (performance == false) {
+    if (!performance) {
         performance = true;
         cout << "Performance skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainPersuasion(int& i) {
-    if (persuasion == false) {
+    if (!persuasion) {
         persuasion = true;
         cout << "Persuasion skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainReligion(int& i) {
-    if (religion == false) {
+    if (!religion) {
         religion = true;
         cout << "Religion skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainSleight_of_Hand(int& i) {
-    if (sleight_of_hand == false) {
+    if (!sleight_of_hand) {
         sleight_of_hand = true;
         cout << "Sleight of Hand skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainStealth(int& i) {
-    if (stealth == false) {
+    if (!stealth) {
         stealth = true;
         cout << "Stealth skill learned!\n";
     } else { knownskill(i); }
 }
 void Generic_Character_Class::gainSurvival(int& i) {
-    if (survival == false) {
+    if (!survival) {
         survival = true;
         cout << "Survival skill learned!\n";
     } else { knownskill(i); }
