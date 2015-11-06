@@ -426,9 +426,7 @@ Generic_Character_Class::Generic_Character_Class() {
     ninth_ss = 0;
     warlock_ss = 0;
     twohumanoids = 0;
-
     backgroundofpc = NOBACKGROUND;
-
     destroy_undead = 0;
     wild_shape_improvement = 0;
 }
@@ -1485,8 +1483,6 @@ void Sorcerer::setClassDetails(const int &l) {
             storm_sorcery = true; break;
         default:;
         }
-
-        if (ss == 2) wild_magic = true;
         sorcerous_origin = true;
     }
     if (font_of_magic == false && l >= 2) font_of_magic = true;
