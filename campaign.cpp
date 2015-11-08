@@ -187,7 +187,7 @@ void Campaign::pc_menu() {
             break;
         case 5: {   //DELETE CHARACTER
             if (character_list.size() < 1) {
-                cout << "Already 0 characters. Nothing to Delete! \n";
+                cout << "No characters. Nothing to Delete! \n";
             } else {
                 string tmp;
                 do {
@@ -211,13 +211,15 @@ void Campaign::pc_menu() {
             char sure = getYorN("Are you Sure you want to Delete All Player Characters?(y/n):");
             if (sure == 'Y') {
                 character_list.clear();
-                cout << "All Characters Deleted. Press 'Cntl + C' now to make sure this change doesn't save or just Enter to continue.\n\n";
+                cout << "All Characters Deleted. Press 'Cntl + C' now to reverse this.\n\n";
             } else {
                 cout << "Nothing Deleted.\n\n";
             }
         }
             pressEnterToContinue();
-        default:;
+            break;
+        default:
+            cout << "Option doesn't exist.\n";
         }
     }
     simpleClearScreen();
@@ -245,7 +247,7 @@ void Campaign::makecharacter(Generic_Character_Class *tmp, int& starting_level) 
     tmp->setProficiencyBonus();
     character_list.push_back(tmp);
     tmp->initialSkillsSet = true;
-    char ans = getYorN("Display Character Sheet now? (Y/N):");
+    char ans = getYorN("Display Character Sheet now[y/n]?");
     if (ans == 'Y') character_list.back()->character_sheet();
     pressEnterToContinue();
 }

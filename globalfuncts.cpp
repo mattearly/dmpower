@@ -35,9 +35,9 @@ char getYorN(const std::string& message) {
 void pressEnterToContinue() {
     std::cin.clear();
     std::cout << "\nPress 'ENTER' to continue.\n\n";
-
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get();
+    std::cout << endl;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
 
