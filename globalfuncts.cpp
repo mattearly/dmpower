@@ -104,7 +104,6 @@ float xpgenerator() {
          << "18. 265,000\n"
          << "19. 305,000\n"
          << "20. 355,000\n\n";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     pressEnterToContinue();
     do {
         cout << "Challenge Rating Chart\n\n"
@@ -233,6 +232,6 @@ float xpgenerator() {
         }
         ans = getYorN("Are there more to add(Y/N)?");
     } while (ans == 'Y');
-    int party = getNumber("Split between how many party members?(1-10)", 1, 10);
+    int party = getNumber("Split between how many party members?(max=20)", 1, 20);
     return (xp /= party);
 }

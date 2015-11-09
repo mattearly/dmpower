@@ -57,7 +57,7 @@ void Magic_Items::treasure_menu() {
             pressEnterToContinue();
             break;
         case 4:
-            cout << "\nnothing here yet";
+            cout << "\nNothing here yet";
             choice = 0;
             pressEnterToContinue();
             break;
@@ -4369,6 +4369,10 @@ void Magic_Items::SingleScroll(const int& lvl) const {
     }
 }
 string Magic_Items::GenerateGemstone(const int& value) const {
-    cout << "nothing here yet";
+    cout << "nothing here yet\n\n";
     return "nothing";
+}
+string Magic_Items::GenerateArt(const int& value) const {
+    cout << "suprise motherfucker\n\n";
+    return "nada";
 }
