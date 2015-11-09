@@ -1,31 +1,24 @@
 # DM-Power-Core-Version
-is a lightweight yet powerful command line interface tool for DM's running 5th edition Dungeons & Dragons. It is made entirely on C++.  
-* It uses data from the D&D 5e _Player's Handbook_, _Dungeon Master Guide_, & _Sword Coast Adventurer's guide_.
-* This small program does not teach you the game. You will need to buy some books.
-* My overall goal is to make this program simple enough that it does not require a how-to use document once you get it running.  
+A tool for 5th edition Dungeons & Dragons.
 ### Featuring: *DM-Power*  
-_It's DM Magic!_  
+* DM-Power-Core-Version uses data from the D&D 5e _Player's Handbook_, _Dungeon Master Guide_, & _Sword Coast Adventurer's guide_.
 
-1. Characters: Get going quick with a streamlined character creation process for Players or Non-Players.
-    * **All** Classes and Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, and Stats
-        * Has extra class archetypes & backgrounds from the _Sword Coast Adventures Guide_ (SCAG) & _DMG_
-        * Based on the logic from the PHB character creation
+1. Characters: Get going quick with a streamlined character creation process for PCs or NPCs.
+    * **All** Classes and Archetype Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, and Stats
+        * Uses all the standard rules and includes some variant options
     * Powerful after creation character **editor**
-        * _Level Up_ tool that sticks to the charts and prompts everything you need.
-        * Ability Stat, Character Name, and Alignment editor
+        * _Level Up_ tool that progresses your character and prompts any options.
+        * Allows editing Stats, Character Name, and Alignment
     * **Permanancy**. Load and Save your entire character list. 
-        * Unlimited different save files.
-        * Made to be one save file per campaign, but your style may vary.
+        * Load / Save logic subject to change with updates
     * What the character maker doesn't do (yet)
-        * Items - might hint at what some of your items are but you have to come up with your equipment on your own
-        * Some non-artisan tools and trades from the clprofileasses have not been added yet (game sets)
+        * Items - you gotta buy your own equipment
         * Spells - tells you how many cantrips, slots, and known spells but you still have to pick your spells
         
 2. Magic Item Generator: Figure out treasure and rewards in seconds!
-    * Reward rolling charts from the DMG
-        * Auto roll or enter your own result.
+    * All Reward rolling charts from the DMG
         * Magic Items
-        * Scrolls prefigured out
+        * Tells you what the scroll is rather than 'level 2 scroll'
         * Coins, Gems, Valuable Art
         * Scroll Generator - just tell it what level and it gives you a scroll
         
@@ -33,12 +26,6 @@ _It's DM Magic!_
 
 4. Name Generator: 7732 names from Kismet's list randomized! Pick this option and it gives you a random name.
 
-#### This is the Master Version.
-_Based on the 5e books._
-
-* Stick with this version to stick with the official 5e books.
-* This will be actively updated and added to. There will be even more tools and features in the future.
-* The Load/Save logic is subject to change in major updates to the character generator, so have your character written down or something for now.
 
 #### How-to run:
 
@@ -46,7 +33,7 @@ _Based on the 5e books._
 2. Use Terminal and type 'make' while in this file directory. Email me if you have trouble.
 3. Type ./dmpower in terminal to run.
 
-#### HALP!
+#### Problems?
 
 * If you run into a problem or something unclear - please open an issue ticket.
 * Anything you would like to see added to this program - open a issue ticket with the title FEATURE: in front of the issue name. 
