@@ -74,7 +74,7 @@ int rollstats_hi_power();
 
 int rollstats_standard();
 
-float xpgenerator();
+
 
 
 #endif /* defined(__dm_power_poly__globalfuncts__) */

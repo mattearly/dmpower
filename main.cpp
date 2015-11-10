@@ -47,7 +47,8 @@ int main() {
         }
             break;
         case 3: {
-            float rewardXP = xpgenerator();
+            Magic_Items gen;
+            float rewardXP = gen.xpgenerator();
             simpleClearScreen();
             cout << "XP per member = " << rewardXP << endl << endl;
         }

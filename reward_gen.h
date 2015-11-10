@@ -9,8 +9,10 @@ class Gear;
 class Magic_Items {
 
 public:
+
     void treasure_menu(); //REWARD ITEM GENERATOR
-    
+    float xpgenerator();
+
 private:
     std::vector<Gear> full_gear_list;
     
@@ -39,6 +41,8 @@ private:
     std::string GenerateArt(const int&) const;
     
     void SingleScroll(const int&) const;
+
+
 };
 
 #endif  //REWARD_GEN_H
