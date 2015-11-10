@@ -3740,7 +3740,7 @@ string Generic_Character_Class::getBackground() const {
     return tmp;
 }
 void Generic_Character_Class::printClassAbilities() const {
-    cout << "->" << RED << " Class Abilities: " << RESET;
+    cout << "->" << GREEN << " Class Abilities: " << RESET;
     //general
     if (extra_attack > 0) cout << "Extra Attack(" << extra_attack << "), ";
     if (spellcasting) cout << "Spellcasting, ";

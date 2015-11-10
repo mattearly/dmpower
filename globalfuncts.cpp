@@ -36,8 +36,8 @@ void pressEnterToContinue() {
     std::cin.clear();
     std::cout << "\nPress 'ENTER' to continue.\n\n";
     std::cin.get();
-    std::cout << endl;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  //  std::cout << endl;
+   // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
 
