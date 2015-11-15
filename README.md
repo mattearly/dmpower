@@ -27,10 +27,11 @@ A tool for 5th edition Dungeons & Dragons.
 4. Name Generator: 7732 names from Kismet's list randomized! Pick this option and it gives you a random name.
 
 
-#### How-to run:
+#### How-to compile and run:
 
-1. Use qmake -or- use 'g++ -std=c++11 *.cpp -o dmpower' in terminal (without the quotes).
-3. Type ./dmpower in terminal while in the build directory to run the program.
+1. You will need a c++ compiler. I usually use the latest GNU version but this should work with about any.
+2. Use _qmake_ -or- use _g++ -std=c++11 *.cpp -o dmpower_ in terminal (without the quotes).
+3. Type _./dmpower_ in terminal while in the build directory to run the program.
 
 #### Problems?
 
