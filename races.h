@@ -9,7 +9,6 @@
 #ifndef __dm_power_poly__races__
 #define __dm_power_poly__races__
 
-#include <stdio.h>
 #include "characters.h"
 #include "globalfuncts.h"
 

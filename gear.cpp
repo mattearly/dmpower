@@ -12,9 +12,10 @@ using namespace std;
 
 Gear::Gear() {
     quantity = 0;
-    item_name = "";
+    item_name = "voidspace - no item";
 
 }
+
 Gear::Gear(const int& q, const string& i){
     quantity = q;
     item_name = i;

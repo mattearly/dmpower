@@ -251,7 +251,7 @@ void Campaign::makecharacter(Generic_Character_Class *tmp, int& starting_level) 
     if (ans == 'Y') character_list.back()->character_sheet();
     pressEnterToContinue();
 }
-ofstream& Campaign::dumpCharacter(ofstream& os) {
+ofstream& Campaign::dumpCharacter(ofstream& os) const {
     int charactercount = 0;
     for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
         charactercount++;

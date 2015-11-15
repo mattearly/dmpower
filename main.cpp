@@ -8,15 +8,16 @@
 //  
 
 #include "campaign.h"
-#include "reward_gen.h"
-#include "name_gen.h"
+#include "gen_reward.h"
+#include "gen_name.h"
 #include <fstream>
 #include <cstdlib>
 
 using namespace std;
 
 void load_file(bool&, string&, Campaign&);
-void save_file(const bool&, const string&, Campaign&);
+void save_file(const bool&, const string&, const Campaign&);
+
 
 int main() {
     bool loadSuccess = 0;
@@ -87,7 +88,7 @@ void load_file(bool& ls, string& lf, Campaign& game) {
         cout << "No file named '" << file << "'. Starting new file.\n\n";
     }
 }
-void save_file(const bool& ls, const string& lf, Campaign& game) {
+void save_file(const bool& ls, const string& lf, const Campaign& game) {
     string file;
     ofstream os;
     if (ls == false) {

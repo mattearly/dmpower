@@ -13,6 +13,7 @@
 #include "campaign.h"
 
 class Campaign;
+
 class Generic_Character_Class {
 public:
     Generic_Character_Class();

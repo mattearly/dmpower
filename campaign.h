@@ -6,25 +6,22 @@
 //  Copyright (c) 2015 athenstechgiants. All rights reserved.
 //
 
-#ifndef dm_power_poly_campaign_h
-#define dm_power_poly_campaign_h
+#ifndef CAMPAIGN_H
+#define CAMPAIGN_H
 
 #include <fstream>
 #include "globalfuncts.h"
 #include "characters.h"
 
-
 class Generic_Character_Class;
 
-
 class Campaign {
-
 public:
     //PLAYER CHARACTER CREATION
     std::list<Generic_Character_Class*> character_list;
     Generic_Character_Class* tmp;
     void pc_menu();
-    std::ofstream& dumpCharacter(std::ofstream&); //save
+    std::ofstream& dumpCharacter(std::ofstream&) const; //save
     std::ifstream& retrieveCharacter(std::ifstream&);  //load
     bool checkname(const std::string&) const;
 private:
@@ -32,4 +29,4 @@ private:
 
 };
 
-#endif
+#endif  //CAMPAIGN_H
