@@ -29,8 +29,7 @@ A tool for 5th edition Dungeons & Dragons.
 
 #### How-to run:
 
-1. Have a C++ compiler. Follow online guides to get one if necessary.
-2. Use Terminal and type 'make' while in this file directory. Email me if you have trouble.
+1. Use qmake or use 'g++ -std=c++11 *.cpp'
 3. Type ./dmpower in terminal to run.
 
 #### Problems?

@@ -243,6 +243,7 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v) {
         cout << endl;
     }
     v.setAnySkill("Half Elfs gain one of any skill:", 1);
+    v.common = true;  //only starting lang
     pressEnterToContinue();
 }
 void Halforc::setRaceDetails(Generic_Character_Class &v) {
