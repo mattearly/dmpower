@@ -390,6 +390,7 @@ Generic_Character_Class::Generic_Character_Class() {
     sacred_oath_feature = 0;
     divine_smite = 0;
     favored_enemy = 0;
+    favored_enemy_languages = 0;
     natural_explorer = 0;
     ranger_archetype_feature = 0;
     ranger_spells_known = 0;
@@ -1842,14 +1843,14 @@ void Ranger::setClassDetails(const int &l) {
         favored_enemy++;
     }
     if (natural_explorer == 1 && l >= 6) {
-        cout << "Natural Explorer land type:";
+        cout << "Natural Explorer land type:\n\n";
         setLandtype();
         natural_explorer++;
     }
     if (ranger_archetype_feature == 0 && l >= 7) ranger_archetype_feature++;
     if (!lands_stride && l >= 8) lands_stride = true;
     if (natural_explorer == 2 && l >= 10) {
-        cout << "Natural Explorer land type:";
+        cout << "Natural Explorer land type:\n\n";
         setLandtype();
         natural_explorer++;
     }
@@ -2932,7 +2933,7 @@ void Generic_Character_Class::setLandtype(){
     if (ss == 8) underdark = true;
 }
 void Generic_Character_Class::setFavoredEnemy() {
-    bool good = false;
+    bool done = false;
     cout << " 1. Abberations    8. Fiends"
          << "\n 2. Beasts         9. Giants"
          << "\n 3. Celestials    10. Monstrosities"
@@ -2940,25 +2941,25 @@ void Generic_Character_Class::setFavoredEnemy() {
          << "\n 5. Dragons       12. Plants"
          << "\n 6. Elementals    13. Undead"
          << "\n 7. Fey           14. Two Humanoids\n\n";
-    while (!good) {
+    while (!done) {
         int ss = getNumber("Choice(1-14): ", 1, 14);
-        if (ss == 14) { twohumanoids++; good = true; continue; }
-        if (ss == 1 && !aberrations) { aberrations = true; good = true; }
-        else if (ss == 2 && !beasts) { beasts = true; good = true; }
-        else if (ss == 3 && !celestials) { celestials = true; good = true; }
-        else if (ss == 4 && !constructs) { constructs = true; good = true; }
-        else if (ss == 5 && !dragons) { dragons = true; good = true; }
-        else if (ss == 6 && !elementals) { elementals = true; good = true; }
-        else if (ss == 7 && !fey) { fey = true; good = true; }
-        else if (ss == 8 && !fiends) { fiends = true; good = true; }
-        else if (ss == 9 && !giants) { giants = true; good = true; }
-        else if (ss == 10 && !monstrosities) { monstrosities = true; good = true; }
-        else if (ss == 11 && !oozes) { oozes = true; good = true; }
-        else if (ss == 12 && !plants) { plants = true; good = true; }
-        else if (ss == 13 && !undead) { undead = true; good = true; }
+        if (ss == 14) { twohumanoids++; done = true; continue; }
+        if (ss == 1 && !aberrations) { aberrations = true; done = true; }
+        else if (ss == 2 && !beasts) { beasts = true; done = true; }
+        else if (ss == 3 && !celestials) { celestials = true; done = true; }
+        else if (ss == 4 && !constructs) { constructs = true; done = true; }
+        else if (ss == 5 && !dragons) { dragons = true; done = true; }
+        else if (ss == 6 && !elementals) { elementals = true; done = true; }
+        else if (ss == 7 && !fey) { fey = true; done = true; }
+        else if (ss == 8 && !fiends) { fiends = true; done = true; }
+        else if (ss == 9 && !giants) { giants = true; done = true; }
+        else if (ss == 10 && !monstrosities) { monstrosities = true; done = true; }
+        else if (ss == 11 && !oozes) { oozes = true; done = true; }
+        else if (ss == 12 && !plants) { plants = true; done = true; }
+        else if (ss == 13 && !undead) { undead = true; done = true; }
         else cout << "Already a Favored Enemy - Try again.";
-        //gain lang based on new favored enemy - add later;
     }
+    favored_enemy_languages = true;
 }
 void Generic_Character_Class::setAnyFeat() {
     bool set = false;
@@ -4043,6 +4044,7 @@ void Generic_Character_Class::printClassAbilities() const {
         creaturetype();
         cout << "], ";
     }
+    if (favored_enemy_languages) cout << "Favored Enemy Languages, ";
     if (natural_explorer > 0) {
         cout << "Natural Explorer[";
         landtype();

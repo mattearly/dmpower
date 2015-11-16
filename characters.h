@@ -75,7 +75,7 @@ public:
     ranger_spells_known;
     bool ranger_archetype, primeval_awareness, lands_stride,
     hide_in_plain_sight, vanish, feral_senses, foe_slayer,
-    hunter, beast_master;
+    hunter, beast_master, favored_enemy_languages;
     //ROGUE
     int roguish_archetype_feature, arcane_t_spells_known;
     bool sneak_attack, thieves_cant, cunning_action, roguish_archetype,

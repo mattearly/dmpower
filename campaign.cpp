@@ -422,6 +422,7 @@ ofstream& Campaign::dumpCharacter(ofstream& os) const {
                 << (*it)->oathbreaker << endl
                 << "ranger" << endl
                 << (*it)->favored_enemy << endl  //ranger
+                << (*it)->favored_enemy_languages << endl
                 << (*it)->natural_explorer << endl
                 << (*it)->ranger_archetype_feature << endl
                 << (*it)->ranger_spells_known << endl
@@ -893,6 +894,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins.get();
         ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "ranger"
         ins >> v->favored_enemy;  //ranger
+        ins >> v->favored_enemy_languages;
         ins >> v->natural_explorer;
         ins >> v->ranger_archetype_feature;
         ins >> v->ranger_spells_known;
