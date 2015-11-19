@@ -12,7 +12,6 @@
 using namespace std;
 
 string CharacterName::grabRandomName() {
-
     ifstream fileOfNames;
     string tmpName;
     fileOfNames.open("names.dat");
@@ -21,12 +20,9 @@ string CharacterName::grabRandomName() {
         for (auto i = 1; i < chosenSeed; i++) {
             fileOfNames.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-
         getline(fileOfNames, tmpName, '\n');
     } else {
         tmpName = "error with name file - check code";
     }
-
     return tmpName;
-
 }

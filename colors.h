@@ -27,7 +27,9 @@
 #ifndef COLORS_H
 #define COLORS_H
 #include <string>
-using namespace std;   //epic ignore books & teaching
+
+//using namespace std;   //Matthew Beldyk performs 'epic ignore books & teaching' -mje
+using std::string;  //this is a little more reasonable at least-mje
 
 const string BLINK     = "\e[5m";          //don't use this your
 					   //professor will probibly
