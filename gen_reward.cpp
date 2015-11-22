@@ -1204,7 +1204,22 @@ Gear Magic_Items::tableC(){
         Gear tmp(1, "Potion of fire giant strength");
         return tmp;
     } else if (roll <= 84) {
-        Gear tmp(1, "Quaal's Feather Token");
+        string loader = "Quaal's Feather Token";
+        int quaalvar = rolld100(mgen);
+        if (quaalvar < 21) {
+            loader += "(Anchor)";
+        } else if (quaalvar < 36) {
+            loader += "(Bird)";
+        } else if (quaalvar < 51) {
+            loader += "(Fan)";
+        } else if (quaalvar < 66) {
+            loader += "(Swan Boat)";
+        } else if (quaalvar < 91) {
+            loader += "(Tree)";
+        } else {
+            loader += "(Whip)";
+        }
+        Gear tmp(1, loader);
         return tmp;
     } else if (roll <= 87) {
         Gear tmp(1, "Scroll of Protection");

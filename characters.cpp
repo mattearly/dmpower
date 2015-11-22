@@ -431,7 +431,6 @@ Generic_Character_Class::Generic_Character_Class() {
     destroy_undead = 0;
     wild_shape_improvement = 0;
 }
-
 void Cleric::setClassDetails(const int& l) {
     simpleClearScreen();
     cout << " ->Set Cleric Details.\n\n";

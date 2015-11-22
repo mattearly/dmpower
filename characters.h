@@ -17,6 +17,7 @@ class Campaign;
 class Generic_Character_Class {
 public:
     Generic_Character_Class();
+    ~Generic_Character_Class();
     //CLASS //GENERAL (used by 2 or more classes)
     std::string name, alignment, char_class, race;
     bool initialSkillsSet, spellcasting, timeless_body, evasion,
