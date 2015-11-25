@@ -1092,8 +1092,19 @@ Gear Magic_Items::tableB() {
         Gear tmp(1, "Dust of sneezing and choking");
         return tmp;
     } else if (roll <= 81) {
-        Gear tmp(1, "Elemental gem");
-        return tmp;
+		string loader = "Elemental Gem";
+				int quaalvar = rolld100(mgen);
+				if (quaalvar < 26) {
+					loader += "(Blue sapphire)";
+				} else if (quaalvar < 51) {
+					loader += "(Yellow Diamond)";
+				} else if (quaalvar < 76) {
+					loader += "(Red corundum)";
+				} else {
+					loader += "(Emerald)";
+				}
+				Gear tmp(1, loader);
+				return tmp;
     } else if (roll <= 83) {
         Gear tmp(1, "Philter of love");
         return tmp;
