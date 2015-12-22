@@ -1,30 +1,24 @@
-# DM-Power-Core-Version
-A tool for 5th edition Dungeons & Dragons.
-### Featuring: *DM-Power*  
-* DM-Power-Core-Version uses data from the D&D 5e _Player's Handbook_, _Dungeon Master Guide_, & _Sword Coast Adventurer's guide_.
+# Dungeon Master Power
+A tool for 5th edition Dungeons & Dragons Dungeon Masters.
 
-1. Characters: Get going quick with a streamlined character creation process for PCs or NPCs.
+### Main Features
+
+1. Build and Manage Characters: Get going quick with a streamlined character creation process for PCs or NPCs.
     * **All** Classes and Archetype Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, and Stats
-        * Uses all the standard rules and includes some variant options
     * Powerful after creation character **editor**
-        * _Level Up_ tool that progresses your character and prompts any options.
-        * Allows editing Stats, Character Name, and Alignment
-    * **Permanancy**. Load and Save your entire character list. 
-        * Load / Save logic subject to change with updates
-    * What the character maker doesn't do (yet)
-        * Items - you gotta buy your own equipment
-        * Spells - tells you how many cantrips, slots, and known spells but you still have to pick your spells
-        
-2. Magic Item Generator: Figure out treasure and rewards in seconds!
+    * Load and Save working
+
+2. Magic Item Generator: Figure out treasure.
     * All Reward rolling charts from the DMG
         * Magic Items
-        * Tells you what the scroll is rather than 'level 2 scroll'
+        * Scrolls properly randomzied is rather than 'level 2 scroll'
         * Coins, Gems, Valuable Art
         * Scroll Generator - just tell it what level and it gives you a scroll
         
-3. Party Experience Calculator - add up as many cr's as you want and then split it with the party. Simple yet effective.
+3. Party Experience Calculator
 
-4. Name Generator: 7732 names from Kismet's list randomized! Pick this option and it gives you a random name.
+4. Name Generator: 
+	* 7732 names from Kismet's list randomized and simple.
 
 
 #### How-to compile and run:
