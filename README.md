@@ -1,22 +1,18 @@
 # Dungeon Master Power
 A tool for 5th edition Dungeons & Dragons Dungeon Masters.
 
+
 ### Main Features
 
 1. Build and Manage Characters: Get going quick with a streamlined character creation process for PCs or NPCs.
     * **All** Classes and Archetype Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, and Stats
     * Powerful after creation character **editor**
     * Load and Save working
-
 2. Magic Item Generator: Figure out treasure.
     * All Reward rolling charts from the DMG
-        * Magic Items
-        * Scrolls properly randomzied is rather than 'level 2 scroll'
-        * Coins, Gems, Valuable Art
-        * Scroll Generator - just tell it what level and it gives you a scroll
-        
+    * Magic Items
+    * Scrolls properly randomized rather than 'level 2 scroll'
 3. Party Experience Calculator
-
 4. Name Generator: 
 	* 7732 names from Kismet's list randomized and simple.
 
