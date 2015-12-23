@@ -22,6 +22,11 @@ Gear::Gear(const int& q, const string& i){
 
 }
 
+Gear::Gear(const string& i) {
+    quantity = 1;
+    item_name = i;
+}
+
 void Gear::showItem() const {
     cout << quantity << " " << item_name << endl;
 }

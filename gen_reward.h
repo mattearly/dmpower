@@ -3,6 +3,8 @@
 
 #include "gear.h"
 #include "globalfuncts.h"
+#include <fstream>
+#include <boost/lexical_cast.hpp>
 
 class Gear;
 
@@ -37,7 +39,7 @@ private:
     Gear tableI();
     
     std::string GenerateScroll(const int&) const;
-    std::string GenerateGemstone(const int&) const;
+    std::string GenerateGemstone(const int&, const int&) const;
     std::string GenerateArt(const int&) const;
     
     void SingleScroll(const int&) const;

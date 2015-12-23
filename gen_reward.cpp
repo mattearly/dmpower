@@ -272,7 +272,8 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 16) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
-        Gear tmp(c, "10gp gems");
+        /*Gear tmp(c, "10gp gems");*/
+        Gear tmp(c, (GenerateGemstone(c, 10)));
         tmplist.push_back(tmp);
     } else if (mr <= 26) {
         int c = 0;
@@ -282,12 +283,12 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 36) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
     } else if (mr <= 44) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
-        Gear tmp(c, "10gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 10)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableA());
@@ -301,14 +302,14 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 60) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableA());
     } else if (mr <= 65) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
-        Gear tmp(c, "10gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 10)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableB());
@@ -322,14 +323,14 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 75) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableB());
     } else if (mr <= 78) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
-        Gear tmp(c, "10gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 10)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
@@ -343,7 +344,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 85) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
@@ -357,7 +358,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 97) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableF());
@@ -370,7 +371,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableG());
     }
@@ -410,12 +411,12 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 16) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
     } else if (mr <= 22) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "100gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
     } else if (mr <= 28) {
         int c = 0;
@@ -432,14 +433,14 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 36) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableA());
     } else if (mr <= 40) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "100gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableA());
@@ -460,14 +461,14 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 54) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableB());
     } else if (mr <= 59) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "100gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableB());
@@ -488,14 +489,14 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 69) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
     } else if (mr <= 72) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "100gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
@@ -515,13 +516,13 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 78) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableD());
     } else if (mr <= 79) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "100gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableD());
     } else if (mr <= 80) {
@@ -540,14 +541,14 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 88) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "50gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableF());
     } else if (mr <= 91) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "100gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableF());
@@ -561,7 +562,7 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 96) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "100gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableG());
@@ -575,7 +576,7 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 99) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "100gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableH());
     } else {
@@ -614,17 +615,17 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 9) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "750gp gems");
+        Gear tmp(c, "750gp art objects");
         tmplist.push_back(tmp);
     } else if (mr <= 12) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "500gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
     } else if (mr <= 15) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
     } else if (mr <= 19) {
         int c = 0;
@@ -647,7 +648,7 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 26) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "500gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableA());
@@ -656,7 +657,7 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 29) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableA());
@@ -679,14 +680,14 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 45) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "500gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
     } else if (mr <= 50) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
@@ -707,14 +708,14 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 62) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "500gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableD());
     } else if (mr <= 66) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableD());
@@ -733,13 +734,13 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 72) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "500gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableE());
     } else if (mr <= 74) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableE());;
     } else if (mr <= 76) {
@@ -761,7 +762,7 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 80) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "500gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableF());
         c = rolld4(mgen);
@@ -769,7 +770,7 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 82) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableF());
         c = rolld4(mgen);
@@ -791,14 +792,14 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 90) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "500gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableH());
     } else if (mr <= 92) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableH());
@@ -817,13 +818,13 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 98) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "500gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableI());
     } else {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableI());
     }
@@ -852,7 +853,7 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
     } else if (mr <= 5) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld8(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
@@ -870,14 +871,14 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
     } else if (mr <= 14) {
         int c = rolld8(mgen);
-        Gear tmp(c, "5000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld8(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
     } else if (mr <= 22) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableD());
@@ -895,14 +896,14 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableD());
     } else if (mr <= 46) {
         int c = rolld8(mgen);
-        Gear tmp(c, "5000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableD());
     } else if (mr <= 52) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableE());
@@ -920,14 +921,14 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableE());
     } else if (mr <= 68) {
         int c = rolld8(mgen);
-        Gear tmp(c, "5000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableE());
     } else if (mr <= 69) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableG());
@@ -945,14 +946,14 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableG());
     } else if (mr <= 72) {
         int c = rolld8(mgen);
-        Gear tmp(c, "5000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableG());
     } else if (mr <= 74) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableH());
@@ -970,14 +971,14 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableH());
     } else if (mr <= 80) {
         int c = rolld8(mgen);
-        Gear tmp(c, "5000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableH());
     } else if (mr <= 85) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
-        Gear tmp(c, "1000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableI());
@@ -995,7 +996,7 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableI());
     } else {
         int c = rolld8(mgen);
-        Gear tmp(c, "5000gp gems");
+        Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableI());
@@ -4394,10 +4395,75 @@ void Magic_Items::SingleScroll(const int& lvl) const {
         break;
     }
 }
-string Magic_Items::GenerateGemstone(const int& value) const {
-    cout << "nothing here yet\n\n";
-    return "nothing";
+string Magic_Items::GenerateGemstone(const int& amount, const int& value) const {
+    string gemstring = "errorcheckcode";
+    ifstream fileOfGems;
+    fileOfGems.open("gems.dat");    
+    if (fileOfGems.is_open()) {
+        string tmpName = "";
+        bool setvalue = false;
+        auto chosenSeed = 0;
+        for (int i = 0; i < amount; i++) {  //go down into file appropriate amount and choose a proper seed            
+                if (value == 10) {
+                    chosenSeed = randomNumber(0, 11);
+                    if (!setvalue) {
+                    fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                    }
+                }
+                else if (value == 50) {
+                    chosenSeed = randomNumber(0, 16);
+                    if (!setvalue) {
+                        for (int j = 0; j < 3; j++) { 
+                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
+                    }
+                } else if (value == 100) {
+                    chosenSeed = randomNumber(0, 15);
+                    if (!setvalue) {
+                        for (int j = 0; j < 5; j++) { 
+                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
+                    }
+                } else if (value == 500) {
+                    chosenSeed = randomNumber(0, 5);
+                    if (!setvalue) {
+                        for (int j = 0; j < 7; j++) { 
+                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
+                    }
+                } else if (value == 1000) {
+                    chosenSeed = randomNumber(0, 9);
+                    if (!setvalue) {
+                        for (int j = 0; j < 9; j++) { 
+                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
+                    }
+                } else if (value == 5000) {
+                    chosenSeed = randomNumber(0, 6);
+                    if (!setvalue) {
+                        for (int j = 0; j < 11; j++) { 
+                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
+                    }
+                }
+                
+            setvalue = true;
+            int len = fileOfGems.tellg();   //get current position  //snapshot of place in file 
+            for (auto i = 0; i < chosenSeed; i++) { //go over to the proper gem rolled
+                fileOfGems.ignore(numeric_limits<streamsize>::max(), ';');
+            } 
+            getline(fileOfGems, tmpName, ';');
+            fileOfGems.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
+            if (i == 0) {
+                gemstring = (boost::lexical_cast<string>(value) + "gp Gems:" + tmpName);
+            } else {
+                gemstring += ("," + tmpName);
+            }
+        }
+    }
+    return gemstring;
 }
+
 string Magic_Items::GenerateArt(const int& value) const {
     cout << "suprise motherfucker\n\n";
     return "nada";
@@ -4553,8 +4619,10 @@ float Magic_Items::xpgenerator() {
             xp += 155000;
         default:break;
         }
+        cout << "Total unsplit so far: " << xp << "xp" << endl;
         ans = getYorN("Are there more to add(Y/N)?");
     } while (ans == 'Y');
     int party = getNumber("Split between how many party members?(max=20)", 1, 20);
     return (xp /= party);
 }
+
