@@ -12,7 +12,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES)
-CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES)
+CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES) -std=c++11
 INCPATH       = -I/usr/share/qt4/mkspecs/default -I. -I/usr/include/QtCore -I/usr/include/QtGui -I/usr/include -I.
 LINK          = g++
 LFLAGS        = -Wl,-O1

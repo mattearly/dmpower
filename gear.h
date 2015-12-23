@@ -15,6 +15,7 @@ class Gear {
 public:
     Gear();
     Gear(const int&,const std::string&);
+    Gear(const std::string&);
     void showItem() const;
 protected:
     int quantity;

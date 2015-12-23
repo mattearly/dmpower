@@ -272,7 +272,8 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 16) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
-        Gear tmp(c, "10gp gems");
+        /*Gear tmp(c, "10gp gems");*/
+        Gear tmp(c, (GenerateGemstone(c, 10)));
         tmplist.push_back(tmp);
     } else if (mr <= 26) {
         int c = 0;
@@ -4394,10 +4395,65 @@ void Magic_Items::SingleScroll(const int& lvl) const {
         break;
     }
 }
-string Magic_Items::GenerateGemstone(const int& value) const {
-    cout << "nothing here yet\n\n";
-    return "nothing";
+string Magic_Items::GenerateGemstone(const int& amount, const int& value) const {
+    string gemstring = "errorcheckcode";
+    ifstream fileOfGems;
+    fileOfGems.open("gems.dat");    
+    if (fileOfGems.is_open()) {
+        string tmpName = "";
+        bool setvalue = false;
+        auto chosenSeed = 0;
+        int len = 0;
+        for (int i = 0; i < amount; i++) {  //go down into file appropriate amount and choose a proper seed
+            if (!setvalue) {            
+                if (value == 10) {
+                    fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                    chosenSeed = randomNumber(0, 11);
+                }
+                else if (value == 50) {
+                    for (int j = 0; j < 3; j++) { 
+                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        chosenSeed = randomNumber(0, 16);
+                    }
+                } else if (value == 100) {
+                    for (int j = 0; j < 5; j++) { 
+                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        chosenSeed = randomNumber(0, 15);
+                    }
+                } else if (value == 500) {
+                    for (int j = 0; j < 7; j++) { 
+                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        chosenSeed = randomNumber(0, 5);
+                    }
+                } else if (value == 1000) {
+                    for (int j = 0; j < 9; j++) { 
+                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        chosenSeed = randomNumber(0, 9);
+                    }
+                } else if (value == 5000) {
+                    for (int j = 0; j < 11; j++) { 
+                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        chosenSeed = randomNumber(0, 6);
+                    }
+                }
+                len = cin.tellg(); //get current position  //snapshot of place in file 
+                setvalue = true;
+            }
+            for (auto i = 1; i < chosenSeed; i++) { //go over to the proper gem rolled
+                fileOfGems.ignore(numeric_limits<streamsize>::max(), ';');
+            } 
+            getline(fileOfGems, tmpName, ';');
+            cin.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
+            if (i == 0) {
+                gemstring = (boost::lexical_cast<string>(value) + "gp Gems: " + tmpName);
+            } else {
+                gemstring += tmpName;
+            }
+        }
+    }
+    return gemstring;
 }
+
 string Magic_Items::GenerateArt(const int& value) const {
     cout << "suprise motherfucker\n\n";
     return "nada";
@@ -4558,3 +4614,4 @@ float Magic_Items::xpgenerator() {
     int party = getNumber("Split between how many party members?(max=20)", 1, 20);
     return (xp /= party);
 }
+
