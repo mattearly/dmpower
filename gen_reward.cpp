@@ -4403,47 +4403,57 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
         string tmpName = "";
         bool setvalue = false;
         auto chosenSeed = 0;
-        int len = 0;
-        for (int i = 0; i < amount; i++) {  //go down into file appropriate amount and choose a proper seed
-            if (!setvalue) {            
+        for (int i = 0; i < amount; i++) {  //go down into file appropriate amount and choose a proper seed            
                 if (value == 10) {
-                    fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
                     chosenSeed = randomNumber(0, 11);
+                    if (!setvalue) {
+                    fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                    }
                 }
                 else if (value == 50) {
-                    for (int j = 0; j < 3; j++) { 
-                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
-                        chosenSeed = randomNumber(0, 16);
+                    chosenSeed = randomNumber(0, 16);
+                    if (!setvalue) {
+                        for (int j = 0; j < 3; j++) { 
+                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
                     }
                 } else if (value == 100) {
-                    for (int j = 0; j < 5; j++) { 
-                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
-                        chosenSeed = randomNumber(0, 15);
+                    chosenSeed = randomNumber(0, 15);
+                    if (!setvalue) {
+                        for (int j = 0; j < 5; j++) { 
+                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
                     }
                 } else if (value == 500) {
-                    for (int j = 0; j < 7; j++) { 
-                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
-                        chosenSeed = randomNumber(0, 5);
+                    chosenSeed = randomNumber(0, 5);
+                    if (!setvalue) {
+                        for (int j = 0; j < 7; j++) { 
+                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
                     }
                 } else if (value == 1000) {
-                    for (int j = 0; j < 9; j++) { 
-                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
-                        chosenSeed = randomNumber(0, 9);
+                    chosenSeed = randomNumber(0, 9);
+                    if (!setvalue) {
+                        for (int j = 0; j < 9; j++) { 
+                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
                     }
                 } else if (value == 5000) {
-                    for (int j = 0; j < 11; j++) { 
-                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
-                        chosenSeed = randomNumber(0, 6);
+                    chosenSeed = randomNumber(0, 6);
+                    if (!setvalue) {
+                        for (int j = 0; j < 11; j++) { 
+                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
                     }
                 }
-                len = cin.tellg(); //get current position  //snapshot of place in file 
-                setvalue = true;
-            }
-            for (auto i = 1; i < chosenSeed; i++) { //go over to the proper gem rolled
+                
+            setvalue = true;
+            int len = fileOfGems.tellg();   //get current position  //snapshot of place in file 
+            for (auto i = 0; i < chosenSeed; i++) { //go over to the proper gem rolled
                 fileOfGems.ignore(numeric_limits<streamsize>::max(), ';');
             } 
             getline(fileOfGems, tmpName, ';');
-            cin.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
+            fileOfGems.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
             if (i == 0) {
                 gemstring = (boost::lexical_cast<string>(value) + "gp Gems:" + tmpName);
             } else {
