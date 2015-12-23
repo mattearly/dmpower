@@ -4445,9 +4445,9 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
             getline(fileOfGems, tmpName, ';');
             cin.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
             if (i == 0) {
-                gemstring = (boost::lexical_cast<string>(value) + "gp Gems: " + tmpName);
+                gemstring = (boost::lexical_cast<string>(value) + "gp Gems:" + tmpName);
             } else {
-                gemstring += tmpName;
+                gemstring += ("," + tmpName);
             }
         }
     }
@@ -4609,6 +4609,7 @@ float Magic_Items::xpgenerator() {
             xp += 155000;
         default:break;
         }
+        cout << "Total unsplit so far: " << xp << "xp" << endl;
         ans = getYorN("Are there more to add(Y/N)?");
     } while (ans == 'Y');
     int party = getNumber("Split between how many party members?(max=20)", 1, 20);
