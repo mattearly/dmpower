@@ -406,7 +406,7 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 10) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25gp art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
     } else if (mr <= 16) {
         int c = 0;
@@ -4464,9 +4464,65 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
     return gemstring;
 }
 
-string Magic_Items::GenerateArt(const int& value) const {
-    cout << "suprise motherfucker\n\n";
-    return "nada";
+string Magic_Items::GenerateArt(const int& amount, const int& value) const {
+    string artstring = "error: check code or artfile";
+    ifstream fileOfArt;
+    fileOfArt.open("artObjects.dat");    
+    if (fileOfArt.is_open()) {
+        string tmpName = "";
+        bool setvalue = false;
+        auto chosenSeed = 0;
+        for (int i = 0; i < amount; i++) {  //go down into file appropriate amount and choose a proper seed            
+                if (value == 25) {
+                    chosenSeed = randomNumber(0, 9);
+                    if (!setvalue) {
+						fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
+                    }
+                }
+                else if (value == 250) {
+                    chosenSeed = randomNumber(0, 9);
+                    if (!setvalue) {
+                        for (int j = 0; j < 3; j++) { 
+                            fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
+                    }
+                } else if (value == 750) {
+                    chosenSeed = randomNumber(0, 9);
+                    if (!setvalue) {
+                        for (int j = 0; j < 5; j++) { 
+                            fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
+                    }
+                } else if (value == 2500) {
+                    chosenSeed = randomNumber(0, 9);
+                    if (!setvalue) {
+                        for (int j = 0; j < 7; j++) { 
+                            fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
+                    }
+                } else if (value == 7500) {
+                    chosenSeed = randomNumber(0, 7);
+                    if (!setvalue) {
+                        for (int j = 0; j < 9; j++) { 
+                            fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
+                        }
+                    }
+                }                 
+            setvalue = true;
+            int len = fileOfArt.tellg();   //get current position  //snapshot of place in file 
+            for (auto i = 0; i < chosenSeed; i++) { //go over to the proper gem rolled
+                fileOfArt.ignore(numeric_limits<streamsize>::max(), ';');
+            } 
+            getline(fileOfArt, tmpName, ';');
+            fileOfArt.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
+            if (i == 0) {
+                artstring = (boost::lexical_cast<string>(value) + "gp Art Objects:" + tmpName);
+            } else {
+                artstring += ("," + tmpName);
+            }
+        }
+    }
+    return artstring;
 }
 
 float Magic_Items::xpgenerator() {

@@ -40,7 +40,7 @@ private:
     
     std::string GenerateScroll(const int&) const;
     std::string GenerateGemstone(const int&, const int&) const;
-    std::string GenerateArt(const int&) const;
+    std::string GenerateArt(const int&, const int&) const;
     
     void SingleScroll(const int&) const;
 
