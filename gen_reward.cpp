@@ -278,7 +278,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 26) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25gp art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
     } else if (mr <= 36) {
         int c = 0;
@@ -295,7 +295,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 52) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25gp art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableA());
@@ -316,7 +316,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 70) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25p art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableB());
@@ -337,7 +337,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 80) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25gp art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
@@ -351,7 +351,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 92) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25gp art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableF());
@@ -365,7 +365,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
     } else if (mr <= 99) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25gp art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableG());
     } else {
@@ -421,12 +421,12 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 28) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
     } else if (mr <= 32) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25gp art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableA());
@@ -447,14 +447,14 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 44) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableA());
     } else if (mr <= 49) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25gp art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableB());
@@ -475,14 +475,14 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 63) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableB());
     } else if (mr <= 66) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25gp art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
@@ -503,14 +503,14 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 74) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
     } else if (mr <= 76) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25gp art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableD());
     } else if (mr <= 78) {
@@ -528,13 +528,13 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 80) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableD());;
     } else if (mr <= 84) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "25gp art objects");
+        Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableF());
@@ -555,7 +555,7 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 94) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableF());
@@ -569,7 +569,7 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else if (mr <= 98) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableG());
@@ -582,7 +582,7 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
     } else {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableH());
     }
@@ -610,12 +610,12 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 6) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
     } else if (mr <= 9) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "750gp art objects");
+        Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
     } else if (mr <= 12) {
         int c = 0;
@@ -630,7 +630,7 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 19) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableA());
@@ -639,7 +639,7 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 23) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "750gp art objects");
+        Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableA());
@@ -666,14 +666,14 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 35) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
     } else if (mr <= 40) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "750gp art objects");
+        Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
@@ -694,14 +694,14 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 54) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableD());
     } else if (mr <= 58) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "750gp art objects");
+        Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableD());
@@ -722,13 +722,13 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 68) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableE());
     } else if (mr <= 70) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "750gp art objects");
+        Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableE());
     } else if (mr <= 72) {
@@ -746,7 +746,7 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 76) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableF());
         c = rolld4(mgen);
@@ -754,7 +754,7 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 78) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "750gp art objects");
+        Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableF());
         c = rolld4(mgen);
@@ -778,14 +778,14 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 85) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableH());
     } else if (mr <= 88) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "750gp art objects");
+        Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableH());
@@ -806,13 +806,13 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
     } else if (mr <= 94) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "250gp art objects");
+        Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableI());
     } else if (mr <= 96) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
-        Gear tmp(c, "750gp art objects");
+        Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
         tmplist.push_back(tableI());
     } else if (mr <= 98) {
@@ -859,13 +859,13 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
     } else if (mr <= 8) {
         int c = rolld10(mgen);
-        Gear tmp(c, "2500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld8(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
     } else if (mr <= 11) {
         int c = rolld4(mgen);
-        Gear tmp(c, "7500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld8(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableC());
@@ -884,13 +884,13 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableD());
     } else if (mr <= 30) {
         int c = rolld10(mgen);
-        Gear tmp(c, "2500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableD());
     } else if (mr <= 38) {
         int c = rolld4(mgen);
-        Gear tmp(c, "7500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableD());
@@ -909,13 +909,13 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableE());
     } else if (mr <= 58) {
         int c = rolld10(mgen);
-        Gear tmp(c, "2500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableE());
     } else if (mr <= 63) {
         int c = rolld4(mgen);
-        Gear tmp(c, "7500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableE());
@@ -934,13 +934,13 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableG());
     } else if (mr <= 70) {
         int c = rolld10(mgen);
-        Gear tmp(c, "2500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableG());
     } else if (mr <= 71) {
         int c = rolld4(mgen);
-        Gear tmp(c, "7500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableG());
@@ -959,13 +959,13 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableH());
     } else if (mr <= 76) {
         int c = rolld10(mgen);
-        Gear tmp(c, "2500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableH());
     } else if (mr <= 78) {
         int c = rolld4(mgen);
-        Gear tmp(c, "7500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableH());
@@ -984,13 +984,13 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         for (int i(0); i < c; i++) tmplist.push_back(tableI());
     } else if (mr <= 90) {
         int c = rolld10(mgen);
-        Gear tmp(c, "2500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableI());
     } else if (mr <= 95) {
         int c = rolld4(mgen);
-        Gear tmp(c, "7500gp art objects");
+        Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
         for (int i(0); i < c; i++) tmplist.push_back(tableI());
