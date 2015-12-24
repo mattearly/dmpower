@@ -4396,7 +4396,7 @@ void Magic_Items::SingleScroll(const int& lvl) const {
     }
 }
 string Magic_Items::GenerateGemstone(const int& amount, const int& value) const {
-    string gemstring = "errorcheckcode";
+    string gemstring = "error: check code or gemfile";
     ifstream fileOfGems;
     fileOfGems.open("gems.dat");    
     if (fileOfGems.is_open()) {
@@ -4407,7 +4407,7 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
                 if (value == 10) {
                     chosenSeed = randomNumber(0, 11);
                     if (!setvalue) {
-                    fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+						fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
                     }
                 }
                 else if (value == 50) {
