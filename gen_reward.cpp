@@ -3465,7 +3465,7 @@ void Magic_Items::SingleScroll(const int& lvl) const {
             cout << "Mage Armor (sorcerer, wizard)";
             break;
         case 44:
-            cout << "Magic Missle (sorcerer, wizard)";
+            cout << "Magic Missile (sorcerer, wizard)";
             break;
         case 45:
             cout << "Protection from Evil and Good (cleric, paladin, warlock, wizard)";
@@ -4136,7 +4136,7 @@ void Magic_Items::SingleScroll(const int& lvl) const {
             cout << "Drawmij's Instant Summons (wizard)";
             break;
         case 10:
-            cout << "Eyebit (bard, sorcerer, warlock, wizard)";
+            cout << "Eyebite (bard, sorcerer, warlock, wizard)";
             break;
         case 11:
             cout << "Find the Path (bard, cleric, druid)";
