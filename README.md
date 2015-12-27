@@ -8,6 +8,7 @@ _The program I've always wanted but could never find._
 1. Build and Manage Characters
     * Walk through and answer the prompts to create a full character by the book.
     * **All** Classes and Archetype Paths, Races, Levels, Feats, Skills, Proficiencies, Backgrounds, and Stats
+        * from the 5e books: Dungeon Master's Guide, Player's Handbook, and Sword Coast Adventurer's Guide.
     * Character Editor for leveling up and making changes anytime
     * Load and Save fully functional for characters.
 2. Magic Item and Spell Generators.
