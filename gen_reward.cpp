@@ -2452,7 +2452,6 @@ string Magic_Items::GenerateScroll(const int& lvl) const{
             scroll += "Wrathful Smite (paladin)";
             break;
         }
-        cout << endl;
         break;
     case 2:
         scroll = "Level 2 Scroll of ";
@@ -2636,7 +2635,6 @@ string Magic_Items::GenerateScroll(const int& lvl) const{
             scroll += "Zone of Truth (bard, cleric, paladin)";
             break;
         }
-        cout << endl;
         break;
     case 3:
         scroll = "Level 3 Scroll of ";
@@ -2793,7 +2791,6 @@ string Magic_Items::GenerateScroll(const int& lvl) const{
             scroll += "Wind Wall (druid, ranger)";
             break;
         }
-        cout << endl;
         break;
     case 4:
         scroll = "Level 4 Scroll of ";
@@ -2902,7 +2899,6 @@ string Magic_Items::GenerateScroll(const int& lvl) const{
             scroll += "Wall of Fire (druid, sorcerer, wizard)";
             break;
         }
-        cout << endl;
         break;
     case 5:
         scroll = "Level 5 Scroll of ";
@@ -3035,7 +3031,6 @@ string Magic_Items::GenerateScroll(const int& lvl) const{
             scroll += "Wall of Stone (druid, sorcerer, wizard)";
             break;
         }
-        cout << endl;
         break;
     case 6:
         scroll = "Level 6 Scroll of ";
@@ -3138,7 +3133,6 @@ string Magic_Items::GenerateScroll(const int& lvl) const{
             scroll += "Word of Recall (cleric)";
             break;
         }
-        cout << endl;
         break;
     case 7:
         scroll = "Level 7 Scroll of ";
@@ -3205,7 +3199,6 @@ string Magic_Items::GenerateScroll(const int& lvl) const{
             scroll += "Teleport (bard, sorcerer, wizard)";
             break;
         }
-        cout << endl;
         break;
     case 8:
         scroll = "Level 8 Scroll of ";
@@ -3269,7 +3262,6 @@ string Magic_Items::GenerateScroll(const int& lvl) const{
             scroll += "Tsunami (druid)";
             break;
         }
-        cout << endl;
         break;
     case 9:
         scroll = "Level 9 Scroll of ";
@@ -3324,7 +3316,6 @@ string Magic_Items::GenerateScroll(const int& lvl) const{
             scroll += "Wish (sorcerer, wizard)";
             break;
         }
-        cout << endl;
         break;
     }
     return scroll;
@@ -4693,7 +4684,7 @@ void Magic_Items::MakeSpellbook() const {
     int sixth = getNumber("How many sixth level spells?(0-20): ", 0, 20);
     int seventh = getNumber("How many seventh level spells?(0-15): ", 0, 15);
     int eighth = getNumber("How many eighth level spells?(0-14): ", 0, 14);
-    int ninth = getNumber("How many ninth level spells?(0-12): ", 0, 12);    
+    int ninth = getNumber("How many ninth level spells?(0-12): ", 0, 12); 
     int totalpages = ((first)+(second*2)+(third*3)+(fourth*4)+(fifth*5)+(sixth*6)+(seventh*7)+(eighth*8)+(ninth*9));
     cout << "  ->There are at least " << totalpages << " pages in this spellbook." << endl;
     int pages = getNumber("How many total(size/max) pages are in this spellbook?(average=100, max=900)", totalpages, 900);
@@ -4706,21 +4697,20 @@ void Magic_Items::MakeSpellbook() const {
 	cout << "\nLevel 1 Spells\n--------------\n";
     for (int i = 0; i < first; i++) {		
         string tmp = GenerateScroll(1);
-        bool is_wizardspell = (tmp.find("wizard") != std::string::npos);
-        if (is_wizardspell) {
+     //   bool is_wizardspell = (tmp.find("wizard") != std::string::npos);
+        if (tmp.find("wizard") != std::string::npos) {
 			tmp.erase(0, 18);
 			tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1));
-			cout << tmp << endl;
+			cout << tmp;
 		} else {
             i--;
-			cout << "message: not a wizard spell, skipping.";
         }
     }
     //output results in the cleanest way possible. 
         //clean text between '( )'
         //make nice chart
         //add save option later
-    cout << "Spellbook size: " << pages << endl;
+    cout << "\nSpellbook size: " << pages << " pages." << endl;
 	cout << "Made out of: " << material << endl;
      
 }
