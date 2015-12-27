@@ -4676,26 +4676,26 @@ float Magic_Items::xpgenerator() {
 
 void Magic_Items::MakeSpellbook() const {
 	simpleClearScreen();
-    cout << "  Generating Spellbook details - Please answer some basic questions: " << endl << endl;
-    int first = getNumber("How many first level spells?(0-31): ", 0, 31);
-    int second = getNumber("How many second level spells?(0-30): ", 0, 30);
-    int third = getNumber("How many third level spells?(0-27): ", 0, 27);
-    int fourth = getNumber("How many fourth level spells?(0-23): ", 0, 23);
-    int fifth = getNumber("How many fifth level spells?(0-23): ", 0, 23);
-    int sixth = getNumber("How many sixth level spells?(0-20): ", 0, 20);
-    int seventh = getNumber("How many seventh level spells?(0-15): ", 0, 15);
-    int eighth = getNumber("How many eighth level spells?(0-14): ", 0, 14);
-    int ninth = getNumber("How many ninth level spells?(0-12): ", 0, 12); 
+    cout << "  Generating Spellbook details\n Questions about this spellbook: " << endl << endl;
+    int first = getNumber("1. How many first level spells?(0-31): ", 0, 31);
+    int second = getNumber("2. How many second level spells?(0-30): ", 0, 30);
+    int third = getNumber("3. How many third level spells?(0-27): ", 0, 27);
+    int fourth = getNumber("4. How many fourth level spells?(0-23): ", 0, 23);
+    int fifth = getNumber("5. How many fifth level spells?(0-23): ", 0, 23);
+    int sixth = getNumber("6. How many sixth level spells?(0-20): ", 0, 20);
+    int seventh = getNumber("7. How many seventh level spells?(0-15): ", 0, 15);
+    int eighth = getNumber("8. How many eighth level spells?(0-14): ", 0, 14);
+    int ninth = getNumber("9. How many ninth level spells?(0-12): ", 0, 12); 
     int usedpages = ((first)+(second*2)+(third*3)+(fourth*4)+(fifth*5)+(sixth*6)+(seventh*7)+(eighth*8)+(ninth*9));
-    cout << "\n ->Based on the number of spells, there are at least " << usedpages << " pages in this spellbook." << endl << endl;
-    int totalpages = getNumber("Most spellbooks have between 70 and 150 pages in total, but can be more or less.\n How many pages are in this one?\n ->", usedpages, 900);
+    cout << "\n ->Based on the number of spells, there are at least " << RED << usedpages << RESET << " pages in this spellbook." << endl << endl;
+    int totalpages = getNumber("Most spellbooks have between 70 to 150 pages in total, but can be more or less.\n How many pages are in this one?\n ->", usedpages, 900);
 	cout << "Spellbooks are often bound in leather or thick cloth, but can be made out of anything.\n What kind of material is this spellbook made out of? (enter anything)\n -> ";
 	string material;
 	cin.ignore(100, '\n');
     getline(cin, material);
 	vector<string> spellholder;
 	simpleClearScreen();
-	cout << " New Spellbook\n\n";
+	cout << " Spellbook\n\n";
 	cout << usedpages << " / " << totalpages << " pages used." << endl;
 	cout << "Made out of: " << material << endl;
     //LEVEL 1 SPELLS
