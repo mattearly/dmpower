@@ -12,7 +12,8 @@ class Magic_Items {
 
 public:
 
-    void treasure_menu(); //REWARD ITEM GENERATOR
+    void treasure_menu(); //REWARD ITEM GENERATOR MAIN MENU
+    
     float xpgenerator();
 
 private:
@@ -42,9 +43,10 @@ private:
     std::string GenerateGemstone(const int&, const int&) const;
     std::string GenerateArt(const int&, const int&) const;
     
+
+
+    void MakeSpellbook() const;
     void SingleScroll(const int&) const;
-
-
 };
 
 #endif  //REWARD_GEN_H

@@ -7,11 +7,11 @@ void Magic_Items::treasure_menu() {
     Gear item;
     while (choice != 5) {
         simpleClearScreen();
-        cout << "------Random-Treasure------\n\n"
+        cout << " -------Random-Treasure-------\n\n"
              << " 1. Generate Individual Treasure\n"
-             << " 2. Generate Treasure Hoard\n"
-             << " 3. Figure out Scrolls or Single Spells\n"
-                // << " 4. Clear All Gear\n"
+             << " 2. Generate Hoard Treasure\n"
+             << " 3. Generate Spells & Scrolls\n"
+             << " 4. Generate Spellbook\n"
              << " 5. Back to Main Menu\n\n";
         choice = getNumber("Choice(1-5): ", 1, 5);
         switch (choice) {
@@ -56,10 +56,11 @@ void Magic_Items::treasure_menu() {
             choice = 0;
             pressEnterToContinue();
             break;
-        case 4:
-            cout << "\nNothing here yet";
+        case 4: {
+            MakeSpellbook();
             choice = 0;
             pressEnterToContinue();
+        }
             break;
         case 5:
         default: break;
@@ -4682,3 +4683,40 @@ float Magic_Items::xpgenerator() {
     return (xp /= party);
 }
 
+void Magic_Items::MakeSpellbook() const {
+
+    cout << "  Generating Spellbook details - Please answer some basic questions: " << endl;
+    
+    int first = getNumber("How many first level spells?(0-31)", 0, 31);
+    int second = getNumber("How many second level spells?(0-30)", 0, 30);
+    int third = getNumber("How many third level spells?(0-27)", 0, 27);
+    int fourth = getNumber("How many fourth level spells?(0-23)", 0, 23);
+    int fifth = getNumber("How many fifth level spells?(0-23)", 0, 23);
+    int sixth = getNumber("How many sixth level spells?(0-20)", 0, 20);
+    int seventh = getNumber("How many seventh level spells?(0-15)", 0, 15);
+    int eighth = getNumber("How many eighth level spells?(0-14)", 0, 14);
+    int ninth = getNumber("How many ninth level spells?(0-12)", 0, 12);
+    
+    int totalpages = (first + (second*2) + (third*3) + (fourth*4) + (fifth*5) + (sixth*6) + (seventh*7) + (eighth*8) + (ninth*9));
+    
+    cout << "There are at least " << totalpages << " pages your spellbook" << endl;
+    int pages = getNumber("How many total pages(size) are in this spellbook? (average is 100, max is 900)", totalpages, 900);
+    //figure out material of make - optional or add later
+    //figure out first level spells, then second, and so on.
+    vector<string> lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;
+    for (int i = 0; i < first; i++) {
+            string tmp = GenerateScroll(1);
+            bool is_wizardspell = tmp.find("wizard");
+            if (is_wizardspell) {
+                cout << "Level 1 Wizard spell found (test)" << endl;
+            } else {
+                cout << "Level 1 Wizard spell NOT (BOTCH-REDO IN PROD) found (test)" << endl;
+            }
+    }
+    //output results in the cleanest way possible. 
+        //clean text between '( )'
+        //make nice chart
+        //add save option later
+    cout << "Spellbook size: " << pages << endl;
+     
+}
