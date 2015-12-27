@@ -2399,6 +2399,12 @@ void Generic_Character_Class::setAllStats() {
             }
         }
         for (int i = 0; i < 6; i++) {
+            cout << "Stats Left: \n";
+            for (int j = i; j < 6; j++) {
+                if (j == i) cout << CYAN << stats[j] << GREEN << " <-Currently assigning" << RESET << ", ";
+                else cout << stats[j] << ", ";
+            }
+            cout << "\n------" << endl;
             assignStats(stats[i]);
             simpleClearScreen();
 
@@ -2412,6 +2418,27 @@ void Generic_Character_Class::setAllStats() {
         setCha(getNumber("Enter starting Charisma(3-18): ", 3, 18));
         pressEnterToContinue();
     }
+    cout << " Final Stats are -\n  ->Str: ";
+    if (strength != 0) cout << GREEN << strength << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "  ->Dex: ";
+    if (dexterity != 0) cout << GREEN << dexterity << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "  ->Con: ";
+    if (constitution != 0) cout << GREEN << constitution << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "  ->Int: ";
+    if (intelligence != 0) cout << GREEN << intelligence << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "  ->Wis: ";
+    if (wisdom != 0) cout << GREEN << wisdom << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "  ->Cha: ";
+    if (charisma != 0) cout << GREEN << charisma << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "------" << endl;
+        
+    pressEnterToContinue();
 
 }
 void Generic_Character_Class::setStr(const int& s) { strength = s; }
@@ -3417,7 +3444,29 @@ void Generic_Character_Class::levelUpStats() {
     pressEnterToContinue();
 }
 void Generic_Character_Class::assignStats(int & s) {
-    cout << "\nAssign " << s << " to: \n\n";
+    
+    cout << " Stats are currently -\n  ->Str: ";
+    if (strength != 0) cout << GREEN << strength << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "  ->Dex: ";
+    if (dexterity != 0) cout << GREEN << dexterity << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "  ->Con: ";
+    if (constitution != 0) cout << GREEN << constitution << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "  ->Int: ";
+    if (intelligence != 0) cout << GREEN << intelligence << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "  ->Wis: ";
+    if (wisdom != 0) cout << GREEN << wisdom << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "  ->Cha: ";
+    if (charisma != 0) cout << GREEN << charisma << RESET << endl;
+    else cout << RED << "Not Set" << RESET << endl;
+    cout << "------" << endl;
+        
+
+    cout << "Assign " << CYAN << s << RESET << " to: \n";
 
     if (strength == 0) cout << " 1. Strength\n";
     else cout << " 1. Strength(DONE)\n";
