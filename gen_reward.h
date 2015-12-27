@@ -3,7 +3,8 @@
 
 #include "gear.h"
 #include "globalfuncts.h"
-#include <fstream>
+#include <algorithm> //for sort function
+#include <fstream>  //to read from files
 #include <boost/lexical_cast.hpp>
 
 class Gear;

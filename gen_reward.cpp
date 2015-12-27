@@ -4675,7 +4675,8 @@ float Magic_Items::xpgenerator() {
 }
 
 void Magic_Items::MakeSpellbook() const {
-    cout << "  Generating Spellbook details - Please answer some basic questions: " << endl;
+	simpleClearScreen();
+    cout << "  Generating Spellbook details - Please answer some basic questions: " << endl << endl;
     int first = getNumber("How many first level spells?(0-31): ", 0, 31);
     int second = getNumber("How many second level spells?(0-30): ", 0, 30);
     int third = getNumber("How many third level spells?(0-27): ", 0, 27);
@@ -4685,32 +4686,52 @@ void Magic_Items::MakeSpellbook() const {
     int seventh = getNumber("How many seventh level spells?(0-15): ", 0, 15);
     int eighth = getNumber("How many eighth level spells?(0-14): ", 0, 14);
     int ninth = getNumber("How many ninth level spells?(0-12): ", 0, 12); 
-    int totalpages = ((first)+(second*2)+(third*3)+(fourth*4)+(fifth*5)+(sixth*6)+(seventh*7)+(eighth*8)+(ninth*9));
-    cout << "  ->There are at least " << totalpages << " pages in this spellbook." << endl;
-    int pages = getNumber("How many total(size/max) pages are in this spellbook?(average=100, max=900)", totalpages, 900);
-	cout << "What Kind of Material is this spellbook made out of?(enter any line about it)\n -> ";
+    int usedpages = ((first)+(second*2)+(third*3)+(fourth*4)+(fifth*5)+(sixth*6)+(seventh*7)+(eighth*8)+(ninth*9));
+    cout << "\n ->Based on the number of spells, there are at least " << usedpages << " pages in this spellbook." << endl << endl;
+    int totalpages = getNumber("Most spellbooks have between 70 and 150 pages in total, but can be more or less.\n How many pages are in this one?\n ->", usedpages, 900);
+	cout << "Spellbooks are often bound in leather or thick cloth, but can be made out of anything.\n What kind of material is this spellbook made out of? (enter anything)\n -> ";
 	string material;
 	cin.ignore(100, '\n');
     getline(cin, material);
+	simpleClearScreen();
+	cout << " New Spellbook\n\n";
+	cout << usedpages << " / " << totalpages << " used." << endl;
+	cout << "Made out of: " << material << endl;
     //figure out first level spells, then second, and so on.
-    vector<string> lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;
-	cout << "\nLevel 1 Spells\n--------------\n";
-    for (int i = 0; i < first; i++) {		
+	cout << "\nLevel 1 Spells\n----------------\n";
+	vector<string> spellholder;
+    for (int i = 0; i < first; i++) {
         string tmp = GenerateScroll(1);
-     //   bool is_wizardspell = (tmp.find("wizard") != std::string::npos);
-        if (tmp.find("wizard") != std::string::npos) {
-			tmp.erase(0, 18);
-			tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1));
-			cout << tmp;
+        if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
+			tmp.erase(0, 18);  //removes the scroll property
+			tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
 		} else {
-            i--;
+            i--;   //didn't roll a wizard spell, trying again.
+			continue;
         }
+		bool not_duplicateSpell = true;
+		for (auto i : spellholder) {
+			if (i == tmp) not_duplicateSpell = false;
+		}
+		if (not_duplicateSpell) {
+			spellholder.push_back(tmp);
+		} else {
+			i--;
+			continue;
+		}
     }
+	sort(spellholder.begin(), spellholder.end());
+	for (auto i : spellholder) {
+		cout << i << endl;
+	}
+			//	cout << " " << i+1 << "." << spellholder.back() << endl;  
+
+	//make sure there is no duplicate spell
     //output results in the cleanest way possible. 
-        //clean text between '( )'
         //make nice chart
         //add save option later
-    cout << "\nSpellbook size: " << pages << " pages." << endl;
-	cout << "Made out of: " << material << endl;
+		     // which might need vector<string> lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;
+
+	
      
 }
