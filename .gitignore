@@ -4,3 +4,5 @@
  *.o
  dmpower
  *.dat
+*.exe
+*.stackdump
