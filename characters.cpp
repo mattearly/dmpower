@@ -3492,33 +3492,40 @@ void Generic_Character_Class::assignStats(int & s) {
 		case 1:
 			if (strength == 0) {
 				setStr(s);
-			} else cout << "Already Set";
+				okchoice = true;
+			} else cout << "Strength already set, choose another.\n";
 			break;
 		case 2:
 			if (dexterity == 0) {
 				setDex(s);
-			} else cout << "Already Set";
+				okchoice = true;
+			} else cout << "Dexterity already set, choose another.\n";
 			break;
 		case 3: 
 			if (constitution == 0) {
 				setCon(s);
-			} else cout << "Already Set";
+				okchoice = true;
+			} else cout << "Constitution already set, choose another.\n";
 			break;
 		case 4:
 			if (intelligence == 0) {
 				setInt(s);
-			} else cout << "Already Set";
+				okchoice = true;
+			} else cout << "Intelligence already set, choose another.\n";
 			break;
 		case 5:
 			if (wisdom == 0) {
 				setWis(s);
-			} else cout << "Already Set";
+				okchoice = true;
+			} else cout << "Wisdom already set, choose another.\n";
 			break;
 		case 6:
 			if (charisma == 0) {
 				setCha(s);
-			} else cout << "Already Set";
+				okchoice = true;
+			} else cout << "Charisma already set, choose another.\n";
 			break;
+		default:;
 		}
 	} while (!okchoice);
 
