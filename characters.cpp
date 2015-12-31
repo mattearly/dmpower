@@ -3485,14 +3485,49 @@ void Generic_Character_Class::assignStats(int & s) {
 
     if (charisma == 0) cout << " 6. Charisma\n\n";
     else cout << " 6. Charisma(DONE)\n\n";
-
-    int ss = getNumber("Choice: ", 1, 6);
-    if (ss == 1) setStr(s);
-    else if (ss == 2) setDex(s);
-    else if (ss == 3) setCon(s);
-    else if (ss == 4) setInt(s);
-    else if (ss == 5) setWis(s);
-    else setCha(s);
+	bool okchoice = false;
+	do {
+		int ss = getNumber("Stat Choice: ", 1, 6);
+		switch (ss) {
+		case 1:
+			if (strength == 0) {
+				setStr(s);
+				okchoice = true;
+			} else cout << "Strength already set, choose another.\n";
+			break;
+		case 2:
+			if (dexterity == 0) {
+				setDex(s);
+				okchoice = true;
+			} else cout << "Dexterity already set, choose another.\n";
+			break;
+		case 3: 
+			if (constitution == 0) {
+				setCon(s);
+				okchoice = true;
+			} else cout << "Constitution already set, choose another.\n";
+			break;
+		case 4:
+			if (intelligence == 0) {
+				setInt(s);
+				okchoice = true;
+			} else cout << "Intelligence already set, choose another.\n";
+			break;
+		case 5:
+			if (wisdom == 0) {
+				setWis(s);
+				okchoice = true;
+			} else cout << "Wisdom already set, choose another.\n";
+			break;
+		case 6:
+			if (charisma == 0) {
+				setCha(s);
+				okchoice = true;
+			} else cout << "Charisma already set, choose another.\n";
+			break;
+		default:;
+		}
+	} while (!okchoice);
 
 }
 
@@ -3675,7 +3710,6 @@ void Ranger::updateCharacter(const Campaign& game) {
 void Warlock::updateCharacter(const Campaign& game) {
     Generic_Character_Class::updateCharacter(game);
 }*/
-
 //accessors
 void Generic_Character_Class::character_sheet() const {
     simpleClearScreen();
