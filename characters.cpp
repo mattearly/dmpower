@@ -3485,14 +3485,33 @@ void Generic_Character_Class::assignStats(int & s) {
 
     if (charisma == 0) cout << " 6. Charisma\n\n";
     else cout << " 6. Charisma(DONE)\n\n";
-
-    int ss = getNumber("Choice: ", 1, 6);
-    if (ss == 1) setStr(s);
-    else if (ss == 2) setDex(s);
-    else if (ss == 3) setCon(s);
-    else if (ss == 4) setInt(s);
-    else if (ss == 5) setWis(s);
-    else setCha(s);
+	bool okchoice = false;
+	do {
+		int ss = getNumber("Stat Choice: ", 1, 6);
+		switch (ss) {
+		case 1:
+			if (strength == 0) {
+				setStr(s);
+			} else cout << "Already Set";
+			break;
+		case 2:
+			break;
+		case 3: 
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		}
+		if (ss == 1 && strength == 0) setStr(s);
+		else if (ss == 2) setDex(s);
+		else if (ss == 3) setCon(s);
+		else if (ss == 4) setInt(s);
+		else if (ss == 5) setWis(s);
+		else setCha(s);
+	} while (!okchoice);
 
 }
 
@@ -3675,7 +3694,6 @@ void Ranger::updateCharacter(const Campaign& game) {
 void Warlock::updateCharacter(const Campaign& game) {
     Generic_Character_Class::updateCharacter(game);
 }*/
-
 //accessors
 void Generic_Character_Class::character_sheet() const {
     simpleClearScreen();
