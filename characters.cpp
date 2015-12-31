@@ -3531,8 +3531,10 @@ void Generic_Character_Class::updateCharacter(const Campaign& game) {
              << "2. LEVEL UP!" << endl
              << "3. Change Alignment" << endl
              << "4. Update Ability Stats" << endl
-             << "5. Quit the PC editor" << endl << endl;
-        ss = getNumber("Choice(1-5): ", 1, 5);
+			 << "5. Add a new Skill Proficiency" << endl
+			 << "6. Add a new Feat" << endl
+             << "7. Quit the PC editor" << endl << endl;
+        ss = getNumber("Choice(1-5): ", 1, 7);
         switch (ss) {
         case 1: {
             bool goodname = false;
@@ -3561,7 +3563,6 @@ void Generic_Character_Class::updateCharacter(const Campaign& game) {
                 int newlvl = getNumber("Enter new higher level: ", level+1, 20);
                 setClassDetails(newlvl);
                 setProficiencyBonus();
-
             }
         }
             break;
@@ -3627,9 +3628,16 @@ void Generic_Character_Class::updateCharacter(const Campaign& game) {
                 answ = getYorN("Would you like to change more stats?(y/n):");
             } while (answ != 'N');
         }
+			break;
+		case 5:
+			setAnySkill("Updating Character", 1);
+			break;
+		case 6:
+			setAnyFeat();
+			break;
         default:;
         }
-    } while (ss != 5);
+    } while (ss != 7);
 }/*
 void Cleric::updateCharacter(const Campaign& game) {
     Generic_Character_Class::updateCharacter(game);
