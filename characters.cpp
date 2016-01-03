@@ -2341,11 +2341,11 @@ void Generic_Character_Class::setBackground() {
             case 4: stealth = true; break;
             default: break;
             }
-
         }
-        
-        //gain any 2 tools, gaming, musical, thieves tools)
-        cout << "Knight of the Order background: \n ->gained Choice Skills, Choice instruments/games/thieves.\n";
+        thieves = true;  //thieves tools
+		setInstrument("Gain any instrument for the Urban Bounty Hunter background.\n",1);
+		//gain one gaming set
+        cout << "Urban Bounty Hunter background: \n ->gained 2 Choice Skills, Choice instrument, gaming set(not programmed in yet), and thieves tools.\n";
     }         break;
     case 23:  //urchin
         sleight_of_hand = true;
