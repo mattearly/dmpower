@@ -411,3 +411,8 @@ string Halforc::getRaceString() const {
 string Human::getRaceString() const {
     return "Human";
 }
+
+Races::~Races()
+{
+    delete this;
+}

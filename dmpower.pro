@@ -19,3 +19,6 @@ characters.h \
 colors.h
 
 CONFIG += c++11
+
+INCLUDEPATH += C:/boost_1_60_0/
+LIBS += "-LC:/boost_1_60_0/stage/lib/"
