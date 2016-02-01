@@ -1,8 +1,9 @@
- # ZZZ not needed for the program to compile or whatever stuff
+ # ZZZ not needed for the program to compile stuff
  
  .directory
  *.o
  dmpower
  *.dat
-*.exe
-*.stackdump
+ *.exe
+ *.stackdump
+ .user
