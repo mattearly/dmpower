@@ -4395,7 +4395,7 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
         string tmpName = "";
         bool setvalue = false;
         auto chosenSeed = 0;
-        for (int i = 0; i < amount; i++) {  //go down into file appropriate amount and choose a proper seed            
+        for (int i = 0; i < amount; i++) {  //go down into file appropriate amount           
                 if (value == 10) {
                     chosenSeed = randomNumber(0, 11);
                     if (!setvalue) {
@@ -4441,7 +4441,7 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
                 
             setvalue = true;
             int len = fileOfGems.tellg();   //get current position  //snapshot of place in file 
-            for (auto i = 0; i < chosenSeed; i++) { //go over to the proper gem rolled
+            for (auto i = 0; i < chosenSeed; i++) { //go over to the proper gem rolled based on seed
                 fileOfGems.ignore(numeric_limits<streamsize>::max(), ';');
             } 
             getline(fileOfGems, tmpName, ';');
@@ -4449,7 +4449,12 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
             if (i == 0) {
                 gemstring = (boost::lexical_cast<string>(value) + "gp Gems:" + tmpName);
             } else {
-                gemstring += ("," + tmpName);
+			//	size_t position = gemstring.find_first_of(tmpName);
+			//	if (position == -1) { //didn't find any entries of the gem
+					gemstring += ("," + tmpName);   //add new gem to list
+			//	} else {   //found entry of gem on the list
+					//add x1, x2, etc as appropriate
+			//	}
             }
         }
     }
