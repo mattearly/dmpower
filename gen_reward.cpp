@@ -4390,76 +4390,85 @@ void Magic_Items::SingleScroll(const int& lvl) const {
 string Magic_Items::GenerateGemstone(const int& amount, const int& value) const {
     string gemstring = "error: check code or gemfile";
     ifstream fileOfGems;
-    fileOfGems.open("gems.dat");    
+    fileOfGems.open("gems.dat");
     if (fileOfGems.is_open()) {
         string tmpName = "";
         bool setvalue = false;
         auto chosenSeed = 0;
-        for (int i = 0; i < amount; i++) {  //go down into file appropriate amount           
-                if (value == 10) {
-                    chosenSeed = randomNumber(0, 11);
-                    if (!setvalue) {
-						fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+        for (int i = 0; i < amount; i++) {  //go down into file appropriate amount
+            if (value == 10) {
+                chosenSeed = randomNumber(0, 11);
+                if (!setvalue) {
+                    fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                }
+            }
+            else if (value == 50) {
+                chosenSeed = randomNumber(0, 16);
+                if (!setvalue) {
+                    for (int j = 0; j < 3; j++) {
+                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
                     }
                 }
-                else if (value == 50) {
-                    chosenSeed = randomNumber(0, 16);
-                    if (!setvalue) {
-                        for (int j = 0; j < 3; j++) { 
-                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
-                        }
-                    }
-                } else if (value == 100) {
-                    chosenSeed = randomNumber(0, 15);
-                    if (!setvalue) {
-                        for (int j = 0; j < 5; j++) { 
-                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
-                        }
-                    }
-                } else if (value == 500) {
-                    chosenSeed = randomNumber(0, 5);
-                    if (!setvalue) {
-                        for (int j = 0; j < 7; j++) { 
-                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
-                        }
-                    }
-                } else if (value == 1000) {
-                    chosenSeed = randomNumber(0, 9);
-                    if (!setvalue) {
-                        for (int j = 0; j < 9; j++) { 
-                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
-                        }
-                    }
-                } else if (value == 5000) {
-                    chosenSeed = randomNumber(0, 6);
-                    if (!setvalue) {
-                        for (int j = 0; j < 11; j++) { 
-                            fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
-                        }
+            } else if (value == 100) {
+                chosenSeed = randomNumber(0, 15);
+                if (!setvalue) {
+                    for (int j = 0; j < 5; j++) {
+                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
                     }
                 }
-                
+            } else if (value == 500) {
+                chosenSeed = randomNumber(0, 5);
+                if (!setvalue) {
+                    for (int j = 0; j < 7; j++) {
+                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                    }
+                }
+            } else if (value == 1000) {
+                chosenSeed = randomNumber(0, 9);
+                if (!setvalue) {
+                    for (int j = 0; j < 9; j++) {
+                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                    }
+                }
+            } else if (value == 5000) {
+                chosenSeed = randomNumber(0, 6);
+                if (!setvalue) {
+                    for (int j = 0; j < 11; j++) {
+                        fileOfGems.ignore(numeric_limits<streamsize>::max(), '\n');
+                    }
+                }
+            }
+
             setvalue = true;
-            int len = fileOfGems.tellg();   //get current position  //snapshot of place in file 
+            int len = fileOfGems.tellg();   //get current position  //snapshot of place in file
             for (auto i = 0; i < chosenSeed; i++) { //go over to the proper gem rolled based on seed
                 fileOfGems.ignore(numeric_limits<streamsize>::max(), ';');
-            } 
+            }
             getline(fileOfGems, tmpName, ';');
             fileOfGems.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
-            if (i == 0) {
+            if (i == 0) {                            // done with gems finding
                 gemstring = (boost::lexical_cast<string>(value) + "gp Gems:" + tmpName);
-            } else {
-			//	size_t position = gemstring.find_first_of(tmpName);
-			//	if (position == -1) { //didn't find any entries of the gem
-					gemstring += ("," + tmpName);   //add new gem to list
-			//	} else {   //found entry of gem on the list
-					//add x1, x2, etc as appropriate
-			//	}
+            } else {                 //add gem or increase quantity
+                size_t find_position = gemstring.find(tmpName);
+                if (find_position == string::npos) {
+                    gemstring += ("," + tmpName);
+                } else if (find_position+tmpName.length()+3 != '2' || find_position+tmpName.length()+3 != '3' \
+                           || find_position+tmpName.length()+3 != '4' || find_position+tmpName.length()+3 != '5' ){
+                    gemstring.insert(find_position+tmpName.length(), " x2");
+                } else if (find_position+tmpName.length()+3 != '3' \
+                           || find_position+tmpName.length()+3 != '4' || find_position+tmpName.length()+3 != '5' ){
+                    gemstring.insert(find_position+tmpName.length(), " x3");
+                } else if (find_position+tmpName.length()+3 != '4' || find_position+tmpName.length()+3 != '5' ){
+                    gemstring.insert(find_position+tmpName.length(), " x4");
+                } else if (find_position+tmpName.length()+3 != '5' ){
+                    gemstring.insert(find_position+tmpName.length(), " x5");
+                }
             }
         }
     }
     return gemstring;
 }
+
 
 string Magic_Items::GenerateArt(const int& amount, const int& value) const {
     string artstring = "error: check code or artfile";
