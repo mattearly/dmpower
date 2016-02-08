@@ -1450,7 +1450,7 @@ Gear Magic_Items::tableF(){
         Gear tmp(1, "Adamantine armor(chain shirt)");
         return tmp;
     } else if (roll <= 68) {
-        Gear tmp(1, "Adamantine armor(scale mail");
+        Gear tmp(1, "Adamantine armor(scale mail)");
         return tmp;
     } else if (roll <= 69) {
         Gear tmp(1, "Bag of tricks(grey)");
@@ -4446,22 +4446,34 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
             }
             getline(fileOfGems, tmpName, ';');
             fileOfGems.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
-            if (i == 0) {                            // done with gems finding
+            if (i == 0) {           //very first gem
                 gemstring = (boost::lexical_cast<string>(value) + "gp Gems:" + tmpName);
-            } else {                 //add gem or increase quantity
+            } else {                //add gem or increase quantity if gem already exists
                 size_t find_position = gemstring.find(tmpName);
-                if (find_position == string::npos) {
+                if (find_position == string::npos) {  //not found means find_position is npos, so just add the gem on
                     gemstring += ("," + tmpName);
-                } else if (find_position+tmpName.length()+3 != '2' || find_position+tmpName.length()+3 != '3' \
-                           || find_position+tmpName.length()+3 != '4' || find_position+tmpName.length()+3 != '5' ){
-                    gemstring.insert(find_position+tmpName.length(), " x2");
-                } else if (find_position+tmpName.length()+3 != '3' \
-                           || find_position+tmpName.length()+3 != '4' || find_position+tmpName.length()+3 != '5' ){
-                    gemstring.insert(find_position+tmpName.length(), " x3");
-                } else if (find_position+tmpName.length()+3 != '4' || find_position+tmpName.length()+3 != '5' ){
-                    gemstring.insert(find_position+tmpName.length(), " x4");
-                } else if (find_position+tmpName.length()+3 != '5' ){
-                    gemstring.insert(find_position+tmpName.length(), " x5");
+                } else {   //if the gem is already listed
+                    if (gemstring.substr(find_position, tmpName.length()+3) == tmpName) { 
+						//is the matched gem the last on the list and first duplicate
+                        cout << "found last on list\n";
+                        gemstring.insert(find_position+tmpName.length(), " x2");
+                    } else {  //found but not the last one on the list
+                        cout << "found but not last on list gem\n";
+                        size_t gotx2 = gemstring.find(tmpName + " x2,");
+                        if (gotx2 != string::npos) {   //if found an x2 version
+                                cout << "doing x3 gem update\n";
+                                gemstring.replace(gotx2+tmpName.size(), 3, " x3");
+                        } else {
+							size_t gotx3 = gemstring.find(tmpName + " x3,");
+                            if (gotx3 != string::npos) {  //if found and x3 version
+                                cout << "doing x4 gem update\n";
+                                gemstring.replace(gotx3+tmpName.size(), 3, " x4");
+                            } else {
+								cout << "doing x2 on gem list\n";
+								gemstring.insert(find_position+tmpName.size(), " x2");
+							}
+                        }
+                    }
                 }
             }
         }
@@ -4473,58 +4485,84 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
 string Magic_Items::GenerateArt(const int& amount, const int& value) const {
     string artstring = "error: check code or artfile";
     ifstream fileOfArt;
-    fileOfArt.open("artObjects.dat");    
+    fileOfArt.open("artObjects.dat");
     if (fileOfArt.is_open()) {
         string tmpName = "";
         bool setvalue = false;
         auto chosenSeed = 0;
-        for (int i = 0; i < amount; i++) {  //go down into file appropriate amount and choose a proper seed            
+        for (int i = 0; i < amount; i++) {  //go down into file appropriate amount and choose a proper seed
                 if (value == 25) {
                     chosenSeed = randomNumber(0, 9);
                     if (!setvalue) {
-						fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
+                        fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
                     }
                 }
                 else if (value == 250) {
                     chosenSeed = randomNumber(0, 9);
                     if (!setvalue) {
-                        for (int j = 0; j < 3; j++) { 
+                        for (int j = 0; j < 3; j++) {
                             fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
                         }
                     }
                 } else if (value == 750) {
                     chosenSeed = randomNumber(0, 9);
                     if (!setvalue) {
-                        for (int j = 0; j < 5; j++) { 
+                        for (int j = 0; j < 5; j++) {
                             fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
                         }
                     }
                 } else if (value == 2500) {
                     chosenSeed = randomNumber(0, 9);
                     if (!setvalue) {
-                        for (int j = 0; j < 7; j++) { 
+                        for (int j = 0; j < 7; j++) {
                             fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
                         }
                     }
                 } else if (value == 7500) {
                     chosenSeed = randomNumber(0, 7);
                     if (!setvalue) {
-                        for (int j = 0; j < 9; j++) { 
+                        for (int j = 0; j < 9; j++) {
                             fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
                         }
                     }
-                }                 
+                }
             setvalue = true;
-            int len = fileOfArt.tellg();   //get current position  //snapshot of place in file 
+            int len = fileOfArt.tellg();   //get current position  //snapshot of place in file
             for (auto i = 0; i < chosenSeed; i++) { //go over to the proper gem rolled
                 fileOfArt.ignore(numeric_limits<streamsize>::max(), ';');
-            } 
+            }
             getline(fileOfArt, tmpName, ';');
             fileOfArt.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
             if (i == 0) {
+                //first time through
                 artstring = (boost::lexical_cast<string>(value) + "gp Art Objects:" + tmpName);
             } else {
-                artstring += ("," + tmpName);
+                size_t find_position = artstring.find(tmpName);
+                if (find_position == string::npos) {  //not found means find_position is npos, so just add the gem on
+                    artstring += ("," + tmpName);
+                } else {   //if the gem is already listed
+                    if (artstring.substr(find_position, tmpName.length()+3) == tmpName) { 
+						//is the matched gem the last on the list and first duplicate
+                        cout << "found last on list\n";
+                        artstring.insert(find_position+tmpName.length(), " x2");
+                    } else {  //found but not the last one on the list
+                        cout << "found but not last on list gem\n";
+                        size_t gotx2 = artstring.find(tmpName + " x2,");
+                        if (gotx2 != string::npos) {   //if found an x2 version
+                                cout << "doing x3 gem update\n";
+                                artstring.replace(gotx2+tmpName.size(), 3, " x3");
+                        } else {
+							size_t gotx3 = artstring.find(tmpName + " x3,");
+                            if (gotx3 != string::npos) {  //if found and x3 version
+                                cout << "doing x4 gem update\n";
+                                artstring.replace(gotx3+tmpName.size(), 3, " x4");
+                            } else {
+								cout << "doing x2 on gem list\n";
+								artstring.insert(find_position+tmpName.size(), " x2");
+							}
+                        }
+                    }
+                }
             }
         }
     }
@@ -4534,7 +4572,7 @@ string Magic_Items::GenerateArt(const int& amount, const int& value) const {
 float Magic_Items::xpgenerator() {
     float xp = 0;
     int cr = 0;
-	vector<string> crlist;
+    vector<string> crlist;
     char ans;
     cout << "A Reference Level Chart (FYI):\n\n"
          << " 2. 300\n"
@@ -4577,148 +4615,148 @@ float Magic_Items::xpgenerator() {
              << "16. CR 12     33. CR 29\n"
              << "17. CR 13     34. CR 30\n\n"
              << " tip: add 'y' after your choice to continue picking.(ex: 9y)\n"
-			 << "CRs so far: ";
+             << "CRs so far: ";
         for (auto i : crlist) {
-			cout << i << ", ";
+            cout << i << ", ";
         }
-		cout << endl;
-		cr = getNumber("Choose CR by the chart(1-34): ", 1, 34);
+        cout << endl;
+        cr = getNumber("Choose CR by the chart(1-34): ", 1, 34);
         switch (cr) {
         case 1:
             xp += 10;
-			crlist.push_back("0");
+            crlist.push_back("0");
             break;
         case 2:
             xp += 25;
-			crlist.push_back("1/8");
+            crlist.push_back("1/8");
             break;
         case 3:
             xp += 50;
-			crlist.push_back("1/4");
+            crlist.push_back("1/4");
             break;
         case 4:
             xp += 100;
-			crlist.push_back("1/2");
+            crlist.push_back("1/2");
             break;
         case 5:
             xp += 200;
-			crlist.push_back("1");
+            crlist.push_back("1");
             break;
         case 6:
             xp += 450;
-			crlist.push_back("2");
+            crlist.push_back("2");
             break;
         case 7:
             xp += 700;
-			crlist.push_back("3");
+            crlist.push_back("3");
             break;
         case 8:
             xp += 1100;
-			crlist.push_back("4");
+            crlist.push_back("4");
             break;
         case 9:
             xp += 1800;
-			crlist.push_back("5");
+            crlist.push_back("5");
             break;
         case 10:
             xp += 2300;
-			crlist.push_back("6");
+            crlist.push_back("6");
             break;
         case 11:
             xp += 2900;
-			crlist.push_back("7");
+            crlist.push_back("7");
             break;
         case 12:
             xp += 3900;
-			crlist.push_back("8");
+            crlist.push_back("8");
             break;
         case 13:
             xp += 5000;
-			crlist.push_back("9");
+            crlist.push_back("9");
             break;
         case 14:
             xp += 5900;
-			crlist.push_back("10");
+            crlist.push_back("10");
             break;
         case 15:
             xp += 7200;
-			crlist.push_back("11");
+            crlist.push_back("11");
             break;
         case 16:
             xp += 8400;
-			crlist.push_back("12");
+            crlist.push_back("12");
             break;
         case 17:
             xp += 10000;
-			crlist.push_back("13");
+            crlist.push_back("13");
             break;
         case 18:
             xp += 11500;
-			crlist.push_back("14");
+            crlist.push_back("14");
             break;
         case 19:
             xp += 13000;
-			crlist.push_back("15");
+            crlist.push_back("15");
             break;
         case 20:
             xp += 15000;
-			crlist.push_back("16");
+            crlist.push_back("16");
             break;
         case 21:
             xp += 18000;
-			crlist.push_back("17");
+            crlist.push_back("17");
             break;
         case 22:
             xp += 20000;
-			crlist.push_back("18");
+            crlist.push_back("18");
             break;
         case 23:
             xp += 22000;
-			crlist.push_back("19");
+            crlist.push_back("19");
             break;
         case 24:
             xp += 25000;
-			crlist.push_back("20");
+            crlist.push_back("20");
             break;
         case 25:
             xp += 33000;
-			crlist.push_back("21");
+            crlist.push_back("21");
             break;
         case 26:
             xp += 41000;
-			crlist.push_back("22");
+            crlist.push_back("22");
             break;
         case 27:
             xp += 50000;
-			crlist.push_back("23");
+            crlist.push_back("23");
             break;
         case 28:
             xp += 62000;
-			crlist.push_back("24");
+            crlist.push_back("24");
             break;
         case 29:
             xp += 75000;
-			crlist.push_back("25");
+            crlist.push_back("25");
             break;
         case 30:
             xp += 90000;
-			crlist.push_back("26");
+            crlist.push_back("26");
             break;
         case 31:
             xp += 105000;
-			crlist.push_back("27");
+            crlist.push_back("27");
             break;
         case 32:
             xp += 120000;
-			crlist.push_back("28");
+            crlist.push_back("28");
             break;
         case 33:
             xp += 135000;
-			crlist.push_back("29");
+            crlist.push_back("29");
             break;
         case 34:
             xp += 155000;
-			crlist.push_back("30");
+            crlist.push_back("30");
         default:break;
         }
         cout << "Total unsplit so far: " << xp << "xp" << endl;
@@ -4729,7 +4767,7 @@ float Magic_Items::xpgenerator() {
 }
 
 void Magic_Items::MakeSpellbook() const {
-	simpleClearScreen();
+    simpleClearScreen();
     cout << "  Generating Spellbook details\n Questions about this spellbook: " << endl << endl;
     int first = getNumber("1. How many first level spells?(0-31): ", 0, 31);
     int second = getNumber("2. How many second level spells?(0-30): ", 0, 30);
@@ -4739,281 +4777,281 @@ void Magic_Items::MakeSpellbook() const {
     int sixth = getNumber("6. How many sixth level spells?(0-20): ", 0, 20);
     int seventh = getNumber("7. How many seventh level spells?(0-15): ", 0, 15);
     int eighth = getNumber("8. How many eighth level spells?(0-14): ", 0, 14);
-    int ninth = getNumber("9. How many ninth level spells?(0-12): ", 0, 12); 
+    int ninth = getNumber("9. How many ninth level spells?(0-12): ", 0, 12);
     int usedpages = ((first)+(second*2)+(third*3)+(fourth*4)+(fifth*5)+(sixth*6)+(seventh*7)+(eighth*8)+(ninth*9));
     cout << "\n ->Based on the number of spells, there are at least " << RED << usedpages << RESET << " pages in this spellbook." << endl << endl;
     int totalpages = getNumber("Most spellbooks have between 70 to 150 pages in total, but can be more or less.\n How many pages are in this one?\n ->", usedpages, 900);
-	cout << "Spellbooks are often bound in leather or thick cloth, but can be made out of anything.\n What kind of material is this spellbook made out of? (enter anything)\n -> ";
-	string material;
-	cin.ignore(100, '\n');
+    cout << "Spellbooks are often bound in leather or thick cloth, but can be made out of anything.\n What kind of material is this spellbook made out of? (enter anything)\n -> ";
+    string material;
+    cin.ignore(100, '\n');
     getline(cin, material);
-	vector<string> spellholder;
-	simpleClearScreen();
-	cout << " Spellbook\n\n";
-	cout << usedpages << " / " << totalpages << " pages used." << endl;
-	cout << "Made out of: " << material << endl;
+    vector<string> spellholder;
+    simpleClearScreen();
+    cout << " Spellbook\n\n";
+    cout << usedpages << " / " << totalpages << " pages used." << endl;
+    cout << "Made out of: " << material << endl;
     //LEVEL 1 SPELLS
-	if (first > 0) {
-		cout << "\nLevel 1 Spells\n----------------\n";
-		for (int i = 0; i < first; i++) {
-			string tmp = GenerateScroll(1);
-			if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
-				tmp.erase(0, 18);  //removes the scroll property
-				tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
-			} else {
-				i--;   //didn't roll a wizard spell, trying again.
-				continue;
-			}
-			bool not_duplicateSpell = true;
-			for (auto i : spellholder) {
-				if (i == tmp) not_duplicateSpell = false;
-			}
-			if (not_duplicateSpell) {
-				spellholder.push_back(tmp);
-			} else {
-				i--;
-				continue;
-			}
-		}
-		sort(spellholder.begin(), spellholder.end());
-		for (auto i : spellholder) {  //output all spells
-			cout << i << endl;
-		}
-		spellholder.clear();
-	}
-	//LEVEL 2 SPELLS
-	if (second > 0) {
-		cout << "\nLevel 2 Spells\n----------------\n";
-		for (int i = 0; i < second; i++) {
-			string tmp = GenerateScroll(2);
-			if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
-				tmp.erase(0, 18);  //removes the scroll property
-				tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
-			} else {
-				i--;   //didn't roll a wizard spell, trying again.
-				continue;
-			}
-			bool not_duplicateSpell = true;
-			for (auto i : spellholder) {
-				if (i == tmp) not_duplicateSpell = false;
-			}
-			if (not_duplicateSpell) {
-				spellholder.push_back(tmp);
-			} else {
-				i--;
-				continue;
-			}
-		}
-		sort(spellholder.begin(), spellholder.end());
-		for (auto i : spellholder) {  //output all spells
-			cout << i << endl;
-		}
-		spellholder.clear();
-	}
-	//LEVEL 3 SPELLS
-	if (third > 0) {
-		cout << "\nLevel 3 Spells\n----------------\n";
-		for (int i = 0; i < third; i++) {
-			string tmp = GenerateScroll(3);
-			if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
-				tmp.erase(0, 18);  //removes the scroll property
-				tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
-			} else {
-				i--;   //didn't roll a wizard spell, trying again.
-				continue;
-			}
-			bool not_duplicateSpell = true;
-			for (auto i : spellholder) {
-				if (i == tmp) not_duplicateSpell = false;
-			}
-			if (not_duplicateSpell) {
-				spellholder.push_back(tmp);
-			} else {
-				i--;
-				continue;
-			}
-		}
-		sort(spellholder.begin(), spellholder.end());
-		for (auto i : spellholder) {  //output all spells
-			cout << i << endl;
-		}
-		spellholder.clear();
+    if (first > 0) {
+        cout << "\nLevel 1 Spells\n----------------\n";
+        for (int i = 0; i < first; i++) {
+            string tmp = GenerateScroll(1);
+            if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
+                tmp.erase(0, 18);  //removes the scroll property
+                tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
+            } else {
+                i--;   //didn't roll a wizard spell, trying again.
+                continue;
+            }
+            bool not_duplicateSpell = true;
+            for (auto i : spellholder) {
+                if (i == tmp) not_duplicateSpell = false;
+            }
+            if (not_duplicateSpell) {
+                spellholder.push_back(tmp);
+            } else {
+                i--;
+                continue;
+            }
+        }
+        sort(spellholder.begin(), spellholder.end());
+        for (auto i : spellholder) {  //output all spells
+            cout << i << endl;
+        }
+        spellholder.clear();
+    }
+    //LEVEL 2 SPELLS
+    if (second > 0) {
+        cout << "\nLevel 2 Spells\n----------------\n";
+        for (int i = 0; i < second; i++) {
+            string tmp = GenerateScroll(2);
+            if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
+                tmp.erase(0, 18);  //removes the scroll property
+                tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
+            } else {
+                i--;   //didn't roll a wizard spell, trying again.
+                continue;
+            }
+            bool not_duplicateSpell = true;
+            for (auto i : spellholder) {
+                if (i == tmp) not_duplicateSpell = false;
+            }
+            if (not_duplicateSpell) {
+                spellholder.push_back(tmp);
+            } else {
+                i--;
+                continue;
+            }
+        }
+        sort(spellholder.begin(), spellholder.end());
+        for (auto i : spellholder) {  //output all spells
+            cout << i << endl;
+        }
+        spellholder.clear();
+    }
+    //LEVEL 3 SPELLS
+    if (third > 0) {
+        cout << "\nLevel 3 Spells\n----------------\n";
+        for (int i = 0; i < third; i++) {
+            string tmp = GenerateScroll(3);
+            if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
+                tmp.erase(0, 18);  //removes the scroll property
+                tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
+            } else {
+                i--;   //didn't roll a wizard spell, trying again.
+                continue;
+            }
+            bool not_duplicateSpell = true;
+            for (auto i : spellholder) {
+                if (i == tmp) not_duplicateSpell = false;
+            }
+            if (not_duplicateSpell) {
+                spellholder.push_back(tmp);
+            } else {
+                i--;
+                continue;
+            }
+        }
+        sort(spellholder.begin(), spellholder.end());
+        for (auto i : spellholder) {  //output all spells
+            cout << i << endl;
+        }
+        spellholder.clear();
 }
-	//LEVEL 4 SPELLS
-	if (fourth > 0) {
-		cout << "\nLevel 4 Spells\n----------------\n";
-		for (int i = 0; i < fourth; i++) {
-			string tmp = GenerateScroll(4);
-			if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
-				tmp.erase(0, 18);  //removes the scroll property
-				tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
-			} else {
-				i--;   //didn't roll a wizard spell, trying again.
-				continue;
-			}
-			bool not_duplicateSpell = true;
-			for (auto i : spellholder) {
-				if (i == tmp) not_duplicateSpell = false;
-			}
-			if (not_duplicateSpell) {
-				spellholder.push_back(tmp);
-			} else {
-				i--;
-				continue;
-			}
-		}
-		sort(spellholder.begin(), spellholder.end());
-		for (auto i : spellholder) {  //output all spells
-			cout << i << endl;
-		}
-		spellholder.clear();
-	}
-	//LEVEL 5 SPELLS
-	if (fifth > 0) {
-		cout << "\nLevel 5 Spells\n----------------\n";
-		for (int i = 0; i < fifth; i++) {
-			string tmp = GenerateScroll(5);
-			if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
-				tmp.erase(0, 18);  //removes the scroll property
-				tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
-			} else {
-				i--;   //didn't roll a wizard spell, trying again.
-				continue;
-			}
-			bool not_duplicateSpell = true;
-			for (auto i : spellholder) {
-				if (i == tmp) not_duplicateSpell = false;
-			}
-			if (not_duplicateSpell) {
-				spellholder.push_back(tmp);
-			} else {
-				i--;
-				continue;
-			}
-		}
-		sort(spellholder.begin(), spellholder.end());
-		for (auto i : spellholder) {  //output all spells
-			cout << i << endl;
-		}
-		spellholder.clear();
-	}
-	//LEVEL 6 SPELLS
-	if (sixth > 0) {
-		cout << "\nLevel 6 Spells\n----------------\n";
-		for (int i = 0; i < sixth; i++) {
-			string tmp = GenerateScroll(6);
-			if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
-				tmp.erase(0, 18);  //removes the scroll property
-				tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
-			} else {
-				i--;   //didn't roll a wizard spell, trying again.
-				continue;
-			}
-			bool not_duplicateSpell = true;
-			for (auto i : spellholder) {
-				if (i == tmp) not_duplicateSpell = false;
-			}
-			if (not_duplicateSpell) {
-				spellholder.push_back(tmp);
-			} else {
-				i--;
-				continue;
-			}
-		}
-		sort(spellholder.begin(), spellholder.end());
-		for (auto i : spellholder) {  //output all spells
-			cout << i << endl;
-		}
-		spellholder.clear();
-	}
-	//LEVEL 7 SPELLS
-	if (seventh > 0) { 
-		cout << "\nLevel 7 Spells\n----------------\n";
-		for (int i = 0; i < seventh; i++) {
-			string tmp = GenerateScroll(7);
-			if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
-				tmp.erase(0, 18);  //removes the scroll property
-				tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
-			} else {
-				i--;   //didn't roll a wizard spell, trying again.
-				continue;
-			}
-			bool not_duplicateSpell = true;
-			for (auto i : spellholder) {
-				if (i == tmp) not_duplicateSpell = false;
-			}
-			if (not_duplicateSpell) {
-				spellholder.push_back(tmp);
-			} else {
-				i--;
-				continue;
-			}
-		}
-		sort(spellholder.begin(), spellholder.end());
-		for (auto i : spellholder) {  //output all spells
-			cout << i << endl;
-		}
-		spellholder.clear();
-	}
-	//LEVEL 8 SPELLS
-	if (eighth > 0) { 
-		cout << "\nLevel 8 Spells\n----------------\n";
-		for (int i = 0; i < eighth; i++) {
-			string tmp = GenerateScroll(8);
-			if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
-				tmp.erase(0, 18);  //removes the scroll property
-				tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
-			} else {
-				i--;   //didn't roll a wizard spell, trying again.
-				continue;
-			}
-			bool not_duplicateSpell = true;
-			for (auto i : spellholder) {
-				if (i == tmp) not_duplicateSpell = false;
-			}
-			if (not_duplicateSpell) {
-				spellholder.push_back(tmp);
-			} else {
-				i--;
-				continue;
-			}
-		}
-		sort(spellholder.begin(), spellholder.end());
-		for (auto i : spellholder) {  //output all spells
-			cout << i << endl;
-		}
-		spellholder.clear();
-	}
-	//LEVEL 9 SPELLS
-	if (ninth > 0) { 
-		cout << "\nLevel 9 Spells\n----------------\n";
-		for (int i = 0; i < ninth; i++) {
-			string tmp = GenerateScroll(9);
-			if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
-				tmp.erase(0, 18);  //removes the scroll property
-				tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
-			} else {
-				i--;   //didn't roll a wizard spell, trying again.
-				continue;
-			}
-			bool not_duplicateSpell = true;
-			for (auto i : spellholder) {
-				if (i == tmp) not_duplicateSpell = false;
-			}
-			if (not_duplicateSpell) {
-				spellholder.push_back(tmp);
-			} else {
-				i--;
-				continue;
-			}
-		}
-		sort(spellholder.begin(), spellholder.end());
-		for (auto i : spellholder) {  //output all spells
-			cout << i << endl;
-		}
-		spellholder.clear();
-	}
+    //LEVEL 4 SPELLS
+    if (fourth > 0) {
+        cout << "\nLevel 4 Spells\n----------------\n";
+        for (int i = 0; i < fourth; i++) {
+            string tmp = GenerateScroll(4);
+            if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
+                tmp.erase(0, 18);  //removes the scroll property
+                tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
+            } else {
+                i--;   //didn't roll a wizard spell, trying again.
+                continue;
+            }
+            bool not_duplicateSpell = true;
+            for (auto i : spellholder) {
+                if (i == tmp) not_duplicateSpell = false;
+            }
+            if (not_duplicateSpell) {
+                spellholder.push_back(tmp);
+            } else {
+                i--;
+                continue;
+            }
+        }
+        sort(spellholder.begin(), spellholder.end());
+        for (auto i : spellholder) {  //output all spells
+            cout << i << endl;
+        }
+        spellholder.clear();
+    }
+    //LEVEL 5 SPELLS
+    if (fifth > 0) {
+        cout << "\nLevel 5 Spells\n----------------\n";
+        for (int i = 0; i < fifth; i++) {
+            string tmp = GenerateScroll(5);
+            if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
+                tmp.erase(0, 18);  //removes the scroll property
+                tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
+            } else {
+                i--;   //didn't roll a wizard spell, trying again.
+                continue;
+            }
+            bool not_duplicateSpell = true;
+            for (auto i : spellholder) {
+                if (i == tmp) not_duplicateSpell = false;
+            }
+            if (not_duplicateSpell) {
+                spellholder.push_back(tmp);
+            } else {
+                i--;
+                continue;
+            }
+        }
+        sort(spellholder.begin(), spellholder.end());
+        for (auto i : spellholder) {  //output all spells
+            cout << i << endl;
+        }
+        spellholder.clear();
+    }
+    //LEVEL 6 SPELLS
+    if (sixth > 0) {
+        cout << "\nLevel 6 Spells\n----------------\n";
+        for (int i = 0; i < sixth; i++) {
+            string tmp = GenerateScroll(6);
+            if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
+                tmp.erase(0, 18);  //removes the scroll property
+                tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
+            } else {
+                i--;   //didn't roll a wizard spell, trying again.
+                continue;
+            }
+            bool not_duplicateSpell = true;
+            for (auto i : spellholder) {
+                if (i == tmp) not_duplicateSpell = false;
+            }
+            if (not_duplicateSpell) {
+                spellholder.push_back(tmp);
+            } else {
+                i--;
+                continue;
+            }
+        }
+        sort(spellholder.begin(), spellholder.end());
+        for (auto i : spellholder) {  //output all spells
+            cout << i << endl;
+        }
+        spellholder.clear();
+    }
+    //LEVEL 7 SPELLS
+    if (seventh > 0) {
+        cout << "\nLevel 7 Spells\n----------------\n";
+        for (int i = 0; i < seventh; i++) {
+            string tmp = GenerateScroll(7);
+            if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
+                tmp.erase(0, 18);  //removes the scroll property
+                tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
+            } else {
+                i--;   //didn't roll a wizard spell, trying again.
+                continue;
+            }
+            bool not_duplicateSpell = true;
+            for (auto i : spellholder) {
+                if (i == tmp) not_duplicateSpell = false;
+            }
+            if (not_duplicateSpell) {
+                spellholder.push_back(tmp);
+            } else {
+                i--;
+                continue;
+            }
+        }
+        sort(spellholder.begin(), spellholder.end());
+        for (auto i : spellholder) {  //output all spells
+            cout << i << endl;
+        }
+        spellholder.clear();
+    }
+    //LEVEL 8 SPELLS
+    if (eighth > 0) {
+        cout << "\nLevel 8 Spells\n----------------\n";
+        for (int i = 0; i < eighth; i++) {
+            string tmp = GenerateScroll(8);
+            if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
+                tmp.erase(0, 18);  //removes the scroll property
+                tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
+            } else {
+                i--;   //didn't roll a wizard spell, trying again.
+                continue;
+            }
+            bool not_duplicateSpell = true;
+            for (auto i : spellholder) {
+                if (i == tmp) not_duplicateSpell = false;
+            }
+            if (not_duplicateSpell) {
+                spellholder.push_back(tmp);
+            } else {
+                i--;
+                continue;
+            }
+        }
+        sort(spellholder.begin(), spellholder.end());
+        for (auto i : spellholder) {  //output all spells
+            cout << i << endl;
+        }
+        spellholder.clear();
+    }
+    //LEVEL 9 SPELLS
+    if (ninth > 0) {
+        cout << "\nLevel 9 Spells\n----------------\n";
+        for (int i = 0; i < ninth; i++) {
+            string tmp = GenerateScroll(9);
+            if (tmp.find("wizard") != std::string::npos) { //if scroll is a wizard scroll
+                tmp.erase(0, 18);  //removes the scroll property
+                tmp.erase((tmp.begin()+tmp.find_first_of("(")-1), (tmp.begin()+tmp.find_first_of(")")+1)); //removes the class details property
+            } else {
+                i--;   //didn't roll a wizard spell, trying again.
+                continue;
+            }
+            bool not_duplicateSpell = true;
+            for (auto i : spellholder) {
+                if (i == tmp) not_duplicateSpell = false;
+            }
+            if (not_duplicateSpell) {
+                spellholder.push_back(tmp);
+            } else {
+                i--;
+                continue;
+            }
+        }
+        sort(spellholder.begin(), spellholder.end());
+        for (auto i : spellholder) {  //output all spells
+            cout << i << endl;
+        }
+        spellholder.clear();
+    }
 
         //add save option later
-		     // which might need vector<string> lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9; 
+             // which might need vector<string> lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;
 }
