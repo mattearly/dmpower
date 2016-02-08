@@ -4473,8 +4473,14 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
 									cout << "found and x3, updating x4\n";
 									gemstring.replace(gotx3+tmpName.size(), 3, " x4");
 								} else {
-									cout << "found first duplicate... updating to x2\n";
-									gemstring.insert(find_position+tmpName.size(), " x2");
+									size_t gotx4 = gemstring.find(tmpName + " x4");
+									if (gotx4 != string::npos) { //if x4 exists
+										cout << "found and x4, updating to x5\n";
+										gemstring.replace(gotx4+tmpName.size(), 3, " x5");
+									} else {
+										cout << "found first duplicate... updating to x2\n";
+										gemstring.insert(find_position+tmpName.size(), " x2");
+									}
 								}
 							}
 						}
@@ -4565,8 +4571,14 @@ string Magic_Items::GenerateArt(const int& amount, const int& value) const {
 									cout << "found and x3, updating x4\n";
 									artstring.replace(gotx3+tmpName.size(), 3, " x4");
 								} else {
-									cout << "found first duplicate... updating to x2\n";
-									artstring.insert(find_position+tmpName.size(), " x2");
+									size_t gotx4 = artstring.find(tmpName + " x4");
+									if (gotx4 != string::npos) { //if x4 exists
+										cout << "found and x4, updating to x5\n";
+										artstring.replace(gotx4+tmpName.size(), 3, " x5");
+									} else {
+										cout << "found first duplicate... updating to x2\n";
+										artstring.insert(find_position+tmpName.size(), " x2");
+									}
 								}
 							}
 						}
