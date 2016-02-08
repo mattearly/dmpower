@@ -2,7 +2,6 @@
  
 .directory
 dmpower
-*.dat
 *.stackdump
 *.user
 
