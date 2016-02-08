@@ -4440,41 +4440,46 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
             }
 
             setvalue = true;
-            int len = fileOfGems.tellg();   //get current position  //snapshot of place in file
+            int len = fileOfGems.tellg();   //get current position - snapshot of place in file
             for (auto i = 0; i < chosenSeed; i++) { //go over to the proper gem rolled based on seed
                 fileOfGems.ignore(numeric_limits<streamsize>::max(), ';');
             }
             getline(fileOfGems, tmpName, ';');
-            fileOfGems.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
-            if (i == 0) {           //very first gem
+            fileOfGems.seekg(len, ios_base::beg);  //return to position - return to snapshot of place in file
+            if (i == 0) {           //very first gem case
                 gemstring = (boost::lexical_cast<string>(value) + "gp Gems:" + tmpName);
-            } else {                //add gem or increase quantity if gem already exists
-                size_t find_position = gemstring.find(tmpName);
-                if (find_position == string::npos) {  //not found means find_position is npos, so just add the gem on
-                    gemstring += ("," + tmpName);
-                } else {   //if the gem is already listed
-                    if (gemstring.substr(find_position, tmpName.length()+3) == tmpName) { 
-						//is the matched gem the last on the list and first duplicate
-                        cout << "found last on list\n";
-                        gemstring.insert(find_position+tmpName.length(), " x2");
-                    } else {  //found but not the last one on the list
-                        cout << "found but not last on list gem\n";
-                        size_t gotx2 = gemstring.find(tmpName + " x2,");
-                        if (gotx2 != string::npos) {   //if found an x2 version
-                                cout << "doing x3 gem update\n";
-                                gemstring.replace(gotx2+tmpName.size(), 3, " x3");
-                        } else {
-							size_t gotx3 = gemstring.find(tmpName + " x3,");
-                            if (gotx3 != string::npos) {  //if found and x3 version
-                                cout << "doing x4 gem update\n";
-                                gemstring.replace(gotx3+tmpName.size(), 3, " x4");
-                            } else {
-								cout << "doing x2 on gem list\n";
-								gemstring.insert(find_position+tmpName.size(), " x2");
+            } else { 
+                size_t find_position = gemstring.find(tmpName + ",");
+				if (find_position != string::npos) { //found first duplicate gemname on the list - not last item either
+                    cout << "Found First of Duplicate Gem...Not last on list... adding x2 \n";
+					gemstring.insert(find_position+tmpName.size(), " x2");
+                } else {
+					find_position = gemstring.find(tmpName);
+					if (find_position == string::npos) {
+						gemstring += ("," + tmpName); //add the new gem
+					} else {
+						if (gemstring.substr(find_position, tmpName.length()+3) == tmpName) {
+							cout << "Found first of duplicate Gem as last on the list... adding x2\n";
+							gemstring.insert(find_position+tmpName.length(), " x2");
+						} else {
+							cout << "Found duplicate of Gem...not last on the list...\n";
+							size_t gotx2 = gemstring.find(tmpName + " x2");
+							if (gotx2 != string::npos) {   //if x2 exists
+								cout << "found and x2, updating to x3\n";
+								gemstring.replace(gotx2+tmpName.size(), 3, " x3");
+							} else {
+								size_t gotx3 = gemstring.find(tmpName + " x3");
+								if (gotx3 != string::npos) {  //if x3 exists
+									cout << "found and x3, updating x4\n";
+									gemstring.replace(gotx3+tmpName.size(), 3, " x4");
+								} else {
+									cout << "found first duplicate... updating to x2\n";
+									gemstring.insert(find_position+tmpName.size(), " x2");
+								}
 							}
-                        }
-                    }
-                }
+						}
+					}
+				}
             }
         }
     }
@@ -4528,44 +4533,48 @@ string Magic_Items::GenerateArt(const int& amount, const int& value) const {
                 }
             setvalue = true;
             int len = fileOfArt.tellg();   //get current position  //snapshot of place in file
-            for (auto i = 0; i < chosenSeed; i++) { //go over to the proper gem rolled
+            for (auto i = 0; i < chosenSeed; i++) { //go over to the proper Art rolled
                 fileOfArt.ignore(numeric_limits<streamsize>::max(), ';');
             }
             getline(fileOfArt, tmpName, ';');
             fileOfArt.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
-            if (i == 0) {
-                //first time through
+            if (i == 0) {  //first time through
                 artstring = (boost::lexical_cast<string>(value) + "gp Art Objects:" + tmpName);
-            } else {
-                size_t find_position = artstring.find(tmpName);
-                if (find_position == string::npos) {  //not found means find_position is npos, so just add the gem on
-                    artstring += ("," + tmpName);
-                } else {   //if the gem is already listed
-                    if (artstring.substr(find_position, tmpName.length()+3) == tmpName) { 
-						//is the matched gem the last on the list and first duplicate
-                        cout << "found last on list\n";
-                        artstring.insert(find_position+tmpName.length(), " x2");
-                    } else {  //found but not the last one on the list
-                        cout << "found but not last on list gem\n";
-                        size_t gotx2 = artstring.find(tmpName + " x2,");
-                        if (gotx2 != string::npos) {   //if found an x2 version
-                                cout << "doing x3 gem update\n";
-                                artstring.replace(gotx2+tmpName.size(), 3, " x3");
-                        } else {
-							size_t gotx3 = artstring.find(tmpName + " x3,");
-                            if (gotx3 != string::npos) {  //if found and x3 version
-                                cout << "doing x4 gem update\n";
-                                artstring.replace(gotx3+tmpName.size(), 3, " x4");
-                            } else {
-								cout << "doing x2 on gem list\n";
-								artstring.insert(find_position+tmpName.size(), " x2");
+            } else { 
+                size_t find_position = artstring.find(tmpName + ",");
+				if (find_position != string::npos) { //found first duplicate Artname on the list - not last item either
+                    cout << "Found First of Duplicate Art...Not last on list... adding x2 \n";
+					artstring.insert(find_position+tmpName.size(), " x2");
+                } else {
+					find_position = artstring.find(tmpName);
+					if (find_position == string::npos) {
+						artstring += ("," + tmpName); //add the new Art
+					} else {
+						if (artstring.substr(find_position, tmpName.length()+3) == tmpName) {
+							cout << "Found first of duplicate Art as last on the list... adding x2\n";
+							artstring.insert(find_position+tmpName.length(), " x2");
+						} else {
+							cout << "Found duplicate of Art...not last on the list...\n";
+							size_t gotx2 = artstring.find(tmpName + " x2");
+							if (gotx2 != string::npos) {   //if x2 exists
+								cout << "found and x2, updating to x3\n";
+								artstring.replace(gotx2+tmpName.size(), 3, " x3");
+							} else {
+								size_t gotx3 = artstring.find(tmpName + " x3");
+								if (gotx3 != string::npos) {  //if x3 exists
+									cout << "found and x3, updating x4\n";
+									artstring.replace(gotx3+tmpName.size(), 3, " x4");
+								} else {
+									cout << "found first duplicate... updating to x2\n";
+									artstring.insert(find_position+tmpName.size(), " x2");
+								}
 							}
-                        }
-                    }
-                }
-            }
-        }
-    }
+						}
+					}
+				}
+			}
+		}
+	}
     return artstring;
 }
 
