@@ -1,5 +1,5 @@
 # Dungeon Master Power  
-![DMPOWERLOGO](https://i.imgur.com/AIfDZLy.png)
+![DMPOWERLOGO](https://i.imgur.com/AIfDZLy.png)  
 A tool for 5th edition Dungeons & Dragons Dungeon Masters.
 _The program I've always wanted but could never find._
 
