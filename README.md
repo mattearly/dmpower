@@ -6,20 +6,21 @@ _The program I've always wanted but could never find._
 ### Main Features (in order of time spent on making)
 
 ![DMPOWERFLOWCHART](https://i.imgur.com/Hg2LDHg.png)  
-1. Player Characters. Build and Manage Characters.
-    * Walk through and answer the prompts to create a full character by the book.
-    * **All** Classes, Archetype Paths, Races, Feats, Skills, Proficiencies, Backgrounds, and Stats
-        * from the 5e books: Dungeon Master's Guide, Player's Handbook, and Sword Coast Adventurer's Guide.
-    * Level 1-20. Character Editor for leveling up and making changes anytime
-    * Load and Save fully functional for characters.
-2. Rewards. Magic Item Roller, Scroll and Spellbook Generators.
+
+1. Player Characters. Build and Manage Characters.  
+    * Walk through and answer the prompts to create a full character by the book.  
+    * **All** Classes, Archetype Paths, Races, Feats, Skills, Proficiencies, Backgrounds, and Stats  
+        * from the 5e books: Dungeon Master's Guide, Player's Handbook, and Sword Coast Adventurer's Guide.  
+    * Level 1-20. Character Editor for leveling up and making changes anytime  
+    * Load and Save fully functional for characters.  
+2. Rewards. Magic Item Roller, Scroll and Spellbook Generators.  
     * All Loot Reward rolling charts from the DMG. Magical items, gems, art, currency.  
-    * Spellbook creator that randomizes wizard spells.
-    * Random Scroll generator.
-3. Party Experience Calculator
-	* Total up session or encounter experience and split it with the party.
+    * Spellbook creator that randomizes wizard spells.  
+    * Random Scroll generator.  
+3. Party Experience Calculator  
+	* Total up session or encounter experience and split it with the party.  
 4. Name Generator: 
-    * 7732 names from Kismet's list randomized.
+    * 7732 names from Kismet's list randomized.  
 
 
 #### How-to compile and run:
