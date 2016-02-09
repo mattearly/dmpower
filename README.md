@@ -5,6 +5,7 @@ _The program I've always wanted but could never find._
 
 ### Main Features (in order of time spent on making)
 
+![DMPOWERFLOWCHART](https://i.imgur.com/Hg2LDHg.png)  
 1. Player Characters. Build and Manage Characters.
     * Walk through and answer the prompts to create a full character by the book.
     * **All** Classes, Archetype Paths, Races, Feats, Skills, Proficiencies, Backgrounds, and Stats
@@ -30,12 +31,15 @@ _The program I've always wanted but could never find._
     * Or probably the best option for keeping it simple, just type ```g++ -std=c++11 *.cpp -o dmpower``` in terminal while in the directory.  
 3. Once done building, type ```./dmpower``` or ```_./dmpower.exe_``` (whichever it builds) your command line to run the program.
 
+
 #### Problems?
 
 * If you run into a problem or something unclear - please open an issue ticket or email me. The more details the better.
 * Anything you would like to see added to this program - open a issue ticket with the enhancement tag or email me.
 
+
 ###### About
+
 * Code by 
 **_Matthew Jay Early_** 
 * Email me at 
