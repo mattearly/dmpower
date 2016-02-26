@@ -5,15 +5,16 @@ using namespace std;
 void Magic_Items::treasure_menu() {
     int choice = 0;
     Gear item;
-    while (choice != 5) {
+    while (choice != 6) {
         simpleClearScreen();
         cout << " -------Random-Treasure-------\n\n"
              << " 1. ROLL Individual Mob Treasure\n"
              << " 2. ROLL Treasure Hoard\n"
              << " 3. Scroll Generator\n"
              << " 4. Spellbook Creator\n"
-             << " 5. Back to Main Menu\n\n";
-        choice = getNumber("Choice(1-5): ", 1, 5);
+             << " 5. Poisons\n"
+             << " 6. Back to Main Menu\n\n";
+        choice = getNumber("Choice(1-6): ", 1, 6);
         switch (choice) {
         case 1:
             cout << "Individual Treasure\n\n"
@@ -63,6 +64,9 @@ void Magic_Items::treasure_menu() {
         }
             break;
         case 5:
+            cout << "Generating poison area here.\n";
+            showPoisons();
+        case 6:
         default: break;
         }
     }
@@ -5061,4 +5065,24 @@ void Magic_Items::MakeSpellbook() const {
 
         //add save option later
              // which might need vector<string> lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;
+}
+
+void Magic_Items::showPoisons() {
+    ifstream poisonfile;
+    poisonfile.open("poisonlist.dat");
+    string poisons;
+
+    if (poisonfile.is_open()) {
+        while(!poisonfile.eof()) // To get you all the lines.
+           {
+               string tmp;
+               getline(poisonfile, tmp);
+               poisons.append(tmp);
+           }
+    }
+    cout << poisons << endl;
+    poisonfile.close();
+
+    pressEnterToContinue();
+
 }

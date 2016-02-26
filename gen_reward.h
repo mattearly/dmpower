@@ -49,6 +49,8 @@ private:
 
     void MakeSpellbook() const;
     void SingleScroll(const int&) const;
+
+    void showPoisons();
 };
 
 #endif  //REWARD_GEN_H
