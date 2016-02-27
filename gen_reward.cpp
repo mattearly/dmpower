@@ -5070,19 +5070,16 @@ void Magic_Items::MakeSpellbook() const {
 void Magic_Items::showPoisons() {
     ifstream poisonfile;
     poisonfile.open("poisonlist.dat");
-    string poisons;
-
+    string poisons = "";
+    string tmp;
     if (poisonfile.is_open()) {
-        while(!poisonfile.eof()) // To get you all the lines.
-           {
-               string tmp;
-               getline(poisonfile, tmp);
-               poisons.append(tmp);
-           }
+        while(!poisonfile.eof())
+        {
+            poisons += poisonfile.get();
+        }
     }
     cout << poisons << endl;
     poisonfile.close();
-
     pressEnterToContinue();
 
 }
