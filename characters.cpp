@@ -2329,16 +2329,38 @@ void Generic_Character_Class::setBackground() {
     case 22:  //urban bounty hunter
     {
         for (int i = 0; i < 2; i++) {
+
             if (i == 0) cout << "First ";
             else cout << "Second ";
-            cout << "Skill for Urban Bounty Hunter Background\n\n Pick from\n"
-                 << " 1. Deception\n 2. Insight\n 3. Persuasion \n 4. Stealth\n\n";
+            cout << "Skill for Urban Bounty Hunter Background\n\n Pick from\n";
+
+            if (deception) cout << " 1. Deception(Already Known)\n";
+            else cout << " 1. Deception\n";
+            if (insight) cout << " 2. Insight(Already Known)\n";
+            else cout << " 2. Insight\n";
+            if (persuasion) cout << " 3. Persuasion(Already Known)\n";
+            else cout << " 3. Persuasion\n";
+            if (stealth) cout << " 4. Stealth(Already Known)\n";
+            else cout << " 4. Stealth\n";
+
             int tmp = getNumber("Choice: ",1 , 4);
             switch (tmp) {
-            case 1: deception = true; break;
-            case 2: insight = true; break;
-            case 3: persuasion = true; break;
-            case 4: stealth = true; break;
+            case 1:
+                if (!deception) deception = true;
+                else i--;
+                break;
+            case 2:
+                if (!insight) insight = true;
+                else i--;
+                break;
+            case 3:
+                if (!persuasion) persuasion = true;
+                else i--;
+                break;
+            case 4:
+                if (!stealth) stealth = true;
+                else i--;
+                break;
             default: break;
             }
         }
