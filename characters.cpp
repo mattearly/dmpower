@@ -2329,10 +2329,10 @@ void Generic_Character_Class::setBackground() {
     case 22:  //urban bounty hunter
     {
         for (int i = 0; i < 2; i++) {
-
+            cout << "\n";
             if (i == 0) cout << "First ";
             else cout << "Second ";
-            cout << "Skill for Urban Bounty Hunter Background\n\n Pick from\n";
+            cout << "Skill for Urban Bounty Hunter Background\n\n Pick from:\n\n";
 
             if (deception) cout << " 1. Deception(Already Known)\n";
             else cout << " 1. Deception\n";
@@ -2343,23 +2343,35 @@ void Generic_Character_Class::setBackground() {
             if (stealth) cout << " 4. Stealth(Already Known)\n";
             else cout << " 4. Stealth\n";
 
-            int tmp = getNumber("Choice: ",1 , 4);
+            int tmp = getNumber("\nChoice: ",1 , 4);
             switch (tmp) {
             case 1:
                 if (!deception) deception = true;
-                else i--;
+                else {
+                    cout << "Deception Already Known, Choose Another Skill.\n";
+                    i--;
+                }
                 break;
             case 2:
                 if (!insight) insight = true;
-                else i--;
+                else {
+                    cout << "Insight Already Known, Choose Another Skill.\n";
+                    i--;
+                }
                 break;
             case 3:
                 if (!persuasion) persuasion = true;
-                else i--;
+                else {
+                    cout << "Persuasion Already Known, Choose Another Skill.\n";
+                    i--;
+                }
                 break;
             case 4:
                 if (!stealth) stealth = true;
-                else i--;
+                else {
+                    cout << "Stealth Already Known, Choose Another Skill.\n";
+                    i--;
+                }
                 break;
             default: break;
             }
@@ -2421,12 +2433,11 @@ void Generic_Character_Class::setAllStats() {
             }
         }
         for (int i = 0; i < 6; i++) {
-            cout << "Stats Left: \n";
+            cout << "Stats Left: \n\n";
             for (int j = i; j < 6; j++) {
                 if (j == i) cout << CYAN << stats[j] << GREEN << " <-Currently assigning" << RESET << ", ";
                 else cout << stats[j] << ", ";
             }
-            cout << "\n------" << endl;
             assignStats(stats[i]);
             simpleClearScreen();
 
@@ -3467,46 +3478,48 @@ void Generic_Character_Class::levelUpStats() {
 }
 void Generic_Character_Class::assignStats(int & s) {
     
+
+    cout << "\n------\n";
     cout << " Stats are currently -\n  ->Str: ";
-    if (strength != 0) cout << GREEN << strength << RESET << endl;
-    else cout << RED << "Not Set" << RESET << endl;
+    if (strength != 0) cout << GREEN << strength << RESET << "\n";
+    else cout << RED << "Not Set" << RESET << "\n";
     cout << "  ->Dex: ";
-    if (dexterity != 0) cout << GREEN << dexterity << RESET << endl;
-    else cout << RED << "Not Set" << RESET << endl;
+    if (dexterity != 0) cout << GREEN << dexterity << RESET << "\n";
+    else cout << RED << "Not Set" << RESET << "\n";
     cout << "  ->Con: ";
-    if (constitution != 0) cout << GREEN << constitution << RESET << endl;
-    else cout << RED << "Not Set" << RESET << endl;
+    if (constitution != 0) cout << GREEN << constitution << RESET << "\n";
+    else cout << RED << "Not Set" << RESET << "\n";
     cout << "  ->Int: ";
-    if (intelligence != 0) cout << GREEN << intelligence << RESET << endl;
-    else cout << RED << "Not Set" << RESET << endl;
+    if (intelligence != 0) cout << GREEN << intelligence << RESET << "\n";
+    else cout << RED << "Not Set" << RESET << "\n";
     cout << "  ->Wis: ";
-    if (wisdom != 0) cout << GREEN << wisdom << RESET << endl;
-    else cout << RED << "Not Set" << RESET << endl;
+    if (wisdom != 0) cout << GREEN << wisdom << RESET << "\n";
+    else cout << RED << "Not Set" << RESET << "\n";
     cout << "  ->Cha: ";
-    if (charisma != 0) cout << GREEN << charisma << RESET << endl;
-    else cout << RED << "Not Set" << RESET << endl;
-    cout << "------" << endl;
+    if (charisma != 0) cout << GREEN << charisma << RESET << "\n";
+    else cout << RED << "Not Set" << RESET << "\n";
+    cout << "------" << "\n";
         
 
-    cout << "Assign " << CYAN << s << RESET << " to: \n";
+    cout << "Assign " << CYAN << s << RESET << " to: \n\n";
 
     if (strength == 0) cout << " 1. Strength\n";
-    else cout << " 1. Strength(DONE)\n";
+    else cout << RED << " 1. Strength(DONE)" << RESET << "\n";
 
     if (dexterity == 0) cout << " 2. Dexterity\n";
-    else cout << " 2. Dexterity(DONE)\n";
+    else cout << RED << " 2. Dexterity(DONE)" << RESET << "\n";
 
     if (constitution == 0) cout << " 3. Constitution\n";
-    else cout << " 3. Constitution(DONE)\n";
+    else cout << RED << " 3. Constitution(DONE)" << RESET << "\n";
 
     if (intelligence == 0) cout << " 4. Intelligence\n";
-    else cout << " 4. Intelligence(DONE)\n";
+    else cout << RED << " 4. Intelligence(DONE)" << RESET << "\n";
 
     if (wisdom == 0) cout << " 5. Wisdom\n";
-    else cout << " 5. Wisdom(DONE)\n";
+    else cout << RED << " 5. Wisdom(DONE)" << RESET << "\n";
 
     if (charisma == 0) cout << " 6. Charisma\n\n";
-    else cout << " 6. Charisma(DONE)\n\n";
+    else cout << RED << " 6. Charisma(DONE)" << RESET << "\n\n";
 	bool okchoice = false;
 	do {
 		int ss = getNumber("Stat Choice: ", 1, 6);

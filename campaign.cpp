@@ -706,7 +706,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
     int processor;
     Generic_Character_Class* v;
     while (!ins.eof()) {
-        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //   >> "characte count x"
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');
 
         int len = ins.tellg(); //get current position
         getline(ins, tmp);
@@ -724,9 +724,9 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         else v = new Wizard;
         ins.seekg(len, ios_base::beg);  //return to position
 
-        getline(ins, v->char_class);  //  >> (*it)->char_class
-        getline(ins, v->name);   // >> (*it)->name
-        getline(ins, v->race);   // >> (*it)->race
+        getline(ins, v->char_class);
+        getline(ins, v->name);
+        getline(ins, v->race);
         getline(ins, v->alignment);
         ins >> v->level;
         ins >> v->clericlevelupmenus;
