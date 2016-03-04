@@ -64,7 +64,6 @@ void Magic_Items::treasure_menu() {
         }
             break;
         case 5:
-            cout << "Generating poison area here.\n";
             showPoisons();
         case 6:
         default: break;
@@ -5062,23 +5061,24 @@ void Magic_Items::MakeSpellbook() const {
         }
         spellholder.clear();
     }
-
-        //add save option later
-             // which might need vector<string> lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;
+    // add save option later
+    // which might need vector<string> lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;
 }
 
 void Magic_Items::showPoisons() {
-    ifstream poisonfile;
+    fstream poisonfile;
     poisonfile.open("poisonlist.dat");
+    if (!poisonfile.is_open()) {
+        cout << "Error Opening poisonlist.dat, check your file.\n\n";
+    }
     string poisons = "";
-    string tmp;
     if (poisonfile.is_open()) {
-        while(!poisonfile.eof())
-        {
+        while(!poisonfile.eof()) {
             poisons += poisonfile.get();
         }
     }
-    cout << poisons << endl;
+    poisons.erase(poisons.length()-1, poisons.length()); //erase that last random [box] character that comes from "who the fuck knows where"
+    cout << poisons;
     poisonfile.close();
     pressEnterToContinue();
 
