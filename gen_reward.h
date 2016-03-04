@@ -51,6 +51,7 @@ private:
     void SingleScroll(const int&) const;
 
     void showPoisons();
+    void showDiseases();
 };
 
 #endif  //REWARD_GEN_H

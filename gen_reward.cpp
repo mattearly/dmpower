@@ -5,7 +5,7 @@ using namespace std;
 void Magic_Items::treasure_menu() {
     int choice = 0;
     Gear item;
-    while (choice != 6) {
+    while (choice != 7) {
         simpleClearScreen();
         cout << " -------Random-Treasure-------\n\n"
              << " 1. ROLL Individual Mob Treasure\n"
@@ -13,8 +13,9 @@ void Magic_Items::treasure_menu() {
              << " 3. Scroll Generator\n"
              << " 4. Spellbook Creator\n"
              << " 5. Poisons\n"
-             << " 6. Back to Main Menu\n\n";
-        choice = getNumber("Choice(1-6): ", 1, 6);
+             << " 6. Diseases\n"
+             << " 7. Back to Main Menu\n\n";
+        choice = getNumber("Choice(1-7): ", 1, 7);
         switch (choice) {
         case 1:
             cout << "Individual Treasure\n\n"
@@ -57,15 +58,16 @@ void Magic_Items::treasure_menu() {
             choice = 0;
             pressEnterToContinue();
             break;
-        case 4: {
+        case 4:
             MakeSpellbook();
             choice = 0;
             pressEnterToContinue();
-        }
             break;
         case 5:
             showPoisons();
         case 6:
+            showDiseases();
+        case 7:
         default: break;
         }
     }
@@ -5077,9 +5079,28 @@ void Magic_Items::showPoisons() {
             poisons += poisonfile.get();
         }
     }
-    poisons.erase(poisons.length()-1, poisons.length()); //erase that last random [box] character that comes from "who the fuck knows where"
+    poisons.erase(poisons.length()-1, poisons.length()); //erase that last random [box] character
     cout << poisons;
     poisonfile.close();
+    pressEnterToContinue();
+
+}
+
+void Magic_Items::showDiseases() {
+    fstream diseasefile;
+    diseasefile.open("diseaselist.dat");
+    if (!diseasefile.is_open()) {
+        cout << "Error Opening diseaselist.dat, check your file.\n\n";
+    }
+    string diseases = "";
+    if (diseasefile.is_open()) {
+        while(!diseasefile.eof()) {
+            diseases += diseasefile.get();
+        }
+    }
+    diseases.erase(diseases.length()-1, diseases.length()); //erase that last random [box] character
+    cout << diseases;
+    diseasefile.close();
     pressEnterToContinue();
 
 }
