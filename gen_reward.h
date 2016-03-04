@@ -52,6 +52,7 @@ private:
 
     void showPoisons();
     void showDiseases();
+    void showMadness();
 };
 
 #endif  //REWARD_GEN_H

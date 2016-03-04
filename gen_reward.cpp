@@ -5,17 +5,18 @@ using namespace std;
 void Magic_Items::treasure_menu() {
     int choice = 0;
     Gear item;
-    while (choice != 7) {
+    while (choice != 8) {
         simpleClearScreen();
         cout << " -------Random-Treasure-------\n\n"
              << " 1. ROLL Individual Mob Treasure\n"
              << " 2. ROLL Treasure Hoard\n"
              << " 3. Scroll Generator\n"
              << " 4. Spellbook Creator\n"
-             << " 5. Poisons\n"
-             << " 6. Diseases\n"
-             << " 7. Back to Main Menu\n\n";
-        choice = getNumber("Choice(1-7): ", 1, 7);
+             << " 5. Poisons Table\n"
+             << " 6. Diseases Table\n"
+             << " 7. Madness Table\n"
+             << " 8. Back to Main Menu\n\n";
+        choice = getNumber("Choice(1-8): ", 1, 8);
         switch (choice) {
         case 1:
             cout << "Individual Treasure\n\n"
@@ -65,9 +66,14 @@ void Magic_Items::treasure_menu() {
             break;
         case 5:
             showPoisons();
+            break;
         case 6:
             showDiseases();
+            break;
         case 7:
+            showMadness();
+            break;
+        case 8:
         default: break;
         }
     }
@@ -5101,6 +5107,25 @@ void Magic_Items::showDiseases() {
     diseases.erase(diseases.length()-1, diseases.length()); //erase that last random [box] character
     cout << diseases;
     diseasefile.close();
+    pressEnterToContinue();
+
+}
+
+void Magic_Items::showMadness() {
+    fstream madnessfile;
+    madnessfile.open("madnesslist.dat");
+    if (!madnessfile.is_open()) {
+        cout << "Error Opening madnesslist.dat, check your file.\n\n";
+    }
+    string madness = "";
+    if (madnessfile.is_open()) {
+        while(!madnessfile.eof()) {
+            madness += madnessfile.get();
+        }
+    }
+    madness.erase(madness.length()-1, madness.length()); //erase that last random [box] character
+    cout << madness;
+    madnessfile.close();
     pressEnterToContinue();
 
 }
