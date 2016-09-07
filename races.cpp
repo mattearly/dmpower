@@ -49,7 +49,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v) {
         v.draconic_ancestry_copper = true;
         v.breath_weapon_acid = true;
         v.damage_resist_acid = true;
-        cout << "->Copper Dragon Ancestry. Acid Breath and DR Lightning gained!\n";
+	cout << "->Copper Dragon Ancestry. Acid Breath and DR Acid gained!\n";
     } else if (ss == 6){
         v.draconic_ancestry_gold = true;
         v.breath_weapon_fire = true;
@@ -242,7 +242,7 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v) {
         if (ss == 5) { v.wisdom += 1; cout << "Wisdom Increased by 1!\n"; }
         cout << endl;
     }
-    v.setAnySkill("Half Elfs gain one of any skill:", 1);
+    v.setAnySkill("Half Elfs gain two of any skill:", 2);
     v.common = true;  //only starting lang
     pressEnterToContinue();
 }

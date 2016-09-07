@@ -2600,8 +2600,9 @@ void Generic_Character_Class::setProficiencyBonus() {
     proficiency_bonus = (2+((level-1)/4));
 }
 void Generic_Character_Class::setAnySkill(const string& message, const int& many) {
+    int ss(0);
     cout << message << "\n";
-    for (int i = 0; i < many; ++i) {
+    for (int i = 0; i < many; i++) {
         if (acrobatics) cout << "\n 1. Acrobatics(Already Known)";
         else cout << "\n 1. Acrobatics";
         if (animal_handling) cout << "\n 2. Animal Handling(Already Known)";
@@ -2638,7 +2639,7 @@ void Generic_Character_Class::setAnySkill(const string& message, const int& many
         else cout << "\n17. Stealth";
         if (survival) cout << "\n18. Survival(Already Known)\n\n";
         else cout << "\n18. Survival\n\n";
-        int ss = getNumber("Skill choice: ", 1, 18);
+	ss = getNumber("Skill choice: ", 1, 18);
         if (ss == 1) { gainAcrobatics(i); }
         if (ss == 2) { gainAnimal_Handling(i); }
         if (ss == 3) { gainArcana(i); }
@@ -2657,7 +2658,7 @@ void Generic_Character_Class::setAnySkill(const string& message, const int& many
         if (ss == 16) { gainSleight_of_Hand(i); }
         if (ss == 17) { gainStealth(i); }
         if (ss == 18) { gainSurvival(i); }
-        if (i < many) cout << "Choose Another.\n";
+	if (i < many - 1) cout << "Choose Another.\n";
     }
 }
 void Generic_Character_Class::gainAcrobatics(int& i) {
@@ -3035,7 +3036,7 @@ void Generic_Character_Class::setAnyFeat() {
              << "\n 9. Durable             23. Martial Adept        37. Skulker"
              << "\n10. Elemental Adapt     24. Medium Armor Master  38. Spell Sniper"
              << "\n11. Grappler            25. Mobile               39. Tavern Brawler"
-             << "\n12. Great Weapon Master 26. Moderately Armoered  40. Tough"
+             << "\n12. Great Weapon Master 26. Moderately Armored   40. Tough"
              << "\n13. Healer              27. Mounted Combat       41. War Caster"
              << "\n14. Heavily Armored     28. Observant            42. Weapon Master\n\n";
         int ss = getNumber("Feat Choice(1-42):", 1, 42);
