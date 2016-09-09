@@ -635,7 +635,7 @@ void Fighter::setClassDetails(const int& l) {
             break;
         case 4: purple_dragon_knight = true;
             break;
-        default: cout << "Error setting fight archetype.\n\n";
+	default: cout << "Error setting fighter archetype.\n\n";
             break;
         }
         martial_archtype = true;
@@ -4063,7 +4063,7 @@ void Generic_Character_Class::printClassAbilities() const {
             if (martial_archtype_feature >= 3) cout << ", Relentless";
             if (martial_archtype_feature >= 4) cout << ", Improved Combat Superiority(d12)";
         } else if (eldritch_knight) {
-            cout << "Eldritch Knight)[Spellcasting";
+	    cout << "Eldritch Knight)[Spellcasting, Bonded Weapon";
             if (martial_archtype_feature >= 1) cout << ", War Magic";
             if (martial_archtype_feature >= 2) cout << ", Eldritch Strike";
             if (martial_archtype_feature >= 3) cout << ", Arcane Charge";
@@ -4073,7 +4073,7 @@ void Generic_Character_Class::printClassAbilities() const {
             if (martial_archtype_feature >= 1) cout << ", Royal Envoy";
             if (martial_archtype_feature >= 2) cout << ", Inspiring Surge";
             if (martial_archtype_feature >= 3) cout << ", Bulwark";
-            if (martial_archtype_feature >= 4) cout << ", Uspecified in Sword Coast Adventurer's Guide book";
+	    if (martial_archtype_feature >= 4) cout << ", Final Archtype feature uspecified in Sword Coast Adventurer's Guide book";
         }
         cout << "], ";
     }
