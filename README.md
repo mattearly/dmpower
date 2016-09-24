@@ -3,6 +3,9 @@ _The program I've always wanted but could never find._
 
 ![DMPOWERLOGO](https://i.imgur.com/AIfDZLy.png)  
 
+[![Video Rundown: lowest buget production ever](https://i.ytimg.com/vi/XFfAT4Yp0xk/hqdefault.jpg)](https://www.youtube.com/watch?v=XFfAT4Yp0xk)
+
+
 ### Main Features
 
 ![DMPOWERFLOWCHART](https://i.imgur.com/Hg2LDHg.png)  
@@ -48,3 +51,9 @@ _The program I've always wanted but could never find._
 _matthewjearly@gmail.com_
 * Why did I go through the pain of making this? Ever since I started playing D&D many years ago, I began looking for useful programs to go along with the game. There seemed to be a million little half-built tools and websites or many that don't follow the rules enough to be both useful and fair. I wasn't interested in a random person's homebrew ideas, which ruled out 90% of what I found. Since I couldn't find a program that did all this stuff legit from the books, and even Wizard's paid programs are too convoluted to be of use during gameplay, in my opinion, I decided to hack it myself. It also gave me something to work on while not taking classes and a motive to keep programming. So there you go. If you find it useful, let me know. Any feedback is good feedback.
 * Final note: You will need the books, this program doesn't replace them or go into details about what abilities, spells, and items do. Go buy them from an official retailer!
+
+#### Support
+  
+If you want to help me out in my coding adventures.  
+* [PayPal](https://www.paypal.me/mattearly/)  
+* Bitcoin: 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM  
