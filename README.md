@@ -3,8 +3,8 @@ _The program I've always wanted but could never find._
 
 ![DMPOWERLOGO](https://i.imgur.com/AIfDZLy.png)  
 
-[![Video Rundown: lowest buget production ever](https://i.ytimg.com/vi/XFfAT4Yp0xk/hqdefault.jpg)](https://www.youtube.com/watch?v=XFfAT4Yp0xk)
-
+#### The Lowest Buget Video Rundown You've ever seen.  
+[![Video Rundown](https://i.ytimg.com/vi/XFfAT4Yp0xk/hqdefault.jpg)](https://www.youtube.com/watch?v=XFfAT4Yp0xk)
 
 ### Main Features
 
