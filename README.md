@@ -29,7 +29,7 @@ _The program I've always wanted but could never find._
 
 #### How-to compile and run:
 
-* Linux: ```g++ -L 'path/to/boost/libraries' -std=c++11 *.cpp -o dmpower```
+* Linux: ```g++ -I '/path/to/boost/libraries' -std=c++11 *.cpp -o dmpower```
 * Windows: Use Cygwin (64 bit or 32 bit - search 'gcc' and then install all, same with 'boost', same with 'git') then in cygwin's terminal ```g++ -std=c++11 *.cpp -o dmpower``` should work to compile the files. Next, use ```./dmpower.exe``` to run it 
 
 * There are probably many other ways to compile this and I'm working on a better makefile that will handle it but in the meantime, some manual work will have to be done.
