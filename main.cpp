@@ -10,6 +10,7 @@
 #include "campaign.h"
 #include "gen_reward.h"
 #include "gen_name.h"
+#include "gen_insult.h"
 #include <fstream>
 #include <cstdlib>
 
@@ -28,15 +29,16 @@ int main() {
     Campaign mygame;
     load_file(loadSuccess, loadedFile, mygame);
     do {
-        cout << "\n----------MAIN MENU----------" << endl
-             << "1. Characters" << endl
-             << "2. Magic Items, Spells, and More" << endl
-             << "3. Experience Calculator" << endl
-             << "4. Name Generator" << endl
-             << "5. Save & Quit" << endl
-             << "6. Quit" << endl
-             << "-----------------------------" << endl << endl;
-        choice = getNumber("Choice: ", 1, 6);
+		cout << "\n----------MAIN MENU----------\n"
+			 << "1. Characters\n"
+			 << "2. Magic Items, Spells, and More\n"
+			 << "3. Experience Calculator\n"
+			 << "4. Name Generator\n"
+			 << "5. NPC Insult\n"
+			 << "6. Save & Quit\n"
+			 << "7. Quit\n"
+			 << "-----------------------------\n" << endl;
+		choice = getNumber("Choice: ", 1, 7);
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         switch (choice) {
         case 1:
@@ -51,23 +53,28 @@ int main() {
             Magic_Items gen;
             float rewardXP = gen.xpgenerator();
             simpleClearScreen();
-            cout << "XP per member = " << rewardXP << endl << endl;
+			cout << "XP per member = " << rewardXP << "\n\n";
         }
             break;
         case 4:{
             CharacterName randomName;
             simpleClearScreen();
-            cout << "Here is a name: " << randomName.grabRandomName() << endl << endl;
+			cout << "Here is a name: " << randomName.grabRandomName() << "\n\n";
         }
             break;
-        case 5:
+		case 5:{
+			Insult insult;
+			simpleClearScreen();
+			cout << "Maybe this will make the PCs mad: " << insult.laydownheat() << "\n\n";
+		}
+			break;
+		case 6:
             save_file(loadSuccess, loadedFile, mygame);
-            break;
-        case 6:
+		case 7:
             cout << "Exiting Program.\n";
         default: break;
         }
-    } while ( choice < 5 );
+	} while ( choice < 6 );
     return EXIT_SUCCESS;
 }
 void load_file(bool& ls, string& lf, Campaign& game) {
