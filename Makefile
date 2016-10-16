@@ -12,6 +12,7 @@ gen_dungeon.o \
 gen_encounter.o \
 gen_name.o \
 gen_reward.o \
+gen_insult.o \
 globalfuncts.o \
 races.o
 SRC = campaign.cpp \
@@ -22,6 +23,7 @@ gen_dungeon.cpp \
 gen_encounter.cpp \
 gen_name.cpp \
 gen_reward.cpp \
+gen_insult.cpp \
 globalfuncts.cpp \
 races.cpp
 DEL = rm -v
@@ -49,6 +51,8 @@ gen_name.o: gen_name.cpp gen_name.h
 	$(CC) $(SOCFLAGS) gen_name.cpp
 gen_reward.o: gen_reward.cpp gen_reward.h
 	$(CC) $(SOCFLAGS) gen_reward.cpp
+gen_insult.o: gen_insult.cpp gen_insult.h
+	$(CC) $(SOCFLAGS) gen_insult.cpp
 globalfuncts.o: globalfuncts.cpp globalfuncts.h
 	$(CC) $(SOCFLAGS) globalfuncts.cpp
 races.o: races.cpp races.h
