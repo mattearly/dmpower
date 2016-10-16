@@ -4,8 +4,26 @@ TARGET = dmpower
 CC = g++ 
 CFLAGS = -std=c++11 -Wall -O2
 SOCFLAGS = -c -std=c++11 -Wall -O2
-OBJS = campaign.o characters.o main.o gear.o gen_dungeon.o gen_encounter.o gen_name.o gen_reward.o globalfuncts.o races.o
-SRC = campaign.cpp characters.cpp colors.cpp gear.cpp gen_dungeon.cpp gen_encounter.cpp gen_name.cpp gen_reward.cpp globalfuncts.cpp races.cpp
+OBJS = campaign.o \
+characters.o \
+main.o \
+gear.o \
+gen_dungeon.o \
+gen_encounter.o \
+gen_name.o \
+gen_reward.o \
+globalfuncts.o \
+races.o
+SRC = campaign.cpp \
+characters.cpp \
+colors.cpp \
+gear.cpp \
+gen_dungeon.cpp \
+gen_encounter.cpp \
+gen_name.cpp \
+gen_reward.cpp \
+globalfuncts.cpp \
+races.cpp
 DEL = rm -v
 
 $(TARGET): $(OBJS) 
