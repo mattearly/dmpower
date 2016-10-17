@@ -31,7 +31,7 @@ DEL = rm -v
 $(TARGET): $(OBJS) 
 	$(CC) $(OBJS) -o $(TARGET)
 clean:
-	$(DEL) $(OBJS) $(TARGET)
+	$(DEL) $(OBJS) $(TARGET) *.stackdump dmpower
 
 ###compile:
 
