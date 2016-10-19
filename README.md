@@ -6,7 +6,9 @@ I spend a lot of time programming and rarely get anything for it. Consider donat
 * [PayPal](https://www.paypal.me/mattearly/)  
 * Bitcoin: 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM  
 
-####A tool for 5th edition Dungeons & Dragons Dungeon Masters.  
+Now, onto stuff about this program.  
+
+####DMPOWER - A tool for 5th edition Dungeons & Dragons Dungeon Masters.  
 _The program I've always wanted but could never find._  
 
 Here is my crappy low budget logo.  
