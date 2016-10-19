@@ -12,6 +12,7 @@
 #include <iostream>
 #include <sstream>
 #include <random>
+#include <type_traits>
 
 static std::random_device rgen;
 static std::mt19937 mgen(rgen());
@@ -57,6 +58,15 @@ std::string D_D_Ability_Modifier(const T& a) {
     }
     return tmp;
 };
+
+template<typename T, typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
+std::string toString(const T& a) {
+	std::string tmp = "";
+	std::stringstream stringconverter;
+	stringconverter << a;
+	tmp += stringconverter.str();
+	return tmp;
+}
 
 void simpleClearScreen();
 
