@@ -24,6 +24,15 @@ static std::uniform_int_distribution<int> rolld12(1, 12);
 static std::uniform_int_distribution<int> rolld20(1, 20);
 static std::uniform_int_distribution<int> rolld100(1, 100);
 
+template<typename T, typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
+std::string toString(const T& a) {
+	std::string tmp = "";
+	std::stringstream stringconverter;
+	stringconverter << a;
+	tmp += stringconverter.str();
+	return tmp;
+};
+
 int randomNumber(const int&, const int&);
 
 template<class T>
@@ -40,33 +49,21 @@ T getNumber(const std::string& message, const T& a, const T& b) {
 template<class T>
 std::string D_D_Ability_Modifier(const T& a) {
     std::string tmp = "";
-    std::stringstream stringconverter;
     int mod = ((a-10)/2);
     if (mod > 0) {
         tmp += "+";
-        stringconverter << mod;
-        tmp += stringconverter.str();
+		tmp += toString(mod);
     }
     if (mod <= 0) {
         if (a < 10 && a%2 == 1) { mod--; }
         if (mod < 0) {
-            stringconverter << mod;
-            tmp += stringconverter.str();
+			tmp += toString(mod);
         } else {
             tmp = "  ";
         }
     }
     return tmp;
 };
-
-template<typename T, typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
-std::string toString(const T& a) {
-	std::string tmp = "";
-	std::stringstream stringconverter;
-	stringconverter << a;
-	tmp += stringconverter.str();
-	return tmp;
-}
 
 void simpleClearScreen();
 
@@ -77,8 +74,5 @@ void pressEnterToContinue();
 int rollstats_hi_power();
 
 int rollstats_standard();
-
-
-
 
 #endif /* defined(__dm_power_poly__globalfuncts__) */
