@@ -34,12 +34,12 @@ Yes, more zero budget visuals.
 	* Total up session or encounter experience and split it with the party.  
 4. **Name Generator.** 
     * 7732 names from Kismet's list randomized.  
-5. **NEW** **Insult Generator.**  
+5. \*\***NEW**\*\* **Insult Generator.**  
 	* For when you just need to piss off the PC's or antagonize them with a baddie.  
 
 
 #### How-to compile and run:
-* **NEW** now no longer requires Boost Libraries, basic C++ will do.
+* \*\***NEW**\*\* now no longer requires Boost Libraries, basic C++ will do.
 * This runs in terminal. Several options, you decide on what is easiest for you.  
 	1. Use the makefile: In terminal type ```make``` while in this program directory. (requires make, obviously).  
 	2. Linux: In terminal type ```g++ -std=c++11 *.cpp -o dmpower``` while in this program directory.
