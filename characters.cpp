@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 athenstechgiants. All rights reserved.
 //
 
+#include <iomanip>
 #include "characters.h"
 #include "colors.h"
 using namespace std;

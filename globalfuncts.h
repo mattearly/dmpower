@@ -9,15 +9,10 @@
 #ifndef __dm_power_poly__globalfuncts__
 #define __dm_power_poly__globalfuncts__
 
-#include <stdio.h>
 #include <iostream>
-#include <string>
-#include <iomanip>
 #include <sstream>
-#include <limits>
 #include <random>
-#include <vector>
-#include <list>
+#include <type_traits>
 
 static std::random_device rgen;
 static std::mt19937 mgen(rgen());
@@ -28,6 +23,15 @@ static std::uniform_int_distribution<int> rolld10(1, 10);
 static std::uniform_int_distribution<int> rolld12(1, 12);
 static std::uniform_int_distribution<int> rolld20(1, 20);
 static std::uniform_int_distribution<int> rolld100(1, 100);
+
+template<typename T, typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
+std::string toString(const T& a) {
+	std::string tmp = "";
+	std::stringstream stringconverter;
+	stringconverter << a;
+	tmp += stringconverter.str();
+	return tmp;
+};
 
 int randomNumber(const int&, const int&);
 
@@ -45,18 +49,15 @@ T getNumber(const std::string& message, const T& a, const T& b) {
 template<class T>
 std::string D_D_Ability_Modifier(const T& a) {
     std::string tmp = "";
-    std::stringstream stringconverter;
     int mod = ((a-10)/2);
     if (mod > 0) {
         tmp += "+";
-        stringconverter << mod;
-        tmp += stringconverter.str();
+		tmp += toString(mod);
     }
     if (mod <= 0) {
         if (a < 10 && a%2 == 1) { mod--; }
         if (mod < 0) {
-            stringconverter << mod;
-            tmp += stringconverter.str();
+			tmp += toString(mod);
         } else {
             tmp = "  ";
         }
@@ -73,8 +74,5 @@ void pressEnterToContinue();
 int rollstats_hi_power();
 
 int rollstats_standard();
-
-
-
 
 #endif /* defined(__dm_power_poly__globalfuncts__) */

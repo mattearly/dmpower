@@ -6,9 +6,10 @@
 //  Copyright (c) 2015 athenstechgiants. All rights reserved.
 //
 
+#include <iomanip>
 #include "globalfuncts.h"
-using namespace std;
 
+using namespace std;
 
 void simpleClearScreen() {
     for (int i=0; i < 14; i++) {

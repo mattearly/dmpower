@@ -1,4 +1,8 @@
 #include "gen_reward.h"
+#include "globalfuncts.h"
+#include "colors.h"
+#include <algorithm> //for sort function
+#include <fstream>  //to read from files
 
 using namespace std;
 
@@ -4458,7 +4462,7 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
             getline(fileOfGems, tmpName, ';');
             fileOfGems.seekg(len, ios_base::beg);  //return to position - return to snapshot of place in file
             if (i == 0) {           //very first gem case
-                gemstring = (boost::lexical_cast<string>(value) + "gp Gems:" + tmpName);
+                gemstring = toString(value) + "gp Gems:" + tmpName;
             } else { 
                 size_t find_position = gemstring.find(tmpName + ",");
 				if (find_position != string::npos) { //found first duplicate gemname on the list - not last item either
@@ -4549,7 +4553,7 @@ string Magic_Items::GenerateArt(const int& amount, const int& value) const {
             getline(fileOfArt, tmpName, ';');
             fileOfArt.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
             if (i == 0) {  //first time through
-                artstring = (boost::lexical_cast<string>(value) + "gp Art Objects:" + tmpName);
+                artstring = (toString(value) + "gp Art Objects:" + tmpName);
             } else { 
                 size_t find_position = artstring.find(tmpName + ",");
 				if (find_position != string::npos) { //found first duplicate Artname on the list - not last item either
