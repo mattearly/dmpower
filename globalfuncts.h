@@ -9,15 +9,9 @@
 #ifndef __dm_power_poly__globalfuncts__
 #define __dm_power_poly__globalfuncts__
 
-#include <stdio.h>
 #include <iostream>
-#include <string>
-#include <iomanip>
 #include <sstream>
-#include <limits>
 #include <random>
-#include <vector>
-#include <list>
 
 static std::random_device rgen;
 static std::mt19937 mgen(rgen());

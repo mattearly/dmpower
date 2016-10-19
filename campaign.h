@@ -10,6 +10,7 @@
 #define CAMPAIGN_H
 
 #include <fstream>
+#include <list>
 #include "globalfuncts.h"
 #include "characters.h"
 
