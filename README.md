@@ -53,6 +53,10 @@ Yes, more zero budget visuals.
 * NOTE: There are probably many other ways to compile this. It is basic C++ code that is using C++11 features.  
 * NOTE: This program uses special colored words, which is kinda optional but unfortunantly some terminals don't display these correctly, notably the Visual Studio one.  
 
+#### ToDo
+* Work on display clarity and ease of use (ongoing).
+* Add Random Encounter Generator.
+* Add Random Dungeon Generator.
 
 #### Problems?
 
@@ -62,9 +66,8 @@ Yes, more zero budget visuals.
 
 ###### About
 
-* Code by 
-**_Matthew Jay Early_** 
-* Email me at 
-_matthewjearly@gmail.com_
+* Code by **_Matthew Jay Early_** 
+* Material and Data (other than the names and insult lists) by Wizards of the Coast
+* Email me at _matthewjearly@gmail.com_
 * Why did I go through the pain of making this? Ever since I started playing D&D many years ago, I began looking for useful programs to go along with the game. There seemed to be a million little half-built tools and websites or many that don't follow the rules enough to be both useful and fair. I wasn't interested in a random person's homebrew ideas, which ruled out 90% of what I found. Since I couldn't find a program that did all this stuff legit from the books, and even Wizard's paid programs are too convoluted to be of use during gameplay, in my opinion, I decided to hack it myself. It also gave me something to work on while not taking classes and a motive to keep programming. So there you go. If you find it useful, let me know. Any feedback is good feedback.
 
