@@ -47,11 +47,11 @@ Yes, more zero budget visuals.
 * This runs in terminal. Several options, you decide on what is easiest for you. Mac won't be much different than linux.  
 
 	1. Linux: While in the program directory, in terminal type ```g++ -std=c++11 *.cpp -o dmpower``` or use the makefile: ```make``` while in this program directory.
-	2. Windows: Use Cygwin (64 bit or 32 bit - search 'gcc' and then install all, same with 'git'(might as well get git) and same with 'make') then in Cygwin's terminal got to the program directory and type```g++ -std=c++11 *.cpp -o dmpower``` or ```make``` if you installed 'make'.  
+	2. Windows: Use Cygwin (64 bit or 32 bit will do, when installing Cygwin search 'gcc' and then install all, same with 'git'(might as well get git) and same with 'make') then in Cygwin's terminal go to the program directory and type```g++ -std=c++11 *.cpp -o dmpower``` or ```make``` if you installed 'make'.  
 
 * Next, use ```./dmpower.exe``` to run it.  
 * NOTE: There are probably many other ways to compile this. It is basic C++ code that is using C++11 features.  
-* NOTE: This program uses special colored words, which is kinda optional but unfortunantly some terminals don't display these correctly.  
+* NOTE: This program uses special colored words, which is kinda optional but unfortunantly some terminals don't display these correctly, notably the Visual Studio one.  
 
 
 #### Problems?
