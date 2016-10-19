@@ -10,7 +10,6 @@
 #define __dm_power_poly__races__
 
 #include "characters.h"
-#include "globalfuncts.h"
 
 class Generic_Character_Class;
 
