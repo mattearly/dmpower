@@ -11,7 +11,6 @@
 
 using namespace std;
 
-
 void simpleClearScreen() {
     for (int i=0; i < 14; i++) {
         std::cout << "\n\n\n\n\n";
