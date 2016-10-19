@@ -26,7 +26,7 @@ public:
     int level, hitdicesize, move_speed, proficiency_bonus,
     extra_attack, expertise;
     //LEVEL UP MENU TRACKERS
-    int clericlevelupmenus, fighterlevelupmenus, roguelevelupmenus, wizardlevelupmenus,\
+	int clericlevelupmenus, fighterlevelupmenus, roguelevelupmenus, wizardlevelupmenus,\
     barbarianlevelupmenus, druidlevelupmenus, paladinlevelupmenus, sorcererlevelupmenus,\
     bardlevelupmenus, monklevelupmenus, rangerlevelupmenus, warlocklevelupmenus;
     //CLERIC
@@ -240,170 +240,122 @@ public:
 
 class Cleric : public Generic_Character_Class {
 public:
-    Cleric() {
-        clericlevelupmenus = 0;
-    };
+	Cleric() {};
     virtual int getlevelupmenus() const {
         return clericlevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int clericlevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 class Fighter : public Generic_Character_Class {
 public:
-    Fighter() {
-        fighterlevelupmenus = 0;
-    };
+	Fighter() {};
     virtual int getlevelupmenus() const {
         return fighterlevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int fighterlevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 class Rogue : public Generic_Character_Class {
 public:
-    Rogue() {
-        roguelevelupmenus = 0;
-    };
+	Rogue() {};
     virtual int getlevelupmenus() const {
         return roguelevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int roguelevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 class Wizard : public Generic_Character_Class {
 public:
-    Wizard() {
-        wizardlevelupmenus = 0;
-    };
+	Wizard() {};
     virtual int getlevelupmenus() const {
         return wizardlevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int wizardlevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 class Barbarian : public Generic_Character_Class {
 public:
-    Barbarian() {
-        barbarianlevelupmenus = 0;
-    };
+	Barbarian() {};
     virtual int getlevelupmenus() const {
         return barbarianlevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int barbarianlevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 class Druid : public Generic_Character_Class {
 public:
-    Druid() {
-        druidlevelupmenus = 0;
-    };
+	Druid() {};
     virtual int getlevelupmenus() const {
         return druidlevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int druidlevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 class Paladin : public Generic_Character_Class {
 public:
-    Paladin() {
-        paladinlevelupmenus = 0;
-    };
+	Paladin() {};
     virtual int getlevelupmenus() const {
         return paladinlevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int paladinlevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 class Sorcerer : public Generic_Character_Class {
 public:
-    Sorcerer() {
-        sorcererlevelupmenus = 0;
-    };
+	Sorcerer() {};
     virtual int getlevelupmenus() const {
         return sorcererlevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int sorcererlevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 class Bard : public Generic_Character_Class {
 public:
-    Bard() {
-        bardlevelupmenus = 0;
-    };
+	Bard() {};
     virtual int getlevelupmenus() const {
         return bardlevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int bardlevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 class Monk : public Generic_Character_Class {
 public:
-    Monk() {
-        monklevelupmenus = 0;
-    };
+	Monk() {};
     virtual int getlevelupmenus() const {
         return monklevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int monklevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 class Ranger : public Generic_Character_Class {
 public:
-    Ranger() {
-        rangerlevelupmenus = 0;
-    };
+	Ranger() {};
     virtual int getlevelupmenus() const {
         return rangerlevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int rangerlevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 class Warlock : public Generic_Character_Class {
 public:
-    Warlock() {
-        warlocklevelupmenus = 0;
-    };
+	Warlock() {};
     virtual int getlevelupmenus() const {
         return warlocklevelupmenus;
     };
 
-    virtual void setClassDetails(const int& l);
-    //virtual void updateCharacter(const Campaign&);
-    int warlocklevelupmenus;
+	virtual void setClassDetails(const int& l);
 };
 
 #endif
