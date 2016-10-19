@@ -1,6 +1,8 @@
+First off, to Cover My Ass, I will explain -> **You will need the books.** This program doesn't replace them or go into details about what abilities, spells, and items do, so you'll be lost without the books. Go buy them from an official retailer and support the company that makes this sweet D&D game!
+
 #### Support
   
-I spend a lot of time programming and rarely get anything for it. Consider donating something if you found this program useful. 
+I spend a lot of time programming and rarely get anything for it. Consider donating something if you found these alogrithm's I've created useful. 
 * [PayPal](https://www.paypal.me/mattearly/)  
 * Bitcoin: 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM  
 
@@ -40,13 +42,14 @@ Yes, more zero budget visuals.
 
 #### How-to compile and run:
 * \*\***NEW**\*\* now no longer requires Boost Libraries, basic C++ will do.
-* This runs in terminal. Several options, you decide on what is easiest for you.  
-	1. Use the makefile: In terminal type ```make``` while in this program directory. (requires make, obviously).  
-	2. Linux: In terminal type ```g++ -std=c++11 *.cpp -o dmpower``` while in this program directory.
-	3. Windows: Use Cygwin (64 bit or 32 bit - search 'gcc' and then install all, same with 'git'(might as well get git) and same with 'make') then in Cygwin's terminal got to the program directory and type```g++ -std=c++11 *.cpp -o dmpower``` or ```make``` if you installed 'make'.  
+* This runs in terminal. Several options, you decide on what is easiest for you. Mac won't be much different than linux.  
+
+	1. Linux: While in the program directory, in terminal type ```g++ -std=c++11 *.cpp -o dmpower``` or use the makefile: ```make``` while in this program directory.
+	2. Windows: Use Cygwin (64 bit or 32 bit - search 'gcc' and then install all, same with 'git'(might as well get git) and same with 'make') then in Cygwin's terminal got to the program directory and type```g++ -std=c++11 *.cpp -o dmpower``` or ```make``` if you installed 'make'.  
 
 * Next, use ```./dmpower.exe``` to run it.  
 * NOTE: There are probably many other ways to compile this. It is basic C++ code that is using C++11 features.  
+* NOTE: This program uses special colored words, which is kinda optional but unfortunantly some terminals don't display these correctly.  
 
 
 #### Problems?
@@ -62,5 +65,4 @@ Yes, more zero budget visuals.
 * Email me at 
 _matthewjearly@gmail.com_
 * Why did I go through the pain of making this? Ever since I started playing D&D many years ago, I began looking for useful programs to go along with the game. There seemed to be a million little half-built tools and websites or many that don't follow the rules enough to be both useful and fair. I wasn't interested in a random person's homebrew ideas, which ruled out 90% of what I found. Since I couldn't find a program that did all this stuff legit from the books, and even Wizard's paid programs are too convoluted to be of use during gameplay, in my opinion, I decided to hack it myself. It also gave me something to work on while not taking classes and a motive to keep programming. So there you go. If you find it useful, let me know. Any feedback is good feedback.
-* Final note: You will need the books, this program doesn't replace them or go into details about what abilities, spells, and items do. Go buy them from an official retailer!
 
