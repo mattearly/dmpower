@@ -1,11 +1,12 @@
 #### Support
   
-If you want to help me out in my coding adventures.  
+I spend a lot of time programming and rarely get anything for it. Consider donating something if you found this program useful. 
 * [PayPal](https://www.paypal.me/mattearly/)  
 * Bitcoin: 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM  
 
 ####A tool for 5th edition Dungeons & Dragons Dungeon Masters.  
 _The program I've always wanted but could never find._  
+
 Here is my crappy low budget logo.  
 
 ![DMPOWERLOGO](https://i.imgur.com/AIfDZLy.png)  
@@ -24,16 +25,16 @@ Yes, more zero budget visuals.
         * from the 5e books: Dungeon Master's Guide, Player's Handbook, and Sword Coast Adventurer's Guide.  
     * Level 1-20. Character Editor for leveling up and making changes anytime  
     * Load and Save fully functional for characters.  
-2. **Reward Generation.** Magic Item Roller, Scroll and Spellbook Generators. Save tons of time. 
+2. **Reward Generation.** Magic Item Roller, Scroll and Spellbook Generators. **Save tons of time.**  
     * **All** Loot Reward rolling charts from the DMG. Magical items, gems, art, currency.
-        * done by the book's logic - any rolled scrolls are ran through the Random Scroll Generator.
-    * Spellbook creator that randomizes wizard spells, just tell it how many of each level and it does the rest.  
+        * done by the book's logic - any rolled scrolls are automatically ran through the Random Scroll Generator. **save tons of time**
+    * Spellbook creator that randomizes wizard spells, just tell it how many of each level and it does the rest. Perfect for when a player askes 'What is in this stolen/looted NPC wizard spellbook?   
     * Random Scroll generator, just tell it what level scroll and it gives a random spell of that level.
 3. **Party Experience Calculator.**  
 	* Total up session or encounter experience and split it with the party.  
 4. **Name Generator.** 
     * 7732 names from Kismet's list randomized.  
-**NEW** 5. **Insult Generator.**  
+5. **NEW** **Insult Generator.**  
 	* For when you just need to piss off the PC's or antagonize them with a baddie.  
 
 
