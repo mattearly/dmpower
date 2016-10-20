@@ -16,12 +16,9 @@ Here is my crappy low budget logo.
 ![DMPOWERLOGO](https://i.imgur.com/AIfDZLy.png)  
 
 #### The Lowest Buget Video Rundown You've Ever Seen.  
-[![Video Rundown](https://i.ytimg.com/vi/XFfAT4Yp0xk/hqdefault.jpg)](https://www.youtube.com/watch?v=XFfAT4Yp0xk)
+[![Video Rundown](https://i.ytimg.com/vi/XFfAT4Yp0xk/hqdefault.jpg)](https://youtu.be/K9hLAovFPCc)
 
 ### Main Features
-Yes, more zero budget visuals.  
-
-![DMPOWERFLOWCHART](https://i.imgur.com/Hg2LDHg.png)  
 
 1. **Player Characters.** Build and Manage Characters.  
     * Walk through and answer the prompts to create a full character by the book.  
@@ -41,6 +38,9 @@ Yes, more zero budget visuals.
 5. \*\***NEW**\*\* **Insult Generator.**  
 	* For when you just need to piss off the PC's or antagonize them with a baddie.  
 
+Yes, more zero budget visuals.  (needs updated)
+
+![DMPOWERFLOWCHART](https://i.imgur.com/Hg2LDHg.png)  
 
 #### How-to compile and run:
 * \*\***NEW**\*\* now no longer requires Boost Libraries, basic C++ will do.
@@ -62,7 +62,6 @@ Yes, more zero budget visuals.
 
 * If you run into a problem or something unclear - please open an issue ticket or email me. The more details the better.
 * Anything you would like to see added to this program - open a issue ticket with the enhancement tag or email me.
-
 
 ###### About
 
