@@ -16,7 +16,7 @@ Here is my crappy low budget logo.
 ![DMPOWERLOGO](https://i.imgur.com/AIfDZLy.png)  
 
 #### The Lowest Buget Video Rundown You've Ever Seen.  
-[![Video Rundown](https://i.ytimg.com/vi/XFfAT4Yp0xk/hqdefault.jpg)](https://youtu.be/K9hLAovFPCc)
+[![Video Rundown](https://i.ytimg.com/vi/K9hLAovFPCc/hqdefault.jpg)](https://youtu.be/K9hLAovFPCc)
 
 ### Main Features
 
