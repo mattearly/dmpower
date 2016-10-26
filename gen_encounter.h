@@ -8,9 +8,11 @@
 
 #ifndef ENCOUNTERS_H
 #define ENCOUNTERS_H
+#include <string>
 
 class Encounter {
 public:
+    bool testing = true;
     Encounter();
     
     std::string Gen_Encounter();
@@ -18,9 +20,9 @@ public:
     
 private:
     void set_party_level();
-    int ave_cr;
+    int ave_lvl;
     
-}
+};
 
 
 

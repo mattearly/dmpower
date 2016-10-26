@@ -11,6 +11,7 @@
 #include "gen_reward.h"
 #include "gen_name.h"
 #include "gen_insult.h"
+#include "gen_encounter.h"
 #include <fstream>
 #include <cstdlib>
 
@@ -39,7 +40,7 @@ int main() {
 			 << "7. Save & Quit\n"
 			 << "8. Quit\n"
 			 << "-----------------------------\n" << endl;
-		choice = getNumber("Choice: ", 1, 7);
+		choice = getNumber("Choice: ", 1, 8);
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         switch (choice) {
         case 1:
@@ -63,7 +64,12 @@ int main() {
 			cout << "Here is a name: " << randomName.grabRandomName() << "\n\n";
         }
             break;
-		case 5:
+		case 5:{
+            Encounter encounter;
+            simpleClearScreen();
+            cout << encounter.Gen_Encounter();
+            pressEnterToContinue();
+        }
 			break;
 		case 6:{
 			Insult insult;
