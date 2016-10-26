@@ -2,7 +2,7 @@
 //  gen_encounter.h
 //  DM-Power-Core-Version
 //
-//  Created by Matthew Early on 10/26/15.
+//  Created by Matthew Early on 10/26/16.
 //  Copyright (c) 2016 athenstechgiants. All rights reserved.
 //
 
@@ -21,7 +21,7 @@ public:
 private:
     void set_party_level();
     int ave_lvl;
-    
+    int partysize;
 };
 
 
