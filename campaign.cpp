@@ -157,33 +157,44 @@ void Campaign::pc_menu() {
             pressEnterToContinue();
             break;
         case 4: {  //EDIT/UPDATE CHARACTER
-            if (character_list.size() < 1) {
-                cout << "No characters to Edit. Create characters first.\n\n";
-            } else {
-                bool found = false;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                string valid_name;
-                while (!found) {
-                    cout << "Name of Character to Edit/Update: ";
-                    getline(cin, valid_name);
-                    valid_name[0] = toupper(valid_name[0]);
-                    for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
-                        if ((*it)->name == valid_name) {
-                            found = true;
+            cin.get();
+            string pwd = "";
+            cout << "Enter entrance keyword: ";
+            getline(cin, pwd, '\n');
+            if (pwd == "password") {
+                cout << "entrance allowed\n";
+                if (character_list.size() < 1) {
+                    cout << "No characters to Edit. Create characters first.\n\n";
+                } else {
+                    bool found = false;
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    string valid_name;
+                    while (!found) {
+                        cout << "Name of Character to Edit/Update: ";
+                        getline(cin, valid_name);
+                        valid_name[0] = toupper(valid_name[0]);
+                        for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
+                            if ((*it)->name == valid_name) {
+                               found = true;
+                            }
                         }
+                        if (!found) cout << "\nNo character named " << valid_name << ". List of Charcters:\n\n";
+                        for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
+                            cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+                        }
+                        cout << endl;
                     }
-                    if (!found) cout << "\nNo character named " << valid_name << ". List of Charcters:\n\n";
                     for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
-                        cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+                        if (valid_name == (*it)->name) (*it)->updateCharacter(*this);
                     }
-                    cout << endl;
+
                 }
-                for (list<Generic_Character_Class*>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it) {
-                    if (valid_name == (*it)->name) (*it)->updateCharacter(*this);
-                }
+            } else {
+                cout << "entry denied";
             }
-        }
             pressEnterToContinue();
+        }
+            
             break;
         case 5: {   //DELETE CHARACTER
             if (character_list.size() < 1) {

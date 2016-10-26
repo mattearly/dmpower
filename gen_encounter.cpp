@@ -23,9 +23,9 @@ std::string Encounter::Gen_Encounter() {
     int seed = (randomNumber(1, 5) - 3);  
 
     if (testing) cout << "Seed is set to " << seed << "\n";
-    if (testing) cout << "Party size Multiplier is set to " << floor(partysize/2) << "\n";
+    if (testing) cout << "Party size Multiplier is set to " << floor((partysize-2)/2) << "\n";
     
-    if (testing) return ("Average Level is " + toString(ave_lvl) + "\nCR is set to " + toString(ave_lvl + seed + floor(partysize/2)) + "\n");
+    if (testing) return ("Average Level is " + toString(ave_lvl) + "\nCR is set to " + toString(ave_lvl + seed + floor((partysize-2)/2)) + "\n");
     else return "fail";
 
 

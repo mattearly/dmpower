@@ -83,7 +83,7 @@ int main() {
             cout << "Exiting Program.\n";
         default: break;
         }
-	} while ( choice < 6 );
+	} while ( choice < 7 );
     return EXIT_SUCCESS;
 }
 void load_file(bool& ls, string& lf, Campaign& game) {

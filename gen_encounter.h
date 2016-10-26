@@ -20,6 +20,7 @@ public:
     
 private:
     void set_party_level();
+    void pull_encounter_list();
     int ave_lvl;
     int partysize;
 };
