@@ -31,12 +31,13 @@ int main() {
     do {
 		cout << "\n----------MAIN MENU----------\n"
 			 << "1. Characters\n"
-			 << "2. Magic Items, Spells, and More\n"
+			 << "2. Magic Items, Spells, Rewards, Etc\n"
 			 << "3. Experience Calculator\n"
 			 << "4. Name Generator\n"
-			 << "5. NPC Insult\n"
-			 << "6. Save & Quit\n"
-			 << "7. Quit\n"
+			 << "5. Random Encounter\n"
+			 << "6. NPC Insult\n"
+			 << "7. Save & Quit\n"
+			 << "8. Quit\n"
 			 << "-----------------------------\n" << endl;
 		choice = getNumber("Choice: ", 1, 7);
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -62,15 +63,17 @@ int main() {
 			cout << "Here is a name: " << randomName.grabRandomName() << "\n\n";
         }
             break;
-		case 5:{
+		case 5:
+			break;
+		case 6:{
 			Insult insult;
 			simpleClearScreen();
 			cout << "Maybe this will make the PCs mad: " << insult.laydownheat() << "\n\n";
 		}
-			break;
-		case 6:
-            save_file(loadSuccess, loadedFile, mygame);
+            break;
 		case 7:
+            save_file(loadSuccess, loadedFile, mygame);
+        case 8:
             cout << "Exiting Program.\n";
         default: break;
         }
