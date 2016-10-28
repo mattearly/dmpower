@@ -27,7 +27,7 @@ char getYorN(const std::string& message) {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         if (!(tmp == 'Y' || tmp == 'N'))
-            std::cout << "Invalid, Try again (only takes 'Y', 'N', 'y', or 'n'.\n";
+            std::cout << "Invalid, Try again (only takes 'Y', 'N', 'y', or 'n'.\n" ;
 
     } while (!(tmp == 'Y' || tmp == 'N'));
     return tmp;
@@ -80,4 +80,3 @@ int randomNumber(const int& start, const int& end) {
     std::uniform_int_distribution<int> totalroll(start, end);
     return totalroll(mgen);
 }
-

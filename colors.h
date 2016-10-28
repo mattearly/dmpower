@@ -23,19 +23,15 @@
 //  just wanted to use to make everything look nice
 //
 //***********************************************************
+//  improved namespace call, cleaned up comments -Matthew Early
 
 #ifndef COLORS_H
 #define COLORS_H
 #include <string>
 
-//using namespace std;   //Matthew Beldyk performs 'epic ignore books & teaching' -mje
-using std::string;  //this is a little more reasonable at least-mje
+using std::string;
 
-const string BLINK     = "\e[5m";          //don't use this your
-					   //professor will probibly
-					   //beat you to death if
-					   //you do feel the need to
-					   //use blink!!!
+const string BLINK     = "\e[5m";
 const string BOLD      = "\e[1m";
 
 const string RESET     = "\e[0m";
@@ -61,4 +57,3 @@ const string B_CYAN    = "\e[46m";
 const string B_WHITE   = "\e[47m";
 
 #endif //COLORS_H
-

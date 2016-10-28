@@ -13,6 +13,7 @@
 #include <sstream>
 #include <random>
 #include <type_traits>
+#include "colors.h"
 
 static std::random_device rgen;
 static std::mt19937 mgen(rgen());

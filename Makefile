@@ -1,7 +1,7 @@
 #makefile
 
 TARGET = dmpower
-CC = g++ 
+CC = g++
 CFLAGS = -std=c++11 -Wall -O2
 SOCFLAGS = -c -std=c++11 -Wall -O2
 OBJS = campaign.o \
@@ -28,10 +28,10 @@ globalfuncts.cpp \
 races.cpp
 DEL = rm -v
 
-$(TARGET): $(OBJS) 
+$(TARGET): $(OBJS)
 	$(CC) $(OBJS) -o $(TARGET)
 clean:
-	$(DEL) $(OBJS) $(TARGET) *.stackdump dmpower
+	$(DEL) $(OBJS) $(TARGET) *.stackdump *.exe *.out
 
 ###compile:
 
