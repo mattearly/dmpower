@@ -15,27 +15,23 @@ using namespace std;
 Encounter::Encounter() {
     ave_lvl = partysize = 0;
 }
-    
+
 std::string Encounter::Gen_Encounter() {
 
     set_party_level();
 
-    int seed = (randomNumber(1, 5) - 3);  
+    int seed = (randomNumber(1, 5) - 3);
 
     if (testing) cout << "Seed is set to " << seed << "\n";
     if (testing) cout << "Party size Multiplier is set to " << floor((partysize-2)/2) << "\n";
-    
     if (testing) return ("Average Level is " + toString(ave_lvl) + "\nCR is set to " + toString(ave_lvl + seed + floor((partysize-2)/2)) + "\n");
     else return "fail";
 
-
-    
-
+    find_terrain();
 }
-    
-    
 
 void Encounter::set_party_level() {
+
     ave_lvl = 0;
     int tmp(0);
     cout << "total # of party members (1 to 10): ";
@@ -45,4 +41,8 @@ void Encounter::set_party_level() {
         tmp += getNumber(1, 20);
     }
     ave_lvl = floor(tmp/partysize);
+}
+
+void Encounter::find_terain() {
+  
 }

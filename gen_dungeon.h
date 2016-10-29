@@ -40,14 +40,11 @@ public:
     string dungeonFactions() const;
     string dungeonEcology() const;
     string dungeonDifficulty() const;
-    //
-
-
+    
     //Stocking a Dugneon
     string chamberPurpose;
 
     private:
-
 
 };
 
