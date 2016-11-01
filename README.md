@@ -17,10 +17,10 @@ The plan is to make a complete program that can keep your D&D game going and goi
         * from the 5e books: Dungeon Master's Guide, Player's Handbook, and Sword Coast Adventurer's Guide.  
     * Level 1-20. Character Editor for leveling up and making changes anytime  
     * Load and Save fully functional for characters.  
-2. **Reward Loot.** Magic Item Roller, Scroll and Spellbook Generators. **Save tons of time.**  
+2. **Reward Loot.** Magic Item Roller, Scroll and Spellbook Generators. **This program's hidden gem.**  
     * **All** Loot Reward rolling charts from the DMG. Magical items, gems, art, currency.
         * done by the book's logic - any rolled scrolls are automatically ran through the Random Scroll Generator. **save tons of time**
-    * Spellbook creator that randomizes wizard spells, just tell it how many of each level and it does the rest. Perfect for when a player askes 'What is in this stolen/looted NPC wizard spellbook?   
+    * Spellbook creator that randomizes wizard spells, just tell it how many of each level and it does the rest. Perfect for when a player asks 'What is in this stolen/looted NPC wizard spellbook?'   
     * Random Scroll generator, just tell it what level scroll and it gives a random spell of that level.
 3. **Party Experience Calculator.**  
 	* Total up session or encounter experience and split it with the party.  
@@ -34,15 +34,15 @@ The plan is to make a complete program that can keep your D&D game going and goi
 * This runs in terminal. Several options, you decide on what is easiest for you. Mac won't be much different than linux.  
 
 1. Linux  
-    * launch terminal  
+    * launch Terminal  
     * Clone this repo with ```git clone https://github.com/bytePro17124/DM-Power-Core-Version.git```  
-    * ```cd DM-Power-Core-Version```  
-    * ```make``` while in the program directory. 
+    * ```cd DM-Power-Core-Version``` to enter the main directory  
+    * ```make```  to compile the program with gcc  
     * After it compiles, type ```./dmpower``` to run the program.  
 
 2. Windows  
     * Use Cygwin 64 or 32 bit. When installing Cygwin search 'gcc' and then install all, same with 'git' and same with 'make'  (this will take a while to complete the install)
-    * Follw same directions as Linux while using Cygwin Terminal
+    * Follow same directions as Linux while using Cygwin Terminal
 
 NOTE: There are probably many other ways to compile this. It is basic C++ code that is using C++11 features. You can got to the source folder with terminal and type ```g++ -std=c++11 *.cpp``` and it will compile, but if you do this you need to have the .dat files in th same directory as the executable the compiler creates.
 NOTE: This program uses special colored words, which is kinda optional but unfortunantly some terminals don't display these correctly, notably the Visual Studio one.  
