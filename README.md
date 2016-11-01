@@ -1,8 +1,8 @@
-First off, to Cover My Ass, I will explain -> **You will need the books.** This program doesn't replace them or go into details about what abilities, spells, and items do, so you'll be lost without the books. Go buy them from an official retailer and support the company that makes this sweet D&D game!
+First off, to Cover My Ass, I will explain, **You will need the books.** This program doesn't replace them or go into details about what abilities, spells, and items do, so you'll be lost without the books. Go buy them from an official retailer and support the company that makes this sweet D&D game!
 
 #### Support
   
-I spend a lot of time programming and rarely get anything for it. Consider donating something if you found these alogrithm's I've created useful. 
+Consider donating something if you found these alogrithm's I've created useful. 
 * [PayPal](https://www.paypal.me/mattearly/)  
 * Bitcoin: 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM  
 
@@ -20,7 +20,7 @@ Here is my crappy low budget logo.
 
 ### Main Features
 
-1. **Player Characters.** Build and Manage Characters.  
+1. **Player Characters.** Build and Manage Characters in minutes.
     * Walk through and answer the prompts to create a full character by the book.  
     * **All** Classes, Archetype Paths, Races, Feats, Skills, Proficiencies, Backgrounds, and Stats  
         * from the 5e books: Dungeon Master's Guide, Player's Handbook, and Sword Coast Adventurer's Guide.  
@@ -42,15 +42,22 @@ Yes, more zero budget visuals.  (needs updated)
 
 ![DMPOWERFLOWCHART](https://i.imgur.com/Hg2LDHg.png)  
 
-#### How-to compile and run:
-* \*\***NEW**\*\* now no longer requires Boost Libraries, basic C++ will do.
+#### How-to compile and run:  
+
 * This runs in terminal. Several options, you decide on what is easiest for you. Mac won't be much different than linux.  
 
-	1. Linux: While in the program directory, in terminal type ```g++ -std=c++11 *.cpp -o dmpower``` or use the makefile: ```make``` while in this program directory.
-	2. Windows: Use Cygwin (64 bit or 32 bit will do, when installing Cygwin search 'gcc' and then install all, same with 'git'(might as well get git) and same with 'make') then in Cygwin's terminal go to the program directory and type```g++ -std=c++11 *.cpp -o dmpower``` or ```make``` if you installed 'make'.  
+	1. Linux  
+        * launch terminal  
+        * Clone this repo with ```git clone https://github.com/bytePro17124/DM-Power-Core-Version.git```  
+        * ```cd DM-Power-Core-Version```  
+        * ```make``` while in the program directory. 
+        * After it compiles, type ```./dmpower``` to run the program.  
 
-* Next, use ```./dmpower.exe``` to run it.  
-* NOTE: There are probably many other ways to compile this. It is basic C++ code that is using C++11 features.  
+	2. Windows  
+        * Use Cygwin 64 or 32 bit. When installing Cygwin search 'gcc' and then install all, same with 'git' and same with 'make'  (this will take a while to complete the install)
+        * Follw same directions as Linux while using Cygwin Terminal
+
+* NOTE: There are probably many other ways to compile this. It is basic C++ code that is using C++11 features. You can got to the source folder with terminal and type ```g++ -std=c++11 *.cpp``` and it will compile, but if you do this you need to have the .dat files in th same directory as the executable the compiler creates.
 * NOTE: This program uses special colored words, which is kinda optional but unfortunantly some terminals don't display these correctly, notably the Visual Studio one.  
 
 #### ToDo
