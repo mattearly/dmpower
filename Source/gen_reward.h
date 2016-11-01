@@ -3,7 +3,7 @@
 
 #include "gear.h"
 
-
+/// This class relies on the artObjects.dat and gems.dat files
 class Gear;
 
 class Magic_Items {

@@ -1,11 +1,3 @@
-//
-//  characters.h
-//  DM-Power
-//
-//  Created by Matthew Early on 6/12/15.
-//  Copyright (c) 2015 athenstechgiants. All rights reserved.
-//
-
 #ifndef dm_power_poly_characters_h
 #define dm_power_poly_characters_h
 #include "races.h"

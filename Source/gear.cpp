@@ -1,11 +1,3 @@
-//
-//  gear.cpp
-//  DM-Power
-//
-//  Created by Matthew Early on 8/03/15.
-//  Copyright (c) 2015 athenstechgiants. All rights reserved.
-//
-
 #include "gear.h"
 
 using namespace std;

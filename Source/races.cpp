@@ -1,11 +1,3 @@
-//
-//  races.cpp
-//  DM-Power
-//
-//  Created by Matthew Early on 6/25/15.
-//  Copyright (c) 2015 athenstechgiants. All rights reserved.
-//
-
 #include "races.h"
 
 using namespace std;

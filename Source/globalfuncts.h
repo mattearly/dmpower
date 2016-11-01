@@ -1,11 +1,3 @@
-//
-//  globalfuncts.h
-//  DM-Power
-//
-//  Created by Matthew Early on 6/22/15.
-//  Copyright (c) 2015 athenstechgiants. All rights reserved.
-//
-
 #ifndef __dm_power_poly__globalfuncts__
 #define __dm_power_poly__globalfuncts__
 
@@ -13,7 +5,31 @@
 #include <sstream>
 #include <random>
 #include <type_traits>
-#include "colors.h"
+
+const std::string BLINK     = "\e[5m";
+const std::string BOLD      = "\e[1m";
+
+const std::string RESET     = "\e[0m";
+const std::string ERROR     = "\e[1;41;37m\a";
+const std::string MENU       = "\e[44;37m";
+
+const std::string BLACK      = "\e[30m";
+const std::string RED        = "\e[31m";
+const std::string GREEN      = "\e[32m";
+const std::string YELLOW     = "\e[33m";
+const std::string BLUE       = "\e[34m";
+const std::string MAGENTA    = "\e[35m";
+const std::string CYAN       = "\e[36m";
+const std::string WHITE      = "\e[37m";
+
+const std::string B_BLACK    = "\e[40m";
+const std::string B_RED      = "\e[41m";
+const std::string B_GREEN   = "\e[42m";
+const std::string B_YELLOW  = "\e[43m";
+const std::string B_BLUE    = "\e[44m";
+const std::string B_MAGENTA = "\e[45m";
+const std::string B_CYAN    = "\e[46m";
+const std::string B_WHITE   = "\e[47m";
 
 static std::random_device rgen;
 static std::mt19937 mgen(rgen());
@@ -36,7 +52,7 @@ std::string toString(const T& a) {
 
 int randomNumber(const int&, const int&);
 
-    // getNumber with a message variable first
+/// This version of getNumber takes a string as an message to the user as well as a lower and higher limit
 template<class T>
 T getNumber(const std::string& message, const T& a, const T& b) {
     T goodn = 0;
@@ -48,7 +64,7 @@ T getNumber(const std::string& message, const T& a, const T& b) {
     return goodn;
 };
 
-    // getNumber without a message variable
+/// This version of getNumber takes a lower and higher limit
 template<class T>
 T getNumber(const T& a, const T& b) {
     T goodn = 0;

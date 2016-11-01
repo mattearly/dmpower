@@ -1,4 +1,4 @@
-#makefile
+#makefile for binaries
 
 TARGET = dmpower
 CC = g++

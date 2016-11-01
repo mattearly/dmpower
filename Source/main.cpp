@@ -1,11 +1,14 @@
-//
-//  main.cpp
-//  DM-Power
-//
-//  Created by Matthew Early on 6/12/15.
-//  Copyright (c) 2015 athenstechgiants. All rights reserved.
-//
-//  
+/**
+____________________________________________________________________________
+>
+>  https://github.com/bytePro17124/DM-Power-Core-Version
+>
+>  Program Created by Matthew Jay Early | @matthewjearly | matthewjearly@gmail.com
+>  
+>  Copyright (c) 2015-2016 Early Athens Tech Giants LLC. All rights reserved.
+>
+____________________________________________________________________________
+**/
 
 #include "campaign.h"
 #include "gen_reward.h"

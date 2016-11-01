@@ -1,11 +1,3 @@
-//
-//  races.h
-//  DM-Power
-//
-//  Created by Matthew Early on 6/25/15.
-//  Copyright (c) 2015 athenstechgiants. All rights reserved.
-//
-
 #ifndef __dm_power_poly__races__
 #define __dm_power_poly__races__
 

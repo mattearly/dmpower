@@ -1,17 +1,8 @@
-//
-//  campaign.h
-//  DM-Power
-//
-//  Created by Matthew Early on 6/12/15.
-//  Copyright (c) 2015 athenstechgiants. All rights reserved.
-//
-
 #ifndef CAMPAIGN_H
 #define CAMPAIGN_H
 
 #include <fstream>
 #include <list>
-#include "globalfuncts.h"
 #include "characters.h"
 
 class Generic_Character_Class;

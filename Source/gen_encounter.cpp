@@ -1,10 +1,3 @@
-//
-//  gen_encounter.cpp
-//  DM-Power-Core-Version
-//
-//  Created by Matthew Early on 10/26/1./d
-//  Copyright (c) 2016 athenstechgiants. All rights reserved.
-//
 #include "gen_encounter.h"
 #include "globalfuncts.h"
 #include <iostream>

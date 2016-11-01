@@ -1,11 +1,3 @@
-//
-//	gen_encounter.h
-//	DM-Power-Core-Version
-//
-//	Created by Matthew Early on 10/26/16.
-//	Copyright (c) 2016 athenstechgiants. All rights reserved.
-//
-
 #ifndef ENCOUNTERS_H
 #define ENCOUNTERS_H
 #include <string>
@@ -24,11 +16,11 @@ private:
 
 		void find_terrain();
 		std::string terrain();
-		enum TerrainType { ARTIC, COAST, DESERT, FOREST, GRASSLAND, MOUNTAIN, SWAMP, UNDERDARK };
+		enum TerrainType { NOT_SURE, ARTIC, COAST, DESERT, FOREST, GRASSLAND, MOUNTAIN, SWAMP, UNDERDARK };
 		TerrainType terraintype;
 
 		void pull_encounter_list();
-		enum MonsterType { ABERATIONS, BEASTS, CELESTIALS, CONSTRUCTS, DRAGONS, ELEMENTALS, FEY, FIENDS, GIANTS, MONSTROSITIES, OOZES, PLANTS, UNDEAD };
+		enum MonsterType { UNKNOWN, ABERATIONS, BEASTS, CELESTIALS, CONSTRUCTS, DRAGONS, ELEMENTALS, FEY, FIENDS, GIANTS, MONSTROSITIES, OOZES, PLANTS, UNDEAD };
 		MonsterType monstertype;
 
 };

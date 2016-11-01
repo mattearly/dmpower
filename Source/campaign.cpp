@@ -1,13 +1,5 @@
-//
-//  campaign.cpp
-//  DM-Power
-//
-//  Created by Matthew Early on 6/22/15.
-//  Copyright (c) 2015 athenstechgiants. All rights reserved.
-//
-
 #include "campaign.h"
-#include "colors.h"
+#include "globalfuncts.h"
 
 using namespace std;
 
