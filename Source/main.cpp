@@ -17,6 +17,10 @@ ____________________________________________________________________________
 #include "gen_encounter.h"
 #include <fstream>
 #include <cstdlib>
+#include <SFML/Graphics.hpp>
+#include <GL/glut.h>
+
+
 
 using namespace std;
 
@@ -25,6 +29,64 @@ void save_file(const bool&, const string&, const Campaign&);
 
 
 int main() {
+
+    // sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    // sf::CircleShape shape(100.f);
+    // shape.setFillColor(sf::Color::Green);
+
+    // while (window.isOpen())
+    // {
+    //     sf::Event event;
+    //     while (window.pollEvent(event))
+    //     {
+    //         if (event.type == sf::Event::Closed)
+    //             window.close();
+    //     }
+
+    //     window.clear();
+    //     window.draw(shape);
+    //     window.display();
+    // }
+
+    // sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+
+    //     // create the window
+    // sf::Window window(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, sf::ContextSettings(32));
+    // window.setVerticalSyncEnabled(true);
+
+    // // load resources, initialize the OpenGL states, ...
+
+    // // run the main loop
+    // bool running = true;
+    // while (running)
+    // {
+    //     // handle events
+    //     sf::Event event;
+    //     while (window.pollEvent(event))
+    //     {
+    //         if (event.type == sf::Event::Closed)
+    //         {
+    //             // end the program
+    //             running = false;
+    //         }
+    //         else if (event.type == sf::Event::Resized)
+    //         {
+    //             // adjust the viewport when the window is resized
+    //             glViewport(0, 0, event.size.width, event.size.height);
+                
+    //         }
+    //     }
+
+    //     // clear the buffers
+    //     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    //     // draw...
+
+    //     // end the current frame (internally swaps the front and back buffers)
+    //     window.display();
+    // }
+
+
     bool loadSuccess = 0;
     string loadedFile = "";
     simpleClearScreen();
