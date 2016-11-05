@@ -306,89 +306,89 @@ void Magic_Items::GenerateHoardTreasureCR_0_4(){
         Gear tmp(c, (GenerateGemstone(c, 10)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableA());
+        for (int i(0); i < c; i++) tmplist.push_back(TableA(ans));
     } else if (mr <= 52) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableA());
+        for (int i(0); i < c; i++) tmplist.push_back(TableA(ans));
     } else if (mr <= 60) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableA());
+        for (int i(0); i < c; i++) tmplist.push_back(TableA(ans));
     } else if (mr <= 65) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 10)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableB());
+        for (int i(0); i < c; i++) tmplist.push_back(TableB(ans));
     } else if (mr <= 70) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableB());
+        for (int i(0); i < c; i++) tmplist.push_back(TableB(ans));
     } else if (mr <= 75) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableB());
+        for (int i(0); i < c; i++) tmplist.push_back(TableB(ans));
     } else if (mr <= 78) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 10)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 80) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 85) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 92) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableF());
+        for (int i(0); i < c; i++) tmplist.push_back(TableF(ans));
     } else if (mr <= 97) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableF());
+        for (int i(0); i < c; i++) tmplist.push_back(TableF(ans));
     } else if (mr <= 99) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableG());
+        tmplist.push_back(TableG(ans));
     } else {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableG());
+        tmplist.push_back(TableG(ans));
     }
     cout << endl;
     for (auto& it : tmplist) { it.showItem(); }
@@ -444,162 +444,162 @@ void Magic_Items::GenerateHoardTreasureCR_5_10(){
         Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableA());
+        for (int i(0); i < c; i++) tmplist.push_back(TableA(ans));
     } else if (mr <= 36) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableA());
+        for (int i(0); i < c; i++) tmplist.push_back(TableA(ans));
     } else if (mr <= 40) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableA());
+        for (int i(0); i < c; i++) tmplist.push_back(TableA(ans));
     } else if (mr <= 44) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableA());
+        for (int i(0); i < c; i++) tmplist.push_back(TableA(ans));
     } else if (mr <= 49) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableB());
+        for (int i(0); i < c; i++) tmplist.push_back(TableB(ans));
     } else if (mr <= 54) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableB());
+        for (int i(0); i < c; i++) tmplist.push_back(TableB(ans));
     } else if (mr <= 59) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableB());
+        for (int i(0); i < c; i++) tmplist.push_back(TableB(ans));
     } else if (mr <= 63) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableB());
+        for (int i(0); i < c; i++) tmplist.push_back(TableB(ans));
     } else if (mr <= 66) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 69) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 72) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 74) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 76) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableD());
+        tmplist.push_back(TableD(ans));
     } else if (mr <= 78) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableD());
+        tmplist.push_back(TableD(ans));
     } else if (mr <= 79) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableD());
+        tmplist.push_back(TableD(ans));
     } else if (mr <= 80) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableD());;
+        tmplist.push_back(TableD(ans));;
     } else if (mr <= 84) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 25)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableF());
+        for (int i(0); i < c; i++) tmplist.push_back(TableF(ans));
     } else if (mr <= 88) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 50)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableF());
+        for (int i(0); i < c; i++) tmplist.push_back(TableF(ans));
     } else if (mr <= 91) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableF());
+        for (int i(0); i < c; i++) tmplist.push_back(TableF(ans));
     } else if (mr <= 94) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableF());
+        for (int i(0); i < c; i++) tmplist.push_back(TableF(ans));
     } else if (mr <= 96) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableG());
+        for (int i(0); i < c; i++) tmplist.push_back(TableG(ans));
     } else if (mr <= 98) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableG());
+        for (int i(0); i < c; i++) tmplist.push_back(TableG(ans));
     } else if (mr <= 99) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 100)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableH());
+        tmplist.push_back(TableH(ans));
     } else {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableH());
+        tmplist.push_back(TableH(ans));
     }
     cout << endl;
     for (auto& it : tmplist) { it.showItem(); }
@@ -648,200 +648,200 @@ void Magic_Items::GenerateHoardTreasureCR_11_16(){
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableA());
+        for (int i(0); i < c; i++) tmplist.push_back(TableA(ans));
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableB());
+        for (int i(0); i < c; i++) tmplist.push_back(TableB(ans));
     } else if (mr <= 23) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableA());
+        for (int i(0); i < c; i++) tmplist.push_back(TableA(ans));
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableB());
+        for (int i(0); i < c; i++) tmplist.push_back(TableB(ans));
     } else if (mr <= 26) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableA());
+        for (int i(0); i < c; i++) tmplist.push_back(TableA(ans));
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableB());
+        for (int i(0); i < c; i++) tmplist.push_back(TableB(ans));
     } else if (mr <= 29) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableA());
+        for (int i(0); i < c; i++) tmplist.push_back(TableA(ans));
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableB());
+        for (int i(0); i < c; i++) tmplist.push_back(TableB(ans));
     } else if (mr <= 35) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 40) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 45) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 50) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 54) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableD());
+        for (int i(0); i < c; i++) tmplist.push_back(TableD(ans));
     } else if (mr <= 58) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableD());
+        for (int i(0); i < c; i++) tmplist.push_back(TableD(ans));
     } else if (mr <= 62) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableD());
+        for (int i(0); i < c; i++) tmplist.push_back(TableD(ans));
     } else if (mr <= 66) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableD());
+        for (int i(0); i < c; i++) tmplist.push_back(TableD(ans));
     } else if (mr <= 68) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableE());
+        tmplist.push_back(TableE(ans));
     } else if (mr <= 70) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableE());
+        tmplist.push_back(TableE(ans));
     } else if (mr <= 72) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableE());
+        tmplist.push_back(TableE(ans));
     } else if (mr <= 74) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableE());;
+        tmplist.push_back(TableE(ans));;
     } else if (mr <= 76) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableF());
+        tmplist.push_back(TableF(ans));
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableG());
+        for (int i(0); i < c; i++) tmplist.push_back(TableG(ans));
     } else if (mr <= 78) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableF());
+        tmplist.push_back(TableF(ans));
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableG());
+        for (int i(0); i < c; i++) tmplist.push_back(TableG(ans));
     } else if (mr <= 80) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableF());
+        tmplist.push_back(TableF(ans));
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableG());
+        for (int i(0); i < c; i++) tmplist.push_back(TableG(ans));
     } else if (mr <= 82) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableF());
+        tmplist.push_back(TableF(ans));
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableG());
+        for (int i(0); i < c; i++) tmplist.push_back(TableG(ans));
     } else if (mr <= 85) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableH());
+        for (int i(0); i < c; i++) tmplist.push_back(TableH(ans));
     } else if (mr <= 88) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableH());
+        for (int i(0); i < c; i++) tmplist.push_back(TableH(ans));
     } else if (mr <= 90) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableH());
+        for (int i(0); i < c; i++) tmplist.push_back(TableH(ans));
     } else if (mr <= 92) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableH());
+        for (int i(0); i < c; i++) tmplist.push_back(TableH(ans));
     } else if (mr <= 94) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 250)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableI());
+        tmplist.push_back(TableI(ans));
     } else if (mr <= 96) {
         int c = 0;
         for (int i(0); i < 2; i++) c += rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 750)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableI());
+        tmplist.push_back(TableI(ans));
     } else if (mr <= 98) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 500)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableI());
+        tmplist.push_back(TableI(ans));
     } else {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
-        tmplist.push_back(tableI());
+        tmplist.push_back(TableI(ans));
     }
     cout << endl;
     for (auto& it : tmplist) { it.showItem(); }
@@ -871,158 +871,158 @@ void Magic_Items::GenerateHoardTreasureCR_17(){
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld8(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 8) {
         int c = rolld10(mgen);
         Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld8(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 11) {
         int c = rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld8(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 14) {
         int c = rolld8(mgen);
         Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld8(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableC());
+        for (int i(0); i < c; i++) tmplist.push_back(TableC(ans));
     } else if (mr <= 22) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableD());
+        for (int i(0); i < c; i++) tmplist.push_back(TableD(ans));
     } else if (mr <= 30) {
         int c = rolld10(mgen);
         Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableD());
+        for (int i(0); i < c; i++) tmplist.push_back(TableD(ans));
     } else if (mr <= 38) {
         int c = rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableD());
+        for (int i(0); i < c; i++) tmplist.push_back(TableD(ans));
     } else if (mr <= 46) {
         int c = rolld8(mgen);
         Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableD());
+        for (int i(0); i < c; i++) tmplist.push_back(TableD(ans));
     } else if (mr <= 52) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableE());
+        for (int i(0); i < c; i++) tmplist.push_back(TableE(ans));
     } else if (mr <= 58) {
         int c = rolld10(mgen);
         Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableE());
+        for (int i(0); i < c; i++) tmplist.push_back(TableE(ans));
     } else if (mr <= 63) {
         int c = rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableE());
+        for (int i(0); i < c; i++) tmplist.push_back(TableE(ans));
     } else if (mr <= 68) {
         int c = rolld8(mgen);
         Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld6(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableE());
+        for (int i(0); i < c; i++) tmplist.push_back(TableE(ans));
     } else if (mr <= 69) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableG());
+        for (int i(0); i < c; i++) tmplist.push_back(TableG(ans));
     } else if (mr <= 70) {
         int c = rolld10(mgen);
         Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableG());
+        for (int i(0); i < c; i++) tmplist.push_back(TableG(ans));
     } else if (mr <= 71) {
         int c = rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableG());
+        for (int i(0); i < c; i++) tmplist.push_back(TableG(ans));
     } else if (mr <= 72) {
         int c = rolld8(mgen);
         Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableG());
+        for (int i(0); i < c; i++) tmplist.push_back(TableG(ans));
     } else if (mr <= 74) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableH());
+        for (int i(0); i < c; i++) tmplist.push_back(TableH(ans));
     } else if (mr <= 76) {
         int c = rolld10(mgen);
         Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableH());
+        for (int i(0); i < c; i++) tmplist.push_back(TableH(ans));
     } else if (mr <= 78) {
         int c = rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableH());
+        for (int i(0); i < c; i++) tmplist.push_back(TableH(ans));
     } else if (mr <= 80) {
         int c = rolld8(mgen);
         Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableH());
+        for (int i(0); i < c; i++) tmplist.push_back(TableH(ans));
     } else if (mr <= 85) {
         int c = 0;
         for (int i(0); i < 3; i++) c += rolld6(mgen);
         Gear tmp(c, (GenerateGemstone(c, 1000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableI());
+        for (int i(0); i < c; i++) tmplist.push_back(TableI(ans));
     } else if (mr <= 90) {
         int c = rolld10(mgen);
         Gear tmp(c, (GenerateArt(c, 2500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableI());
+        for (int i(0); i < c; i++) tmplist.push_back(TableI(ans));
     } else if (mr <= 95) {
         int c = rolld4(mgen);
         Gear tmp(c, (GenerateArt(c, 7500)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableI());
+        for (int i(0); i < c; i++) tmplist.push_back(TableI(ans));
     } else {
         int c = rolld8(mgen);
         Gear tmp(c, (GenerateGemstone(c, 5000)));
         tmplist.push_back(tmp);
         c = rolld4(mgen);
-        for (int i(0); i < c; i++) tmplist.push_back(tableI());
+        for (int i(0); i < c; i++) tmplist.push_back(TableI(ans));
     }
     cout << endl;
     for (auto& it : tmplist) { it.showItem(); }
 }
-Gear Magic_Items::tableA(){
+Gear Magic_Items::TableA(const char& r){
     int roll = 0;
-    char ans = getYorN("Have system roll for you?(y/n): ");
-    if (ans == 'Y') roll = rolld100(mgen);
+    // char ans = getYorN("Have system roll for you?(y/n): ");
+    if (r == 'Y') roll = rolld100(mgen);
     else roll = getNumber("Roll d100 result: ", 1, 100);
     cout << "Table A Roll = " << roll << endl;
     if (roll <= 50) {
@@ -1051,10 +1051,9 @@ Gear Magic_Items::tableA(){
         return tmp;
     }
 }
-Gear Magic_Items::tableB() {
+Gear Magic_Items::TableB(const char& r) {
     int roll = 0;
-    char ans = getYorN("Have system roll for you?(y/n): ");
-    if (ans == 'Y') roll = rolld100(mgen);
+    if (r == 'Y') roll = rolld100(mgen);
     else roll = getNumber("Roll d100 result: ", 1, 100);
     cout << "Table B Roll = " << roll << endl;
     if (roll <= 15) {
@@ -1177,10 +1176,10 @@ Gear Magic_Items::tableB() {
         return tmp;
     }
 }
-Gear Magic_Items::tableC(){
+Gear Magic_Items::TableC(const char& r){
     int roll = 0;
-    char ans = getYorN("Have system roll for you?(y/n): ");
-    if (ans == 'Y') roll = rolld100(mgen);
+    // char ans = getYorN("Have system roll for you?(y/n): ");
+    if (r == 'Y') roll = rolld100(mgen);
     else roll = getNumber("Roll d100 result: ", 1, 100);
     cout << "Table C Roll = " << roll << endl;
     if (roll <= 15) {
@@ -1286,10 +1285,10 @@ Gear Magic_Items::tableC(){
         return tmp;
     }
 }
-Gear Magic_Items::tableD(){
+Gear Magic_Items::TableD(const char& r){
     int roll = 0;
-    char ans = getYorN("Have system roll for you?(y/n): ");
-    if (ans == 'Y') roll = rolld100(mgen);
+    // char ans = getYorN("Have system roll for you?(y/n): ");
+    if (r == 'Y') roll = rolld100(mgen);
     else roll = getNumber("Roll d100 result: ", 1, 100);
     cout << "Table D Roll = " << roll << endl;
     if (roll <= 20) {
@@ -1341,14 +1340,14 @@ Gear Magic_Items::tableD(){
         Gear tmp(1, "Bag of devouring");
         return tmp;
     } else {
-        Gear tmp(1, "Portable hole");
+        Gear tmp(1, "PorTable hole");
         return tmp;
     }
 }
-Gear Magic_Items::tableE(){
+Gear Magic_Items::TableE(const char& r){
     int roll = 0;
-    char ans = getYorN("Have system roll for you?(y/n): ");
-    if (ans == 'Y') roll = rolld100(mgen);
+    // char ans = getYorN("Have system roll for you?(y/n): ");
+    if (r == 'Y') roll = rolld100(mgen);
     else roll = getNumber("Roll d100 result: ", 1, 100);
     cout << "Table E Roll = " << roll << endl;
     if (roll <= 30) {
@@ -1376,10 +1375,10 @@ Gear Magic_Items::tableE(){
         return tmp;
     }
 }
-Gear Magic_Items::tableF(){
+Gear Magic_Items::TableF(const char& r){
     int roll = 0;
-    char ans = getYorN("Have system roll for you?(y/n): ");
-    if (ans == 'Y') roll = rolld100(mgen);
+    // char ans = getYorN("Have system roll for you?(y/n): ");
+    if (r == 'Y') roll = rolld100(mgen);
     else roll = getNumber("Roll d100 result: ", 1, 100);
     cout << "Table F Roll = " << roll << endl;
     if (roll <= 15) {
@@ -1564,10 +1563,10 @@ Gear Magic_Items::tableF(){
         return tmp;
     }
 }
-Gear Magic_Items::tableG(){
+Gear Magic_Items::TableG(const char& r){
     int roll = 0;
-    char ans = getYorN("Have system roll for you?(y/n): ");
-    if (ans == 'Y') roll = rolld100(mgen);
+    // char ans = getYorN("Have system roll for you?(y/n): ");
+    if (r == 'Y') roll = rolld100(mgen);
     else roll = getNumber("Roll d100 result: ", 1, 100);
     cout << "Table G Roll = " << roll << endl;
     if (roll <= 11) {
@@ -1865,10 +1864,10 @@ Gear Magic_Items::tableG(){
         return tmp;
     }
 }
-Gear Magic_Items::tableH(){
+Gear Magic_Items::TableH(const char& r){
     int roll = 0;
-    char ans = getYorN("Have system roll for you?(y/n): ");
-    if (ans == 'Y') roll = rolld100(mgen);
+    // char ans = getYorN("Have system roll for you?(y/n): ");
+    if (r == 'Y') roll = rolld100(mgen);
     else roll = getNumber("Roll d100 result: ", 1, 100);
     cout << "Table H Roll = " << roll << endl;
     if (roll <= 10) {
@@ -2080,10 +2079,10 @@ Gear Magic_Items::tableH(){
         return tmp;
     }
 }
-Gear Magic_Items::tableI(){
+Gear Magic_Items::TableI(const char& r){
     int roll = 0;
-    char ans = getYorN("Have system roll for you?(y/n): ");
-    if (ans == 'Y') roll = rolld100(mgen);
+    // char ans = getYorN("Have system roll for you?(y/n): ");
+    if (r == 'Y') roll = rolld100(mgen);
     else roll = getNumber("Roll d100 result: ", 1, 100);
     cout << "Table I Roll = " << roll << endl;
     if (roll <= 5) {

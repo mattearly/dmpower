@@ -27,15 +27,15 @@ private:
     void GenerateHoardTreasureCR_11_16();
     void GenerateHoardTreasureCR_17();
 
-    Gear tableA();
-    Gear tableB();
-    Gear tableC();
-    Gear tableD();
-    Gear tableE();
-    Gear tableF();
-    Gear tableG();
-    Gear tableH();
-    Gear tableI();
+    Gear TableA(const char&);
+    Gear TableB(const char&);
+    Gear TableC(const char&);
+    Gear TableD(const char&);
+    Gear TableE(const char&);
+    Gear TableF(const char&);
+    Gear TableG(const char&);
+    Gear TableH(const char&);
+    Gear TableI(const char&);
     
     std::string GenerateScroll(const int&) const;
     std::string GenerateGemstone(const int&, const int&) const;
