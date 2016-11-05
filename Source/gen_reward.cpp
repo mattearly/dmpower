@@ -4897,7 +4897,7 @@ void Magic_Items::MakeSpellbook() const {
             cout << i << endl;
         }
         spellholder.clear();
-}
+    }
     //LEVEL 4 SPELLS
     if (fourth > 0) {
         cout << "\nLevel 4 Spells\n----------------\n";
