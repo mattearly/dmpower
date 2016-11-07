@@ -15,7 +15,7 @@
 ```
 #### Support
   
-Consider donating something if you found these alogrithm's I've created useful. 
+Consider donating something if you found these alogrithm's I've created useful. (or if you just want to help) 
 * [PayPal](https://www.paypal.me/mattearly/)  
 * Bitcoin: 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM  
 
@@ -59,7 +59,7 @@ The plan is to make a complete program that can keep your D&D game going and goi
     * Use Cygwin 64 or 32 bit. When installing Cygwin search 'gcc' and then install all, same with 'git' and same with 'make'  (this will take a while to complete the install)
     * Follow same directions as Linux while using Cygwin Terminal
 
-NOTE: There are probably many other ways to compile this. It is basic C++ code that is using C++11 features. You can got to the source folder with terminal and type ```g++ -std=c++11 *.cpp``` and it will compile, but if you do this you need to have the .dat files in th same directory as the executable the compiler creates.
+NOTE: There are probably many other ways to compile this. It is basic C++ code that is using C++11 features.
 NOTE: This program uses special colored words, which is kinda optional but unfortunantly some terminals don't display these correctly, notably the Visual Studio one.  
 
 #### ToDo
