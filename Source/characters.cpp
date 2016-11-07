@@ -2469,12 +2469,27 @@ void Generic_Character_Class::setAllStats() {
 		}
 	}
 	else {
-		setStr(getNumber("Enter starting Strength(3-18): ", 3, 18));
-		setDex(getNumber("Enter starting Dexterity(3-18): ", 3, 18));
-		setCon(getNumber("Enter starting Constitution(3-18): ", 3, 18));
-		setInt(getNumber("Enter starting Intelligence(3-18): ", 3, 18));
-		setWis(getNumber("Enter starting Wisdom(3-18): ", 3, 18));
-		setCha(getNumber("Enter starting Charisma(3-18): ", 3, 18));
+		ans = getYorN("Use generic starting stats(15,14,13,12,10,8)? (y/n) ");
+		if (ans == 'Y') {
+			int stats[6] = {15,14,13,12,10,8};
+			for (int i = 0; i < 6; i++) {
+			cout << "Stats Left: \n\n";
+			for (int j = i; j < 6; j++) {
+				if (j == i) cout << CYAN << stats[j] << GREEN << " <-Currently assigning" << RESET << ", ";
+				else cout << stats[j] << ", ";
+			}
+			assignStats(stats[i]);
+			simpleClearScreen();
+
+		}
+		} else {
+			setStr(getNumber("Enter starting Strength(3-18): ", 3, 18));
+			setDex(getNumber("Enter starting Dexterity(3-18): ", 3, 18));
+			setCon(getNumber("Enter starting Constitution(3-18): ", 3, 18));
+			setInt(getNumber("Enter starting Intelligence(3-18): ", 3, 18));
+			setWis(getNumber("Enter starting Wisdom(3-18): ", 3, 18));
+			setCha(getNumber("Enter starting Charisma(3-18): ", 3, 18));
+		}
 		pressEnterToContinue();
 	}
 	cout << " Final Stats are -\n  ->Str: ";

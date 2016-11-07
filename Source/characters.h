@@ -142,6 +142,15 @@ public:
     void setTools(const int&);
     virtual void setClassDetails(const int& l) = 0;
     void updateCharacter(const Campaign&);
+    void setProficiencyBonus();
+    void increase2statsby1();
+    void increase1statby2();
+    void setLandtype();
+    void setFavoredEnemy();
+    void levelUpStats();
+    void assignStats(int & s) ;
+
+    //skill gaining functions
     void setAnySkill(const std::string&, const int&);
     void gainAcrobatics(int&);
     void gainAnimal_Handling(int&);
@@ -162,11 +171,11 @@ public:
     void gainStealth(int&);
     void gainSurvival(int&);
     void knownskill(int&);
-    void setProficiencyBonus();
-    void increase2statsby1();
-    void increase1statby2();
-    void setLandtype();
-    void setFavoredEnemy();
+
+
+
+
+    //feat gaining functions
     void setAnyFeat();
     void gainAlert(bool& s);
     void gainAthlete(bool& s);
@@ -210,8 +219,9 @@ public:
     void gainTough(bool& s);
     void gainWar_caster(bool& s);
     void gainWeapon_master(bool& s);
-    void levelUpStats();
-    void assignStats(int & s) ;
+
+
+
 
     //CHARACTER DISPLAYING FUNCTIONS (ACCESSORS)
     std::string getBackground() const;
@@ -228,6 +238,7 @@ public:
     void creaturetype() const;
     void landtype() const;
     virtual int getlevelupmenus() const = 0;
+
 };
 
 class Cleric : public Generic_Character_Class {
