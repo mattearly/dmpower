@@ -148,7 +148,7 @@ public:
     void setLandtype();
     void setFavoredEnemy();
     void levelUpStats();
-    void assignStats(int & s) ;
+    void assignStats(int &s);
 
     //skill gaining functions
     void setAnySkill(const std::string&, const int&);

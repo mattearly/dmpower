@@ -1051,7 +1051,7 @@ Gear Magic_Items::TableA(const char& r){
         return tmp;
     }
 }
-Gear Magic_Items::TableB(const char& r) {
+Gear Magic_Items::TableB(const char& r){
     int roll = 0;
     if (r == 'Y') roll = rolld100(mgen);
     else roll = getNumber("Roll d100 result: ", 1, 100);
