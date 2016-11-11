@@ -19,15 +19,16 @@ void Campaign::pc_menu() {
         switch (choice) {
         case 1:
         {
-            simpleClearScreen();  //non-casters - RED | arcane - MAGENTA | divine - CYAN
-            cout << "Create a New Character!\n\n";
+            simpleClearScreen();  //non-casters - RED | arcane - YELLOW | divine - CYAN
+            cout << "Create a New Character! " 
+                 << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON_CASTER" << RESET << "\n\n";
             cout << "Character Class:\n\n"
                  << CYAN << " 1. Cleric" << "      7. Paladin\n\n" << RESET
-                 << RED << " 2. Fighter" << MAGENTA << "     8. Sorcerer\n\n" << RESET
-                 << RED << " 3. Rogue" << MAGENTA << "       9. Bard\n\n" << RESET
-                 << MAGENTA << " 4. Wizard" << RED << "     10. Monk\n\n" << RESET
+                 << RED << " 2. Fighter" << YELLOW << "     8. Sorcerer\n\n" << RESET
+                 << RED << " 3. Rogue" << YELLOW << "       9. Bard\n\n" << RESET
+                 << YELLOW << " 4. Wizard" << RED << "     10. Monk\n\n" << RESET
                  << RED << " 5. Barbarian" << CYAN << "  11. Ranger\n\n" << RESET
-                 << CYAN << " 6. Druid" << MAGENTA << "      12. Warlock\n\n" << RESET;
+                 << CYAN << " 6. Druid" << YELLOW << "      12. Warlock\n\n" << RESET;
             int select_class = getNumber("Class Choice(1-12): ", 1, 12);
             int starting_level = getNumber("\nStarting Level(1-20): ", 1, 20);
             simpleClearScreen();
@@ -762,7 +763,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->wisSave;
         ins >> v->chaSave;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');   // >> "gca"  class stuff general
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');   //  class stuff general
         ins >> v->extra_attack;
         ins >> v->expertise;
         ins >> v->spellcasting;
@@ -775,8 +776,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->great_weapon_fighting;
         ins >> v->protection;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n'); // >> "cleric"
-        ins >> v->destroy_undead;  //cleric
+        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //cleric
+        ins >> v->destroy_undead;  
         ins >> v->channel_divinity;
         ins >> v->divine_domain_feature;
         ins >> v->divine_intervention;
@@ -792,8 +793,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->trickery_d;
         ins >> v->war_d;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n'); // >> "fighter"
-        ins >> v->action_surge;   //fighter
+        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //fighter
+        ins >> v->action_surge;   
         ins >> v->martial_archtype_feature;
         ins >> v->indomitable;
         ins >> v->eldritch_spells_known;
@@ -806,8 +807,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->eldritch_knight;
         ins >> v->purple_dragon_knight;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n'); // >> "barbarian"
-        ins >> v->rages;  //barbarian
+        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //barbarian
+        ins >> v->rages;  
         ins >> v->rage_damage;
         ins >> v->path_feature;
         ins >> v->brutal_critical;
@@ -827,8 +828,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->eagle_totem;
         ins >> v->wolf_totem;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "bard"
-        ins >> v->bardic_inspiration; //bard
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');//bard
+        ins >> v->bardic_inspiration; 
         ins >> v->song_of_rest;
         ins >> v->bard_college_feature;
         ins >> v->magical_secrets;
@@ -843,8 +844,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->college_of_valor;
         ins >> v->additional_magical_secrets;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "druid"
-        ins >> v->wild_shape_improvement; //druid
+        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //druid
+        ins >> v->wild_shape_improvement;
         ins >> v->druid_circle_feature;
         ins >> v->druid_cantrips_known;
         ins >> v->druidic;
@@ -855,8 +856,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->circle_of_the_moon;
         ins >> v->circle_of_the_land;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "monk"
-        ins >> v->monastic_tradition_feature; //monk
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');//monk
+        ins >> v->monastic_tradition_feature; 
         ins >> v->ki;
         ins >> v->unarmored_movement;
         ins >> v->martial_arts;
@@ -878,8 +879,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->way_of_the_sun_soul;
         ins >> v->unarmored_movement_improvement;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "paladin"
-        ins >> v->sacred_oath_feature; //paladin
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');//paladin
+        ins >> v->sacred_oath_feature; 
         ins >> v->divine_smite;
         ins >> v->divine_sense;
         ins >> v->lay_on_hands;
@@ -895,8 +896,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->oath_of_vengeance;
         ins >> v->oathbreaker;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "ranger"
-        ins >> v->favored_enemy;  //ranger
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');//ranger
+        ins >> v->favored_enemy;  
         ins >> v->favored_enemy_languages;
         ins >> v->natural_explorer;
         ins >> v->ranger_archetype_feature;
@@ -911,8 +912,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->hunter;
         ins >> v->beast_master;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "rogue"
-        ins >> v->roguish_archetype_feature; //rogue
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');//rogue
+        ins >> v->roguish_archetype_feature; 
         ins >> v->arcane_t_spells_known;
         ins >> v->sneak_attack;
         ins >> v->thieves_cant;
@@ -930,8 +931,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->mastermind;
         ins >> v->swashbuckler;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "sorcerer"
-        ins >> v->sorcerous_origin_feature;  //sorcerer
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');//sorcerer
+        ins >> v->sorcerous_origin_feature;  
         ins >> v->metamagic;
         ins >> v->sorcery_points;
         ins >> v->sorcerer_spells_known;
@@ -943,8 +944,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->wild_magic;
         ins >> v->storm_sorcery;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "warlock"
-        ins >> v->warlock_slot_level; //warlock
+        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //warlock
+        ins >> v->warlock_slot_level; 
         ins >> v->eldritch_invocations_known;
         ins >> v->warlock_spells_known;
         ins >> v->warlock_spell_slots;
@@ -960,8 +961,8 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->great_old_one;
         ins >> v->the_undying;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "wizard"
-        ins >> v->arcane_tradition_feature; //wizard
+        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //wizard
+        ins >> v->arcane_tradition_feature; 
         ins >> v->wizard_cantrips_known;
         ins >> v->arcane_recovery;
         ins >> v->arcane_tradition;
@@ -977,7 +978,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->transmutation;
         ins >> v->bladesinging;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "landtypes" //landtypes
+        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //landtypes
         ins >> v->artic;
         ins >> v->coast;
         ins >> v->desert;
@@ -987,7 +988,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->swamp;
         ins >> v->underdark;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "creaturetype"   //creaturetype
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');  //creaturetype
         ins >> v->twohumanoids;
         ins >> v->aberrations;
         ins >> v->beasts;
@@ -1003,7 +1004,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->plants;
         ins >> v->undead;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "spellslots" //spellslots
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');//spellslots
         ins >> v->first_ss;
         ins >> v->second_ss;
         ins >> v->third_ss;
@@ -1015,7 +1016,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->ninth_ss;
         ins >> v->warlock_ss;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "skills"   //skills
+        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //skills
         ins >> v->initialSkillsSet;
         ins >> v->acrobatics;
         ins >> v->animal_handling;
@@ -1036,7 +1037,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->stealth;
         ins >> v->survival;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "feats"   //feats
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');  //feats
         ins >> v->alert;
         ins >> v->athlete;
         ins >> v->actor;
@@ -1080,7 +1081,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->war_caster;
         ins >> v->weapon_master;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "languages"   //languages
+        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //languages
         ins >> v->abyssal;
         ins >> v->celestial;
         ins >> v->common;
@@ -1099,7 +1100,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->sylvan;
         ins >> v->undercommon;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "features"   //features
+        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //features
         ins >> v->artificers_lore;
         ins >> v->brave;
         ins >> v->breath_weapon_acid;
@@ -1140,17 +1141,17 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->superior_darkvision;
         ins >> v->trance;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "resistances"   //resistances
+        ins.ignore(numeric_limits<streamsize>::max(), '\n'); //resistances
         ins >> v->damage_resist_acid;
         ins >> v->damage_resist_ltg;
         ins >> v->damage_resist_fire;
         ins >> v->damage_resist_poison;
         ins >> v->damage_resist_cold;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "disadvantages"   //disadvantages
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');  //disadvantages
         ins >> v->sunlight_sensitivity;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "tools"   //artisan tools & supplies
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');  //artisan tools & supplies
         ins >> v->alchemist;
         ins >> v->brewer;
         ins >> v->calligrapher;
@@ -1169,7 +1170,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->weaver;
         ins >> v->woodcarver;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "kits"   //kits & tools
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');  //kits & tools
         ins >> v->disguise;
         ins >> v->forgery;
         ins >> v->herbalism;
@@ -1178,7 +1179,7 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
         ins >> v->thieves;
         ins >> v->vehicle;
         ins.get();
-        ins.ignore(numeric_limits<streamsize>::max(), '\n');//           >> "musicalinstruments"   //musical instruments
+        ins.ignore(numeric_limits<streamsize>::max(), '\n');  //musical instruments
         ins >> v->bagpipes;
         ins >> v->drum;
         ins >> v->dulcimer;

@@ -3829,43 +3829,7 @@ void Generic_Character_Class::updateCharacter(const Campaign& game) {
 		default:;
 		}
 	} while (ss != 7);
-}/*
- void Cleric::updateCharacter(const Campaign& game) {
- Generic_Character_Class::updateCharacter(game);
- }
- void Fighter::updateCharacter(const Campaign& game) {
- Generic_Character_Class::updateCharacter(game);
- }
- void Rogue::updateCharacter(const Campaign& game) {constitution
- Generic_Character_Class::updateCharacter(game);
- }
- void Wizard::updateCharacter(const Campaign& game) {
- Generic_Character_Class::updateCharacter(game);
- }
- void Barbarian::updateCharacter(const Campaign& game) {
- Generic_Character_Class::updateCharacter(game);
- }
- void Druid::updateCharacter(const Campaign& game) {
- Generic_Character_Class::updateCharacter(game);
- }
- void Paladin::updateCharacter(const Campaign& game) {
- Generic_Character_Class::updateCharacter(game);
- }
- void Sorcerer::updateCharacter(const Campaign& game) {
- Generic_Character_Class::updateCharacter(game);
- }
- void Bard::updateCharacter(const Campaign& game) {
- Generic_Character_Class::updateCharacter(game);
- }
- void Monk::updateCharacter(const Campaign& game) {
- Generic_Character_Class::updateCharacter(game);
- }
- void Ranger::updateCharacter(const Campaign& game) {
- Generic_Character_Class::updateCharacter(game);
- }
- void Warlock::updateCharacter(const Campaign& game) {
- Generic_Character_Class::updateCharacter(game);
- }*/
+}
  //accessors
 void Generic_Character_Class::character_sheet() const {
 	simpleClearScreen();
