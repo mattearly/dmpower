@@ -4403,7 +4403,7 @@ void Magic_Items::SingleScroll(const int& lvl) const {
 string Magic_Items::GenerateGemstone(const int& amount, const int& value) const {
     string gemstring = "error: check code or gemfile";
     ifstream fileOfGems;
-    fileOfGems.open("gems.dat");
+    fileOfGems.open("./Settings/gems.dat");
     if (fileOfGems.is_open()) {
         string tmpName = "";
         bool setvalue = false;
@@ -4502,7 +4502,7 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
 string Magic_Items::GenerateArt(const int& amount, const int& value) const {
     string artstring = "error: check code or artfile";
     ifstream fileOfArt;
-    fileOfArt.open("artObjects.dat");
+    fileOfArt.open("./Settings/artObjects.dat");
     if (fileOfArt.is_open()) {
         string tmpName = "";
         bool setvalue = false;
@@ -5077,7 +5077,7 @@ void Magic_Items::MakeSpellbook() const {
 
 void Magic_Items::showPoisons() {
     fstream poisonfile;
-    poisonfile.open("poisonlist.dat");
+    poisonfile.open("./Settings/poisonlist.dat");
     if (!poisonfile.is_open()) {
         cout << "Error Opening poisonlist.dat, check your file.\n\n";
     }
@@ -5096,26 +5096,27 @@ void Magic_Items::showPoisons() {
 
 void Magic_Items::showDiseases() {
     fstream diseasefile;
-    diseasefile.open("diseaselist.dat");
+    diseasefile.open("./Settings/diseaselist.dat");
     if (!diseasefile.is_open()) {
         cout << "Error Opening diseaselist.dat, check your file.\n\n";
-    }
-    string diseases = "";
-    if (diseasefile.is_open()) {
-        while(!diseasefile.eof()) {
-            diseases += diseasefile.get();
+    } else {
+        string diseases = "";
+        if (diseasefile.is_open()) {
+            while(!diseasefile.eof()) {
+                diseases += diseasefile.get();
+            }
         }
+        diseases.erase(diseases.length()-1, diseases.length()); //erase that last random [box] character
+        cout << diseases;
+        diseasefile.close();
+        pressEnterToContinue();
     }
-    diseases.erase(diseases.length()-1, diseases.length()); //erase that last random [box] character
-    cout << diseases;
-    diseasefile.close();
-    pressEnterToContinue();
 
 }
 
 void Magic_Items::showMadness() {
     fstream madnessfile;
-    madnessfile.open("madnesslist.dat");
+    madnessfile.open("./Settings/madnesslist.dat");
     if (!madnessfile.is_open()) {
         cout << "Error Opening madnesslist.dat, check your file.\n\n";
     }

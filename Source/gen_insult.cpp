@@ -10,7 +10,7 @@ Insult::Insult()
 string Insult::laydownheat() const {
 	string heatstring = "error: check code or insult data file";
 	ifstream madfile;
-	madfile.open("insults.dat");
+	madfile.open("./Settings/insults.dat");
 	if (madfile.is_open()) {
 		string tmpName = "";
 		auto chosenSeed = 0;
