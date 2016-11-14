@@ -95,6 +95,8 @@ std::string D_D_Ability_Modifier(const T& a) {
     return tmp;
 };
 
+int getAbilityMod(const int&);
+
 void simpleClearScreen();
 
 char getYorN(const std::string&);

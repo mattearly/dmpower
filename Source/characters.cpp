@@ -1,6 +1,5 @@
 #include <iomanip>
 #include "characters.h"
-#include "globalfuncts.h"
 #include <cmath>
 using namespace std;
 
@@ -5998,12 +5997,13 @@ void Generic_Character_Class::character_sheet() const
     simpleClearScreen();
     cout << " " << name << "'s Character Sheet:\n";
     cout << "->" << GREEN << " Class(Level): " << RESET << char_class << "(" << level << ")\n";
-    cout << "->" << GREEN << " Alignment: " << RESET << alignment << endl;
-    cout << "->" << GREEN << " Race: " << RESET << race << endl;
-    cout << "->" << GREEN << " Background: " << RESET << getBackground() << endl;
-    cout << "->" << GREEN << " Hit Dice: " << RESET << level << "d" << hitdicesize << " (Ave NPC HP: "
-	 << ((hitdicesize+2 / 2) * level) + (stoi(D_D_Ability_Modifier(constitution)) * level) << " Ave Player HP:"
-	 << hitdicesize + *((hitdicesize+2 / 2) * level - 1) + (stoi(D_D_Ability_Modifier(constitution)) * level) << ")" << endl;
+    cout << "->" << GREEN << " Alignment: " << RESET << alignment << "\n";
+    cout << "->" << GREEN << " Race: " << RESET << race << "\n";
+    cout << "->" << GREEN << " Background: " << RESET << getBackground() << "\n";
+    cout << "->" << GREEN << " Hit Dice: " << RESET << level << "d" << hitdicesize 
+	<< "(Ave NPC HP: " << ((((hitdicesize+2)/2))*level) + (getAbilityMod(constitution)*level)
+	<< " Ave PC HP: " << hitdicesize + ((((hitdicesize+2)/2))*(level-1)) + (getAbilityMod(constitution)*level)
+	<< ")\n";
     cout << "->" << GREEN << " Move Speed: " << RESET << move_speed << "ft\n";
     cout << "->" << GREEN << " Proficiency Bonus:" << RESET << " +" << proficiency_bonus;
     cout << "\n->" << MAGENTA << " Str: " << RESET << setw(2) << strength << " " << D_D_Ability_Modifier(strength);
