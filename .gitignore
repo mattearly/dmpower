@@ -1,8 +1,5 @@
  # files not needed by every user
 
-/Saves/*
-Saves/*
-./Saves/*
 .directory
 dmpower
 *.stackdump
