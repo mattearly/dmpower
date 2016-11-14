@@ -3838,8 +3838,9 @@ void Generic_Character_Class::character_sheet() const {
 	cout << "->" << GREEN << " Alignment: " << RESET << alignment << endl;
 	cout << "->" << GREEN << " Race: " << RESET << race << endl;
 	cout << "->" << GREEN << " Background: " << RESET << getBackground() << endl;
-	cout << "->" << GREEN << " Hit Dice: " << RESET << level << "d" << hitdicesize << " (Average HP: "\
-	<< (((hitdicesize/2)+1)*level) + (stoi(D_D_Ability_Modifier(constitution))*level) << ")" << endl;
+	cout << "->" << GREEN << " Hit Dice: " << RESET << level << "d" << hitdicesize << " (Ave NPC HP: "\
+	<< (((hitdicesize/2)+1)*level) + (stoi(D_D_Ability_Modifier(constitution))*level) << " Ave Player HP:"
+	<< hitdicesize + (((hitdicesize/2)+1)*level-1) + (stoi(D_D_Ability_Modifier(constitution))*level) << ")" << endl;
 	cout << "->" << GREEN << " Move Speed: " << RESET << move_speed << "ft\n";
 	cout << "->" << GREEN << " Proficiency Bonus:" << RESET << " +" << proficiency_bonus;
 	cout << "\n->" << MAGENTA << " Str: " << RESET << setw(2) << strength << " " << D_D_Ability_Modifier(strength);
