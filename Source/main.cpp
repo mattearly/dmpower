@@ -156,7 +156,7 @@ void load_file(bool& ls, string& lf, Campaign& game) {
     ifstream thefile;
     cout << "Load File: ";
     getline(cin, file, '\n');
-    thefile.open( ("Saves/" + file + ".dat").c_str() );
+    thefile.open( ("Saves/" + file + ".save").c_str() );
     if (thefile.is_open()) {
         game.retrieveCharacter(thefile);
         simpleClearScreen();
@@ -179,7 +179,7 @@ void save_file(const bool& ls, const string& lf, const Campaign& game) {
         file = lf;
     }
     //save into file after above is complete
-    os.open(("Saves/" + file + ".dat").c_str());
+    os.open(("Saves/" + file + ".save").c_str());
     if (os.is_open()) {
         game.dumpCharacter(os);
         cout << "All data saved in file -> " << file << endl;

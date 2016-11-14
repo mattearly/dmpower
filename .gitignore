@@ -4,6 +4,7 @@
 dmpower
 *.stackdump
 *.user
+*.save
 
 # Compiled Object files
 *.slo
@@ -33,6 +34,4 @@ dmpower
 *.exe
 *.out
 *.app
-thefungus.dat
-wof.dat
-CoS.dat
+
