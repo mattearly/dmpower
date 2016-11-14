@@ -1,4 +1,4 @@
-#makefile for binaries
+#makefile for binaries in source folder
 
 TARGET = dmpower
 CC = g++
@@ -31,6 +31,9 @@ gen_insult.cpp \
 globalfuncts.cpp \
 races.cpp
 DEL = rm -vf
+
+# $(TARGET): $(OBJS)
+# 	$(CC) $(OBJS) -o ../$@ $(LINKSFML) $(LINKOPENGL)
 
 $(TARGET): $(OBJS)
 	$(CC) $(OBJS) -o ../$@ $(LINKSFML) $(LINKOPENGL)
