@@ -6,7 +6,6 @@ CFLAGS = -std=c++11 -O1
 SOCFLAGS = -c -std=c++11 -Wall -O2
 LINKOPENGL = -lGL
 # GL = -lGL -lGLU -lglut
-# SFMLFLAGS = -lsfml-window -lsfml-graphics -lsfml-system
 LINKSFML = -lsfml-window -lsfml-graphics -lsfml-system
 OBJS = campaign.o \
 characters.o \
