@@ -17,8 +17,8 @@ ____________________________________________________________________________
 #include "gen_encounter.h"
 #include <fstream>
 #include <cstdlib>
-#include <SFML/Graphics.hpp>
-#include <GL/glut.h>
+// #include <SFML/Graphics.hpp>
+// #include <GL/glut.h>
 
 
 
@@ -36,7 +36,7 @@ int main() {
 
     // while (window.isOpen())
     // {
-    //     sf::Event event;
+    //     sf::Event event;k
     //     while (window.pollEvent(event))
     //     {
     //         if (event.type == sf::Event::Closed)

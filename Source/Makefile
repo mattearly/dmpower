@@ -35,8 +35,7 @@ DEL = rm -vf
 # 	$(CC) $(OBJS) -o ../$@ $(LINKSFML) $(LINKOPENGL)
 
 $(TARGET): $(OBJS)
-	$(CC) $(OBJS) -o ../$@ $(LINKSFML) $(LINKOPENGL)
-
+	$(CC) $(OBJS) -o ../$@ 
 clean:
 	$(DEL) $(OBJS)
 
