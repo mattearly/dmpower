@@ -15,7 +15,7 @@
 ```
 #### Support
   
-Consider donating something if you found these alogrithm's I've created useful. (or if you just want to help) 
+Consider donating something if you found these alogrithm's I've created useful. (or if you just want to help out an indie dev) 
 * [PayPal](https://www.paypal.me/mattearly/)  
 * Bitcoin: 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM  
 
@@ -65,6 +65,7 @@ NOTE: This program uses special colored words, which is kinda optional but unfor
 #### ToDo
 * Work on display clarity and ease of use (ongoing).
 * Add more needed tools to keep the game flowing.
+* Add Visuals and Windows (big job)
 
 #### Problems?
 
