@@ -1,3 +1,17 @@
+/**
+____________________________________________________________________________
+>
+>  https://github.com/bytePro17124/DM-Power-Core-Version
+>
+>  Program Created by Matthew Jay Early | @matthewjearly | matthewjearly@gmail.com
+>  
+>  Copyright (c) 2015-2016 Early Athens Tech Giants LLC. All rights reserved.
+>
+____________________________________________________________________________
+**/
+
+
+
 #include "gen_reward.h"
 #include "globalfuncts.h"
 #include <algorithm> //for sort function

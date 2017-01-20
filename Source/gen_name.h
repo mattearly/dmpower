@@ -1,10 +1,15 @@
-//
-//  gen_name.h
-//  DM-Power
-//
-//  Created by Matthew Early on 6/22/15.
-//  Copyright (c) 2015 athenstechgiants. All rights reserved.
-//
+/**
+____________________________________________________________________________
+>
+>  https://github.com/bytePro17124/DM-Power-Core-Version
+>
+>  Program Created by Matthew Jay Early | @matthewjearly | matthewjearly@gmail.com
+>  
+>  Copyright (c) 2015-2016 Early Athens Tech Giants LLC. All rights reserved.
+>
+____________________________________________________________________________
+**/
+
 
 #ifndef NAME_GEN_H
 #define NAME_GEN_H

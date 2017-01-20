@@ -1,3 +1,17 @@
+/**
+____________________________________________________________________________
+>
+>  https://github.com/bytePro17124/DM-Power-Core-Version
+>
+>  Program Created by Matthew Jay Early | @matthewjearly | matthewjearly@gmail.com
+>  
+>  Copyright (c) 2015-2016 Early Athens Tech Giants LLC. All rights reserved.
+>
+____________________________________________________________________________
+**/
+
+
+
 #ifndef __dm_power_poly__globalfuncts__
 #define __dm_power_poly__globalfuncts__
 
@@ -52,7 +66,7 @@ std::string toString(const T& a) {
 
 int randomNumber(const int&, const int&);
 
-/// This version of getNumber takes a string as an message to the user as well as a lower and higher limit
+/// This version of getNumber takes a string as an console message to the user as well as a lower and higher limit
 template<class T>
 T getNumber(const std::string& message, const T& a, const T& b) {
     T goodn = 0;

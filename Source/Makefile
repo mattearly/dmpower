@@ -1,4 +1,6 @@
 #makefile for binaries in source folder
+#the makefile in the folder above this calls this one
+#do not call this one by itself
 
 TARGET = dmpower
 CC = g++

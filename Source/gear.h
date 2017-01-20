@@ -1,3 +1,16 @@
+/**
+____________________________________________________________________________
+>
+>  https://github.com/bytePro17124/DM-Power-Core-Version
+>
+>  Program Created by Matthew Jay Early | @matthewjearly | matthewjearly@gmail.com
+>  
+>  Copyright (c) 2015-2016 Early Athens Tech Giants LLC. All rights reserved.
+>
+____________________________________________________________________________
+**/
+
+
 #ifndef __dm_power_poly__gear__
 #define __dm_power_poly__gear__
 
