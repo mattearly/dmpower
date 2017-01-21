@@ -1,5 +1,4 @@
 #include "sdl_graphics.h"
-#include <SDL2/SDL_image.h>
 
 bool SDL_graphics::init()
 {

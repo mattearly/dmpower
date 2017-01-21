@@ -20,8 +20,6 @@ ____________________________________________________________________________
 #include <fstream>
 #include <cstdlib>
 
-
-
 using namespace std;
 
 void load_file(bool&, string&, Campaign&);
@@ -34,8 +32,6 @@ int main() {
         printf("SDL Graphics failed to initiate");
         return EXIT_FAILURE;
     }
-
-
 
     bool loadSuccess = 0;
     string loadedFile = "";

@@ -7,7 +7,7 @@
 class SDL_graphics
 {
   public:
-    SDL_graphics(void);
+    SDL_graphics(void){}
     ~SDL_graphics(void);
 
     bool init(void);
