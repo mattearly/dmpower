@@ -4,9 +4,9 @@ TARGET = dmpower
 DEL = rm -vf
 
 all:
-	+$(MAKE) -C Source
+	+$(MAKE) -C src
 
 clean:
 	$(DEL) $(TARGET)
-	+$(MAKE) -C Source clean 
+	+$(MAKE) -C src clean 
 

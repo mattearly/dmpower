@@ -5,10 +5,11 @@
 TARGET = dmpower
 CC = g++
 CFLAGS = -std=c++11 -O1
-SOCFLAGS = -c -std=c++11 -Wall -O2
-LINKOPENGL = -lGL
+SINGLE_CFLAGS = -c -std=c++11 -Wall -O2
+# LINKOPENGL = -lGL
 # GL = -lGL -lGLU -lglut
-LINKSFML = -lsfml-window -lsfml-graphics -lsfml-system
+# LINKSFML = -lsfml-window -lsfml-graphics -lsfml-system
+LINKSDL = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 OBJS = campaign.o \
 characters.o \
 main.o \
@@ -19,7 +20,8 @@ gen_name.o \
 gen_reward.o \
 gen_insult.o \
 globalfuncts.o \
-races.o
+races.o \
+sdl_graphics.o
 SRC = campaign.cpp \
 characters.cpp \
 colors.cpp \
@@ -30,7 +32,8 @@ gen_name.cpp \
 gen_reward.cpp \
 gen_insult.cpp \
 globalfuncts.cpp \
-races.cpp
+races.cpp \
+sdl_graphics.cpp
 DEL = rm -vf
 
 # $(TARGET): $(OBJS)
@@ -44,7 +47,7 @@ clean:
 ###compile:
 
 .cpp.o:
-	$(CC) $(SOCFLAGS) $< -o $@
+	$(CC) $(LINKSDL) $(SINGLE_CFLAGS) $< -o $@
 # main.o: main.cpp
 # 	$(CC) $(SOCFLAGS) main.cpp -o $@
 # campaign.o: campaign.cpp campaign.h
