@@ -96,7 +96,7 @@ void load_file(bool& ls, string& lf, Campaign& game) {
     ifstream thefile;
     cout << "Load File: ";
     getline(cin, file, '\n');
-    thefile.open( ("Saves/" + file + ".save").c_str() );
+    thefile.open( ("saves/" + file + ".save").c_str() );
     if (thefile.is_open()) {
         game.retrieveCharacter(thefile);
         simpleClearScreen();

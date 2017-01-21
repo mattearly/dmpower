@@ -4417,7 +4417,7 @@ void Magic_Items::SingleScroll(const int& lvl) const {
 string Magic_Items::GenerateGemstone(const int& amount, const int& value) const {
     string gemstring = "error: check code or gemfile";
     ifstream fileOfGems;
-    fileOfGems.open("./Settings/gems.dat");
+    fileOfGems.open("./settings/gems.dat");
     if (fileOfGems.is_open()) {
         string tmpName = "";
         bool setvalue = false;
@@ -4516,7 +4516,7 @@ string Magic_Items::GenerateGemstone(const int& amount, const int& value) const 
 string Magic_Items::GenerateArt(const int& amount, const int& value) const {
     string artstring = "error: check code or artfile";
     ifstream fileOfArt;
-    fileOfArt.open("./Settings/artObjects.dat");
+    fileOfArt.open("./settings/artObjects.dat");
     if (fileOfArt.is_open()) {
         string tmpName = "";
         bool setvalue = false;
@@ -5091,7 +5091,7 @@ void Magic_Items::MakeSpellbook() const {
 
 void Magic_Items::showPoisons() {
     fstream poisonfile;
-    poisonfile.open("./Settings/poisonlist.dat");
+    poisonfile.open("./settings/poisonlist.dat");
     if (!poisonfile.is_open()) {
         cout << "Error Opening poisonlist.dat, check your file.\n\n";
     }
@@ -5110,7 +5110,7 @@ void Magic_Items::showPoisons() {
 
 void Magic_Items::showDiseases() {
     fstream diseasefile;
-    diseasefile.open("./Settings/diseaselist.dat");
+    diseasefile.open("./settings/diseaselist.dat");
     if (!diseasefile.is_open()) {
         cout << "Error Opening diseaselist.dat, check your file.\n\n";
     } else {
@@ -5130,7 +5130,7 @@ void Magic_Items::showDiseases() {
 
 void Magic_Items::showMadness() {
     fstream madnessfile;
-    madnessfile.open("./Settings/madnesslist.dat");
+    madnessfile.open("./settings/madnesslist.dat");
     if (!madnessfile.is_open()) {
         cout << "Error Opening madnesslist.dat, check your file.\n\n";
     }

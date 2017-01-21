@@ -19,7 +19,7 @@ using namespace std;
 string CharacterName::grabRandomName() {
     ifstream fileOfNames;
     string tmpName;
-    fileOfNames.open("./Settings/names.dat");
+    fileOfNames.open("./settings/names.dat");
     if (fileOfNames.is_open()) {
         auto chosenSeed = randomNumber(1, 7732);
         for (auto i = 1; i < chosenSeed; i++) {

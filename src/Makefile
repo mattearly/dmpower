@@ -1,14 +1,11 @@
-#makefile for binaries in source folder
-#the makefile in the folder above this calls this one
-#do not call this one by itself
+# makefile for binaries in source folder
+# the makefile in the folder above this calls this one
+# do not call this one by itself
 
 TARGET = dmpower
 CC = g++
 CFLAGS = -std=c++11 -O1
 SINGLE_CFLAGS = -c -std=c++11 -Wall -O2
-# LINKOPENGL = -lGL
-# GL = -lGL -lGLU -lglut
-# LINKSFML = -lsfml-window -lsfml-graphics -lsfml-system
 LINKSDL = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 OBJS = campaign.o \
 characters.o \
@@ -36,18 +33,17 @@ races.cpp \
 sdl_graphics.cpp
 DEL = rm -vf
 
-# $(TARGET): $(OBJS)
-# 	$(CC) $(OBJS) -o ../$@ $(LINKSFML) $(LINKOPENGL)
-
 $(TARGET): $(OBJS)
 	$(CC) $(OBJS) -o ../$@ 
 clean:
 	$(DEL) $(OBJS)
 
-###compile:
+# Compile individual files
 
+# all in one macro
 .cpp.o:
 	$(CC) $(LINKSDL) $(SINGLE_CFLAGS) $< -o $@
+
 # main.o: main.cpp
 # 	$(CC) $(SOCFLAGS) main.cpp -o $@
 # campaign.o: campaign.cpp campaign.h
