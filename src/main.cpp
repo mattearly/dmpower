@@ -15,6 +15,8 @@ ____________________________________________________________________________
 #include "gen_name.h"
 #include "gen_insult.h"
 #include "gen_encounter.h"
+#include "sdl_graphics.h"
+#include "texture.h"
 #include <fstream>
 #include <cstdlib>
 
@@ -27,6 +29,14 @@ void save_file(const bool&, const string&, const Campaign&);
 
 
 int main() {
+    SDL_graphics graphic_engine;
+    if (!graphic_engine.init()){
+        printf("SDL Graphics failed to initiate");
+        return EXIT_FAILURE;
+    }
+
+
+
     bool loadSuccess = 0;
     string loadedFile = "";
     simpleClearScreen();

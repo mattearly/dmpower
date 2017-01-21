@@ -4,8 +4,8 @@
 
 TARGET = dmpower
 CC = g++
-CFLAGS = -std=c++11 -O1
-SINGLE_CFLAGS = -c -std=c++11 -Wall -O2
+CFLAGS = -std=c++11
+SINGLE_CFLAGS = -c -std=c++11
 LINKSDL = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 OBJS = campaign.o \
 characters.o \
@@ -18,7 +18,8 @@ gen_reward.o \
 gen_insult.o \
 globalfuncts.o \
 races.o \
-sdl_graphics.o
+sdl_graphics.o \
+texture.o
 SRC = campaign.cpp \
 characters.cpp \
 colors.cpp \
@@ -30,19 +31,20 @@ gen_reward.cpp \
 gen_insult.cpp \
 globalfuncts.cpp \
 races.cpp \
-sdl_graphics.cpp
+sdl_graphics.cpp \
+texture.cpp
 DEL = rm -vf
 
 $(TARGET): $(OBJS)
-	$(CC) $(OBJS) -o ../$@ 
+	$(CC) $(CLFAGS) $(OBJS) -o ../$@ 
 clean:
 	$(DEL) $(OBJS)
 
 # Compile individual files
-
 # all in one macro
+
 .cpp.o:
-	$(CC) $(LINKSDL) $(SINGLE_CFLAGS) $< -o $@
+	$(CC) $(SINGLE_CFLAGS) $(LINKSDL) $< -o $@
 
 # main.o: main.cpp
 # 	$(CC) $(SOCFLAGS) main.cpp -o $@
