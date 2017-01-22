@@ -9,8 +9,14 @@ bool SDL_graphics::init()
     }
     else
     {
-        mainWindow = SDL_CreateWindow("DMPOWER", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-        SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+        if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"))
+        {
+            printf("Warning: Linear texture filtering not enabled!");
+        }
+
+        mainWindow = SDL_CreateWindow("DMPOWER", SDL_WINDOWPOS_UNDEFINED,
+                                      SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
+                                      SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
         if (mainWindow == NULL)
         {
@@ -19,18 +25,30 @@ bool SDL_graphics::init()
         }
         else
         {
-            mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+            mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED);
             if (mainRenderer == NULL)
             {
                 printf("SDL Failed to Create Renderer! ERROR: %s. \n", SDL_GetError());
                 return false;
             }
-        }
-        int imgFlags = IMG_INIT_PNG;
-        if (!(IMG_Init(imgFlags) & imgFlags))
-        {
-            printf("SDL_image could not initialize! SDL_image Error %s\n", IMG_GetError());
-            return false;
+            else
+            {
+                SDL_SetRenderDrawColor(mainRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+
+                int imgFlags = IMG_INIT_PNG;
+                if (!(IMG_Init(imgFlags) & imgFlags))
+                {
+                    printf("SDL_image could not initialize! SDL_image Error %s\n",
+                           IMG_GetError());
+                    return false;
+                }
+
+                if( TTF_Init() == -1 )
+                {
+                    printf( "SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError() );
+                    return false;
+                }
+            }
         }
     }
     return true;
@@ -48,4 +66,8 @@ SDL_graphics::~SDL_graphics(void)
     mainRenderer = NULL;
     SDL_DestroyWindow(mainWindow);
     mainWindow = NULL;
+
+    IMG_Quit();
+    TTF_Quit();
+    SDL_Quit();
 }

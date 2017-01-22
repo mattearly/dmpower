@@ -48,6 +48,7 @@ bool Texture::loadFromText(TTF_Font *font, std::string text, SDL_Color text_colo
 			printf("SDL Failed to Create Texture from text! ERROR: %s. \n", SDL_GetError());
 		} else {
 			width = textSurface->w;
+			
 			height = textSurface->h;
 		}
 		SDL_FreeSurface(textSurface);
