@@ -43,9 +43,9 @@ bool SDL_graphics::init()
                     return false;
                 }
 
-                if( TTF_Init() == -1 )
+                if (TTF_Init() == -1)
                 {
-                    printf( "SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError() );
+                    printf("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
                     return false;
                 }
             }

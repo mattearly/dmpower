@@ -49,13 +49,13 @@ int main(void)
     SDL_Surface *surfaceMessage = TTF_RenderText_Solid(Sans, "Hello", White);
     SDL_Texture *Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage); //now you can convert it into a texture
     SDL_FreeSurface(surfaceMessage);
-    SDL_Rect Message_rect; //create a rect
-    Message_rect.x = (SCREEN_WIDTH/2) - 100;    //controls the rect's x coordinate
-    Message_rect.y = (SCREEN_HEIGHT/2) - 100;    // controls the rect's y coordinte
-    Message_rect.w = 100;  // controls the width of the rect
-    Message_rect.h = 100;  // controls the height of the rect
+    SDL_Rect Message_rect;                      //create a rect
+    Message_rect.x = (SCREEN_WIDTH / 2) - 100;  //controls the rect's x coordinate
+    Message_rect.y = (SCREEN_HEIGHT / 2) - 100; // controls the rect's y coordinte
+    Message_rect.w = 100;                       // controls the width of the rect
+    Message_rect.h = 100;                       // controls the height of the rect
 
-            //draw red rect
+    //draw red rect
     SDL_Rect fillRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
     bool quit = false;
@@ -76,8 +76,7 @@ int main(void)
         SDL_RenderClear(renderer);
 
         //render red rect
-                SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
-
+        SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
         SDL_RenderFillRect(renderer, &fillRect);
 
         //render text
