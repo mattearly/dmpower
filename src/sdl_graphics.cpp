@@ -71,3 +71,7 @@ SDL_graphics::~SDL_graphics(void)
     TTF_Quit();
     SDL_Quit();
 }
+
+SDL_graphics::SDL_graphics() {
+    init();
+}

@@ -5,6 +5,7 @@ dmpower
 *.stackdump
 *.user
 *.save
+*.json
 
 # Compiled Object files
 *.slo

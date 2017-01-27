@@ -28,26 +28,18 @@ void save_file(const bool &, const string &, const Campaign &);
 int main(void)
 {
     SDL_graphics graphics_engine;
-
-    if (!graphics_engine.init())
-    {
-        printf("SDL Graphics failed to initiate");
-        return EXIT_FAILURE;
-    }
     SDL_Renderer *renderer = graphics_engine.getRenderer();
-
     int SCREEN_WIDTH = graphics_engine.getScreenWidth();
     int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
 
     //create text
-
     TTF_Font *Sans = TTF_OpenFont("res/fonts/OpenSans-Regular.ttf", 24);
     // TTF_SetFontHinting(Sans, TTF_HINTING_LIGHT);
 
     SDL_Color White = {255, 255, 255, 0};
 
     SDL_Surface *surfaceMessage = TTF_RenderText_Solid(Sans, "Hello", White);
-    SDL_Texture *Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage); //now you can convert it into a texture
+    SDL_Texture *Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage); //now you convert it into a texture
     SDL_FreeSurface(surfaceMessage);
     SDL_Rect Message_rect;                      //create a rect
     Message_rect.x = (SCREEN_WIDTH / 2) - 100;  //controls the rect's x coordinate
@@ -55,8 +47,12 @@ int main(void)
     Message_rect.w = 100;                       // controls the width of the rect
     Message_rect.h = 100;                       // controls the height of the rect
 
-    //draw red rect
-    SDL_Rect fillRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+    // rect for the background
+    // SDL_Rect fillRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+    // use a png for the backgound
+    Texture mainBackground;
+    mainBackground.setRenderer(renderer);
+    mainBackground.load("res/pngs/mainBackground.png");
 
     bool quit = false;
     SDL_Event e;
@@ -70,19 +66,24 @@ int main(void)
             {
                 quit = true;
             }
+            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+            {
+                SDL_Log("Mouse Button 1 (left) is pressed.");
+            }
         }
         //clear screen
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderClear(renderer);
 
-        //render red rect
-        SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
-        SDL_RenderFillRect(renderer, &fillRect);
+        // render black rect
+        // SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
+        // SDL_RenderFillRect(renderer, &fillRect);
+        mainBackground.draw(0, 0);
 
-        //render text
+        // render text
         SDL_RenderCopy(renderer, Message, NULL, &Message_rect); //you put the renderer's name first, the Message, the crop size(you can ignore this if you don't want to dabble with cropping), and the rect which is the size and coordinate of your texture
 
-        //update screen
+        // update screen
         graphics_engine.render();
     }
 

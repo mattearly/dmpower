@@ -20,29 +20,22 @@ void Texture::free()
     }
 }
 
-bool Texture::load(const std::string &path)
-{
+bool Texture::load(const std::string &path){
     free();
     SDL_Texture *newTexture = nullptr;
     SDL_Surface *loadedSurface = IMG_Load(path.c_str());
-    if (loadedSurface == nullptr)
-    {
-	printf("failed to load surface in Texture::load function path: %s\n", path.c_str());
-    }
-    else
-    {
-	SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
-	newTexture = SDL_CreateTextureFromSurface(SDLrenderer, loadedSurface);
-	if (newTexture == nullptr)
-	{
-	    printf("failed to load newTexture in Texture::load function path %s\n", path.c_str());
-	}
-	else
-	{
-	    width = loadedSurface->w;
-	    height = loadedSurface->h;
-	}
-	SDL_FreeSurface(loadedSurface);
+    if (loadedSurface == nullptr){
+		printf("failed to load surface in Texture::load function path: %s\n", path.c_str());
+    } else {
+		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
+		newTexture = SDL_CreateTextureFromSurface(SDLrenderer, loadedSurface);
+		if (newTexture == nullptr) {
+	    	printf("failed to load newTexture in Texture::load function path %s\n", path.c_str());
+		} else {
+	    	width = loadedSurface->w;
+	    	height = loadedSurface->h;
+		}
+		SDL_FreeSurface(loadedSurface);
     }
     SDLtex = newTexture;
     return SDLtex != nullptr;
