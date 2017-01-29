@@ -1,3 +1,15 @@
+/**
+____________________________________________________________________________
+>
+>  https://github.com/bytePro17124/DM-Power-Core-Version
+>
+>  Program Created by Matthew Jay Early | @matthewjearly | matthewjearly@gmail.com
+>  
+>  Copyright (c) 2017 Early Athens Tech Giants LLC. All rights reserved.
+>
+____________________________________________________________________________
+**/
+
 #include "sdl_graphics.h"
 
 bool SDL_graphics::init()
