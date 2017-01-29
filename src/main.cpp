@@ -32,51 +32,61 @@ int main(void)
 	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
 	TTF_Font *Sans;
-	Sans=TTF_OpenFont("res/fonts/OpenSans-Regular.ttf", 24);
+	Sans=TTF_OpenFont("res/fonts/OpenSans-Regular.ttf", 20);
 	if(!Sans) {
-		printf("TTF_OpenFont: %s\n", TTF_GetError());
+		printf("TTF_OpenFont Sans: %s\n", TTF_GetError());
+	}
+	TTF_Font *Verdana;
+	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 24);
+	if(!Verdana) {
+		printf("TTF_OpenFont Verdana: %s\n", TTF_GetError());
+	}
+	TTF_Font *Bookman;
+	Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 18);
+	if(!Bookman) {
+		printf("TTF_OpenFont Bookman: %s\n", TTF_GetError());
 	}
 	SDL_Color Teal = {100, 200, 200, 0};
-//	SDL_Color White = {255, 255, 255, 0};
-//	SDL_Color Black = {0,0,0,0};
+	SDL_Color White = {255, 255, 255, 0};
+	SDL_Color Black = {0,0,0,0};
 
 
 	// create text
 //	 TTF_SetFontHinting(Sans, TTF_HINTING_LIGHT);
-	 TTF_SetFontStyle(Sans, TTF_STYLE_BOLD);
-	 TTF_SetFontHinting(Sans, TTF_HINTING_MONO);
+//	 TTF_SetFontStyle(Sans, TTF_STYLE_BOLD);
+//	 TTF_SetFontHinting(Sans, TTF_HINTING_MONO);
 
 	SDL_Surface *surfaceMessage;
 
-	surfaceMessage = TTF_RenderText_Solid(Sans, "Characters", Teal);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, "Characters", Teal);
 	SDL_Texture *menuItem1 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	SDL_Rect characterMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) - 150, 400, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Sans, "Magic Items", Teal);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, "Magic Items", Teal);
 	SDL_Texture *menuItem2 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	SDL_Rect magicItemsMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) - 90, 400, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Sans, "Exp Calculator", Teal);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, "Exp Calculator", Teal);
 	SDL_Texture *menuItem3 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	SDL_Rect expCalcMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2)-30, 500, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Sans, "Name Generator", Teal);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, "Name Generator", Teal);
 	SDL_Texture *menuItem4 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	SDL_Rect nameGenMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 30, 500, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Sans, "Random Encounter Generator", Teal);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, "Random Encounter Generator", Teal);
 	SDL_Texture *menuItem5 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	SDL_Rect randomEncounterMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 90, 700, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Sans, "Generate NPC Insult", Teal);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, "Generate NPC Insult", Teal);
 	SDL_Texture *menuItem6 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	SDL_Rect insultMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 150, 550, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Sans, "Save & Quit", Teal);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, "Save & Quit", Teal);
 	SDL_Texture *menuItem7 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	SDL_Rect saveAndQuitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 210, 400, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Sans, "Quit", Teal);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, "Quit", Teal);
 	SDL_Texture *menuItem8 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	SDL_Rect quitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 270, 140, 85};
 
