@@ -36,7 +36,7 @@ int main(void)
 	if(!Sans) {
 		printf("TTF_OpenFont: %s\n", TTF_GetError());
 	}
-	SDL_Color White = {255, 255, 255, 0};
+	SDL_Color White = {100, 200, 200, 0};
 
 	// create text
 //	 TTF_SetFontHinting(Sans, TTF_HINTING_LIGHT);
@@ -55,27 +55,27 @@ int main(void)
 
 	surfaceMessage = TTF_RenderText_Solid(Sans, "Exp Calculator", White);
 	SDL_Texture *menuItem3 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect expCalcMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2)-30, 450, 85};
+	SDL_Rect expCalcMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2)-30, 500, 85};
 
 	surfaceMessage = TTF_RenderText_Solid(Sans, "Name Generator", White);
 	SDL_Texture *menuItem4 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect nameGenMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 30, 450, 85};
+	SDL_Rect nameGenMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 30, 500, 85};
 
 	surfaceMessage = TTF_RenderText_Solid(Sans, "Random Encounter Generator", White);
 	SDL_Texture *menuItem5 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect randomEncounterMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 90, 600, 85};
+	SDL_Rect randomEncounterMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 90, 700, 85};
 
 	surfaceMessage = TTF_RenderText_Solid(Sans, "Generate NPC Insult", White);
 	SDL_Texture *menuItem6 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect insultMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 150, 500, 85};
+	SDL_Rect insultMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 150, 550, 85};
 
 	surfaceMessage = TTF_RenderText_Solid(Sans, "Save & Quit", White);
 	SDL_Texture *menuItem7 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect saveAndQuitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 210, 350, 85};
+	SDL_Rect saveAndQuitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 210, 400, 85};
 
 	surfaceMessage = TTF_RenderText_Solid(Sans, "Quit", White);
 	SDL_Texture *menuItem8 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect quitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 270, 150, 85};
+	SDL_Rect quitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 270, 140, 85};
 
 	SDL_FreeSurface(surfaceMessage);
 
