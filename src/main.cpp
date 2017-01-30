@@ -31,6 +31,8 @@ int main(void)
 	SDL_Renderer *renderer = graphics_engine.getRenderer();
 	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
+
+	///LOAD SOME FONTS
 	TTF_Font *Sans;
 	Sans=TTF_OpenFont("res/fonts/OpenSans-Regular.ttf", 20);
 	if(!Sans) {
@@ -46,89 +48,127 @@ int main(void)
 	if(!Bookman) {
 		printf("TTF_OpenFont Bookman: %s\n", TTF_GetError());
 	}
+
+	///LOAD SOME COLORS
 	SDL_Color Teal = {100, 200, 200, 0};
 	SDL_Color White = {255, 255, 255, 0};
 	SDL_Color Black = {0,0,0,0};
 
+	///SOLID FULL SCREEN SIZED RECTANCLE FOR A BACKDROP
+	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
-	// create text
-//	 TTF_SetFontHinting(Sans, TTF_HINTING_LIGHT);
-//	 TTF_SetFontStyle(Sans, TTF_STYLE_BOLD);
-//	 TTF_SetFontHinting(Sans, TTF_HINTING_MONO);
+	//   create text
+	//	 TTF_SetFontHinting(Sans, TTF_HINTING_LIGHT);
+	//	 TTF_SetFontStyle(Sans, TTF_STYLE_BOLD);
+	//	 TTF_SetFontHinting(Sans, TTF_HINTING_MONO);
 
-	SDL_Surface *surfaceMessage;
+	//	SDL_Surface *surfaceMessage;
 
-	surfaceMessage = TTF_RenderText_Solid(Verdana, "Characters", Teal);
-	SDL_Texture *menuItem1 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect characterMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) - 150, 400, 85};
+	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Characters", Teal);
+	//	SDL_Texture *menuItem1 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	SDL_Rect characterMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) - 150, 400, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Verdana, "Magic Items", Teal);
-	SDL_Texture *menuItem2 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect magicItemsMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) - 90, 400, 85};
+	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Magic Items", Teal);
+	//	SDL_Texture *menuItem2 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	SDL_Rect magicItemsMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) - 90, 400, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Verdana, "Exp Calculator", Teal);
-	SDL_Texture *menuItem3 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect expCalcMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2)-30, 500, 85};
+	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Exp Calculator", Teal);
+	//	SDL_Texture *menuItem3 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	SDL_Rect expCalcMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2)-30, 500, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Verdana, "Name Generator", Teal);
-	SDL_Texture *menuItem4 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect nameGenMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 30, 500, 85};
+	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Name Generator", Teal);
+	//	SDL_Texture *menuItem4 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	SDL_Rect nameGenMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 30, 500, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Verdana, "Random Encounter Generator", Teal);
-	SDL_Texture *menuItem5 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect randomEncounterMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 90, 700, 85};
+	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Random Encounter Generator", Teal);
+	//	SDL_Texture *menuItem5 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	SDL_Rect randomEncounterMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 90, 700, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Verdana, "Generate NPC Insult", Teal);
-	SDL_Texture *menuItem6 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect insultMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 150, 550, 85};
+	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Generate NPC Insult", Teal);
+	//	SDL_Texture *menuItem6 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	SDL_Rect insultMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 150, 550, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Verdana, "Save & Quit", Teal);
-	SDL_Texture *menuItem7 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect saveAndQuitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 210, 400, 85};
+	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Save & Quit", Teal);
+	//	SDL_Texture *menuItem7 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	SDL_Rect saveAndQuitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 210, 400, 85};
 
-	surfaceMessage = TTF_RenderText_Solid(Verdana, "Quit", Teal);
-	SDL_Texture *menuItem8 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_Rect quitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 270, 140, 85};
+	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Quit", Teal);
+	//	SDL_Texture *menuItem8 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	SDL_Rect quitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 270, 140, 85};
 
-	SDL_FreeSurface(surfaceMessage);
+	//	SDL_FreeSurface(surfaceMessage);
 
-//	Message_rect.x = (SCREEN_WIDTH / 2) - 100;  //controls the rect's x coordinate
-//	Message_rect.y = (SCREEN_HEIGHT / 2) - 100; // controls the rect's y coordinte
-//	Message_rect.w = 150;                       // controls the width of the rect
-//	Message_rect.h = 120;                       // controls the height of the rect
+	//	Message_rect.x = (SCREEN_WIDTH / 2) - 100;  //controls the rect's x coordinate
+	//	Message_rect.y = (SCREEN_HEIGHT / 2) - 100; // controls the rect's y coordinte
+	//	Message_rect.w = 150;                       // controls the width of the rect
+	//	Message_rect.h = 120;                       // controls the height of the rect
 
-	// rect for the background
-	// SDL_Rect fillRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
 
 	// use a png for the backgound
-	Texture mainBackground;
-	mainBackground.setRenderer(renderer);
-	mainBackground.load("res/pngs/mainBackground.png");
+	//	Texture mainBackground;
+	//	mainBackground.setRenderer(renderer);
+	//	mainBackground.load("res/pngs/mainBackground.png");
 
-	Texture logo;
-	logo.setRenderer(renderer);
-	logo.load("res/pngs/DMPOWER.png");
+	Texture defaultScene;
+	defaultScene.setRenderer(renderer);
+	defaultScene.load("res/pngs/defaultScene.png");
+//	SDL_Rect sceneRect = {0,0,528,330};
 
-	Texture menuCursor;
-	menuCursor.setRenderer(renderer);
-	menuCursor.load("res/pngs/menuCursor.png");
+	Texture infoBackground;
+	infoBackground.setRenderer(renderer);
+	infoBackground.load("res/pngs/defaultInfo.png");
+//	SDL_Rect infoRect = {0,0,528,264};
 
-	int cursorY = 265;
-	int cursorIncrement = 60;
+	Texture seperatorBar;
+	seperatorBar.setRenderer(renderer);
+	seperatorBar.load("res/pngs/seperatorBar.png");
 
-//	Texture menuItem1;
-//	menuItem1.setRenderer(renderer);
-//	Texture menuItem2;
-//	menuItem2.setRenderer(renderer);
+	Texture titleItem1;
+	titleItem1.setRenderer(renderer);
+	titleItem1.load("res/pngs/defaultItem1.png");
+
+	Texture titleItem2;
+	titleItem2.setRenderer(renderer);
+	titleItem2.load("res/pngs/defaultItem2.png");
+
+	Texture titleItem3;
+	titleItem3.setRenderer(renderer);
+	titleItem3.load("res/pngs/defaultItem3.png");
+
+	Texture titleItem4;
+	titleItem4.setRenderer(renderer);
+	titleItem4.load("res/pngs/defaultItem4.png");
+
+	Texture titleItem5;
+	titleItem5.setRenderer(renderer);
+	titleItem5.load("res/pngs/defaultItem5.png");
+
+	SDL_Rect subItem = {0,0,144,90};
+
+	Texture beginButton;
+	beginButton.setRenderer(renderer);
+	beginButton.load("res/pngs/defaultBeginButton.png");
+
+
+
+//	int cursorY = 265;
+//	int cursorIncrement = 60;
+
+
+
+	//	Texture menuItem1;
+	//	menuItem1.setRenderer(renderer);
+	//	Texture menuItem2;
+	//	menuItem2.setRenderer(renderer);
 	// Texture menuItem3; menuItem3.setRenderer(renderer);
 	// Texture menuItem4; menuItem4.setRenderer(renderer);
 	// Texture menuItem5; menuItem5.setRenderer(renderer);
 	// Texture menuItem6; menuItem6.setRenderer(renderer);
 	// Texture menuItem7; menuItem7.setRenderer(renderer);
 	// Texture menuItem8; menuItem8.setRenderer(renderer);
-//	menuItem1.loadFromText(Sans, "MENU ITEM ONE", White);
-//	menuItem2.loadFromText(Sans, "MENU ITEM TWO", White);
+	//	menuItem1.loadFromText(Sans, "MENU ITEM ONE", White);
+	//	menuItem2.loadFromText(Sans, "MENU ITEM TWO", White);
 
 	bool quit = false;
 	SDL_Event e;
@@ -143,15 +183,15 @@ int main(void)
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym) {
 				case SDLK_UP:
-					if (cursorY > 265) {
-						cursorY -= cursorIncrement;
-					}
+//					if (cursorY > 265) {
+//						cursorY -= cursorIncrement;
+//					}
 					break;
 				case SDLK_DOWN:
-					if (cursorY < 685) {
-						cursorY += cursorIncrement;
+//					if (cursorY < 685) {
+//						cursorY += cursorIncrement;
 
-					}
+//					}
 					break;
 				default: break;
 
@@ -164,44 +204,84 @@ int main(void)
 			}
 		}
 		//clear screen
-		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-		SDL_RenderClear(renderer);
+//		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+//		SDL_RenderClear(renderer);
+		graphics_engine.clear();
 
 		// render black rect
-		// SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
-		// SDL_RenderFillRect(renderer, &fillRect);
-		mainBackground.draw();
-		logo.draw((SCREEN_WIDTH - logo.getWidth()) / 2, (SCREEN_HEIGHT - logo.getHeight()) / 5);
+		SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
+//		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
+		SDL_RenderFillRect(renderer, &backdropRect);
+
+		defaultScene.draw(70, 72);
+
+		infoBackground.draw(70 , 474);
+
+		seperatorBar.draw(668, 0);
+
+		titleItem3.draw(833,425,&subItem);
+		titleItem4.draw(1161,425,&subItem);
+		titleItem2.draw(785,335,&subItem);
+		titleItem5.draw(1209,335,&subItem);
+		titleItem1.draw(909, 235);
+
+		beginButton.draw(919, 660);
+
+
+
+
+
+
+
+		//		mainBackground.draw();
+		//		logo.draw((SCREEN_WIDTH - logo.getWidth()) / 2, (SCREEN_HEIGHT - logo.getHeight()) / 5);
 		// render text
 		// SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
-		SDL_RenderCopy(renderer, menuItem1, NULL, &characterMenuRect);
-		SDL_RenderCopy(renderer, menuItem2, NULL, &magicItemsMenuRect);
-		SDL_RenderCopy(renderer, menuItem3, NULL, &expCalcMenuRect);
-		SDL_RenderCopy(renderer, menuItem4, NULL, &nameGenMenuRect);
-		SDL_RenderCopy(renderer, menuItem5, NULL, &randomEncounterMenuRect);
-		SDL_RenderCopy(renderer, menuItem6, NULL, &insultMenuRect);
-		SDL_RenderCopy(renderer, menuItem7, NULL, &saveAndQuitMenuRect);
-		SDL_RenderCopy(renderer, menuItem8, NULL, &quitMenuRect);
-
-		menuCursor.draw(500, cursorY);
-
-
-
-//		menuItem1.draw((SCREEN_WIDTH - menuItem1.getWidth()) / 2, (SCREEN_HEIGHT - menuItem1.getHeight()) / 2, &Message_rect);
-//		menuItem2.draw((SCREEN_WIDTH - menuItem2.getWidth()) / 2, (SCREEN_HEIGHT - menuItem2.getHeight()) / 2, &Message_rect);
+		//		SDL_RenderCopy(renderer, menuItem1, NULL, &characterMenuRect);
+		//		SDL_RenderCopy(renderer, menuItem2, NULL, &magicItemsMenuRect);
+		//		SDL_RenderCopy(renderer, menuItem3, NULL, &expCalcMenuRect);
+		//		SDL_RenderCopy(renderer, menuItem4, NULL, &nameGenMenuRect);
+		//		SDL_RenderCopy(renderer, menuItem5, NULL, &randomEncounterMenuRect);
+		//		SDL_RenderCopy(renderer, menuItem6, NULL, &insultMenuRect);
+		//		SDL_RenderCopy(renderer, menuItem7, NULL, &saveAndQuitMenuRect);
+		//		SDL_RenderCopy(renderer, menuItem8, NULL, &quitMenuRect);
+		//		menuCursor.draw(500, cursorY);
+		//		menuItem1.draw((SCREEN_WIDTH - menuItem1.getWidth()) / 2, (SCREEN_HEIGHT - menuItem1.getHeight()) / 2, &Message_rect);
+		//		menuItem2.draw((SCREEN_WIDTH - menuItem2.getWidth()) / 2, (SCREEN_HEIGHT - menuItem2.getHeight()) / 2, &Message_rect);
 		// update screen
+
+
+
 		graphics_engine.render();
 	}
+
+
 	TTF_CloseFont(Sans);
-	Sans=NULL;
+	TTF_CloseFont(Verdana);
+	TTF_CloseFont(Bookman);
+
+	Sans = NULL;
+	Verdana = NULL;
+	Bookman = NULL;
 
 
 
 
 
 
-	///here is where all the old stuff begins
+
+
+
+
+
+
+
+
+
+
+
+	/// ORIGINAL TERMINAL CODE
 	bool loadSuccess = 0;
 	string loadedFile = "";
 	simpleClearScreen();
