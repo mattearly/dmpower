@@ -39,12 +39,12 @@ int main(void)
 		printf("TTF_OpenFont Sans: %s\n", TTF_GetError());
 	}
 	TTF_Font *Verdana;
-	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 28);
+	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
 	if(!Verdana) {
 		printf("TTF_OpenFont Verdana: %s\n", TTF_GetError());
 	}
 	TTF_Font *Bookman;
-	Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 12);
+	Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 30);
 	if(!Bookman) {
 		printf("TTF_OpenFont Bookman: %s\n", TTF_GetError());
 	}
@@ -59,10 +59,10 @@ int main(void)
 
 	///TITLE TEXT
 	string titleText = "TITLE";
-	string infoText = "Lorem ipsum dolor sit amet.";
+	string infoText = "Lorem ipsum dolor sit amet, vocent aliquid similique et eos. Apeirian disputationi duo ea, nemore pericula an has. Fierent noluisse accusamus duo at, soluta gubergren prodesset mei ne, intellegam conclusionemque ei eos. Mea postea verterem intellegam ad, malis tractatos mediocrem ex nec. Nec et scaevola dignissim, mea hinc disputationi an, quo impedit eligendi disputationi ad.";
 	//   create text
 //		 TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
-	//	 TTF_SetFontStyle(Sans, TTF_STYLE_BOLD);
+//		 TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
 		 TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
 
 //	SDL_Surface *surfaceMessage;
@@ -232,12 +232,12 @@ int main(void)
 		titleItem5.draw(1249, 330, nullptr, &subItem);
 		titleItem1.draw(949, 230);
 
-		beginButton.draw(964, 630);
+		beginButton.draw(960, 620);
 
 		SDL_Surface *surfaceMessage;
 		surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
 		SDL_Texture *titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-		SDL_Rect titleRect = {830, 65, 550, 100};
+		SDL_Rect titleRect = {830, 65, 550, 115};
 
 		surfaceMessage = TTF_RenderText_Blended_Wrapped(Bookman, infoText.c_str(), Black, 635);
 		SDL_Texture *infoArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
