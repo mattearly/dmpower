@@ -33,11 +33,11 @@ int main(void)
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
 
 	///LOAD SOME FONTS
-//	TTF_Font *Sans;
-//	Sans=TTF_OpenFont("res/fonts/OpenSans-Regular.ttf", 20);
-//	if(!Sans) {
-//		printf("TTF_OpenFont Sans: %s\n", TTF_GetError());
-//	}
+	//	TTF_Font *Sans;
+	//	Sans=TTF_OpenFont("res/fonts/OpenSans-Regular.ttf", 20);
+	//	if(!Sans) {
+	//		printf("TTF_OpenFont Sans: %s\n", TTF_GetError());
+	//	}
 	TTF_Font *Verdana;
 	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
 	if(!Verdana) {
@@ -50,7 +50,7 @@ int main(void)
 	}
 
 	///LOAD SOME COLORS
-//	SDL_Color Teal = {100, 200, 200, 0};
+	//	SDL_Color Teal = {100, 200, 200, 0};
 	SDL_Color White = {255, 255, 255, 0};
 	SDL_Color Black = {0,0,0,0};
 
@@ -59,63 +59,15 @@ int main(void)
 
 	///TITLE TEXT
 	string titleText = "TITLE";
-	string infoText = "Lorem ipsum dolor sit amet, vocent aliquid similique et eos. Apeirian disputationi duo ea, nemore pericula an has. Fierent noluisse accusamus duo at, soluta gubergren prodesset mei ne, intellegam conclusionemque ei eos. Mea postea verterem intellegam ad, malis tractatos mediocrem ex nec. Nec et scaevola dignissim, mea hinc disputationi an, quo impedit eligendi disputationi ad.";
-	//   create text
-//		 TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
-//		 TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
+	string infoText = "Lorem ipsum dolor sit amet, vocent aliquid similique et eos. Apeirian disputationi duo ea, nemore pericula an has.";
+
+	//		 TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
+	//		 TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
+
 	TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
 
 	enum SelectedItem { CHARACTERS = 0, MAGIC_ITEMS, RANDOM_ENCOUNTER, TOOLS, SAVE };
 	SelectedItem selectedItem = CHARACTERS;
-
-//	SDL_Surface *surfaceMessage;
-
-//	surfaceMessage = TTF_RenderText_Solid(Verdana, "TITLE", Teal);
-//	SDL_Texture *selectedTitle = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//	SDL_Rect titleRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) - 150, 400, 85};
-
-
-	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Magic Items", Teal);
-	//	SDL_Texture *menuItem2 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	//	SDL_Rect magicItemsMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) - 90, 400, 85};
-
-	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Exp Calculator", Teal);
-	//	SDL_Texture *menuItem3 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	//	SDL_Rect expCalcMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2)-30, 500, 85};
-
-	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Name Generator", Teal);
-	//	SDL_Texture *menuItem4 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	//	SDL_Rect nameGenMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 30, 500, 85};
-
-	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Random Encounter Generator", Teal);
-	//	SDL_Texture *menuItem5 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	//	SDL_Rect randomEncounterMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 90, 700, 85};
-
-	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Generate NPC Insult", Teal);
-	//	SDL_Texture *menuItem6 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	//	SDL_Rect insultMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 150, 550, 85};
-
-	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Save & Quit", Teal);
-	//	SDL_Texture *menuItem7 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	//	SDL_Rect saveAndQuitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 210, 400, 85};
-
-	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Quit", Teal);
-	//	SDL_Texture *menuItem8 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	//	SDL_Rect quitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 270, 140, 85};
-
-//	SDL_FreeSurface(surfaceMessage);
-
-//	Message_rect.x = (SCREEN_WIDTH / 2) - 100;  //controls the rect's x coordinate
-//	Message_rect.y = (SCREEN_HEIGHT / 2) - 100; // controls the rect's y coordinte
-//	Message_rect.w = 150;                       // controls the width of the rect
-//	Message_rect.h = 120;                       // controls the height of the rect
-
-
-
-	// use a png for the backgound
-	//	Texture mainBackground;
-	//	mainBackground.setRenderer(renderer);
-	//	mainBackground.load("res/pngs/mainBackground.png");
 
 	Texture defaultScene;
 	defaultScene.setRenderer(renderer);
@@ -156,29 +108,27 @@ int main(void)
 	beginButton.load("res/pngs/defaultBeginButton.png");
 
 
+	SDL_Surface *surfaceMessage;
 
+	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+	SDL_Texture *titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	SDL_Rect titleRect = {830, 65, 550, 115};
 
+	surfaceMessage = TTF_RenderText_Blended_Wrapped(Bookman, infoText.c_str(), Black, 635);
+	SDL_Texture *infoArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
-	//	int cursorY = 265;
-	//	int cursorIncrement = 60;
+	int w,h;
+	w = surfaceMessage->w;
+	h = surfaceMessage->h;
+	SDL_Rect infoSrcRect = {0, 0, w, h};
+	SDL_Rect infoDestRect = {48, 460, w, h};
 
-
-
-	//	Texture menuItem1;
-	//	menuItem1.setRenderer(renderer);
-	//	Texture menuItem2;
-	//	menuItem2.setRenderer(renderer);
-	// Texture menuItem3; menuItem3.setRenderer(renderer);
-	// Texture menuItem4; menuItem4.setRenderer(renderer);
-	// Texture menuItem5; menuItem5.setRenderer(renderer);
-	// Texture menuItem6; menuItem6.setRenderer(renderer);
-	// Texture menuItem7; menuItem7.setRenderer(renderer);
-	// Texture menuItem8; menuItem8.setRenderer(renderer);
-	//	menuItem1.loadFromText(Sans, "MENU ITEM ONE", White);
-	//	menuItem2.loadFromText(Sans, "MENU ITEM TWO", White);
+	SDL_FreeSurface(surfaceMessage);
 
 	bool quit = false;
 	SDL_Event e;
+
+
 	while (!quit)
 	{
 		//Handle events on queue
@@ -223,7 +173,7 @@ int main(void)
 					} else if ((x > 960 && x < (960+beginButton.getWidth())) && (y > 620 && y < (620+beginButton.getHeight()))) {
 						cout << "Begin Button Clicked\n";
 					}
-//					cout << "mouse click at "  << x << ", " << y << "\n";
+					//					cout << "mouse click at "  << x << ", " << y << "\n";
 				}
 					break;
 				default: break;
@@ -233,15 +183,15 @@ int main(void)
 
 			default: break;
 			}
-//			if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//			{
-//				SDL_Log("Mouse Button 1 (left) is pressed.");
-//			}
+			//			if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+			//			{
+			//				SDL_Log("Mouse Button 1 (left) is pressed.");
+			//			}
 		}
 		graphics_engine.clear();   //clear screen
 
 		// render black background rect
-		SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
+//		SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
 		SDL_RenderFillRect(renderer, &backdropRect);
 
 		defaultScene.draw(48, 30);
@@ -258,43 +208,10 @@ int main(void)
 
 		beginButton.draw(960, 620);
 
-		SDL_Surface *surfaceMessage;
-		surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-		SDL_Texture *titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-		SDL_Rect titleRect = {830, 65, 550, 115};
 
-		surfaceMessage = TTF_RenderText_Blended_Wrapped(Bookman, infoText.c_str(), Black, 635);
-		SDL_Texture *infoArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-		int w,h;
-		w = surfaceMessage->w;
-		h = surfaceMessage->h;
-		SDL_Rect infoSrcRect = {0, 0, w, h};
-		SDL_Rect infoDestRect = {48, 460, w, h};
-
-
-		SDL_FreeSurface(surfaceMessage);
 
 		SDL_RenderCopy(renderer, titleArea, NULL, &titleRect);
 		SDL_RenderCopy(renderer, infoArea, &infoSrcRect, &infoDestRect);
-
-
-
-		//		mainBackground.draw();
-		//		logo.draw((SCREEN_WIDTH - logo.getWidth()) / 2, (SCREEN_HEIGHT - logo.getHeight()) / 5);
-		// render text
-		// SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
-		//		SDL_RenderCopy(renderer, menuItem1, NULL, &characterMenuRect);
-		//		SDL_RenderCopy(renderer, menuItem2, NULL, &magicItemsMenuRect);
-		//		SDL_RenderCopy(renderer, menuItem3, NULL, &expCalcMenuRect);
-		//		SDL_RenderCopy(renderer, menuItem4, NULL, &nameGenMenuRect);
-		//		SDL_RenderCopy(renderer, menuItem5, NULL, &randomEncounterMenuRect);
-		//		SDL_RenderCopy(renderer, menuItem6, NULL, &insultMenuRect);
-		//		SDL_RenderCopy(renderer, menuItem7, NULL, &saveAndQuitMenuRect);
-		//		SDL_RenderCopy(renderer, menuItem8, NULL, &quitMenuRect);
-		//		menuCursor.draw(500, cursorY);
-		//		menuItem1.draw((SCREEN_WIDTH - menuItem1.getWidth()) / 2, (SCREEN_HEIGHT - menuItem1.getHeight()) / 2, &Message_rect);
-		//		menuItem2.draw((SCREEN_WIDTH - menuItem2.getWidth()) / 2, (SCREEN_HEIGHT - menuItem2.getHeight()) / 2, &Message_rect);
-		// update screen
 
 
 
@@ -302,11 +219,11 @@ int main(void)
 	}
 
 
-//	TTF_CloseFont(Sans);
+	//	TTF_CloseFont(Sans);
 	TTF_CloseFont(Verdana);
 	TTF_CloseFont(Bookman);
 
-//	Sans = NULL;
+	//	Sans = NULL;
 	Verdana = NULL;
 	Bookman = NULL;
 

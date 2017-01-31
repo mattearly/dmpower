@@ -37,7 +37,7 @@ bool SDL_graphics::init()
         }
         else
         {
-            mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED);
+			mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
             if (mainRenderer == NULL)
             {
                 printf("SDL Failed to Create Renderer! ERROR: %s. \n", SDL_GetError());
@@ -68,7 +68,7 @@ bool SDL_graphics::init()
 
 void SDL_graphics::clear(void)
 {
-    SDL_SetRenderDrawColor(mainRenderer, 0x00, 0x00, 0x00, 0xFF);
+	SDL_SetRenderDrawColor(mainRenderer, 0x00, 0x00, 0x00, 0xFF);  //black opague
     SDL_RenderClear(mainRenderer);
 }
 
