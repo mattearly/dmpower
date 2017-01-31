@@ -33,11 +33,11 @@ int main(void)
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
 
 	///LOAD SOME FONTS
-	TTF_Font *Sans;
-	Sans=TTF_OpenFont("res/fonts/OpenSans-Regular.ttf", 20);
-	if(!Sans) {
-		printf("TTF_OpenFont Sans: %s\n", TTF_GetError());
-	}
+//	TTF_Font *Sans;
+//	Sans=TTF_OpenFont("res/fonts/OpenSans-Regular.ttf", 20);
+//	if(!Sans) {
+//		printf("TTF_OpenFont Sans: %s\n", TTF_GetError());
+//	}
 	TTF_Font *Verdana;
 	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
 	if(!Verdana) {
@@ -50,7 +50,7 @@ int main(void)
 	}
 
 	///LOAD SOME COLORS
-	SDL_Color Teal = {100, 200, 200, 0};
+//	SDL_Color Teal = {100, 200, 200, 0};
 	SDL_Color White = {255, 255, 255, 0};
 	SDL_Color Black = {0,0,0,0};
 
@@ -63,7 +63,10 @@ int main(void)
 	//   create text
 //		 TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
 //		 TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
-		 TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
+	TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
+
+	enum SelectedItem { CHARACTERS = 0, MAGIC_ITEMS, RANDOM_ENCOUNTER, TOOLS, SAVE };
+	SelectedItem selectedItem = CHARACTERS;
 
 //	SDL_Surface *surfaceMessage;
 
@@ -117,12 +120,10 @@ int main(void)
 	Texture defaultScene;
 	defaultScene.setRenderer(renderer);
 	defaultScene.load("res/pngs/defaultScene.png");
-	//	SDL_Rect sceneRect = {0,0,528,330};
 
 	Texture infoBackground;
 	infoBackground.setRenderer(renderer);
 	infoBackground.load("res/pngs/defaultInfo.png");
-	//	SDL_Rect infoRect = {0,0,528,264};
 
 	Texture seperatorBar;
 	seperatorBar.setRenderer(renderer);
@@ -130,7 +131,7 @@ int main(void)
 
 	Texture titleItem1;
 	titleItem1.setRenderer(renderer);
-	titleItem1.load("res/pngs/defaultItem1.png");
+	titleItem1.load("res/pngs/charactersMenu.png");
 
 	Texture titleItem2;
 	titleItem2.setRenderer(renderer);
@@ -202,22 +203,45 @@ int main(void)
 				default: break;
 
 				}
+			case SDL_MOUSEMOTION:
+
+			case SDL_MOUSEBUTTONDOWN:
+				switch (e.button.button) {
+				case SDL_BUTTON_LEFT: {
+					int x = e.button.x;
+					int y = e.button.y;
+					if ((x > 949 && x < 949+titleItem1.getWidth()) && (y > 230 && y < 230+titleItem1.getHeight())) {
+						cout << "Main Item Clicked\n";
+					} else if ((x > 825 && x < (825+subItem.w)) && (y > 330 && y < (330+subItem.h))) {
+						cout << "Item 2 Clicked\n";
+					} else if ((x > 873 && x < (873+subItem.w)) && (y > 420 && y < (420+subItem.h))) {
+						cout << "Item 3 Clicked\n";
+					} else if ((x > 1201 && x < (1201+subItem.w)) && (y > 420 && y < (420+subItem.h))) {
+						cout << "Item 4 clicked\n";
+					} else if ((x > 1249 && x < (1249+subItem.w)) && (y > 330 && y < (330+subItem.h))) {
+						cout << "Item 5 clicked\n";
+					} else if ((x > 960 && x < (960+beginButton.getWidth())) && (y > 620 && y < (620+beginButton.getHeight()))) {
+						cout << "Begin Button Clicked\n";
+					}
+//					cout << "mouse click at "  << x << ", " << y << "\n";
+				}
+					break;
+				default: break;
+				}
+
+
+
 			default: break;
 			}
-			if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-			{
-				SDL_Log("Mouse Button 1 (left) is pressed.");
-			}
+//			if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//			{
+//				SDL_Log("Mouse Button 1 (left) is pressed.");
+//			}
 		}
-		//clear screen
-		//		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-		//		SDL_RenderClear(renderer);
-		graphics_engine.clear();
+		graphics_engine.clear();   //clear screen
 
-		// render black rect
+		// render black background rect
 		SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
-		//		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-
 		SDL_RenderFillRect(renderer, &backdropRect);
 
 		defaultScene.draw(48, 30);
@@ -278,11 +302,11 @@ int main(void)
 	}
 
 
-	TTF_CloseFont(Sans);
+//	TTF_CloseFont(Sans);
 	TTF_CloseFont(Verdana);
 	TTF_CloseFont(Bookman);
 
-	Sans = NULL;
+//	Sans = NULL;
 	Verdana = NULL;
 	Bookman = NULL;
 
