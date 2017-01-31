@@ -21,7 +21,7 @@ bool SDL_graphics::init()
     }
     else
     {
-        if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"))
+		if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"))
         {
             printf("Warning: Linear texture filtering not enabled!");
         }

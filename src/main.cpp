@@ -214,19 +214,19 @@ int main(void)
 
 		SDL_RenderFillRect(renderer, &backdropRect);
 
-		defaultScene.draw(70, 72);
+		defaultScene.draw(28, 30);
 
-		infoBackground.draw(70 , 474);
+		infoBackground.draw(28, 460);
 
-		seperatorBar.draw(668, 0);
+		seperatorBar.draw(700, 0);
 
-		titleItem3.draw(833,425,&subItem);
-		titleItem4.draw(1161,425,&subItem);
-		titleItem2.draw(785,335,&subItem);
-		titleItem5.draw(1209,335,&subItem);
-		titleItem1.draw(909, 235);
+		titleItem3.draw(843, 420, nullptr, &subItem);
+		titleItem4.draw(1171, 420, nullptr, &subItem);
+		titleItem2.draw(795, 330, nullptr, &subItem);
+		titleItem5.draw(1219, 330, nullptr, &subItem);
+		titleItem1.draw(919, 230);
 
-		beginButton.draw(919, 660);
+		beginButton.draw(929, 635);
 
 
 

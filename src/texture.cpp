@@ -77,13 +77,25 @@ bool Texture::loadFromText(TTF_Font *font, std::string text, SDL_Color text_colo
 	return SDLtex = NULL;
 }
 
-void Texture::draw(int x, int y, SDL_Rect *rect_clip, double angle, SDL_Point *center, SDL_RendererFlip render_flip)
+void Texture::draw(int x, int y, SDL_Rect *src_clip, SDL_Rect *dst_rect, double angle, SDL_Point *center, SDL_RendererFlip render_flip)
 {
-	SDL_Rect renderQ = {x, y, width, height};
-	if (rect_clip != nullptr)
-	{
-		renderQ.w = rect_clip->w;
-		renderQ.h = rect_clip->h;
+//	SDL_Rect renderQ = {x, y, width, height};
+//	if (dst_rect != nullptr) {
+//		renderQ.w = rect_clip->w;
+//		renderQ.h = rect_clip->h;
+//	}
+	SDL_Rect srcClip = {0, 0, width, height};
+	if (src_clip != nullptr) {
+		srcClip.x = src_clip->x;
+		srcClip.y = src_clip->y;
+		srcClip.w = src_clip->w;
+		srcClip.h = src_clip->h;
 	}
-	SDL_RenderCopyEx(SDLrenderer, SDLtex, rect_clip, &renderQ, angle, center, render_flip);
+	SDL_Rect renderQuad = {x, y, width, height};
+	if (dst_rect != nullptr) {
+		renderQuad.w = dst_rect->w;
+		renderQuad.h = dst_rect->h;
+	}
+
+	SDL_RenderCopyEx(SDLrenderer, SDLtex, &srcClip, &renderQuad, angle, center, render_flip);
 }
