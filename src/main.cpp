@@ -412,7 +412,7 @@ void save_file(const bool &ls, const string &lf, const Campaign &game)
 		file = lf;
 	}
 	//save into file after above is complete
-	os.open(("Saves/" + file + ".save").c_str());
+	os.open(("saves/" + file + ".save").c_str());
 	if (os.is_open())
 	{
 		game.dumpCharacter(os);
