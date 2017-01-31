@@ -39,12 +39,12 @@ int main(void)
 		printf("TTF_OpenFont Sans: %s\n", TTF_GetError());
 	}
 	TTF_Font *Verdana;
-	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 24);
+	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 28);
 	if(!Verdana) {
 		printf("TTF_OpenFont Verdana: %s\n", TTF_GetError());
 	}
 	TTF_Font *Bookman;
-	Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 18);
+	Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 12);
 	if(!Bookman) {
 		printf("TTF_OpenFont Bookman: %s\n", TTF_GetError());
 	}
@@ -57,16 +57,20 @@ int main(void)
 	///SOLID FULL SCREEN SIZED RECTANCLE FOR A BACKDROP
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
+	///TITLE TEXT
+	string titleText = "TITLE";
+	string infoText = "Lorem ipsum dolor sit amet.";
 	//   create text
-	//	 TTF_SetFontHinting(Sans, TTF_HINTING_LIGHT);
+//		 TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
 	//	 TTF_SetFontStyle(Sans, TTF_STYLE_BOLD);
-	//	 TTF_SetFontHinting(Sans, TTF_HINTING_MONO);
+		 TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
 
-	//	SDL_Surface *surfaceMessage;
+//	SDL_Surface *surfaceMessage;
 
-	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Characters", Teal);
-	//	SDL_Texture *menuItem1 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	//	SDL_Rect characterMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) - 150, 400, 85};
+//	surfaceMessage = TTF_RenderText_Solid(Verdana, "TITLE", Teal);
+//	SDL_Texture *selectedTitle = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//	SDL_Rect titleRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) - 150, 400, 85};
+
 
 	//	surfaceMessage = TTF_RenderText_Solid(Verdana, "Magic Items", Teal);
 	//	SDL_Texture *menuItem2 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
@@ -96,12 +100,12 @@ int main(void)
 	//	SDL_Texture *menuItem8 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	//	SDL_Rect quitMenuRect = {(SCREEN_WIDTH / 2) - 140, (SCREEN_HEIGHT / 2) + 270, 140, 85};
 
-	//	SDL_FreeSurface(surfaceMessage);
+//	SDL_FreeSurface(surfaceMessage);
 
-	//	Message_rect.x = (SCREEN_WIDTH / 2) - 100;  //controls the rect's x coordinate
-	//	Message_rect.y = (SCREEN_HEIGHT / 2) - 100; // controls the rect's y coordinte
-	//	Message_rect.w = 150;                       // controls the width of the rect
-	//	Message_rect.h = 120;                       // controls the height of the rect
+//	Message_rect.x = (SCREEN_WIDTH / 2) - 100;  //controls the rect's x coordinate
+//	Message_rect.y = (SCREEN_HEIGHT / 2) - 100; // controls the rect's y coordinte
+//	Message_rect.w = 150;                       // controls the width of the rect
+//	Message_rect.h = 120;                       // controls the height of the rect
 
 
 
@@ -113,12 +117,12 @@ int main(void)
 	Texture defaultScene;
 	defaultScene.setRenderer(renderer);
 	defaultScene.load("res/pngs/defaultScene.png");
-//	SDL_Rect sceneRect = {0,0,528,330};
+	//	SDL_Rect sceneRect = {0,0,528,330};
 
 	Texture infoBackground;
 	infoBackground.setRenderer(renderer);
 	infoBackground.load("res/pngs/defaultInfo.png");
-//	SDL_Rect infoRect = {0,0,528,264};
+	//	SDL_Rect infoRect = {0,0,528,264};
 
 	Texture seperatorBar;
 	seperatorBar.setRenderer(renderer);
@@ -152,8 +156,10 @@ int main(void)
 
 
 
-//	int cursorY = 265;
-//	int cursorIncrement = 60;
+
+
+	//	int cursorY = 265;
+	//	int cursorIncrement = 60;
 
 
 
@@ -183,15 +189,15 @@ int main(void)
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym) {
 				case SDLK_UP:
-//					if (cursorY > 265) {
-//						cursorY -= cursorIncrement;
-//					}
+					//					if (cursorY > 265) {
+					//						cursorY -= cursorIncrement;
+					//					}
 					break;
 				case SDLK_DOWN:
-//					if (cursorY < 685) {
-//						cursorY += cursorIncrement;
+					//					if (cursorY < 685) {
+					//						cursorY += cursorIncrement;
 
-//					}
+					//					}
 					break;
 				default: break;
 
@@ -204,33 +210,48 @@ int main(void)
 			}
 		}
 		//clear screen
-//		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-//		SDL_RenderClear(renderer);
+		//		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+		//		SDL_RenderClear(renderer);
 		graphics_engine.clear();
 
 		// render black rect
 		SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
-//		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+		//		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
 		SDL_RenderFillRect(renderer, &backdropRect);
 
-		defaultScene.draw(28, 30);
+		defaultScene.draw(48, 30);
 
-		infoBackground.draw(28, 460);
+		infoBackground.draw(48, 460);
 
-		seperatorBar.draw(700, 0);
+		seperatorBar.draw(730, 0);
 
-		titleItem3.draw(843, 420, nullptr, &subItem);
-		titleItem4.draw(1171, 420, nullptr, &subItem);
-		titleItem2.draw(795, 330, nullptr, &subItem);
-		titleItem5.draw(1219, 330, nullptr, &subItem);
-		titleItem1.draw(919, 230);
+		titleItem3.draw(873, 420, nullptr, &subItem);
+		titleItem4.draw(1201, 420, nullptr, &subItem);
+		titleItem2.draw(825, 330, nullptr, &subItem);
+		titleItem5.draw(1249, 330, nullptr, &subItem);
+		titleItem1.draw(949, 230);
 
-		beginButton.draw(929, 635);
+		beginButton.draw(964, 630);
+
+		SDL_Surface *surfaceMessage;
+		surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+		SDL_Texture *titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+		SDL_Rect titleRect = {830, 65, 550, 100};
+
+		surfaceMessage = TTF_RenderText_Blended_Wrapped(Bookman, infoText.c_str(), Black, 635);
+		SDL_Texture *infoArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+		int w,h;
+		w = surfaceMessage->w;
+		h = surfaceMessage->h;
+		SDL_Rect infoSrcRect = {0, 0, w, h};
+		SDL_Rect infoDestRect = {48, 460, w, h};
 
 
+		SDL_FreeSurface(surfaceMessage);
 
-
+		SDL_RenderCopy(renderer, titleArea, NULL, &titleRect);
+		SDL_RenderCopy(renderer, infoArea, &infoSrcRect, &infoDestRect);
 
 
 
