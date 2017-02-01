@@ -25,8 +25,6 @@ using namespace std;
 void load_file(bool &, string &, Campaign &);
 void save_file(const bool &, const string &, const Campaign &);
 
-void HandleInput();
-
 int CycleRight(const int &, const int &);
 
 
@@ -38,11 +36,6 @@ int main(void)
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
 
 	///LOAD SOME FONTS
-	//	TTF_Font *Sans;
-	//	Sans=TTF_OpenFont("res/fonts/OpenSans-Regular.ttf", 20);
-	//	if(!Sans) {
-	//		printf("TTF_OpenFont Sans: %s\n", TTF_GetError());
-	//	}
 	TTF_Font *Verdana;
 	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
 	if(!Verdana) {
@@ -69,8 +62,11 @@ int main(void)
 	const int ITEM2_X = 825;
 	const int ITEM2AND5_Y = 330;
 	const int ITEM5_X = 1249;
-	const int ITEM1_X = 949;
+	const int ITEM1_X = 853;
 	const int ITEM1_Y = 230;
+
+	const int BEGINBUTTONX = 960;
+	const int BEGINBUTTONY = 620;
 
 
 	///TITLE TEXT
@@ -88,6 +84,8 @@ int main(void)
 	Texture defaultScene;
 	defaultScene.setRenderer(renderer);
 	defaultScene.load("res/pngs/defaultScene.png");
+//	defaultScene.setBlendMode(SDL_BLENDMODE_BLEND);
+//	defaultScene.setAlpha(200);
 
 	Texture infoBackground;
 	infoBackground.setRenderer(renderer);
@@ -122,6 +120,8 @@ int main(void)
 	Texture beginButton;
 	beginButton.setRenderer(renderer);
 	beginButton.load("res/pngs/defaultBeginButton.png");
+	beginButton.setBlendMode(SDL_BLENDMODE_BLEND);
+	beginButton.setAlpha(200);
 
 
 	SDL_Surface *surfaceMessage;
@@ -151,7 +151,7 @@ int main(void)
 	while (!quit)
 	{
 		//Handle events on queue
-		HandleInput();
+//		HandleInput();
 		while (SDL_PollEvent (&e) != 0) {
 			switch (e.type) {
 			case SDL_QUIT:
@@ -173,7 +173,24 @@ int main(void)
 				default: break;
 
 				}
-			case SDL_MOUSEMOTION:break;
+			case SDL_MOUSEMOTION:
+				mouseLeftX = e.motion.x;
+				mouseLeftY = e.motion.y;
+//				if (mouseLeftX > 48 && mouseLeftY < 48+683 && mouseLeftY > 30 && mouseLeftY < 30+395 ) {
+//					defaultScene.setAlpha(255);
+//				} else {
+//					defaultScene.setAlpha(200);
+
+//				}
+
+				if ((mouseLeftX > BEGINBUTTONX && mouseLeftX < BEGINBUTTONX+beginButton.getWidth()) && (mouseLeftY > BEGINBUTTONY && mouseLeftY < BEGINBUTTONY+beginButton.getWidth()) ) {
+					beginButton.setAlpha(255);
+				} else {
+					beginButton.setAlpha(200);
+
+				}
+
+				break;
 
 			case SDL_MOUSEBUTTONDOWN:
 
@@ -181,18 +198,19 @@ int main(void)
 				case SDL_BUTTON_LEFT: {
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
-					if ((mouseLeftX > 949 && mouseLeftX < 949+titleItem1.getWidth()) && (mouseLeftY > 230 && mouseLeftY < 230+titleItem1.getHeight())) {
+					if ((mouseLeftX > ITEM1_X && mouseLeftX < ITEM1_X+titleItem1.getWidth()) && (mouseLeftY > 230 && mouseLeftY < 230+titleItem1.getHeight())) {
 						// ???
-					} else if ((mouseLeftX > 825 && mouseLeftX < (825+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
+					} else if ((mouseLeftX > ITEM2_X && mouseLeftX < (ITEM2_X+subItem.w)) && (mouseLeftY > ITEM2AND5_Y && mouseLeftY < (ITEM2AND5_Y+subItem.h))) {
 						selectedItem = (SelectedItem)CycleRight(1, (int)selectedItem);
-					} else if ((mouseLeftX > 873 && mouseLeftX < (873+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
+					} else if ((mouseLeftX > ITEM3_X && mouseLeftX < (ITEM3_X+subItem.w)) && (mouseLeftY > ITEM3AND4_Y && mouseLeftY < (ITEM3AND4_Y+subItem.h))) {
 						selectedItem = (SelectedItem)CycleRight(2, (int)selectedItem);
-					} else if ((mouseLeftX > 1201 && mouseLeftX < (1201+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
+					} else if ((mouseLeftX > ITEM4_X && mouseLeftX < (ITEM4_X+subItem.w)) && (mouseLeftY > ITEM3AND4_Y && mouseLeftY < (ITEM3AND4_Y+subItem.h))) {
 						selectedItem = (SelectedItem)CycleRight(3, (int)selectedItem);
-					} else if ((mouseLeftX > 1249 && mouseLeftX < (1249+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
+					} else if ((mouseLeftX > ITEM5_X && mouseLeftX < (ITEM5_X+subItem.w)) && (mouseLeftY > ITEM2AND5_Y && mouseLeftY < (ITEM2AND5_Y+subItem.h))) {
 						selectedItem = (SelectedItem)CycleRight(4, (int)selectedItem);
 					} else if ((mouseLeftX > 960 && mouseLeftX < (960+beginButton.getWidth())) && (mouseLeftY> 620 && mouseLeftY< (620+beginButton.getHeight()))) {
 						//begin button stuff
+						printf("BEGIN clicked at loc: (%d, %d)", mouseLeftX, mouseLeftY);
 					}
 				}
 					break;
@@ -213,9 +231,6 @@ int main(void)
 		infoBackground.draw(48, 460);
 
 		seperatorBar.draw(730, 0);
-
-
-
 
 				switch (selectedItem) {
 				case CHARACTERS: //0
@@ -278,18 +293,16 @@ int main(void)
 					break;
 				}
 
-		beginButton.draw(960, 620);
+
+		beginButton.draw(BEGINBUTTONX, BEGINBUTTONY);
 		SDL_RenderCopy(renderer, titleArea, NULL, &titleRect);
 		SDL_RenderCopy(renderer, infoArea, &infoSrcRect, &infoDestRect);
 		graphics_engine.render();
 	}
 
-
-	//	TTF_CloseFont(Sans);
 	TTF_CloseFont(Verdana);
 	TTF_CloseFont(Bookman);
 
-	//	Sans = NULL;
 	Verdana = NULL;
 	Bookman = NULL;
 
@@ -435,10 +448,6 @@ void save_file(const bool &ls, const string &lf, const Campaign &game)
 	}
 }
 
-///Handles mouse and keyboard input
-void HandleInput() {
-
-}
 
 ///returns 0-4 as appropriate for our special case cycling menu
 int CycleRight(const int &amt, const int &current){
