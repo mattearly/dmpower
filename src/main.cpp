@@ -25,7 +25,10 @@ using namespace std;
 void load_file(bool &, string &, Campaign &);
 void save_file(const bool &, const string &, const Campaign &);
 
+void HandleInput();
+
 int CycleRight(const int &, const int &);
+
 
 int main(void)
 {
@@ -33,8 +36,6 @@ int main(void)
 	SDL_Renderer *renderer = graphics_engine.getRenderer();
 	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
-
-
 
 	///LOAD SOME FONTS
 	//	TTF_Font *Sans;
@@ -150,6 +151,7 @@ int main(void)
 	while (!quit)
 	{
 		//Handle events on queue
+		HandleInput();
 		while (SDL_PollEvent (&e) != 0) {
 			switch (e.type) {
 			case SDL_QUIT:
@@ -275,12 +277,6 @@ int main(void)
 					cout << "ruh roh!  \n";
 					break;
 				}
-
-//		titleItem3.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
-//		titleItem4.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
-//		titleItem2.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
-//		titleItem5.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
-//		titleItem1.draw(ITEM1_X, ITEM1_Y);
 
 		beginButton.draw(960, 620);
 		SDL_RenderCopy(renderer, titleArea, NULL, &titleRect);
@@ -439,6 +435,10 @@ void save_file(const bool &ls, const string &lf, const Campaign &game)
 	}
 }
 
+///Handles mouse and keyboard input
+void HandleInput() {
+
+}
 
 ///returns 0-4 as appropriate for our special case cycling menu
 int CycleRight(const int &amt, const int &current){
