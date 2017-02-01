@@ -144,6 +144,7 @@ int main(void)
 	bool quit = false;
 	SDL_Event e;
 
+//	SDL_FreeSurface(surfaceMessage);
 
 
 	while (!quit)
@@ -179,25 +180,17 @@ int main(void)
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
 					if ((mouseLeftX > 949 && mouseLeftX < 949+titleItem1.getWidth()) && (mouseLeftY > 230 && mouseLeftY < 230+titleItem1.getHeight())) {
-						//						cout << "Main Item Clicked\n";
+						// ???
 					} else if ((mouseLeftX > 825 && mouseLeftX < (825+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
 						selectedItem = (SelectedItem)CycleRight(1, (int)selectedItem);
-						//						cout << "Item 2 Clicked\n";
-						//						selectedItem = MAGIC_ITEMS;
-						//						titleText = "MAGIC ITEMS";
 					} else if ((mouseLeftX > 873 && mouseLeftX < (873+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
 						selectedItem = (SelectedItem)CycleRight(2, (int)selectedItem);
-						//						cout << "Item 3 Clicked\n";
-						//						selectedItem = RANDOM_ENCOUNTER;
-						//						titleText = "ENCOUNTERS";
 					} else if ((mouseLeftX > 1201 && mouseLeftX < (1201+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
 						selectedItem = (SelectedItem)CycleRight(3, (int)selectedItem);
-						//						cout << "Item 4 clicked\n";
 					} else if ((mouseLeftX > 1249 && mouseLeftX < (1249+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
 						selectedItem = (SelectedItem)CycleRight(4, (int)selectedItem);
-						//						cout << "Item 5 clicked\n";
 					} else if ((mouseLeftX > 960 && mouseLeftX < (960+beginButton.getWidth())) && (mouseLeftY> 620 && mouseLeftY< (620+beginButton.getHeight()))) {
-						//						cout << "Begin Button Clicked\n";
+						//begin button stuff
 					}
 				}
 					break;
@@ -232,6 +225,7 @@ int main(void)
 					titleText = "CHARACTERS";
 					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
 					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
 					break;
 				case MAGIC_ITEMS:  //1
 					titleItem4.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -242,6 +236,7 @@ int main(void)
 					titleText = "MAGIC ITEMS";
 					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
 					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
 					break;
 				case RANDOM_ENCOUNTER:  //2
 					titleItem5.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -252,6 +247,7 @@ int main(void)
 					titleText = "ENCOUNTERS";
 					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
 					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
 					break;
 				case TOOLS:   //3
 					titleItem1.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -272,6 +268,7 @@ int main(void)
 					titleText = "SAVE & EXPORT";
 					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
 					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
 					break;
 				default:
 					cout << "ruh roh!  \n";
