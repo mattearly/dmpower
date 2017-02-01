@@ -36,3 +36,8 @@ dmpower
 *.out
 *.app
 
+# JetBrainsProjectLoadInStuff
+.idea
+*.iml
+*.xml
+
