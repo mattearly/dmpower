@@ -25,6 +25,8 @@ using namespace std;
 void load_file(bool &, string &, Campaign &);
 void save_file(const bool &, const string &, const Campaign &);
 
+int CycleRight(const int &, const int &);
+
 int main(void)
 {
 	SDL_graphics graphics_engine;
@@ -58,6 +60,17 @@ int main(void)
 
 	///SOLID FULL SCREEN SIZED RECTANCLE FOR A BACKDROP
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+
+	/// MENU RECT LOCATIONS
+	const int ITEM3_X = 873;
+	const int ITEM3AND4_Y = 420;
+	const int ITEM4_X = 1201;
+	const int ITEM2_X = 825;
+	const int ITEM2AND5_Y = 330;
+	const int ITEM5_X = 1249;
+	const int ITEM1_X = 949;
+	const int ITEM1_Y = 230;
+
 
 	///TITLE TEXT
 	string titleText = "CHARACTERS";
@@ -125,7 +138,6 @@ int main(void)
 	SDL_Rect infoSrcRect = {0, 0, w, h};
 	SDL_Rect infoDestRect = {48, 460, w, h};
 
-	SDL_FreeSurface(surfaceMessage);
 
 	int mouseLeftX, mouseLeftY;
 
@@ -167,49 +179,30 @@ int main(void)
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
 					if ((mouseLeftX > 949 && mouseLeftX < 949+titleItem1.getWidth()) && (mouseLeftY > 230 && mouseLeftY < 230+titleItem1.getHeight())) {
-						cout << "Main Item Clicked\n";
+						//						cout << "Main Item Clicked\n";
 					} else if ((mouseLeftX > 825 && mouseLeftX < (825+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
-						cout << "Item 2 Clicked\n";
-
-
+						selectedItem = (SelectedItem)CycleRight(1, (int)selectedItem);
+						//						cout << "Item 2 Clicked\n";
+						//						selectedItem = MAGIC_ITEMS;
+						//						titleText = "MAGIC ITEMS";
 					} else if ((mouseLeftX > 873 && mouseLeftX < (873+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
-						cout << "Item 3 Clicked\n";
+						selectedItem = (SelectedItem)CycleRight(2, (int)selectedItem);
+						//						cout << "Item 3 Clicked\n";
+						//						selectedItem = RANDOM_ENCOUNTER;
+						//						titleText = "ENCOUNTERS";
 					} else if ((mouseLeftX > 1201 && mouseLeftX < (1201+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
-						cout << "Item 4 clicked\n";
+						selectedItem = (SelectedItem)CycleRight(3, (int)selectedItem);
+						//						cout << "Item 4 clicked\n";
 					} else if ((mouseLeftX > 1249 && mouseLeftX < (1249+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
-						cout << "Item 5 clicked\n";
+						selectedItem = (SelectedItem)CycleRight(4, (int)selectedItem);
+						//						cout << "Item 5 clicked\n";
 					} else if ((mouseLeftX > 960 && mouseLeftX < (960+beginButton.getWidth())) && (mouseLeftY> 620 && mouseLeftY< (620+beginButton.getHeight()))) {
-						cout << "Begin Button Clicked\n";
+						//						cout << "Begin Button Clicked\n";
 					}
 				}
 					break;
 				default: break;
 				}
-//				switch (e.button.type) {
-//				case SDL_BUTTON_LEFT: {
-//					mouseLeftX = e.button.x;
-//					mouseLeftY = e.button.y;
-//					if ((mouseLeftX > 949 && mouseLeftX < 949+titleItem1.getWidth()) && (mouseLeftY > 230 && mouseLeftY < 230+titleItem1.getHeight())) {
-//						cout << "Main Item Clicked\n";
-//					} else if ((mouseLeftX > 825 && mouseLeftX < (825+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
-//						cout << "Item 2 Clicked\n";
-//					} else if ((mouseLeftX > 873 && mouseLeftX < (873+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
-//						cout << "Item 3 Clicked\n";
-//					} else if ((mouseLeftX > 1201 && mouseLeftX < (1201+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
-//						cout << "Item 4 clicked\n";
-//					} else if ((mouseLeftX > 1249 && mouseLeftX < (1249+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
-//						cout << "Item 5 clicked\n";
-//					} else if ((mouseLeftX > 960 && mouseLeftX < (960+beginButton.getWidth())) && (mouseLeftY> 620 && mouseLeftY< (620+beginButton.getHeight()))) {
-//						cout << "Begin Button Clicked\n";
-//					}
-//				}
-//					break;
-//				default: break;
-//				}
-
-//				if(event.button.type==LEFTBUTTON)
-
-
 			default: break;
 			}
 			//			if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
@@ -218,10 +211,7 @@ int main(void)
 			//			}
 		}
 		graphics_engine.clear();   //clear screen
-
-		// render black background rect
-//		SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
-		SDL_RenderFillRect(renderer, &backdropRect);
+		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		defaultScene.draw(48, 30);
 
@@ -230,37 +220,73 @@ int main(void)
 		seperatorBar.draw(730, 0);
 
 
-//		enum SelectedItem { CHARACTERS = 0, MAGIC_ITEMS, RANDOM_ENCOUNTER, TOOLS, SAVE };
 
 
-//		switch (selectedItem) {
-//		case CHARACTERS:
-//			break;
-//		case MAGIC_ITEMS:
-//			break;
-//		case RANDOM_ENCOUNTER:
-//			break;
-//		case TOOLS:
-//			break;
-//		case SAVE:
-//			break;
-//		default:
-//		}
+				switch (selectedItem) {
+				case CHARACTERS: //0
+					titleItem3.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
+					titleItem4.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
+					titleItem2.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
+					titleItem5.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
+					titleItem1.draw(ITEM1_X, ITEM1_Y);
+					titleText = "CHARACTERS";
+					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+					break;
+				case MAGIC_ITEMS:  //1
+					titleItem4.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
+					titleItem5.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
+					titleItem3.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
+					titleItem1.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
+					titleItem2.draw(ITEM1_X, ITEM1_Y);
+					titleText = "MAGIC ITEMS";
+					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+					break;
+				case RANDOM_ENCOUNTER:  //2
+					titleItem5.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
+					titleItem1.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
+					titleItem4.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
+					titleItem2.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
+					titleItem3.draw(ITEM1_X, ITEM1_Y);
+					titleText = "ENCOUNTERS";
+					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+					break;
+				case TOOLS:   //3
+					titleItem1.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
+					titleItem2.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
+					titleItem5.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
+					titleItem3.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
+					titleItem4.draw(ITEM1_X, ITEM1_Y);
+					titleText = "TOOLS";
+					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+					break;
+				case SAVE: //4
+					titleItem2.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
+					titleItem3.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
+					titleItem1.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
+					titleItem4.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
+					titleItem5.draw(ITEM1_X, ITEM1_Y);
+					titleText = "SAVE & EXPORT";
+					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+					break;
+				default:
+					cout << "ruh roh!  \n";
+					break;
+				}
 
-		titleItem3.draw(873, 420, nullptr, &subItem);
-		titleItem4.draw(1201, 420, nullptr, &subItem);
-		titleItem2.draw(825, 330, nullptr, &subItem);
-		titleItem5.draw(1249, 330, nullptr, &subItem);
-		titleItem1.draw(949, 230);
-
-
+//		titleItem3.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
+//		titleItem4.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
+//		titleItem2.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
+//		titleItem5.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
+//		titleItem1.draw(ITEM1_X, ITEM1_Y);
 
 		beginButton.draw(960, 620);
 		SDL_RenderCopy(renderer, titleArea, NULL, &titleRect);
 		SDL_RenderCopy(renderer, infoArea, &infoSrcRect, &infoDestRect);
-
-
-
 		graphics_engine.render();
 	}
 
@@ -272,6 +298,9 @@ int main(void)
 	//	Sans = NULL;
 	Verdana = NULL;
 	Bookman = NULL;
+
+	SDL_FreeSurface(surfaceMessage);
+
 
 
 
@@ -410,4 +439,58 @@ void save_file(const bool &ls, const string &lf, const Campaign &game)
 	{
 		cout << "Save failed.\n";
 	}
+}
+
+
+///returns 0-4 as appropriate for our special case cycling menu
+int CycleRight(const int &amt, const int &current){
+	switch (amt) {
+	case 1: {
+		switch (current) {
+		case 0: return 1;
+		case 1: return 2;
+		case 2: return 3;
+		case 3: return 4;
+		case 4: return 0;
+		default:break;
+		} break;
+	}
+	case 2:{
+		switch (current) {
+		case 0: return 2;
+		case 1: return 3;
+		case 2: return 4;
+		case 3: return 0;
+		case 4: return 1;
+		default:break;
+		} break;
+	}
+	case 3:{
+		switch (current) {
+		case 0: return 3;
+		case 1: return 4;
+		case 2: return 0;
+		case 3: return 1;
+		case 4: return 2;
+		default:break;
+		} break;
+	}
+	case 4:{
+		switch (current) {
+		case 0: return 4;
+		case 1: return 0;
+		case 2: return 1;
+		case 3: return 2;
+		case 4: return 3;
+		default:break;
+		} break;
+	}
+	default:break;
+	}
+
+	return 0;
+
+
+	//or we could do it the obvious fast way but the numbers go to hight like that
+//	return (current + amt);
 }
