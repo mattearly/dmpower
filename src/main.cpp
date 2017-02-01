@@ -32,6 +32,8 @@ int main(void)
 	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
 
+
+
 	///LOAD SOME FONTS
 	//	TTF_Font *Sans;
 	//	Sans=TTF_OpenFont("res/fonts/OpenSans-Regular.ttf", 20);
@@ -58,7 +60,7 @@ int main(void)
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
 	///TITLE TEXT
-	string titleText = "TITLE";
+	string titleText = "CHARACTERS";
 	string infoText = "Lorem ipsum dolor sit amet, vocent aliquid similique et eos. Apeirian disputationi duo ea, nemore pericula an has.";
 
 	//		 TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
@@ -125,8 +127,11 @@ int main(void)
 
 	SDL_FreeSurface(surfaceMessage);
 
+	int mouseLeftX, mouseLeftY;
+
 	bool quit = false;
 	SDL_Event e;
+
 
 
 	while (!quit)
@@ -153,32 +158,56 @@ int main(void)
 				default: break;
 
 				}
-			case SDL_MOUSEMOTION:
+			case SDL_MOUSEMOTION:break;
 
 			case SDL_MOUSEBUTTONDOWN:
+
 				switch (e.button.button) {
 				case SDL_BUTTON_LEFT: {
-					int x = e.button.x;
-					int y = e.button.y;
-					if ((x > 949 && x < 949+titleItem1.getWidth()) && (y > 230 && y < 230+titleItem1.getHeight())) {
+					mouseLeftX = e.button.x;
+					mouseLeftY = e.button.y;
+					if ((mouseLeftX > 949 && mouseLeftX < 949+titleItem1.getWidth()) && (mouseLeftY > 230 && mouseLeftY < 230+titleItem1.getHeight())) {
 						cout << "Main Item Clicked\n";
-					} else if ((x > 825 && x < (825+subItem.w)) && (y > 330 && y < (330+subItem.h))) {
+					} else if ((mouseLeftX > 825 && mouseLeftX < (825+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
 						cout << "Item 2 Clicked\n";
-					} else if ((x > 873 && x < (873+subItem.w)) && (y > 420 && y < (420+subItem.h))) {
+
+
+					} else if ((mouseLeftX > 873 && mouseLeftX < (873+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
 						cout << "Item 3 Clicked\n";
-					} else if ((x > 1201 && x < (1201+subItem.w)) && (y > 420 && y < (420+subItem.h))) {
+					} else if ((mouseLeftX > 1201 && mouseLeftX < (1201+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
 						cout << "Item 4 clicked\n";
-					} else if ((x > 1249 && x < (1249+subItem.w)) && (y > 330 && y < (330+subItem.h))) {
+					} else if ((mouseLeftX > 1249 && mouseLeftX < (1249+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
 						cout << "Item 5 clicked\n";
-					} else if ((x > 960 && x < (960+beginButton.getWidth())) && (y > 620 && y < (620+beginButton.getHeight()))) {
+					} else if ((mouseLeftX > 960 && mouseLeftX < (960+beginButton.getWidth())) && (mouseLeftY> 620 && mouseLeftY< (620+beginButton.getHeight()))) {
 						cout << "Begin Button Clicked\n";
 					}
-					//					cout << "mouse click at "  << x << ", " << y << "\n";
 				}
 					break;
 				default: break;
 				}
+//				switch (e.button.type) {
+//				case SDL_BUTTON_LEFT: {
+//					mouseLeftX = e.button.x;
+//					mouseLeftY = e.button.y;
+//					if ((mouseLeftX > 949 && mouseLeftX < 949+titleItem1.getWidth()) && (mouseLeftY > 230 && mouseLeftY < 230+titleItem1.getHeight())) {
+//						cout << "Main Item Clicked\n";
+//					} else if ((mouseLeftX > 825 && mouseLeftX < (825+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
+//						cout << "Item 2 Clicked\n";
+//					} else if ((mouseLeftX > 873 && mouseLeftX < (873+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
+//						cout << "Item 3 Clicked\n";
+//					} else if ((mouseLeftX > 1201 && mouseLeftX < (1201+subItem.w)) && (mouseLeftY > 420 && mouseLeftY < (420+subItem.h))) {
+//						cout << "Item 4 clicked\n";
+//					} else if ((mouseLeftX > 1249 && mouseLeftX < (1249+subItem.w)) && (mouseLeftY > 330 && mouseLeftY < (330+subItem.h))) {
+//						cout << "Item 5 clicked\n";
+//					} else if ((mouseLeftX > 960 && mouseLeftX < (960+beginButton.getWidth())) && (mouseLeftY> 620 && mouseLeftY< (620+beginButton.getHeight()))) {
+//						cout << "Begin Button Clicked\n";
+//					}
+//				}
+//					break;
+//				default: break;
+//				}
 
+//				if(event.button.type==LEFTBUTTON)
 
 
 			default: break;
@@ -200,16 +229,33 @@ int main(void)
 
 		seperatorBar.draw(730, 0);
 
+
+//		enum SelectedItem { CHARACTERS = 0, MAGIC_ITEMS, RANDOM_ENCOUNTER, TOOLS, SAVE };
+
+
+//		switch (selectedItem) {
+//		case CHARACTERS:
+//			break;
+//		case MAGIC_ITEMS:
+//			break;
+//		case RANDOM_ENCOUNTER:
+//			break;
+//		case TOOLS:
+//			break;
+//		case SAVE:
+//			break;
+//		default:
+//		}
+
 		titleItem3.draw(873, 420, nullptr, &subItem);
 		titleItem4.draw(1201, 420, nullptr, &subItem);
 		titleItem2.draw(825, 330, nullptr, &subItem);
 		titleItem5.draw(1249, 330, nullptr, &subItem);
 		titleItem1.draw(949, 230);
 
+
+
 		beginButton.draw(960, 620);
-
-
-
 		SDL_RenderCopy(renderer, titleArea, NULL, &titleRect);
 		SDL_RenderCopy(renderer, infoArea, &infoSrcRect, &infoDestRect);
 
