@@ -144,7 +144,7 @@ int main(void)
 	bool quit = false;
 	SDL_Event e;
 
-//	SDL_FreeSurface(surfaceMessage);
+	SDL_FreeSurface(surfaceMessage);
 
 
 	while (!quit)
@@ -258,6 +258,7 @@ int main(void)
 					titleText = "TOOLS";
 					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
 					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
 					break;
 				case SAVE: //4
 					titleItem2.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -488,6 +489,6 @@ int CycleRight(const int &amt, const int &current){
 	return 0;
 
 
-	//or we could do it the obvious fast way but the numbers go to hight like that
+	//or we could do it the obvious fast way but the numbers go to high like that
 //	return (current + amt);
 }
