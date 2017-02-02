@@ -65,8 +65,8 @@ int main(void)
 	const int ITEM1_X = 853;
 	const int ITEM1_Y = 230;
 
-	const int BEGINBUTTONX = 960;
-	const int BEGINBUTTONY = 620;
+	const int BEGINBUTTONX = 955;
+	const int BEGINBUTTONY = 615;
 
 
 	///TITLE TEXT
@@ -84,8 +84,8 @@ int main(void)
 	Texture defaultScene;
 	defaultScene.setRenderer(renderer);
 	defaultScene.load("res/pngs/defaultScene.png");
-//	defaultScene.setBlendMode(SDL_BLENDMODE_BLEND);
-//	defaultScene.setAlpha(200);
+	//	defaultScene.setBlendMode(SDL_BLENDMODE_BLEND);
+	//	defaultScene.setAlpha(200);
 
 	Texture infoBackground;
 	infoBackground.setRenderer(renderer);
@@ -151,7 +151,7 @@ int main(void)
 	while (!quit)
 	{
 		//Handle events on queue
-//		HandleInput();
+		//		HandleInput();
 		while (SDL_PollEvent (&e) != 0) {
 			switch (e.type) {
 			case SDL_QUIT:
@@ -176,12 +176,12 @@ int main(void)
 			case SDL_MOUSEMOTION:
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
-//				if (mouseLeftX > 48 && mouseLeftY < 48+683 && mouseLeftY > 30 && mouseLeftY < 30+395 ) {
-//					defaultScene.setAlpha(255);
-//				} else {
-//					defaultScene.setAlpha(200);
+				//				if (mouseLeftX > 48 && mouseLeftY < 48+683 && mouseLeftY > 30 && mouseLeftY < 30+395 ) {
+				//					defaultScene.setAlpha(255);
+				//				} else {
+				//					defaultScene.setAlpha(200);
 
-//				}
+				//				}
 
 				if ((mouseLeftX > BEGINBUTTONX && mouseLeftX < BEGINBUTTONX+beginButton.getWidth()) && (mouseLeftY > BEGINBUTTONY && mouseLeftY < BEGINBUTTONY+beginButton.getWidth()) ) {
 					beginButton.setAlpha(255);
@@ -232,66 +232,66 @@ int main(void)
 
 		seperatorBar.draw(730, 0);
 
-				switch (selectedItem) {
-				case CHARACTERS: //0
-					titleItem3.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
-					titleItem4.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
-					titleItem2.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
-					titleItem5.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
-					titleItem1.draw(ITEM1_X, ITEM1_Y);
-					titleText = "CHARACTERS";
-					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+		switch (selectedItem) {
+		case CHARACTERS: //0
+			titleItem3.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
+			titleItem4.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
+			titleItem2.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
+			titleItem5.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
+			titleItem1.draw(ITEM1_X, ITEM1_Y);
+			titleText = "CHARACTERS";
+			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
-					break;
-				case MAGIC_ITEMS:  //1
-					titleItem4.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
-					titleItem5.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
-					titleItem3.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
-					titleItem1.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
-					titleItem2.draw(ITEM1_X, ITEM1_Y);
-					titleText = "MAGIC ITEMS";
-					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+			break;
+		case MAGIC_ITEMS:  //1
+			titleItem4.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
+			titleItem5.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
+			titleItem3.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
+			titleItem1.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
+			titleItem2.draw(ITEM1_X, ITEM1_Y);
+			titleText = "MAGIC ITEMS";
+			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
-					break;
-				case RANDOM_ENCOUNTER:  //2
-					titleItem5.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
-					titleItem1.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
-					titleItem4.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
-					titleItem2.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
-					titleItem3.draw(ITEM1_X, ITEM1_Y);
-					titleText = "ENCOUNTERS";
-					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+			break;
+		case RANDOM_ENCOUNTER:  //2
+			titleItem5.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
+			titleItem1.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
+			titleItem4.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
+			titleItem2.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
+			titleItem3.draw(ITEM1_X, ITEM1_Y);
+			titleText = "ENCOUNTERS";
+			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
-					break;
-				case TOOLS:   //3
-					titleItem1.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
-					titleItem2.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
-					titleItem5.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
-					titleItem3.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
-					titleItem4.draw(ITEM1_X, ITEM1_Y);
-					titleText = "TOOLS";
-					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+			break;
+		case TOOLS:   //3
+			titleItem1.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
+			titleItem2.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
+			titleItem5.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
+			titleItem3.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
+			titleItem4.draw(ITEM1_X, ITEM1_Y);
+			titleText = "TOOLS";
+			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
-					break;
-				case SAVE: //4
-					titleItem2.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
-					titleItem3.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
-					titleItem1.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
-					titleItem4.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
-					titleItem5.draw(ITEM1_X, ITEM1_Y);
-					titleText = "SAVE & EXPORT";
-					surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-					titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+			break;
+		case SAVE: //4
+			titleItem2.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
+			titleItem3.draw(ITEM4_X, ITEM3AND4_Y, nullptr, &subItem);
+			titleItem1.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
+			titleItem4.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
+			titleItem5.draw(ITEM1_X, ITEM1_Y);
+			titleText = "SAVE & EXPORT";
+			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
-					break;
-				default:
-					cout << "ruh roh!  \n";
-					break;
-				}
+			break;
+		default:
+			cout << "ruh roh!  \n";
+			break;
+		}
 
 
 		beginButton.draw(BEGINBUTTONX, BEGINBUTTONY);
@@ -499,5 +499,5 @@ int CycleRight(const int &amt, const int &current){
 
 
 	//or we could do it the obvious fast way but the numbers go to high like that
-//	return (current + amt);
+	//	return (current + amt);
 }
