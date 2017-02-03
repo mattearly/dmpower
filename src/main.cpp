@@ -160,15 +160,19 @@ int main(void)
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym) {
 				case SDLK_UP:
+
 					//					if (cursorY > 265) {
 					//						cursorY -= cursorIncrement;
 					//					}
+
 					break;
 				case SDLK_DOWN:
+
 					//					if (cursorY < 685) {
 					//						cursorY += cursorIncrement;
 
 					//					}
+
 					break;
 				default: break;
 
@@ -176,6 +180,7 @@ int main(void)
 			case SDL_MOUSEMOTION:
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
+
 				//				if (mouseLeftX > 48 && mouseLeftY < 48+683 && mouseLeftY > 30 && mouseLeftY < 30+395 ) {
 				//					defaultScene.setAlpha(255);
 				//				} else {
