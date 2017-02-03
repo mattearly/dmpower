@@ -181,12 +181,11 @@ int main(void)
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
 
-				//				if (mouseLeftX > 48 && mouseLeftY < 48+683 && mouseLeftY > 30 && mouseLeftY < 30+395 ) {
-				//					defaultScene.setAlpha(255);
-				//				} else {
-				//					defaultScene.setAlpha(200);
-
-				//				}
+//                    if (mouseLeftX > 48 && mouseLeftY < 48+683 && mouseLeftY > 30 && mouseLeftY < 30+395 ) {
+//                        defaultScene.setAlpha(255);
+//                    } else {
+//                        defaultScene.setAlpha(200);
+//                    }
 
 				if ((mouseLeftX > BEGINBUTTONX && mouseLeftX < BEGINBUTTONX+beginButton.getWidth()) && (mouseLeftY > BEGINBUTTONY && mouseLeftY < BEGINBUTTONY+beginButton.getWidth()) ) {
 					beginButton.setAlpha(255);

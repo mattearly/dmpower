@@ -37,6 +37,9 @@ class Texture
 	void draw(int x = 0, int y = 0, SDL_Rect *src_clip = NULL, SDL_Rect *dst_rect = NULL, double angle = 0.0,
 	      SDL_Point *center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
+    void draw(int x, int y, float z, SDL_Rect *src_clip = NULL, SDL_Rect *dst_rect = NULL, double angle = 0.0,
+          SDL_Point *center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
+
     void free();
 
   private:

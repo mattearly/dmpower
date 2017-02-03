@@ -101,3 +101,33 @@ void Texture::draw(int x, int y, SDL_Rect *src_clip, SDL_Rect *dst_rect, double 
 
 	SDL_RenderCopyEx(SDLrenderer, SDLtex, &srcClip, &renderQuad, angle, center, render_flip);
 }
+
+
+void Texture::draw(int x, int y, float z, SDL_Rect *src_clip, SDL_Rect *dst_rect, double angle, SDL_Point *center, SDL_RendererFlip render_flip)
+{
+
+//	SDL_Rect renderQ = {x, y, width, height};
+//	if (dst_rect != nullptr) {
+//		renderQ.w = rect_clip->w;
+//		renderQ.h = rect_clip->h;
+//	}
+
+	SDL_Rect srcClip = {0, 0, width, height};
+	if (src_clip != nullptr) {
+		srcClip.x = src_clip->x;
+		srcClip.y = src_clip->y;
+		srcClip.w = src_clip->w;
+		srcClip.h = src_clip->h;
+	}
+	SDL_Rect renderQuad = {x, y, (float)width*z, (float)height*z};
+	if (dst_rect != nullptr) {
+		renderQuad.w = dst_rect->w;
+		renderQuad.h = dst_rect->h;
+		if (z != 1.f) {
+		    renderQuad.x = x + (1-z) * renderQuad.w;
+		    renderQuad.y = y + (1-z) * renderQuad.h;
+		}
+	}
+
+	SDL_RenderCopyEx(SDLrenderer, SDLtex, &srcClip, &renderQuad, angle, center, render_flip);
+}
