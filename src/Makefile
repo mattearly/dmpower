@@ -22,7 +22,8 @@ gen_name.o \
 gen_reward.o \
 gen_insult.o \
 globalfuncts.o \
-races.o 
+races.o \
+scenestack.o
 SRC = campaign.cpp \
 characters.cpp \
 colors.cpp \
@@ -35,7 +36,9 @@ gen_insult.cpp \
 globalfuncts.cpp \
 races.cpp \
 sdl_graphics.cpp \
-texture.cpp
+texture.cpp \
+scenestack.cpp
+
 DEL = rm -vf
 
 $(TARGET): $(OBJS)

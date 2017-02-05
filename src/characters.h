@@ -186,8 +186,6 @@ public:
     void knownskill(int&);
 
 
-
-
     //feat gaining functions
     void setAnyFeat();
     void gainAlert(bool& s);
@@ -232,9 +230,6 @@ public:
     void gainTough(bool& s);
     void gainWar_caster(bool& s);
     void gainWeapon_master(bool& s);
-
-
-
 
     //CHARACTER DISPLAYING FUNCTIONS (ACCESSORS)
     std::string getBackground() const;

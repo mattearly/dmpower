@@ -39,11 +39,6 @@ The plan is to make a complete program that can keep your tabletop D&D game goin
 NOTE: There are probably many other ways to compile this. It is basic C++ code that is using C++11 features.  
 NOTE: This program uses special colored words, which is kinda optional but unfortunantly some terminals don't display these correctly, notably the Visual Studio one.  
 
-#### ToDo
-* Work on display clarity and ease of use (ongoing).  
-* Add more tools as needed to keep the game flowing.  
-* Add Visuals and Windows (big job)  
-
 #### Problems?
   
 * If you run into a problem or something unclear - please open an issue ticket or email me. The more details the better.  
@@ -60,8 +55,13 @@ NOTE: This program uses special colored words, which is kinda optional but unfor
 
 
 
-
 #### Support
 The best way to  help out at this point is to Donate any amount of Mula, even a tiny bit helps and will motivate me to work on this more.  
 * [PayPal](https://www.paypal.me/mattearly/)  
 * Bitcoin: 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM  
+
+
+#### ToDo
+* Work on display clarity and ease of use (ongoing).
+* Add more tools as needed to keep the game flowing.
+* Add Visuals and Windows (big job)
