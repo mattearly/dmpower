@@ -79,12 +79,26 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	const int BEGINBUTTONX = 955;
 	const int BEGINBUTTONY = 615;
 	/// TITLE TEXT
-	std::string titleText = "CHARACTERS";
+	std::string titleText1 = "CHARACTERS";
+	std::string titleText2 = "MAGIC ITEMS";
+	std::string titleText3 = "RANDOM ENCOUNTER";
+	std::string titleText4 = "TOOLS";
+	std::string titleText5 = "SAVE & EXPORT";
+
 	std::string infoText = "Lorem ipsum dolor sit amet, vocent aliquid similique et eos. Apeirian disputationi duo ea, nemore pericula an has.";
     SDL_Surface *surfaceMessage;
 
-	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-	SDL_Texture *titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText1.c_str(), White);
+	SDL_Texture *titleArea1 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText2.c_str(), White);
+	SDL_Texture *titleArea2 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText3.c_str(), White);
+	SDL_Texture *titleArea3 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText4.c_str(), White);
+	SDL_Texture *titleArea4 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText5.c_str(), White);
+	SDL_Texture *titleArea5 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
 	SDL_Rect titleRect = {830, 65, 550, 115};
 
 	surfaceMessage = TTF_RenderText_Blended_Wrapped(Bookman, infoText.c_str(), Black, 635);
@@ -152,7 +166,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 						/*
 						procScene();
 						*/
-						printf("BEGIN clicked at loc: (%d, %d)", mouseLeftX, mouseLeftY);
+//						printf("BEGIN clicked at loc: (%d, %d)", mouseLeftX, mouseLeftY);
 					}
 
 					break;
@@ -166,7 +180,8 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 //                    } else {
 //                        defaultScene.setAlpha(200);
 //                    }
-                if ((mouseLeftX > BEGINBUTTONX && mouseLeftX < BEGINBUTTONX+beginButton.getWidth()) && (mouseLeftY > BEGINBUTTONY && mouseLeftY < BEGINBUTTONY+beginButton.getWidth()) ) {
+                if ((mouseLeftX > BEGINBUTTONX && mouseLeftX < BEGINBUTTONX+beginButton.getWidth())\
+                        && (mouseLeftY > BEGINBUTTONY && mouseLeftY < BEGINBUTTONY+beginButton.getWidth())) {
                     beginButton.setAlpha(255);
                 } else {
                     beginButton.setAlpha(200);
@@ -197,9 +212,11 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			titleItem2.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem5.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem1.draw(ITEM1_X, ITEM1_Y);
-			titleText = "CHARACTERS";
-			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+            SDL_RenderCopy(renderer, titleArea1, NULL, &titleRect);
+
+//			titleText = "CHARACTERS";
+//			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+//			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 			break;
 		case MAGIC_ITEMS:  //1
 			titleItem4.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -207,9 +224,11 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			titleItem3.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem1.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem2.draw(ITEM1_X, ITEM1_Y);
-			titleText = "MAGIC ITEMS";
-			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+            SDL_RenderCopy(renderer, titleArea2, NULL, &titleRect);
+
+//			titleText = "MAGIC ITEMS";
+//			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+//			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 			break;
 		case RANDOM_ENCOUNTER:  //2
 			titleItem5.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -217,9 +236,11 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			titleItem4.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem2.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem3.draw(ITEM1_X, ITEM1_Y);
-			titleText = "ENCOUNTERS";
-			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+            SDL_RenderCopy(renderer, titleArea3, NULL, &titleRect);
+
+//			titleText = "ENCOUNTERS";
+//			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+//			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 			break;
 		case TOOLS:   //3
 			titleItem1.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -227,9 +248,11 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			titleItem5.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem3.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem4.draw(ITEM1_X, ITEM1_Y);
-			titleText = "TOOLS";
-			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+            SDL_RenderCopy(renderer, titleArea4, NULL, &titleRect);
+
+//			titleText = "TOOLS";
+//			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+//			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 			break;
 		case SAVE: //4
 			titleItem2.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -237,9 +260,11 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			titleItem1.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem4.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem5.draw(ITEM1_X, ITEM1_Y);
-			titleText = "SAVE & EXPORT";
-			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
-			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+            SDL_RenderCopy(renderer, titleArea5, NULL, &titleRect);
+
+//			titleText = "SAVE & EXPORT";
+//			surfaceMessage = TTF_RenderText_Solid(Verdana, titleText.c_str(), White);
+//			titleArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 			break;
 		default:
 			printf("ruh roh!  \n");
@@ -248,7 +273,6 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 
 
 		beginButton.draw(BEGINBUTTONX, BEGINBUTTONY);
-		SDL_RenderCopy(renderer, titleArea, NULL, &titleRect);
 		SDL_RenderCopy(renderer, infoArea, &infoSrcRect, &infoDestRect);
 		graphics_engine.render();
 

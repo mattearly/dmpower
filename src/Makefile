@@ -5,7 +5,7 @@
 TARGET = dmpower
 CC = g++
 CFLAGS = -std=c++11
-SINGLE_CFLAGS = -c -std=c++11
+SINGLE_CFLAGS = -c -g -std=c++11
 SDL2 = -lSDL2main -lSDL2 
 SDL2IMG = -lSDL2_image 
 SDL2TTF = -lSDL2_ttf 
