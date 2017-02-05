@@ -24,21 +24,13 @@ using namespace std;
 void load_file(bool &, string &, Campaign &);
 void save_file(const bool &, const string &, const Campaign &);
 
-
-
 int main(void)
 {
 	SDL_graphics graphics_engine;
 
-    SceneStack brahama;
-    brahama.mainscreen(graphics_engine);
+    SceneStack runInstance;
 
-
-
-
-
-
-
+    runInstance.mainscreen(graphics_engine);
 
 
 
