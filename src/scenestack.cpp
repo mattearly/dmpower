@@ -333,7 +333,7 @@ void SceneStack::menuScene1_characters(SDL_graphics &graphics_engine){
                             mouseLeftY = e.button.y;
                             //if
                             if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
-                                //new button pressed
+
                             } else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
                                 //choose button press
                             } else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
@@ -381,7 +381,6 @@ void SceneStack::menuScene1_characters(SDL_graphics &graphics_engine){
     }
 }
 
-
 void SceneStack::menuScene2_magic_items(SDL_graphics &graphics_engine){
 }
 void SceneStack::menuScene3_(SDL_graphics &graphics_engine){
@@ -392,52 +391,52 @@ void SceneStack::menuScene5(SDL_graphics &graphics_engine){
 }
 
 ///returns 0-4 as appropriate for our special case cycling menu
-    int SceneStack::CycleRight_5(const int &amt, const int &current){
-        switch (amt) {
-        case 1: {
-            switch (current) {
-            case 0: return 1;
-            case 1: return 2;
-            case 2: return 3;
-            case 3: return 4;
-            case 4: return 0;
-            default:break;
-            } break;
-        }
-        case 2:{
-            switch (current) {
-            case 0: return 2;
-            case 1: return 3;
-            case 2: return 4;
-            case 3: return 0;
-            case 4: return 1;
-            default:break;
-            } break;
-        }
-        case 3:{
-            switch (current) {
-            case 0: return 3;
-            case 1: return 4;
-            case 2: return 0;
-            case 3: return 1;
-            case 4: return 2;
-            default:break;
-            } break;
-        }
-        case 4:{
-            switch (current) {
-            case 0: return 4;
-            case 1: return 0;
-            case 2: return 1;
-            case 3: return 2;
-            case 4: return 3;
-            default:break;
-            } break;
-        }
+int SceneStack::CycleRight_5(const int &amt, const int &current){
+    switch (amt) {
+    case 1: {
+        switch (current) {
+        case 0: return 1;
+        case 1: return 2;
+        case 2: return 3;
+        case 3: return 4;
+        case 4: return 0;
         default:break;
-        }
-        return 0;
-
-        //or we could do it the obvious fast way but the numbers go to high like that
-        //	return (current + amt);
+        } break;
     }
+    case 2:{
+        switch (current) {
+        case 0: return 2;
+        case 1: return 3;
+        case 2: return 4;
+        case 3: return 0;
+        case 4: return 1;
+        default:break;
+        } break;
+    }
+    case 3:{
+        switch (current) {
+        case 0: return 3;
+        case 1: return 4;
+        case 2: return 0;
+        case 3: return 1;
+        case 4: return 2;
+        default:break;
+        } break;
+    }
+    case 4:{
+        switch (current) {
+        case 0: return 4;
+        case 1: return 0;
+        case 2: return 1;
+        case 3: return 2;
+        case 4: return 3;
+        default:break;
+        } break;
+    }
+    default:break;
+    }
+    return 0;
+
+    //or we could do it the obvious fast way but the numbers go to high like that
+    //	return (current + amt);
+}
