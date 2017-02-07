@@ -28,17 +28,9 @@ int main(void)
 {
 	SDL_graphics graphics_engine;
 
-    SceneStack runInstance;
+	SceneStack runInstance;
 
-    runInstance.mainscreen(graphics_engine);
-
-
-
-
-
-
-
-
+	runInstance.mainscreen(graphics_engine);
 
 
 	/// ORIGINAL TERMINAL CODE

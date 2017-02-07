@@ -19,7 +19,7 @@ ____________________________________________________________________________
 class CharacterName {
 
 public:
-    std::string grabRandomName();
+	std::string grabRandomName();
 private:
 
 

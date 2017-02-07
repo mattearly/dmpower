@@ -18,13 +18,13 @@ ____________________________________________________________________________
 
 class Gear {
 public:
-    Gear();
-    Gear(const int&, const std::string&);
-    Gear(const std::string&);
-    void showItem() const;
+	Gear();
+	Gear(const int&, const std::string&);
+	Gear(const std::string&);
+	void showItem() const;
 protected:
-    int quantity = 0;
-    std::string item_name = "voidspace - no item";
+	int quantity = 0;
+	std::string item_name = "voidspace - no item";
 
 private:
 

@@ -2,81 +2,71 @@
 
 
 void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
-
+	///PRELOAD
 	///INITIAL SCENE SETUP
 	SDL_Renderer *renderer = graphics_engine.getRenderer();
 	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
 
-
-	/// PRELOAD FONTS
+	///FONTS
 	TTF_Font *Leadcoat;
 	Leadcoat=TTF_OpenFont("res/fonts/Leadcoat.ttf", 54);
 	if(!Leadcoat) { printf("TTF_OpenFont Leadcoat: %s\n", TTF_GetError()); }
 	TTF_Font *Bookman;
 	Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 31);
 	if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
-
-
 	//	TTF_Font *Verdana;
 	//	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
 	//	if(!Verdana) { printf("TTF_OpenFont Verdana: %s\n", TTF_GetError()); }
 
+	///ADJUST FONT HINTING
 	//	TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
 	//	TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
 	//	TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
 	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
 
-
-	///LOAD SOME COLORS
-	//	SDL_Color Teal = {100, 200, 200, 0};
-	//	SDL_Color White = {255, 255, 255, 0};
+	///COLORS
 	SDL_Color Black = {0,0,0,0};
 	SDL_Color Orange = {255, 115, 35, 0};
-	///SOLID FULL SCREEN SIZED RECTANGLE FOR A BACKDROP
+	//	SDL_Color Teal = {100, 200, 200, 0};
+	//	SDL_Color White = {255, 255, 255, 0};
+
+	///RECTANGULUR BACKDROP
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
+	///IMAGERY
 	Texture defaultScene;
 	defaultScene.setRenderer(renderer);
 	defaultScene.load("res/pngs/defaultScene.png");
-
 	Texture infoBackground;
 	infoBackground.setRenderer(renderer);
 	infoBackground.load("res/pngs/defaultInfo.png");
-
 	Texture separatorBar;
 	separatorBar.setRenderer(renderer);
 	separatorBar.load("res/pngs/separatorBar.png");
-
 	Texture titleItem1;
 	titleItem1.setRenderer(renderer);
 	titleItem1.load("res/pngs/charactersMenu.png");
-
 	Texture titleItem2;
 	titleItem2.setRenderer(renderer);
 	titleItem2.load("res/pngs/defaultItem2.png");
-
 	Texture titleItem3;
 	titleItem3.setRenderer(renderer);
 	titleItem3.load("res/pngs/defaultItem3.png");
-
 	Texture titleItem4;
 	titleItem4.setRenderer(renderer);
 	titleItem4.load("res/pngs/defaultItem4.png");
-
 	Texture titleItem5;
 	titleItem5.setRenderer(renderer);
 	titleItem5.load("res/pngs/defaultItem5.png");
-
 	SDL_Rect subItem = {0,0,144,90};
-
 	Texture beginButton;
 	beginButton.setRenderer(renderer);
 	beginButton.load("res/pngs/defaultBeginButton.png");
 	beginButton.setBlendMode(SDL_BLENDMODE_BLEND);
 	beginButton.setAlpha(220);
 
-	/// MENU RECT LOCATIONS
+	///MENU RECT LOCATIONS
 	const int ITEM3_X = 828;
 	const int ITEM3AND4_Y = 420;
 	const int ITEM4_X = 1246;
@@ -87,16 +77,17 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	const int ITEM1_Y = 230;
 	const int BEGINBUTTONX = 955;
 	const int BEGINBUTTONY = 615;
-	/// TITLE TEXT
-	std::string titleText1 = "CHARACTERS";
-	std::string titleText2 = "MAGIC ITEMS";
-	std::string titleText3 = "RANDOM ENCOUNTER";
-	std::string titleText4 = "TOOLS";
-	std::string titleText5 = "SAVE & EXPORT";
 
+	///TEXT
+	const std::string titleText1 = "CHARACTERS";
+	const std::string titleText2 = "MAGIC ITEMS";
+	const std::string titleText3 = "RANDOM ENCOUNTER";
+	const std::string titleText4 = "TOOLS";
+	const std::string titleText5 = "SAVE & EXPORT";
 	std::string infoText = "Dungeons and Dragons.  Satan's Game.\n  Your children, like it or not, are attracted in their weaker years to the occult, and a game like D&D fuels their imagination, and makes them feel special while drawing them deeper and deeper into the bowls of el Diablo.  This afternoon, the Dead Alwives Watchtower invites you to obserb the previously unobservable...";
-	SDL_Surface *surfaceMessage;
 
+	///SURFACES FOR TEXT
+	SDL_Surface *surfaceMessage;
 	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText1.c_str(), Orange);
 	SDL_Texture *titleArea1 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText2.c_str(), Orange);
@@ -108,18 +99,19 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText5.c_str(), Orange);
 	SDL_Texture *titleArea5 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
+	///RECTANGLE FOR TEXT
+	SDL_Rect titleRect = {830, 58, 560, 145};
 	//	SDL_Rect titleRect = {830, 65, 550, 115};
 	//	SDL_Rect titleRect = {830, 60, 560, 145};
-	SDL_Rect titleRect = {830, 58, 560, 145};
+
+	/// WRAP INFO AREA TEXT TO INFO AREA SIZE
 	surfaceMessage = TTF_RenderText_Blended_Wrapped(Bookman, infoText.c_str(), Black, 635);
 	SDL_Texture *infoArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-
 	int w,h;
 	w = surfaceMessage->w;
 	h = surfaceMessage->h;
 	SDL_Rect infoSrcRect = {0, 0, w, h};
 	SDL_Rect infoDestRect = {48, 460, w, h};
-
 
 	SDL_FreeSurface(surfaceMessage);
 
