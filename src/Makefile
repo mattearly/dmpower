@@ -42,7 +42,7 @@ scenestack.cpp
 DEL = rm -vf
 
 $(TARGET): $(OBJS)
-	$(CC) $(OBJS) $(SDL2) $(SDL2IMG) $(SDL2TTF) $(CLFAGS) -o ../$@ 
+	$(CC) $(OBJS) $(SDL2) $(SDL2IMG) $(SDL2TTF) $(CFLAGS) -o ../$@ 
 clean:
 	$(DEL) $(OBJS)
 

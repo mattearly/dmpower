@@ -6,19 +6,24 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
 	///LOAD SOME FONTS
-	TTF_Font *Verdana;
-	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
-	if(!Verdana) { printf("TTF_OpenFont Verdana: %s\n", TTF_GetError()); }
+
+	TTF_Font *Leadcoat;
+	Leadcoat=TTF_OpenFont("res/fonts/Leadcoat.ttf", 55);
+	if(!Leadcoat) { printf("TTF_OpenFont Leadcoat: %s\n", TTF_GetError()); }
 	TTF_Font *Bookman;
-	Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 30);
+	Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 31);
 	if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
+	//	TTF_Font *Verdana;
+	//	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
+	//	if(!Verdana) { printf("TTF_OpenFont Verdana: %s\n", TTF_GetError()); }
 	//		 TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
 	//		 TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
 	TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
 	///LOAD SOME COLORS
 	//	SDL_Color Teal = {100, 200, 200, 0};
-	SDL_Color White = {255, 255, 255, 0};
+	//	SDL_Color White = {255, 255, 255, 0};
 	SDL_Color Black = {0,0,0,0};
+	SDL_Color Orange = {255, 135, 35, 0};
 	///SOLID FULL SCREEN SIZED RECTANGLE FOR A BACKDROP
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
@@ -60,7 +65,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	beginButton.setRenderer(renderer);
 	beginButton.load("res/pngs/defaultBeginButton.png");
 	beginButton.setBlendMode(SDL_BLENDMODE_BLEND);
-	beginButton.setAlpha(200);
+	beginButton.setAlpha(220);
 
 	/// MENU RECT LOCATIONS
 	const int ITEM3_X = 828;
@@ -80,22 +85,23 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	std::string titleText4 = "TOOLS";
 	std::string titleText5 = "SAVE & EXPORT";
 
-	std::string infoText = "Lorem ipsum dolor sit amet, vocent aliquid similique et eos. Apeirian disputationi duo ea, nemore pericula an has.";
-    SDL_Surface *surfaceMessage;
+	std::string infoText = "Dungeons and Dragons.  Satan's Game.\n  Your children, like it or not, are attracted in their weaker years to the occult, and a game like D&D fuels their imagination, and makes them feel special while drawing them deeper and deeper into the bowls of el Diablo.  This afternoon, the Dead Alwives Watchtower invites you to obserb the previously unobservable...";
+	SDL_Surface *surfaceMessage;
 
-	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText1.c_str(), White);
+	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText1.c_str(), Orange);
 	SDL_Texture *titleArea1 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText2.c_str(), White);
+	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText2.c_str(), Orange);
 	SDL_Texture *titleArea2 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText3.c_str(), White);
+	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText3.c_str(), Orange);
 	SDL_Texture *titleArea3 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText4.c_str(), White);
+	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText4.c_str(), Orange);
 	SDL_Texture *titleArea4 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	surfaceMessage = TTF_RenderText_Solid(Verdana, titleText5.c_str(), White);
+	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText5.c_str(), Orange);
 	SDL_Texture *titleArea5 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
-	SDL_Rect titleRect = {830, 65, 550, 115};
-
+	//	SDL_Rect titleRect = {830, 65, 550, 115};
+	//	SDL_Rect titleRect = {830, 60, 560, 145};
+	SDL_Rect titleRect = {830, 58, 560, 145};
 	surfaceMessage = TTF_RenderText_Blended_Wrapped(Bookman, infoText.c_str(), Black, 635);
 	SDL_Texture *infoArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
@@ -116,13 +122,12 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 
 	SDL_Event e;
 
-    bool newSceneProcced = false;
+	bool newSceneProcced = false;
 	bool quit = false;
-	while (!quit)
-	{
+	while (!quit) {
 		while (SDL_PollEvent (&e) != 0) {
 			switch (e.type) {
-            case SDL_QUIT:
+			case SDL_QUIT:
 				quit = true;
 				break;
 			case SDL_KEYDOWN:
@@ -137,6 +142,15 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 					//						cursorY += cursorIncrement;
 					//					}
 					break;
+				case SDLK_LEFT:
+					selectedItem = (SelectedItem)CycleRight_5(1, (int)selectedItem);
+					break;
+				case SDLK_RIGHT:
+					selectedItem = (SelectedItem)CycleRight_5(4, (int)selectedItem);
+					break;
+				case SDLK_KP_ENTER:
+				case SDLK_RETURN:
+					newSceneProcced = true;
 				default: break;
 				}
 			case SDL_MOUSEBUTTONDOWN: {
@@ -159,19 +173,19 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 					}
 
 					break;
-                default: break;
-                }
-            case SDL_MOUSEMOTION:
-                mouseLeftX = e.motion.x;
-                mouseLeftY = e.motion.y;
-                if ((mouseLeftX > BEGINBUTTONX && mouseLeftX < BEGINBUTTONX+beginButton.getWidth())\
-                        && (mouseLeftY > BEGINBUTTONY && mouseLeftY < BEGINBUTTONY+beginButton.getWidth())) {
-                    beginButton.setAlpha(255);
-                } else {
-                    beginButton.setAlpha(200);
+				default: break;
+				}
+			case SDL_MOUSEMOTION:
+					mouseLeftX = e.motion.x;
+					mouseLeftY = e.motion.y;
+					if ((mouseLeftX > BEGINBUTTONX && mouseLeftX < BEGINBUTTONX+beginButton.getWidth())\
+							&& (mouseLeftY > BEGINBUTTONY && mouseLeftY < BEGINBUTTONY+beginButton.getWidth())) {
+						beginButton.setAlpha(255);
+					} else {
+						beginButton.setAlpha(220);
 
-                }
-                break;
+					}
+					break;
 				}
 			default: break;
 			}
@@ -183,7 +197,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 
 		infoBackground.draw(48, 460);
 
-		separatorBar.draw(730, 0);
+		separatorBar.draw(718, 0);
 
 		switch (selectedItem) {
 		case CHARACTERS: //0
@@ -192,7 +206,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			titleItem2.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem5.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem1.draw(ITEM1_X, ITEM1_Y);
-            SDL_RenderCopy(renderer, titleArea1, NULL, &titleRect);
+			SDL_RenderCopy(renderer, titleArea1, NULL, &titleRect);
 			break;
 		case MAGIC_ITEMS:  //1
 			titleItem4.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -200,7 +214,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			titleItem3.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem1.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem2.draw(ITEM1_X, ITEM1_Y);
-            SDL_RenderCopy(renderer, titleArea2, NULL, &titleRect);
+			SDL_RenderCopy(renderer, titleArea2, NULL, &titleRect);
 			break;
 		case RANDOM_ENCOUNTER:  //2
 			titleItem5.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -208,7 +222,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			titleItem4.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem2.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem3.draw(ITEM1_X, ITEM1_Y);
-            SDL_RenderCopy(renderer, titleArea3, NULL, &titleRect);
+			SDL_RenderCopy(renderer, titleArea3, NULL, &titleRect);
 			break;
 		case TOOLS:   //3
 			titleItem1.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -216,7 +230,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			titleItem5.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem3.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem4.draw(ITEM1_X, ITEM1_Y);
-            SDL_RenderCopy(renderer, titleArea4, NULL, &titleRect);
+			SDL_RenderCopy(renderer, titleArea4, NULL, &titleRect);
 			break;
 		case SAVE: //4
 			titleItem2.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -224,7 +238,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			titleItem1.draw(ITEM2_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem4.draw(ITEM5_X, ITEM2AND5_Y, nullptr, &subItem);
 			titleItem5.draw(ITEM1_X, ITEM1_Y);
-            SDL_RenderCopy(renderer, titleArea5, NULL, &titleRect);
+			SDL_RenderCopy(renderer, titleArea5, NULL, &titleRect);
 			break;
 		default:
 			printf("ruh roh!  \n");
@@ -235,150 +249,152 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 		graphics_engine.render();
 
 		if (newSceneProcced) {
-            switch (selectedItem) {
-                case CHARACTERS: //0
-                    menuScene1_characters(graphics_engine);
-                    break;
-                case MAGIC_ITEMS:  //1
+			switch (selectedItem) {
+			case CHARACTERS: //0
+				menuScene1_characters(graphics_engine);
+				break;
+			case MAGIC_ITEMS:  //1
 
-                    break;
-                case RANDOM_ENCOUNTER:  //2
+				break;
+			case RANDOM_ENCOUNTER:  //2
 
-                    break;
-                case TOOLS:   //3
+				break;
+			case TOOLS:   //3
 
-                    break;
-                case SAVE: //4
+				break;
+			case SAVE: //4
 
-                    break;
-                default:
-                    printf("How is it possible that NO SCENE PROCCED(from mainscene)?!  CHECK CODE!\n");
-                    break;
-                }
-            newSceneProcced = false;
-        }
+				break;
+			default:
+				printf("How is it possible that NO SCENE PROCCED(from mainscene)?!  CHECK CODE!\n");
+				break;
+			}
+			newSceneProcced = false;
+		}
 	}
 
-	TTF_CloseFont(Verdana);
+	//	TTF_CloseFont(Verdana);
+	TTF_CloseFont(Leadcoat);
 	TTF_CloseFont(Bookman);
 
-	Verdana = NULL;
+	//	Verdana = NULL;
+	Leadcoat = NULL;
 	Bookman = NULL;
 
-//	SDL_FreeSurface(surfaceMessage);
+	//	SDL_FreeSurface(surfaceMessage);
 }
 
 void SceneStack::menuScene1_characters(SDL_graphics &graphics_engine){
-    SDL_Renderer *renderer = graphics_engine.getRenderer();
-    int SCREEN_WIDTH = graphics_engine.getScreenWidth();
-    int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
+	SDL_Renderer *renderer = graphics_engine.getRenderer();
+	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
+	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
 
-    SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
-    Texture button_new;
-    button_new.setRenderer(renderer);
-    button_new.load("res/pngs/characterMenuButton_New.png");
-    button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-    button_new.setAlpha(200);
+	Texture button_new;
+	button_new.setRenderer(renderer);
+	button_new.load("res/pngs/characterMenuButton_New.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
 
-    Texture button_choose;
-    button_choose.setRenderer(renderer);
-    button_choose.load("res/pngs/characterMenuButton_Choose.png");
-    button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-    button_new.setAlpha(200);
+	Texture button_choose;
+	button_choose.setRenderer(renderer);
+	button_choose.load("res/pngs/characterMenuButton_Choose.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
 
-    Texture button_back;
-    button_back.setRenderer(renderer);
-    button_back.load("res/pngs/characterMenuButton_Back.png");
-    button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-    button_new.setAlpha(200);
+	Texture button_back;
+	button_back.setRenderer(renderer);
+	button_back.load("res/pngs/characterMenuButton_Back.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
 
-    Texture character_silhouette;
-    character_silhouette.setRenderer(renderer);
-    character_silhouette.load("res/pngs/dummyChar.png");
+	Texture character_silhouette;
+	character_silhouette.setRenderer(renderer);
+	character_silhouette.load("res/pngs/dummyChar.png");
 
 
-    const int BUTTON_X = 1275;
-    const int BUTTON_Y = 620;
-    const int BUTTON_DY = 55;
+	const int BUTTON_X = 1275;
+	const int BUTTON_Y = 620;
+	const int BUTTON_DY = 55;
 
 	int mouseLeftX, mouseLeftY;
 
 	bool quit = false;
 	SDL_Event e;
 
-    while (!quit) {
-        while (SDL_PollEvent (&e) != 0) {
-            switch (e.type) {
-    			case SDL_QUIT:
-    				quit = true;
-    				break;
-    			case SDL_KEYDOWN:
-    				switch (e.key.keysym.sym) {
-    				    case SDLK_UP:
-    				        break;
-    				    case SDLK_DOWN:
-    				        break;
-    				    case SDLK_LEFT:
-    				        break;
-    				    case SDLK_RIGHT:
-    				        break;
-    				    default: break;
-    				}
-    				break;
-    			case SDL_MOUSEBUTTONDOWN:
-    				switch (e.button.button) {
-                        case SDL_BUTTON_LEFT:
-                            mouseLeftX = e.button.x;
-                            mouseLeftY = e.button.y;
-                            //if
-                            if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
+	while (!quit) {
+		while (SDL_PollEvent (&e) != 0) {
+			switch (e.type) {
+			case SDL_QUIT:
+				quit = true;
+				break;
+			case SDL_KEYDOWN:
+				switch (e.key.keysym.sym) {
+				case SDLK_UP:
+					break;
+				case SDLK_DOWN:
+					break;
+				case SDLK_LEFT:
+					break;
+				case SDLK_RIGHT:
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEBUTTONDOWN:
+				switch (e.button.button) {
+				case SDL_BUTTON_LEFT:
+					mouseLeftX = e.button.x;
+					mouseLeftY = e.button.y;
+					//if
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
 
-                            } else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
-                                //choose button press
-                            } else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
-                                quit = true;
-                            }
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
+						//choose button press
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
+						quit = true;
+					}
 
-                            break;
-                        default: break;
-                    }
-                    break;
-    			case SDL_MOUSEMOTION:
-    				mouseLeftX = e.motion.x;
-    				mouseLeftY = e.motion.y;
-    				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
-                        button_new.setAlpha(255);
-                    } else {
-                        button_new.setAlpha(200);
-                    }
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEMOTION:
+				mouseLeftX = e.motion.x;
+				mouseLeftY = e.motion.y;
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
+					button_new.setAlpha(255);
+				} else {
+					button_new.setAlpha(220);
+				}
 
-                    if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
-                        button_choose.setAlpha(255);
-                    } else {
-                        button_choose.setAlpha(200);
-                    }
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
+					button_choose.setAlpha(255);
+				} else {
+					button_choose.setAlpha(220);
+				}
 
-                    if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
-                        button_back.setAlpha(255);
-                    } else {
-                        button_back.setAlpha(200);
-                    }
-    				break;
-    			default: break;
-            }
-        }
-        graphics_engine.clear();
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
+					button_back.setAlpha(255);
+				} else {
+					button_back.setAlpha(220);
+				}
+				break;
+			default: break;
+			}
+		}
+		graphics_engine.clear();
 
-        SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
-        button_new.draw(BUTTON_X, BUTTON_Y);
-        button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
-        button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-        character_silhouette.draw();
+		button_new.draw(BUTTON_X, BUTTON_Y);
+		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
+		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
+		character_silhouette.draw();
 
-        graphics_engine.render();
-    }
+		graphics_engine.render();
+	}
 }
 
 void SceneStack::menuScene2_magic_items(SDL_graphics &graphics_engine){
@@ -392,51 +408,51 @@ void SceneStack::menuScene5(SDL_graphics &graphics_engine){
 
 ///returns 0-4 as appropriate for our special case cycling menu
 int SceneStack::CycleRight_5(const int &amt, const int &current){
-    switch (amt) {
-    case 1: {
-        switch (current) {
-        case 0: return 1;
-        case 1: return 2;
-        case 2: return 3;
-        case 3: return 4;
-        case 4: return 0;
-        default:break;
-        } break;
-    }
-    case 2:{
-        switch (current) {
-        case 0: return 2;
-        case 1: return 3;
-        case 2: return 4;
-        case 3: return 0;
-        case 4: return 1;
-        default:break;
-        } break;
-    }
-    case 3:{
-        switch (current) {
-        case 0: return 3;
-        case 1: return 4;
-        case 2: return 0;
-        case 3: return 1;
-        case 4: return 2;
-        default:break;
-        } break;
-    }
-    case 4:{
-        switch (current) {
-        case 0: return 4;
-        case 1: return 0;
-        case 2: return 1;
-        case 3: return 2;
-        case 4: return 3;
-        default:break;
-        } break;
-    }
-    default:break;
-    }
-    return 0;
+	switch (amt) {
+	case 1: {
+		switch (current) {
+		case 0: return 1;
+		case 1: return 2;
+		case 2: return 3;
+		case 3: return 4;
+		case 4: return 0;
+		default:break;
+		} break;
+	}
+	case 2:{
+		switch (current) {
+		case 0: return 2;
+		case 1: return 3;
+		case 2: return 4;
+		case 3: return 0;
+		case 4: return 1;
+		default:break;
+		} break;
+	}
+	case 3:{
+		switch (current) {
+		case 0: return 3;
+		case 1: return 4;
+		case 2: return 0;
+		case 3: return 1;
+		case 4: return 2;
+		default:break;
+		} break;
+	}
+	case 4:{
+		switch (current) {
+		case 0: return 4;
+		case 1: return 0;
+		case 2: return 1;
+		case 3: return 2;
+		case 4: return 3;
+		default:break;
+		} break;
+	}
+	default:break;
+	}
+	return 0;
 
-    //or we could do it the obvious fast way but the numbers go to high like that
-    //	return (current + amt);
+	//or we could do it the obvious fast way but the numbers go to high like that
+	//	return (current + amt);
 }
