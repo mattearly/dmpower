@@ -1,6 +1,6 @@
 ![DMPOWER SDL MAIN SCREEN](screenshot.png)  
 
-ALL THE PROGRAM FUNCTIONS CURRENTLY RUN IN TERMINAL (USE THE MASTER BRANCH VERSION) - THIS INTERFACE REWORK ISN'T DONE YET AND WILL BE COMPLETED ASAP BUT AT MY CONVIENCE. I R BUSY.
+ALL THE PROGRAM FUNCTIONS CURRENTLY RUN IN TERMINAL (USE THE STANDARD MASTER BRANCH VERSION).  SDL INTERFACED VERSION EXPECTED RELEASE DATE OF Q4 2017
 
 #### About DMPOWER  
 My original plan was to make a complete program that can keep your tabletop D&D game going and going with very little downtime and prep. _The program I've always wanted but could never find._ 

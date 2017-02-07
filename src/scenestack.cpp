@@ -2,28 +2,37 @@
 
 
 void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
+
+	///INITIAL SCENE SETUP
 	SDL_Renderer *renderer = graphics_engine.getRenderer();
 	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
-	///LOAD SOME FONTS
 
+
+	/// PRELOAD FONTS
 	TTF_Font *Leadcoat;
-	Leadcoat=TTF_OpenFont("res/fonts/Leadcoat.ttf", 55);
+	Leadcoat=TTF_OpenFont("res/fonts/Leadcoat.ttf", 54);
 	if(!Leadcoat) { printf("TTF_OpenFont Leadcoat: %s\n", TTF_GetError()); }
 	TTF_Font *Bookman;
 	Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 31);
 	if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
+
+
 	//	TTF_Font *Verdana;
 	//	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
 	//	if(!Verdana) { printf("TTF_OpenFont Verdana: %s\n", TTF_GetError()); }
-	//		 TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
-	//		 TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
-	TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
+
+	//	TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
+	//	TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
+	//	TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
+	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
+
+
 	///LOAD SOME COLORS
 	//	SDL_Color Teal = {100, 200, 200, 0};
 	//	SDL_Color White = {255, 255, 255, 0};
 	SDL_Color Black = {0,0,0,0};
-	SDL_Color Orange = {255, 135, 35, 0};
+	SDL_Color Orange = {255, 115, 35, 0};
 	///SOLID FULL SCREEN SIZED RECTANGLE FOR A BACKDROP
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
