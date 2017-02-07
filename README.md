@@ -1,4 +1,4 @@
-![DMPOWER SDL MAIN SCREEN](http://imgur.com/cxp57yY)  
+![DMPOWER SDL MAIN SCREEN](screenshot.png)  
 
 #### About DMPOWER  
 My original plan was to make a complete program that can keep your tabletop D&D game going and going with very little downtime and prep. _The program I've always wanted but could never find._ 
