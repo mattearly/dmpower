@@ -1,43 +1,34 @@
-####DMPOWER - A Dungeon Master's helper program for 5th edition Dungeons & Dragons  
-_The program I've always wanted but could never find._  
-The plan is to make a complete program that can keep your tabletop D&D game going and going with very little downtime and prep.  
+![DMPOWER SDL MAIN SCREEN](http://imgur.com/a/KSy2v)  
+
+#### About DMPOWER  
+My original plan was to make a complete program that can keep your tabletop D&D game going and going with very little downtime and prep. _The program I've always wanted but could never find._ 
+
+DMPOWER is designed for Dungeons & Dragons 5th Edition and is best suited for Dungeon Masters (specifically designed for me personally, I'm just building what I would want). Players may also enjoy it for the character building functions.  
   
-### Main Features  
-1. **Player Characters.** Build and Manage Characters. This feature might be useful for Players too.
+### Some of the Main Features  
+1. **Building Player Characters.** Build and Manage Characters. This feature might be useful for Players too.
     * Walk through and answer the prompts to create a full character by the book.  
     * All Classes, Archetype Paths, Races, Feats, Skills, Proficiencies, Backgrounds, and Stats  
         * from the 5e books: Dungeon Master's Guide, Player's Handbook, and Sword Coast Adventurer's Guide.  
     * Level 1-20. Character Editor for leveling up and making changes anytime  
     * Load and Save fully functional for characters.  
-2. **Reward Loot.** Magic Item Roller, Scroll and Spellbook Generators. **In my experience while DMing and planning, I've noticed this is the program's gem.**  
-    * **All** Loot Reward rolling charts from the DMG. Magical items, gems, art, currency.
-        * done by the book's logic - any rolled scrolls are automatically ran through the Random Scroll Generator. **save tons of time**
+2. **Figuring Out Reward Loot.** Magic Item Roller, Scroll and Spellbook Generators. **In my experience while DMing and planning, I've noticed this is the program's gem.**  
+    * All Loot Reward rolling charts from the DMG. Magical items, gems, art, currency.
+        * done by the book's logic - any rolled scrolls are automatically ran through the Random Scroll Generator. **This feature turned out to be quit helpful in my live games as well. Saves tons of time**
     * Spellbook creator that randomizes wizard spells, just tell it how many of each level and it does the rest. Perfect for when a player asks 'What is in this stolen/looted NPC wizard spellbook?'   
     * Random Scroll generator, just tell it what level scroll and it gives a random spell of that level.
-3. **Party Experience Calculator.**  
-	* Total up session or encounter experience and split it with the party. This feature is pretty straightforward and isn't much better than using a calculator at the moment.  
-4. **Name Generator.** 
-    * 7732 names from Kismet's list randomized. Super nice for when the players just keep asking what the NPC's names are that you didn't plan in advance.  
-5. **Insult Generator.**  
-	* For when you just need to piss off the PC's or antagonize them with a baddie. I just threw this in for fun.  
+3. **Additional Tools**  
+    * Party Experience Calculator.  
+	   * Total up session or encounter experience and split it with the party. This feature is pretty straightforward.  
+    * Name Generator.  
+        * 7732 names from Kismet's list randomized. Super nice for when the players just keep asking what the NPC's names are that you didn't plan in advance.  
+    * Insult Generator.  
+	   * For when you just need to piss off the PC's or antagonize them with a baddie. I just threw this in for fun.
+    * And More, I've probably left something out.
 
 #### How do you run this?  
 
-* This runs in terminal currently. There are Several options, you decide on what is easiest for you. Mac won't be much different than linux.  
-
-1. Linux  
-    * launch Terminal  
-    * Clone this repo with ```git clone https://github.com/bytePro17124/DM-Power-Core-Version.git```  
-    * ```cd DM-Power-Core-Version``` to enter the main directory  
-    * ```make```  to compile the program with gcc  
-    * After it compiles, type ```./dmpower``` to run the program.  
-
-2. Windows  
-    * Use Cygwin 64 or 32 bit. When installing Cygwin search 'gcc' and then install all, same with 'git' and same with 'make'  (this will take a while to complete the install)  
-    * Follow same directions as Linux while using Cygwin Terminal  
-
-NOTE: There are probably many other ways to compile this. It is basic C++ code that is using C++11 features.  
-NOTE: This program uses special colored words, which is kinda optional but unfortunantly some terminals don't display these correctly, notably the Visual Studio one.  
+*  You will need linux, c++11, and the SDL2 libraries to compile this. Once you have those, you can clone it, run ````make```` to build it, and then ````./dmpower```` in the terminal to launch the program
 
 #### Problems?
   
@@ -62,6 +53,6 @@ The best way to  help out at this point is to Donate any amount of Mula, even a 
 
 
 #### ToDo
-* Work on display clarity and ease of use (ongoing).
-* Add more tools as needed to keep the game flowing.
-* Add Visuals and Windows (big job)
+* Keep improving interface
+* Word on issue tickets
+* Assess tools and add more or improve current.

@@ -194,9 +194,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		defaultScene.draw(48, 30);
-
 		infoBackground.draw(48, 460);
-
 		separatorBar.draw(718, 0);
 
 		switch (selectedItem) {
@@ -254,16 +252,16 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 				menuScene1_characters(graphics_engine);
 				break;
 			case MAGIC_ITEMS:  //1
-
+				menuScene2_magic_items(graphics_engine);
 				break;
 			case RANDOM_ENCOUNTER:  //2
-
+				menuScene3_encounters(graphics_engine);
 				break;
 			case TOOLS:   //3
-
+				menuScene4_tools(graphics_engine);
 				break;
 			case SAVE: //4
-
+				menuScene5_export(graphics_engine);
 				break;
 			default:
 				printf("How is it possible that NO SCENE PROCCED(from mainscene)?!  CHECK CODE!\n");
@@ -309,9 +307,9 @@ void SceneStack::menuScene1_characters(SDL_graphics &graphics_engine){
 	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_new.setAlpha(220);
 
-	Texture character_silhouette;
-	character_silhouette.setRenderer(renderer);
-	character_silhouette.load("res/pngs/dummyChar.png");
+	//	Texture character_silhouette;
+	//	character_silhouette.setRenderer(renderer);
+	//	character_silhouette.load("res/pngs/dummyChar.png");
 
 
 	const int BUTTON_X = 1275;
@@ -338,6 +336,13 @@ void SceneStack::menuScene1_characters(SDL_graphics &graphics_engine){
 				case SDLK_LEFT:
 					break;
 				case SDLK_RIGHT:
+					break;
+				case SDLK_KP_ENTER:
+				case SDLK_RETURN:
+					//choose button press
+					break;
+				case SDLK_ESCAPE:
+					quit = true;
 					break;
 				default: break;
 				}
@@ -391,19 +396,489 @@ void SceneStack::menuScene1_characters(SDL_graphics &graphics_engine){
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-		character_silhouette.draw();
+		//		character_silhouette.draw();
 
 		graphics_engine.render();
 	}
 }
 
 void SceneStack::menuScene2_magic_items(SDL_graphics &graphics_engine){
+	SDL_Renderer *renderer = graphics_engine.getRenderer();
+	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
+	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
+
+	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+
+	Texture button_new;
+	button_new.setRenderer(renderer);
+	button_new.load("res/pngs/characterMenuButton_New.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	Texture button_choose;
+	button_choose.setRenderer(renderer);
+	button_choose.load("res/pngs/characterMenuButton_Choose.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	Texture button_back;
+	button_back.setRenderer(renderer);
+	button_back.load("res/pngs/characterMenuButton_Back.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	//	Texture character_silhouette;
+	//	character_silhouette.setRenderer(renderer);
+	//	character_silhouette.load("res/pngs/dummyChar.png");
+
+
+	const int BUTTON_X = 1275;
+	const int BUTTON_Y = 620;
+	const int BUTTON_DY = 55;
+
+	int mouseLeftX, mouseLeftY;
+
+	bool quit = false;
+	SDL_Event e;
+
+	while (!quit) {
+		while (SDL_PollEvent (&e) != 0) {
+			switch (e.type) {
+			case SDL_QUIT:
+				quit = true;
+				break;
+			case SDL_KEYDOWN:
+				switch (e.key.keysym.sym) {
+				case SDLK_UP:
+					break;
+				case SDLK_DOWN:
+					break;
+				case SDLK_LEFT:
+					//scroll left through characters
+					break;
+				case SDLK_RIGHT:
+					//scroll right through characters
+					break;
+				case SDLK_KP_ENTER:
+				case SDLK_RETURN:
+					//choose button press
+					break;
+				case SDLK_ESCAPE:
+					quit = true;
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEBUTTONDOWN:
+				switch (e.button.button) {
+				case SDL_BUTTON_LEFT:
+					mouseLeftX = e.button.x;
+					mouseLeftY = e.button.y;
+					//if
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
+
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
+						//choose button press
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
+						quit = true;
+					}
+
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEMOTION:
+				mouseLeftX = e.motion.x;
+				mouseLeftY = e.motion.y;
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
+					button_new.setAlpha(255);
+				} else {
+					button_new.setAlpha(220);
+				}
+
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
+					button_choose.setAlpha(255);
+				} else {
+					button_choose.setAlpha(220);
+				}
+
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
+					button_back.setAlpha(255);
+				} else {
+					button_back.setAlpha(220);
+				}
+				break;
+			default: break;
+			}
+		}
+		graphics_engine.clear();
+
+		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+
+		button_new.draw(BUTTON_X, BUTTON_Y);
+		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
+		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
+		//		character_silhouette.draw();
+
+		graphics_engine.render();
+	}
 }
-void SceneStack::menuScene3_(SDL_graphics &graphics_engine){
+void SceneStack::menuScene3_encounters(SDL_graphics &graphics_engine){
+	SDL_Renderer *renderer = graphics_engine.getRenderer();
+	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
+	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
+
+	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+
+	Texture button_new;
+	button_new.setRenderer(renderer);
+	button_new.load("res/pngs/characterMenuButton_New.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	Texture button_choose;
+	button_choose.setRenderer(renderer);
+	button_choose.load("res/pngs/characterMenuButton_Choose.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	Texture button_back;
+	button_back.setRenderer(renderer);
+	button_back.load("res/pngs/characterMenuButton_Back.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	//	Texture character_silhouette;
+	//	character_silhouette.setRenderer(renderer);
+	//	character_silhouette.load("res/pngs/dummyChar.png");
+
+
+	const int BUTTON_X = 1275;
+	const int BUTTON_Y = 620;
+	const int BUTTON_DY = 55;
+
+	int mouseLeftX, mouseLeftY;
+
+	bool quit = false;
+	SDL_Event e;
+
+	while (!quit) {
+		while (SDL_PollEvent (&e) != 0) {
+			switch (e.type) {
+			case SDL_QUIT:
+				quit = true;
+				break;
+			case SDL_KEYDOWN:
+				switch (e.key.keysym.sym) {
+				case SDLK_UP:
+					break;
+				case SDLK_DOWN:
+					break;
+				case SDLK_LEFT:
+					break;
+				case SDLK_RIGHT:
+					break;
+				case SDLK_KP_ENTER:
+				case SDLK_RETURN:
+					//choose button press
+					break;
+				case SDLK_ESCAPE:
+					quit = true;
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEBUTTONDOWN:
+				switch (e.button.button) {
+				case SDL_BUTTON_LEFT:
+					mouseLeftX = e.button.x;
+					mouseLeftY = e.button.y;
+					//if
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
+
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
+						//choose button press
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
+						quit = true;
+					}
+
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEMOTION:
+				mouseLeftX = e.motion.x;
+				mouseLeftY = e.motion.y;
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
+					button_new.setAlpha(255);
+				} else {
+					button_new.setAlpha(220);
+				}
+
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
+					button_choose.setAlpha(255);
+				} else {
+					button_choose.setAlpha(220);
+				}
+
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
+					button_back.setAlpha(255);
+				} else {
+					button_back.setAlpha(220);
+				}
+				break;
+			default: break;
+			}
+		}
+		graphics_engine.clear();
+
+		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+
+		button_new.draw(BUTTON_X, BUTTON_Y);
+		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
+		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
+		//		character_silhouette.draw();
+
+		graphics_engine.render();
+	}
 }
-void SceneStack::menuScene4(SDL_graphics &graphics_engine){
+void SceneStack::menuScene4_tools(SDL_graphics &graphics_engine){
+	SDL_Renderer *renderer = graphics_engine.getRenderer();
+	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
+	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
+
+	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+
+	Texture button_new;
+	button_new.setRenderer(renderer);
+	button_new.load("res/pngs/characterMenuButton_New.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	Texture button_choose;
+	button_choose.setRenderer(renderer);
+	button_choose.load("res/pngs/characterMenuButton_Choose.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	Texture button_back;
+	button_back.setRenderer(renderer);
+	button_back.load("res/pngs/characterMenuButton_Back.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	//	Texture character_silhouette;
+	//	character_silhouette.setRenderer(renderer);
+	//	character_silhouette.load("res/pngs/dummyChar.png");
+
+
+	const int BUTTON_X = 1275;
+	const int BUTTON_Y = 620;
+	const int BUTTON_DY = 55;
+
+	int mouseLeftX, mouseLeftY;
+
+	bool quit = false;
+	SDL_Event e;
+
+	while (!quit) {
+		while (SDL_PollEvent (&e) != 0) {
+			switch (e.type) {
+			case SDL_QUIT:
+				quit = true;
+				break;
+			case SDL_KEYDOWN:
+				switch (e.key.keysym.sym) {
+				case SDLK_UP:
+					break;
+				case SDLK_DOWN:
+					break;
+				case SDLK_LEFT:
+					break;
+				case SDLK_RIGHT:
+					break;
+				case SDLK_KP_ENTER:
+				case SDLK_RETURN:
+					//choose button press
+					break;
+				case SDLK_ESCAPE:
+					quit = true;
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEBUTTONDOWN:
+				switch (e.button.button) {
+				case SDL_BUTTON_LEFT:
+					mouseLeftX = e.button.x;
+					mouseLeftY = e.button.y;
+					//if
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
+
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
+						//choose button press
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
+						quit = true;
+					}
+
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEMOTION:
+				mouseLeftX = e.motion.x;
+				mouseLeftY = e.motion.y;
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
+					button_new.setAlpha(255);
+				} else {
+					button_new.setAlpha(220);
+				}
+
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
+					button_choose.setAlpha(255);
+				} else {
+					button_choose.setAlpha(220);
+				}
+
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
+					button_back.setAlpha(255);
+				} else {
+					button_back.setAlpha(220);
+				}
+				break;
+			default: break;
+			}
+		}
+		graphics_engine.clear();
+
+		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+
+		button_new.draw(BUTTON_X, BUTTON_Y);
+		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
+		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
+		//		character_silhouette.draw();
+
+		graphics_engine.render();
+	}
 }
-void SceneStack::menuScene5(SDL_graphics &graphics_engine){
+void SceneStack::menuScene5_export(SDL_graphics &graphics_engine){
+	SDL_Renderer *renderer = graphics_engine.getRenderer();
+	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
+	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
+
+	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+
+	Texture button_new;
+	button_new.setRenderer(renderer);
+	button_new.load("res/pngs/characterMenuButton_New.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	Texture button_choose;
+	button_choose.setRenderer(renderer);
+	button_choose.load("res/pngs/characterMenuButton_Choose.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	Texture button_back;
+	button_back.setRenderer(renderer);
+	button_back.load("res/pngs/characterMenuButton_Back.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	//	Texture character_silhouette;
+	//	character_silhouette.setRenderer(renderer);
+	//	character_silhouette.load("res/pngs/dummyChar.png");
+
+
+	const int BUTTON_X = 1275;
+	const int BUTTON_Y = 620;
+	const int BUTTON_DY = 55;
+
+	int mouseLeftX, mouseLeftY;
+
+	bool quit = false;
+	SDL_Event e;
+
+	while (!quit) {
+		while (SDL_PollEvent (&e) != 0) {
+			switch (e.type) {
+			case SDL_QUIT:
+				quit = true;
+				break;
+			case SDL_KEYDOWN:
+				switch (e.key.keysym.sym) {
+				case SDLK_UP:
+					break;
+				case SDLK_DOWN:
+					break;
+				case SDLK_LEFT:
+					break;
+				case SDLK_RIGHT:
+					break;
+				case SDLK_KP_ENTER:
+				case SDLK_RETURN:
+					//choose button press
+					break;
+				case SDLK_ESCAPE:
+					quit = true;
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEBUTTONDOWN:
+				switch (e.button.button) {
+				case SDL_BUTTON_LEFT:
+					mouseLeftX = e.button.x;
+					mouseLeftY = e.button.y;
+					//if
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
+
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
+						//choose button press
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
+						quit = true;
+					}
+
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEMOTION:
+				mouseLeftX = e.motion.x;
+				mouseLeftY = e.motion.y;
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
+					button_new.setAlpha(255);
+				} else {
+					button_new.setAlpha(220);
+				}
+
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
+					button_choose.setAlpha(255);
+				} else {
+					button_choose.setAlpha(220);
+				}
+
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
+					button_back.setAlpha(255);
+				} else {
+					button_back.setAlpha(220);
+				}
+				break;
+			default: break;
+			}
+		}
+		graphics_engine.clear();
+
+		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+
+		button_new.draw(BUTTON_X, BUTTON_Y);
+		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
+		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
+		//		character_silhouette.draw();
+
+		graphics_engine.render();
+	}
 }
 
 ///returns 0-4 as appropriate for our special case cycling menu

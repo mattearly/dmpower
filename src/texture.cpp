@@ -80,12 +80,12 @@ bool Texture::loadFromText(TTF_Font *font, std::string text, SDL_Color text_colo
 void Texture::draw(int x, int y, SDL_Rect *src_clip, SDL_Rect *dst_rect, double angle, SDL_Point *center, SDL_RendererFlip render_flip)
 {
 
-///  Original Function
-//	SDL_Rect renderQ = {x, y, width, height};
-//	if (dst_rect != nullptr) {
-//		renderQ.w = rect_clip->w;
-//		renderQ.h = rect_clip->h;
-//	}
+	///  Original Function
+	//	SDL_Rect renderQ = {x, y, width, height};
+	//	if (dst_rect != nullptr) {
+	//		renderQ.w = rect_clip->w;
+	//		renderQ.h = rect_clip->h;
+	//	}
 
 	SDL_Rect srcClip = {0, 0, width, height};
 	if (src_clip != nullptr) {
@@ -116,19 +116,19 @@ void Texture::draw(int x, int y, float scale_percent, SDL_Rect *src_clip, SDL_Re
 	}
 
 
-    float offsetW = width*scale_percent;
-    float offsetH = height*scale_percent;
+	float offsetW = width*scale_percent;
+	float offsetH = height*scale_percent;
 
 	SDL_Rect renderQuad = {x, y, int(offsetW+0.5), int(offsetH+0.5)};
 
-    renderQuad.x = x + (1-scale_percent) * renderQuad.w;
-    renderQuad.y = y + (1-scale_percent) * renderQuad.h;
+	renderQuad.x = x + (1-scale_percent) * renderQuad.w;
+	renderQuad.y = y + (1-scale_percent) * renderQuad.h;
 
 	if (dst_rect != nullptr) {
 		renderQuad.w = dst_rect->w;
 		renderQuad.h = dst_rect->h;
 
-    }
+	}
 
 
 	SDL_RenderCopyEx(SDLrenderer, SDLtex, &srcClip, &renderQuad, angle, center, render_flip);
