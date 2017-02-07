@@ -1,5 +1,7 @@
 ![DMPOWER SDL MAIN SCREEN](screenshot.png)  
 
+ALL THE PROGRAM FUNCTIONS CURRENT RUN IN TERMINAL - THIS INTERFACE REWORK ISN'T DONE YET AND WILL BE COMPLETED ASAP BUT AT MY CONVIENCE. I R BUSY.
+
 #### About DMPOWER  
 My original plan was to make a complete program that can keep your tabletop D&D game going and going with very little downtime and prep. _The program I've always wanted but could never find._ 
 
