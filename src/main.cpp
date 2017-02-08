@@ -30,7 +30,19 @@ int main(void)
 
 	SceneStack runInstance;
 
+	Mix_Music *themeMusic = NULL;
+	themeMusic = Mix_LoadMUS("res/sound/theme.wav");
+	if (themeMusic == NULL ) {
+		printf("Failed to load theme music! SDL_mixer Error: %s\n", Mix_GetError());
+	}
+	Mix_PlayMusic( themeMusic, -1 );
+
 	runInstance.mainscreen(graphics_engine);
+
+	Mix_HaltMusic();
+	Mix_FreeMusic(themeMusic);
+	themeMusic = NULL;
+
 
 
 	/// ORIGINAL TERMINAL CODE

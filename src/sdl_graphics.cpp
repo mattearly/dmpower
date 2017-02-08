@@ -14,7 +14,7 @@ ____________________________________________________________________________
 
 bool SDL_graphics::init()
 {
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
 	{
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		return false;
@@ -24,7 +24,8 @@ bool SDL_graphics::init()
 			printf("Warning: Linear texture filtering not enabled!");
 		}
 
-		mainWindow = SDL_CreateWindow("DMPOWER", SDL_WINDOWPOS_UNDEFINED,
+		mainWindow = SDL_CreateWindow("DungeonMasterPower (D&D 5e)",
+									  SDL_WINDOWPOS_UNDEFINED,
 									  SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
 									  SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
@@ -36,26 +37,23 @@ bool SDL_graphics::init()
 		else
 		{
 			mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-			if (mainRenderer == NULL)
-			{
+			if (mainRenderer == NULL) {
 				printf("SDL Failed to Create Renderer! ERROR: %s. \n", SDL_GetError());
 				return false;
-			}
-			else
-			{
+			} else {
 				SDL_SetRenderDrawColor(mainRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
-
 				int imgFlags = IMG_INIT_PNG;
-				if (!(IMG_Init(imgFlags) & imgFlags))
-				{
+				if (!(IMG_Init(imgFlags) & imgFlags)) {
 					printf("SDL_image could not initialize! SDL_image Error %s\n",
 						   IMG_GetError());
 					return false;
 				}
-
-				if (TTF_Init() == -1)
-				{
+				if (TTF_Init() == -1) {
 					printf("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
+					return false;
+				}
+				if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 ) {
+					printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
 					return false;
 				}
 			}
@@ -77,6 +75,7 @@ SDL_graphics::~SDL_graphics(void)
 	SDL_DestroyWindow(mainWindow);
 	mainWindow = NULL;
 
+	Mix_Quit();
 	IMG_Quit();
 	TTF_Quit();
 	SDL_Quit();

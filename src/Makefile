@@ -42,7 +42,8 @@ scenestack.cpp
 DEL = rm -vf
 
 $(TARGET): $(OBJS)
-	$(CC) $(OBJS) $(SDL2) $(SDL2IMG) $(SDL2TTF) $(CFLAGS) -o ../$@ 
+	$(CC) $(OBJS) $(SDL2) $(SDL2IMG) $(SDL2TTF) $(SDL2AUDIO) $(CFLAGS) -o ../$@
+
 clean:
 	$(DEL) $(OBJS)
 
@@ -50,7 +51,7 @@ clean:
 # all in one macro
 
 .cpp.o:
-	$(CC) $< $(SINGLE_CFLAGS) $(SDL)  -o $@
+	$(CC) $< $(SINGLE_CFLAGS) -o $@
 
 # main.o: main.cpp
 # 	$(CC) $(SOCFLAGS) main.cpp -o $@
