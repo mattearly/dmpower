@@ -143,12 +143,15 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 					//						cursorY += cursorIncrement;
 					//					}
 					break;
+				case SDLK_a:
 				case SDLK_LEFT:
 					selectedItem = (SelectedItem)CycleRight_5(1, (int)selectedItem);
 					break;
+				case SDLK_d:
 				case SDLK_RIGHT:
 					selectedItem = (SelectedItem)CycleRight_5(4, (int)selectedItem);
 					break;
+				case SDLK_e:
 				case SDLK_KP_ENTER:
 				case SDLK_RETURN:
 					newSceneProcced = true;
@@ -342,6 +345,7 @@ void SceneStack::menuScene1_characters(SDL_graphics &graphics_engine){
 				case SDLK_RETURN:
 					//choose button press
 					break;
+				case SDLK_q:
 				case SDLK_ESCAPE:
 					quit = true;
 					break;
@@ -464,6 +468,7 @@ void SceneStack::menuScene2_magic_items(SDL_graphics &graphics_engine){
 				case SDLK_RETURN:
 					//choose button press
 					break;
+				case SDLK_q:
 				case SDLK_ESCAPE:
 					quit = true;
 					break;
@@ -583,6 +588,7 @@ void SceneStack::menuScene3_encounters(SDL_graphics &graphics_engine){
 				case SDLK_RETURN:
 					//choose button press
 					break;
+				case SDLK_q:
 				case SDLK_ESCAPE:
 					quit = true;
 					break;
@@ -702,6 +708,7 @@ void SceneStack::menuScene4_tools(SDL_graphics &graphics_engine){
 				case SDLK_RETURN:
 					//choose button press
 					break;
+				case SDLK_q:
 				case SDLK_ESCAPE:
 					quit = true;
 					break;
@@ -791,7 +798,6 @@ void SceneStack::menuScene5_export(SDL_graphics &graphics_engine){
 	//	character_silhouette.setRenderer(renderer);
 	//	character_silhouette.load("res/pngs/dummyChar.png");
 
-
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
 	const int BUTTON_DY = 55;
@@ -821,6 +827,7 @@ void SceneStack::menuScene5_export(SDL_graphics &graphics_engine){
 				case SDLK_RETURN:
 					//choose button press
 					break;
+				case SDLK_q:
 				case SDLK_ESCAPE:
 					quit = true;
 					break;
