@@ -49,20 +49,20 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	titleItem1.load("res/pngs/charactersMenu.png");
 	Texture titleItem2;
 	titleItem2.setRenderer(renderer);
-	titleItem2.load("res/pngs/defaultItem2.png");
+	titleItem2.load("res/pngs/magicitemsMenu.png");
 	Texture titleItem3;
 	titleItem3.setRenderer(renderer);
-	titleItem3.load("res/pngs/defaultItem3.png");
+	titleItem3.load("res/pngs/randomencounterMenu.png");
 	Texture titleItem4;
 	titleItem4.setRenderer(renderer);
-	titleItem4.load("res/pngs/defaultItem4.png");
+	titleItem4.load("res/pngs/toolsMenu.png");
 	Texture titleItem5;
 	titleItem5.setRenderer(renderer);
-	titleItem5.load("res/pngs/defaultItem5.png");
+	titleItem5.load("res/pngs/saveMenu.png");
 	SDL_Rect subItem = {0,0,144,90};
 	Texture beginButton;
 	beginButton.setRenderer(renderer);
-	beginButton.load("res/pngs/defaultBeginButton.png");
+	beginButton.load("res/pngs/defBeginButton.png");
 	beginButton.setBlendMode(SDL_BLENDMODE_BLEND);
 	beginButton.setAlpha(220);
 
@@ -81,7 +81,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	///TEXT
 	const std::string titleText1 = "CHARACTERS";
 	const std::string titleText2 = "MAGIC ITEMS";
-	const std::string titleText3 = "RANDOM ENCOUNTER";
+	const std::string titleText3 = "RANDOM ENCOUNTERS";
 	const std::string titleText4 = "TOOLS";
 	const std::string titleText5 = "SAVE & EXPORT";
 	std::string infoText = "Dungeons and Dragons.  Satan's Game.\n  Your children, like it or not, are attracted in their weaker years to the occult, and a game like D&D fuels their imagination, and makes them feel special while drawing them deeper and deeper into the bowls of el Diablo.  This afternoon, the Dead Alwives Watchtower invites you to obserb the previously unobservable...";
