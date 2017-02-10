@@ -37,7 +37,6 @@ std::string Encounter::Gen_Encounter() {
 }
 
 void Encounter::set_party_level() {
-
 	ave_lvl = 0;
 	int tmp(0);
 	cout << "total # of party members (1 to 10): ";

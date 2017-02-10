@@ -9,7 +9,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
 
 	///FONTS
-	TTF_Font *Leadcoat;
+	TTF_Font *Leadcoat;    //MOVED TO SCENCESTACK PRIVATE AND INITILIZED IN CONSTRUCTOR
 	Leadcoat=TTF_OpenFont("res/fonts/Leadcoat.ttf", 54);
 	if(!Leadcoat) { printf("TTF_OpenFont Leadcoat: %s\n", TTF_GetError()); }
 	TTF_Font *Bookman;
@@ -24,12 +24,6 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	//	TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
 	//	TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
 	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
-
-	///COLORS
-	SDL_Color Black = {0,0,0,0};
-	SDL_Color Orange = {255, 115, 35, 0};
-	//	SDL_Color Teal = {100, 200, 200, 0};
-	//	SDL_Color White = {255, 255, 255, 0};
 
 	///RECTANGULUR BACKDROP
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
@@ -253,7 +247,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 		if (newSceneProcced) {
 			switch (selectedItem) {
 			case CHARACTERS: //0
-				menuScene1_characters(graphics_engine);
+				charactersMenu_main(graphics_engine);
 				break;
 			case MAGIC_ITEMS:  //1
 				menuScene2_magic_items(graphics_engine);
@@ -274,19 +268,14 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			newSceneProcced = false;
 		}
 	}
-
 	//	TTF_CloseFont(Verdana);
-	TTF_CloseFont(Leadcoat);
 	TTF_CloseFont(Bookman);
-
 	//	Verdana = NULL;
-	Leadcoat = NULL;
 	Bookman = NULL;
-
 	//	SDL_FreeSurface(surfaceMessage);
 }
 
-void SceneStack::menuScene1_characters(SDL_graphics &graphics_engine){
+void SceneStack::charactersMenu_main(SDL_graphics &graphics_engine){
 	SDL_Renderer *renderer = graphics_engine.getRenderer();
 	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
 	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
@@ -302,23 +291,25 @@ void SceneStack::menuScene1_characters(SDL_graphics &graphics_engine){
 	Texture button_choose;
 	button_choose.setRenderer(renderer);
 	button_choose.load("res/pngs/characterMenuButton_Choose.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
+	button_choose.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_choose.setAlpha(220);
 
 	Texture button_back;
 	button_back.setRenderer(renderer);
 	button_back.load("res/pngs/characterMenuButton_Back.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
+	button_back.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_back.setAlpha(220);
 
-	//	Texture character_silhouette;
-	//	character_silhouette.setRenderer(renderer);
-	//	character_silhouette.load("res/pngs/dummyChar.png");
+	Texture fade_background;
+	fade_background.setRenderer(renderer);
+	fade_background.load("res/pngs/redfadeBackground.png");
 
 
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
 	const int BUTTON_DY = 55;
+	const int characterMenuButtonWidth = button_new.getWidth();
+	const int characterMenuButtonHeight = button_new.getHeight();
 
 	int mouseLeftX, mouseLeftY;
 
@@ -358,14 +349,14 @@ void SceneStack::menuScene1_characters(SDL_graphics &graphics_engine){
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
 					//if
-					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
-
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+characterMenuButtonWidth) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+characterMenuButtonHeight)) {
+						newSceneProcced = true;
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+characterMenuButtonWidth) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+characterMenuButtonHeight)){
 						//choose button press
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+characterMenuButtonWidth) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+characterMenuButtonHeight)) {
+						//back button press
 						quit = true;
 					}
-
 					break;
 				default: break;
 				}
@@ -394,18 +385,123 @@ void SceneStack::menuScene1_characters(SDL_graphics &graphics_engine){
 			default: break;
 			}
 		}
+
 		graphics_engine.clear();
 
 		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+		fade_background.draw();
 
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-		//		character_silhouette.draw();
 
 		graphics_engine.render();
 	}
 }
+
+
+void SceneStack::charactersMenu_new1(SDL_graphics &graphics_engine) {
+	SDL_Renderer *renderer = graphics_engine.getRenderer();
+	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
+	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
+
+	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+
+	TTF_Font *Leadcoat;    //MOVED TO SCENCESTACK PRIVATE AND INITILIZED IN CONSTRUCTOR
+	Leadcoat=TTF_OpenFont("res/fonts/Leadcoat.ttf", 54);
+	if(!Leadcoat) { printf("TTF_OpenFont Leadcoat: %s\n", TTF_GetError()); }
+
+	const std::string newCharacterText = "CREATE NEW CHARACTER";
+
+	int mouseLeftX, mouseLeftY;
+
+	bool quit = false;
+	SDL_Event e;
+	bool createNewCharacter = false;
+
+	while (!quit) {
+		while (SDL_PollEvent (&e) != 0) {
+			switch (e.type) {
+			case SDL_QUIT:
+				quit = true;
+				break;
+			case SDL_KEYDOWN:
+				switch (e.key.keysym.sym) {
+				case SDLK_UP:
+					break;
+				case SDLK_DOWN:
+					break;
+				case SDLK_LEFT:
+					break;
+				case SDLK_RIGHT:
+					break;
+				case SDLK_KP_ENTER:
+				case SDLK_RETURN:
+					//choose button press
+					break;
+				case SDLK_q:
+				case SDLK_ESCAPE:
+					quit = true;
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEBUTTONDOWN:
+				switch (e.button.button) {
+				case SDL_BUTTON_LEFT:
+					mouseLeftX = e.button.x;
+					mouseLeftY = e.button.y;
+					//					if () {
+					//next button
+					//					} else if (){
+					//back button
+					//					}
+					break;
+				default: break;
+				}
+				break;
+			case SDL_MOUSEMOTION:
+				mouseLeftX = e.motion.x;
+				mouseLeftY = e.motion.y;
+				//				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
+				//					button_new.setAlpha(255);
+				//				} else {
+				//					button_new.setAlpha(220);
+				//				}
+
+				//				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
+				//					button_choose.setAlpha(255);
+				//				} else {
+				//					button_choose.setAlpha(220);
+				//				}
+
+				//				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
+				//					button_back.setAlpha(255);
+				//				} else {
+				//					button_back.setAlpha(220);
+				//				}
+				break;
+			default: break;
+			}
+		}
+		graphics_engine.clear();
+
+		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+
+		graphics_engine.render();
+	}
+}
+
+
+void SceneStack::charactersMenu_new2(SDL_graphics &graphics_engine) {
+	SDL_Renderer *renderer = graphics_engine.getRenderer();
+	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
+	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
+
+	const std::string newCharacterText = "SET DETAILS";
+
+}
+
 
 void SceneStack::menuScene2_magic_items(SDL_graphics &graphics_engine){
 	SDL_Renderer *renderer = graphics_engine.getRenderer();
@@ -432,10 +528,9 @@ void SceneStack::menuScene2_magic_items(SDL_graphics &graphics_engine){
 	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_new.setAlpha(220);
 
-	//	Texture character_silhouette;
-	//	character_silhouette.setRenderer(renderer);
-	//	character_silhouette.load("res/pngs/dummyChar.png");
-
+	//	Texture fade_background;
+	//	fade_background.setRenderer(renderer);
+	//	fade_background.load("res/pngs/dummyChar.png");
 
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
@@ -488,7 +583,6 @@ void SceneStack::menuScene2_magic_items(SDL_graphics &graphics_engine){
 					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
 						quit = true;
 					}
-
 					break;
 				default: break;
 				}
@@ -524,7 +618,7 @@ void SceneStack::menuScene2_magic_items(SDL_graphics &graphics_engine){
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-		//		character_silhouette.draw();
+		//fade_background.draw();
 
 		graphics_engine.render();
 	}
@@ -554,10 +648,9 @@ void SceneStack::menuScene3_encounters(SDL_graphics &graphics_engine){
 	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_new.setAlpha(220);
 
-	//	Texture character_silhouette;
-	//	character_silhouette.setRenderer(renderer);
-	//	character_silhouette.load("res/pngs/dummyChar.png");
-
+	//	Texture fade_background;
+	//	fade_background.setRenderer(renderer);
+	//	fade_background.load("res/pngs/dummyChar.png");
 
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
@@ -644,7 +737,7 @@ void SceneStack::menuScene3_encounters(SDL_graphics &graphics_engine){
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-		//		character_silhouette.draw();
+		//		fade_background.draw();
 
 		graphics_engine.render();
 	}
@@ -674,9 +767,9 @@ void SceneStack::menuScene4_tools(SDL_graphics &graphics_engine){
 	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_new.setAlpha(220);
 
-	//	Texture character_silhouette;
-	//	character_silhouette.setRenderer(renderer);
-	//	character_silhouette.load("res/pngs/dummyChar.png");
+	//	Texture fade_background;
+	//	fade_background.setRenderer(renderer);
+	//	fade_background.load("res/pngs/dummyChar.png");
 
 
 	const int BUTTON_X = 1275;
@@ -764,7 +857,7 @@ void SceneStack::menuScene4_tools(SDL_graphics &graphics_engine){
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-		//		character_silhouette.draw();
+		//		fade_background.draw();
 
 		graphics_engine.render();
 	}
@@ -794,9 +887,9 @@ void SceneStack::menuScene5_export(SDL_graphics &graphics_engine){
 	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_new.setAlpha(220);
 
-	//	Texture character_silhouette;
-	//	character_silhouette.setRenderer(renderer);
-	//	character_silhouette.load("res/pngs/dummyChar.png");
+	//	Texture fade_background;
+	//	fade_background.setRenderer(renderer);
+	//	fade_background.load("res/pngs/dummyChar.png");
 
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
@@ -883,7 +976,7 @@ void SceneStack::menuScene5_export(SDL_graphics &graphics_engine){
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-		//		character_silhouette.draw();
+		//		fade_background.draw();
 
 		graphics_engine.render();
 	}
