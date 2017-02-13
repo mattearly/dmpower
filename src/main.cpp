@@ -45,6 +45,12 @@ int main(void)
 
 
 
+	/// LEAVE!
+	return EXIT_SUCCESS;
+
+
+
+
 	/// ORIGINAL TERMINAL CODE
 	bool loadSuccess = 0;
 	string loadedFile = "";

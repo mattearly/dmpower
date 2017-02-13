@@ -2,26 +2,6 @@
 
 
 void SceneStack::mainscreen() {
-	/* Scene Preload */
-	TTF_Font *Leadcoat;
-	Leadcoat=TTF_OpenFont("res/fonts/Leadcoat.ttf", 54);
-	if(!Leadcoat) { printf("TTF_OpenFont Leadcoat: %s\n", TTF_GetError()); }
-	TTF_Font *Bookman;
-	Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 31);
-	if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
-	//	TTF_Font *Verdana;
-	//	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
-	//	if(!Verdana) { printf("TTF_OpenFont Verdana: %s\n", TTF_GetError()); }
-
-	///ADJUST FONT HINTING
-	//	TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
-	//	TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
-	//	TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
-	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
-
-	///RECTANGULUR BACKDROP
-	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
-
 	///IMAGERY
 	Texture defaultScene;
 	defaultScene.setRenderer(renderer);
@@ -53,7 +33,6 @@ void SceneStack::mainscreen() {
 	beginButton.load("res/pngs/defBeginButton.png");
 	beginButton.setBlendMode(SDL_BLENDMODE_BLEND);
 	beginButton.setAlpha(220);
-
 	///MENU RECT LOCATIONS
 	const int ITEM3_X = 828;
 	const int ITEM3AND4_Y = 420;
@@ -65,7 +44,6 @@ void SceneStack::mainscreen() {
 	const int ITEM1_Y = 230;
 	const int BEGINBUTTONX = 955;
 	const int BEGINBUTTONY = 615;
-
 	///TEXT
 	const std::string titleText1 = "CHARACTERS";
 	const std::string titleText2 = "MAGIC ITEMS";
@@ -73,7 +51,6 @@ void SceneStack::mainscreen() {
 	const std::string titleText4 = "TOOLS";
 	const std::string titleText5 = "SAVE & EXPORT";
 	std::string infoText = "Dungeons and Dragons.  Satan's Game.\n  Your children, like it or not, are attracted in their weaker years to the occult, and a game like D&D fuels their imagination, and makes them feel special while drawing them deeper and deeper into the bowels of el Diablo.  This afternoon, the Dead Alwives Watchtower invites you to obserb the previously unobservable...";
-
 	///SURFACES FOR TEXT
 	SDL_Surface *surfaceMessage;
 	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText1.c_str(), Orange);
@@ -86,12 +63,8 @@ void SceneStack::mainscreen() {
 	SDL_Texture *titleArea4 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText5.c_str(), Orange);
 	SDL_Texture *titleArea5 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-
 	///RECTANGLE FOR TEXT
 	SDL_Rect titleRect = {830, 58, 560, 145};
-	//	SDL_Rect titleRect = {830, 65, 550, 115};
-	//	SDL_Rect titleRect = {830, 60, 560, 145};
-
 	/// WRAP INFO AREA TEXT TO INFO AREA SIZE
 	surfaceMessage = TTF_RenderText_Blended_Wrapped(Bookman, infoText.c_str(), Black, 635);
 	SDL_Texture *infoArea = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
@@ -100,18 +73,16 @@ void SceneStack::mainscreen() {
 	h = surfaceMessage->h;
 	SDL_Rect infoSrcRect = {0, 0, w, h};
 	SDL_Rect infoDestRect = {48, 460, w, h};
-
+	///DONE WITH surfaceMessage
 	SDL_FreeSurface(surfaceMessage);
-
-	/// CURRENTLY SELECTED MENU ITEM
+	/// FOR CURRENTLY SELECTED MENU ITEM
 	enum SelectedItem { CHARACTERS = 0, MAGIC_ITEMS, RANDOM_ENCOUNTER, TOOLS, SAVE };
 	SelectedItem selectedItem = CHARACTERS;
-
+	/// HOLD MOUSE MOVEMENTS VAR
 	int mouseLeftX, mouseLeftY;
-
+	/// FOR KEYBOARD AND MOUSE EVENTS
 	SDL_Event e;
-
-	bool newSceneProcced = false;
+	/// THE MAIN SCENE LOOP BEGINS HERE UNTIL QUIT
 	bool quit = false;
 	while (!quit) {
 		while (SDL_PollEvent (&e) != 0) {
@@ -122,26 +93,25 @@ void SceneStack::mainscreen() {
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym) {
 				case SDLK_UP:
-					//					if (cursorY > 265) {
-					//						cursorY -= cursorIncrement;
-					//					}
+					// UP KEY PRESSED
 					break;
 				case SDLK_DOWN:
-					//					if (cursorY < 685) {
-					//						cursorY += cursorIncrement;
-					//					}
+					// DOWN KEY PRESSED
 					break;
 				case SDLK_a:
 				case SDLK_LEFT:
+					// LEFT KEY OR 'a' PRESSED
 					selectedItem = (SelectedItem)CycleRight_5(1, (int)selectedItem);
 					break;
 				case SDLK_d:
 				case SDLK_RIGHT:
+					// RIGHT KEY OR 'd' PRESSED
 					selectedItem = (SelectedItem)CycleRight_5(4, (int)selectedItem);
 					break;
 				case SDLK_e:
 				case SDLK_KP_ENTER:
 				case SDLK_RETURN:
+					// ENTER, RETURN, OR 'e' PRESSSED
 					newSceneProcced = true;
 				default: break;
 				}
@@ -151,16 +121,21 @@ void SceneStack::mainscreen() {
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
 					if ((mouseLeftX > ITEM1_X && mouseLeftX < ITEM1_X+titleItem1.getWidth()) && (mouseLeftY > ITEM1_Y && mouseLeftY < ITEM1_Y+titleItem1.getHeight())) {
-						// ???
+						// ALREADY SELECTED ITEM CLICKED
 					} else if ((mouseLeftX > ITEM2_X && mouseLeftX < (ITEM2_X+subItem.w)) && (mouseLeftY > ITEM2AND5_Y && mouseLeftY < (ITEM2AND5_Y+subItem.h))) {
+						// ITEM 2 CLICKED
 						selectedItem = (SelectedItem)CycleRight_5(1, (int)selectedItem);
 					} else if ((mouseLeftX > ITEM3_X && mouseLeftX < (ITEM3_X+subItem.w)) && (mouseLeftY > ITEM3AND4_Y && mouseLeftY < (ITEM3AND4_Y+subItem.h))) {
+						// ITEM 3 CLICKED
 						selectedItem = (SelectedItem)CycleRight_5(2, (int)selectedItem);
 					} else if ((mouseLeftX > ITEM4_X && mouseLeftX < (ITEM4_X+subItem.w)) && (mouseLeftY > ITEM3AND4_Y && mouseLeftY < (ITEM3AND4_Y+subItem.h))) {
+						// ITEM 4 CLICKED
 						selectedItem = (SelectedItem)CycleRight_5(3, (int)selectedItem);
 					} else if ((mouseLeftX > ITEM5_X && mouseLeftX < (ITEM5_X+subItem.w)) && (mouseLeftY > ITEM2AND5_Y && mouseLeftY < (ITEM2AND5_Y+subItem.h))) {
+						// ITEM 5 CLICKED
 						selectedItem = (SelectedItem)CycleRight_5(4, (int)selectedItem);
 					} else if ((mouseLeftX > BEGINBUTTONX && mouseLeftX < BEGINBUTTONX+beginButton.getWidth()) && (mouseLeftY > BEGINBUTTONY && mouseLeftY < BEGINBUTTONY+beginButton.getWidth()) ) {
+						// CHOOSE BUTTON CLICKED
 						newSceneProcced = true;
 					}
 
@@ -172,6 +147,7 @@ void SceneStack::mainscreen() {
 					mouseLeftY = e.motion.y;
 					if ((mouseLeftX > BEGINBUTTONX && mouseLeftX < BEGINBUTTONX+beginButton.getWidth())\
 							&& (mouseLeftY > BEGINBUTTONY && mouseLeftY < BEGINBUTTONY+beginButton.getWidth())) {
+						// HOVER OVER CHOOSE VISUAL FEEDBACK EFFFECT
 						beginButton.setAlpha(255);
 					} else {
 						beginButton.setAlpha(220);
@@ -182,13 +158,17 @@ void SceneStack::mainscreen() {
 			default: break;
 			}
 		}
-		Graphics_Engine.clear();   //clear screen
-		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+		// CLEAR SCREEN TO BLACK
+		Graphics_Engine.clear();
+		// FILL BACKDROP RECT
+//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
+		// DRAW LEFT SIDE OF SCREEN
 		defaultScene.draw(48, 30);
 		infoBackground.draw(48, 460);
 		separatorBar.draw(718, 0);
 
+		// DRAW MENU BASED ON WHICH ITEM IS CURRENTLY CHOSEN
 		switch (selectedItem) {
 		case CHARACTERS: //0
 			titleItem3.draw(ITEM3_X, ITEM3AND4_Y, nullptr, &subItem);
@@ -234,8 +214,11 @@ void SceneStack::mainscreen() {
 			printf("ruh roh!  \n");
 			break;
 		}
+
+		// DRAW CHOOSE BUTTON
 		beginButton.draw(BEGINBUTTONX, BEGINBUTTONY);
 		SDL_RenderCopy(renderer, infoArea, &infoSrcRect, &infoDestRect);
+		// DISPLAY LATEST FRAME
 		Graphics_Engine.render();
 
 		if (newSceneProcced) {

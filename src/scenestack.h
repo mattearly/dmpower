@@ -6,12 +6,34 @@ class SceneStack {
 
 public:
 	SceneStack() {
+		/* Scene Preload */
+
 		Black = {0,0,0,0};
 		Orange = {255, 115, 35, 0};
 		newSceneProcced = false;
 		renderer = Graphics_Engine.getRenderer();
 		SCREEN_HEIGHT = Graphics_Engine.getScreenHeight();
 		SCREEN_WIDTH = Graphics_Engine.getScreenWidth();
+		Leadcoat=TTF_OpenFont("res/fonts/Leadcoat.ttf", 54);
+		if(!Leadcoat) { printf("TTF_OpenFont Leadcoat: %s\n", TTF_GetError()); }
+		Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 31);
+		if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
+		//	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
+		//	if(!Verdana) { printf("TTF_OpenFont Verdana: %s\n", TTF_GetError()); }s
+		///ADJUST FONT HINTING
+		//	TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
+		//	TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
+		//	TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
+		TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
+
+		///RECTANGULUR BACKDROP
+
+//		backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+
+
+
+
+
 	}
 
 
@@ -131,4 +153,8 @@ private:
 	int SCREEN_WIDTH;
 	int SCREEN_HEIGHT;
 	SDL_graphics Graphics_Engine;
+	TTF_Font *Leadcoat;
+	TTF_Font *Bookman;
+	//	TTF_Font *Verdana;
+	SDL_Rect backdropRect;
 };
