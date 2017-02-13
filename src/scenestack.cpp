@@ -161,7 +161,7 @@ void SceneStack::mainscreen() {
 		// CLEAR SCREEN TO BLACK
 		Graphics_Engine.clear();
 		// FILL BACKDROP RECT
-		//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+		// SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		// DRAW LEFT SIDE OF SCREEN
 		defaultScene.draw(48, 30);
@@ -300,7 +300,7 @@ void SceneStack::charactersMenu_main(){
 
 	int ani0(255), ani1(0), ani2(0), ani3(0), ani4(0);
 	bool reset = true;
-//	const int FADE_INCREMENT = 4;
+	//	const int FADE_INCREMENT = 4;
 
 	Texture unknown_character;
 	unknown_character.setRenderer(renderer);
@@ -359,7 +359,6 @@ void SceneStack::charactersMenu_main(){
 				case SDL_BUTTON_LEFT:
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
-					//if
 					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
 						// NEW BUTTON PRESSED
 						newSceneProcced = true;
@@ -376,19 +375,20 @@ void SceneStack::charactersMenu_main(){
 			case SDL_MOUSEMOTION:
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
+				// BUTTON HOVER EFFECTS
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
 					button_new.setAlpha(255);
 				} else {
 					button_new.setAlpha(220);
 				}
 
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
 					button_choose.setAlpha(255);
 				} else {
 					button_choose.setAlpha(220);
 				}
 
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
 					button_back.setAlpha(255);
 				} else {
 					button_back.setAlpha(220);
@@ -400,7 +400,7 @@ void SceneStack::charactersMenu_main(){
 
 		Graphics_Engine.clear();
 
-//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+		//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		/* ANIMATED BACKGROUND */
 		if (ani0 > 0 && reset) {
@@ -438,8 +438,8 @@ void SceneStack::charactersMenu_main(){
 			}
 		} else if (ani4 > 0){
 			//fade between 4-0
-			    ani4--;
-				mountain_ani4.setAlpha(ani4);
+			ani4--;
+			mountain_ani4.setAlpha(ani4);
 			if (ani0 < 255) {
 				ani0++;
 				mountain_ani0.setAlpha(ani0);
@@ -482,13 +482,45 @@ void SceneStack::charactersMenu_main(){
 
 
 void SceneStack::charactersMenu_new1() {
-	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+	const std::string NEW1TITLE = "SET RACE AND CLASS";
+	const std::string SETNAME = "Enter a Name";
 
-	TTF_Font *Leadcoat;    //MOVED TO SCENCESTACK PRIVATE AND INITILIZED IN CONSTRUCTOR
-	Leadcoat=TTF_OpenFont("res/fonts/Leadcoat.ttf", 54);
-	if(!Leadcoat) { printf("TTF_OpenFont Leadcoat: %s\n", TTF_GetError()); }
+}
 
-	const std::string newCharacterText = "CREATE NEW CHARACTER";
+
+void SceneStack::charactersMenu_new2() {
+	const std::string NEW2TITLE = "SET DETAILS";
+
+}
+
+
+void SceneStack::menuScene2_magic_items() {
+
+	//	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+
+	Texture button_new;
+	button_new.setRenderer(renderer);
+	button_new.load("res/pngs/characterMenuButton_New.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	Texture button_choose;
+	button_choose.setRenderer(renderer);
+	button_choose.load("res/pngs/characterMenuButton_Choose.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	Texture button_back;
+	button_back.setRenderer(renderer);
+	button_back.load("res/pngs/characterMenuButton_Back.png");
+	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_new.setAlpha(220);
+
+	const int BUTTON_X = 1275;
+	const int BUTTON_Y = 620;
+	const int BUTTON_DY = 55;
+	const int BUTTON_WIDTH = button_new.getWidth();
+	const int BUTTON_HEIGHT = button_new.getHeight();
 
 	int mouseLeftX, mouseLeftY;
 
@@ -534,129 +566,13 @@ void SceneStack::charactersMenu_new1() {
 				case SDL_BUTTON_LEFT:
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
-					//					if () {
-					//next button
-					//					} else if (){
-					//back button
-					//					}
-					break;
-				default: break;
-				}
-				break;
-			case SDL_MOUSEMOTION:
-				mouseLeftX = e.motion.x;
-				mouseLeftY = e.motion.y;
-				//				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
-				//					button_new.setAlpha(255);
-				//				} else {
-				//					button_new.setAlpha(220);
-				//				}
-
-				//				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
-				//					button_choose.setAlpha(255);
-				//				} else {
-				//					button_choose.setAlpha(220);
-				//				}
-
-				//				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
-				//					button_back.setAlpha(255);
-				//				} else {
-				//					button_back.setAlpha(220);
-				//				}
-				break;
-			default: break;
-			}
-		}
-		Graphics_Engine.clear();
-
-		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
-
-		Graphics_Engine.render();
-	}
-}
-
-
-void SceneStack::charactersMenu_new2() {
-	const std::string newCharacterText = "SET DETAILS";
-
-}
-
-
-void SceneStack::menuScene2_magic_items() {
-
-	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
-
-	Texture button_new;
-	button_new.setRenderer(renderer);
-	button_new.load("res/pngs/characterMenuButton_New.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
-
-	Texture button_choose;
-	button_choose.setRenderer(renderer);
-	button_choose.load("res/pngs/characterMenuButton_Choose.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
-
-	Texture button_back;
-	button_back.setRenderer(renderer);
-	button_back.load("res/pngs/characterMenuButton_Back.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
-
-	//	Texture fade_background;
-	//	fade_background.setRenderer(renderer);
-	//	fade_background.load("res/pngs/dummyChar.png");
-
-	const int BUTTON_X = 1275;
-	const int BUTTON_Y = 620;
-	const int BUTTON_DY = 55;
-
-	int mouseLeftX, mouseLeftY;
-
-	bool quit = false;
-	SDL_Event e;
-
-	while (!quit) {
-		while (SDL_PollEvent (&e) != 0) {
-			switch (e.type) {
-			case SDL_QUIT:
-				quit = true;
-				break;
-			case SDL_KEYDOWN:
-				switch (e.key.keysym.sym) {
-				case SDLK_UP:
-					break;
-				case SDLK_DOWN:
-					break;
-				case SDLK_LEFT:
-					//scroll left through characters
-					break;
-				case SDLK_RIGHT:
-					//scroll right through characters
-					break;
-				case SDLK_KP_ENTER:
-				case SDLK_RETURN:
-					//choose button press
-					break;
-				case SDLK_q:
-				case SDLK_ESCAPE:
-					quit = true;
-					break;
-				default: break;
-				}
-				break;
-			case SDL_MOUSEBUTTONDOWN:
-				switch (e.button.button) {
-				case SDL_BUTTON_LEFT:
-					mouseLeftX = e.button.x;
-					mouseLeftY = e.button.y;
-					//if
-					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
-
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
-						//choose button press
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+						// NEW BUTTON PRESSED
+						newSceneProcced = true;
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+						// CHOOSE BUTTON PRESSED
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+						// BACK BUTTON PRESSED
 						quit = true;
 					}
 					break;
@@ -666,19 +582,20 @@ void SceneStack::menuScene2_magic_items() {
 			case SDL_MOUSEMOTION:
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
+				// BUTTON HOVER EFFECTS
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
 					button_new.setAlpha(255);
 				} else {
 					button_new.setAlpha(220);
 				}
 
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
 					button_choose.setAlpha(255);
 				} else {
 					button_choose.setAlpha(220);
 				}
 
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
 					button_back.setAlpha(255);
 				} else {
 					button_back.setAlpha(220);
@@ -687,20 +604,21 @@ void SceneStack::menuScene2_magic_items() {
 			default: break;
 			}
 		}
+
 		Graphics_Engine.clear();
 
-		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+		//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-		//fade_background.draw();
 
 		Graphics_Engine.render();
+		newSceneProcced = false;
 	}
 }
 void SceneStack::menuScene3_encounters() {
-	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+//	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
 	Texture button_new;
 	button_new.setRenderer(renderer);
@@ -720,19 +638,17 @@ void SceneStack::menuScene3_encounters() {
 	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_new.setAlpha(220);
 
-	//	Texture fade_background;
-	//	fade_background.setRenderer(renderer);
-	//	fade_background.load("res/pngs/dummyChar.png");
-
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
 	const int BUTTON_DY = 55;
+	const int BUTTON_WIDTH = button_new.getWidth();
+	const int BUTTON_HEIGHT = button_new.getHeight();
 
 	int mouseLeftX, mouseLeftY;
 
-	bool quit = false;
 	SDL_Event e;
 
+	bool quit = false;
 	while (!quit) {
 		while (SDL_PollEvent (&e) != 0) {
 			switch (e.type) {
@@ -742,38 +658,45 @@ void SceneStack::menuScene3_encounters() {
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym) {
 				case SDLK_UP:
+					// UP KEY PRESSED
 					break;
 				case SDLK_DOWN:
+					// DOWN KEY PRESSED
 					break;
+				case SDLK_a:
 				case SDLK_LEFT:
+					// LEFT KEY OR 'a' PRESSED
 					break;
+				case SDLK_d:
 				case SDLK_RIGHT:
+					// RIGHT KEY OR 'd' PRESSED
 					break;
+				case SDLK_e:
 				case SDLK_KP_ENTER:
 				case SDLK_RETURN:
-					//choose button press
-					break;
+					// ENTER, RETURN, OR 'e' PRESSSED
+					newSceneProcced = true;
 				case SDLK_q:
 				case SDLK_ESCAPE:
+					// ESCAPE OR 'q' PRESSED
 					quit = true;
 					break;
 				default: break;
 				}
-				break;
 			case SDL_MOUSEBUTTONDOWN:
 				switch (e.button.button) {
 				case SDL_BUTTON_LEFT:
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
-					//if
-					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
-
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
-						//choose button press
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+						// NEW BUTTON PRESSED
+						newSceneProcced = true;
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+						// CHOOSE BUTTON PRESSED
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+						// BACK BUTTON PRESSED
 						quit = true;
 					}
-
 					break;
 				default: break;
 				}
@@ -781,19 +704,20 @@ void SceneStack::menuScene3_encounters() {
 			case SDL_MOUSEMOTION:
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
+				// BUTTON HOVER EFFECTS
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
 					button_new.setAlpha(255);
 				} else {
 					button_new.setAlpha(220);
 				}
 
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
 					button_choose.setAlpha(255);
 				} else {
 					button_choose.setAlpha(220);
 				}
 
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
 					button_back.setAlpha(255);
 				} else {
 					button_back.setAlpha(220);
@@ -804,18 +728,19 @@ void SceneStack::menuScene3_encounters() {
 		}
 		Graphics_Engine.clear();
 
-		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+		//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-		//		fade_background.draw();
 
 		Graphics_Engine.render();
+		newSceneProcced = false;
+
 	}
 }
 void SceneStack::menuScene4_tools() {
-	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+//	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
 	Texture button_new;
 	button_new.setRenderer(renderer);
@@ -835,20 +760,17 @@ void SceneStack::menuScene4_tools() {
 	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_new.setAlpha(220);
 
-	//	Texture fade_background;
-	//	fade_background.setRenderer(renderer);
-	//	fade_background.load("res/pngs/dummyChar.png");
-
-
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
 	const int BUTTON_DY = 55;
+	const int BUTTON_WIDTH = button_new.getWidth();
+	const int BUTTON_HEIGHT = button_new.getHeight();
 
 	int mouseLeftX, mouseLeftY;
 
-	bool quit = false;
 	SDL_Event e;
 
+	bool quit = false;
 	while (!quit) {
 		while (SDL_PollEvent (&e) != 0) {
 			switch (e.type) {
@@ -858,38 +780,46 @@ void SceneStack::menuScene4_tools() {
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym) {
 				case SDLK_UP:
+					// UP KEY PRESSED
 					break;
 				case SDLK_DOWN:
+					// DOWN KEY PRESSED
 					break;
+				case SDLK_a:
 				case SDLK_LEFT:
+					// LEFT KEY OR 'a' PRESSED
 					break;
+				case SDLK_d:
 				case SDLK_RIGHT:
+					// RIGHT KEY OR 'd' PRESSED
 					break;
+				case SDLK_e:
 				case SDLK_KP_ENTER:
 				case SDLK_RETURN:
-					//choose button press
-					break;
+					// ENTER, RETURN, OR 'e' PRESSSED
+					newSceneProcced = true;
 				case SDLK_q:
 				case SDLK_ESCAPE:
+					// ESCAPE OR 'q' PRESSED
 					quit = true;
 					break;
 				default: break;
 				}
-				break;
 			case SDL_MOUSEBUTTONDOWN:
 				switch (e.button.button) {
 				case SDL_BUTTON_LEFT:
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
 					//if
-					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
-
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
-						//choose button press
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+						// NEW BUTTON PRESSED
+						newSceneProcced = true;
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+						// CHOOSE BUTTON PRESSED
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+						// BACK BUTTON PRESSED
 						quit = true;
 					}
-
 					break;
 				default: break;
 				}
@@ -897,19 +827,20 @@ void SceneStack::menuScene4_tools() {
 			case SDL_MOUSEMOTION:
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
+				// BUTTON HOVER EFFECTS
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
 					button_new.setAlpha(255);
 				} else {
 					button_new.setAlpha(220);
 				}
 
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
 					button_choose.setAlpha(255);
 				} else {
 					button_choose.setAlpha(220);
 				}
 
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
 					button_back.setAlpha(255);
 				} else {
 					button_back.setAlpha(220);
@@ -920,18 +851,19 @@ void SceneStack::menuScene4_tools() {
 		}
 		Graphics_Engine.clear();
 
-		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+		//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-		//		fade_background.draw();
 
 		Graphics_Engine.render();
+		newSceneProcced = false;
+
 	}
 }
 void SceneStack::menuScene5_export() {
-	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+//	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
 	Texture button_new;
 	button_new.setRenderer(renderer);
@@ -951,19 +883,17 @@ void SceneStack::menuScene5_export() {
 	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_new.setAlpha(220);
 
-	//	Texture fade_background;
-	//	fade_background.setRenderer(renderer);
-	//	fade_background.load("res/pngs/dummyChar.png");
-
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
 	const int BUTTON_DY = 55;
+	const int BUTTON_WIDTH = button_new.getWidth();
+	const int BUTTON_HEIGHT = button_new.getHeight();
 
 	int mouseLeftX, mouseLeftY;
 
-	bool quit = false;
 	SDL_Event e;
 
+	bool quit = false;
 	while (!quit) {
 		while (SDL_PollEvent (&e) != 0) {
 			switch (e.type) {
@@ -973,38 +903,45 @@ void SceneStack::menuScene5_export() {
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym) {
 				case SDLK_UP:
+					// UP KEY PRESSED
 					break;
 				case SDLK_DOWN:
+					// DOWN KEY PRESSED
 					break;
+				case SDLK_a:
 				case SDLK_LEFT:
+					// LEFT KEY OR 'a' PRESSED
 					break;
+				case SDLK_d:
 				case SDLK_RIGHT:
+					// RIGHT KEY OR 'd' PRESSED
 					break;
+				case SDLK_e:
 				case SDLK_KP_ENTER:
 				case SDLK_RETURN:
-					//choose button press
-					break;
+					// ENTER, RETURN, OR 'e' PRESSSED
+					newSceneProcced = true;
 				case SDLK_q:
 				case SDLK_ESCAPE:
+					// ESCAPE OR 'q' PRESSED
 					quit = true;
 					break;
 				default: break;
 				}
-				break;
 			case SDL_MOUSEBUTTONDOWN:
 				switch (e.button.button) {
 				case SDL_BUTTON_LEFT:
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
-					//if
-					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+40)) {
-
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+60 && mouseLeftY < BUTTON_Y+60+40)){
-						//choose button press
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+105) && (mouseLeftY > BUTTON_Y+120 && mouseLeftY < BUTTON_Y+120+40)) {
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+						// NEW BUTTON PRESSED
+						newSceneProcced = true;
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+						// CHOOSE BUTTON PRESSED
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+						// BACK BUTTON PRESSED
 						quit = true;
 					}
-
 					break;
 				default: break;
 				}
@@ -1012,19 +949,20 @@ void SceneStack::menuScene5_export() {
 			case SDL_MOUSEMOTION:
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+44)) {
+				// BUTTON HOVER EFFECTS
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
 					button_new.setAlpha(255);
 				} else {
 					button_new.setAlpha(220);
 				}
 
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+44)){
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
 					button_choose.setAlpha(255);
 				} else {
 					button_choose.setAlpha(220);
 				}
 
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+115) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+44)) {
+				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
 					button_back.setAlpha(255);
 				} else {
 					button_back.setAlpha(220);
@@ -1035,12 +973,11 @@ void SceneStack::menuScene5_export() {
 		}
 		Graphics_Engine.clear();
 
-		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-		//		fade_background.draw();
 
 		Graphics_Engine.render();
 	}
