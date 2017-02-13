@@ -26,14 +26,11 @@ public:
 		//	TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
 		TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
 
-		///RECTANGULUR BACKDROP
+		mouseLeftY = mouseLeftX = 0;
 
-//		backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+		// RECTANGULUR BACKDROP
 
-
-
-
-
+		// backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 	}
 
 
@@ -98,58 +95,58 @@ private:
 
 
 
-	 /*!
+	/*!
 	 * \brief CycleRight_5
 	 * \param amt amount to rotate
 	 * \param current state of the menu
 	 * \return 0-4 as appropriate for our mainscreen window menu
 	 */
-    int CycleRight_5(const int &amt, const int &current){
-        switch (amt) {
-        case 1: {
-            switch (current) {
-            case 0: return 1;
-            case 1: return 2;
-            case 2: return 3;
-            case 3: return 4;
-            case 4: return 0;
-            default:break;
-            } break;
-        }
-        case 2:{
-            switch (current) {
-            case 0: return 2;
-            case 1: return 3;
-            case 2: return 4;
-            case 3: return 0;
-            case 4: return 1;
-            default:break;
-            } break;
-        }
+	int CycleRight_5(const int &amt, const int &current){
+		switch (amt) {
+		case 1: {
+			switch (current) {
+			case 0: return 1;
+			case 1: return 2;
+			case 2: return 3;
+			case 3: return 4;
+			case 4: return 0;
+			default:break;
+			} break;
+		}
+		case 2:{
+			switch (current) {
+			case 0: return 2;
+			case 1: return 3;
+			case 2: return 4;
+			case 3: return 0;
+			case 4: return 1;
+			default:break;
+			} break;
+		}
 		case 3: {
-            switch (current) {
-            case 0: return 3;
-            case 1: return 4;
-            case 2: return 0;
-            case 3: return 1;
-            case 4: return 2;
-            default:break;
-            } break;
-        }
+			switch (current) {
+			case 0: return 3;
+			case 1: return 4;
+			case 2: return 0;
+			case 3: return 1;
+			case 4: return 2;
+			default:break;
+			} break;
+		}
 		case 4: {
-            switch (current) {
-            case 0: return 4;
-            case 1: return 0;
-            case 2: return 1;
-            case 3: return 2;
-            case 4: return 3;
-            default:break;
-            } break;
-        }
-        default:break;
-        }
-        return 0;
-    };
+			switch (current) {
+			case 0: return 4;
+			case 1: return 0;
+			case 2: return 1;
+			case 3: return 2;
+			case 4: return 3;
+			default:break;
+			} break;
+		}
+		default:break;
+		}
+		return 0;
+	};
 
 	/* Preloaded variables */
 	bool newSceneProcced;
@@ -163,4 +160,9 @@ private:
 	TTF_Font *Bookman;
 	//	TTF_Font *Verdana;
 	SDL_Rect backdropRect;
+	// HOLD MOUSE MOVEMENTS VAR
+	int mouseLeftX, mouseLeftY;
+	// FOR KEYBOARD AND MOUSE EVENTS
+	SDL_Event e;
+
 };

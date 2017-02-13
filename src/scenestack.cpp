@@ -78,10 +78,6 @@ void SceneStack::mainscreen() {
 	/// FOR CURRENTLY SELECTED MENU ITEM
 	enum SelectedItem { CHARACTERS = 0, MAGIC_ITEMS, RANDOM_ENCOUNTER, TOOLS, SAVE };
 	SelectedItem selectedItem = CHARACTERS;
-	/// HOLD MOUSE MOVEMENTS VAR
-	int mouseLeftX, mouseLeftY;
-	/// FOR KEYBOARD AND MOUSE EVENTS
-	SDL_Event e;
 	/// THE MAIN SCENE LOOP BEGINS HERE UNTIL QUIT
 	bool quit = false;
 	while (!quit) {
@@ -160,8 +156,6 @@ void SceneStack::mainscreen() {
 		}
 		// CLEAR SCREEN TO BLACK
 		Graphics_Engine.clear();
-		// FILL BACKDROP RECT
-		// SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		// DRAW LEFT SIDE OF SCREEN
 		defaultScene.draw(48, 30);
@@ -248,8 +242,6 @@ void SceneStack::mainscreen() {
 }
 
 void SceneStack::charactersMenu_main(){
-	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
-
 	Texture button_new;
 	button_new.setRenderer(renderer);
 	button_new.load("res/pngs/characterMenuButton_New.png");
@@ -312,11 +304,8 @@ void SceneStack::charactersMenu_main(){
 	const int BUTTON_WIDTH = button_new.getWidth();
 	const int BUTTON_HEIGHT = button_new.getHeight();
 
-	int mouseLeftX, mouseLeftY;
 
 	bool createNewCharacter = false;
-
-	SDL_Event e;
 
 	bool quit = false;
 	while (!quit) {
@@ -399,8 +388,6 @@ void SceneStack::charactersMenu_main(){
 		}
 
 		Graphics_Engine.clear();
-
-		//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		/* ANIMATED BACKGROUND */
 		if (ani0 > 0 && reset) {
@@ -495,9 +482,6 @@ void SceneStack::charactersMenu_new2() {
 
 
 void SceneStack::menuScene2_magic_items() {
-
-	//	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
-
 	Texture button_new;
 	button_new.setRenderer(renderer);
 	button_new.load("res/pngs/characterMenuButton_New.png");
@@ -521,10 +505,6 @@ void SceneStack::menuScene2_magic_items() {
 	const int BUTTON_DY = 55;
 	const int BUTTON_WIDTH = button_new.getWidth();
 	const int BUTTON_HEIGHT = button_new.getHeight();
-
-	int mouseLeftX, mouseLeftY;
-
-	SDL_Event e;
 
 	bool quit = false;
 	while (!quit) {
@@ -607,19 +587,16 @@ void SceneStack::menuScene2_magic_items() {
 
 		Graphics_Engine.clear();
 
-		//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
-
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 
 		Graphics_Engine.render();
+
 		newSceneProcced = false;
 	}
 }
 void SceneStack::menuScene3_encounters() {
-//	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
-
 	Texture button_new;
 	button_new.setRenderer(renderer);
 	button_new.load("res/pngs/characterMenuButton_New.png");
@@ -643,10 +620,6 @@ void SceneStack::menuScene3_encounters() {
 	const int BUTTON_DY = 55;
 	const int BUTTON_WIDTH = button_new.getWidth();
 	const int BUTTON_HEIGHT = button_new.getHeight();
-
-	int mouseLeftX, mouseLeftY;
-
-	SDL_Event e;
 
 	bool quit = false;
 	while (!quit) {
@@ -728,20 +701,17 @@ void SceneStack::menuScene3_encounters() {
 		}
 		Graphics_Engine.clear();
 
-		//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
-
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 
 		Graphics_Engine.render();
+
 		newSceneProcced = false;
 
 	}
 }
 void SceneStack::menuScene4_tools() {
-//	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
-
 	Texture button_new;
 	button_new.setRenderer(renderer);
 	button_new.load("res/pngs/characterMenuButton_New.png");
@@ -765,10 +735,6 @@ void SceneStack::menuScene4_tools() {
 	const int BUTTON_DY = 55;
 	const int BUTTON_WIDTH = button_new.getWidth();
 	const int BUTTON_HEIGHT = button_new.getHeight();
-
-	int mouseLeftX, mouseLeftY;
-
-	SDL_Event e;
 
 	bool quit = false;
 	while (!quit) {
@@ -810,7 +776,6 @@ void SceneStack::menuScene4_tools() {
 				case SDL_BUTTON_LEFT:
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
-					//if
 					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
 						// NEW BUTTON PRESSED
 						newSceneProcced = true;
@@ -851,20 +816,17 @@ void SceneStack::menuScene4_tools() {
 		}
 		Graphics_Engine.clear();
 
-		//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
-
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 
 		Graphics_Engine.render();
+
 		newSceneProcced = false;
 
 	}
 }
 void SceneStack::menuScene5_export() {
-//	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
-
 	Texture button_new;
 	button_new.setRenderer(renderer);
 	button_new.load("res/pngs/characterMenuButton_New.png");
@@ -888,10 +850,6 @@ void SceneStack::menuScene5_export() {
 	const int BUTTON_DY = 55;
 	const int BUTTON_WIDTH = button_new.getWidth();
 	const int BUTTON_HEIGHT = button_new.getHeight();
-
-	int mouseLeftX, mouseLeftY;
-
-	SDL_Event e;
 
 	bool quit = false;
 	while (!quit) {
@@ -973,13 +931,13 @@ void SceneStack::menuScene5_export() {
 		}
 		Graphics_Engine.clear();
 
-//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
-
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 
 		Graphics_Engine.render();
+
+		newSceneProcced = false;
 	}
 }
 
