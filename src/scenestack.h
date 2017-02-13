@@ -5,11 +5,15 @@
 class SceneStack {
 
 public:
-	SceneStack(){
+	SceneStack() {
 		Black = {0,0,0,0};
 		Orange = {255, 115, 35, 0};
 		newSceneProcced = false;
+		renderer = Graphics_Engine.getRenderer();
+		SCREEN_HEIGHT = Graphics_Engine.getScreenHeight();
+		SCREEN_WIDTH = Graphics_Engine.getScreenWidth();
 	}
+
 
 	~SceneStack(){
 	}
@@ -18,7 +22,7 @@ public:
 	 * \brief Controls the rootmost screen
 	 * \param graphics_engine is passed in via reference for rendering
 	 */
-	void mainscreen(SDL_graphics &graphics_engine);
+	void mainscreen();
 
 private:
 	/*!
@@ -26,43 +30,43 @@ private:
 	 *        creating a new one
 	 * \param graphics_engine is passed in via reference for rendering
 	 */
-	void charactersMenu_main(SDL_graphics &graphics_engine);
+	void charactersMenu_main();
 	/*!
 	 * \brief charactersMenu_new1 first screen of character generation
 	 *        choose race, class, and name
 	 * \param graphics_engine
 	 */
-	void charactersMenu_new1(SDL_graphics &graphics_engine);
+	void charactersMenu_new1();
 	/*!
 	 * \brief charactersMenu_new2 second screen
 	 * \param graphics_engine is passed in via reference for rendering
 	 */
-	void charactersMenu_new2(SDL_graphics &graphics_engine);
+	void charactersMenu_new2();
 
 	/*!
 	 * \brief menuScene2_magic_items
 	 * \param graphics_engine
 	 */
-	void menuScene2_magic_items(SDL_graphics &graphics_engine);
+	void menuScene2_magic_items();
 
 	/*!
 	 * \brief menuScene3_encounters
 	 * \param graphics_engine
 	 */
 
-	void menuScene3_encounters(SDL_graphics &graphics_engine);
+	void menuScene3_encounters();
 
 	/*!
 	 * \brief menuScene4_tools
 	 * \param graphics_engine
 	 */
-	void menuScene4_tools(SDL_graphics &graphics_engine);
+	void menuScene4_tools();
 
 	/*!
 	 * \brief menuScene5_export
 	 * \param graphics_engine
 	 */
-	void menuScene5_export(SDL_graphics &graphics_engine);
+	void menuScene5_export();
 
 
 
@@ -94,7 +98,7 @@ private:
             default:break;
             } break;
         }
-        case 3:{
+		case 3: {
             switch (current) {
             case 0: return 3;
             case 1: return 4;
@@ -104,7 +108,7 @@ private:
             default:break;
             } break;
         }
-        case 4:{
+		case 4: {
             switch (current) {
             case 0: return 4;
             case 1: return 0;
@@ -123,4 +127,8 @@ private:
 	bool newSceneProcced;
 	SDL_Color Black;
 	SDL_Color Orange;
+	SDL_Renderer *renderer;
+	int SCREEN_WIDTH;
+	int SCREEN_HEIGHT;
+	SDL_graphics Graphics_Engine;
 };

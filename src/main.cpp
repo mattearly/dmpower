@@ -26,19 +26,19 @@ void save_file(const bool &, const string &, const Campaign &);
 
 int main(void)
 {
-	SDL_graphics graphics_engine;
 
+	///BEGIN SDL2 GRAPHICS
 	SceneStack runInstance;
-
+	///PROGRAM MUSIC
 	Mix_Music *themeMusic = NULL;
 	themeMusic = Mix_LoadMUS("res/sound/theme.wav");
 	if (themeMusic == NULL ) {
 		printf("Failed to load theme music! SDL_mixer Error: %s\n", Mix_GetError());
 	}
 	Mix_PlayMusic( themeMusic, -1 );
-
-	runInstance.mainscreen(graphics_engine);
-
+	///LAUNCH THE MAINSCREEN
+	runInstance.mainscreen();
+	///QUIT OUT OF MUSIC
 	Mix_HaltMusic();
 	Mix_FreeMusic(themeMusic);
 	themeMusic = NULL;

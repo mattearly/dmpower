@@ -1,15 +1,9 @@
 #include "scenestack.h"
 
 
-void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
-	///PRELOAD
-	///INITIAL SCENE SETUP
-	SDL_Renderer *renderer = graphics_engine.getRenderer();
-	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
-	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
-
-	///FONTS
-	TTF_Font *Leadcoat;    //MOVED TO SCENCESTACK PRIVATE AND INITILIZED IN CONSTRUCTOR
+void SceneStack::mainscreen() {
+	/* Scene Preload */
+	TTF_Font *Leadcoat;
 	Leadcoat=TTF_OpenFont("res/fonts/Leadcoat.ttf", 54);
 	if(!Leadcoat) { printf("TTF_OpenFont Leadcoat: %s\n", TTF_GetError()); }
 	TTF_Font *Bookman;
@@ -78,7 +72,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	const std::string titleText3 = "RANDOM ENCOUNTERS";
 	const std::string titleText4 = "TOOLS";
 	const std::string titleText5 = "SAVE & EXPORT";
-	std::string infoText = "Dungeons and Dragons.  Satan's Game.\n  Your children, like it or not, are attracted in their weaker years to the occult, and a game like D&D fuels their imagination, and makes them feel special while drawing them deeper and deeper into the bowls of el Diablo.  This afternoon, the Dead Alwives Watchtower invites you to obserb the previously unobservable...";
+	std::string infoText = "Dungeons and Dragons.  Satan's Game.\n  Your children, like it or not, are attracted in their weaker years to the occult, and a game like D&D fuels their imagination, and makes them feel special while drawing them deeper and deeper into the bowels of el Diablo.  This afternoon, the Dead Alwives Watchtower invites you to obserb the previously unobservable...";
 
 	///SURFACES FOR TEXT
 	SDL_Surface *surfaceMessage;
@@ -188,7 +182,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 			default: break;
 			}
 		}
-		graphics_engine.clear();   //clear screen
+		Graphics_Engine.clear();   //clear screen
 		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		defaultScene.draw(48, 30);
@@ -242,24 +236,24 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 		}
 		beginButton.draw(BEGINBUTTONX, BEGINBUTTONY);
 		SDL_RenderCopy(renderer, infoArea, &infoSrcRect, &infoDestRect);
-		graphics_engine.render();
+		Graphics_Engine.render();
 
 		if (newSceneProcced) {
 			switch (selectedItem) {
 			case CHARACTERS: //0
-				charactersMenu_main(graphics_engine);
+				charactersMenu_main();
 				break;
 			case MAGIC_ITEMS:  //1
-				menuScene2_magic_items(graphics_engine);
+				menuScene2_magic_items();
 				break;
 			case RANDOM_ENCOUNTER:  //2
-				menuScene3_encounters(graphics_engine);
+				menuScene3_encounters();
 				break;
 			case TOOLS:   //3
-				menuScene4_tools(graphics_engine);
+				menuScene4_tools();
 				break;
 			case SAVE: //4
-				menuScene5_export(graphics_engine);
+				menuScene5_export();
 				break;
 			default:
 				printf("How is it possible that NO SCENE PROCCED(from mainscene)?!  CHECK CODE!\n");
@@ -275,11 +269,7 @@ void SceneStack::mainscreen(SDL_graphics &graphics_engine) {
 	//	SDL_FreeSurface(surfaceMessage);
 }
 
-void SceneStack::charactersMenu_main(SDL_graphics &graphics_engine){
-	SDL_Renderer *renderer = graphics_engine.getRenderer();
-	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
-	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
-
+void SceneStack::charactersMenu_main(){
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
 	Texture button_new;
@@ -386,7 +376,7 @@ void SceneStack::charactersMenu_main(SDL_graphics &graphics_engine){
 			}
 		}
 
-		graphics_engine.clear();
+		Graphics_Engine.clear();
 
 		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 		fade_background.draw();
@@ -395,16 +385,12 @@ void SceneStack::charactersMenu_main(SDL_graphics &graphics_engine){
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 
-		graphics_engine.render();
+		Graphics_Engine.render();
 	}
 }
 
 
-void SceneStack::charactersMenu_new1(SDL_graphics &graphics_engine) {
-	SDL_Renderer *renderer = graphics_engine.getRenderer();
-	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
-	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
-
+void SceneStack::charactersMenu_new1() {
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
 	TTF_Font *Leadcoat;    //MOVED TO SCENCESTACK PRIVATE AND INITILIZED IN CONSTRUCTOR
@@ -484,29 +470,22 @@ void SceneStack::charactersMenu_new1(SDL_graphics &graphics_engine) {
 			default: break;
 			}
 		}
-		graphics_engine.clear();
+		Graphics_Engine.clear();
 
 		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
-		graphics_engine.render();
+		Graphics_Engine.render();
 	}
 }
 
 
-void SceneStack::charactersMenu_new2(SDL_graphics &graphics_engine) {
-	SDL_Renderer *renderer = graphics_engine.getRenderer();
-	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
-	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
-
+void SceneStack::charactersMenu_new2() {
 	const std::string newCharacterText = "SET DETAILS";
 
 }
 
 
-void SceneStack::menuScene2_magic_items(SDL_graphics &graphics_engine){
-	SDL_Renderer *renderer = graphics_engine.getRenderer();
-	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
-	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
+void SceneStack::menuScene2_magic_items() {
 
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
@@ -611,7 +590,7 @@ void SceneStack::menuScene2_magic_items(SDL_graphics &graphics_engine){
 			default: break;
 			}
 		}
-		graphics_engine.clear();
+		Graphics_Engine.clear();
 
 		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
@@ -620,14 +599,10 @@ void SceneStack::menuScene2_magic_items(SDL_graphics &graphics_engine){
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 		//fade_background.draw();
 
-		graphics_engine.render();
+		Graphics_Engine.render();
 	}
 }
-void SceneStack::menuScene3_encounters(SDL_graphics &graphics_engine){
-	SDL_Renderer *renderer = graphics_engine.getRenderer();
-	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
-	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
-
+void SceneStack::menuScene3_encounters() {
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
 	Texture button_new;
@@ -730,7 +705,7 @@ void SceneStack::menuScene3_encounters(SDL_graphics &graphics_engine){
 			default: break;
 			}
 		}
-		graphics_engine.clear();
+		Graphics_Engine.clear();
 
 		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
@@ -739,14 +714,10 @@ void SceneStack::menuScene3_encounters(SDL_graphics &graphics_engine){
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 		//		fade_background.draw();
 
-		graphics_engine.render();
+		Graphics_Engine.render();
 	}
 }
-void SceneStack::menuScene4_tools(SDL_graphics &graphics_engine){
-	SDL_Renderer *renderer = graphics_engine.getRenderer();
-	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
-	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
-
+void SceneStack::menuScene4_tools() {
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
 	Texture button_new;
@@ -850,7 +821,7 @@ void SceneStack::menuScene4_tools(SDL_graphics &graphics_engine){
 			default: break;
 			}
 		}
-		graphics_engine.clear();
+		Graphics_Engine.clear();
 
 		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
@@ -859,14 +830,10 @@ void SceneStack::menuScene4_tools(SDL_graphics &graphics_engine){
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 		//		fade_background.draw();
 
-		graphics_engine.render();
+		Graphics_Engine.render();
 	}
 }
-void SceneStack::menuScene5_export(SDL_graphics &graphics_engine){
-	SDL_Renderer *renderer = graphics_engine.getRenderer();
-	int SCREEN_WIDTH = graphics_engine.getScreenWidth();
-	int SCREEN_HEIGHT = graphics_engine.getScreenHeight();
-
+void SceneStack::menuScene5_export() {
 	SDL_Rect backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
 	Texture button_new;
@@ -969,7 +936,7 @@ void SceneStack::menuScene5_export(SDL_graphics &graphics_engine){
 			default: break;
 			}
 		}
-		graphics_engine.clear();
+		Graphics_Engine.clear();
 
 		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
@@ -978,7 +945,7 @@ void SceneStack::menuScene5_export(SDL_graphics &graphics_engine){
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 		//		fade_background.draw();
 
-		graphics_engine.render();
+		Graphics_Engine.render();
 	}
 }
 
