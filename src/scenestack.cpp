@@ -246,9 +246,7 @@ void SceneStack::mainscreen() {
 		}
 	}
 	//	TTF_CloseFont(Verdana);
-	TTF_CloseFont(Bookman);
 	//	Verdana = NULL;
-	Bookman = NULL;
 	//	SDL_FreeSurface(surfaceMessage);
 }
 
@@ -275,20 +273,22 @@ void SceneStack::charactersMenu_main(){
 
 	Texture fade_background;
 	fade_background.setRenderer(renderer);
-	fade_background.load("res/pngs/redfadeBackground.png");
+	fade_background.load("res/pngs/mountains.png");
 
 
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
 	const int BUTTON_DY = 55;
-	const int characterMenuButtonWidth = button_new.getWidth();
-	const int characterMenuButtonHeight = button_new.getHeight();
+	const int BUTTON_WIDTH = button_new.getWidth();
+	const int BUTTON_HEIGHT = button_new.getHeight();
 
 	int mouseLeftX, mouseLeftY;
 
-	bool quit = false;
+	bool createNewCharacter = false;
+
 	SDL_Event e;
 
+	bool quit = false;
 	while (!quit) {
 		while (SDL_PollEvent (&e) != 0) {
 			switch (e.type) {
@@ -298,36 +298,45 @@ void SceneStack::charactersMenu_main(){
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym) {
 				case SDLK_UP:
+					// UP KEY PRESSED
 					break;
 				case SDLK_DOWN:
+					// DOWN KEY PRESSED
 					break;
+				case SDLK_a:
 				case SDLK_LEFT:
+					// LEFT KEY OR 'a' PRESSED
 					break;
+				case SDLK_d:
 				case SDLK_RIGHT:
+					// RIGHT KEY OR 'd' PRESSED
 					break;
+				case SDLK_e:
 				case SDLK_KP_ENTER:
 				case SDLK_RETURN:
-					//choose button press
-					break;
+					// ENTER, RETURN, OR 'e' PRESSSED
+					newSceneProcced = true;
+					createNewCharacter = true;
 				case SDLK_q:
 				case SDLK_ESCAPE:
+					// ESCAPE OR 'q' PRESSED
 					quit = true;
 					break;
 				default: break;
 				}
-				break;
 			case SDL_MOUSEBUTTONDOWN:
 				switch (e.button.button) {
 				case SDL_BUTTON_LEFT:
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
 					//if
-					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+characterMenuButtonWidth) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+characterMenuButtonHeight)) {
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+						// NEW BUTTON PRESSED
 						newSceneProcced = true;
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+characterMenuButtonWidth) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+characterMenuButtonHeight)){
-						//choose button press
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+characterMenuButtonWidth) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+characterMenuButtonHeight)) {
-						//back button press
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+						// CHOOSE BUTTON PRESSED
+					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+						// BACK BUTTON PRESSED
 						quit = true;
 					}
 					break;
@@ -369,6 +378,11 @@ void SceneStack::charactersMenu_main(){
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 
 		Graphics_Engine.render();
+
+
+		//otherwise we'll be in a loop
+		newSceneProcced = false;
+
 	}
 }
 
@@ -384,10 +398,9 @@ void SceneStack::charactersMenu_new1() {
 
 	int mouseLeftX, mouseLeftY;
 
-	bool quit = false;
 	SDL_Event e;
-	bool createNewCharacter = false;
 
+	bool quit = false;
 	while (!quit) {
 		while (SDL_PollEvent (&e) != 0) {
 			switch (e.type) {
@@ -397,24 +410,31 @@ void SceneStack::charactersMenu_new1() {
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym) {
 				case SDLK_UP:
+					// UP KEY PRESSED
 					break;
 				case SDLK_DOWN:
+					// DOWN KEY PRESSED
 					break;
+				case SDLK_a:
 				case SDLK_LEFT:
+					// LEFT KEY OR 'a' PRESSED
 					break;
+				case SDLK_d:
 				case SDLK_RIGHT:
+					// RIGHT KEY OR 'd' PRESSED
 					break;
+				case SDLK_e:
 				case SDLK_KP_ENTER:
 				case SDLK_RETURN:
-					//choose button press
-					break;
+					// ENTER, RETURN, OR 'e' PRESSSED
+					newSceneProcced = true;
 				case SDLK_q:
 				case SDLK_ESCAPE:
+					// ESCAPE OR 'q' PRESSED
 					quit = true;
 					break;
 				default: break;
 				}
-				break;
 			case SDL_MOUSEBUTTONDOWN:
 				switch (e.button.button) {
 				case SDL_BUTTON_LEFT:

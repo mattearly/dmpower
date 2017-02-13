@@ -38,6 +38,12 @@ public:
 
 
 	~SceneStack(){
+		TTF_CloseFont(Leadcoat);
+		Leadcoat = NULL;
+		TTF_CloseFont(Bookman);
+		Bookman = NULL;
+
+
 	}
 
 	/*!
