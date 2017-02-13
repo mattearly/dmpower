@@ -64,7 +64,14 @@ private:
 	 */
 	void menuScene5_export(SDL_graphics &graphics_engine);
 
-    /// returns 0-4 as appropriate for our mainscreen window menu
+
+
+	 /*!
+	 * \brief CycleRight_5
+	 * \param amt amount to rotate
+	 * \param current state of the menu
+	 * \return 0-4 as appropriate for our mainscreen window menu
+	 */
     int CycleRight_5(const int &amt, const int &current){
         switch (amt) {
         case 1: {
@@ -112,9 +119,8 @@ private:
         return 0;
     };
 
+	/* Preloaded variables */
 	bool newSceneProcced;
-
-	/// PRELOAD COLORS
 	SDL_Color Black;
 	SDL_Color Orange;
 };
