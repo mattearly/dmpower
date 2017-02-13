@@ -146,7 +146,7 @@ void SceneStack::mainscreen() {
 					mouseLeftX = e.motion.x;
 					mouseLeftY = e.motion.y;
 					if ((mouseLeftX > BEGINBUTTONX && mouseLeftX < BEGINBUTTONX+beginButton.getWidth())\
-							&& (mouseLeftY > BEGINBUTTONY && mouseLeftY < BEGINBUTTONY+beginButton.getWidth())) {
+					        && (mouseLeftY > BEGINBUTTONY && mouseLeftY < BEGINBUTTONY+beginButton.getWidth())) {
 						// HOVER OVER CHOOSE VISUAL FEEDBACK EFFFECT
 						beginButton.setAlpha(255);
 					} else {
@@ -161,7 +161,7 @@ void SceneStack::mainscreen() {
 		// CLEAR SCREEN TO BLACK
 		Graphics_Engine.clear();
 		// FILL BACKDROP RECT
-//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+		//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		// DRAW LEFT SIDE OF SCREEN
 		defaultScene.draw(48, 30);
@@ -245,9 +245,6 @@ void SceneStack::mainscreen() {
 			newSceneProcced = false;
 		}
 	}
-	//	TTF_CloseFont(Verdana);
-	//	Verdana = NULL;
-	//	SDL_FreeSurface(surfaceMessage);
 }
 
 void SceneStack::charactersMenu_main(){
@@ -271,10 +268,39 @@ void SceneStack::charactersMenu_main(){
 	button_back.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_back.setAlpha(220);
 
-	Texture fade_background;
-	fade_background.setRenderer(renderer);
-	fade_background.load("res/pngs/mountains.png");
+	Texture mountain_ani0;
+	mountain_ani0.setRenderer(renderer);
+	mountain_ani0.load("res/pngs/mountains.png");
+	mountain_ani0.setBlendMode(SDL_BLENDMODE_BLEND);
+	mountain_ani0.setAlpha(255);
 
+	Texture mountain_ani1;
+	mountain_ani1.setRenderer(renderer);
+	mountain_ani1.load("res/pngs/mountains_animate1.png");
+	mountain_ani1.setBlendMode(SDL_BLENDMODE_BLEND);
+	mountain_ani1.setAlpha(0);
+
+	Texture mountain_ani2;
+	mountain_ani2.setRenderer(renderer);
+	mountain_ani2.load("res/pngs/mountains_animate2.png");
+	mountain_ani2.setBlendMode(SDL_BLENDMODE_BLEND);
+	mountain_ani2.setAlpha(0);
+
+	Texture mountain_ani3;
+	mountain_ani3.setRenderer(renderer);
+	mountain_ani3.load("res/pngs/mountains_animate3.png");
+	mountain_ani3.setBlendMode(SDL_BLENDMODE_BLEND);
+	mountain_ani3.setAlpha(0);
+
+	Texture mountain_ani4;
+	mountain_ani4.setRenderer(renderer);
+	mountain_ani4.load("res/pngs/mountains_animate4.png");
+	mountain_ani4.setBlendMode(SDL_BLENDMODE_BLEND);
+	mountain_ani4.setAlpha(0);
+
+	int ani0(255), ani1(0), ani2(0), ani3(0), ani4(0);
+	bool reset = true;
+//	const int FADE_INCREMENT = 4;
 
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
@@ -371,7 +397,78 @@ void SceneStack::charactersMenu_main(){
 		Graphics_Engine.clear();
 
 		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
-		fade_background.draw();
+
+		/* ANIMATED BACKGROUND */
+		if (ani0 > 0 && reset) {
+			//fade between 0-1
+			ani0--;
+			mountain_ani0.setAlpha(ani0);
+			if (ani1 < 255) {
+				ani1++;
+				mountain_ani1.setAlpha(ani1);
+			}
+		} else if (ani1 > 0) {
+			if (reset) reset = false;
+			//fade between 1-2
+			ani1--;
+			mountain_ani1.setAlpha(ani1);
+			if (ani2 < 255) {
+				ani2++;
+				mountain_ani2.setAlpha(ani2);
+			}
+		} else if (ani2 > 0) {
+			//fade btween 2-3
+			ani2--;
+			mountain_ani2.setAlpha(ani2);
+			if (ani3 < 255) {
+				ani3++;
+				mountain_ani3.setAlpha(ani3);
+			}
+		} else if (ani3 > 0) {
+			//fade between 3-4
+			ani3--;
+			mountain_ani3.setAlpha(ani3);
+			if (ani4 < 255) {
+				ani4++;
+				mountain_ani4.setAlpha(ani4);
+			}
+		} else if (ani4 > 0){
+			//fade between 4-0
+			    ani4--;
+				mountain_ani4.setAlpha(ani4);
+			if (ani0 < 255) {
+				ani0++;
+				mountain_ani0.setAlpha(ani0);
+			}
+		} else {
+			ani0 = 255;
+			ani1 = ani2 = ani3 = ani4 = 25;
+			reset = true;
+		}
+
+
+		if (ani4 > 0) {
+			mountain_ani4.draw();
+		}
+		if (ani3 > 0) {
+			mountain_ani3.draw();
+		}
+		if (ani2 > 0) {
+			mountain_ani2.draw();
+		}
+		if (ani1 > 0) {
+			mountain_ani1.draw();
+		}
+		if (ani0 > 0) {
+			mountain_ani0.draw();
+		}
+
+
+
+
+
+
+
 
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
