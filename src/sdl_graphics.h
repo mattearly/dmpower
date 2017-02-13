@@ -12,13 +12,11 @@ ____________________________________________________________________________
 
 #pragma once
 
-//#include <SDL2/SDL2.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
 
-class SDL_graphics
-{
+class SDL_graphics {
 public:
 	SDL_graphics(void);
 	~SDL_graphics(void);
@@ -27,10 +25,11 @@ public:
 	void clear(void);
 	void render(void) { SDL_RenderPresent(mainRenderer); }
 
+	/* Accessors */
 	SDL_Window *getWindow(void) { return mainWindow; }
+	SDL_Renderer *getRenderer(void) { return mainRenderer; }
 	int getScreenWidth(void) { return SCREEN_WIDTH; }
 	int getScreenHeight(void) { return SCREEN_HEIGHT; }
-	SDL_Renderer *getRenderer(void) { return mainRenderer; }
 
 private:
 	SDL_Window *mainWindow = NULL;
