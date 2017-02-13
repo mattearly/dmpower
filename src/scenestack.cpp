@@ -302,6 +302,10 @@ void SceneStack::charactersMenu_main(){
 	bool reset = true;
 //	const int FADE_INCREMENT = 4;
 
+	Texture unknown_character;
+	unknown_character.setRenderer(renderer);
+	unknown_character.load("res/pngs/unknown_man.png");
+
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
 	const int BUTTON_DY = 55;
@@ -396,7 +400,7 @@ void SceneStack::charactersMenu_main(){
 
 		Graphics_Engine.clear();
 
-		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
+//		SDL_RenderFillRect(renderer, &backdropRect);  // render black background rect
 
 		/* ANIMATED BACKGROUND */
 		if (ani0 > 0 && reset) {
@@ -463,19 +467,12 @@ void SceneStack::charactersMenu_main(){
 			mountain_ani0.draw();
 		}
 
-
-
-
-
-
-
-
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
+		unknown_character.draw();
 
 		Graphics_Engine.render();
-
 
 		//otherwise we'll be in a loop
 		newSceneProcced = false;
