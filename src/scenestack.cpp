@@ -1,8 +1,7 @@
 #include "scenestack.h"
 
-
 void SceneStack::mainscreen() {
-	///IMAGERY
+	/// IMAGERY
 	Texture defaultScene;
 	defaultScene.setRenderer(renderer);
 	defaultScene.load("res/pngs/defaultScene.png");
@@ -33,7 +32,7 @@ void SceneStack::mainscreen() {
 	beginButton.load("res/pngs/defBeginButton.png");
 	beginButton.setBlendMode(SDL_BLENDMODE_BLEND);
 	beginButton.setAlpha(220);
-	///MENU RECT LOCATIONS
+	/// MENU RECT LOCATIONS
 	const int ITEM3_X = 828;
 	const int ITEM3AND4_Y = 420;
 	const int ITEM4_X = 1246;
@@ -44,14 +43,14 @@ void SceneStack::mainscreen() {
 	const int ITEM1_Y = 230;
 	const int BEGINBUTTONX = 955;
 	const int BEGINBUTTONY = 615;
-	///TEXT
+	/// TEXT TITLES
 	const std::string titleText1 = "CHARACTERS";
 	const std::string titleText2 = "MAGIC ITEMS";
 	const std::string titleText3 = "RANDOM ENCOUNTERS";
 	const std::string titleText4 = "TOOLS";
 	const std::string titleText5 = "SAVE & EXPORT";
 	std::string infoText = "Dungeons and Dragons.  Satan's Game.\n  Your children, like it or not, are attracted in their weaker years to the occult, and a game like D&D fuels their imagination, and makes them feel special while drawing them deeper and deeper into the bowels of el Diablo.  This afternoon, the Dead Alwives Watchtower invites you to obserb the previously unobservable...";
-	///SURFACES FOR TEXT
+	/// SURFACES FOR TEXT
 	SDL_Surface *surfaceMessage;
 	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText1.c_str(), Orange);
 	SDL_Texture *titleArea1 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
@@ -63,7 +62,7 @@ void SceneStack::mainscreen() {
 	SDL_Texture *titleArea4 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	surfaceMessage = TTF_RenderText_Solid(Leadcoat, titleText5.c_str(), Orange);
 	SDL_Texture *titleArea5 = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	///RECTANGLE FOR TEXT
+	/// RECTANGLE FOR TEXT
 	SDL_Rect titleRect = {830, 58, 560, 145};
 	/// WRAP INFO AREA TEXT TO INFO AREA SIZE
 	surfaceMessage = TTF_RenderText_Blended_Wrapped(Bookman, infoText.c_str(), Black, 635);
@@ -73,7 +72,7 @@ void SceneStack::mainscreen() {
 	h = surfaceMessage->h;
 	SDL_Rect infoSrcRect = {0, 0, w, h};
 	SDL_Rect infoDestRect = {48, 460, w, h};
-	///DONE WITH surfaceMessage
+	/// DONE WITH surfaceMessage
 	SDL_FreeSurface(surfaceMessage);
 	/// FOR CURRENTLY SELECTED MENU ITEM
 	enum SelectedItem { CHARACTERS = 0, MAGIC_ITEMS, RANDOM_ENCOUNTER, TOOLS, SAVE };
@@ -134,7 +133,6 @@ void SceneStack::mainscreen() {
 						// CHOOSE BUTTON CLICKED
 						newSceneProcced = true;
 					}
-
 					break;
 				default: break;
 				}
@@ -156,12 +154,10 @@ void SceneStack::mainscreen() {
 		}
 		// CLEAR SCREEN TO BLACK
 		Graphics_Engine.clear();
-
 		// DRAW LEFT SIDE OF SCREEN
 		defaultScene.draw(48, 30);
 		infoBackground.draw(48, 460);
 		separatorBar.draw(718, 0);
-
 		// DRAW MENU BASED ON WHICH ITEM IS CURRENTLY CHOSEN
 		switch (selectedItem) {
 		case CHARACTERS: //0
@@ -292,7 +288,6 @@ void SceneStack::charactersMenu_main(){
 
 	int ani0(255), ani1(0), ani2(0), ani3(0), ani4(0);
 	bool reset = true;
-	//	const int FADE_INCREMENT = 4;
 
 	Texture unknown_character;
 	unknown_character.setRenderer(renderer);
