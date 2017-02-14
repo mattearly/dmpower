@@ -262,33 +262,6 @@ void SceneStack::charactersMenu_main(){
 	mountain_ani0.setBlendMode(SDL_BLENDMODE_BLEND);
 	mountain_ani0.setAlpha(255);
 
-	Texture mountain_ani1;
-	mountain_ani1.setRenderer(renderer);
-	mountain_ani1.load("res/pngs/mountains_animate1.png");
-	mountain_ani1.setBlendMode(SDL_BLENDMODE_BLEND);
-	mountain_ani1.setAlpha(0);
-
-	Texture mountain_ani2;
-	mountain_ani2.setRenderer(renderer);
-	mountain_ani2.load("res/pngs/mountains_animate2.png");
-	mountain_ani2.setBlendMode(SDL_BLENDMODE_BLEND);
-	mountain_ani2.setAlpha(0);
-
-	Texture mountain_ani3;
-	mountain_ani3.setRenderer(renderer);
-	mountain_ani3.load("res/pngs/mountains_animate3.png");
-	mountain_ani3.setBlendMode(SDL_BLENDMODE_BLEND);
-	mountain_ani3.setAlpha(0);
-
-	Texture mountain_ani4;
-	mountain_ani4.setRenderer(renderer);
-	mountain_ani4.load("res/pngs/mountains_animate4.png");
-	mountain_ani4.setBlendMode(SDL_BLENDMODE_BLEND);
-	mountain_ani4.setAlpha(0);
-
-	int ani0(255), ani1(0), ani2(0), ani3(0), ani4(0);
-	bool reset = true;
-
 	Texture unknown_character;
 	unknown_character.setRenderer(renderer);
 	unknown_character.load("res/pngs/unknown_man.png");
@@ -298,7 +271,6 @@ void SceneStack::charactersMenu_main(){
 	const int BUTTON_DY = 55;
 	const int BUTTON_WIDTH = button_new.getWidth();
 	const int BUTTON_HEIGHT = button_new.getHeight();
-
 
 	bool createNewCharacter = false;
 
@@ -346,6 +318,7 @@ void SceneStack::charactersMenu_main(){
 					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
 						// NEW BUTTON PRESSED
 						newSceneProcced = true;
+						createNewCharacter = true;
 					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
 						// CHOOSE BUTTON PRESSED
 					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
@@ -384,71 +357,7 @@ void SceneStack::charactersMenu_main(){
 
 		Graphics_Engine.clear();
 
-		/* ANIMATED BACKGROUND */
-		if (ani0 > 0 && reset) {
-			//fade between 0-1
-			ani0--;
-			mountain_ani0.setAlpha(ani0);
-			if (ani1 < 255) {
-				ani1++;
-				mountain_ani1.setAlpha(ani1);
-			}
-		} else if (ani1 > 0) {
-			if (reset) reset = false;
-			//fade between 1-2
-			ani1--;
-			mountain_ani1.setAlpha(ani1);
-			if (ani2 < 255) {
-				ani2++;
-				mountain_ani2.setAlpha(ani2);
-			}
-		} else if (ani2 > 0) {
-			//fade btween 2-3
-			ani2--;
-			mountain_ani2.setAlpha(ani2);
-			if (ani3 < 255) {
-				ani3++;
-				mountain_ani3.setAlpha(ani3);
-			}
-		} else if (ani3 > 0) {
-			//fade between 3-4
-			ani3--;
-			mountain_ani3.setAlpha(ani3);
-			if (ani4 < 255) {
-				ani4++;
-				mountain_ani4.setAlpha(ani4);
-			}
-		} else if (ani4 > 0){
-			//fade between 4-0
-			ani4--;
-			mountain_ani4.setAlpha(ani4);
-			if (ani0 < 255) {
-				ani0++;
-				mountain_ani0.setAlpha(ani0);
-			}
-		} else {
-			ani0 = 255;
-			ani1 = ani2 = ani3 = ani4 = 25;
-			reset = true;
-		}
-
-
-		if (ani4 > 0) {
-			mountain_ani4.draw();
-		}
-		if (ani3 > 0) {
-			mountain_ani3.draw();
-		}
-		if (ani2 > 0) {
-			mountain_ani2.draw();
-		}
-		if (ani1 > 0) {
-			mountain_ani1.draw();
-		}
-		if (ani0 > 0) {
-			mountain_ani0.draw();
-		}
-
+		mountain_ani0.draw();
 		button_new.draw(BUTTON_X, BUTTON_Y);
 		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
@@ -457,49 +366,49 @@ void SceneStack::charactersMenu_main(){
 		Graphics_Engine.render();
 
 		//otherwise we'll be in a loop
-		newSceneProcced = false;
+		if (newSceneProcced && createNewCharacter) {
+			charactersMenu_new1();
+			newSceneProcced = false;
+			createNewCharacter = false;
+
+		}
 
 	}
 }
 
 
 void SceneStack::charactersMenu_new1() {
+
+	Texture button_next;
+	button_next.setRenderer(renderer);
+	button_next.load("res/pngs/button_Next.png");
+	button_next.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_next.setAlpha(220);
+
+	Texture button_back;
+	button_back.setRenderer(renderer);
+	button_back.load("res/pngs/characterMenuButton_Back.png");
+	button_back.setBlendMode(SDL_BLENDMODE_BLEND);
+	button_back.setAlpha(220);
+
 	const std::string NEW1TITLE = "SET RACE AND CLASS";
 	const std::string SETNAME = "Enter a Name";
+	SDL_Surface *surfaceMessage;
+	surfaceMessage = TTF_RenderText_Solid(Leadcoat, NEW1TITLE.c_str(), Orange);
+	SDL_Texture *raceAndClassTitle = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	surfaceMessage = TTF_RenderText_Solid(Bookman, SETNAME.c_str(), Orange);
+	SDL_Texture *nameLabel = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	SDL_FreeSurface(surfaceMessage);
 
-}
-
-
-void SceneStack::charactersMenu_new2() {
-	const std::string NEW2TITLE = "SET DETAILS";
-
-}
-
-
-void SceneStack::menuScene2_magic_items() {
-	Texture button_new;
-	button_new.setRenderer(renderer);
-	button_new.load("res/pngs/characterMenuButton_New.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
-
-	Texture button_choose;
-	button_choose.setRenderer(renderer);
-	button_choose.load("res/pngs/characterMenuButton_Choose.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
-
-	Texture button_back;
-	button_back.setRenderer(renderer);
-	button_back.load("res/pngs/characterMenuButton_Back.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
+	// RECTANGLE FOR TEXT
+	SDL_Rect titleRect = { 830, 58, 560, 145 };
+	SDL_Rect nameLabelRect = { 650, 780, 200, 80 };
 
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
 	const int BUTTON_DY = 55;
-	const int BUTTON_WIDTH = button_new.getWidth();
-	const int BUTTON_HEIGHT = button_new.getHeight();
+	const int BUTTON_WIDTH = button_back.getWidth();
+	const int BUTTON_HEIGHT = button_back.getHeight();
 
 	bool quit = false;
 	while (!quit) {
@@ -541,11 +450,12 @@ void SceneStack::menuScene2_magic_items() {
 				case SDL_BUTTON_LEFT:
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
-					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+					/*if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
 						// NEW BUTTON PRESSED
+					} else */ if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
 						newSceneProcced = true;
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
-						// CHOOSE BUTTON PRESSED
+
+						// NEXT BUTTON PRESSED
 					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
 						// BACK BUTTON PRESSED
 						quit = true;
@@ -558,16 +468,16 @@ void SceneStack::menuScene2_magic_items() {
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
 				// BUTTON HOVER EFFECTS
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
-					button_new.setAlpha(255);
-				} else {
-					button_new.setAlpha(220);
-				}
+//				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+//					button_new.setAlpha(255);
+//				} else {
+//					button_new.setAlpha(220);
+//				}
 
 				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
-					button_choose.setAlpha(255);
+					button_next.setAlpha(255);
 				} else {
-					button_choose.setAlpha(220);
+					button_next.setAlpha(220);
 				}
 
 				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
@@ -579,11 +489,9 @@ void SceneStack::menuScene2_magic_items() {
 			default: break;
 			}
 		}
-
 		Graphics_Engine.clear();
 
-		button_new.draw(BUTTON_X, BUTTON_Y);
-		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
+		button_next.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 
 		Graphics_Engine.render();
@@ -591,348 +499,471 @@ void SceneStack::menuScene2_magic_items() {
 		newSceneProcced = false;
 	}
 }
-void SceneStack::menuScene3_encounters() {
-	Texture button_new;
-	button_new.setRenderer(renderer);
-	button_new.load("res/pngs/characterMenuButton_New.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
 
-	Texture button_choose;
-	button_choose.setRenderer(renderer);
-	button_choose.load("res/pngs/characterMenuButton_Choose.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
 
-	Texture button_back;
-	button_back.setRenderer(renderer);
-	button_back.load("res/pngs/characterMenuButton_Back.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
+    void SceneStack::charactersMenu_new2() {
+		const std::string NEW2TITLE = "SET DETAILS";
 
-	const int BUTTON_X = 1275;
-	const int BUTTON_Y = 620;
-	const int BUTTON_DY = 55;
-	const int BUTTON_WIDTH = button_new.getWidth();
-	const int BUTTON_HEIGHT = button_new.getHeight();
+	}
 
-	bool quit = false;
-	while (!quit) {
-		while (SDL_PollEvent (&e) != 0) {
-			switch (e.type) {
-			case SDL_QUIT:
-				quit = true;
-				break;
-			case SDL_KEYDOWN:
-				switch (e.key.keysym.sym) {
-				case SDLK_UP:
-					// UP KEY PRESSED
-					break;
-				case SDLK_DOWN:
-					// DOWN KEY PRESSED
-					break;
-				case SDLK_a:
-				case SDLK_LEFT:
-					// LEFT KEY OR 'a' PRESSED
-					break;
-				case SDLK_d:
-				case SDLK_RIGHT:
-					// RIGHT KEY OR 'd' PRESSED
-					break;
-				case SDLK_e:
-				case SDLK_KP_ENTER:
-				case SDLK_RETURN:
-					// ENTER, RETURN, OR 'e' PRESSSED
-					newSceneProcced = true;
-				case SDLK_q:
-				case SDLK_ESCAPE:
-					// ESCAPE OR 'q' PRESSED
+
+	void SceneStack::menuScene2_magic_items() {
+		Texture button_new;
+		button_new.setRenderer(renderer);
+		button_new.load("res/pngs/characterMenuButton_New.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
+
+		Texture button_choose;
+		button_choose.setRenderer(renderer);
+		button_choose.load("res/pngs/characterMenuButton_Choose.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
+
+		Texture button_back;
+		button_back.setRenderer(renderer);
+		button_back.load("res/pngs/characterMenuButton_Back.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
+
+		const int BUTTON_X = 1275;
+		const int BUTTON_Y = 620;
+		const int BUTTON_DY = 55;
+		const int BUTTON_WIDTH = button_new.getWidth();
+		const int BUTTON_HEIGHT = button_new.getHeight();
+
+		bool quit = false;
+		while (!quit) {
+			while (SDL_PollEvent (&e) != 0) {
+				switch (e.type) {
+				case SDL_QUIT:
 					quit = true;
 					break;
-				default: break;
-				}
-			case SDL_MOUSEBUTTONDOWN:
-				switch (e.button.button) {
-				case SDL_BUTTON_LEFT:
-					mouseLeftX = e.button.x;
-					mouseLeftY = e.button.y;
-					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
-						// NEW BUTTON PRESSED
+				case SDL_KEYDOWN:
+					switch (e.key.keysym.sym) {
+					case SDLK_UP:
+						// UP KEY PRESSED
+						break;
+					case SDLK_DOWN:
+						// DOWN KEY PRESSED
+						break;
+					case SDLK_a:
+					case SDLK_LEFT:
+						// LEFT KEY OR 'a' PRESSED
+						break;
+					case SDLK_d:
+					case SDLK_RIGHT:
+						// RIGHT KEY OR 'd' PRESSED
+						break;
+					case SDLK_e:
+					case SDLK_KP_ENTER:
+					case SDLK_RETURN:
+						// ENTER, RETURN, OR 'e' PRESSSED
 						newSceneProcced = true;
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
-						// CHOOSE BUTTON PRESSED
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
-						// BACK BUTTON PRESSED
+					case SDLK_q:
+					case SDLK_ESCAPE:
+						// ESCAPE OR 'q' PRESSED
 						quit = true;
+						break;
+					default: break;
+					}
+				case SDL_MOUSEBUTTONDOWN:
+					switch (e.button.button) {
+					case SDL_BUTTON_LEFT:
+						mouseLeftX = e.button.x;
+						mouseLeftY = e.button.y;
+						if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+							// NEW BUTTON PRESSED
+							newSceneProcced = true;
+						} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+							// CHOOSE BUTTON PRESSED
+						} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+							// BACK BUTTON PRESSED
+							quit = true;
+						}
+						break;
+					default: break;
+					}
+					break;
+				case SDL_MOUSEMOTION:
+					mouseLeftX = e.motion.x;
+					mouseLeftY = e.motion.y;
+					// BUTTON HOVER EFFECTS
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+						button_new.setAlpha(255);
+					} else {
+						button_new.setAlpha(220);
+					}
+
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+						button_choose.setAlpha(255);
+					} else {
+						button_choose.setAlpha(220);
+					}
+
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+						button_back.setAlpha(255);
+					} else {
+						button_back.setAlpha(220);
 					}
 					break;
 				default: break;
 				}
-				break;
-			case SDL_MOUSEMOTION:
-				mouseLeftX = e.motion.x;
-				mouseLeftY = e.motion.y;
-				// BUTTON HOVER EFFECTS
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
-					button_new.setAlpha(255);
-				} else {
-					button_new.setAlpha(220);
-				}
-
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
-					button_choose.setAlpha(255);
-				} else {
-					button_choose.setAlpha(220);
-				}
-
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
-					button_back.setAlpha(255);
-				} else {
-					button_back.setAlpha(220);
-				}
-				break;
-			default: break;
 			}
+
+			Graphics_Engine.clear();
+
+			button_new.draw(BUTTON_X, BUTTON_Y);
+			button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
+			button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
+
+			Graphics_Engine.render();
+
+			newSceneProcced = false;
 		}
-		Graphics_Engine.clear();
-
-		button_new.draw(BUTTON_X, BUTTON_Y);
-		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
-		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-
-		Graphics_Engine.render();
-
-		newSceneProcced = false;
-
 	}
-}
-void SceneStack::menuScene4_tools() {
-	Texture button_new;
-	button_new.setRenderer(renderer);
-	button_new.load("res/pngs/characterMenuButton_New.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
+	void SceneStack::menuScene3_encounters() {
+		Texture button_new;
+		button_new.setRenderer(renderer);
+		button_new.load("res/pngs/characterMenuButton_New.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
 
-	Texture button_choose;
-	button_choose.setRenderer(renderer);
-	button_choose.load("res/pngs/characterMenuButton_Choose.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
+		Texture button_choose;
+		button_choose.setRenderer(renderer);
+		button_choose.load("res/pngs/characterMenuButton_Choose.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
 
-	Texture button_back;
-	button_back.setRenderer(renderer);
-	button_back.load("res/pngs/characterMenuButton_Back.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
+		Texture button_back;
+		button_back.setRenderer(renderer);
+		button_back.load("res/pngs/characterMenuButton_Back.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
 
-	const int BUTTON_X = 1275;
-	const int BUTTON_Y = 620;
-	const int BUTTON_DY = 55;
-	const int BUTTON_WIDTH = button_new.getWidth();
-	const int BUTTON_HEIGHT = button_new.getHeight();
+		const int BUTTON_X = 1275;
+		const int BUTTON_Y = 620;
+		const int BUTTON_DY = 55;
+		const int BUTTON_WIDTH = button_new.getWidth();
+		const int BUTTON_HEIGHT = button_new.getHeight();
 
-	bool quit = false;
-	while (!quit) {
-		while (SDL_PollEvent (&e) != 0) {
-			switch (e.type) {
-			case SDL_QUIT:
-				quit = true;
-				break;
-			case SDL_KEYDOWN:
-				switch (e.key.keysym.sym) {
-				case SDLK_UP:
-					// UP KEY PRESSED
-					break;
-				case SDLK_DOWN:
-					// DOWN KEY PRESSED
-					break;
-				case SDLK_a:
-				case SDLK_LEFT:
-					// LEFT KEY OR 'a' PRESSED
-					break;
-				case SDLK_d:
-				case SDLK_RIGHT:
-					// RIGHT KEY OR 'd' PRESSED
-					break;
-				case SDLK_e:
-				case SDLK_KP_ENTER:
-				case SDLK_RETURN:
-					// ENTER, RETURN, OR 'e' PRESSSED
-					newSceneProcced = true;
-				case SDLK_q:
-				case SDLK_ESCAPE:
-					// ESCAPE OR 'q' PRESSED
+		bool quit = false;
+		while (!quit) {
+			while (SDL_PollEvent (&e) != 0) {
+				switch (e.type) {
+				case SDL_QUIT:
 					quit = true;
 					break;
-				default: break;
-				}
-			case SDL_MOUSEBUTTONDOWN:
-				switch (e.button.button) {
-				case SDL_BUTTON_LEFT:
-					mouseLeftX = e.button.x;
-					mouseLeftY = e.button.y;
-					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
-						// NEW BUTTON PRESSED
+				case SDL_KEYDOWN:
+					switch (e.key.keysym.sym) {
+					case SDLK_UP:
+						// UP KEY PRESSED
+						break;
+					case SDLK_DOWN:
+						// DOWN KEY PRESSED
+						break;
+					case SDLK_a:
+					case SDLK_LEFT:
+						// LEFT KEY OR 'a' PRESSED
+						break;
+					case SDLK_d:
+					case SDLK_RIGHT:
+						// RIGHT KEY OR 'd' PRESSED
+						break;
+					case SDLK_e:
+					case SDLK_KP_ENTER:
+					case SDLK_RETURN:
+						// ENTER, RETURN, OR 'e' PRESSSED
 						newSceneProcced = true;
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
-						// CHOOSE BUTTON PRESSED
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
-						// BACK BUTTON PRESSED
+					case SDLK_q:
+					case SDLK_ESCAPE:
+						// ESCAPE OR 'q' PRESSED
 						quit = true;
+						break;
+					default: break;
+					}
+				case SDL_MOUSEBUTTONDOWN:
+					switch (e.button.button) {
+					case SDL_BUTTON_LEFT:
+						mouseLeftX = e.button.x;
+						mouseLeftY = e.button.y;
+						if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+							// NEW BUTTON PRESSED
+							newSceneProcced = true;
+						} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+							// CHOOSE BUTTON PRESSED
+						} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+							// BACK BUTTON PRESSED
+							quit = true;
+						}
+						break;
+					default: break;
+					}
+					break;
+				case SDL_MOUSEMOTION:
+					mouseLeftX = e.motion.x;
+					mouseLeftY = e.motion.y;
+					// BUTTON HOVER EFFECTS
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+						button_new.setAlpha(255);
+					} else {
+						button_new.setAlpha(220);
+					}
+
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+						button_choose.setAlpha(255);
+					} else {
+						button_choose.setAlpha(220);
+					}
+
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+						button_back.setAlpha(255);
+					} else {
+						button_back.setAlpha(220);
 					}
 					break;
 				default: break;
 				}
-				break;
-			case SDL_MOUSEMOTION:
-				mouseLeftX = e.motion.x;
-				mouseLeftY = e.motion.y;
-				// BUTTON HOVER EFFECTS
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
-					button_new.setAlpha(255);
-				} else {
-					button_new.setAlpha(220);
-				}
-
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
-					button_choose.setAlpha(255);
-				} else {
-					button_choose.setAlpha(220);
-				}
-
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
-					button_back.setAlpha(255);
-				} else {
-					button_back.setAlpha(220);
-				}
-				break;
-			default: break;
 			}
+			Graphics_Engine.clear();
+
+			button_new.draw(BUTTON_X, BUTTON_Y);
+			button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
+			button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
+
+			Graphics_Engine.render();
+
+			newSceneProcced = false;
+
 		}
-		Graphics_Engine.clear();
-
-		button_new.draw(BUTTON_X, BUTTON_Y);
-		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
-		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-
-		Graphics_Engine.render();
-
-		newSceneProcced = false;
-
 	}
-}
-void SceneStack::menuScene5_export() {
-	Texture button_new;
-	button_new.setRenderer(renderer);
-	button_new.load("res/pngs/characterMenuButton_New.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
+	void SceneStack::menuScene4_tools() {
+		Texture button_new;
+		button_new.setRenderer(renderer);
+		button_new.load("res/pngs/characterMenuButton_New.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
 
-	Texture button_choose;
-	button_choose.setRenderer(renderer);
-	button_choose.load("res/pngs/characterMenuButton_Choose.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
+		Texture button_choose;
+		button_choose.setRenderer(renderer);
+		button_choose.load("res/pngs/characterMenuButton_Choose.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
 
-	Texture button_back;
-	button_back.setRenderer(renderer);
-	button_back.load("res/pngs/characterMenuButton_Back.png");
-	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
-	button_new.setAlpha(220);
+		Texture button_back;
+		button_back.setRenderer(renderer);
+		button_back.load("res/pngs/characterMenuButton_Back.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
 
-	const int BUTTON_X = 1275;
-	const int BUTTON_Y = 620;
-	const int BUTTON_DY = 55;
-	const int BUTTON_WIDTH = button_new.getWidth();
-	const int BUTTON_HEIGHT = button_new.getHeight();
+		const int BUTTON_X = 1275;
+		const int BUTTON_Y = 620;
+		const int BUTTON_DY = 55;
+		const int BUTTON_WIDTH = button_new.getWidth();
+		const int BUTTON_HEIGHT = button_new.getHeight();
 
-	bool quit = false;
-	while (!quit) {
-		while (SDL_PollEvent (&e) != 0) {
-			switch (e.type) {
-			case SDL_QUIT:
-				quit = true;
-				break;
-			case SDL_KEYDOWN:
-				switch (e.key.keysym.sym) {
-				case SDLK_UP:
-					// UP KEY PRESSED
-					break;
-				case SDLK_DOWN:
-					// DOWN KEY PRESSED
-					break;
-				case SDLK_a:
-				case SDLK_LEFT:
-					// LEFT KEY OR 'a' PRESSED
-					break;
-				case SDLK_d:
-				case SDLK_RIGHT:
-					// RIGHT KEY OR 'd' PRESSED
-					break;
-				case SDLK_e:
-				case SDLK_KP_ENTER:
-				case SDLK_RETURN:
-					// ENTER, RETURN, OR 'e' PRESSSED
-					newSceneProcced = true;
-				case SDLK_q:
-				case SDLK_ESCAPE:
-					// ESCAPE OR 'q' PRESSED
+		bool quit = false;
+		while (!quit) {
+			while (SDL_PollEvent (&e) != 0) {
+				switch (e.type) {
+				case SDL_QUIT:
 					quit = true;
 					break;
-				default: break;
-				}
-			case SDL_MOUSEBUTTONDOWN:
-				switch (e.button.button) {
-				case SDL_BUTTON_LEFT:
-					mouseLeftX = e.button.x;
-					mouseLeftY = e.button.y;
-					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
-						// NEW BUTTON PRESSED
+				case SDL_KEYDOWN:
+					switch (e.key.keysym.sym) {
+					case SDLK_UP:
+						// UP KEY PRESSED
+						break;
+					case SDLK_DOWN:
+						// DOWN KEY PRESSED
+						break;
+					case SDLK_a:
+					case SDLK_LEFT:
+						// LEFT KEY OR 'a' PRESSED
+						break;
+					case SDLK_d:
+					case SDLK_RIGHT:
+						// RIGHT KEY OR 'd' PRESSED
+						break;
+					case SDLK_e:
+					case SDLK_KP_ENTER:
+					case SDLK_RETURN:
+						// ENTER, RETURN, OR 'e' PRESSSED
 						newSceneProcced = true;
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
-						// CHOOSE BUTTON PRESSED
-					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
-						// BACK BUTTON PRESSED
+					case SDLK_q:
+					case SDLK_ESCAPE:
+						// ESCAPE OR 'q' PRESSED
 						quit = true;
+						break;
+					default: break;
+					}
+				case SDL_MOUSEBUTTONDOWN:
+					switch (e.button.button) {
+					case SDL_BUTTON_LEFT:
+						mouseLeftX = e.button.x;
+						mouseLeftY = e.button.y;
+						if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+							// NEW BUTTON PRESSED
+							newSceneProcced = true;
+						} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+							// CHOOSE BUTTON PRESSED
+						} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+							// BACK BUTTON PRESSED
+							quit = true;
+						}
+						break;
+					default: break;
+					}
+					break;
+				case SDL_MOUSEMOTION:
+					mouseLeftX = e.motion.x;
+					mouseLeftY = e.motion.y;
+					// BUTTON HOVER EFFECTS
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+						button_new.setAlpha(255);
+					} else {
+						button_new.setAlpha(220);
+					}
+
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+						button_choose.setAlpha(255);
+					} else {
+						button_choose.setAlpha(220);
+					}
+
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+						button_back.setAlpha(255);
+					} else {
+						button_back.setAlpha(220);
 					}
 					break;
 				default: break;
 				}
-				break;
-			case SDL_MOUSEMOTION:
-				mouseLeftX = e.motion.x;
-				mouseLeftY = e.motion.y;
-				// BUTTON HOVER EFFECTS
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
-					button_new.setAlpha(255);
-				} else {
-					button_new.setAlpha(220);
-				}
-
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
-					button_choose.setAlpha(255);
-				} else {
-					button_choose.setAlpha(220);
-				}
-
-				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
-					button_back.setAlpha(255);
-				} else {
-					button_back.setAlpha(220);
-				}
-				break;
-			default: break;
 			}
+			Graphics_Engine.clear();
+
+			button_new.draw(BUTTON_X, BUTTON_Y);
+			button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
+			button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
+
+			Graphics_Engine.render();
+
+			newSceneProcced = false;
+
 		}
-		Graphics_Engine.clear();
-
-		button_new.draw(BUTTON_X, BUTTON_Y);
-		button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
-		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-
-		Graphics_Engine.render();
-
-		newSceneProcced = false;
 	}
-}
+	void SceneStack::menuScene5_export() {
+		Texture button_new;
+		button_new.setRenderer(renderer);
+		button_new.load("res/pngs/characterMenuButton_New.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
+
+		Texture button_choose;
+		button_choose.setRenderer(renderer);
+		button_choose.load("res/pngs/characterMenuButton_Choose.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
+
+		Texture button_back;
+		button_back.setRenderer(renderer);
+		button_back.load("res/pngs/characterMenuButton_Back.png");
+		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
+		button_new.setAlpha(220);
+
+		const int BUTTON_X = 1275;
+		const int BUTTON_Y = 620;
+		const int BUTTON_DY = 55;
+		const int BUTTON_WIDTH = button_new.getWidth();
+		const int BUTTON_HEIGHT = button_new.getHeight();
+
+		bool quit = false;
+		while (!quit) {
+			while (SDL_PollEvent (&e) != 0) {
+				switch (e.type) {
+				case SDL_QUIT:
+					quit = true;
+					break;
+				case SDL_KEYDOWN:
+					switch (e.key.keysym.sym) {
+					case SDLK_UP:
+						// UP KEY PRESSED
+						break;
+					case SDLK_DOWN:
+						// DOWN KEY PRESSED
+						break;
+					case SDLK_a:
+					case SDLK_LEFT:
+						// LEFT KEY OR 'a' PRESSED
+						break;
+					case SDLK_d:
+					case SDLK_RIGHT:
+						// RIGHT KEY OR 'd' PRESSED
+						break;
+					case SDLK_e:
+					case SDLK_KP_ENTER:
+					case SDLK_RETURN:
+						// ENTER, RETURN, OR 'e' PRESSSED
+						newSceneProcced = true;
+					case SDLK_q:
+					case SDLK_ESCAPE:
+						// ESCAPE OR 'q' PRESSED
+						quit = true;
+						break;
+					default: break;
+					}
+				case SDL_MOUSEBUTTONDOWN:
+					switch (e.button.button) {
+					case SDL_BUTTON_LEFT:
+						mouseLeftX = e.button.x;
+						mouseLeftY = e.button.y;
+						if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+							// NEW BUTTON PRESSED
+							newSceneProcced = true;
+						} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+							// CHOOSE BUTTON PRESSED
+						} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+							// BACK BUTTON PRESSED
+							quit = true;
+						}
+						break;
+					default: break;
+					}
+					break;
+				case SDL_MOUSEMOTION:
+					mouseLeftX = e.motion.x;
+					mouseLeftY = e.motion.y;
+					// BUTTON HOVER EFFECTS
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
+						button_new.setAlpha(255);
+					} else {
+						button_new.setAlpha(220);
+					}
+
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+						button_choose.setAlpha(255);
+					} else {
+						button_choose.setAlpha(220);
+					}
+
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
+						button_back.setAlpha(255);
+					} else {
+						button_back.setAlpha(220);
+					}
+					break;
+				default: break;
+				}
+			}
+			Graphics_Engine.clear();
+
+			button_new.draw(BUTTON_X, BUTTON_Y);
+			button_choose.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
+			button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
+
+			Graphics_Engine.render();
+
+			newSceneProcced = false;
+		}
+	}
 
