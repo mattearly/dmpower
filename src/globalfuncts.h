@@ -11,7 +11,7 @@ ____________________________________________________________________________
 **/
 
 
-
+#pragma once
 #ifndef __dm_power_poly__globalfuncts__
 #define __dm_power_poly__globalfuncts__
 
@@ -19,6 +19,10 @@ ____________________________________________________________________________
 #include <sstream>
 #include <random>
 #include <type_traits>
+#include <string>
+#include <vector>
+using std::string;
+using std::vector;
 
 const std::string BLINK     = "\e[5m";
 const std::string BOLD      = "\e[1m";
@@ -44,6 +48,15 @@ const std::string B_BLUE    = "\e[44m";
 const std::string B_MAGENTA = "\e[45m";
 const std::string B_CYAN    = "\e[46m";
 const std::string B_WHITE   = "\e[47m";
+
+const vector<string> allRaces = { "Dragonborn", "Halfing", "Dwarf",\
+								  "Half-orc", "Elf", "Human", "Gnome",\
+								  "Tiefling", "Half-elf" };
+
+const vector<string> allClasses = { " Cleric", "Paladin", "Fighter",\
+									"Sorcerer", "Rogue", "Bard", "Wizard",\
+									"Monk", "Barbarian", "Ranger", "Druid",\
+									"Warlock" };
 
 static std::random_device rgen;
 static std::mt19937 mgen(rgen());

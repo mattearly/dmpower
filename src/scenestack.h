@@ -7,7 +7,7 @@ class SceneStack {
 public:
 	SceneStack() {
 		/* Scene Preload */
-
+		fullQuit = false;
 		Black = {0,0,0,0};
 		Orange = {255, 115, 35, 0};
 		newSceneProcced = false;
@@ -21,15 +21,9 @@ public:
 		//	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
 		//	if(!Verdana) { printf("TTF_OpenFont Verdana: %s\n", TTF_GetError()); }s
 		///ADJUST FONT HINTING
-		//	TTF_SetFontHinting(Verdana, TTF_HINTING_LIGHT);
-		//	TTF_SetFontStyle(Verdana, TTF_STYLE_BOLD);
-		//	TTF_SetFontHinting(Bookman, TTF_HINTING_MONO);
 		TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
-
 		mouseLeftY = mouseLeftX = 0;
-
 		// RECTANGULUR BACKDROP
-
 		// backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 	}
 
@@ -39,8 +33,6 @@ public:
 		Leadcoat = NULL;
 		TTF_CloseFont(Bookman);
 		Bookman = NULL;
-
-
 	}
 
 	/*!
@@ -148,6 +140,7 @@ private:
 		return 0;
 	};
 
+	
 	/* Preloaded variables */
 	bool newSceneProcced;
 	SDL_Color Black;
@@ -159,10 +152,10 @@ private:
 	TTF_Font *Leadcoat;
 	TTF_Font *Bookman;
 	//	TTF_Font *Verdana;
-	SDL_Rect backdropRect;
+//	SDL_Rect backdropRect;
 	// HOLD MOUSE MOVEMENTS VAR
 	int mouseLeftX, mouseLeftY;
 	// FOR KEYBOARD AND MOUSE EVENTS
 	SDL_Event e;
-
+	bool fullQuit;
 };
