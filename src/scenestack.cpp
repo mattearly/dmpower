@@ -29,7 +29,6 @@ void SceneStack::mainscreen() {
 	SDL_Rect subItem = {0,0,144,90};
 	Texture beginButton;
 	beginButton.setRenderer(renderer);
-	beginButton.load("res/pngs/defBeginButton.png");
 	beginButton.setBlendMode(SDL_BLENDMODE_BLEND);
 	beginButton.setAlpha(220);
 	/// MENU RECT LOCATIONS
@@ -240,19 +239,19 @@ void SceneStack::mainscreen() {
 void SceneStack::charactersMenu_main(){
 	Texture button_new;
 	button_new.setRenderer(renderer);
-	button_new.load("res/pngs/characterMenuButton_New.png");
+	button_new.load("res/pngs/button_New.png");
 	button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_new.setAlpha(220);
 
 	Texture button_choose;
 	button_choose.setRenderer(renderer);
-	button_choose.load("res/pngs/characterMenuButton_Choose.png");
+	button_choose.load("res/pngs/button_Choose.png");
 	button_choose.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_choose.setAlpha(220);
 
 	Texture button_back;
 	button_back.setRenderer(renderer);
-	button_back.load("res/pngs/characterMenuButton_Back.png");
+	button_back.load("res/pngs/button_Back.png");
 	button_back.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_back.setAlpha(220);
 
@@ -387,7 +386,7 @@ void SceneStack::charactersMenu_new1() {
 
 	Texture button_back;
 	button_back.setRenderer(renderer);
-	button_back.load("res/pngs/characterMenuButton_Back.png");
+	button_back.load("res/pngs/button_Back.png");
 	button_back.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_back.setAlpha(220);
 
@@ -510,19 +509,19 @@ void SceneStack::charactersMenu_new1() {
 	void SceneStack::menuScene2_magic_items() {
 		Texture button_new;
 		button_new.setRenderer(renderer);
-		button_new.load("res/pngs/characterMenuButton_New.png");
+		button_new.load("res/pngs/button_New.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
 		Texture button_choose;
 		button_choose.setRenderer(renderer);
-		button_choose.load("res/pngs/characterMenuButton_Choose.png");
+		button_choose.load("res/pngs/button_Choose.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
 		Texture button_back;
 		button_back.setRenderer(renderer);
-		button_back.load("res/pngs/characterMenuButton_Back.png");
+		button_back.load("res/pngs/button_Back.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
@@ -625,19 +624,19 @@ void SceneStack::charactersMenu_new1() {
 	void SceneStack::menuScene3_encounters() {
 		Texture button_new;
 		button_new.setRenderer(renderer);
-		button_new.load("res/pngs/characterMenuButton_New.png");
+		button_new.load("res/pngs/button_New.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
 		Texture button_choose;
 		button_choose.setRenderer(renderer);
-		button_choose.load("res/pngs/characterMenuButton_Choose.png");
+		button_choose.load("res/pngs/button_Choose.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
 		Texture button_back;
 		button_back.setRenderer(renderer);
-		button_back.load("res/pngs/characterMenuButton_Back.png");
+		button_back.load("res/pngs/button_Back.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
@@ -740,19 +739,19 @@ void SceneStack::charactersMenu_new1() {
 	void SceneStack::menuScene4_tools() {
 		Texture button_new;
 		button_new.setRenderer(renderer);
-		button_new.load("res/pngs/characterMenuButton_New.png");
+		button_new.load("res/pngs/button_New.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
 		Texture button_choose;
 		button_choose.setRenderer(renderer);
-		button_choose.load("res/pngs/characterMenuButton_Choose.png");
+		button_choose.load("res/pngs/button_Choose.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
 		Texture button_back;
 		button_back.setRenderer(renderer);
-		button_back.load("res/pngs/characterMenuButton_Back.png");
+		button_back.load("res/pngs/button_Back.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
@@ -855,19 +854,19 @@ void SceneStack::charactersMenu_new1() {
 	void SceneStack::menuScene5_export() {
 		Texture button_new;
 		button_new.setRenderer(renderer);
-		button_new.load("res/pngs/characterMenuButton_New.png");
+		button_new.load("res/pngs/button_New.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
 		Texture button_choose;
 		button_choose.setRenderer(renderer);
-		button_choose.load("res/pngs/characterMenuButton_Choose.png");
+		button_choose.load("res/pngs/button_Choose.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
 		Texture button_back;
 		button_back.setRenderer(renderer);
-		button_back.load("res/pngs/characterMenuButton_Back.png");
+		button_back.load("res/pngs/button_Back.png");
 		button_new.setBlendMode(SDL_BLENDMODE_BLEND);
 		button_new.setAlpha(220);
 
