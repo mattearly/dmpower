@@ -53,7 +53,7 @@ const vector<string> allRaces = { "Dragonborn", "Halfing", "Dwarf",\
 								  "Half-orc", "Elf", "Human", "Gnome",\
 								  "Tiefling", "Half-elf" };
 
-const vector<string> allClasses = { " Cleric", "Paladin", "Fighter",\
+const vector<string> allClasses = { "Cleric", "Paladin", "Fighter",\
 									"Sorcerer", "Rogue", "Bard", "Wizard",\
 									"Monk", "Barbarian", "Ranger", "Druid",\
 									"Warlock" };

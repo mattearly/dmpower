@@ -10,6 +10,7 @@ public:
 		fullQuit = false;
 		Black = {0,0,0,0};
 		Orange = {255, 115, 35, 0};
+		White = {210, 210, 201, 0};
 		newSceneProcced = false;
 		renderer = Graphics_Engine.getRenderer();
 		SCREEN_HEIGHT = Graphics_Engine.getScreenHeight();
@@ -140,17 +141,14 @@ private:
 		return 0;
 	};
 
-	
+
 	/* Preloaded variables */
 	bool newSceneProcced;
-	SDL_Color Black;
-	SDL_Color Orange;
+	SDL_Color Black, Orange, White;
 	SDL_Renderer *renderer;
-	int SCREEN_WIDTH;
-	int SCREEN_HEIGHT;
+	int SCREEN_WIDTH, SCREEN_HEIGHT;
 	SDL_graphics Graphics_Engine;
-	TTF_Font *Leadcoat;
-	TTF_Font *Bookman;
+	TTF_Font *Leadcoat, *Bookman;
 	//	TTF_Font *Verdana;
 //	SDL_Rect backdropRect;
 	// HOLD MOUSE MOVEMENTS VAR
