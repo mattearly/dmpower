@@ -41,3 +41,6 @@ dmpower
 *.iml
 *.xml
 
+# Gimp XCF files for image version control
+res/xcfs/
+
