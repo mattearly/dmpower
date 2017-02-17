@@ -350,6 +350,8 @@ void SceneStack::charactersMenu_main(){
 				} else {
 					button_back.setAlpha(190);
 				}
+
+
 				break;
 			default: break;
 			}
@@ -402,20 +404,30 @@ void SceneStack::charactersMenu_new1() {
 	surfaceMessage = TTF_RenderText_Solid(Bookman, text_SETNAME.c_str(), Orange);
 	SDL_Texture *nameLabel = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	vector<SDL_Texture *> allraces;
+	vector<SDL_Rect> racelistrect;   // 9 races
+	enum SelectedRace { NO_RACE = -1, DRAGONBORN = 0, HALFLING, DWARF, HALFORC, ELF, HUMAN, GNOME, TIEFLING, HALFELF };
+	SelectedRace selectedrace = NO_RACE;
 	vector<SDL_Texture *> allclasses;
-	vector<SDL_Rect> racelistrect;
-	vector<SDL_Rect> classlistrect;
+	vector<SDL_Rect> classlistrect;   // 12 classes
+	enum SelectedClass { NO_CLASS = -1, CLERIC = 0, PALADIN, FIGHTER, SORCERER, ROGUE, BARD, WIZARD, MONK, BARBARIAN, RANGER, DRUID, WARLOCK };
+	SelectedClass selectedclass = NO_CLASS;
 	SDL_Rect tmp;
+	const int RACE_X = 55;
+	const int _Y = 160;
+	const int _DY = 50;
+	const int CLASS_X = 515;
+	const int _WIDTH = 320;
+	const int _HEIGHT = 45;
 	for (int i = 0; i < allRaces.size(); i++) {
 		surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[i].c_str(), White);
 		allraces.push_back(SDL_CreateTextureFromSurface(renderer, surfaceMessage));
-		tmp.x = 55; tmp.y = 160+50*i; tmp.w = 320; tmp.h = 45;
+		tmp.x = RACE_X; tmp.y = _Y+_DY*i; tmp.w = _WIDTH; tmp.h = _HEIGHT;
 		racelistrect.push_back(tmp);
 	}
 	for (int i = 0; i < allClasses.size(); i++) {
 		surfaceMessage= TTF_RenderText_Solid(Bookman, allClasses[i].c_str(), White);
 		allclasses.push_back(SDL_CreateTextureFromSurface(renderer, surfaceMessage));
-		tmp.x = 515; tmp.y = 160+50*i; tmp.w = 320; tmp.h = 45;
+		tmp.x = CLASS_X; tmp.y = _Y+_DY*i; tmp.w = _WIDTH; tmp.h = _HEIGHT;
 		classlistrect.push_back(tmp);
 	}
 	SDL_FreeSurface(surfaceMessage);
@@ -482,7 +494,82 @@ void SceneStack::charactersMenu_new1() {
 						goback = true;
 					}
 
-					if
+
+						//tmp.x = 55; tmp.y = _Y+_DY*i; tmp.w = _WIDTH; tmp.h = _HEIGHT;
+//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*0 && mouseLeftY < _Y+_DY*0+_HEIGHT) {
+//						if (selectedrace != DRAGONBORN) {
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//							selectedrace = DRAGONBORN;
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//						}
+//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*1 && mouseLeftY < _Y+_DY*1+_HEIGHT) {
+//						if (selectedrace != HALFLING) {
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//							selectedrace = HALFLING;
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//						}
+//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*2 && mouseLeftY < _Y+_DY*2+_HEIGHT) {
+//						if (selectedrace != DWARF) {
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//							selectedrace = DWARF;
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//						}
+//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*3 && mouseLeftY < _Y+_DY*3+_HEIGHT) {
+//						if (selectedrace != HALFORC) {
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//							selectedrace = HALFORC;
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//						}
+//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*4 && mouseLeftY < _Y+_DY*4+_HEIGHT) {
+//						if (selectedrace != ELF) {
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//							selectedrace = ELF;
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//						}
+//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*5 && mouseLeftY < _Y+_DY*6+_HEIGHT) {
+//						if (selectedrace != HUMAN) {
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//							selectedrace = HUMAN;
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//						}
+//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*6 && mouseLeftY < _Y+_DY*6+_HEIGHT) {
+//						if (selectedrace != GNOME) {
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//							selectedrace = GNOME;
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//						}
+//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*7 && mouseLeftY < _Y+_DY*7+_HEIGHT) {
+//						if (selectedrace != TIEFLING) {
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//							selectedrace = TIEFLING;
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//						}
+//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*8 && mouseLeftY < _Y+_DY*8+_HEIGHT) {
+//						if (selectedrace != HALFELF) {
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//							selectedrace = HALFELF;
+//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
+//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+//						}
+//					}
+//					if (surfaceMessage != NULL) SDL_FreeSurface(surfaceMessage);
 					break;
 				default: break;
 				}
@@ -490,6 +577,7 @@ void SceneStack::charactersMenu_new1() {
 			case SDL_MOUSEMOTION:
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
+
 				// BUTTON HOVER EFFECTS
 				//				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
 				//					button_new.setAlpha(255);
@@ -525,6 +613,7 @@ void SceneStack::charactersMenu_new1() {
 		for (int i = 0; i < allraces.size(); i++) {
 			SDL_RenderCopy(renderer, allraces[i], NULL, &racelistrect[i]);
 		}
+//		setcolors(selectedrace, allclasses);
 		for (int i = 0; i < allclasses.size(); i++) {
 			SDL_RenderCopy(renderer, allclasses[i], NULL, &classlistrect[i]);
 		}

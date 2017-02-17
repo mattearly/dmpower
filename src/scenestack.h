@@ -1,6 +1,8 @@
 #pragma once
 #include "sdl_graphics.h"
 #include "texture.h"
+#include <vector>
+using std::vector;
 
 class SceneStack {
 
@@ -139,8 +141,10 @@ private:
 		default:break;
 		}
 		return 0;
-	};
+	}
 
+//	void setWhite(enum &current_value, vector<SDL_Texture *> comparable_item_list);
+//	void setOrange(enum &current_value, vector<SDL_Texture *> comparable_item_list);
 
 	/* Preloaded variables */
 	bool newSceneProcced;
