@@ -6,9 +6,9 @@ TARGET = ../dmpower
 CC = g++
 CFLAGS = -std=c++11
 SINGLE_CFLAGS = -c -g -std=c++11
-SDL2 = -lSDL2main -lSDL2 
-SDL2IMG = -lSDL2_image 
-SDL2TTF = -lSDL2_ttf 
+SDL2 = -lSDL2main -lSDL2
+SDL2IMG = -lSDL2_image
+SDL2TTF = -lSDL2_ttf
 SDL2AUDIO = -lSDL2_mixer
 OBJS = sdl_graphics.o \
 texture.o \
@@ -53,7 +53,7 @@ scene_tools.cpp
 DEL = rm -vf
 
 $(TARGET): $(OBJS)
-	$(CC) $(OBJS) $(SDL2) $(SDL2IMG) $(SDL2TTF) $(SDL2AUDIO) $(CFLAGS) -o ../$@
+	$(CC) $(OBJS) $(SDL2) $(SDL2IMG) $(SDL2TTF) $(SDL2AUDIO) $(CFLAGS) -o $@
 
 clean:
 	$(DEL) $(OBJS)
