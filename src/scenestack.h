@@ -26,8 +26,6 @@ public:
 		///ADJUST FONT HINTING
 		TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
 		mouseLeftY = mouseLeftX = 0;
-		// RECTANGULUR BACKDROP
-		// backdropRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 	}
 
 
@@ -88,8 +86,6 @@ private:
 	 */
 	void menuScene5_export();
 
-
-
 	/*!
 	 * \brief CycleRight_5
 	 * \param amt amount to rotate
@@ -143,9 +139,6 @@ private:
 		return 0;
 	}
 
-//	void setWhite(enum &current_value, vector<SDL_Texture *> comparable_item_list);
-//	void setOrange(enum &current_value, vector<SDL_Texture *> comparable_item_list);
-
 	/* Preloaded variables */
 	bool newSceneProcced;
 	SDL_Color Black, Orange, White;
@@ -154,7 +147,6 @@ private:
 	SDL_graphics Graphics_Engine;
 	TTF_Font *Leadcoat, *Bookman;
 	//	TTF_Font *Verdana;
-//	SDL_Rect backdropRect;
 	// HOLD MOUSE MOVEMENTS VAR
 	int mouseLeftX, mouseLeftY;
 	// FOR KEYBOARD AND MOUSE EVENTS

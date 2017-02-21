@@ -23,7 +23,12 @@ gen_reward.o \
 gen_insult.o \
 globalfuncts.o \
 races.o \
-scenestack.o
+scene_main.o \
+scene_newcharacter.o \
+scene_encounters.o \
+scene_export.o \
+scene_rewards.o \
+scene_tools.o
 SRC = campaign.cpp \
 characters.cpp \
 colors.cpp \
@@ -37,7 +42,13 @@ globalfuncts.cpp \
 races.cpp \
 sdl_graphics.cpp \
 texture.cpp \
-scenestack.cpp
+scene_main.cpp \
+scene_newcharacter.cpp \
+scene_encountaers.cpp \
+scene_export.cpp \
+scene_rewards.cpp \
+scene_tools.cpp
+
 
 DEL = rm -vf
 
