@@ -37,7 +37,7 @@ int main(void)
 	if (themeMusic == NULL ) {
 		printf("Failed to load theme music! SDL_mixer Error: %s\n", Mix_GetError());
 	}
-	Mix_PlayMusic( themeMusic, -1 );
+//	Mix_PlayMusic( themeMusic, -1 );
 
 
 	/// LAUNCH THE MAINSCREEN
@@ -168,14 +168,11 @@ void save_file(const bool &ls, const string &lf, const Campaign &game)
 	}
 	//save into file after above is complete
 	os.open(("saves/" + file + ".save").c_str());
-	if (os.is_open())
-	{
+	if (os.is_open()) {
 		game.dumpCharacter(os);
 		cout << "All data saved in file -> " << file << endl;
 		os.close();
-	}
-	else
-	{
+	} else {
 		cout << "Save failed.\n";
 	}
 }

@@ -132,15 +132,12 @@ void SceneStack::charactersMenu_main(){
 
 		//otherwise we'll be in a loop
 		if (newSceneProcced && createNewCharacter) {
-			charactersMenu_new1();
 			newSceneProcced = false;
 			createNewCharacter = false;
-
+			charactersMenu_new1();
 		}
-
 	}
 }
-
 
 void SceneStack::charactersMenu_new1() {
 	Texture button_next;
@@ -166,34 +163,40 @@ void SceneStack::charactersMenu_new1() {
 	SDL_Texture *chooseclass_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	surfaceMessage = TTF_RenderText_Solid(Bookman, text_SETNAME.c_str(), Orange);
 	SDL_Texture *nameLabel = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	vector<SDL_Texture *> allraces;
-	vector<SDL_Rect> racelistrect;   // 9 races
-	enum SelectedRace { NO_RACE = -1, DRAGONBORN = 0, HALFLING, DWARF, HALFORC, ELF, HUMAN, GNOME, TIEFLING, HALFELF };
+	SDL_FreeSurface(surfaceMessage);
+	enum SelectedRace { NO_RACE = -1, DRAGONBORN = 0, HALFLING, DWARF, HALFORC, ELF, HUMAN,\
+						GNOME, TIEFLING, HALFELF };
 	SelectedRace selectedrace = NO_RACE;
-	vector<SDL_Texture *> allclasses;
-	vector<SDL_Rect> classlistrect;   // 12 classes
-	enum SelectedClass { NO_CLASS = -1, CLERIC = 0, PALADIN, FIGHTER, SORCERER, ROGUE, BARD, WIZARD, MONK, BARBARIAN, RANGER, DRUID, WARLOCK };
+	enum SelectedClass { NO_CLASS = -1, CLERIC = 0, PALADIN, FIGHTER, SORCERER, ROGUE, BARD,\
+						 WIZARD, MONK, BARBARIAN, RANGER, DRUID, WARLOCK };
 	SelectedClass selectedclass = NO_CLASS;
-	SDL_Rect tmp;
+	vector<Texture> allraces; // 9 races
+	//	vector<SDL_Rect> racelistrect;
+	vector<Texture> allclasses; // 12 classes
+	//	vector<SDL_Rect> classlistrect;
+	//	SDL_Rect tmp;
 	const int RACE_X = 55;
-	const int _Y = 160;
-	const int _DY = 50;
-	const int CLASS_X = 515;
-	const int _WIDTH = 320;
-	const int _HEIGHT = 45;
+	const int _Y = 155;
+	const int _DY = 3;
+	const int CLASS_X = 500;
+	const int _WIDTH = 330;
+	const int _HEIGHT = 100;
 	for (int i = 0; i < allRaces.size(); i++) {
-		surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[i].c_str(), White);
-		allraces.push_back(SDL_CreateTextureFromSurface(renderer, surfaceMessage));
-		tmp.x = RACE_X; tmp.y = _Y+_DY*i; tmp.w = _WIDTH; tmp.h = _HEIGHT;
-		racelistrect.push_back(tmp);
+		string strload = "res/pngs/racelist_" + allRaces[i] + ".png";
+		Texture textureload;
+		textureload.setRenderer(renderer);
+		textureload.load(strload);
+		//		textureload.setBlendMode(SDL_BLENDMODE_MOD);
+		allraces.push_back(textureload);
 	}
 	for (int i = 0; i < allClasses.size(); i++) {
-		surfaceMessage= TTF_RenderText_Solid(Bookman, allClasses[i].c_str(), White);
-		allclasses.push_back(SDL_CreateTextureFromSurface(renderer, surfaceMessage));
-		tmp.x = CLASS_X; tmp.y = _Y+_DY*i; tmp.w = _WIDTH; tmp.h = _HEIGHT;
-		classlistrect.push_back(tmp);
+		string strload = "res/pngs/classlist_" + allClasses[i] + ".png";
+		Texture textureload;
+		textureload.setRenderer(renderer);
+		textureload.load(strload);
+		//		textureload.setBlendMode(SDL_BLENDMODE_MOD);
+		allclasses.push_back(textureload);
 	}
-	SDL_FreeSurface(surfaceMessage);
 	SDL_Rect racerect = { 60,50,330,100 };
 	SDL_Rect classrect = { 520,50,330,100 };
 	SDL_Rect namelabelrect = { 1000, 480, 230, 60 };
@@ -248,7 +251,6 @@ void SceneStack::charactersMenu_new1() {
 					/*if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
 						// NEW BUTTON PRESSED
 					} else */
-
 					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
 						newSceneProcced = true;
 						// NEXT BUTTON PRESSED
@@ -256,83 +258,6 @@ void SceneStack::charactersMenu_new1() {
 						// BACK BUTTON PRESSED
 						goback = true;
 					}
-
-
-						//tmp.x = 55; tmp.y = _Y+_DY*i; tmp.w = _WIDTH; tmp.h = _HEIGHT;
-//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*0 && mouseLeftY < _Y+_DY*0+_HEIGHT) {
-//						if (selectedrace != DRAGONBORN) {
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//							selectedrace = DRAGONBORN;
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//						}
-//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*1 && mouseLeftY < _Y+_DY*1+_HEIGHT) {
-//						if (selectedrace != HALFLING) {
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//							selectedrace = HALFLING;
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//						}
-//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*2 && mouseLeftY < _Y+_DY*2+_HEIGHT) {
-//						if (selectedrace != DWARF) {
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//							selectedrace = DWARF;
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//						}
-//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*3 && mouseLeftY < _Y+_DY*3+_HEIGHT) {
-//						if (selectedrace != HALFORC) {
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//							selectedrace = HALFORC;
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//						}
-//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*4 && mouseLeftY < _Y+_DY*4+_HEIGHT) {
-//						if (selectedrace != ELF) {
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//							selectedrace = ELF;
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//						}
-//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*5 && mouseLeftY < _Y+_DY*6+_HEIGHT) {
-//						if (selectedrace != HUMAN) {
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//							selectedrace = HUMAN;
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//						}
-//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*6 && mouseLeftY < _Y+_DY*6+_HEIGHT) {
-//						if (selectedrace != GNOME) {
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//							selectedrace = GNOME;
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//						}
-//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*7 && mouseLeftY < _Y+_DY*7+_HEIGHT) {
-//						if (selectedrace != TIEFLING) {
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//							selectedrace = TIEFLING;
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//						}
-//					} else if (mouseLeftX > RACE_X && mouseLeftX < _WIDTH && mouseLeftY > _Y+_DY*8 && mouseLeftY < _Y+_DY*8+_HEIGHT) {
-//						if (selectedrace != HALFELF) {
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), White);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//							selectedrace = HALFELF;
-//							surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[selectedrace].c_str(), Orange);
-//							allraces[selectedrace] = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//						}
-//					}
-//					if (surfaceMessage != NULL) SDL_FreeSurface(surfaceMessage);
 					break;
 				default: break;
 				}
@@ -340,20 +265,13 @@ void SceneStack::charactersMenu_new1() {
 			case SDL_MOUSEMOTION:
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
-
-				// BUTTON HOVER EFFECTS
-				//				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
-				//					button_new.setAlpha(255);
-				//				} else {
-				//					button_new.setAlpha(190);
-				//				}
-
+				/* button Next Hover */
 				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
 					button_next.setAlpha(255);
 				} else {
 					button_next.setAlpha(190);
 				}
-
+				/* button Back Hover */
 				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
 					button_back.setAlpha(255);
 				} else {
@@ -364,7 +282,6 @@ void SceneStack::charactersMenu_new1() {
 			}
 		}
 		Graphics_Engine.clear();
-
 		button_next.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 		separatorBar.draw(BAR1_X,0);
@@ -372,18 +289,22 @@ void SceneStack::charactersMenu_new1() {
 		SDL_RenderCopy(renderer, chooserace_Title, NULL, &racerect);
 		SDL_RenderCopy(renderer, chooseclass_Title, NULL, &classrect);
 		SDL_RenderCopy(renderer, nameLabel, NULL, &namelabelrect);
-
 		for (int i = 0; i < allraces.size(); i++) {
-			SDL_RenderCopy(renderer, allraces[i], NULL, &racelistrect[i]);
+			allraces[i].draw(RACE_X, _Y+_HEIGHT*i);
 		}
-//		setcolors(selectedrace, allclasses);
 		for (int i = 0; i < allclasses.size(); i++) {
-			SDL_RenderCopy(renderer, allclasses[i], NULL, &classlistrect[i]);
+			if (i < allclasses.size()/2) {
+				allclasses[i].draw(CLASS_X, _Y+_HEIGHT*i);
+			} else {
+				allclasses[i].draw(CLASS_X+_WIDTH, _Y+_HEIGHT*(i-allraces.size()/2));
+			}
 		}
-
 		Graphics_Engine.render();
 
-		newSceneProcced = false;
+		if (newSceneProcced) {
+			newSceneProcced = false;
+			charactersMenu_new2();
+		}
 	}
 }
 
@@ -412,23 +333,23 @@ void SceneStack::charactersMenu_new2() {
 	SDL_Texture *chooseclass_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	surfaceMessage = TTF_RenderText_Solid(Bookman, text_SETNAME.c_str(), Orange);
 	SDL_Texture *nameLabel = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	vector<SDL_Texture *> allraces;
-	vector<SDL_Texture *> allclasses;
-	vector<SDL_Rect> racelistrect;
-	vector<SDL_Rect> classlistrect;
-	SDL_Rect tmp;
-//	for (int i = 0; i < allRaces.size(); i++) {
-//		surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[i].c_str(), White);
-//		allraces.push_back(SDL_CreateTextureFromSurface(renderer, surfaceMessage));
-//		tmp.x = 55; tmp.y = 160+50*i; tmp.w = 320; tmp.h = 45;
-//		racelistrect.push_back(tmp);
-//	}
-//	for (int i = 0; i < allClasses.size(); i++) {
-//		surfaceMessage= TTF_RenderText_Solid(Bookman, allClasses[i].c_str(), White);
-//		allclasses.push_back(SDL_CreateTextureFromSurface(renderer, surfaceMessage));
-//		tmp.x = 515; tmp.y = 160+50*i; tmp.w = 320; tmp.h = 45;
-//		classlistrect.push_back(tmp);
-//	}
+	//	vector<SDL_Texture *> allraces;
+	//	vector<SDL_Texture *> allclasses;
+	//	vector<SDL_Rect> racelistrect;
+	//	vector<SDL_Rect> classlistrect;
+	//	SDL_Rect tmp;
+	//		for (int i = 0; i < allRaces.size(); i++) {
+	//			surfaceMessage = TTF_RenderText_Solid(Bookman, allRaces[i].c_str(), White);
+	//			allraces.push_back(SDL_CreateTextureFromSurface(renderer, surfaceMessage));
+	//			tmp.x = 55; tmp.y = 160+50*i; tmp.w = 320; tmp.h = 45;
+	//			racelistrect.push_back(tmp);
+	//		}
+	//	for (int i = 0; i < allClasses.size(); i++) {
+	//		surfaceMessage= TTF_RenderText_Solid(Bookman, allClasses[i].c_str(), White);
+	//		allclasses.push_back(SDL_CreateTextureFromSurface(renderer, surfaceMessage));
+	//		tmp.x = 515; tmp.y = 160+50*i; tmp.w = 320; tmp.h = 45;
+	//		classlistrect.push_back(tmp);
+	//	}
 	SDL_FreeSurface(surfaceMessage);
 	SDL_Rect racerect = { 60,50,330,100 };
 	SDL_Rect classrect = { 520,50,330,100 };
@@ -480,9 +401,7 @@ void SceneStack::charactersMenu_new2() {
 				case SDL_BUTTON_LEFT:
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
-					/*if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
-						// NEW BUTTON PRESSED
-					} else */ if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
+					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
 						newSceneProcced = true;
 						// NEXT BUTTON PRESSED
 					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
@@ -497,12 +416,6 @@ void SceneStack::charactersMenu_new2() {
 				mouseLeftX = e.motion.x;
 				mouseLeftY = e.motion.y;
 				// BUTTON HOVER EFFECTS
-				//				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
-				//					button_new.setAlpha(255);
-				//				} else {
-				//					button_new.setAlpha(190);
-				//				}
-
 				if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
 					button_next.setAlpha(255);
 				} else {
@@ -528,15 +441,18 @@ void SceneStack::charactersMenu_new2() {
 		SDL_RenderCopy(renderer, chooseclass_Title, NULL, &classrect);
 		SDL_RenderCopy(renderer, nameLabel, NULL, &namelabelrect);
 
-//		for (int i = 0; i < allraces.size(); i++) {
-//			SDL_RenderCopy(renderer, allraces[i], NULL, &racelistrect[i]);
-//		}
-//		for (int i = 0; i < allclasses.size(); i++) {
-//			SDL_RenderCopy(renderer, allclasses[i], NULL, &classlistrect[i]);
-//		}
+		//		for (int i = 0; i < allraces.size(); i++) {
+		//			SDL_RenderCopy(renderer, allraces[i], NULL, &racelistrect[i]);
+		//		}
+		//		for (int i = 0; i < allclasses.size(); i++) {
+		//			SDL_RenderCopy(renderer, allclasses[i], NULL, &classlistrect[i]);
+		//		}
 
 		Graphics_Engine.render();
 
-		newSceneProcced = false;
+		if (newSceneProcced) {
+			newSceneProcced = false;
+
+		}
 	}
 }
