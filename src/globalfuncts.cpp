@@ -19,10 +19,11 @@ using namespace std;
 
 void simpleClearScreen()
 {
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < 45; i++)
 	{
-		std::cout << "\n\n\n\n\n";
+		std::cout << "\n";
 	}
+	std::cout << endl;
 }
 
 char getYorN(const std::string &message)
