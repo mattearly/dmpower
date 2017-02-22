@@ -155,7 +155,7 @@ void SceneStack::charactersMenu_new1() {
 	separatorBar.load("res/pngs/separatorBar.png");
 	const std::string text_CHOOSERACE = "CHOOSE RACE";
 	const std::string text_CHOOSECLASS = "CHOOSE CLASS";
-	const std::string text_SETNAME = "Enter a Name";
+	const std::string text_SETNAME = "Enter a Name:";
 	SDL_Surface *surfaceMessage;
 	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_CHOOSERACE.c_str(), Orange);
 	SDL_Texture *chooserace_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
@@ -164,17 +164,17 @@ void SceneStack::charactersMenu_new1() {
 	surfaceMessage = TTF_RenderText_Solid(Bookman, text_SETNAME.c_str(), Orange);
 	SDL_Texture *nameLabel = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	SDL_FreeSurface(surfaceMessage);
-	const int RACE_X = 55;
-	const int _Y = 155;
-	const int _DY = 3;
-	const int CLASS_X = 500;
+	const int RACE_X = 20;
+	const int _Y = 63;
+	//	const int _DY = 3;
+	const int CLASS_X = 735;
 	const int _WIDTH = 330;
 	const int _HEIGHT = 100;
-	SDL_Rect racerect = { 60,50,330,100 };
-	SDL_Rect classrect = { 520,50,330,100 };
-	SDL_Rect namelabelrect = { 1000, 480, 230, 60 };
-	const int BAR1_X = 440;
-	const int BAR2_X = 900;
+	SDL_Rect racerect = { 145,5,290,67 };
+	SDL_Rect classrect = { 855,5,290,67 };
+	SDL_Rect namelabelrect = { 40, 600, 235, 70 };
+	const int BAR1_X = 690;
+//	const int BAR2_X = 1420;
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
 	const int BUTTON_DY = 55;
@@ -186,36 +186,20 @@ void SceneStack::charactersMenu_new1() {
 	enum SelectedClass { NO_CLASS = -1, CLERIC = 0, PALADIN, FIGHTER, SORCERER, ROGUE, BARD,\
 						 WIZARD, MONK, BARBARIAN, RANGER, DRUID, WARLOCK };
 	SelectedClass selectedclass = NO_CLASS;
-//	Texture race1;
-//	race1.setRenderer(renderer);
-//	race1.load("res/pngs/racelist_Dragonborn.png");
-
-	string strload = "";
-	Texture textureload;
-	textureload.setRenderer(renderer);
-
 	vector<Texture> allraces; // 9 races
-	for (int i = 0; i < allRaces.size(); i++) {
-		textureload.free();
-		strload = "";
-		strload = "res/pngs/racelist_" + allRaces[i] + ".png";
-		textureload.load(strload);
-//		textureload.setBlendMode(SDL_BLENDMODE_MOD);
-		allraces.push_back(textureload);
+	allraces.resize(allRaces.size());
+	for (int i=0; i<allRaces.size();i++) {
+		string strload = "res/pngs/racelist_" + allRaces[i] + ".png";
+		allraces[i].setRenderer(renderer);
+		allraces[i].load(strload);
 	}
-	textureload.free();
-	strload = "";
-	/*
-	vector<Texture> allclasses; // 12 classes
-	for (int i = 0; i < allClasses.size(); i++) {
+	vector<Texture> allclasses;  //12 classes
+	allclasses.resize(allClasses.size());
+	for (int i=0; i<allClasses.size();i++) {
 		string strload = "res/pngs/classlist_" + allClasses[i] + ".png";
-		Texture textureload;
-		textureload.setRenderer(renderer);
-		textureload.load(strload);
-		textureload.setBlendMode(SDL_BLENDMODE_MOD);
-		allclasses.push_back(textureload);
+		allclasses[i].setRenderer(renderer);
+		allclasses[i].load(strload);
 	}
-	*/
 	bool goback = false;
 	while (!goback && !fullQuit) {
 		while (SDL_PollEvent (&e) != 0) {
@@ -294,24 +278,31 @@ void SceneStack::charactersMenu_new1() {
 		button_next.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 		separatorBar.draw(BAR1_X,0);
-		separatorBar.draw(BAR2_X,0);
+//		separatorBar.draw(BAR2_X,0);
 		SDL_RenderCopy(renderer, chooserace_Title, NULL, &racerect);
 		SDL_RenderCopy(renderer, chooseclass_Title, NULL, &classrect);
 		SDL_RenderCopy(renderer, nameLabel, NULL, &namelabelrect);
 
 		for (int i = 0; i < allraces.size(); i++) {
-			std::cout << "drawing racelist..." << i << "\n";
-			allraces[i].draw(RACE_X, _Y);
-		} /*
-		for (int i = 0; i < allclasses.size(); i++) {
-			if (i < allclasses.size()/2) {
-				allclasses[i].draw(CLASS_X, _Y+_HEIGHT*i);
+			if (i%2 == 0) {
+//				if (i != 2) allraces[i].draw(RACE_X, _Y+_HEIGHT*(i/2));
+				allraces[i].draw(RACE_X, _Y+_HEIGHT*(i/2));
 			} else {
-				allclasses[i].draw(CLASS_X+_WIDTH, _Y+_HEIGHT*(i-allraces.size()/2));
+//				if (i != 0) allraces[i].draw(RACE_X+_WIDTH, _Y+_HEIGHT*(i/2));
+				allraces[i].draw(RACE_X+_WIDTH, _Y+_HEIGHT*(i/2));
 			}
-		} */
+		}
 
-//		race1.draw(RACE_X, _Y);
+		for (int i=0;i<allclasses.size();i++) {
+			if (i%2 == 0) {
+//				if (i != 2) allclasses[i].draw(CLASS_X,_Y+_HEIGHT*i);
+				allclasses[i].draw(CLASS_X,_Y+_HEIGHT*(i/2));
+			} else {
+//				if (i != 0) allclasses[i].draw(CLASS_X+_WIDTH,_Y+_HEIGHT*i);
+				allclasses[i].draw(CLASS_X+_WIDTH,_Y+_HEIGHT*(i/2));
+			}
+		}
+		//		race1.draw(RACE_X, _Y);
 
 		Graphics_Engine.render();
 		if (newSceneProcced) {
@@ -320,7 +311,6 @@ void SceneStack::charactersMenu_new1() {
 		}
 	}
 }
-
 
 void SceneStack::charactersMenu_new2() {
 	Texture button_next;
@@ -384,7 +374,7 @@ void SceneStack::charactersMenu_new2() {
 				case SDLK_KP_ENTER:
 				case SDLK_RETURN:
 					// ENTER, RETURN, OR 'e' PRESSSED
-//					newSceneProcced = true;
+					//					newSceneProcced = true;
 				case SDLK_q:
 				case SDLK_ESCAPE:
 					// ESCAPE OR 'q' PRESSED
