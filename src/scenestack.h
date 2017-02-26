@@ -139,6 +139,20 @@ private:
 		return 0;
 	}
 
+	void RaceClick(const int &chosen, vector<Texture> &races) {
+		for (auto i=0;i<races.size();i++) {
+			if (i != chosen) races[i].setAlpha(145);
+			else races[i].setAlpha(255);
+		}
+	}
+
+	void ClassClick(const int &chosen, vector<Texture> &classes) {
+		for (auto i=0;i<classes.size();i++) {
+			if (i != chosen) classes[i].setAlpha(145);
+			else classes[i].setAlpha(255);
+		}
+	}
+
 	/* Preloaded variables */
 	bool newSceneProcced;
 	SDL_Color Black, Orange, White;

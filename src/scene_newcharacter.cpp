@@ -140,6 +140,27 @@ void SceneStack::charactersMenu_main(){
 }
 
 void SceneStack::charactersMenu_new1() {
+
+	const std::string text_CHOOSERACE = "CHOOSE A RACE";
+	const std::string text_CHOOSECLASS = "CHOOSE A CLASS";
+	const std::string text_SETNAME = "Enter a Name:";
+	SDL_Surface *surfaceMessage;
+	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_CHOOSERACE.c_str(), Orange);
+	SDL_Texture *chooserace_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_CHOOSECLASS.c_str(), Orange);
+	SDL_Texture *chooseclass_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	surfaceMessage = TTF_RenderText_Solid(Bookman, text_SETNAME.c_str(), Orange);
+	SDL_Texture *nameLabel = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//NOTIFICATION MESSAGES
+	const std::string text_NO_RACE = "Choose a race...";
+	const std::string text_NO_CLASS = "Choose a class...";
+	surfaceMessage = TTF_RenderText_Solid(Bookman, text_NO_RACE.c_str(), Orange);
+	SDL_Texture *notification_race = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	surfaceMessage = TTF_RenderText_Solid(Bookman, text_NO_CLASS.c_str(), Orange);
+	SDL_Texture *notification_class = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
+	SDL_FreeSurface(surfaceMessage);
+
 	Texture button_next;
 	button_next.setRenderer(renderer);
 	button_next.load("res/pngs/button_Next.png");
@@ -153,45 +174,20 @@ void SceneStack::charactersMenu_new1() {
 	Texture separatorBar;
 	separatorBar.setRenderer(renderer);
 	separatorBar.load("res/pngs/separatorBar.png");
-	const std::string text_CHOOSERACE = "CHOOSE RACE";
-	const std::string text_CHOOSECLASS = "CHOOSE CLASS";
-	const std::string text_SETNAME = "Enter a Name:";
-	SDL_Surface *surfaceMessage;
-	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_CHOOSERACE.c_str(), Orange);
-	SDL_Texture *chooserace_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_CHOOSECLASS.c_str(), Orange);
-	SDL_Texture *chooseclass_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	surfaceMessage = TTF_RenderText_Solid(Bookman, text_SETNAME.c_str(), Orange);
-	SDL_Texture *nameLabel = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	SDL_FreeSurface(surfaceMessage);
-	const int RACE_X = 20;
-	const int _Y = 63;
-	//	const int _DY = 3;
-	const int CLASS_X = 735;
-	const int _WIDTH = 330;
-	const int _HEIGHT = 100;
-	SDL_Rect racerect = { 145,5,290,67 };
-	SDL_Rect classrect = { 855,5,290,67 };
-	SDL_Rect namelabelrect = { 40, 600, 235, 70 };
-	const int BAR1_X = 690;
-//	const int BAR2_X = 1420;
-	const int BUTTON_X = 1275;
-	const int BUTTON_Y = 620;
-	const int BUTTON_DY = 55;
-	const int BUTTON_WIDTH = button_back.getWidth();
-	const int BUTTON_HEIGHT = button_back.getHeight();
-	enum SelectedRace { NO_RACE = -1, DRAGONBORN = 0, HALFLING, DWARF, HALFORC, ELF, HUMAN,\
-						GNOME, TIEFLING, HALFELF };
-	SelectedRace selectedrace = NO_RACE;
-	enum SelectedClass { NO_CLASS = -1, CLERIC = 0, PALADIN, FIGHTER, SORCERER, ROGUE, BARD,\
-						 WIZARD, MONK, BARBARIAN, RANGER, DRUID, WARLOCK };
-	SelectedClass selectedclass = NO_CLASS;
+
+	bool notify_race = false;
+	bool notify_class = false;
+	const int notify_timer = 75;
+	int notify_count = 0;
+
 	vector<Texture> allraces; // 9 races
 	allraces.resize(allRaces.size());
 	for (int i=0; i<allRaces.size();i++) {
 		string strload = "res/pngs/racelist_" + allRaces[i] + ".png";
 		allraces[i].setRenderer(renderer);
 		allraces[i].load(strload);
+		allraces[i].setBlendMode(SDL_BLENDMODE_BLEND);
+		allraces[i].setAlpha(145);
 	}
 	vector<Texture> allclasses;  //12 classes
 	allclasses.resize(allClasses.size());
@@ -199,7 +195,38 @@ void SceneStack::charactersMenu_new1() {
 		string strload = "res/pngs/classlist_" + allClasses[i] + ".png";
 		allclasses[i].setRenderer(renderer);
 		allclasses[i].load(strload);
+		allclasses[i].setBlendMode(SDL_BLENDMODE_BLEND);
+		allclasses[i].setAlpha(145);
 	}
+
+	SDL_Rect name_input = { 75, 690, 540, 65 };
+
+	const int RACE_X = 20;
+	const int _Y = 70;
+	//	const int _DY = 3;
+	const int CLASS_X = 735;
+	const int _WIDTH = allraces[0].getWidth();
+	const int _HEIGHT = allraces[0].getHeight();
+	SDL_Rect racerect = { 180,10,290,67 };
+	SDL_Rect classrect = { 905,10,290,67 };
+	SDL_Rect namelabelrect = { 40, 610, 235, 60 };
+	SDL_Rect notify_area = { 740, 700, 520, 65 };
+	const int BAR1_X = 690;
+	//	const int BAR2_X = 1420;
+	const int BUTTON_X = 1275;
+	const int BUTTON_Y = 620;
+	const int BUTTON_DY = 55;
+	const int BUTTON_WIDTH = button_back.getWidth();
+	const int BUTTON_HEIGHT = button_back.getHeight();
+
+
+	enum SelectedRace { NO_RACE = -1, DRAGONBORN = 0, HALFLING, DWARF, HALFORC, ELF, HUMAN,\
+						GNOME, TIEFLING, HALFELF };
+	SelectedRace selectedrace = NO_RACE;
+	enum SelectedClass { NO_CLASS = -1, CLERIC = 0, PALADIN, FIGHTER, SORCERER, ROGUE, BARD,\
+						 WIZARD, MONK, BARBARIAN, RANGER, DRUID, WARLOCK };
+	SelectedClass selectedclass = NO_CLASS;
+
 	bool goback = false;
 	while (!goback && !fullQuit) {
 		while (SDL_PollEvent (&e) != 0) {
@@ -241,15 +268,83 @@ void SceneStack::charactersMenu_new1() {
 				case SDL_BUTTON_LEFT:
 					mouseLeftX = e.button.x;
 					mouseLeftY = e.button.y;
-					/*if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y && mouseLeftY < BUTTON_Y+BUTTON_HEIGHT)) {
-						// NEW BUTTON PRESSED
-					} else */
 					if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY && mouseLeftY < BUTTON_Y+BUTTON_DY+BUTTON_HEIGHT)){
-						newSceneProcced = true;
-						// NEXT BUTTON PRESSED
+						if (selectedrace == NO_RACE) {
+							notify_race = true;
+						} else if (selectedclass == NO_CLASS) {
+							notify_class = true;
+						} else {
+							newSceneProcced = true; // NEXT BUTTON PRESSED
+						}
 					} else if ((mouseLeftX > BUTTON_X && mouseLeftX < BUTTON_X+BUTTON_WIDTH) && (mouseLeftY > BUTTON_Y+BUTTON_DY*2 && mouseLeftY < BUTTON_Y+BUTTON_DY*2+BUTTON_HEIGHT)) {
-						// BACK BUTTON PRESSED
-						goback = true;
+						goback = true; // BACK BUTTON PRESSED
+
+						//BEGIN RACE CLICKS
+					} else if ((mouseLeftX > RACE_X && mouseLeftX < RACE_X+_WIDTH) && (mouseLeftY > _Y && mouseLeftY < _Y+_HEIGHT)) {
+						RaceClick(0,allraces);
+						selectedrace = DRAGONBORN;
+					} else if ((mouseLeftX > RACE_X+_WIDTH && mouseLeftX < RACE_X+_WIDTH*2)&&(mouseLeftY > _Y && mouseLeftY < _Y+_HEIGHT)) {
+						RaceClick(1,allraces);
+						selectedrace = HALFLING;
+					} else if ((mouseLeftX > RACE_X && mouseLeftX < RACE_X+_WIDTH) && (mouseLeftY > _Y+_HEIGHT && mouseLeftY < _Y+_HEIGHT*2)) {
+						RaceClick(2,allraces);
+						selectedrace = DWARF;
+					} else if ((mouseLeftX > RACE_X+_WIDTH && mouseLeftX < RACE_X+_WIDTH*2)&&(mouseLeftY > _Y+_HEIGHT && mouseLeftY < _Y+_HEIGHT*2)) {
+						RaceClick(3,allraces);
+						selectedrace = HALFORC;
+					} else if ((mouseLeftX > RACE_X && mouseLeftX < RACE_X+_WIDTH) && (mouseLeftY > _Y+_HEIGHT*2 && mouseLeftY < _Y+_HEIGHT*3)) {
+						RaceClick(4,allraces);
+						selectedrace = ELF;
+					} else if ((mouseLeftX > RACE_X+_WIDTH && mouseLeftX < RACE_X+_WIDTH*2)&&(mouseLeftY > _Y+_HEIGHT*2 && mouseLeftY < _Y+_HEIGHT*3)) {
+						RaceClick(5,allraces);
+						selectedrace = HUMAN;
+					} else if ((mouseLeftX > RACE_X && mouseLeftX < RACE_X+_WIDTH) && (mouseLeftY > _Y+_HEIGHT*3 && mouseLeftY < _Y+_HEIGHT*4)) {
+						RaceClick(6,allraces);
+						selectedrace = GNOME;
+					} else if ((mouseLeftX > RACE_X+_WIDTH && mouseLeftX < RACE_X+_WIDTH*2)&&(mouseLeftY > _Y+_HEIGHT*3 && mouseLeftY < _Y+_HEIGHT*4)) {
+						RaceClick(7,allraces);
+						selectedrace = TIEFLING;
+					} else if ((mouseLeftX > RACE_X && mouseLeftX < RACE_X+_WIDTH) && (mouseLeftY > _Y+_HEIGHT*4 && mouseLeftY < _Y+_HEIGHT*5)) {
+						RaceClick(8,allraces);
+						selectedrace = HALFELF;
+
+						//BEGIN CLASS CLICKS
+					} else if ((mouseLeftX > CLASS_X && mouseLeftX < CLASS_X+_WIDTH) && (mouseLeftY > _Y && mouseLeftY < _Y+_HEIGHT)) {
+						ClassClick(0,allclasses);
+						selectedclass = CLERIC;
+					} else if ((mouseLeftX > CLASS_X+_WIDTH && mouseLeftX < CLASS_X+_WIDTH*2)&&(mouseLeftY > _Y && mouseLeftY < _Y+_HEIGHT)) {
+						ClassClick(1,allclasses);
+						selectedclass = PALADIN;
+					} else if ((mouseLeftX > CLASS_X && mouseLeftX < CLASS_X+_WIDTH) && (mouseLeftY > _Y+_HEIGHT && mouseLeftY < _Y+_HEIGHT*2)) {
+						ClassClick(2,allclasses);
+						selectedclass = FIGHTER;
+					} else if ((mouseLeftX > CLASS_X+_WIDTH && mouseLeftX < CLASS_X+_WIDTH*2)&&(mouseLeftY > _Y+_HEIGHT && mouseLeftY < _Y+_HEIGHT*2)) {
+						ClassClick(3,allclasses);
+						selectedclass = SORCERER;
+					} else if ((mouseLeftX > CLASS_X && mouseLeftX < CLASS_X+_WIDTH) && (mouseLeftY > _Y+_HEIGHT*2 && mouseLeftY < _Y+_HEIGHT*3)) {
+						ClassClick(4,allclasses);
+						selectedclass = ROGUE;
+					} else if ((mouseLeftX > CLASS_X+_WIDTH && mouseLeftX < CLASS_X+_WIDTH*2)&&(mouseLeftY > _Y+_HEIGHT*2 && mouseLeftY < _Y+_HEIGHT*3)) {
+						ClassClick(5,allclasses);
+						selectedclass = BARD;
+					} else if ((mouseLeftX > CLASS_X && mouseLeftX < CLASS_X+_WIDTH) && (mouseLeftY > _Y+_HEIGHT*3 && mouseLeftY < _Y+_HEIGHT*4)) {
+						ClassClick(6,allclasses);
+						selectedclass = WIZARD;
+					} else if ((mouseLeftX > CLASS_X+_WIDTH && mouseLeftX < CLASS_X+_WIDTH*2)&&(mouseLeftY > _Y+_HEIGHT*3 && mouseLeftY < _Y+_HEIGHT*4)) {
+						ClassClick(7,allclasses);
+						selectedclass = MONK;
+					} else if ((mouseLeftX > CLASS_X && mouseLeftX < CLASS_X+_WIDTH) && (mouseLeftY > _Y+_HEIGHT*4 && mouseLeftY < _Y+_HEIGHT*5)) {
+						ClassClick(8,allclasses);
+						selectedclass = BARBARIAN;
+					} else if ((mouseLeftX > CLASS_X+_WIDTH && mouseLeftX < CLASS_X+_WIDTH*2)&&(mouseLeftY > _Y+_HEIGHT*4 && mouseLeftY < _Y+_HEIGHT*5)) {
+						ClassClick(9,allclasses);
+						selectedclass = RANGER;
+					} else if ((mouseLeftX > CLASS_X && mouseLeftX < CLASS_X+_WIDTH) && (mouseLeftY > _Y+_HEIGHT*5 && mouseLeftY < _Y+_HEIGHT*6)) {
+						ClassClick(10,allclasses);
+						selectedclass = DRUID;
+					} else if ((mouseLeftX > CLASS_X+_WIDTH && mouseLeftX < CLASS_X+_WIDTH*2)&&(mouseLeftY > _Y+_HEIGHT*5 && mouseLeftY < _Y+_HEIGHT*6)) {
+						ClassClick(11,allclasses);
+						selectedclass = WARLOCK;
 					}
 					break;
 				default: break;
@@ -278,31 +373,43 @@ void SceneStack::charactersMenu_new1() {
 		button_next.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 		separatorBar.draw(BAR1_X,0);
-//		separatorBar.draw(BAR2_X,0);
+		//		separatorBar.draw(BAR2_X,0);
 		SDL_RenderCopy(renderer, chooserace_Title, NULL, &racerect);
 		SDL_RenderCopy(renderer, chooseclass_Title, NULL, &classrect);
 		SDL_RenderCopy(renderer, nameLabel, NULL, &namelabelrect);
+//		SDL_DrawRect the place to enter in character name
 
 		for (int i = 0; i < allraces.size(); i++) {
 			if (i%2 == 0) {
-//				if (i != 2) allraces[i].draw(RACE_X, _Y+_HEIGHT*(i/2));
 				allraces[i].draw(RACE_X, _Y+_HEIGHT*(i/2));
 			} else {
-//				if (i != 0) allraces[i].draw(RACE_X+_WIDTH, _Y+_HEIGHT*(i/2));
 				allraces[i].draw(RACE_X+_WIDTH, _Y+_HEIGHT*(i/2));
 			}
 		}
 
-		for (int i=0;i<allclasses.size();i++) {
+		for (auto i=0;i<allclasses.size();i++) {
 			if (i%2 == 0) {
-//				if (i != 2) allclasses[i].draw(CLASS_X,_Y+_HEIGHT*i);
 				allclasses[i].draw(CLASS_X,_Y+_HEIGHT*(i/2));
 			} else {
-//				if (i != 0) allclasses[i].draw(CLASS_X+_WIDTH,_Y+_HEIGHT*i);
 				allclasses[i].draw(CLASS_X+_WIDTH,_Y+_HEIGHT*(i/2));
 			}
 		}
-		//		race1.draw(RACE_X, _Y);
+
+		if (notify_race) {
+			SDL_RenderCopy(renderer, notification_race, NULL, &notify_area);
+			notify_count++;
+			if (notify_count >= notify_timer) {
+				notify_race = false;
+				notify_count = 0;
+			}
+		} else if (notify_class) {
+			SDL_RenderCopy(renderer, notification_class, NULL, &notify_area);
+			notify_count++;
+			if (notify_count >= notify_timer) {
+				notify_class = false;
+				notify_count = 0;
+			}
+		}
 
 		Graphics_Engine.render();
 		if (newSceneProcced) {
