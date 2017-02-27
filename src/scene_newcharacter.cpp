@@ -182,7 +182,7 @@ void SceneStack::charactersMenu_new1() {
 
 	vector<Texture> allraces; // 9 races
 	allraces.resize(allRaces.size());
-	for (int i=0; i<allRaces.size();i++) {
+	for (std::size_t i=0; i<allRaces.size();i++) {
 		string strload = "res/pngs/racelist_" + allRaces[i] + ".png";
 		allraces[i].setRenderer(renderer);
 		allraces[i].load(strload);
@@ -191,7 +191,7 @@ void SceneStack::charactersMenu_new1() {
 	}
 	vector<Texture> allclasses;  //12 classes
 	allclasses.resize(allClasses.size());
-	for (int i=0; i<allClasses.size();i++) {
+	for (std::size_t i=0; i<allClasses.size();i++) {
 		string strload = "res/pngs/classlist_" + allClasses[i] + ".png";
 		allclasses[i].setRenderer(renderer);
 		allclasses[i].load(strload);
@@ -199,7 +199,8 @@ void SceneStack::charactersMenu_new1() {
 		allclasses[i].setAlpha(145);
 	}
 
-	SDL_Rect name_input = { 75, 690, 540, 65 };
+	char *characterName = new char;
+	SDL_Rect nameInput = { 75, 690, 540, 65 };
 
 	const int RACE_X = 20;
 	const int _Y = 70;
@@ -227,12 +228,21 @@ void SceneStack::charactersMenu_new1() {
 						 WIZARD, MONK, BARBARIAN, RANGER, DRUID, WARLOCK };
 	SelectedClass selectedclass = NO_CLASS;
 
+	SDL_StartTextInput();
 	bool goback = false;
 	while (!goback && !fullQuit) {
 		while (SDL_PollEvent (&e) != 0) {
 			switch (e.type) {
 			case SDL_QUIT:
 				fullQuit = true;
+				break;
+			case SDL_TEXTINPUT:
+				strcat(characterName, e.text.text);
+				break;
+			case SDL_TEXTEDITING:
+//				composition = e.edit.text;
+//				cursor = e.edit.start;
+//				selection_len = e.edit.length;
 				break;
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym) {
@@ -379,7 +389,7 @@ void SceneStack::charactersMenu_new1() {
 		SDL_RenderCopy(renderer, nameLabel, NULL, &namelabelrect);
 //		SDL_DrawRect the place to enter in character name
 
-		for (int i = 0; i < allraces.size(); i++) {
+		for (std::size_t i = 0; i < allraces.size(); i++) {
 			if (i%2 == 0) {
 				allraces[i].draw(RACE_X, _Y+_HEIGHT*(i/2));
 			} else {
@@ -387,7 +397,7 @@ void SceneStack::charactersMenu_new1() {
 			}
 		}
 
-		for (auto i=0;i<allclasses.size();i++) {
+		for (std::size_t i=0;i<allclasses.size();i++) {
 			if (i%2 == 0) {
 				allclasses[i].draw(CLASS_X,_Y+_HEIGHT*(i/2));
 			} else {
@@ -410,13 +420,13 @@ void SceneStack::charactersMenu_new1() {
 				notify_count = 0;
 			}
 		}
-
 		Graphics_Engine.render();
 		if (newSceneProcced) {
 			newSceneProcced = false;
 			charactersMenu_new2();
 		}
 	}
+	SDL_StopTextInput();
 }
 
 void SceneStack::charactersMenu_new2() {

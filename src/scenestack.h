@@ -139,16 +139,26 @@ private:
 		return 0;
 	}
 
+	/*!
+	 * \brief RaceClick is a helper function for the New Character building option
+	 * \param chosen is the Race clicked
+	 * \param races is all the textures in the race list
+	 */
 	void RaceClick(const int &chosen, vector<Texture> &races) {
-		for (auto i=0;i<races.size();i++) {
-			if (i != chosen) races[i].setAlpha(145);
+		for (std::size_t i=0;i<races.size();i++) {
+			if (i != (std::size_t)chosen) races[i].setAlpha(145);
 			else races[i].setAlpha(255);
 		}
 	}
 
+	/*!
+	 * \brief ClassClick is a helper function for the New Character building option
+	 * \param chosen is the Class clicked
+	 * \param classes is all the textures in the race list
+	 */
 	void ClassClick(const int &chosen, vector<Texture> &classes) {
-		for (auto i=0;i<classes.size();i++) {
-			if (i != chosen) classes[i].setAlpha(145);
+		for (std::size_t i=0;i<classes.size();i++) {
+			if (i != (std::size_t)chosen) classes[i].setAlpha(145);
 			else classes[i].setAlpha(255);
 		}
 	}
