@@ -31,6 +31,7 @@ DMPOWER is designed for Dungeons & Dragons 5th Edition and is best suited for Du
 #### How do you run this?  
 
 * You will need:
+	* sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
 	* linux, c++11, and the SDL2 libraries to compile this. ````sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev````
 	* Once you have those, you can clone it, run ````make```` to build it, and then ````./dmpower```` in the terminal to launch the program
 
