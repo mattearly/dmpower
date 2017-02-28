@@ -6,7 +6,7 @@ ALL THE PROGRAM FUNCTIONS CURRENTLY RUN IN TERMINAL (USE THE STANDARD MASTER BRA
 My original plan was to make a complete program that can keep your tabletop D&D game going and going with very little downtime and prep. _The program I've always wanted but could never find._ 
 
 DMPOWER is designed for Dungeons & Dragons 5th Edition and is best suited for Dungeon Masters (specifically designed for me personally, I'm just building what I would want). Players may also enjoy it for the character building functions.  
-  
+
 ### Some of the Main Features  
 1. **Building Player Characters.** Build and Manage Characters. This feature might be useful for Players too.
     * Walk through and answer the prompts to create a full character by the book.  
