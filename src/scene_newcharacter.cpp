@@ -1,5 +1,6 @@
 #include "globalfuncts.h"
 #include "scenestack.h"
+#include "gen_name.h"
 
 void SceneStack::charactersMenu_main(){
 	Texture button_new;
@@ -159,6 +160,15 @@ void SceneStack::charactersMenu_new1() {
 	surfaceMessage = TTF_RenderText_Solid(Bookman, text_NO_CLASS.c_str(), Orange);
 	SDL_Texture *notification_class = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
+	const std::string button_GEN_NAME= "GENERATE RANDOM NAME";
+	surfaceMessage = TTF_RenderText_Solid(Bookman, button_GEN_NAME.c_str(), Orange);
+	SDL_Texture *random_name_button = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	SDL_Rect randomNameRect = { 75, 600, 550, 70 };
+
+	surfaceMessage = TTF_RenderText_Solid(Bookman, " ", White);
+	SDL_Texture *generatedName = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	SDL_Rect nameAreaRect = { 75, 675, 560, 70 };
+
 	SDL_FreeSurface(surfaceMessage);
 
 	Texture button_next;
@@ -199,8 +209,6 @@ void SceneStack::charactersMenu_new1() {
 		allclasses[i].setAlpha(145);
 	}
 
-	char *characterName = new char;
-	SDL_Rect nameInput = { 75, 690, 540, 65 };
 
 	const int RACE_X = 20;
 	const int _Y = 70;
@@ -237,12 +245,12 @@ void SceneStack::charactersMenu_new1() {
 				fullQuit = true;
 				break;
 			case SDL_TEXTINPUT:
-				strcat(characterName, e.text.text);
+//				strcat(characterName, e.text.text);
 				break;
 			case SDL_TEXTEDITING:
-//				composition = e.edit.text;
-//				cursor = e.edit.start;
-//				selection_len = e.edit.length;
+				//				composition = e.edit.text;
+				//				cursor = e.edit.start;
+				//				selection_len = e.edit.length;
 				break;
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym) {
@@ -356,6 +364,17 @@ void SceneStack::charactersMenu_new1() {
 						ClassClick(11,allclasses);
 						selectedclass = WARLOCK;
 					}
+//					SDL_Rect randomNameRect = { 75, 625, 550, 70 };  reference
+
+					// RANDOM NAME GENERATOR CLICK
+					else if ((mouseLeftX > 75 && mouseLeftX < 75+550)&&(mouseLeftY > 600 && mouseLeftY < 600+70)) {
+						CharacterName rName;
+						std::string newName = rName.grabRandomName();
+						surfaceMessage = TTF_RenderText_Solid(Bookman, newName.c_str(), White);
+//						generatedName->free();
+						generatedName = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+						SDL_FreeSurface(surfaceMessage);
+					}
 					break;
 				default: break;
 				}
@@ -386,8 +405,10 @@ void SceneStack::charactersMenu_new1() {
 		//		separatorBar.draw(BAR2_X,0);
 		SDL_RenderCopy(renderer, chooserace_Title, NULL, &racerect);
 		SDL_RenderCopy(renderer, chooseclass_Title, NULL, &classrect);
-		SDL_RenderCopy(renderer, nameLabel, NULL, &namelabelrect);
-//		SDL_DrawRect the place to enter in character name
+//		SDL_RenderCopy(renderer, nameLabel, NULL, &namelabelrect);
+
+		SDL_RenderCopy(renderer, random_name_button, NULL, &randomNameRect);
+		SDL_RenderCopy(renderer, generatedName, NULL, &nameAreaRect);
 
 		for (std::size_t i = 0; i < allraces.size(); i++) {
 			if (i%2 == 0) {
