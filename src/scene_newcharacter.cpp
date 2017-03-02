@@ -490,12 +490,24 @@ void SceneStack::charactersMenu_02_roll() {
 	button_back.load("res/pngs/button_Back.png");
 	button_back.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_back.setAlpha(190);
-	Texture button_roll;
-	button_roll.setRenderer(renderer);
-	button_roll.load("res/pngs/button_Diceroll.png");
+//	Texture button_roll;
+//	button_roll.setRenderer(renderer);
+//	button_roll.load("res/pngs/button_Diceroll.png");
 	Texture stat_block;
 	stat_block.setRenderer(renderer);
 	stat_block.load("res/pngs/stat_Form.png");
+
+
+	vector<Texture> buttons_stat; // stats
+	buttons_stat.resize(defaultStartingStats.size());
+	for (std::size_t i=0; i<defaultStartingStats.size();i++) {
+		string strload = "res/pngs/button_Stat" + toString(defaultStartingStats[i]) + ".png";
+		buttons_stat[i].setRenderer(renderer);
+		buttons_stat[i].load(strload);
+//		buttons_stat[i].setBlendMode(SDL_BLENDMODE_BLEND);
+//		buttons_stat[i].setAlpha(145);
+	}
+	const int STAT_X(320), _DX(180), STAT_Y(240), _DY(180), STATBLOCK_X(720), STATBLOCK_Y(180);
 
 	const std::string text_SET_STATS = "Set Stats";
 
@@ -558,6 +570,7 @@ void SceneStack::charactersMenu_02_roll() {
 				case SDLK_RETURN:
 					// ENTER, RETURN, OR 'e' PRESSSED
 					//					newSceneProcced = true;
+					break;
 				case SDLK_q:
 				case SDLK_ESCAPE:
 					// ESCAPE OR 'q' PRESSED
@@ -605,8 +618,17 @@ void SceneStack::charactersMenu_02_roll() {
 		button_next.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
 		SDL_RenderCopy(renderer, setStatsTitle, NULL, &setStatsRect);
-		button_roll.draw(300, 150);
-		stat_block.draw(1050,70);
+//		button_roll.draw(300, 150);
+		stat_block.draw(STATBLOCK_X, STATBLOCK_Y);
+
+
+		for (std::size_t i = 0; i < buttons_stat.size(); i++) {
+			if (i%2 == 0) {
+				buttons_stat[i].draw(STAT_X, STAT_Y+_DY*(i/2));
+			} else {
+				buttons_stat[i].draw(STAT_X+_DX, STAT_Y+_DY*(i/2));
+			}
+		}
 
 		//		separatorBar.draw(BAR1_X,0);
 		//		separatorBar.draw(BAR2_X,0);

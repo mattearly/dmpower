@@ -57,6 +57,8 @@ const vector<string> allClasses = { "Cleric", "Paladin", "Fighter",\
 									"Monk", "Barbarian", "Ranger", "Druid",\
 									"Warlock" };
 
+const vector<int> defaultStartingStats = { 15, 14, 13, 12, 10, 8 };
+
 static std::random_device rgen;
 static std::mt19937 mgen(rgen());
 static std::uniform_int_distribution<int> rolld4(1, 4);
