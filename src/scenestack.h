@@ -48,18 +48,18 @@ private:
 	 *        creating a new one
 	 * \param graphics_engine is passed in via reference for rendering
 	 */
-	void charactersMenu_main();
+	void charactersMenu_00_main();
 	/*!
 	 * \brief charactersMenu_new1 first screen of character generation
 	 *        choose race, class, and name
 	 * \param graphics_engine
 	 */
-	void charactersMenu_new1();
+	void charactersMenu_01_chooseraceclassname();
 	/*!
 	 * \brief charactersMenu_new2 second screen
 	 * \param graphics_engine is passed in via reference for rendering
 	 */
-	void charactersMenu_new2();
+	void charactersMenu_02_roll();
 
 	/*!
 	 * \brief menuScene2_magic_items

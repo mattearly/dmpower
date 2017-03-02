@@ -215,7 +215,7 @@ void SceneStack::mainscreen() {
 		if (newSceneProcced) {
 			switch (selectedItem) {
 			case CHARACTERS: //0
-				charactersMenu_main();
+				charactersMenu_00_main();
 				break;
 			case MAGIC_ITEMS:  //1
 				menuScene2_magic_items();

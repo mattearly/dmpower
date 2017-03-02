@@ -2,7 +2,7 @@
 #include "scenestack.h"
 #include "gen_name.h"
 
-void SceneStack::charactersMenu_main(){
+void SceneStack::charactersMenu_00_main(){
 	Texture button_new;
 	button_new.setRenderer(renderer);
 	button_new.load("res/pngs/button_New.png");
@@ -135,12 +135,12 @@ void SceneStack::charactersMenu_main(){
 		if (newSceneProcced && createNewCharacter) {
 			newSceneProcced = false;
 			createNewCharacter = false;
-			charactersMenu_new1();
+			charactersMenu_01_chooseraceclassname();
 		}
 	}
 }
 
-void SceneStack::charactersMenu_new1() {
+void SceneStack::charactersMenu_01_chooseraceclassname() {
 
 	const std::string text_CHOOSERACE = "CHOOSE A RACE";
 	const std::string text_CHOOSECLASS = "CHOOSE A CLASS";
@@ -151,15 +151,24 @@ void SceneStack::charactersMenu_new1() {
 	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_CHOOSECLASS.c_str(), Orange);
 	SDL_Texture *chooseclass_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	surfaceMessage = TTF_RenderText_Solid(Bookman, text_SETNAME.c_str(), Orange);
-	SDL_Texture *nameLabel = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	SDL_Texture *nameLabel = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
 	//NOTIFICATION MESSAGES
 	const std::string text_NO_RACE = "Choose a race...";
-	const std::string text_NO_CLASS = "Choose a class...";
 	surfaceMessage = TTF_RenderText_Solid(Bookman, text_NO_RACE.c_str(), Orange);
 	SDL_Texture *notification_race = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	const std::string text_NO_CLASS = "Choose a class...";
 	surfaceMessage = TTF_RenderText_Solid(Bookman, text_NO_CLASS.c_str(), Orange);
 	SDL_Texture *notification_class = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	const std::string text_NO_NAME = "<-'GENERATE RANDOM NAME'";
+	surfaceMessage = TTF_RenderText_Solid(Bookman, text_NO_NAME.c_str(), Orange);
+	SDL_Texture *notification_name = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	SDL_Rect notify_area = { 740, 700, 525, 65 };
 
+
+	std::string theCharacterName = "";
+
+	//GENERATE RANDOM NAME TEXT BUTTON
 	const std::string button_GEN_NAME= "GENERATE RANDOM NAME";
 	surfaceMessage = TTF_RenderText_Solid(Bookman, button_GEN_NAME.c_str(), Orange);
 	SDL_Texture *random_name_button = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
@@ -187,6 +196,7 @@ void SceneStack::charactersMenu_new1() {
 
 	bool notify_race = false;
 	bool notify_class = false;
+	bool notify_name = false;
 	const int notify_timer = 75;
 	int notify_count = 0;
 
@@ -218,8 +228,7 @@ void SceneStack::charactersMenu_new1() {
 	const int _HEIGHT = allraces[0].getHeight();
 	SDL_Rect racerect = { 180,10,290,67 };
 	SDL_Rect classrect = { 905,10,290,67 };
-	SDL_Rect namelabelrect = { 40, 610, 235, 60 };
-	SDL_Rect notify_area = { 740, 700, 520, 65 };
+	//	SDL_Rect namelabelrect = { 40, 610, 235, 60 };
 	const int BAR1_X = 690;
 	//	const int BAR2_X = 1420;
 	const int BUTTON_X = 1275;
@@ -245,7 +254,7 @@ void SceneStack::charactersMenu_new1() {
 				fullQuit = true;
 				break;
 			case SDL_TEXTINPUT:
-//				strcat(characterName, e.text.text);
+				//				strcat(characterName, e.text.text);
 				break;
 			case SDL_TEXTEDITING:
 				//				composition = e.edit.text;
@@ -268,15 +277,21 @@ void SceneStack::charactersMenu_new1() {
 				case SDLK_RIGHT:
 					// RIGHT KEY OR 'd' PRESSED
 					break;
-				case SDLK_e:
+				case SDLK_e:// ENTER, RETURN, OR 'e' PRESSSED
 				case SDLK_KP_ENTER:
 				case SDLK_RETURN:
-					// ENTER, RETURN, OR 'e' PRESSSED
-					newSceneProcced = true;
+					if (selectedrace == NO_RACE) {
+						notify_race = true;
+					} else if (selectedclass == NO_CLASS) {
+						notify_class = true;
+					} else if (theCharacterName == "") {
+						notify_name = true;
+					} else {
+						newSceneProcced = true; // NEXT SCENE
+					}
 					break;
-				case SDLK_q:
+				case SDLK_q:// ESCAPE OR 'q' PRESSED
 				case SDLK_ESCAPE:
-					// ESCAPE OR 'q' PRESSED
 					goback = true;
 					break;
 				default: break;
@@ -291,6 +306,8 @@ void SceneStack::charactersMenu_new1() {
 							notify_race = true;
 						} else if (selectedclass == NO_CLASS) {
 							notify_class = true;
+						} else if (theCharacterName == "") {
+							notify_name = true;
 						} else {
 							newSceneProcced = true; // NEXT BUTTON PRESSED
 						}
@@ -364,14 +381,14 @@ void SceneStack::charactersMenu_new1() {
 						ClassClick(11,allclasses);
 						selectedclass = WARLOCK;
 					}
-//					SDL_Rect randomNameRect = { 75, 625, 550, 70 };  reference
+					//					SDL_Rect randomNameRect = { 75, 625, 550, 70 };  reference
 
 					// RANDOM NAME GENERATOR CLICK
 					else if ((mouseLeftX > 75 && mouseLeftX < 75+550)&&(mouseLeftY > 600 && mouseLeftY < 600+70)) {
 						CharacterName rName;
-						std::string newName = rName.grabRandomName();
-						surfaceMessage = TTF_RenderText_Solid(Bookman, newName.c_str(), White);
-//						generatedName->free();
+						theCharacterName = rName.grabRandomName();
+						surfaceMessage = TTF_RenderText_Solid(Bookman, theCharacterName.c_str(), White);
+						//						generatedName->free();
 						generatedName = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 						SDL_FreeSurface(surfaceMessage);
 					}
@@ -405,7 +422,7 @@ void SceneStack::charactersMenu_new1() {
 		//		separatorBar.draw(BAR2_X,0);
 		SDL_RenderCopy(renderer, chooserace_Title, NULL, &racerect);
 		SDL_RenderCopy(renderer, chooseclass_Title, NULL, &classrect);
-//		SDL_RenderCopy(renderer, nameLabel, NULL, &namelabelrect);
+		//		SDL_RenderCopy(renderer, nameLabel, NULL, &namelabelrect);
 
 		SDL_RenderCopy(renderer, random_name_button, NULL, &randomNameRect);
 		SDL_RenderCopy(renderer, generatedName, NULL, &nameAreaRect);
@@ -440,17 +457,29 @@ void SceneStack::charactersMenu_new1() {
 				notify_class = false;
 				notify_count = 0;
 			}
+		} else if (notify_name) {
+			SDL_RenderCopy(renderer, notification_name, NULL, &notify_area);
+			notify_count++;
+			if (notify_count >= notify_timer) {
+				notify_name = false;
+				notify_count = 0;
+			}
 		}
-		Graphics_Engine.render();
-		if (newSceneProcced) {
+
+
+
+		Graphics_Engine.render();  //update scene
+
+
+		if (newSceneProcced) {  //if next was clicked...
 			newSceneProcced = false;
-			charactersMenu_new2();
+			charactersMenu_02_roll();
 		}
 	}
 	SDL_StopTextInput();
 }
 
-void SceneStack::charactersMenu_new2() {
+void SceneStack::charactersMenu_02_roll() {
 	Texture button_next;
 	button_next.setRenderer(renderer);
 	button_next.load("res/pngs/button_Next.png");
@@ -461,25 +490,41 @@ void SceneStack::charactersMenu_new2() {
 	button_back.load("res/pngs/button_Back.png");
 	button_back.setBlendMode(SDL_BLENDMODE_BLEND);
 	button_back.setAlpha(190);
-	Texture separatorBar;
-	separatorBar.setRenderer(renderer);
-	separatorBar.load("res/pngs/separatorBar.png");
-	const std::string text_CHOOSERACE = "SET DETAILS";
-	const std::string text_CHOOSECLASS = "SET DETAILS";
-	const std::string text_SETNAME = "RIOT";
+	Texture button_roll;
+	button_roll.setRenderer(renderer);
+	button_roll.load("res/pngs/button_Diceroll.png");
+	Texture stat_block;
+	stat_block.setRenderer(renderer);
+	stat_block.load("res/pngs/stat_Form.png");
+
+	const std::string text_SET_STATS = "Set Stats";
+
+	const SDL_Rect setStatsRect = { 400,40,440,100 };
 	SDL_Surface *surfaceMessage;
-	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_CHOOSERACE.c_str(), Orange);
-	SDL_Texture *chooserace_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_CHOOSECLASS.c_str(), Orange);
-	SDL_Texture *chooseclass_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-	surfaceMessage = TTF_RenderText_Solid(Bookman, text_SETNAME.c_str(), Orange);
-	SDL_Texture *nameLabel = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_SET_STATS.c_str(), Orange);
+	SDL_Texture *setStatsTitle = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	SDL_FreeSurface(surfaceMessage);
-	SDL_Rect racerect = { 60,50,330,100 };
-	SDL_Rect classrect = { 520,50,330,100 };
-	SDL_Rect namelabelrect = { 1000, 480, 230, 60 };
-	const int BAR1_X = 440;
-	const int BAR2_X = 900;
+
+	//	Texture separatorBar;
+	//	separatorBar.setRenderer(renderer);
+
+	//	separatorBar.load("res/pngs/separatorBar.png");
+	//	const std::string text_CHOOSECLASS = "SET DETAILS";
+	//	const std::string text_SETNAME = "RIOT";
+	//	SDL_Surface *surfaceMessage;
+	//	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_CHOOSERACE.c_str(), Orange);
+	//	SDL_Texture *chooserace_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_CHOOSECLASS.c_str(), Orange);
+	//	SDL_Texture *chooseclass_Title = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	surfaceMessage = TTF_RenderText_Solid(Bookman, text_SETNAME.c_str(), Orange);
+	//	SDL_Texture *nameLabel = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+	//	SDL_FreeSurface(surfaceMessage);
+	//	SDL_Rect racerect = { 60,50,330,100 };
+	//	SDL_Rect classrect = { 520,50,330,100 };
+	//	SDL_Rect namelabelrect = { 1000, 480, 230, 60 };
+	//	const int BAR1_X = 440;
+	//	const int BAR2_X = 900;
+
 	const int BUTTON_X = 1275;
 	const int BUTTON_Y = 620;
 	const int BUTTON_DY = 55;
@@ -559,11 +604,15 @@ void SceneStack::charactersMenu_new2() {
 
 		button_next.draw(BUTTON_X, BUTTON_Y+BUTTON_DY);
 		button_back.draw(BUTTON_X, BUTTON_Y+BUTTON_DY*2);
-		separatorBar.draw(BAR1_X,0);
-		separatorBar.draw(BAR2_X,0);
-		SDL_RenderCopy(renderer, chooserace_Title, NULL, &racerect);
-		SDL_RenderCopy(renderer, chooseclass_Title, NULL, &classrect);
-		SDL_RenderCopy(renderer, nameLabel, NULL, &namelabelrect);
+		SDL_RenderCopy(renderer, setStatsTitle, NULL, &setStatsRect);
+		button_roll.draw(300, 150);
+		stat_block.draw(1050,70);
+
+		//		separatorBar.draw(BAR1_X,0);
+		//		separatorBar.draw(BAR2_X,0);
+		//		SDL_RenderCopy(renderer, chooserace_Title, NULL, &racerect);
+		//		SDL_RenderCopy(renderer, chooseclass_Title, NULL, &classrect);
+		//		SDL_RenderCopy(renderer, nameLabel, NULL, &namelabelrect);
 
 		//		for (int i = 0; i < allraces.size(); i++) {
 		//			SDL_RenderCopy(renderer, allraces[i], NULL, &racelistrect[i]);
@@ -579,3 +628,5 @@ void SceneStack::charactersMenu_new2() {
 		}
 	}
 }
+
+
