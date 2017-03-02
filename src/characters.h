@@ -265,7 +265,6 @@ public:
 	virtual int getlevelupmenus() const {
 		return fighterlevelupmenus;
 	};
-
 	virtual void setClassDetails(const int& l);
 };
 

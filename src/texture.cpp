@@ -12,19 +12,11 @@ ____________________________________________________________________________
 
 #include "texture.h"
 
-Texture::Texture()
-{
-}
+Texture::Texture(){}
+Texture::~Texture(){ free(); }
 
-Texture::~Texture()
-{
-	free();
-}
-
-void Texture::free()
-{
-	if (SDLtex != NULL)
-	{
+void Texture::free() {
+	if (SDLtex != NULL) {
 		SDL_DestroyTexture(SDLtex);
 		SDLtex = NULL;
 		width = 0;
@@ -32,7 +24,7 @@ void Texture::free()
 	}
 }
 
-bool Texture::load(const std::string &path){
+bool Texture::load(const std::string &path) {
 	free();
 	SDL_Texture *newTexture = nullptr;
 	SDL_Surface *loadedSurface = IMG_Load(path.c_str());
@@ -53,15 +45,12 @@ bool Texture::load(const std::string &path){
 	return SDLtex != nullptr;
 }
 
-bool Texture::loadFromText(TTF_Font *font, std::string text, SDL_Color text_color)
-{
+bool Texture::loadFromText(TTF_Font *font, std::string text, SDL_Color text_color) {
 	free();
 	SDL_Surface *textSurface = TTF_RenderText_Solid(font, text.c_str(), text_color);
-	if (textSurface != NULL)
-	{
+	if (textSurface != NULL) {
 		SDLtex = SDL_CreateTextureFromSurface(SDLrenderer, textSurface);
-		if (SDLtex == NULL)
-		{
+		if (SDLtex == NULL) {
 			printf("SDL Failed to Create Texture from text! ERROR: %s. \n", SDL_GetError());
 		}
 		else {
@@ -69,9 +58,7 @@ bool Texture::loadFromText(TTF_Font *font, std::string text, SDL_Color text_colo
 			height = textSurface->h;
 		}
 		SDL_FreeSurface(textSurface);
-	}
-	else
-	{
+	} else {
 		printf("SDL Failed to Render Texture from text! ERROR: %s. \n", TTF_GetError());
 	}
 	return SDLtex = NULL;
