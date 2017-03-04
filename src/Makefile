@@ -2,7 +2,7 @@
 # the makefile in the folder ^above^ this calls this one
 # do not call this one by itself
 
-DEL = rm -vf
+DEL = rm -f
 TARGET = ../dmpower
 CC = g++
 CFLAGS = -std=c++11
