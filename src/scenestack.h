@@ -1,18 +1,30 @@
 #pragma once
 #include "sdl_graphics.h"
 #include "texture.h"
+#include "campaign.h"
 #include <vector>
+
 using std::vector;
 
 class SceneStack {
 
 public:
+
+	/*!
+	 * \brief Controls the rootmost screen
+	 * \param graphics_engine is passed in via reference for rendering
+	 */
+	void mainscreen();
+
 	SceneStack() {
 		/* Scene Preload */
 		fullQuit = false;
 		Black = {0,0,0,0};
 		Orange = {255, 115, 35, 0};
 		White = {210, 210, 201, 0};
+		Red = {};
+		Blue = {};
+		Teal = {};
 		newSceneProcced = false;
 		renderer = Graphics_Engine.getRenderer();
 		SCREEN_HEIGHT = Graphics_Engine.getScreenHeight();
@@ -28,7 +40,6 @@ public:
 		mouseLeftY = mouseLeftX = 0;
 	}
 
-
 	~SceneStack(){
 		TTF_CloseFont(Leadcoat);
 		Leadcoat = NULL;
@@ -36,13 +47,25 @@ public:
 		Bookman = NULL;
 	}
 
-	/*!
-	 * \brief Controls the rootmost screen
-	 * \param graphics_engine is passed in via reference for rendering
-	 */
-	void mainscreen();
+
 
 private:
+
+	/* Preloaded variables */
+	Campaign mygame;
+	bool newSceneProcced;
+	SDL_Color Black, Orange, White, Red, Blue, Teal;
+	SDL_Renderer *renderer;
+	int SCREEN_WIDTH, SCREEN_HEIGHT;
+	SDL_graphics Graphics_Engine;
+	TTF_Font *Leadcoat, *Bookman;
+	//	TTF_Font *Verdana;
+	// HOLD MOUSE MOVEMENTS VAR
+	int mouseLeftX, mouseLeftY;
+	// FOR KEYBOARD AND MOUSE EVENTS
+	SDL_Event e;
+	bool fullQuit;
+
 	/*!
 	 * \brief charactersMenu_main screen to choose a character or begin
 	 *        creating a new one
@@ -163,17 +186,4 @@ private:
 		}
 	}
 
-	/* Preloaded variables */
-	bool newSceneProcced;
-	SDL_Color Black, Orange, White;
-	SDL_Renderer *renderer;
-	int SCREEN_WIDTH, SCREEN_HEIGHT;
-	SDL_graphics Graphics_Engine;
-	TTF_Font *Leadcoat, *Bookman;
-	//	TTF_Font *Verdana;
-	// HOLD MOUSE MOVEMENTS VAR
-	int mouseLeftX, mouseLeftY;
-	// FOR KEYBOARD AND MOUSE EVENTS
-	SDL_Event e;
-	bool fullQuit;
 };

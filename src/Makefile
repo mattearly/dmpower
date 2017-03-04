@@ -1,8 +1,6 @@
-# makefile for binaries in source folder
-# the makefile in the folder ^above^ this calls this one
-# do not call this one by itself
+#! use the Makefile in the folder ^above^ this one
 
-DEL = rm -f
+DEL = rm --force --verbose
 TARGET = ../dmpower
 CC = g++
 CFLAGS = -std=c++11
@@ -50,23 +48,21 @@ scene_export.cpp \
 scene_rewards.cpp \
 scene_tools.cpp
 
-
 $(TARGET): $(OBJS)
 	@echo Building dmpower...
 	$(CC) $(OBJS) $(SDL2) $(SDL2IMG) $(SDL2TTF) $(SDL2AUDIO) $(CFLAGS) -o $@
 	@echo Build Complete. Use ./dmpower in your terminal to run it.
 
+.PHONY: clean
 clean:
-	@echo Deleting objects...
+	@echo Cleaning project build ...
 	$(DEL) $(OBJS)
 
-
-# Compile individual files: all in one version
-
+#! Compiles all binaries that need built
 .cpp.o:
 	@echo Building $@ from $< ...
 	$(CC) $< $(SINGLE_CFLAGS) -o $@
-
+#! Old version if the all in one can't be used
 # main.o: main.cpp
 # 	$(CC) $(SOCFLAGS) main.cpp -o $@
 # campaign.o: campaign.cpp campaign.h
