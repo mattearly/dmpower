@@ -513,7 +513,7 @@ void SceneStack::charactersMenu_02_roll() {
 
 	const SDL_Rect setStatsRect = { 400,40,440,100 };
 	SDL_Surface *surfaceMessage;
-	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_SET_STATS.c_str(), Orange);
+	surfaceMessage = TTF_RenderText_Solid(Leadcoat, text_SET_STATS.c_str(), Teal);
 	SDL_Texture *setStatsTitle = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 	SDL_FreeSurface(surfaceMessage);
 

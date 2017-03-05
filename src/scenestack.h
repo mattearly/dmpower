@@ -26,8 +26,8 @@ public:
 		newSceneProcced = false;
 
 		Black = {0,0,0,0};
-		Orange = {255, 115, 35, 0};
-		White = {240, 248, 240, 0};
+		Orange = {255,115,35,0};
+		White = {240,248,240,0};
 		Red = {255,0,0,0};
 		Blue = {0,0,255,0};
 		Teal = {0,191,255,0};
@@ -58,7 +58,7 @@ private:
 	SDL_Renderer *renderer;
 	int SCREEN_WIDTH, SCREEN_HEIGHT;
 	SDL_graphics Graphics_Engine;
-	TTF_Font *Leadcoat, *Bookman;
+	TTF_Font *Leadcoat, *Bookman, *Vivian;
 	int mouseLeftX, mouseLeftY;  // mouse movement and clicks management
 	SDL_Event e;  // key press management
 	bool fullQuit;  // application managemanet
