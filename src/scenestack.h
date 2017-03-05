@@ -18,26 +18,27 @@ public:
 
 	SceneStack() {
 		/* Scene Preload */
-		fullQuit = false;
-		Black = {0,0,0,0};
-		Orange = {255, 115, 35, 0};
-		White = {210, 210, 201, 0};
-		Red = {};
-		Blue = {};
-		Teal = {};
-		newSceneProcced = false;
 		renderer = Graphics_Engine.getRenderer();
 		SCREEN_HEIGHT = Graphics_Engine.getScreenHeight();
 		SCREEN_WIDTH = Graphics_Engine.getScreenWidth();
+		mouseLeftY = mouseLeftX = 0;
+		fullQuit = false;
+		newSceneProcced = false;
+
+		Black = {0,0,0,0};
+		Orange = {255, 115, 35, 0};
+		White = {240, 248, 240, 0};
+		Red = {255,0,0,0};
+		Blue = {0,0,255,0};
+		Teal = {0,191,255,0};
+
 		Leadcoat=TTF_OpenFont("res/fonts/Leadcoat.ttf", 54);
 		if(!Leadcoat) { printf("TTF_OpenFont Leadcoat: %s\n", TTF_GetError()); }
 		Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 31);
 		if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
-		//	Verdana=TTF_OpenFont("res/fonts/Verdana.ttf", 55);
-		//	if(!Verdana) { printf("TTF_OpenFont Verdana: %s\n", TTF_GetError()); }s
-		///ADJUST FONT HINTING
 		TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
-		mouseLeftY = mouseLeftX = 0;
+		Vivian=TTF_OpenFont("res/fonts/Vivian.ttf", 55);
+		if(!Vivian) { printf("TTF_OpenFont Vivian: %s\n", TTF_GetError()); }
 	}
 
 	~SceneStack(){
@@ -45,26 +46,23 @@ public:
 		Leadcoat = NULL;
 		TTF_CloseFont(Bookman);
 		Bookman = NULL;
+		TTF_CloseFont(Vivian);
+		Vivian = NULL;
 	}
-
-
 
 private:
 
-	/* Preloaded variables */
-	Campaign mygame;
-	bool newSceneProcced;
+	/*! Preloaded variables */
+	Campaign mygame;  // to build and save characters
 	SDL_Color Black, Orange, White, Red, Blue, Teal;
 	SDL_Renderer *renderer;
 	int SCREEN_WIDTH, SCREEN_HEIGHT;
 	SDL_graphics Graphics_Engine;
 	TTF_Font *Leadcoat, *Bookman;
-	//	TTF_Font *Verdana;
-	// HOLD MOUSE MOVEMENTS VAR
-	int mouseLeftX, mouseLeftY;
-	// FOR KEYBOARD AND MOUSE EVENTS
-	SDL_Event e;
-	bool fullQuit;
+	int mouseLeftX, mouseLeftY;  // mouse movement and clicks management
+	SDL_Event e;  // key press management
+	bool fullQuit;  // application managemanet
+	bool newSceneProcced;  // scene management
 
 	/*!
 	 * \brief charactersMenu_main screen to choose a character or begin
