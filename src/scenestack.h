@@ -37,7 +37,7 @@ public:
 		Bookman=TTF_OpenFont("res/fonts/Bookman.ttf", 31);
 		if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
 		TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
-		Vivian=TTF_OpenFont("res/fonts/Vivian.ttf", 55);
+		Vivian=TTF_OpenFont("res/fonts/Vivian.ttf", 35);
 		if(!Vivian) { printf("TTF_OpenFont Vivian: %s\n", TTF_GetError()); }
 	}
 
