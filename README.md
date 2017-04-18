@@ -1,11 +1,19 @@
-![DMPOWER SDL MAIN SCREEN](DMPOWER (D&D 5e).png)  
+<img src="./screenshot.png" height="72px" align="right">
 
-ALL THE PROGRAM FUNCTIONS CURRENTLY RUN IN TERMINAL (USE THE [master_cstd11](https://github.com/bytePro17124/DMPOWER/tree/master_cstd11) BRANCH VERSION).  SDL INTERFACED VERSION EXPECTED RELEASE DATE OF Q4 2017
+_Expected Release Date: Q4 2017_
 
-#### About DMPOWER  
-My original plan was to make a complete program that can keep your tabletop D&D game going and going with very little downtime and prep. _This will be the program I've always wanted but could never find._ 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=982RBXVEKD9Z8)
 
-DMPOWER is designed for Dungeons & Dragons 5th Edition and is best suited for Dungeon Masters (specifically designed for me personally, I'm just building what I would want). Players may also enjoy it for the character building functions.  
+This Branch is Not Fully Functional. However the [master_cstd11](https://github.com/bytePro17124/DMPOWER/tree/master_cstd11) branch is and runs in command line.
+
+# The DMPOWER project
+
+![center](_dungeon master power_)
+
+* My original plan was to make a complete program that can aid in keeping your tabletop D&D game going, and with very little downtime and prep from the dungeon master working on the fly.
+* It is basically, _the program I've always wanted but could never find._ 
+* Designed for Dungeons & Dragons 5th Edition and is best suited for Dungeon Masters (specifically designed for me personally, I'm just building what I would want). Players may also enjoy it for the character building functions.  
+
 
 ### Features 2 big tools, and a few smaller ones.
 1. **Building Player Characters.** Build and Manage Characters. This feature might be useful for Players too.
