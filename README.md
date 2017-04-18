@@ -1,13 +1,13 @@
-![DMPOWER SDL MAIN SCREEN](screenshot.png)  
+![DMPOWER SDL MAIN SCREEN](DMPOWER (D&D 5e).png)  
 
-ALL THE PROGRAM FUNCTIONS CURRENTLY RUN IN TERMINAL (USE THE STANDARD MASTER BRANCH VERSION).  SDL INTERFACED VERSION EXPECTED RELEASE DATE OF Q4 2017
+ALL THE PROGRAM FUNCTIONS CURRENTLY RUN IN TERMINAL (USE THE [master_cstd11](https://github.com/bytePro17124/DMPOWER/tree/master_cstd11) BRANCH VERSION).  SDL INTERFACED VERSION EXPECTED RELEASE DATE OF Q4 2017
 
 #### About DMPOWER  
-My original plan was to make a complete program that can keep your tabletop D&D game going and going with very little downtime and prep. _The program I've always wanted but could never find._ 
+My original plan was to make a complete program that can keep your tabletop D&D game going and going with very little downtime and prep. _This will be the program I've always wanted but could never find._ 
 
 DMPOWER is designed for Dungeons & Dragons 5th Edition and is best suited for Dungeon Masters (specifically designed for me personally, I'm just building what I would want). Players may also enjoy it for the character building functions.  
 
-### Some of the Main Features  
+### Features 2 big tools, and a few smaller ones.
 1. **Building Player Characters.** Build and Manage Characters. This feature might be useful for Players too.
     * Walk through and answer the prompts to create a full character by the book.  
     * All Classes, Archetype Paths, Races, Feats, Skills, Proficiencies, Backgrounds, and Stats  
@@ -58,6 +58,4 @@ The best way to  help out at this point is to Donate any amount of Mula, even a 
 
 
 #### ToDo
-* Keep improving interface
-* Word on issue tickets
-* Assess tools and add more or improve current.
+* build interfaced version
