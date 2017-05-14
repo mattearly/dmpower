@@ -37,7 +37,7 @@ int main(void)
 	if (themeMusic == NULL ) {
 		printf("Failed to load theme music! SDL_mixer Error: %s\n", Mix_GetError());
 	}
-//	Mix_PlayMusic( themeMusic, -1 );
+	Mix_PlayMusic( themeMusic, -1 );
 
 
 	/// LAUNCH THE MAINSCREEN
