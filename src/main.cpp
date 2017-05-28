@@ -58,7 +58,8 @@ int main(void)
 
 
 	/// ORIGINAL TERMINAL CODE
-	bool loadSuccess = 0;
+        /*
+        bool loadSuccess = 0;
 	string loadedFile = "";
 	simpleClearScreen();
 	cout << "** && ** Dungeon's & Dragons - 5e Core ** && **" << endl;
@@ -130,6 +131,7 @@ int main(void)
 		}
 	} while (choice < 7);
 	return EXIT_SUCCESS;
+        */
 }
 void load_file(bool &ls, string &lf, Campaign &game)
 {

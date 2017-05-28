@@ -206,7 +206,7 @@ void SceneStack::mainscreen() {
 			break;
 		}
 
-		// DRAW CHOOSE BUTTON
+                // DRAW START BUTTON
 		beginButton.draw(BEGINBUTTONX, BEGINBUTTONY);
 		SDL_RenderCopy(renderer, infoArea, &infoSrcRect, &infoDestRect);
 		// DISPLAY LATEST FRAME

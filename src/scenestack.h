@@ -61,7 +61,7 @@ private:
 	TTF_Font *Leadcoat, *Bookman, *Vivian;
 	int mouseLeftX, mouseLeftY;  // mouse movement and clicks management
 	SDL_Event e;  // key press management
-	bool fullQuit;  // application managemanet
+        bool fullQuit;  // application management
 	bool newSceneProcced;  // scene management
 
 	/*!
