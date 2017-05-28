@@ -1,10 +1,13 @@
-<img src="./screenshot.png" height="144px" align="right">
+# Dungeon Master Power Core Version (DMPOWER)
 
-_Expected Release Date: Q4 2017_
+<img src="img/screenshot.png" height="180px" align="left">
+
+<img src="img/screenshot2.png" height="180px" align="center">
 
 This Branch is being developed and the tools are **Not Fully Functional** (but you can run it just to see where it is at). However the [master_cstd11](https://github.com/bytePro17124/DMPOWER/tree/master_cstd11) branch is and all tools run in command line.
 
-# Dungeon Master Power Core Version (DMPOWER)
+_Expected Release Date: Q4 2017_
+
 
 ### 0. Index
 
