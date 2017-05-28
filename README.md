@@ -2,72 +2,139 @@
 
 _Expected Release Date: Q4 2017_
 
-This Branch is Not Fully Functional. However the [master_cstd11](https://github.com/bytePro17124/DMPOWER/tree/master_cstd11) branch is and runs in command line.
+This Branch is being developed and the tools are **Not Fully Functional** (but you can run it just to see where it is at). However the [master_cstd11](https://github.com/bytePro17124/DMPOWER/tree/master_cstd11) branch is and all tools run in command line.
 
-# The DMPOWER project
+# Dungeon Master Power Core Version (DMPOWER)
 
-* My original plan was to make a complete program that can aid in keeping your tabletop D&D game going, and with very little downtime and prep from the dungeon master working on the fly.
-* It is basically, _the program I've always wanted but could never find._ 
-* Designed for Dungeons & Dragons 5th Edition and is best suited for Dungeon Masters (specifically designed for me personally, I'm just building what I would want). Players may also enjoy it for the character building functions.  
+### 0. Index
+
+1. [Introduction](#1-introduction)
+2. [How To Run DM Power](#2-how-to-run-dm-power)
+3. [Character Builder](#3-character-builder)
+4. [Reward Loot](#4-reward-loot)
+5. [Kismet's Random Name](#5-kismets-random-name)
+6. [Other Tools](#6-other-tools)
+7. [Credits](#7-credits)
+8. [Dev](#8-dev)
+9. [ToDo](#9-todo)
+
+---
+
+### 1. Introduction
+       
+My original plan was to create a helpful program for me as a Dungeon Master. Anything that could save me precious minutes of game time and keep it the same old D&D, just better and faster.
+
+* This tool is best suited for Dungeon Masters.  
+* Tools marked ![tinyredgem](img/tinyredgem.png) are the ones I found myself using the most, give them a shot.
+* All rolls and generator randomness done with [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister), arguably the best randomizer out there.
+* Uncrashable. I've taken measures to make sure the end user cannot accidentally crash the program. You can do no wrong. Go crazy testing.
+
+[back to index](#0-index)
+
+---
+
+### 2. How To Run DM Power       
+
+_DMPOWER is a Command Line Interface program_
+
+* Linux. From Command Line -
+    1. c++11 and SDL2 dependencies
+        * ````sudo apt-get update````
+        * ````sudo apt-get install build-essential make gcc git````
+        * ````sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev````
+    2. clone from github
+        * ````git clone https://github.com/bytePro17124/DMPOWER````
+    3. move to directory
+        * ````cd DMPOWER````
+	4. compile 
+		* ````make````
+	5. run 
+		* ````./dmpower````
+	9. or compile and run
+		* ````make run````
+* Windows. Untested but should work just fine as long as you can get SDL2 set up (maybe visual studio?)
+* MacOS. Untested but should work about the same as linux.
+
+[back to index](#0-index)
 
 
-### Features 2 big tools, and a few smaller ones.
-1. **CHARACTER RECORDS** 
-    * Build and Manage Player Characters.
-    * Walk through and answer the prompts to create a full character _by the book_.
-    * Levels 1-20
-    * Official options from the offical 5e books : Dungeon Master's Guide, Player's Handbook, and Sword Coast Adventurer's Guide.  
-    * All Classes, 
-    * All Archetype Paths,
-    * All Races, 
-    * All Feats, 
-    * All Skills, 
-    * All Proficiencies, 
-    * All Backgrounds,
-    * Stats Options : Rolling Low or High Powered, Standard Recommended Starting Stats, or Custom Entry
-    * Level Ups. A Character Editor Function allows Level up and prompts new Class Path options, feats, stats increases. By the Book.
-    * Allows Saving all your characters and loading back up at any time.
-    * Limitations : No Multiclassing, No Picking Spells(does show slots available), No Picking Equipment.
-2. **REWARD LOOT HELPER** 
-    * Magic Item / Reward Roller (by the DM Guide)
-    * Scroll and Spellbook Generators. **Hidden Gem**  
-    * All Loot Reward rolling charts from the DMG. Magical items, gems, art, currency. Done by the book's logic. Any rolled scrolls are automatically ran through the Random Scroll Generator. **Hidden Gem** 
-    * Spellbook creator that randomizes included wizard spells, just tell it how many of each level and it does the rest. Perfect for when a player asks 'What is in this stolen/looted NPC wizard spellbook?' **Hidden Gem** 
-    * Random Scroll generator, just tell it what level scroll and it gives a random spell of that level. **Hidden Gem** 
-3. **Additional Tools**  
-    * Party Experience Calculator. Total up session or encounter experience and split it with the party. This feature is pretty straightforward.  
-    * Name Generator. 7732 names from Kismet's list randomized. Super nice for when the players just keep asking what the NPC's names are that you didn't plan in advance. **Hidden Gem**   
-    * Insult Generator. NSFW. For when you just need to anger the PC's or antagonize them with a baddie. I just threw this in for fun.
-    * And More, I've probably left something out.
+### 3. Character Builder
 
-#### How do you run this?  
+_Build and Manage Player Characters_
 
-* Linux.
-	* dependancies ````sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev````
-	* c++11  ````sudo apt-get install build-essentials````
-	* compile ````make````
-	* run ````./dmpower````
-	* compile and run ````make run````
+* ![tinyredgem](img/tinyredgem.png) Walk through the prompts to create a full character _by the book_
+    * Save & Load, levels 1 to 20, versatile starting stat options, leveling up auto prompts new options.
+    * All Classes, Races, Paths, Feats, Skills, Proficiencies, Backgrounds
+    * EVERY OPTION from three official 5th edition books 
+        1. Player's Handbook
+        2. Dungeon Master's Guide (adds evil paladin paths and a few others)
+        3. Sword Coast Adventurer's Guide (adds class archetype paths, backgrounds, and a few other things)  
+    * Limitations : Doesn't handle equipment, spell choices, or multiclassing
 
+[back to index](#0-index)
 
-#### Problems?
+---
+
+### 4. Reward Loot
+
+_Magic Item / Reward Roller (by the DM Guide)_
+
+* ![tinyredgem](img/tinyredgem.png) Scroll and Spellbook Generators : Randomized
+* ![tinyredgem](img/tinyredgem.png) Loot Rollers : by the book. Try out the Roll Horde Loot option for some fun.
+
+[back to index](#0-index)
+
+---
+
+### 5. Kismet's Random Name
+
+* ![tinyredgem](img/tinyredgem.png) Name Generator. 7732 names from Kismet's list randomized. Great for planning and on the fly naming.   
+
+[back to index](#0-index)
+
+---
+
+### 6. Other Tools
+
+* Party Experience Calculator. Total up session or encounter experience (based on CR's overcame) and split it with the party. Pretty straightforward, could use some UI improvements but it is fully functional.
+* Insult Generator. NSFW. For when you just need to anger the PC's or antagonize them with a baddie. I just threw this in for fun. It takes two lists from files and randomly combines words, easily adapted to new words by editing the settings file.
+* Posion prices chart, madness chart, and more. 
+
+[back to index](#0-index)
+
+---
+
+### 7. Credits
   
-* If you run into a problem or something unclear - please open an issue ticket or email me. The more details the better.  
-* Anything you would like to see added to this program - open a issue ticket with the enhancement tag or email me.  
-* You are welcome to fork and work on this. If you add any changes you think will be beneficial to the program as a whole feel free to open a pull request.
+* Designed for Dungeons & Dragons 5th Edition Official. The data is (mostly) from:
+ 
+ | [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [Sword Coast Adventurer's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
+ | --- | --- | --- |
+ | [![phb](img/DnD_PHB.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [![dmg](img/DnD_DMG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [![scag](img/DnD_SCAG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
 
-#### About
+* All Code by [**_Matthew Jay Early_**](https://twitter.com/matthewjayearly) 
 
-* All Code by **_Matthew Jay Early_** 
-* Email me business at _matthewjearly@gmail.com_  
-* This program doesn't replace them or go into details about what abilities, spells, and items do, so you'll be lost without the books. I highly recommend purchasing them from a qualified vendor.
-* Material and Data (other than the names and insult lists) by Wizards of the Coast  
-* Why did I go through the pain of making this? Ever since I started playing D&D many years ago, I began looking for useful programs to go along with the game. There seemed to be a million little half-built tools and websites or many that don't follow the rules enough to be both useful and fair. I wasn't interested in a random person's homebrew ideas, which ruled out 90% of what I found. Since I couldn't find a program that did all this stuff legit from the books, and even Wizard's paid programs are too convoluted to be of use during gameplay, in my opinion, I decided to hack it myself. It also gave me something to work on while not taking classes and a motive to keep programming.
-* Without your help this program may never go live, I love to work on this but do have to make ends meet. Consider a friendly gesture, even nice words go a long way.
-* [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=982RBXVEKD9Z8)
-* Bitcoin: 1Nwi1GBJtsuo1WQJqK83Ckr5NDJ3zwi5mM  
+[back to index](#0-index)
 
+---
 
-#### ToDo
-* build interfaced version
-* improve tools
+### 8. Dev
+
+* Feel free to reach out about anything. Feel free to correct stuff and make pull requests.
+    * To really get involved, the following skills will be handy: C++, SDL2 Library, Image & Audio editing , Dungeons & Dragons 5e Knowledge
+* Email : [matthewjearly@gmail.com](mailto::matthewjearly@gmail.com) 
+* Tweet : [**_@matthewjayearly_**](https://twitter.com/matthewjayearly) 
+* Help! [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=45RLH5HDMQZYC)
+    * Any proceeds go towards the continued development of this program. 
+    * If you want to help but cannot donate: any comments or testing is greatly appreciated. 
+
+[back to index](#0-index)
+
+---
+
+### 9. ToDo 
+
+1. build interfaced version that works on any OS
+2. improve tools
+
+[back to index](#0-index)
