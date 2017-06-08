@@ -4,9 +4,9 @@
 
 <img src="img/screenshot2.png" height="180px" align="center">
 
-This Branch is being developed and the tools are **Not Fully Functional** (but you can run it just to see where it is at). However the [master_cstd11](https://github.com/bytePro17124/DMPOWER/tree/master_cstd11) branch is and all tools run in command line.
+* This Branch is being developed and the tools are **Not Fully Functional** (you can run it just to see where it is at, but it litteraly doesn't do anything useful yet). However the [master_cstd11](https://github.com/bytePro17124/DMPOWER/tree/master_cstd11) branch is ready to go and all tools run in command line.
 
-_Expected Release Date: Q4 2017_
+* This Branch's development has been overhauled and moved to a new repo (DM-Power-SDL-Version). The changes along with this interface were too much to include all the orginal command line code and keep it compatible with the other branches, so a new repo made more sense. Interfaced version is still right on track: _Expected Release Date: Q4 2017_.
 
 
 ### 0. Index
