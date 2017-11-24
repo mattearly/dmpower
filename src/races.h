@@ -5,7 +5,7 @@ ____________________________________________________________________________
 >
 >  Program Created by Matthew Jay Early | @matthewjearly | matthewjearly@gmail.com
 >  
->  Copyright (c) 2015-2016 Early Athens Tech Giants LLC. All rights reserved.
+>  Copyright (c) 2015-2017 Early Athens Tech Giants LLC. All rights reserved.
 >
 ____________________________________________________________________________
 **/
