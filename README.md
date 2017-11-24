@@ -24,9 +24,9 @@
 
 ### 1. Introduction
        
-My original plan was to create a helpful program for me as a Dungeon Master. Anything that could save me precious minutes of game time and keep it the same old D&D, just better and faster.
+My original plan was to create a helpful program for _me_ as a Dungeon Master. I put tools in that could save me precious minutes of game time. Faster and better D&D!
 
-* This tool is best suited for Dungeon Masters.  
+* This tool is best suited for Dungeon Masters, but players may find it of some use as well.  
 * Tools marked ![tinyredgem](img/tinyredgem.png) are the ones I found myself using the most, give them a shot.
 * All rolls and generator randomness done with [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister), arguably the best randomizer out there.
 * Uncrashable. I've taken measures to make sure the end user cannot accidentally crash the program. You can do no wrong. Go crazy testing.
@@ -46,7 +46,7 @@ _DMPOWER is a Command Line Interface program_
     2. clone from github
         * ````git clone https://github.com/bytePro17124/DMPOWER````
     3. move to directory
-        * ````cd DMPOWER````
+        * ````cd DM-Power-Core-Version````
 	4. compile 
 		* ````make````
 	5. run 
@@ -84,7 +84,7 @@ _Build and Manage Player Characters_
 _Magic Item / Reward Roller (by the DM Guide)_
 
 * ![tinyredgem](img/tinyredgem.png) Scroll and Spellbook Generators : Randomized
-* ![tinyredgem](img/tinyredgem.png) Loot Rollers : by the book. Try out the Roll Horde Loot option for some fun.
+* ![tinyredgem](img/tinyredgem.png) Loot Rollers : by the book. Try out the Roll Hoard Loot option for some fun.
 
 [back to index](#0-index)
 
@@ -102,7 +102,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 * Party Experience Calculator. Total up session or encounter experience (based on CR's overcame) and split it with the party. Pretty straightforward, could use some UI improvements but it is fully functional.
 * Insult Generator. NSFW. For when you just need to anger the PC's or antagonize them with a baddie. I just threw this in for fun. It takes two lists from files and randomly combines words, easily adapted to new words by editing the settings file.
-* Posion prices chart, madness chart, and more. 
+* Poison prices chart, madness chart, and more. 
 
 [back to index](#0-index)
 
@@ -125,12 +125,12 @@ _Magic Item / Reward Roller (by the DM Guide)_
 ### 8. Dev
 
 * Feel free to reach out about anything. Feel free to correct stuff and make pull requests.
-    * To really get involved, the following skills will be handy: C++, SDL2 Library, Image & Audio editing , Dungeons & Dragons 5e Knowledge
+    * To really get involved, the following skills will be handy: C++ and Dungeons & Dragons 5e Knowledge
 * Email : [matthewjearly@gmail.com](mailto::matthewjearly@gmail.com) 
 * Tweet : [**_@matthewjayearly_**](https://twitter.com/matthewjayearly) 
 * Help! [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=45RLH5HDMQZYC)
     * Any proceeds go towards the continued development of this program. 
-    * If you want to help but cannot donate: any comments or testing is greatly appreciated. 
+    * Any comments or testing is greatly appreciated. 
 
 [back to index](#0-index)
 
