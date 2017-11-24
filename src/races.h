@@ -11,8 +11,9 @@ ____________________________________________________________________________
 **/
 
 
-#ifndef __dm_power_poly__races__
-#define __dm_power_poly__races__
+#ifndef RACES_H
+#define RACES_H
+#pragma once
 
 #include "characters.h"
 

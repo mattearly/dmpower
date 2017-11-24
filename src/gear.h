@@ -11,8 +11,9 @@ ____________________________________________________________________________
 **/
 
 
-#ifndef __dm_power_poly__gear__
-#define __dm_power_poly__gear__
+#ifndef GEAR_H
+#define GEAR_H
+#pragma once
 
 #include "globalfuncts.h"
 

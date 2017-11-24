@@ -11,8 +11,10 @@ ____________________________________________________________________________
 **/
 
 
-#ifndef dm_power_poly_characters_h
-#define dm_power_poly_characters_h
+#ifndef CHARACTERS_H
+#define CHARACTERS_H
+#pragma once
+
 #include "races.h"
 #include "globalfuncts.h"
 #include "campaign.h"

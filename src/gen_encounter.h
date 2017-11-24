@@ -13,6 +13,8 @@ ____________________________________________________________________________
 
 #ifndef ENCOUNTERS_H
 #define ENCOUNTERS_H
+#pragma once
+
 #include <string>
 
 class Encounter {

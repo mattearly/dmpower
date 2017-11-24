@@ -15,7 +15,10 @@ ____________________________________________________________________________
 
 #ifndef INSULT_H
 #define INSULT_H
+#pragma once
+
 #include <string>
+
 ///This class relies on the insults.dat file.
 class Insult
 {

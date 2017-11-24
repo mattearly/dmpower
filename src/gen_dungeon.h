@@ -13,6 +13,7 @@ ____________________________________________________________________________
 
 #ifndef DUNGEONS_GEN_H
 #define DUNGEONS_GEN_H
+#pragma once
 
 #include "globalfuncts.h"
 
@@ -46,10 +47,15 @@ public:
     string dungeonEcology() const;
     string dungeonDifficulty() const;
     
-    //Stocking a Dugneon
-    string chamberPurpose;
+
 
     private:
+    //Stocking a Dungeon
+    string chamberPurpose;
+    string otherCharacteristics;
+
+    //Area Map
+    //TODO
 
 };
 

@@ -18,13 +18,10 @@ ____________________________________________________________________________
 #include <fstream>
 #include <cstdlib>
 
-
-
 using namespace std;
 
 void load_file(bool&, string&, Campaign&);
 void save_file(const bool&, const string&, const Campaign&);
-
 
 int main() {
     bool loadSuccess = 0;
@@ -91,6 +88,7 @@ int main() {
 	} while ( choice < 7 );
     return EXIT_SUCCESS;
 }
+
 void load_file(bool& ls, string& lf, Campaign& game) {
     string file;
     ifstream thefile;
@@ -109,6 +107,7 @@ void load_file(bool& ls, string& lf, Campaign& game) {
         cout << "No file named '" << file << "'. Starting new file.\n\n";
     }
 }
+
 void save_file(const bool& ls, const string& lf, const Campaign& game) {
     string file;
     ofstream os;    

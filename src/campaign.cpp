@@ -1210,5 +1210,3 @@ ifstream& Campaign::retrieveCharacter(ifstream& ins) {
     cin.clear();
     return ins;
 }
-
-

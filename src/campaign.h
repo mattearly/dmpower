@@ -12,6 +12,7 @@ ____________________________________________________________________________
 
 #ifndef CAMPAIGN_H
 #define CAMPAIGN_H
+#pragma once
 
 #include <fstream>
 #include <list>

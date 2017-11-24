@@ -12,8 +12,9 @@ ____________________________________________________________________________
 
 
 
-#ifndef __dm_power_poly__globalfuncts__
-#define __dm_power_poly__globalfuncts__
+#ifndef GLOBALFUNCTS_H
+#define GLOBALFUNCTS_H
+#pragma once
 
 #include <iostream>
 #include <sstream>
@@ -121,4 +122,4 @@ int rollstats_hi_power();
 
 int rollstats_standard();
 
-#endif /* defined(__dm_power_poly__globalfuncts__) */
+#endif /* defined(GLOBALFUNCTS_H) */
