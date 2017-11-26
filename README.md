@@ -138,7 +138,10 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ### 9. ToDo 
 
-1. build interfaced version that works on any OS
-2. improve tools
+1. build interfaced version
+    * The Character Builder has been started but is currently private. Not sure I'll finish the interfaced Character Maker, because the free tool from Wizards of the Coast is pretty good and I don't think I can make one better.
+    * The Loot and Spellbooks are being done in this program: [Plunder D&D Loot 5e](https://github.com/bytePro17124/Plunder_DungeonsAndDragons_Loot_5e). I like the program. Check it out if you're interested.
+
+2. improve/add tools
 
 [back to index](#0-index)
