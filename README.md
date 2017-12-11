@@ -116,7 +116,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
  | --- | --- | --- |
  | [![phb](img/DnD_PHB.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [![dmg](img/DnD_DMG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [![scag](img/DnD_SCAG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
 
-* All Code by [**_Matthew Jay Early_**](https://twitter.com/matthewjayearly) 
+ * Code by [**_Matthew Jay Early_**](https://twitter.com/matthewjayearly) or as otherwise noted by Github logs for contributions
 
 [back to index](#0-index)
 
@@ -133,10 +133,11 @@ _Magic Item / Reward Roller (by the DM Guide)_
 ### 9. ToDo 
 
 1. Build Interfaced Version
-    * The graphic interfaced tools for Random Hoard Loot, Random Scrolls, Random Namge Generation, and Making Spellbooks are being done in this program: [PLUNDER](https://github.com/bytePro17124/Plunder_DungeonsAndDragons_Loot_5e). Check it out if you're interested.
+    * The graphic interfaced tools for **Random Hoard Loot**, **Random Scrolls**, **Random Name Generation**, and **Generating Random Spellbooks** are being done in this program: [PLUNDER](https://github.com/bytePro17124/Plunder_DungeonsAndDragons_Loot_5e). Check it out if you're interested.
 
 [back to index](#0-index)
 
 ---
 
-* If you found this program useful, feel free to [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=45RLH5HDMQZ)  to keep this project alive
+* If you found this program useful, feel free to [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=45RLH5HDMQZ) to keep this project alive
+
