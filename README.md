@@ -139,4 +139,4 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ---
 
-* If you found this program useful, feel free to [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=45RLH5HDMQZ  to keep this project alive
+* If you found this program useful, feel free to [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=45RLH5HDMQZ)  to keep this project alive
