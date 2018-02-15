@@ -27,9 +27,9 @@
 My original plan was to create a helpful program for _me_ as a Dungeon Master. I put tools in that could save me precious minutes of game time. Faster and better D&D!
 
 * This tool is best suited for Dungeon Masters, but players may find it of some use as well.  
-* Tools marked ![tinyredgem](img/tinyredgem.png) are the ones I found myself using the most, give them a shot.
 * All rolls and generator randomness done with [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister), arguably the best randomizer out there.
 * Uncrashable. I've taken measures to make sure the end user cannot accidentally crash the program. You can do no wrong. Go crazy testing.
+* My main goal with this program is to keep it crazy efficient codewise and use-wise. There should never be a delay in any action being processed, even on old ass computers!
 
 [back to index](#0-index)
 
@@ -37,7 +37,8 @@ My original plan was to create a helpful program for _me_ as a Dungeon Master. I
 
 ### 2. How To Run DM Power       
 
-_DMPOWER is a Command Line Interface program_
+**DMPOWER is a Command Line Interface program**
+
 
 * Linux. From Command Line -
     1. c++11 dependencies
@@ -51,9 +52,9 @@ _DMPOWER is a Command Line Interface program_
 		* ````make````
 	5. run 
 		* ````./dmpower````
-	9. or compile and run 
+	9. or compile and run (steps 4 and 5 sequentially)
 		* ````make run````
-* Windows. Should work the same as Linux with [Cygwin](https://www.cygwin.com/) or [WSL](https://msdn.microsoft.com/commandline/wsl/about)
+* Windows. Should work about the same as Linux with [Cygwin](https://www.cygwin.com/) or [WSL](https://msdn.microsoft.com/commandline/wsl/about)
 * MacOS. Untested but should work about the same as linux.
 
 [back to index](#0-index)
@@ -66,10 +67,11 @@ _DMPOWER is a Command Line Interface program_
 
 _Build and Manage Player Characters_
 
-* ![tinyredgem](img/tinyredgem.png) Walk through the prompts to create a full character _by the book_
-    * Save & Load, levels 1 to 20, versatile starting stat options, leveling up auto prompts new options.
-    * All Classes, Races, Paths, Feats, Skills, Proficiencies, Backgrounds
-    * EVERY OPTION from three official 5th edition books 
+* Walk through the prompts to create a full character _by the book_
+    * Save & Load Working
+    * Levels 1 to 20. Leveling up works so you can manage a character over time and on the fly - you can't break the D&D book rules within the standard context of the command line interface.
+    * Versatile starting stat point options: 4d6 drop lowest, 3d6 legit, standard set (15, 14, 13, 12, 10, 8)
+    * Has All **Classes, Races, Level Up Paths, Spell Slots, Feats, Skills, Proficiencies, Backgrounds** EVERY Class and Race option (yes I put a lot of time into this program) from three official 5th edition books
         1. Player's Handbook
         2. Dungeon Master's Guide (adds evil paladin paths and a few others)
         3. Sword Coast Adventurer's Guide (adds class archetype paths, backgrounds, and a few other things)  
@@ -83,8 +85,8 @@ _Build and Manage Player Characters_
 
 _Magic Item / Reward Roller (by the DM Guide)_
 
-* ![tinyredgem](img/tinyredgem.png) Scroll and Spellbook Generators : Randomized
-* ![tinyredgem](img/tinyredgem.png) Loot Rollers : by the book. Try out the Roll Hoard Loot option for some fun.
+* Scroll and Spellbook Generators : Randomized
+* Loot Rollers by the book. Try out the Hoard Loot option for some fun items.
 
 [back to index](#0-index)
 
@@ -92,7 +94,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ### 5. Kismet's Random Name
 
-* ![tinyredgem](img/tinyredgem.png) Name Generator. 7732 names from Kismet's list randomized. Great for planning and on the fly naming.   
+* Name Generator. 7732 names from Kismet's list randomized. Great for planning and on the fly naming.   
 
 [back to index](#0-index)
 
@@ -101,8 +103,9 @@ _Magic Item / Reward Roller (by the DM Guide)_
 ### 6. Other Tools
 
 * Party Experience Calculator. Total up session or encounter experience (based on CR's overcame) and split it with the party. Pretty straightforward, could use some UI improvements but it is fully functional.
-* Insult Generator. NSFW. For when you just need to anger the PC's or antagonize them with a baddie. I just threw this in for fun. It takes two lists from files and randomly combines words, easily adapted to new words by editing the settings file.
-* Poison prices chart, madness chart, and more. 
+* Insult Generator. **NSFW**. For when you just need to anger the PC's or antagonize them with a baddie. I just threw this in for fun. It takes two lists from files and randomly combines words, easily adapted to new words by editing the settings file.
+* Random Encounters(only minorly built right now but does a good job of providing a Challenge Rating for adventuring parties of various sizes and levels)
+* Poison prices chart, madness chart, and a few other various things DM's and players might like.
 
 [back to index](#0-index)
 
@@ -110,13 +113,13 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ### 7. Credits
   
-* Designed for Dungeons & Dragons 5th Edition Official. The data is (mostly) from:
+* Designed for Dungeons & Dragons 5th Edition Official. The core D&D data used in this program is from:
  
  | [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [Sword Coast Adventurer's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
  | --- | --- | --- |
  | [![phb](img/DnD_PHB.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [![dmg](img/DnD_DMG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [![scag](img/DnD_SCAG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
 
- * Code by [**_Matthew Jay Early_**](https://twitter.com/matthewjayearly) or as otherwise noted by Github logs for contributions
+ * Coded by [**_Matthew Jay Early_**](https://twitter.com/matthewjayearly).
 
 [back to index](#0-index)
 
@@ -124,7 +127,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ### 8. Dev
 
-* Feel free to correct stuff and make pull requests.
+* Feel free to correct stuff and make pull requests, or just let me know by raising an Issue ticket thingy.
 
 [back to index](#0-index)
 
@@ -132,12 +135,14 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ### 9. ToDo 
 
-1. Build Interfaced Version
-    * The graphic interfaced tools for **Random Hoard Loot**, **Random Scrolls**, **Random Name Generation**, and **Generating Random Spellbooks** are being done in this program: [PLUNDER](https://github.com/bytePro17124/Plunder_DungeonsAndDragons_Loot_5e). Check it out if you're interested.
+1. Partly Done - Build Interfaced Version
+    * Some of the more useful tools (**Random Hoard Loot**, **Random Scrolls**, **Random Names**, and **Random Spellbooks**) have been transposed to a graphical interface (using [SDL2](https://www.libsdl.org/) libraries) with some effects and it works great so far: [PLUNDER D&D LOOT](https://github.com/bytePro17124/Plunder_DungeonsAndDragons_Loot_5e)
+2. Build Interfaced Character Maker. Pieces of it are done on a private repo but it has a ways to go.
+3. Find time to work on this more.
 
 [back to index](#0-index)
 
 ---
 
-* If you found this program useful, feel free to [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=45RLH5HDMQZ) to keep this project alive
+* [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=45RLH5HDMQZ) to keep this project alive. 
 
