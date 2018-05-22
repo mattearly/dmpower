@@ -92,6 +92,7 @@ int main() {
 void load_file(bool& ls, string& lf, Campaign& game) {
     string file;
     ifstream thefile;
+    cout << "\n  - press enter to skip -\n";
     cout << "Load File: ";
     getline(cin, file, '\n');
     thefile.open( ("saves/" + file + ".save").c_str() );
