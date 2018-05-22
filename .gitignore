@@ -35,3 +35,7 @@ dmpower
 *.out
 *.app
 
+# IDEs
+*.vscode
+*.idea
+
