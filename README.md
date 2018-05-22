@@ -43,9 +43,11 @@ My original plan was to create a helpful program for _me_ as a Dungeon Master. I
 * Linux. From Command Line -
     1. c++11 dependencies
         * ````sudo apt-get update````
-        * ````sudo apt-get install build-essential make gcc git````
+        * ````sudo apt-get install build-essential make gcc git```` 
+        * or whatever the equivalent commands are for your distro
     2. clone from github
-        * ````git clone https://github.com/bytePro17124/DMPOWER````
+        * https: ````git clone https://github.com/mattearly/DM-Power-Core-Version.git```` or 
+        * ssh: ````git clone git@github.com:mattearly/DM-Power-Core-Version.git````
     3. move to directory
         * ````cd DM-Power-Core-Version````
 	4. compile 
@@ -69,9 +71,10 @@ _Build and Manage Player Characters_
 
 * Walk through the prompts to create a full character _by the book_
     * Save & Load Working
-    * Levels 1 to 20. Leveling up works so you can manage a character over time and on the fly - you can't break the D&D book rules within the standard context of the command line interface.
+    * Levels 1 to 20 available. Leveling up works so you can manage a character over time and on the fly!
+    * Unbreakable standard rules (unless you are the dm) - you can't break the D&D book rules within the standard context of the command line interface - unless you go to edit character and then put in the password.  Wonder what it is? Start digging through code, its hardcoded in there lol. Change it if you want before compiling.
     * Versatile starting stat point options: 4d6 drop lowest, 3d6 legit, standard set (15, 14, 13, 12, 10, 8)
-    * Has All **Classes, Races, Level Up Paths, Spell Slots, Feats, Skills, Proficiencies, Backgrounds** EVERY Class and Race option (yes I put a lot of time into this program) from three official 5th edition books
+    * All **Classes, Races, Level Up Paths, Spell Slots, Feats, Skills, Proficiencies, Backgrounds** (yes I put a lot of time into this program) from three official 5th edition books
         1. Player's Handbook
         2. Dungeon Master's Guide (adds evil paladin paths and a few others)
         3. Sword Coast Adventurer's Guide (adds class archetype paths, backgrounds, and a few other things)  
