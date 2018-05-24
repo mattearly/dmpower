@@ -54,10 +54,11 @@ int main() {
         }
             break;
         case 3: {
-            Magic_Items gen;
-            float rewardXP = gen.xpgenerator();
-            simpleClearScreen();
-			cout << "XP per member = " << rewardXP << "\n\n";
+            cout << "This function is being rebuilt, go yell at Matt\n\n";
+            // Magic_Items gen;
+            // float rewardXP = gen.xpgenerator();
+            // simpleClearScreen();
+			// cout << "EXP per member = " << rewardXP << "\n\n";
         }
             break;
         case 4:{
