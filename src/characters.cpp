@@ -1689,8 +1689,8 @@ void Druid::setClassDetails(const int &l)
 	hitdicesize = 8;
 	intSave = true;
 	wisSave = true;
-	if (!druidic)
-		druidic = true; //learn druidic lang
+	// if (!druidic)    //now learned earlier (in campaign.cpp) to avoid conflicts
+	// 	druidic = true; 
 	if (!spellcasting)
 		spellcasting = true;
 	if (!wild_shape && l >= 2)
@@ -6404,8 +6404,6 @@ void Generic_Character_Class::printClassAbilities() const
 		cout << ", ";
 	}
 	//druids
-	if (druidic)
-		cout << "Druidic, ";
 	if (wild_shape)
 		cout << "Wild Shape(CR" << wild_shape_improvement << "), ";
 	if (druid_circle)
