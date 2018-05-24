@@ -62,7 +62,7 @@ class Generic_Character_Class
     //DRUID
     float wild_shape_improvement;
     int druid_circle_feature, druid_cantrips_known;
-    bool druidic, wild_shape, druid_circle, beast_spells, archdruid,
+    bool wild_shape, druid_circle, beast_spells, archdruid,
         circle_of_the_moon, circle_of_the_land;
     //MONK
     int monastic_tradition_feature, ki, unarmored_movement, martial_arts;
@@ -149,7 +149,7 @@ class Generic_Character_Class
     //FEATS
     bool alert, athlete, actor, charger, crossbow_expert, defensive_duelist, dual_wielder, dungeon_delver, durable, elemental_adept, grappler, great_weapon_master, healer, heavily_armored, heavy_armor_master, inspiring_leader, keen_mind, lightly_armored, linguist, lucky, mage_slayer, magic_initiate, martial_adept, medium_armor_master, mobile, moderately_armored, mounted_combatant, observant, polearm_master, resilient, ritual_caster, savage_attacker, sentinel, sharpshooter, shield_master, skilled, skulker, spell_sniper, tavern_brawler, tough, war_caster, weapon_master;
     //LANGUAGES
-    bool abyssal, celestial, common, deep_speech, draconic, dwarvish, elvish, giant, gnomish, goblin, gnoll, halfling, infernal, orc, primordial, sylvan, undercommon;
+    bool abyssal, celestial, common, deep_speech, draconic, druidic, dwarvish, elvish, giant, gnomish, goblin, gnoll, halfling, infernal, orc, primordial, sylvan, undercommon;
     //FEATURES
     bool artificers_lore, brave, breath_weapon_acid, breath_weapon_ltg, breath_weapon_fire, breath_weapon_poison, breath_weapon_cold, darkvision, draconic_ancestry_black, draconic_ancestry_blue, draconic_ancestry_brass, draconic_ancestry_bronze, draconic_ancestry_copper, draconic_ancestry_gold, draconic_ancestry_green, draconic_ancestry_red, draconic_ancestry_silver, draconic_ancestry_white, drow_magic, drow_weapon_training, dwarven_armor_training, dwarven_combat_training, dwarven_resilience, dwarven_toughness, elf_weapon_training, fey_ancestry, fleet_of_foot, halflinglucky, halfling_nimbleness, hellish_resistance, infernal_legacy, mask_of_the_wild, natural_illusionist, naturally_stealthy, speak_with_small_beasts, stonecunning, stout_resilience, superior_darkvision, trance;
     //RESISTANCES
