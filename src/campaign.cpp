@@ -89,6 +89,7 @@ void Campaign::pc_menu()
             case 6:
             {
                 tmp = new Druid;
+                tmp->druidic = true;
                 makecharacter(tmp, starting_level);
             }
             break;
