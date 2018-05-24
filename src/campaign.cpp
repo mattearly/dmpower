@@ -89,7 +89,7 @@ void Campaign::pc_menu()
             case 6:
             {
                 tmp = new Druid;
-                tmp->druidic = true;
+                tmp->druidic = true;  //learn right away to avoid lang learning conflicts
                 makecharacter(tmp, starting_level);
             }
             break;
