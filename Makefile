@@ -28,6 +28,6 @@ run:
 
 .PHONY: help
 help:
-	@echo \'make\' - builds/updates everything, is ready to run with './dmpower' after completion
+	@echo \'make\' - builds/updates everything, is ready to run with \'./dmpower\' after completion
 	@echo \'make clean\' - removes object file folder and executable
 	@echo \'make run\' - builds/updates everything, runs immediately 
