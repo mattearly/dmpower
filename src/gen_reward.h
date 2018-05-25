@@ -26,7 +26,6 @@ public:
 
     void treasure_menu(); //REWARD ITEM GENERATOR MAIN MENU
     
-    float xpgenerator();
 
 private:
     std::vector<Gear> full_gear_list;
