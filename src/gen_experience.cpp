@@ -6,37 +6,14 @@
 
 using namespace std;
 
-float Gen_Experience::xpgenerator() {
-    float xp = 0;
-    int cr = 0;
+float Gen_Experience::xpgenerator()
+{
+    float total = 0.0;
+    int selected_rating = 0;
     vector<string> crlist;
     char ans;
-    cout << "A Reference Level Chart (FYI):\n\n"
-         << "CR    EXP\n"
-         << "---|--------"
-         << "1/2   100\n"
-         << " 1.   200\n"
-         << " 2.   300\n"
-         << " 3.   900\n"
-         << " 4.   2,700\n"
-         << " 5.   6,500\n"
-         << " 6.   14,000\n"
-         << " 7.   23,000\n"
-         << " 8.   34,000\n"
-         << " 9.   48,000\n"
-         << "10.   64,000\n"
-         << "11.   85,000\n"
-         << "12.   100,000\n"
-         << "13.   120,000\n"
-         << "14.   140,000\n"
-         << "15.   165,000\n"
-         << "16.   195,000\n"
-         << "17.   225,000\n"
-         << "18.   265,000\n"
-         << "19.   305,000\n"
-         << "20.   355,000\n" << endl;
-    pressEnterToContinue();
-    do {
+    do
+    {
         cout << "Challenge Rating Chart\n\n"
              << " 1. CR 0      18. CR 14\n"
              << " 2. CR 1/8    19. CR 15\n"
@@ -55,154 +32,158 @@ float Gen_Experience::xpgenerator() {
              << "15. CR 11     32. CR 28\n"
              << "16. CR 12     33. CR 29\n"
              << "17. CR 13     34. CR 30\n\n"
-             << " tip: add 'y' after your choice to continue picking.(ex: 9y)\n"
+             << "  TIP: add 'y' after your choice to continue picking.(ex: 9y)\n"
+             << "       or add 'n' after your choice if it is the last one. (ex: 5n)\n"
              << "CRs so far: ";
-        for (auto i : crlist) {
-            cout << i << ", ";
+        for (auto i : crlist)
+        {
+            cout << GREEN << i << RESET << ", ";
         }
         cout << endl;
-        cr = getNumber("Choose CR by the chart(1-34): ", 1, 34);
-        switch (cr) {
+        selected_rating = getNumber("Choose CR by the chart(1-34): ", 1, 34);
+        switch (selected_rating)
+        {
         case 1:
-            xp += 10;
+            total += 10;
             crlist.push_back("0");
             break;
         case 2:
-            xp += 25;
+            total += 25;
             crlist.push_back("1/8");
             break;
         case 3:
-            xp += 50;
+            total += 50;
             crlist.push_back("1/4");
             break;
         case 4:
-            xp += 100;
+            total += 100;
             crlist.push_back("1/2");
             break;
         case 5:
-            xp += 200;
+            total += 200;
             crlist.push_back("1");
             break;
         case 6:
-            xp += 450;
+            total += 450;
             crlist.push_back("2");
             break;
         case 7:
-            xp += 700;
+            total += 700;
             crlist.push_back("3");
             break;
         case 8:
-            xp += 1100;
+            total += 1100;
             crlist.push_back("4");
             break;
         case 9:
-            xp += 1800;
+            total += 1800;
             crlist.push_back("5");
             break;
         case 10:
-            xp += 2300;
+            total += 2300;
             crlist.push_back("6");
             break;
         case 11:
-            xp += 2900;
+            total += 2900;
             crlist.push_back("7");
             break;
         case 12:
-            xp += 3900;
+            total += 3900;
             crlist.push_back("8");
             break;
         case 13:
-            xp += 5000;
+            total += 5000;
             crlist.push_back("9");
             break;
         case 14:
-            xp += 5900;
+            total += 5900;
             crlist.push_back("10");
             break;
         case 15:
-            xp += 7200;
+            total += 7200;
             crlist.push_back("11");
             break;
         case 16:
-            xp += 8400;
+            total += 8400;
             crlist.push_back("12");
             break;
         case 17:
-            xp += 10000;
+            total += 10000;
             crlist.push_back("13");
             break;
         case 18:
-            xp += 11500;
+            total += 11500;
             crlist.push_back("14");
             break;
         case 19:
-            xp += 13000;
+            total += 13000;
             crlist.push_back("15");
             break;
         case 20:
-            xp += 15000;
+            total += 15000;
             crlist.push_back("16");
             break;
         case 21:
-            xp += 18000;
+            total += 18000;
             crlist.push_back("17");
             break;
         case 22:
-            xp += 20000;
+            total += 20000;
             crlist.push_back("18");
             break;
         case 23:
-            xp += 22000;
+            total += 22000;
             crlist.push_back("19");
             break;
         case 24:
-            xp += 25000;
+            total += 25000;
             crlist.push_back("20");
             break;
         case 25:
-            xp += 33000;
+            total += 33000;
             crlist.push_back("21");
             break;
         case 26:
-            xp += 41000;
+            total += 41000;
             crlist.push_back("22");
             break;
         case 27:
-            xp += 50000;
+            total += 50000;
             crlist.push_back("23");
             break;
         case 28:
-            xp += 62000;
+            total += 62000;
             crlist.push_back("24");
             break;
         case 29:
-            xp += 75000;
+            total += 75000;
             crlist.push_back("25");
             break;
         case 30:
-            xp += 90000;
+            total += 90000;
             crlist.push_back("26");
             break;
         case 31:
-            xp += 105000;
+            total += 105000;
             crlist.push_back("27");
             break;
         case 32:
-            xp += 120000;
+            total += 120000;
             crlist.push_back("28");
             break;
         case 33:
-            xp += 135000;
+            total += 135000;
             crlist.push_back("29");
             break;
         case 34:
-            xp += 155000;
+            total += 155000;
             crlist.push_back("30");
-        default:break;
+        default:
+            break;
         }
-        cout << "Total unsplit so far: " << xp << "xp" << endl;
+        cout << "Total unsplit so far: " << total << " total" << endl;
         ans = getYorN("Are there more to add(Y/N)?");
     } while (ans == 'Y');
     int party = getNumber("Split between how many party members?(max=20)", 1, 20);
-    return (xp /= party);
+    return (total / party);
 }
