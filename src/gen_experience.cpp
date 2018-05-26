@@ -193,7 +193,7 @@ float Gen_Experience::xpgenerator()
         cout << "\n\n";
         ans = getYorN("Are there more to add(Y/N)?");
     } while (ans == 'Y');
-    int party = getNumber("\nSplit between how many party members?(max=20): ", 1, 20);
+    int party = getNumber("\nSplit between how many party members?(max=10): ", 1, 10);
     simpleClearScreen();
     return (total / party);
 }
