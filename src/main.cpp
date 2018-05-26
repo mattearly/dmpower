@@ -36,7 +36,7 @@ int main()
     load_file(loadSuccess, loadedFile, mygame);
     do
     {
-        cout << "\n----------MAIN MENU----------\n"
+        cout << YELLOW << "\n----------MAIN MENU----------\n" << RESET
              << "1. Characters\n"
              << "2. Magic Item and Loot Generators\n"
              << "3. Level Up Chart\n"
@@ -69,11 +69,9 @@ int main()
         break;
         case 4:
         {
-            cout << "****EXPERIENCE GENERATOR****\n";
             Gen_Experience gen;
             float rewardXP = gen.xpgenerator();
-            simpleClearScreen();
-            cout << "EXP for Each Party Member = " << rewardXP << "\n\n";
+            cout << "EXP for Each Party Member = " << GREEN << rewardXP << RESET << "\n\n";
         }
         break;
         case 5:
