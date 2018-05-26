@@ -33,10 +33,11 @@ float Gen_Experience::xpgenerator()
              << "16. CR 12     33. CR 29\n"
              << "17. CR 13     34. CR 30\n\n"
              << "  TIP: add 'y' after your choice to continue picking.(ex: 9y)\n"
-             << "       or add 'n' after your choice if it is the last one. (ex: 5n)\n"
+             << "       or add 'n' after your choice if it is the last one. (ex: 5n)\n\n"
              << "CRs so far: ";
-        for (auto i : crlist)
-        {
+                     cout << "Total unsplit so far: " << GREEN << total << RESET << " total" << endl;
+
+        for (auto i : crlist) {
             cout << GREEN << i << RESET << ", ";
         }
         cout << endl;
@@ -181,7 +182,13 @@ float Gen_Experience::xpgenerator()
         default:
             break;
         }
-        cout << "Total unsplit so far: " << total << " total" << endl;
+        cout << "Total unsplit so far: " << GREEN << total << RESET << " total" << endl;
+        cout << "CRs so far: ";
+        for (auto i : crlist)
+        {
+            cout << GREEN << i << RESET << ", ";
+        }
+        cout << endl;
         ans = getYorN("Are there more to add(Y/N)?");
     } while (ans == 'Y');
     int party = getNumber("Split between how many party members?(max=20)", 1, 20);
