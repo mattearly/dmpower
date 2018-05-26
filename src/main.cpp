@@ -30,13 +30,18 @@ int main()
     bool loadSuccess = 0;
     string loadedFile = "";
     simpleClearScreen();
-    cout << "** && ** Dungeon's & Dragons - 5e Core ** && **" << endl;
+    cout << "|-----------------------------------------------------------|" << endl;
+    cout << "|" << YELLOW << "Dungeon Master POWER " << RESET << "- " << RED << "Dungeons & Dragons " << RESET << "- " << CYAN << "5e Core Version" << RESET << "|" << endl;
+    cout << "|-----------------------------------------------------------|" << endl;
+    cout << "| * Design & Code by:  " << GREEN << "matthewjearly@gmail.com" << RESET << "              |" << endl;
+    cout << "| * Github Repo:  " << GREEN << "github.com/DM-Power-Core-Version" << RESET << "          |" << endl;
+    cout << "|-----------------------------------------------------------|" << endl;
     int choice = 0;
     Campaign mygame;
     load_file(loadSuccess, loadedFile, mygame);
     do
     {
-        cout << "\n----------MAIN MENU----------\n"
+        cout << YELLOW << "\n---------- MAIN MENU ----------\n" << RESET
              << "1. Characters\n"
              << "2. Magic Item and Loot Generators\n"
              << "3. Level Up Chart\n"
@@ -46,7 +51,7 @@ int main()
              << "7. NPC Insult\n"
              << "8. Save & Quit\n"
              << "9. Quit\n"
-             << "-----------------------------\n"
+             << YELLOW <<"-------------------------------\n" << RESET
              << endl;
         choice = getNumber("Choice: ", 1, 9);
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -69,11 +74,9 @@ int main()
         break;
         case 4:
         {
-            cout << "****EXPERIENCE GENERATOR****\n";
             Gen_Experience gen;
             float rewardXP = gen.xpgenerator();
-            simpleClearScreen();
-            cout << "EXP for Each Party Member = " << rewardXP << "\n\n";
+            cout << "EXP for Each Party Member = " << GREEN << rewardXP << RESET << "\n\n";
         }
         break;
         case 5:
@@ -113,7 +116,7 @@ void load_file(bool &ls, string &lf, Campaign &game)
 {
     string file;
     ifstream thefile;
-    cout << "\n  - press enter to skip -\n";
+    cout << "\n|----------------- press enter to skip load ----------------|\n" << endl;
     cout << "Load File: ";
     getline(cin, file, '\n');
     thefile.open(("saves/" + file + ".save").c_str());
