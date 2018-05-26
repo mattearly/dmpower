@@ -38,6 +38,8 @@ private:
 		enum MonsterType { UNKNOWN, ABERATIONS, BEASTS, CELESTIALS, CONSTRUCTS, DRAGONS, ELEMENTALS, FEY, FIENDS, GIANTS, MONSTROSITIES, OOZES, PLANTS, UNDEAD };
 		MonsterType monstertype;
 
+		std::string getDifficulty(const int &val);
+
 };
 
 
