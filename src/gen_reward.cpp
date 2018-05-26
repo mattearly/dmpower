@@ -3247,7 +3247,7 @@ Gear Magic_Items::TableH(const char &r)
     }
     else if (roll <= 99)
     {
-        Gear tmp(1, "Tome of leadership and influecne");
+        Gear tmp(1, "Tome of leadership and influence");
         return tmp;
     }
     else
