@@ -14,6 +14,8 @@ float Gen_Experience::xpgenerator()
     char ans;
     do
     {
+        simpleClearScreen();
+        cout << "****EXPERIENCE GENERATOR****\n\n";
         cout << "Challenge Rating Chart\n\n"
              << " 1. CR 0      18. CR 14\n"
              << " 2. CR 1/8    19. CR 15\n"
@@ -35,11 +37,11 @@ float Gen_Experience::xpgenerator()
              << "  TIP: add 'y' after your choice to continue picking.(ex: 9y)\n"
              << "       or add 'n' after your choice if it is the last one. (ex: 5n)\n\n"
              << "CRs so far: ";
-                     cout << "Total unsplit so far: " << GREEN << total << RESET << " total" << endl;
-
-        for (auto i : crlist) {
+        for (auto i : crlist)
+        {
             cout << GREEN << i << RESET << ", ";
         }
+        cout << "\nTotal unsplit so far: " << GREEN << total << RESET << " total" << endl;
         cout << endl;
         selected_rating = getNumber("Choose CR by the chart(1-34): ", 1, 34);
         switch (selected_rating)
@@ -182,15 +184,16 @@ float Gen_Experience::xpgenerator()
         default:
             break;
         }
-        cout << "Total unsplit so far: " << GREEN << total << RESET << " total" << endl;
+        cout << "\nTotal unsplit so far: " << GREEN << total << RESET << " total" << endl;
         cout << "CRs so far: ";
         for (auto i : crlist)
         {
             cout << GREEN << i << RESET << ", ";
         }
-        cout << endl;
+        cout << "\n\n";
         ans = getYorN("Are there more to add(Y/N)?");
     } while (ans == 'Y');
-    int party = getNumber("Split between how many party members?(max=20)", 1, 20);
+    int party = getNumber("\nSplit between how many party members?(max=20): ", 1, 20);
+    simpleClearScreen();
     return (total / party);
 }
