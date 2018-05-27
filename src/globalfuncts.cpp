@@ -104,3 +104,60 @@ int getAbilityMod(const int &ability)
     int mod = floor(tmp);
     return mod;
 }
+
+int getNumber(const std::string &message, const int &a, const int &b)
+{
+    std::string user_input = "";
+    std::string tmp = "";
+    int goodn = 0;
+    std::stringstream ss;
+    bool tried_once = false;
+    while ((std::cout << message && !(getline(std::cin, user_input))) || (goodn < a || goodn > b))
+    {
+        if (tried_once)
+        {
+            std::cout << "Invalid, try again.\n";
+        }
+        int i = 0;
+        while (isdigit(user_input[i]))
+        {
+            ss << user_input[i];
+            tmp += ss.str();
+            i++;
+        }
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin.clear();
+        goodn = stoi(tmp);
+        tried_once = true;
+    }
+    return goodn;
+}
+
+int getNumber(const int &a, const int &b)
+{
+    std::string user_input = "";
+    std::string tmp = "";
+    int goodn = 0;
+    std::stringstream ss;
+    bool tried_once = false;
+
+    while (!(getline(std::cin, user_input)) || (goodn < a || goodn > b))
+    {
+        if (tried_once)
+        {
+            std::cout << "Invalid, try again.\n";
+        }
+        int i = 0;
+        while (isdigit(user_input[i]))
+        {
+            ss << user_input[i];
+            tmp += ss.str();
+            i++;
+        }
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin.clear();
+        goodn = stoi(tmp);
+        tried_once = true;
+    }
+    return goodn;
+}
