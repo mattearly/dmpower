@@ -10,7 +10,6 @@ ____________________________________________________________________________
 ____________________________________________________________________________
 **/
 
-
 #include <iomanip>
 #include "globalfuncts.h"
 #include <cmath>
@@ -44,7 +43,7 @@ char getYorN(const std::string &message)
 
 void pressEnterToContinue()
 {
-    
+
     std::cout << std::endl;
     std::cout << "\nPress 'ENTER' to continue.\n\n";
     std::string buf;
