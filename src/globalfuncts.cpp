@@ -44,11 +44,12 @@ char getYorN(const std::string &message)
 
 void pressEnterToContinue()
 {
+    
     std::cout << std::endl;
     std::cout << "\nPress 'ENTER' to continue.\n\n";
     std::string buf;
     getline(cin, buf);
-    std::cin.clear();
+    // std::cin.clear();
 }
 
 int rollstats_hi_power()
