@@ -55,9 +55,7 @@ class Magic_Items
     void MakeSpellbook() const;
     void SingleScroll(const int &) const;
 
-    void showPoisons();
-    void showDiseases();
-    void showMadness();
+
 };
 
 #endif //REWARD_GEN_H

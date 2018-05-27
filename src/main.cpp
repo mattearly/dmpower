@@ -44,7 +44,7 @@ int main()
         cout << YELLOW << "\n---------- MAIN MENU ----------\n" << RESET
              << "1. Characters\n"
              << "2. Magic Item and Loot Generators\n"
-             << "3. Level Up Chart\n"
+             << "3. Charts\n"
              << "4. Experience Calculator\n"
              << "5. Name Generator\n"
              << "6. Random Encounter\n"
@@ -69,7 +69,7 @@ int main()
         case 3:
         {
             Charts chart;
-            chart.displayExperienceChart();
+            chart.showChartMenu();
         }
         break;
         case 4:
