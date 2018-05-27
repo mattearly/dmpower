@@ -15,6 +15,7 @@ void Charts::showChartMenu()
             << "4. Disease Chart" << endl
             << "5. Back to Main Menu" << endl;
         chart_choice = getNumber("Choose: ", 1, 5);
+        simpleClearScreen();
         switch (chart_choice)
         {
         case 1:
@@ -34,12 +35,12 @@ void Charts::showChartMenu()
         default:
             break;
         }
+        pressEnterToContinue();
     }
 }
 
 void Charts::displayExperienceChart()
 {
-    simpleClearScreen();
     std::cout << "Experience Required to Level\n\n"
               << "Level  EXP\n"
               << "------|--------\n"
@@ -63,8 +64,6 @@ void Charts::displayExperienceChart()
               << "19.    305,000\n"
               << "20.    355,000\n"
               << std::endl;
-    cin.clear();
-    pressEnterToContinue();
 }
 
 void Charts::displayPoisonSalesChart()
@@ -86,7 +85,6 @@ void Charts::displayPoisonSalesChart()
     poisons.erase(poisons.length() - 1, poisons.length()); //erase that last random [box] character
     cout << poisons;
     poisonfile.close();
-    pressEnterToContinue();
 }
 
 void Charts::displayDiseaseChart()
@@ -110,7 +108,6 @@ void Charts::displayDiseaseChart()
         diseases.erase(diseases.length() - 1, diseases.length()); //erase that last random [box] character
         cout << diseases;
         diseasefile.close();
-        pressEnterToContinue();
     }
 }
 
@@ -133,5 +130,4 @@ void Charts::displayMadnessChart()
     madness.erase(madness.length() - 1, madness.length()); //erase that last random [box] character
     cout << madness;
     madnessfile.close();
-    pressEnterToContinue();
 }
