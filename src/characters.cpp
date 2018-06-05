@@ -3213,7 +3213,7 @@ void Warlock::setClassDetails(const int &l)
 void Generic_Character_Class::setName()
 {
 	string tmp;
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	do
 	{
 		cout << "Character Name: ";
@@ -5883,7 +5883,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
 			string tmp;
 			while (!goodname)
 			{
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				do
 				{
 					cout << "Current Name: " << name << "\n New Name: ";
