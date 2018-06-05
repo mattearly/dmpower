@@ -98,6 +98,7 @@ int getAbilityMod(const int &ability)
 /// doesn't work with negative numbers as -1 is the flag for certainly invalid input
 int getNumber(const std::string &message, const int &a, const int &b)
 {
+    bool tried_once = false;
     int user_input;
     std::string test;
     std::string numbers;
@@ -106,6 +107,7 @@ int getNumber(const std::string &message, const int &a, const int &b)
         user_input = -1;
         test.clear();
         numbers.clear();
+        if (tried_once) std::cout << "X - Invalid entry, try again.\n";
         std::cout << message;
         std::getline(std::cin, test);
         for (int i = 0; i < test.size(); i++) {
@@ -116,6 +118,7 @@ int getNumber(const std::string &message, const int &a, const int &b)
             }
         }
         user_input = std::stoi(numbers);
+        tried_once = true;
     } while (user_input < a || user_input > b);
 
     return user_input;
@@ -125,6 +128,7 @@ int getNumber(const std::string &message, const int &a, const int &b)
 /// doesn't work with negative numbers as -1 is the flag for certainly invalid input
 int getNumber(const int &a, const int &b)
 {
+    bool tried_once = false;
     int user_input;
     std::string test;
     std::string numbers;
@@ -133,6 +137,7 @@ int getNumber(const int &a, const int &b)
         user_input = -1;
         test.clear();
         numbers.clear();
+        if (tried_once) std::cout << "X - Invalid entry, try again.\n";
         std::getline(std::cin, test);
         for (int i = 0; i < test.size(); i++) {
             if (isdigit(test[i])) {
@@ -142,7 +147,7 @@ int getNumber(const int &a, const int &b)
             }
         }
         user_input = std::stoi(numbers);
-
+        tried_once = true;
     } while (user_input < a || user_input > b);
 
     return user_input;
