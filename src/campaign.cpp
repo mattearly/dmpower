@@ -140,7 +140,7 @@ void Campaign::pc_menu()
             }
             else
             {
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                // //cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "\nCharacters built:\n\n";
                 for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                 {
@@ -159,7 +159,7 @@ void Campaign::pc_menu()
             else
             {
                 bool found = false;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                // //cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 string valid_name;
                 while (!found)
                 {
@@ -205,7 +205,7 @@ void Campaign::pc_menu()
                 else
                 {
                     bool found = false;
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    //cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     string valid_name;
                     while (!found)
                     {
@@ -253,7 +253,7 @@ void Campaign::pc_menu()
                 string tmp;
                 do
                 {
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    //cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     cout << "Enter the name of the PC to Delete(leave blank to exit function): ";
                     getline(cin, tmp);
                     tmp[0] = toupper(tmp[0]);

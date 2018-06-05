@@ -44,7 +44,7 @@ int main()
         cout << YELLOW << "\n---------- MAIN MENU ----------\n" << RESET
              << "1. Characters\n"
              << "2. Magic Item and Loot Generators\n"
-             << "3. Level Up Chart\n"
+             << "3. Charts\n"
              << "4. Experience Calculator\n"
              << "5. Name Generator\n"
              << "6. Random Encounter\n"
@@ -54,7 +54,8 @@ int main()
              << YELLOW <<"-------------------------------\n" << RESET
              << endl;
         choice = getNumber("Choice: ", 1, 9);
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        // cin.ignore(numeric_limits<streamsize>::max(), '\n');
         switch (choice)
         {
         case 1:
@@ -69,7 +70,7 @@ int main()
         case 3:
         {
             Charts chart;
-            chart.displayExperienceChart();
+            chart.showChartMenu();
         }
         break;
         case 4:
@@ -105,6 +106,7 @@ int main()
             save_file(loadSuccess, loadedFile, mygame);
         case 9:
             cout << "Exiting Program.\n";
+            break;
         default:
             break;
         }

@@ -10,12 +10,9 @@ ____________________________________________________________________________
 ____________________________________________________________________________
 **/
 
-
 #include <iomanip>
 #include "globalfuncts.h"
 #include <cmath>
-
-using namespace std;
 
 void simpleClearScreen()
 {
@@ -42,15 +39,6 @@ char getYorN(const std::string &message)
     return tmp;
 }
 
-void pressEnterToContinue()
-{
-    std::cout << std::endl;
-    std::cout << "\nPress 'ENTER' to continue.\n\n";
-    std::string buf;
-    getline(cin, buf);
-    std::cin.clear();
-}
-
 int rollstats_hi_power()
 {
     int r1, r2, r3, r4;
@@ -58,7 +46,7 @@ int rollstats_hi_power()
     r2 = rolld6(mgen);
     r3 = rolld6(mgen);
     r4 = rolld6(mgen);
-    cout << "Rolls: " << r1 << ", " << r2 << ", " << r3 << ", " << r4 << endl;
+    std::cout << "Rolls: " << r1 << ", " << r2 << ", " << r3 << ", " << r4 << std::endl;
     if (r1 <= r2 && r1 <= r3 && r1 <= r4)
     {
         return (r2 + r3 + r4);
@@ -77,7 +65,7 @@ int rollstats_hi_power()
     }
     else
     {
-        cout << "error in rolling function for 4d6 drop lowest";
+        std::cout << "error in rolling function for 4d6 drop lowest";
         exit(-1);
     }
 }
@@ -88,7 +76,7 @@ int rollstats_standard()
     r1 = rolld6(mgen);
     r2 = rolld6(mgen);
     r3 = rolld6(mgen);
-    cout << "Rolls: " << r1 << ", " << r2 << ", " << r3 << endl;
+    std::cout << "Rolls: " << r1 << ", " << r2 << ", " << r3 << std::endl;
     return (r1 + r2 + r3);
 }
 
@@ -104,3 +92,74 @@ int getAbilityMod(const int &ability)
     int mod = floor(tmp);
     return mod;
 }
+
+/// getNumber provides a 'message' to the user via console and 
+/// continues prompting for a integer 'user_input' such that  'a <= user_input <= b' 
+/// doesn't work with negative numbers as -1 is the flag for certainly invalid input
+int getNumber(const std::string &message, const int &a, const int &b)
+{
+    bool tried_once = false;
+    int user_input;
+    std::string test;
+    std::string numbers;
+
+    do {
+        user_input = -1;
+        test.clear();
+        numbers.clear();
+        if (tried_once) std::cout << "X - Invalid entry, try again.\n";
+        std::cout << message;
+        std::getline(std::cin, test);
+        for (int i = 0; i < test.size(); i++) {
+            if (isdigit(test[i])) {
+                numbers += test[i];
+            } else {
+                break;
+            }
+        }
+        user_input = std::stoi(numbers);
+        tried_once = true;
+    } while (user_input < a || user_input > b);
+
+    return user_input;
+}
+
+/// continues prompting for a integer 'user_input' such that  'a <= user_input <= b'
+/// doesn't work with negative numbers as -1 is the flag for certainly invalid input
+int getNumber(const int &a, const int &b)
+{
+    bool tried_once = false;
+    int user_input;
+    std::string test;
+    std::string numbers;
+
+    do {
+        user_input = -1;
+        test.clear();
+        numbers.clear();
+        if (tried_once) std::cout << "X - Invalid entry, try again.\n";
+        std::getline(std::cin, test);
+        for (int i = 0; i < test.size(); i++) {
+            if (isdigit(test[i])) {
+                numbers += test[i];
+            } else {
+                break;
+            }
+        }
+        user_input = std::stoi(numbers);
+        tried_once = true;
+    } while (user_input < a || user_input > b);
+
+    return user_input;
+}
+
+void pressEnterToContinue()
+{
+    // std::cin.clear();
+    // if ((std::cin >> std::ws).peek() == '\n') { std::cin.ignore(100, '\n');  }
+    std::cout << std::endl;
+    std::cout << "\nPress 'ENTER' to continue.\n\n";
+    std::string buf;
+    std::getline(std::cin, buf);
+}
+
