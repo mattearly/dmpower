@@ -62,44 +62,13 @@ std::string toString(const T &a)
     stringconverter << a;
     tmp += stringconverter.str();
     return tmp;
-};
+}
 
 int randomNumber(const int &, const int &);
-
-/// This version of getNumber takes a string as an console message to the user as well as a lower and higher limit
-// template <class T>
-// T getNumber(const std::string &message, const T &a, const T &b)
-// {
-//     T goodn = 0;
-//     while ((std::cout << message && !(std::cin >> goodn)) || (goodn < a || goodn > b))
-//     // while ((std::cout << message && !(getline(std::cin, goodn))) || (goodn < a || goodn > b))
-//     {
-//         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-//         std::cin.clear();
-//         std::cout << "Invalid, try again.\n";
-//     }
-//     return goodn;
-// };
-
-// /// This version of getNumber takes a lower and higher limit
-// template <class T>
-// T getNumber(const T &a, const T &b)
-// {
-//     T goodn = 0;
-//     while (!(std::cin >> goodn) || (goodn < a || goodn > b))
-//     {
-//         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-//         std::cin.clear();
-//         std::cout << "Invalid, try again.\n";
-//     }
-//     return goodn;
-// };
-
 
 int getNumber(const std::string &message, const int &a, const int &b);
 
 int getNumber(const int &a, const int &b);
-
 
 template <class T>
 std::string D_D_Ability_Modifier(const T &a)
@@ -127,7 +96,7 @@ std::string D_D_Ability_Modifier(const T &a)
         }
     }
     return tmp;
-};
+}
 
 int getAbilityMod(const int &);
 

@@ -54,7 +54,8 @@ int main()
              << YELLOW <<"-------------------------------\n" << RESET
              << endl;
         choice = getNumber("Choice: ", 1, 9);
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        // cin.ignore(numeric_limits<streamsize>::max(), '\n');
         switch (choice)
         {
         case 1:
@@ -105,6 +106,7 @@ int main()
             save_file(loadSuccess, loadedFile, mygame);
         case 9:
             cout << "Exiting Program.\n";
+            break;
         default:
             break;
         }
