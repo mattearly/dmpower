@@ -104,6 +104,8 @@ int getNumber(const std::string &message, const int &a, const int &b)
 
     do {
         user_input = -1;
+        test.clear();
+        numbers.clear();
         std::cout << message;
         std::getline(std::cin, test);
         for (int i = 0; i < test.size(); i++) {
@@ -129,6 +131,8 @@ int getNumber(const int &a, const int &b)
 
     do {
         user_input = -1;
+        test.clear();
+        numbers.clear();
         std::getline(std::cin, test);
         for (int i = 0; i < test.size(); i++) {
             if (isdigit(test[i])) {
