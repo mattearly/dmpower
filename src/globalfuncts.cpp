@@ -114,7 +114,7 @@ int getNumber(const std::string &message, const int &a, const int &b)
         std::getline(std::cin, test);
         if (test.size() > 0)
         {
-            for (int i = 0; i < test.size(); i++)
+            for (uint32_t i = 0; i < test.size(); i++)
             {
                 if (isdigit(test[i]))
                 {
@@ -156,7 +156,7 @@ int getNumber(const int &a, const int &b)
         std::getline(std::cin, test);
         if (test.size() > 0)
         {
-            for (int i = 0; i < test.size(); i++)
+            for (uint32_t i = 0; i < test.size(); i++)
             {
                 if (isdigit(test[i]))
                 {
