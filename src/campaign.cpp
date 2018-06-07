@@ -191,7 +191,7 @@ void Campaign::pc_menu()
             break;
         case 4:
         { //EDIT/UPDATE CHARACTER
-            cin.get();
+            // cin.get();
             string pwd = "";
             cout << "Enter entrance keyword: ";
             getline(cin, pwd, '\n');
