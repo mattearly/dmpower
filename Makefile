@@ -14,8 +14,8 @@ default:
 $(TARGET): $(OBJECTS)
 	$(CXX) $(OBJECTS) $(CFLAGS) -o $(TARGET)
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
-	$(CXX) $(CFLAGS) $(OBJFLAGS) $< -o $@ 
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
+	$(CXX) $(CFLAGS) $(OBJFLAGS) $< -o $@
 
 .PHONY: clean
 clean:
