@@ -27,7 +27,7 @@ public:
     Generic_Character_Class* tmp;
     void pc_menu();
     std::ofstream& dumpCharacter(std::ofstream&) const; //save
-    std::ifstream& retrieveCharacter(std::ifstream&);  //load
+    bool retrieveCharacter(std::ifstream&);  //load
     bool checkname(const std::string&) const;
 private:
     void makecharacter(Generic_Character_Class *tmp, int& starting_level);
