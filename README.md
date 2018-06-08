@@ -32,7 +32,9 @@ My original plan was to create a helpful program for _me_ as a Dungeon Master. I
 * This tool is best suited for Dungeon Masters and assisting them with keeping the game running quickly. Players may find DM-Power to be of some use as well.
 
 * All dice rolls and generator randomness done with [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister), arguably the best randomizer out there.
+
 * Uncrashable. I've taken measures to make sure the end user cannot accidentally crash the program. You can do no wrong. Go crazy testing.
+
 * Efficient C++ code base, uses the c++11 standard with no additional libraries. There should never be a delay in any action being processed, even on old ass computers! Anything deemed clucky should be set to be analyzed and redone.
 
 [back to index](#0-index)
@@ -45,34 +47,40 @@ My original plan was to create a helpful program for _me_ as a Dungeon Master. I
 
 * Ubuntu/Mint/Debian Linux. From Bash Command Line -
     1. Install Dependencies
-        1. ````sudo apt-get update````
-        2. ````sudo apt-get install build-essential make gcc git```` 
+
+        1. `sudo apt-get update`
+
+        2. `sudo apt-get install build-essential make gcc git`
+
         * (or whatever the equivalent commands are for your distro)
+
     2. Clone this repo from github
+
         * https:
-            
+
             `git clone https://github.com/mattearly/DM-Power-Core-Version.git`
-            
+
             or 
 
         * ssh:
-        
+
             `git clone git@github.com:mattearly/DM-Power-Core-Version.git`
 
     3. Move to directory
 
-        * ````cd DM-Power-Core-Version````
+        * `cd DM-Power-Core-Version/`
 
-	4. Compile 
+    4. Compile 
 
-		* ````make````
-	5. Run 
+        * `make`
 
-        * ````./dmpower````
+    5. Run 
+
+        * `./dmpower`
 
     * or compile and run (steps 4 and 5 sequentially)
 
-        * ````make run````
+        * `make run`
 
 * Windows. Should work about the same as Linux with [Cygwin](https://www.cygwin.com/) or [WSL](https://msdn.microsoft.com/commandline/wsl/about)
 
@@ -89,6 +97,7 @@ My original plan was to create a helpful program for _me_ as a Dungeon Master. I
 _Build and Manage Player Characters_
 
 * Walk through the prompts to create a character _by the book_
+
     * Save & Load anytime
 
     * Levels 1 to 20 available. Start at a level of your choosing, level up via the Edit Character functions to prompt new level changes and options.
@@ -103,10 +112,9 @@ _Build and Manage Player Characters_
         * **option 3**: standard set (15, 14, 13, 12, 10, 8)
         * **option 4**: custom entry (within starting bounds)
 
-    * All **Classes, Races, Level Up Archtype Paths, Spell Slots, Feats, Skills, Proficiencies, Backgrounds** (yes I put a lot of time into this program) from three official 5th edition books
-        1. Player's Handbook
-        2. Dungeon Master's Guide (adds evil paladin paths and a few others)
-        3. Sword Coast Adventurer's Guide (adds class archetype paths, backgrounds, and a few other things)  
+    * All Character Building rules and flow (Classes, Races, Level Up Archtype Paths, Spell Slots, Feats, Skills, Proficiencies, Backgrounds, Variant Options)
+        
+        * from the books [credited below](#7-credits)
 
     * More official options to be added soon! See the support link at the bottom of this document.
 
