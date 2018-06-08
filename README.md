@@ -21,15 +21,21 @@ _A free and open source heavily featured Dungeon Master toolkit that runs effici
 7. [Credits](#7-credits)
 8. [Dev](#8-dev)
 9. [ToDo](#9-todo-and-related-projects)
+10. [Support](#10-support)
 
 ---
 
 ### 1. Introduction
        
-My original plan was to create a helpful program for _me_ as a Dungeon Master. I put tools in that could save me precious minutes of game time. Faster D&D, More D&D! More to the story with less worry!
+My original plan was to create a helpful program for _me_ as a Dungeon Master. 
 
-* This tool is best suited for Dungeon Masters, but players may find it of some use as well.  
-* All rolls and generator randomness done with [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister), arguably the best randomizer out there.
+I added in any tools that could save me precious minutes of game time. 
+
+Faster D&D! More D&D! More Story! Less Worry!
+
+* This tool is best suited for Dungeon Masters and assisting them with keeping the game running quickly. Players may find DM-Power to be of some use as well.  
+
+* All dice rolls and generator randomness done with [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister), arguably the best randomizer out there.
 * Uncrashable. I've taken measures to make sure the end user cannot accidentally crash the program. You can do no wrong. Go crazy testing.
 * Crazy efficient C++ code base. There should never be a delay in any action being processed, even on old ass computers!
 
@@ -142,18 +148,21 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ### 9. ToDo and Related Projects
 
-1. Expand core functionality and add more character options (see Github projects tab for more info)
-2. Partly Done - Build Interfaced Version
-    * Some of the more useful tools (**Random Hoard Loot**, **Random Scrolls**, **Random Names**, and **Random Spellbooks**) have been transposed to a graphical interface (using [SDL2](https://www.libsdl.org/) libraries) with some effects and it works great so far. See [PLUNDER](https://github.com/bytePro17124/Plunder_DungeonsAndDragons_Loot_5e) repo.
-3. Build Interfaced Character Maker. Pieces of it are done on a private repo but it has a ways to go.
+1. Expand core functionality, fix all bugs, and add more character options (see Github projects tab for more info)
+
+**related side projects*
+2. Graphical Interfaced Version
+    * [PLUNDER](https://github.com/bytePro17124/Plunder_DungeonsAndDragons_Loot_5e): Graphical Version of the Reward Loot tools.
+    * Interfaced Character: 
 
 [back to index](#0-index)
 
 ---
 
+10. Support
 * [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=45RLH5HDMQZ) to keep this project alive. 
-    * donations are used to purchase books and put in time to expand this program (see project tab on Github for more info on what will be tackled next, time and funding permitting)
-    * total donated so far: $0
-        * donaters:
+* donations are used to purchase books and put in time to expand this program (see project tab on Github for more info on what will be tackled next, time and funding permitting)
+* total donated so far: $0
+    * donaters:
 
 
