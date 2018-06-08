@@ -17,13 +17,12 @@ ____________________________________________________________________________
 #include "gen_encounter.h"
 #include "gen_experience.h"
 #include "charts.h"
-#include <fstream>
 #include <cstdlib>
 
 using namespace std;
 
-void load_file(bool &, string &, Campaign &);
-void save_file(bool &, string &, const Campaign &);
+extern void load_file(bool &, string &, Campaign &);
+extern void save_file(bool &, string &, const Campaign &);
 
 int main()
 {
@@ -119,66 +118,4 @@ int main()
         }
     } while (choice < 9);
     return EXIT_SUCCESS;
-}
-
-void load_file(bool &ls, string &lf, Campaign &game)
-{
-    string file;
-    ifstream thefile;
-    cout << "\n|----------------- press enter to skip load ----------------|\n"
-         << endl;
-    cout << "Load File: ";
-    getline(cin, file, '\n');
-    thefile.open(("saves/" + file + ".save").c_str());
-    if (thefile.is_open())
-    {
-        bool success = game.retrieveCharacter(thefile);
-
-        simpleClearScreen();
-        if (success)
-        {
-            cout << "File '" << file << "' loaded.\n\n";
-        }
-        else
-        {
-            cout << "The file named '" << file << "' doesn't seem to have much data or is invalid\n\n";
-        }
-        ls = true;
-        lf = file;
-        thefile.close();
-    }
-    else
-    {
-        simpleClearScreen();
-        cout << "No file named '" << file << "'. Starting new file.\n\n";
-    }
-}
-
-void save_file(bool &ls, string &lf, const Campaign &game)
-{
-    string file;
-    ofstream os;
-    if (ls == false)
-    {
-        cout << "Save As: ";
-        getline(cin, file, '\n');
-    }
-    else
-    {
-        file = lf;
-    }
-    //save into file after above is complete
-    os.open(("saves/" + file + ".save").c_str());
-    if (os.is_open())
-    {
-        game.dumpCharacter(os);
-        cout << "All data saved in file -> " << file << endl;
-        ls = true;
-        lf = file;
-        os.close();
-    }
-    else
-    {
-        cout << "Save failed.\n";
-    }
 }
