@@ -34,7 +34,7 @@ int main()
     cout << "|" << YELLOW << "Dungeon Master POWER " << RESET << "- " << RED << "Dungeons & Dragons " << RESET << "- " << CYAN << "5e Core Version" << RESET << "|" << endl;
     cout << "|-----------------------------------------------------------|" << endl;
     cout << "| * Design & Code by:  " << GREEN << "matthewjearly@gmail.com" << RESET << "              |" << endl;
-    cout << "| * Github Repo:  " << GREEN << "github.com/DM-Power-Core-Version" << RESET << "          |" << endl;
+    cout << "| * Repo:  " << GREEN << "github.com/mattearly/DM-Power-Core-Version" << RESET << "       |" << endl;
     cout << "|-----------------------------------------------------------|" << endl;
     int choice = 0;
     Campaign mygame;
