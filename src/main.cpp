@@ -23,7 +23,7 @@ ____________________________________________________________________________
 using namespace std;
 
 void load_file(bool &, string &, Campaign &);
-void save_file(const bool &, const string &, const Campaign &);
+void save_file(bool &, string &, const Campaign &);
 
 int main()
 {
@@ -154,7 +154,7 @@ void load_file(bool &ls, string &lf, Campaign &game)
     }
 }
 
-void save_file(const bool &ls, const string &lf, const Campaign &game)
+void save_file(bool &ls, string &lf, const Campaign &game)
 {
     string file;
     ofstream os;
@@ -173,6 +173,8 @@ void save_file(const bool &ls, const string &lf, const Campaign &game)
     {
         game.dumpCharacter(os);
         cout << "All data saved in file -> " << file << endl;
+        ls = true;
+        lf = file;
         os.close();
     }
     else
