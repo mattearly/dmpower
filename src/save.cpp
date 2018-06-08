@@ -36,6 +36,11 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
 
 void save_file(bool &ls, std::string &lf, const Campaign &game)
 {
+    if (game.character_list.empty()) {
+        std::cout << "nothing to save - character list empty\n";
+        return;
+    }
+    
     std::string file;
     std::ofstream os;
     if (ls == false)
