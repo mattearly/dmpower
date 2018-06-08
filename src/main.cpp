@@ -41,7 +41,8 @@ int main()
     load_file(loadSuccess, loadedFile, mygame);
     do
     {
-        cout << YELLOW << "\n---------- MAIN MENU ----------\n" << RESET
+        cout << YELLOW << "\n---------- MAIN MENU ----------\n"
+             << RESET
              << "1. Characters\n"
              << "2. Magic Item and Loot Generators\n"
              << "3. Charts\n"
@@ -49,11 +50,13 @@ int main()
              << "5. Name Generator\n"
              << "6. Random Encounter\n"
              << "7. NPC Insult\n"
-             << "8. Save & Quit\n"
-             << "9. Quit\n"
-             << YELLOW <<"-------------------------------\n" << RESET
+             << "8. Save Current\n"
+             << "9. Save & Quit\n"
+             << "10. Quit without Saving\n"
+             << YELLOW << "-------------------------------\n"
+             << RESET
              << endl;
-        choice = getNumber("Choice: ", 1, 9);
+        choice = getNumber("Choice: ", 1, 10);
 
         // cin.ignore(numeric_limits<streamsize>::max(), '\n');
         switch (choice)
@@ -104,13 +107,17 @@ int main()
         break;
         case 8:
             save_file(loadSuccess, loadedFile, mygame);
+            break;
         case 9:
+            save_file(loadSuccess, loadedFile, mygame);
             cout << "Exiting Program.\n";
             break;
+        case 10:
+            cout << "Exiting Program.\n";
         default:
             break;
         }
-    } while (choice < 8);
+    } while (choice < 9);
     return EXIT_SUCCESS;
 }
 
@@ -118,15 +125,24 @@ void load_file(bool &ls, string &lf, Campaign &game)
 {
     string file;
     ifstream thefile;
-    cout << "\n|----------------- press enter to skip load ----------------|\n" << endl;
+    cout << "\n|----------------- press enter to skip load ----------------|\n"
+         << endl;
     cout << "Load File: ";
     getline(cin, file, '\n');
     thefile.open(("saves/" + file + ".save").c_str());
     if (thefile.is_open())
     {
-        game.retrieveCharacter(thefile);
+        bool success = game.retrieveCharacter(thefile);
+
         simpleClearScreen();
-        cout << "File '" << file << "' loaded.\n\n";
+        if (success)
+        {
+            cout << "File '" << file << "' loaded.\n\n";
+        }
+        else
+        {
+            cout << "The file named '" << file << "' doesn't seem to have much data or is invalid\n\n";
+        }
         ls = true;
         lf = file;
         thefile.close();
