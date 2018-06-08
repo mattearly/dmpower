@@ -39,7 +39,9 @@ My original plan was to create a helpful program for _me_ as a Dungeon Master. I
 
 ---
 
-### 2. How To Run DM Power       
+### 2. How To Run DM Power
+
+*Relies on C++ Standard 11 and Make*
 
 * Ubuntu/Mint/Debian Linux. From Bash Command Line -
     1. Install Dependencies
@@ -138,7 +140,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 * **Party Experience Calculator**. Total up session or encounter experience (based on CR's overcame) and split it with the party.
 
-* **Insult Generator**. **NSFW**. For when you just need to anger the PC's or antagonize them with a baddie. I just threw this in for fun. It takes two lists from files and randomly combines words, easily adapted to new words by editing the settings file [insults.dat](settings/insults.dat) - just note that if you change the number of lines of insults in that file, it must be adjusted in the code as well, you'll find the number of lines hardcoded in (to be improved later to be more adaptable and automatic).
+* **Insult Generator**. **NSFW**. For when you just need to anger the PC's or antagonize them with a baddie. I just threw this in for fun. It takes two lists from files and randomly combines words, easily adapted to new words by editing the settings file [insults.dat](settings/insults.dat) - just note that if you change the number of words in that file, it must be adjusted in the code as well, you'll find the number of lines hardcoded in [gen_insult.cpp](src/gen_insult.cpp) (to be improved later to be more adaptable and automatic).
 
 * **Random Encounters**. Difficulty Generator that accounts for
     * party member levels (can be of any variety of legal levels)
@@ -147,9 +149,9 @@ _Magic Item / Reward Roller (by the DM Guide)_
     and provides a Challenge Rating ranging from very easy to very hard.
 
 * **Charts**. 
-    * Poison prices chart
-    * madness chart
-    * diseases chart
+    * Poison Prices chart
+    * Madness chart
+    * Diseases chart
     
 [back to index](#0-index)
 
@@ -184,7 +186,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 **related side projects**
 
 2. Graphical Interfaced Version
-    * Reward Loot tools: [PLUNDER](https://github.com/mattearly/Plunder_DungeonsAndDragons_Loot_5e)
+    * Reward Loot tools: [Plunder](https://github.com/mattearly/Plunder)
     * Character Manager: **unreleased** 
 
 [back to index](#0-index)
@@ -193,7 +195,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ### 10. Support
 * [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC) to keep this project alive. 
-* donations are used to go towards further development of this program/project, DM-Power-Core-Version (see project tab on Github for more info on what will be tackled next, time and funding permitting)
+* donations are used to go towards further development of this program/project, DM-Power-Core-Version (see project tab on Github for more info on what will be tackled next)
 * total donated so far: $0
     * donaters:
 
