@@ -192,7 +192,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 ---
 
 ### 10. Support
-* [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=45RLH5HDMQZ) to keep this project alive. 
+* [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC) to keep this project alive. 
 * donations are used to go towards further development of this program/project, DM-Power-Core-Version (see project tab on Github for more info on what will be tackled next, time and funding permitting)
 * total donated so far: $0
     * donaters:
