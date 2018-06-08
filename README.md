@@ -18,10 +18,11 @@ _A free and open source heavily featured Dungeon Master toolkit that runs effici
 4. [Reward Loot](#4-reward-and-loot)
 5. [Kismet's Random Name](#5-kismets-random-name)
 6. [Other Tools](#6-other-tools)
-7. [Credits](#7-credits)
-8. [Dev](#8-dev)
-9. [ToDo](#9-todo-and-related-projects)
-10. [Support](#10-support)
+7. [Dev](#7-dev)
+8. [ToDo](#8-todo-and-related-projects)
+9. [Support](#9-support)
+10. [Credits](#10-credits)
+
 
 ---
 
@@ -94,31 +95,29 @@ My original plan was to create a helpful program for _me_ as a Dungeon Master. I
 
 <img src="img/cliscreenshot_character.png" height="350px" align="right">
 
-_Build and Manage Player Characters_
+_Build and Manage Player Characters by the book_
 
-* Walk through the prompts to create a character _by the book_
+* **Character Creator**. Walks though and prompts all relevant options
 
-    * Save & Load anytime
+* **Character Building Rules and Flow**. All Classes, Races, Class Leveling Archtype Paths, Spell Slots, Feats, Skills, Proficiencies, Backgrounds, Variant Options) from the wotc books [credited below](#10-credits)
 
-    * Levels 1 to 20 available. Start at a level of your choosing, level up via the Edit Character functions to prompt new level changes and options.
+* **Save**. Reliable save and load for your campaign's characters
 
-    * Unbreakable standard 5e rules - you cannot break the D&D rules within the standard context of this command line interface (CLI)
+* **Levels**. All classes levels 1 to 20 supported. No multiclassing supported.
 
-    * Unless you go to edit character and then put in the password.  Wonder what it is? Start digging through code, its hardcoded in there. Change it if you want before compiling. The intention of this password is to deter players from editing their characters without the DM overseeing the changes.
+* **Unbreakable Standard 5e Rules**. you cannot break the Character building D&D rules within the standard context of this command line interface (CLI)
 
-    * Versatile starting stat point options: 
-        * **option 1**: 4d6 drop lowest
-        * **option 2**: 3d6 legit
-        * **option 3**: standard set (15, 14, 13, 12, 10, 8)
-        * **option 4**: custom entry (within starting bounds)
+* **Edit Character**. DM Password entry required.
+    * 'God' powers. Edit stats (min=1, max=30), give feats, give skills, give levels, change name, change alignment. Password Entry required to allow more DM secure control. Password [hardcoded](src/campaign.cpp) to `password` by default, change it and recompile with `make` if you wish).
 
-    * All Character Building rules and flow (Classes, Races, Level Up Archtype Paths, Spell Slots, Feats, Skills, Proficiencies, Backgrounds, Variant Options)
-        
-        * from the books [credited below](#7-credits)
+* **Versatile Starting Stat Point Options**.
 
-    * More official options to be added soon! See the support link at the bottom of this document.
+    * **option 1**: 4d6 drop lowest
+    * **option 2**: 3d6 legit
+    * **option 3**: standard set (15, 14, 13, 12, 10, 8)
+    * **option 4**: custom entry (within standard starting 3-18 bounds(before bonuses applied))
 
-    * Limitations : Doesn't handle equipment, spell choices, or multiclassing
+* **Limitations**. Doesn't handle equipment or spell choices. I jot these down near the character name on my campaign notes, works great since they change all the time. Players can just fill out them on their character sheet.
 
 [back to index](#0-index)
 
@@ -128,9 +127,9 @@ _Build and Manage Player Characters_
 
 _Magic Item / Reward Roller (by the DM Guide)_
 
-* Scroll and Spellbook Generators : spells chosen randomly to assist with DM's time management
+* **Scroll and Spellbook Generators**. I dunno about you, but when a PC gets an NPC's spellbook, there goes 10+ minutes of game time telling him the spells. Or I can just use this and it takes 30 seconds. Spells in this Spellbook Generator chosen randomly to assist with DM's time management. You can also grab a single spell of any level at any time using the Scroll Generator.
 
-* Loot Rollers by the book. Try out the Hoard Loot option for some fun items.
+* **Loot Rollers**. Try out the Hoard Loot option for some fun. All scrolls are pre-randomized (no more `level x unspecific scroll`, here you get `Level 9 Scroll of Storm of Vengeance (druid)` for example)
 
 [back to index](#0-index)
 
@@ -138,7 +137,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ### 5. Kismet's Random Name
 
-* Name Generator. 7732 names from Kismet's list randomized. Great for planning and on the fly naming.   
+* **Name Generator**. 7732 names from Kismet's list randomized with Mersenne Twister Randomness. Great for helping with naming. Use the name, use something close the the name that is more fitting, or just roll a new random name in a split second and get a memorable and solid name idea quickly.
 
 [back to index](#0-index)
 
@@ -160,26 +159,12 @@ _Magic Item / Reward Roller (by the DM Guide)_
     * Poison Prices chart
     * Madness chart
     * Diseases chart
-    
-[back to index](#0-index)
-
----
-
-### 7. Credits
-  
-* Designed for Dungeons & Dragons 5th Edition Official. The core D&D data used in this program is from:
- 
- | [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [Sword Coast Adventurer's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
- | --- | --- | --- |
- | [![phb](img/DnD_PHB.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [![dmg](img/DnD_DMG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [![scag](img/DnD_SCAG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
-
- * Coded by [**_Matthew Jay Early_**](https://twitter.com/matthewjayearly).
 
 [back to index](#0-index)
 
 ---
 
-### 8. Dev
+### 7. Dev
 
 * Feel free to correct stuff, make pull requests, or just let me know by raising an issue ticket thingy. If you know nothing about code bug reports still help. Donations always help as well, it would be a dream to do this as an actual job.
 
@@ -187,7 +172,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ---
 
-### 9. ToDo and Related Projects
+### 8. ToDo and Related Projects
 
 1. Expand core functionality, fix all bugs, and add more character options (see Github projects tab for more info)
 
@@ -201,11 +186,25 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ---
 
-### 10. Support
+### 9. Support
 * [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC) to keep this project alive. 
 * donations are used to go towards further development of this program/project, DM-Power-Core-Version (see project tab on Github for more info on what will be tackled next)
 * total donated so far: $0
     * donaters:
+
+[back to index](#0-index)
+
+---
+
+### 10. Credits
+
+* Designed for Dungeons & Dragons 5th Edition Official. The core D&D data used in this program is from:
+ 
+ | [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [Sword Coast Adventurer's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
+ | --- | --- | --- |
+ | [![phb](img/DnD_PHB.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [![dmg](img/DnD_DMG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [![scag](img/DnD_SCAG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
+
+ * Coded by [**_Matthew Jay Early_**](https://twitter.com/matthewjayearly).
 
 [back to index](#0-index)
 
