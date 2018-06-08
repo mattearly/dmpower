@@ -141,7 +141,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ### 5. Kismet's Random Name
 
-* **Name Generator**. 7732 names from Kismet's list randomized with Mersenne Twister. Great for helping with naming. Use the name, use something close that is more fitting to the scenario, or just roll a new random name to inspire new name ideas. I find this very helpful when DMing and no longer mind when players constantly keep asking the names of every single (seemingly inconsequential) NPC. A good name means a lot for immersion.
+* **Name Generator**. 7732 names from Kismet's list randomized with Mersenne Twister. Use the name, use something close that is more fitting to the scenario, or just roll a new random name to inspire new name ideas. I find this very helpful when DMing and no longer mind when players constantly keep asking the names of every single (seemingly inconsequential) NPC. A good name can mean a lot for immersion.
 
 [back to index](#0-index)
 
@@ -157,11 +157,11 @@ _Magic Item / Reward Roller (by the DM Guide)_
     * party member levels (can be of any variety of legal levels)
     * your group size (max 20 members)
 
-    and provides a Challenge Rating ranging from very easy to very hard. Go ahead, give it 20 level 1 characters and see what kind of CR it recommends.
+        and provides a Challenge Rating ranging from very easy to very hard. Go ahead, give it 20 level 1 characters and see what kind of CR it recommends.
 
-    I plan on improving this tool to include asking for terrain and offering some monster encounter setups, looking for some official charts and setupds from one or several of the books to go off of.
+        I plan on improving this tool to include asking for terrain and offering some monster encounter setups, looking for some official charts and setupds from one or several of the books to go off of.
 
-* **Charts**. Just kinda threw these in, and end up using the Poison chart frequently (there is always at least one player interested in using poison), might improve or add more later.
+* **Charts**. Just kinda threw these in, and end up using the Poison chart frequently. There always seems to be at least one player interested in using poison.
 
     * Poison Prices chart
     * Madness chart
