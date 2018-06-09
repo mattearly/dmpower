@@ -1,14 +1,16 @@
 # Dungeon Master Power Core Version
 
-_A free and open source heavily featured Dungeon Master toolkit that runs efficiently in a Command Line Interface (CLI)_
+_An efficient heavily featured Dungeon Master toolkit that runs in Command Line Interface (CLI)._
 
-<img src="img/cliscreenshot.png" height="140px" align="left">
+_Uses official Wizards of the Coast (WotC) rules and is free and open source_
 
-<img src="img/cliscreenshot_characters2.png" height="140px" align="left">
+<img src="img/cliscreenshot.png" height="130px" align="left">
 
-<img src="img/cliscreenshot_characters.png" height="140px" align="left">
+<img src="img/cliscreenshot_characters2.png" height="130px" align="left">
 
-<img src="img/cliscreenshot_treasure.png" height="140px" align="center">
+<img src="img/cliscreenshot_characters.png" height="130px" align="left">
+
+<img src="img/cliscreenshot_treasure.png" height="130px" align="center">
 
 ### 0. Index
 
@@ -34,7 +36,7 @@ My original plan was to create a helpful program for _me_ as a Dungeon Master. I
 
 * Homebrew is left up to the individual. I try to mainly use official stuff here (unless otherwise noted) and adapting and changing it to your game style should be done at your will.
 
-* This tool does not teach the game or say many specifics about what each ability, magic item, or spell does, as that is just not the intention and it is more of a semi-official guideline of the wotc book's recommendations. You should be decently familiar with the rules and comfortable looking up unknown specific details to make the best use of DM-Power. I recommend purchasing the books and supporting the great company behind this game!
+* This tool does not teach the game or say many specifics about what each ability, magic item, or spell does, as that is just not the intention and it is more of a semi-official guideline of the WotC book's recommendations. You should be decently familiar with the rules and comfortable looking up unknown specific details to make the best use of DM-Power. I recommend purchasing the books and supporting the great company behind this game!
 
 * All dice rolls and generator randomness done with [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister), arguably the best randomizer out there.
 
@@ -97,7 +99,7 @@ My original plan was to create a helpful program for _me_ as a Dungeon Master. I
 
 ### 3. Character Builder
 
-<img src="img/cliscreenshot_character.png" height="350px" align="right">
+<img src="img/cliscreenshot_character.png" height="320px" align="right">
 
 _Build and Manage Player Characters by the book_
 
@@ -105,7 +107,7 @@ _Build and Manage Player Characters by the book_
 
 * **Levels**. All classes levels 1 to 20 supported. No multiclassing supported.
 
-* **Character Building Rules and Flow**. Fully configured official `Classes`, `Races`, `Class Archtype Paths`, `Spell Slots`, `Feats`, `Skills`, `Proficiencies`, `Backgrounds`, and `Variant Options` selection systems. Logically based on the wotc books [credited below](#10-credits).
+* **Character Building Rules and Flow**. Fully configured official `Classes`, `Races`, `Class Archtype Paths`, `Spell Slots`, `Feats`, `Skills`, `Proficiencies`, `Backgrounds`, and `Variant Options` selection systems. Logically based on the WotC books [credited below](#10-credits).
 
 * **Save**. Reliable save and load for your campaign's characters.
 
@@ -130,10 +132,10 @@ _Build and Manage Player Characters by the book_
 
 _Magic Item / Reward Roller (by the DM Guide)_
 
-* **Scroll and Spellbook Generators**. I dunno about you, but when a PC gets ahold of a NPC's spellbook, there goes 10+ minutes of game time working up the spells in it. Or just use this and it takes 30 seconds. Spells in this Spellbook Generator chosen randomly to assist with DM's time management. You can also grab a single random spell of any level using the Scroll Generator.
+* **Scroll and Spellbook Generators**. I dunno about you, but when a PC gets ahold of a NPC's spellbook, there goes 10+ minutes of game time working up the spells in it. Or just use this and it takes 30 seconds. Spells in this Spellbook Generator are chosen randomly to assist with DM's time management. You can also grab a single random spell of any level using the Scroll Generator.
 
-* **Loot Rollers**. Try out the Hoard Loot option for some fun. All scrolls are randomized (no more `level x unspecific scroll` (goodbye game time while the DM figures out what spell it or should be), here you get `Level 9 Scroll of Storm of Vengeance (druid)` for example. 
-    * This tool is very powerful. I've found it is often best to use the hoard loot as a guideline or ideas and not necessarily give the players every single thing that it rolls up - just the things that make sense in the context of your game. Too many magical items and variables can overwhelm players and take away from the gameplay.
+* **Loot Rollers**. Try out the Hoard Loot option for some fun. All scrolls are randomized (no more `level x unspecific scroll` (goodbye game time while the DM figures out what spell it is or should be), here you get `Level 9 Scroll of Storm of Vengeance (druid)` for example.
+    * This tool is very powerful - use it wisely.
 
 [back to index](#0-index)
 
@@ -159,7 +161,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
         and provides a Challenge Rating ranging from very easy to very hard. Go ahead, give it 20 level 1 characters and see what kind of CR it recommends.
 
-        I plan on improving this tool to include asking for terrain and offering some monster encounter setups, looking for some official charts and setupds from one or several of the books to go off of.
+        I plan on improving this tool to include prompting for terrain and offering some monster encounter setups, looking for some official charts and setups from one or several of the books to go off of.
 
 * **Charts**. Just kinda threw these in, and end up using the Poison chart frequently. There always seems to be at least one player interested in using poison.
 
@@ -195,7 +197,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ### 9. Support
 * [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC) to keep this project alive. 
-* donations are used to go towards development of this program/project, DM-Power-Core-Version. 
+* donations are used to go towards development of this program/project, DM-Power-Core-Version. (see Github projects tab for more info)
 * total donated so far: $0
     * donaters:
 
