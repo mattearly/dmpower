@@ -5,6 +5,8 @@
 > 3. [Kismet's Random Name](#3-kismets-random-name)
 > 4. [Other Tools](#4-other-tools)
 
+> * [Readme](README.md)
+
 ### 1. Main Menu
 
 <img src="img/cliscreenshot.png" height="160px" align="center">

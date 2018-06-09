@@ -1,21 +1,23 @@
-# Dungeon Master Power Core Version (DM-Power)
-
-_An efficient heavily featured Dungeon Master toolkit that runs in Command Line Interface (CLI)._
-
-_Uses official Wizards of the Coast (WotC) rules and is free and open source._
-
 ### 0. Index
 
-1. [Introduction](#1-introduction)
-2. [How To Run DM Power](#2-how-to-run-dm-power)
-3. [Dev](#3-dev)
-4. [ToDo](#5-todo-and-related-projects)
-5. [Support](#5-support)
-6. [Credits](#6-credits)
+> 1. [Introduction](#1-introduction)
+> 2. [How To Run DM Power](#2-how-to-run-dm-power)
+> 3. [Dev](#3-dev)
+> 4. [ToDo](#5-todo-and-related-projects)
+> 5. [Support](#5-support)
+> 6. [Credits](#6-credits)
+
+> * [User Manual](MANUAL.md)
 
 ---
 
 ### 1. Introduction
+
+### Dungeon Master Power Core Version (DM-Power)
+
+_An efficient heavily featured Dungeon Master toolkit that runs in Command Line Interface (CLI)._
+
+_Uses official Wizards of the Coast (WotC) rules and is free and open source._
 
 My original plan was to create a helpful program for _me_ as a Dungeon Master. I have added in any tools that could save precious minutes of game time. In the improvements and continuation of this project, I strive towards improving and evolving the kit to be as useful to me as possible. 
 
@@ -33,11 +35,11 @@ Faster D&D! More D&D! More Story! Less Worry!
 
 * Efficient C++ code base. All code is c++11 standard with no additional libraries.
 
-[back to index](#0-index)
+> [back to index](#0-index)
 
 ---
 
-### 2. How To Run DMPWR
+### 2. How To Run DM-Power
 
 *Relies on C++ Standard 11 and Make*
 
@@ -82,7 +84,7 @@ Faster D&D! More D&D! More Story! Less Worry!
 
 * MacOS. Untested but should work about the same as linux once you have make and a c++ compiler.
 
-[back to index](#0-index)
+> [back to index](#0-index)
 
 ---
 
@@ -91,7 +93,7 @@ Faster D&D! More D&D! More Story! Less Worry!
 
 * Feel free to correct stuff and make pull requests, or just let me know by raising an issue ticket thingy. If you don't want to dig into the code, general bug reports help a lot. Donations always help as well, it would be a dream to do something like this as an actual job.
 
-[back to index](#0-index)
+> [back to index](#0-index)
 
 ---
 
@@ -105,7 +107,7 @@ Faster D&D! More D&D! More Story! Less Worry!
     * Reward Loot tools: [Plunder](https://github.com/mattearly/Plunder)
     * Character Manager: **unreleased** 
 
-[back to index](#0-index)
+> [back to index](#0-index)
 
 ---
 
@@ -115,7 +117,7 @@ Faster D&D! More D&D! More Story! Less Worry!
 * total donated so far: $0
     * donaters:
 
-[back to index](#0-index)
+> [back to index](#0-index)
 
 ---
 
@@ -129,4 +131,4 @@ Faster D&D! More D&D! More Story! Less Worry!
 
  * Coded by [**_Matthew Jay Early_**](https://twitter.com/matthewjayearly).
 
-[back to index](#0-index)
+> [back to index](#0-index)
