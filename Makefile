@@ -7,7 +7,7 @@ OBJFLAGS = -fsanitize=leak -c
 SOURCES := $(shell find $(SRC_DIR) -name '*.cpp')
 OBJECTS := $(addprefix $(BUILD_DIR)/, $(SOURCES:$(SRC_DIR)/%.cpp=%.o))
 
-default: 
+default:
 	@mkdir -p bin
 	+$(MAKE) $(TARGET)
 
@@ -27,7 +27,7 @@ rebuild:
 	+$(MAKE) default
 
 .PHONY: run
-run: 
+run:
 	+$(MAKE) default
 	$(RUN)
 
@@ -36,4 +36,4 @@ help:
 	@echo \'make\' - builds/updates everything, is ready to run with \'./dmpower\' after completion
 	@echo \'make clean\' - removes object file folder and executable
 	@echo \'make rebuild\' - removes object file folder and executable and then builds and updates everything
-	@echo \'make run\' - builds/updates everything, runs immediately 
+	@echo \'make run\' - builds/updates everything, runs immediately
