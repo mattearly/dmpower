@@ -5,8 +5,7 @@ BUILD_DIR = bin
 CFLAGS = -std=c++11 -O2 -Wall -Wextra
 OBJFLAGS = -fsanitize=leak -c
 SOURCES := $(shell find $(SRC_DIR) -name '*.cpp')
-PREP = $(patsubst $(SRC_DIR)/%, %, $(SOURCES))
-OBJECTS := $(addprefix $(BUILD_DIR)/, $(PREP:%.cpp=%.o))
+OBJECTS := $(addprefix $(BUILD_DIR)/, $(SOURCES:$(SRC_DIR)/%.cpp=%.o))
 
 default: 
 	@mkdir -p bin
@@ -15,8 +14,8 @@ default:
 $(TARGET): $(OBJECTS)
 	$(CXX) $(OBJECTS) $(CFLAGS) -o $(TARGET)
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
-	$(CXX) $(CFLAGS) $(OBJFLAGS) $< -o $@ 
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
+	$(CXX) $(CFLAGS) $(OBJFLAGS) $< -o $@
 
 .PHONY: clean
 clean:

@@ -89,7 +89,7 @@ void Campaign::pc_menu()
             case 6:
             {
                 tmp = new Druid;
-                tmp->druidic = true;  //learn right away to avoid lang learning conflicts
+                tmp->druidic = true; //learn right away to avoid lang learning conflicts
                 makecharacter(tmp, starting_level);
             }
             break;
@@ -777,7 +777,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
     }
     return os;
 }
-ifstream &Campaign::retrieveCharacter(ifstream &ins)
+bool Campaign::retrieveCharacter(ifstream &ins)
 {
     string tmp;
     int processor;
@@ -810,8 +810,10 @@ ifstream &Campaign::retrieveCharacter(ifstream &ins)
             v = new Sorcerer;
         else if (tmp == "Warlock")
             v = new Warlock;
-        else
+        else if (tmp == "Wizard")
             v = new Wizard;
+        else 
+            return false;
         ins.seekg(len, ios_base::beg); //return to position
 
         getline(ins, v->char_class);
@@ -1281,6 +1283,7 @@ ifstream &Campaign::retrieveCharacter(ifstream &ins)
         if (ins.peek() == '\n')
             ins.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    cin.clear();
-    return ins;
+    // cin.clear();
+    // return ins;
+    return true;
 }
