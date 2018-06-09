@@ -79,10 +79,11 @@ _Magic Item / Reward Roller (by the DM Guide)_
 * **Insult Generator**. **NSFW**. For when you just need to anger the PC's or antagonize them with a baddie. I just threw this in for fun. It takes two lists from a file and randomly combines words, easily adapted to new words by editing the settings file [insults.dat](settings/insults.dat) - just note that if you change the number of words in that file, it must be adjusted in the code as well, you'll find the number of words hardcoded in [gen_insult.cpp](src/gen_insult.cpp) (to be improved later to be more adaptable and automatic).
 
 * **Random Encounters**. Difficulty Generator that accounts for
-    * party member levels (can be of any variety of legal levels)
-    * your group size (max 20 members)
 
-        and provides a Challenge Rating ranging from very easy to very hard. Go ahead, give it 20 level 1 characters and see what kind of CR it recommends.
+    * party member levels (can be of any variety of legal levels)
+    * your group size (max 10 members)
+
+        and provides a Challenge Rating ranging from very easy to very hard. Go ahead, give it 10 level 1 characters and see what kind of CR it recommends.
 
         I plan on improving this tool to include prompting for terrain and offering some monster encounter setups, looking for some official charts and setups from one or several of the books to go off of.
 
