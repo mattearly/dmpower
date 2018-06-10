@@ -74,7 +74,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
 ### 6. Other Tools
 
-* **Party Experience Calculator**. Total up session or encounter experience and split it with the party. This prompts for Challenge Ratings that the party has overcame and then divides by the number of players.
+* **Party Experience Calculator**. Total up Challenge Ratings split it with the party. This prompts for CR's that the party has overcome and then divides by the number of players.
 
 * **Insult Generator**. **NSFW**. For when you just need to anger the PC's or antagonize them with a baddie. I just threw this in for fun. It takes two lists from a file and randomly combines words, easily adapted to new words by editing the settings file [insults.dat](settings/insults.dat) - just note that if you change the number of words in that file, it must be adjusted in the code as well, you'll find the number of words hardcoded in [gen_insult.cpp](src/gen_insult.cpp) (to be improved later to be more adaptable and automatic).
 
@@ -87,7 +87,7 @@ _Magic Item / Reward Roller (by the DM Guide)_
 
         I plan on improving this tool to include prompting for terrain and offering some monster encounter setups, looking for some official charts and setups from one or several of the books to go off of.
 
-* **Charts**. Just kinda threw these in, and end up using the Poison chart frequently. There always seems to be at least one player interested in using poison.
+* **Charts**. Just kinda threw these in. There always seems to be at least one player interested in using poison. Madness can be useful in many cases (causing scenarios, things for the PC's to deal with, etc.)
 
     * Poison Prices chart
     * Madness chart
