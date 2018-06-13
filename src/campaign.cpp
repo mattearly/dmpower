@@ -144,7 +144,7 @@ void Campaign::pc_menu()
                 cout << "\nCharacters built:\n\n";
                 for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                 {
-                    cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+                    cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
                 }
             }
         }
@@ -168,7 +168,7 @@ void Campaign::pc_menu()
                     valid_name[0] = toupper(valid_name[0]);
                     for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                     {
-                        if ((*it)->name == valid_name)
+                        if ((*it)->char_name == valid_name)
                         {
                             found = true;
                         }
@@ -177,12 +177,12 @@ void Campaign::pc_menu()
                         cout << "No character named " << valid_name << ". List of Charcters:\n";
                     for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                     {
-                        cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+                        cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
                     }
                 }
                 for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                 {
-                    if (valid_name == (*it)->name)
+                    if (valid_name == (*it)->char_name)
                         (*it)->character_sheet();
                 }
             }
@@ -214,7 +214,7 @@ void Campaign::pc_menu()
                         valid_name[0] = toupper(valid_name[0]);
                         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                         {
-                            if ((*it)->name == valid_name)
+                            if ((*it)->char_name == valid_name)
                             {
                                 found = true;
                             }
@@ -223,13 +223,13 @@ void Campaign::pc_menu()
                             cout << "\nNo character named " << valid_name << ". List of Charcters:\n\n";
                         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                         {
-                            cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+                            cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
                         }
                         cout << endl;
                     }
                     for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                     {
-                        if (valid_name == (*it)->name)
+                        if (valid_name == (*it)->char_name)
                             (*it)->updateCharacter(*this);
                     }
                 }
@@ -259,7 +259,7 @@ void Campaign::pc_menu()
                     tmp[0] = toupper(tmp[0]);
                     for (list<Generic_Character_Class *>::iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                     {
-                        if ((*it)->name == tmp)
+                        if ((*it)->char_name == tmp)
                         {
                             cout << "Deleting " << tmp << ". Goodbye " << tmp << endl;
                             character_list.erase(it);
@@ -296,7 +296,7 @@ bool Campaign::checkname(const string &n) const
 {
     for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
     {
-        if ((*it)->name == n)
+        if ((*it)->char_name == n)
         {
             cout << "Name Already Exists.\n";
             return false;
@@ -310,7 +310,7 @@ void Campaign::makecharacter(Generic_Character_Class *tmp, int &starting_level)
     while (!goodname)
     {
         tmp->setName();
-        goodname = checkname(tmp->name);
+        goodname = checkname(tmp->char_name);
     }
     tmp->setAllStats();
     tmp->setRace(*tmp);
@@ -335,7 +335,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
             << "saved character: " << charactercount << endl
             //basics
             << (*it)->char_class << endl
-            << (*it)->name << endl
+            << (*it)->char_name << endl
             << (*it)->race << endl
             << (*it)->alignment << endl
             << (*it)->level << endl
@@ -817,7 +817,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
         ins.seekg(len, ios_base::beg); //return to position
 
         getline(ins, v->char_class);
-        getline(ins, v->name);
+        getline(ins, v->char_name);
         getline(ins, v->race);
         getline(ins, v->alignment);
         ins >> v->level;

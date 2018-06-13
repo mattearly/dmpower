@@ -187,7 +187,7 @@ void pressEnterToContinue()
 }
 
 std::string trim(const std::string &str,
-                 const std::string &whitespace = " \t")
+                 const std::string &whitespace)
 {
     const auto strBegin = str.find_first_not_of(whitespace);
 
@@ -201,8 +201,8 @@ std::string trim(const std::string &str,
 }
 
 std::string reduce(const std::string &str,
-                   const std::string &fill = " ",
-                   const std::string &whitespace = " \t")
+                   const std::string &fill,
+                   const std::string &whitespace)
 {
     // trim first
     auto result = trim(str, whitespace);

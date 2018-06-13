@@ -26,7 +26,7 @@ class Generic_Character_Class
     Generic_Character_Class();
     ~Generic_Character_Class();
     //CLASS //GENERAL (used by 2 or more classes)
-    std::string name, alignment, char_class, race;
+    std::string char_name, alignment, char_class, race;
     bool initialSkillsSet, spellcasting, timeless_body, evasion,
         unarmored_defense, fighting_style, defense, dueling,
         great_weapon_fighting, protection;
@@ -166,6 +166,7 @@ class Generic_Character_Class
 
     //CHARACTER CREATION FUNCTIONS (MUTATORS)
     void setName();
+    std::string suggestRandomName();
     void setRace(Generic_Character_Class &v);
     void setRaceBonuses();
     void setAlignment();

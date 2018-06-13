@@ -13,13 +13,14 @@ ____________________________________________________________________________
 #include <iomanip>
 #include "characters.h"
 #include <cmath>
+#include "gen_name.h"
 
 using namespace std;
 
 //mutators
 Generic_Character_Class::Generic_Character_Class()
 {
-	name = "";
+	char_name = "";
 	alignment = "";
 	char_class = "";
 	race = "";
@@ -674,7 +675,7 @@ void Cleric::setClassDetails(const int &l)
 			}
 		}
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Fighter::setClassDetails(const int &l)
 {
@@ -925,7 +926,7 @@ void Fighter::setClassDetails(const int &l)
 			}
 		}
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Rogue::setClassDetails(const int &l)
 {
@@ -1176,7 +1177,7 @@ void Rogue::setClassDetails(const int &l)
 			}
 		}
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n";
 }
 void Wizard::setClassDetails(const int &l)
 {
@@ -1397,7 +1398,7 @@ void Wizard::setClassDetails(const int &l)
 			}
 		}
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Barbarian::setClassDetails(const int &l)
 {
@@ -1678,7 +1679,7 @@ void Barbarian::setClassDetails(const int &l)
 			}
 		}
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n";
 }
 void Druid::setClassDetails(const int &l)
 {
@@ -1690,7 +1691,7 @@ void Druid::setClassDetails(const int &l)
 	intSave = true;
 	wisSave = true;
 	// if (!druidic)    //now learned earlier (in campaign.cpp) to avoid conflicts
-	// 	druidic = true; 
+	//     druidic = true;
 	if (!spellcasting)
 		spellcasting = true;
 	if (!wild_shape && l >= 2)
@@ -1892,7 +1893,7 @@ void Druid::setClassDetails(const int &l)
 			}
 		}
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Paladin::setClassDetails(const int &l)
 {
@@ -2093,7 +2094,7 @@ void Paladin::setClassDetails(const int &l)
 			}
 		}
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n";
 }
 void Sorcerer::setClassDetails(const int &l)
 {
@@ -2314,7 +2315,7 @@ void Sorcerer::setClassDetails(const int &l)
 			cout << endl;
 		}
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Bard::setClassDetails(const int &l)
 {
@@ -2537,7 +2538,7 @@ void Bard::setClassDetails(const int &l)
 		setInstrument("Choose 3 Bard instruments.\n\n", 3);
 		setAnySkill("Bards start with 4 skills:", 4);
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n";
 }
 void Monk::setClassDetails(const int &l)
 {
@@ -2720,7 +2721,7 @@ void Monk::setClassDetails(const int &l)
 			}
 		}
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Ranger::setClassDetails(const int &l)
 {
@@ -2972,7 +2973,7 @@ void Ranger::setClassDetails(const int &l)
 			cout << endl;
 		}
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Warlock::setClassDetails(const int &l)
 {
@@ -3207,25 +3208,67 @@ void Warlock::setClassDetails(const int &l)
 			cout << endl;
 		}
 	}
-	cout << "\nNew  " << char_class << " named '" << name << "' created.\n\n";
+	cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 
 void Generic_Character_Class::setName()
 {
-	string tmp;
-	//cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	cout << "Setting Your Character's Name (name can be changed later via Edit Character option)\n\n"
+		 << " - Name must be at least 2 letters.\n"
+		 << " - Cannot be the exact same as any other character's name.\n"
+		//  << " - Enter 'random' to use the name generator."
+		 << "\n\n";
+	string i_name;
 	do
 	{
-		cout << "Character Name: ";
-		getline(cin, tmp);
-		tmp[0] = toupper(tmp[0]);
-		if (tmp.size() < 2 || tmp[0] == ' ')
+		cout << "Enter Character Name: ";
+		
+		getline(cin, i_name);
+
+		i_name[0] = toupper(i_name[0]);  //makes the first letter of the name uppercase
+
+		i_name = reduce(i_name);  //gets rid of leading and trailing whitespace and any extra spaces in between
+ 
+		if (i_name.size() < 2 || i_name[0] == ' ')
 		{
 			cout << "Invalid name, try another.\n";
 		}
-	} while (tmp.size() < 2 || tmp[0] == ' ');
-	name = tmp;
+
+		// if (i_name == "Random")
+		// {
+		// 	i_name = suggestRandomName();
+		// }
+
+	} while (i_name.size() < 2);
+
+	char_name = i_name;
 }
+
+string Generic_Character_Class::suggestRandomName()
+{
+	CharacterName namegen;
+	string rname = "";
+	int choice = 0;
+	while (choice != 1)
+	{
+		rname.clear();
+		rname += namegen.grabRandomName();
+		cout << "A Random Name For Your Character:\n\n    " << rname << endl
+			 << endl
+			 << "1 - accept " << endl
+			 << "2 - try again" << endl
+			 << "3 - leave random name generaor and enter your own name\n\n";
+		choice = getNumber(1, 3);
+
+		if (choice == 3)
+		{
+			return "";
+		}
+	}
+
+	return rname;
+}
+
 void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
 	simpleClearScreen();
@@ -3304,7 +3347,7 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 void Generic_Character_Class::setAlignment()
 {
 	simpleClearScreen();
-	cout << "Pick an Alignment for " << name << ".\n\n"
+	cout << "Pick an Alignment for " << char_name << ".\n\n"
 		 << "1. Chaotic Evil     6. Neutral Good"
 		 << "\n2. Chaotic Neutral  7. Lawful Evil"
 		 << "\n3. Chaotic Good     8. Lawful Neutral"
@@ -5865,7 +5908,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
 	do
 	{
 		simpleClearScreen();
-		cout << "Update what about " << name << ", the level " << level << " " << char_class << "?\n\n"
+		cout << "Update what about " << char_name << ", the level " << level << " " << char_class << "?\n\n"
 			 << "1. Change Name" << endl
 			 << "2. LEVEL UP!" << endl
 			 << "3. Change Alignment" << endl
@@ -5886,7 +5929,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
 				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				do
 				{
-					cout << "Current Name: " << name << "\n New Name: ";
+					cout << "Current Name: " << char_name << "\n New Name: ";
 					getline(cin, tmp);
 					tmp[0] = toupper(tmp[0]);
 					if (tmp.size() < 2 || tmp[0] == ' ')
@@ -5896,8 +5939,8 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
 				} while (tmp.size() < 2 || tmp[0] == ' ');
 				goodname = game.checkname(tmp);
 			}
-			cout << name << " has been renamed to " << tmp << "\n\n";
-			name = tmp;
+			cout << char_name << " has been renamed to " << tmp << "\n\n";
+			char_name = tmp;
 		}
 		break;
 		case 2:
@@ -5918,7 +5961,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
 		case 3:
 		{
 			cout << "Current Alignment is: " << alignment << "\n";
-			cout << "Pick new Alignment for " << name << ".\n\n"
+			cout << "Pick new Alignment for " << char_name << ".\n\n"
 				 << "1. Chaotic Evil     6. Neutral Good"
 				 << "\n2. Chaotic Neutral  7. Lawful Evil"
 				 << "\n3. Chaotic Good     8. Lawful Neutral"
@@ -6008,7 +6051,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
 void Generic_Character_Class::character_sheet() const
 {
 	simpleClearScreen();
-	cout << " " << name << "'s Character Sheet:\n";
+	cout << " " << char_name << "'s Character Sheet:\n";
 	cout << "->" << GREEN << " Class(Level): " << RESET << char_class << "(" << level << ")\n";
 	cout << "->" << GREEN << " Alignment: " << RESET << alignment << "\n";
 	cout << "->" << GREEN << " Race: " << RESET << race << "\n";

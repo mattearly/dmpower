@@ -20,18 +20,24 @@ ____________________________________________________________________________
 
 class Generic_Character_Class;
 
-class Campaign {
-public:
+class Campaign
+{
+  public:
     //PLAYER CHARACTER CREATION
-    std::list<Generic_Character_Class*> character_list;
-    Generic_Character_Class* tmp;
-    void pc_menu();
-    std::ofstream& dumpCharacter(std::ofstream&) const; //save
-    bool retrieveCharacter(std::ifstream&);  //load
-    bool checkname(const std::string&) const;
-private:
-    void makecharacter(Generic_Character_Class *tmp, int& starting_level);
+    std::list<Generic_Character_Class *> character_list;
 
+    Generic_Character_Class *tmp;
+
+    void pc_menu();
+
+    std::ofstream &dumpCharacter(std::ofstream &) const; //save
+
+    bool retrieveCharacter(std::ifstream &); //load
+
+    bool checkname(const std::string &) const;
+
+  private:
+    void makecharacter(Generic_Character_Class *tmp, int &starting_level);
 };
 
-#endif  //CAMPAIGN_H
+#endif //CAMPAIGN_H
