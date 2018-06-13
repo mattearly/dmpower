@@ -67,6 +67,8 @@ _Magic Item / Reward Roller (by the DM Guide)_
 ### 5. Kismet's Random Name
 
 * **Name Generator**. 7732 names from Kismet's list randomized with Mersenne Twister. Use the name, use something close that is more fitting to the scenario, or just roll a new random name to inspire new name ideas. I find this very helpful when DMing and no longer mind when players constantly keep asking the names of every single (seemingly inconsequential) NPC. A good name can mean a lot for immersion.
+    * related file: [settings/names.dat](settings/names.dat)
+        * you may edit this file to add/remove/customize to your own names. The code that handles it automatically adjusts based on the number of lines in the file. Be sure to keep the newline at the end of the file(otherwise the last name on the list will never be chosen).
 
 > [back to index](#0-index)
 
