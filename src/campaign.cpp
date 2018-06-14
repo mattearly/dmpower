@@ -304,25 +304,43 @@ bool Campaign::checkname(const string &n) const
     }
     return true;
 }
-void Campaign::makecharacter(Generic_Character_Class *tmp, int &starting_level)
+void Campaign::makecharacter(Generic_Character_Class *new_character, int &starting_level)
 {
     bool goodname = false;
+
+    simpleClearScreen();
     while (!goodname)
     {
-        tmp->setName();
-        goodname = checkname(tmp->char_name);
+        new_character->setName();
+        goodname = checkname(new_character->char_name);
     }
-    tmp->setAllStats();
-    tmp->setRace(*tmp);
-    tmp->setAlignment();
-    tmp->setBackground();
-    tmp->setClassDetails(starting_level);
-    tmp->setProficiencyBonus();
-    character_list.push_back(tmp);
-    tmp->initialSkillsSet = true;
+
+    simpleClearScreen();
+    new_character->setAllStats();
+
+    simpleClearScreen();
+    new_character->setRace(*new_character);
+
+    simpleClearScreen();
+    new_character->setAlignment();
+
+    simpleClearScreen();
+    new_character->setBackground();
+
+    simpleClearScreen();
+    new_character->setClassDetails(starting_level);
+
+    simpleClearScreen();
+    new_character->setProficiencyBonus();
+
+    character_list.push_back(new_character);
+    new_character->initialSkillsSet = true;
+
+    simpleClearScreen();
     char ans = getYorN("Display Character Sheet now[y/n]?");
     if (ans == 'Y')
         character_list.back()->character_sheet();
+
     pressEnterToContinue();
 }
 ofstream &Campaign::dumpCharacter(ofstream &os) const
@@ -812,7 +830,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
             v = new Warlock;
         else if (tmp == "Wizard")
             v = new Wizard;
-        else 
+        else
             return false;
         ins.seekg(len, ios_base::beg); //return to position
 
