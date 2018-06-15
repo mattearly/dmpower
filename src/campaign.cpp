@@ -53,6 +53,9 @@ void Campaign::pc_menu()
                  << RESET;
             int select_class = getNumber("Class Choice(1-12): ", 1, 12);
             int starting_level = getNumber("\nStarting Level(1-20): ", 1, 20);
+
+            Generic_Character_Class *tmp;
+
             simpleClearScreen();
             switch (select_class)
             {

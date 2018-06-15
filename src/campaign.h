@@ -26,8 +26,6 @@ class Campaign
     //PLAYER CHARACTER CREATION
     std::list<Generic_Character_Class *> character_list;
 
-    Generic_Character_Class *tmp;
-
     void pc_menu();
 
     std::ofstream &dumpCharacter(std::ofstream &) const; //save
