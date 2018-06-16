@@ -1,12 +1,16 @@
 #include "campaign.h"
 #include <fstream>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 void load_file(bool &ls, std::string &lf, Campaign &game)
 {
     std::string file;
     std::ifstream thefile;
     std::cout << "\n|----------------- press enter to skip load ----------------|\n"
-         << std::endl;
+              << std::endl;
     std::cout << "Load File: ";
     std::getline(std::cin, file, '\n');
     thefile.open(("saves/" + file + ".save").c_str());
@@ -14,7 +18,7 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
     {
         bool success = game.retrieveCharacter(thefile);
 
-        simpleClearScreen();
+        // simpleClearScreen();
         if (success)
         {
             std::cout << "File '" << file << "' loaded.\n\n";
@@ -29,18 +33,19 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
     }
     else
     {
-        simpleClearScreen();
+        // simpleClearScreen();
         std::cout << "No file named '" << file << "'. Starting new file.\n\n";
     }
 }
 
 void save_file(bool &ls, std::string &lf, const Campaign &game)
 {
-    if (game.character_list.empty()) {
+    if (game.character_list.empty())
+    {
         std::cout << "nothing to save - character list empty\n";
         return;
     }
-    
+
     std::string file;
     std::ofstream os;
     if (ls == false)

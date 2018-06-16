@@ -109,12 +109,12 @@ void Dwarf::setRaceDetails(Generic_Character_Class &v) {
     case HILL:
         v.wisdom += 1;
         v.dwarven_toughness = true;
-        cout << "Hill Dwarf defaults & bonuses: +1 WIS, Dwarven Toughness(+1 HP/level)\n";
+        cout << "Hill Dwarf defaults & bonuses applied: +1 WIS, Dwarven Toughness(+1 HP/level)\n";
         break;
     case MOUNTAIN:
         v.strength += 2;
         v.dwarven_armor_training = true;
-        cout << "Mountain Dwarf defaults & bonuses: +2 STR, Dwarven Armor Training(Proficient in Medium and Light Armor)\n";
+        cout << "Mountain Dwarf defaults & bonuses applied: +2 STR, Dwarven Armor Training(Proficient in Medium and Light Armor)\n";
         break;
     case NA:
     default:

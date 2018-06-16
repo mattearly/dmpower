@@ -110,4 +110,12 @@ int rollstats_hi_power();
 
 int rollstats_standard();
 
+//Trims whitespace - from http://stackoverflow.com/questions/1798112/removing-leading-and-trailing-spaces-from-a-string
+std::string trim(const std::string &str, const std::string &whitespace = " \t");
+
+//Reduces whitespace - from http://stackoverflow.com/questions/1798112/removing-leading-and-trailing-spaces-from-a-string
+std::string reduce(const std::string &str,
+                   const std::string &fill = " ",
+                   const std::string &whitespace = " \t");
+
 #endif /* defined(GLOBALFUNCTS_H) */

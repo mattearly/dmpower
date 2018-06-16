@@ -109,11 +109,11 @@ void Magic_Items::GenerateIndividualTreasureCR_0_4()
 {
     vector<Gear> tmplist;
     int gr = 0;
-    char ans = getYorN("Have system roll for you?(y/n): ");
+    char ans = getYorN("Have the system roll for you?(y/n): ");
     if (ans == 'Y')
         gr = rolld100(mgen);
     else
-        gr = getNumber("Roll d100 result: ", 1, 100);
+        gr = getNumber("Enter d100 result: ", 1, 100);
     cout << "Gold Roll = " << gr << endl;
     if (gr <= 30)
     {
@@ -168,7 +168,7 @@ void Magic_Items::GenerateIndividualTreasureCR_5_10()
     if (ans == 'Y')
         gr = rolld100(mgen);
     else
-        gr = getNumber("Roll d100 result: ", 1, 100);
+        gr = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Gold Roll: " << gr << endl;
     if (gr <= 30)
     {
@@ -250,7 +250,7 @@ void Magic_Items::GenerateIndividualTreasureCR_11_16()
     if (ans == 'Y')
         gr = rolld100(mgen);
     else
-        gr = getNumber("Roll d100 result: ", 1, 100);
+        gr = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Gold Roll: " << gr << endl;
     if (gr <= 20)
     {
@@ -314,7 +314,7 @@ void Magic_Items::GenerateIndividualTreasureCR_17()
     if (ans == 'Y')
         gr = rolld100(mgen);
     else
-        gr = getNumber("Roll d100 result: ", 1, 100);
+        gr = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Gold Roll: " << gr << endl;
     if (gr <= 15)
     {
@@ -383,7 +383,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4()
     if (ans == 'Y')
         mr = rolld100(mgen);
     else
-        mr = getNumber("Roll d100 result: ", 1, 100);
+        mr = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Magic Item Roll = " << mr << endl;
     if (mr <= 6)
     {
@@ -588,7 +588,7 @@ void Magic_Items::GenerateHoardTreasureCR_5_10()
     if (ans == 'Y')
         mr = rolld100(mgen);
     else
-        mr = getNumber("Roll d100 result: ", 1, 100);
+        mr = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Magic Item Roll = " << mr << endl;
     if (mr <= 4)
     {
@@ -904,7 +904,7 @@ void Magic_Items::GenerateHoardTreasureCR_11_16()
     if (ans == 'Y')
         mr = rolld100(mgen);
     else
-        mr = getNumber("Roll d100 result: ", 1, 100);
+        mr = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Magic Item Roll = " << mr << endl;
     if (mr <= 3)
     {
@@ -1276,7 +1276,7 @@ void Magic_Items::GenerateHoardTreasureCR_17()
     if (ans == 'Y')
         mr = rolld100(mgen);
     else
-        mr = getNumber("Roll d100 result: ", 1, 100);
+        mr = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Magic Item Roll = " << mr << endl;
     if (mr <= 2)
     {
@@ -1523,7 +1523,7 @@ Gear Magic_Items::TableA(const char &r)
     if (r == 'Y')
         roll = rolld100(mgen);
     else
-        roll = getNumber("Roll d100 result: ", 1, 100);
+        roll = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Table A Roll = " << roll << endl;
     if (roll <= 50)
     {
@@ -1572,7 +1572,7 @@ Gear Magic_Items::TableB(const char &r)
     if (r == 'Y')
         roll = rolld100(mgen);
     else
-        roll = getNumber("Roll d100 result: ", 1, 100);
+        roll = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Table B Roll = " << roll << endl;
     if (roll <= 15)
     {
@@ -1777,7 +1777,7 @@ Gear Magic_Items::TableC(const char &r)
     if (r == 'Y')
         roll = rolld100(mgen);
     else
-        roll = getNumber("Roll d100 result: ", 1, 100);
+        roll = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Table C Roll = " << roll << endl;
     if (roll <= 15)
     {
@@ -1955,7 +1955,7 @@ Gear Magic_Items::TableD(const char &r)
     if (r == 'Y')
         roll = rolld100(mgen);
     else
-        roll = getNumber("Roll d100 result: ", 1, 100);
+        roll = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Table D Roll = " << roll << endl;
     if (roll <= 20)
     {
@@ -2048,7 +2048,7 @@ Gear Magic_Items::TableE(const char &r)
     if (r == 'Y')
         roll = rolld100(mgen);
     else
-        roll = getNumber("Roll d100 result: ", 1, 100);
+        roll = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Table E Roll = " << roll << endl;
     if (roll <= 30)
     {
@@ -2095,7 +2095,7 @@ Gear Magic_Items::TableF(const char &r)
     if (r == 'Y')
         roll = rolld100(mgen);
     else
-        roll = getNumber("Roll d100 result: ", 1, 100);
+        roll = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Table F Roll = " << roll << endl;
     if (roll <= 15)
     {
@@ -2405,7 +2405,7 @@ Gear Magic_Items::TableG(const char &r)
     if (r == 'Y')
         roll = rolld100(mgen);
     else
-        roll = getNumber("Roll d100 result: ", 1, 100);
+        roll = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Table G Roll = " << roll << endl;
     if (roll <= 11)
     {
@@ -2897,7 +2897,7 @@ Gear Magic_Items::TableH(const char &r)
     if (r == 'Y')
         roll = rolld100(mgen);
     else
-        roll = getNumber("Roll d100 result: ", 1, 100);
+        roll = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Table H Roll = " << roll << endl;
     if (roll <= 10)
     {
@@ -3252,7 +3252,7 @@ Gear Magic_Items::TableI(const char &r)
     if (r == 'Y')
         roll = rolld100(mgen);
     else
-        roll = getNumber("Roll d100 result: ", 1, 100);
+        roll = getNumber("Enter d100 roll result: ", 1, 100);
     cout << "Table I Roll = " << roll << endl;
     if (roll <= 5)
     {
@@ -6003,11 +6003,11 @@ void Magic_Items::MakeSpellbook() const
     int totalpages = getNumber("Most spellbooks have between 70 to 150 pages in total, but can be more or less.\n How many pages are in this one?\n ->", usedpages, 900);
     cout << "Spellbooks are often bound in leather or thick cloth, but can be made out of anything.\n What kind of material is this spellbook made out of? (enter anything)\n -> ";
     string material;
-    cin.ignore(100, '\n');
+    // cin.ignore(100, '\n');
     getline(cin, material);
     vector<string> spellholder;
     simpleClearScreen();
-    cout << " Spellbook\n\n";
+    cout << " A New Spellbook Is Found!\n\n";
     cout << usedpages << " / " << totalpages << " pages used." << endl;
     cout << "Made out of: " << material << endl;
     //LEVEL 1 SPELLS

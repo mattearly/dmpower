@@ -12,6 +12,7 @@ ____________________________________________________________________________
 
 #include "campaign.h"
 #include "globalfuncts.h"
+#include "characters.h"
 
 using namespace std;
 
@@ -23,9 +24,9 @@ void Campaign::pc_menu()
         simpleClearScreen();
         cout << "----------Characters-----------\n\n"
              << " 1. " << GREEN << "NEW " << RESET << "Character" << endl
-             << " 2. LIST all Characters" << endl
-             << " 3. VIEW a Character" << endl
-             << " 4. EDIT a Character" << endl
+             << " 2. " << BLUE << "LIST " << RESET << "all Characters" << endl
+             << " 3. " << BLUE << "VIEW " << RESET << "a Character" << endl
+             << " 4. " << YELLOW << "EDIT " << RESET << "a Character" << endl
              << " 5. " << RED << "DELETE " << RESET << "a Character" << endl
              << " 6. " << RED << "DELETE ALL " << RESET << "Characters" << endl
              << " 7. BACK to Main Menu" << endl
@@ -36,9 +37,9 @@ void Campaign::pc_menu()
         case 1:
         {
             simpleClearScreen(); //non-casters - RED | arcane - YELLOW | divine - CYAN
-            cout << "Create a New Character! "
-                 << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON_CASTER" << RESET << "\n\n";
-            cout << "Character Class:\n\n"
+            cout << " Create a New Character! \n\n"
+                 << "Type Legend: " << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
+                 << "Character Classes Available:\n\n"
                  << CYAN << " 1. Cleric" << CYAN << "      7. Paladin\n\n"
                  << RESET
                  << RED << " 2. Fighter" << YELLOW << "     8. Sorcerer\n\n"
@@ -51,82 +52,100 @@ void Campaign::pc_menu()
                  << RESET
                  << CYAN << " 6. Druid" << YELLOW << "      12. Warlock\n\n"
                  << RESET;
-            int select_class = getNumber("Class Choice(1-12): ", 1, 12);
-            int starting_level = getNumber("\nStarting Level(1-20): ", 1, 20);
+            int select_class = getNumber("Your Class Choice(1-12): ", 1, 12);
+            int starting_level = getNumber("\nStarting Character Level(1-20): ", 1, 20);
+
             simpleClearScreen();
+
+            Generic_Character_Class *new_character_build;
+
             switch (select_class)
             {
             case 1:
             {
-                tmp = new Cleric;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Cleric;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 2:
             {
-                tmp = new Fighter;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Fighter;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 3:
             {
-                tmp = new Rogue;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Rogue;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 4:
             {
-                tmp = new Wizard;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Wizard;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 5:
             {
-                tmp = new Barbarian;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Barbarian;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 6:
             {
-                tmp = new Druid;
-                tmp->druidic = true; //learn right away to avoid lang learning conflicts
-                makecharacter(tmp, starting_level);
+                new_character_build = new Druid;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 7:
             {
-                tmp = new Paladin;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Paladin;
+                new_character_build->setInitialClassFeatures();
+
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 8:
             {
-                tmp = new Sorcerer;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Sorcerer;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 9:
             {
-                tmp = new Bard;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Bard;
+                new_character_build->setInitialClassFeatures();
+
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 10:
             {
-                tmp = new Monk;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Monk;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 11:
             {
-                tmp = new Ranger;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Ranger;
+                new_character_build->setInitialClassFeatures();
+
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 12:
             {
-                tmp = new Warlock;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Warlock;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             default:;
             }
@@ -144,7 +163,7 @@ void Campaign::pc_menu()
                 cout << "\nCharacters built:\n\n";
                 for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                 {
-                    cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+                    cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
                 }
             }
         }
@@ -168,7 +187,7 @@ void Campaign::pc_menu()
                     valid_name[0] = toupper(valid_name[0]);
                     for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                     {
-                        if ((*it)->name == valid_name)
+                        if ((*it)->char_name == valid_name)
                         {
                             found = true;
                         }
@@ -177,12 +196,12 @@ void Campaign::pc_menu()
                         cout << "No character named " << valid_name << ". List of Charcters:\n";
                     for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                     {
-                        cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+                        cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
                     }
                 }
                 for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                 {
-                    if (valid_name == (*it)->name)
+                    if (valid_name == (*it)->char_name)
                         (*it)->character_sheet();
                 }
             }
@@ -214,7 +233,7 @@ void Campaign::pc_menu()
                         valid_name[0] = toupper(valid_name[0]);
                         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                         {
-                            if ((*it)->name == valid_name)
+                            if ((*it)->char_name == valid_name)
                             {
                                 found = true;
                             }
@@ -223,13 +242,13 @@ void Campaign::pc_menu()
                             cout << "\nNo character named " << valid_name << ". List of Charcters:\n\n";
                         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                         {
-                            cout << (*it)->name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+                            cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
                         }
                         cout << endl;
                     }
                     for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                     {
-                        if (valid_name == (*it)->name)
+                        if (valid_name == (*it)->char_name)
                             (*it)->updateCharacter(*this);
                     }
                 }
@@ -259,7 +278,7 @@ void Campaign::pc_menu()
                     tmp[0] = toupper(tmp[0]);
                     for (list<Generic_Character_Class *>::iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                     {
-                        if ((*it)->name == tmp)
+                        if ((*it)->char_name == tmp)
                         {
                             cout << "Deleting " << tmp << ". Goodbye " << tmp << endl;
                             character_list.erase(it);
@@ -296,7 +315,7 @@ bool Campaign::checkname(const string &n) const
 {
     for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
     {
-        if ((*it)->name == n)
+        if ((*it)->char_name == n)
         {
             cout << "Name Already Exists.\n";
             return false;
@@ -304,25 +323,43 @@ bool Campaign::checkname(const string &n) const
     }
     return true;
 }
-void Campaign::makecharacter(Generic_Character_Class *tmp, int &starting_level)
+void Campaign::makecharacter(Generic_Character_Class *new_character, int &starting_level)
 {
     bool goodname = false;
+
+    simpleClearScreen();
     while (!goodname)
     {
-        tmp->setName();
-        goodname = checkname(tmp->name);
+        new_character->setName();
+        goodname = checkname(new_character->char_name);
     }
-    tmp->setAllStats();
-    tmp->setRace(*tmp);
-    tmp->setAlignment();
-    tmp->setBackground();
-    tmp->setClassDetails(starting_level);
-    tmp->setProficiencyBonus();
-    character_list.push_back(tmp);
-    tmp->initialSkillsSet = true;
+
+    simpleClearScreen();
+    new_character->setAllStats();
+
+    simpleClearScreen();
+    new_character->setRace(*new_character);
+
+    simpleClearScreen();
+    new_character->setAlignment();
+
+    simpleClearScreen();
+    new_character->setBackground();
+
+    simpleClearScreen();
+    new_character->setClassDetails(starting_level);
+
+    simpleClearScreen();
+    new_character->setProficiencyBonus();
+
+    character_list.push_back(new_character);
+    new_character->initialSkillsSet = true;
+
+    simpleClearScreen();
     char ans = getYorN("Display Character Sheet now[y/n]?");
     if (ans == 'Y')
         character_list.back()->character_sheet();
+
     pressEnterToContinue();
 }
 ofstream &Campaign::dumpCharacter(ofstream &os) const
@@ -335,7 +372,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
             << "saved character: " << charactercount << endl
             //basics
             << (*it)->char_class << endl
-            << (*it)->name << endl
+            << (*it)->char_name << endl
             << (*it)->race << endl
             << (*it)->alignment << endl
             << (*it)->level << endl
@@ -812,12 +849,12 @@ bool Campaign::retrieveCharacter(ifstream &ins)
             v = new Warlock;
         else if (tmp == "Wizard")
             v = new Wizard;
-        else 
+        else
             return false;
         ins.seekg(len, ios_base::beg); //return to position
 
         getline(ins, v->char_class);
-        getline(ins, v->name);
+        getline(ins, v->char_name);
         getline(ins, v->race);
         getline(ins, v->alignment);
         ins >> v->level;

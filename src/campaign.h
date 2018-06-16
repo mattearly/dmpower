@@ -16,22 +16,36 @@ ____________________________________________________________________________
 
 #include <fstream>
 #include <list>
-#include "characters.h"
 
 class Generic_Character_Class;
+// class Barbarian;
+// class Bard;
+// class Cleric;
+// class Druid;
+// class Fighter;
+// class Monk;
+// class Paladin;
+// class Ranger;
+// class Rouge;
+// class Sorcerer;
+// class Warlock;
+// class Wizard;
 
-class Campaign {
-public:
-    //PLAYER CHARACTER CREATION
-    std::list<Generic_Character_Class*> character_list;
-    Generic_Character_Class* tmp;
+class Campaign
+{
+  public:
+    std::list<Generic_Character_Class *> character_list;
+
     void pc_menu();
-    std::ofstream& dumpCharacter(std::ofstream&) const; //save
-    bool retrieveCharacter(std::ifstream&);  //load
-    bool checkname(const std::string&) const;
-private:
-    void makecharacter(Generic_Character_Class *tmp, int& starting_level);
 
+    std::ofstream &dumpCharacter(std::ofstream &) const; //save
+
+    bool retrieveCharacter(std::ifstream &); //load
+
+    bool checkname(const std::string &) const;
+
+  private:
+    void makecharacter(Generic_Character_Class *tmp, int &starting_level);
 };
 
-#endif  //CAMPAIGN_H
+#endif //CAMPAIGN_H
