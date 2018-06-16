@@ -3702,10 +3702,10 @@ void Generic_Character_Class::setAllStats()
 	// display stat menu system to end user
 	int stat_ver_choice = 0;
 	cout << "How would you like to do Ability Stats?\n\n"
-		 << "1. Hi-Powered Roll Set: roll 4d6 6 times, dropping lowest die each time\n"
-		 << "2. Legit Roll Set : roll 3d6 6 times\n"
-		 << "3. Standard Array Set: [15, 14, 13, 12, 10, 8]\n"
-		 << "4. Custom Array Set: enter your own stats\n\n";
+		 << "1. " << RED << "Hi-Powered " << RESET << "Roll Set : roll " << GREEN << "4d6 6 " << RESET << "times, dropping lowest die each time\n"
+		 << "2. " << YELLOW << "Legit " << RESET << "Roll Set : roll " << GREEN << "3d6 6 " << RESET << "times\n"
+		 << "3. " << BLUE << "Standard " << RESET << "Array Set : " << GREEN << "[15, 14, 13, 12, 10, 8]" << RESET << "\n"
+		 << "4. " << CYAN << "Custom " << RESET << "Array Set : enter your own stats\n\n";
 	stat_ver_choice = getNumber("Choice: ", 1, 4);
 
 	// process end user choice
@@ -3746,7 +3746,8 @@ void Generic_Character_Class::setAllStats()
 		for (int j = 0; j < 6; j++)
 		{
 			cout << GREEN << stats[j] << RESET;
-			if (j != 5) cout << ", ";
+			if (j != 5)
+				cout << ", ";
 		}
 		pressEnterToContinue();
 		simpleClearScreen();
@@ -3763,7 +3764,8 @@ void Generic_Character_Class::setAllStats()
 			for (int j = i; j < 6; j++)
 			{
 				cout << CYAN << stats[j] << RESET;
-				if (j != 5) cout << ", ";
+				if (j != 5)
+					cout << ", ";
 			}
 			cout << endl;
 			assignStats(stats[i]);
