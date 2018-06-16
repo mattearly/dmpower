@@ -24,9 +24,9 @@ void Campaign::pc_menu()
         simpleClearScreen();
         cout << "----------Characters-----------\n\n"
              << " 1. " << GREEN << "NEW " << RESET << "Character" << endl
-             << " 2. LIST all Characters" << endl
-             << " 3. VIEW a Character" << endl
-             << " 4. EDIT a Character" << endl
+             << " 2. " << BLUE << "LIST " << RESET << "all Characters" << endl
+             << " 3. " << BLUE << "VIEW " << RESET << "a Character" << endl
+             << " 4. " << YELLOW << "EDIT " << RESET << "a Character" << endl
              << " 5. " << RED << "DELETE " << RESET << "a Character" << endl
              << " 6. " << RED << "DELETE ALL " << RESET << "Characters" << endl
              << " 7. BACK to Main Menu" << endl
