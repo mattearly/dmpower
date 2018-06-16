@@ -37,9 +37,9 @@ void Campaign::pc_menu()
         case 1:
         {
             simpleClearScreen(); //non-casters - RED | arcane - YELLOW | divine - CYAN
-            cout << "Create a New Character! \n\n"
-                 << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
-                 << "Character Class:\n\n"
+            cout << " Create a New Character! \n\n"
+                 << "Type Legend: " << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
+                 << "Character Classes Available:\n\n"
                  << CYAN << " 1. Cleric" << CYAN << "      7. Paladin\n\n"
                  << RESET
                  << RED << " 2. Fighter" << YELLOW << "     8. Sorcerer\n\n"
@@ -52,8 +52,8 @@ void Campaign::pc_menu()
                  << RESET
                  << CYAN << " 6. Druid" << YELLOW << "      12. Warlock\n\n"
                  << RESET;
-            int select_class = getNumber("Class Choice(1-12): ", 1, 12);
-            int starting_level = getNumber("\nStarting Level(1-20): ", 1, 20);
+            int select_class = getNumber("Your Class Choice(1-12): ", 1, 12);
+            int starting_level = getNumber("\nStarting Character Level(1-20): ", 1, 20);
 
             simpleClearScreen();
 
