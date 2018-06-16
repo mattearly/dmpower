@@ -12,6 +12,7 @@ ____________________________________________________________________________
 
 #include "campaign.h"
 #include "globalfuncts.h"
+#include "characters.h"
 
 using namespace std;
 
@@ -36,9 +37,9 @@ void Campaign::pc_menu()
         case 1:
         {
             simpleClearScreen(); //non-casters - RED | arcane - YELLOW | divine - CYAN
-            cout << "Create a New Character! "
-                 << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON_CASTER" << RESET << "\n\n";
-            cout << "Character Class:\n\n"
+            cout << "Create a New Character! \n\n"
+                 << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
+                 << "Character Class:\n\n"
                  << CYAN << " 1. Cleric" << CYAN << "      7. Paladin\n\n"
                  << RESET
                  << RED << " 2. Fighter" << YELLOW << "     8. Sorcerer\n\n"
@@ -54,82 +55,97 @@ void Campaign::pc_menu()
             int select_class = getNumber("Class Choice(1-12): ", 1, 12);
             int starting_level = getNumber("\nStarting Level(1-20): ", 1, 20);
 
-            Generic_Character_Class *tmp;
-
             simpleClearScreen();
+
+            Generic_Character_Class *new_character_build;
+
             switch (select_class)
             {
             case 1:
             {
-                tmp = new Cleric;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Cleric;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 2:
             {
-                tmp = new Fighter;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Fighter;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 3:
             {
-                tmp = new Rogue;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Rogue;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 4:
             {
-                tmp = new Wizard;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Wizard;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 5:
             {
-                tmp = new Barbarian;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Barbarian;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 6:
             {
-                tmp = new Druid;
-                tmp->druidic = true; //learn right away to avoid lang learning conflicts
-                makecharacter(tmp, starting_level);
+                new_character_build = new Druid;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 7:
             {
-                tmp = new Paladin;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Paladin;
+                new_character_build->setInitialClassFeatures();
+
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 8:
             {
-                tmp = new Sorcerer;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Sorcerer;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 9:
             {
-                tmp = new Bard;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Bard;
+                new_character_build->setInitialClassFeatures();
+
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 10:
             {
-                tmp = new Monk;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Monk;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 11:
             {
-                tmp = new Ranger;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Ranger;
+                new_character_build->setInitialClassFeatures();
+
+                makecharacter(new_character_build, starting_level);
             }
             break;
             case 12:
             {
-                tmp = new Warlock;
-                makecharacter(tmp, starting_level);
+                new_character_build = new Warlock;
+                new_character_build->setInitialClassFeatures();
+                makecharacter(new_character_build, starting_level);
             }
             default:;
             }

@@ -6003,11 +6003,11 @@ void Magic_Items::MakeSpellbook() const
     int totalpages = getNumber("Most spellbooks have between 70 to 150 pages in total, but can be more or less.\n How many pages are in this one?\n ->", usedpages, 900);
     cout << "Spellbooks are often bound in leather or thick cloth, but can be made out of anything.\n What kind of material is this spellbook made out of? (enter anything)\n -> ";
     string material;
-    cin.ignore(100, '\n');
+    // cin.ignore(100, '\n');
     getline(cin, material);
     vector<string> spellholder;
     simpleClearScreen();
-    cout << " Spellbook\n\n";
+    cout << " A New Spellbook Is Found!\n\n";
     cout << usedpages << " / " << totalpages << " pages used." << endl;
     cout << "Made out of: " << material << endl;
     //LEVEL 1 SPELLS

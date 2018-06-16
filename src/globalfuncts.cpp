@@ -22,6 +22,10 @@ void simpleClearScreen()
     }
 }
 
+void systemClearScreen() {
+    system("clear");
+}
+
 char getYorN(const std::string &message)
 {
     char tmp;

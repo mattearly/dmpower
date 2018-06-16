@@ -16,14 +16,24 @@ ____________________________________________________________________________
 
 #include <fstream>
 #include <list>
-#include "characters.h"
 
 class Generic_Character_Class;
+// class Barbarian;
+// class Bard;
+// class Cleric;
+// class Druid;
+// class Fighter;
+// class Monk;
+// class Paladin;
+// class Ranger;
+// class Rouge;
+// class Sorcerer;
+// class Warlock;
+// class Wizard;
 
 class Campaign
 {
   public:
-    //PLAYER CHARACTER CREATION
     std::list<Generic_Character_Class *> character_list;
 
     void pc_menu();
