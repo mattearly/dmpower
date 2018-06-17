@@ -1,19 +1,22 @@
 #include "campaign.h"
+#include "globalfuncts.h"
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <sstream>
 // #include <filesystem>
 #include <boost/filesystem.hpp>
+
 using namespace boost::filesystem; // for ease of tutorial presentation;
 
-void showFolderFileList(const std::string &p);
+void showLoadableFiles(const std::string &dir);
 
 void truncateSaveForThisVersion(std::string &original, std::string &edited);
 
 void load_file(bool &ls, std::string &lf, Campaign &game)
 {
     //list of saves
-    showFolderFileList("saves");
+    showLoadableFiles("saves");
 
     std::string file;
     std::ifstream thefile;
@@ -80,7 +83,7 @@ void save_file(bool &ls, std::string &lf, const Campaign &game)
     }
 }
 
-void showFolderFileList(const std::string &p)
+void showLoadableFiles(const std::string &dir)
 {
 
     /* c++ 17 way
@@ -125,35 +128,49 @@ void showFolderFileList(const std::string &p)
     // (void)closedir(dirp);
     // return NOT_FOUND;
 
-    // boost way of doing it
+    // boost way of listing files in a directory - only crossplatform version out there maybe
 
     // bool find_file(const path &dir_path,         // in this directory,
     //                const std::string &file_name, // search for this name,
     //                path &path_found)             // placing path here if found
     // {
+    // std::cout << "checking path...\n";
 
-    const path dir_path(p);
+    const path dir_path(dir);
 
     if (!exists(dir_path))
     {
         // return false;
         std::cout << "path to list everything does not exist\n";
+    } else {
+        std::cout << "\n| Loadable Files:\n\n";
     }
 
     directory_iterator end_itr; // default construction yields past-the-end
 
     std::string edited_ver;
 
+    // std::cout << "checking path...2...\n";
+
     for (directory_iterator itr(dir_path); itr != end_itr; ++itr)
     {
+        // std::cout << itr->path() << "...\n";
 
-        std::string origianl_ver = itr->path().leaf().to_string();
+        std::stringstream ss;
+        ss << itr->path();
+        std::string original_ver;
+        ss >> original_ver;
 
-        truncateSaveForThisVersion(origianl_ver, edited_ver);
+        //ignore the readme.md file
+        if (original_ver.find("readme.md") != std::string::npos) {
+            continue;
+        }
 
-        std::cout << itr->path() << " | ";
+        truncateSaveForThisVersion(original_ver, edited_ver);
 
-        std::cout << edited_ver << "\n";
+        // std::cout << itr->path() << "\n";
+
+        std::cout << "    " << CYAN << edited_ver << RESET << "\n";
 
         // if (is_directory(itr->status()))
         // {
@@ -174,9 +191,10 @@ void showFolderFileList(const std::string &p)
 
 void truncateSaveForThisVersion(std::string &original, std::string &edited)
 {
+    // std::cout << "truncating...\n";
     edited.clear();
     // std::size_t pos1 = original.find("");
     std::size_t pos2 = original.find(".save");
 
-    edited = original.substr(6, pos2 - 6);
+    edited = original.substr(7, pos2 - 7);
 }
