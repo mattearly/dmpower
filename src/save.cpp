@@ -4,10 +4,9 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-// #include <filesystem>
 #include <boost/filesystem.hpp>
 
-using namespace boost::filesystem; // for ease of tutorial presentation;
+using namespace boost::filesystem;
 
 void showLoadableFiles(const std::string &dir);
 
@@ -15,7 +14,7 @@ void truncateSaveForThisVersion(std::string &original, std::string &edited);
 
 void load_file(bool &ls, std::string &lf, Campaign &game)
 {
-    //list of saves
+    //show list of previous saves
     showLoadableFiles("saves");
 
     std::string file;
@@ -28,7 +27,6 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
     {
         bool success = game.retrieveCharacter(thefile);
 
-        // simpleClearScreen();
         if (success)
         {
             std::cout << "File '" << file << "' loaded.\n\n";
@@ -43,7 +41,6 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
     }
     else
     {
-        // simpleClearScreen();
         std::cout << "No file named '" << file << "'. Starting new file.\n\n";
     }
 }
@@ -85,64 +82,17 @@ void save_file(bool &ls, std::string &lf, const Campaign &game)
 
 void showLoadableFiles(const std::string &dir)
 {
-
-    /* c++ 17 way
-    namespace fs = std::filesystem;
-    std::string path = "../saves";
-    for (auto &p : fs::directory_iterator(path))
-        std::cout << p << std::endl;
-        */
-
-    /* older c++ std way on windows with #include dirent.h
-    DIR *dir;
-    struct dirent *ent;
-    if ((dir = opendir("c:\\src\\")) != NULL)
-    {
-        // print all the files and directories within directory
-        while ((ent = readdir(dir)) != NULL)
-        {
-            printf("%s\n", ent->d_name);
-        }
-        closedir(dir);
-    }
-    else
-    {
-        //  could not open directory 
-        perror("");
-        return EXIT_FAILURE;
-    }
-    */
-
-    //linux way of listing files in a directory
-
-    // auto name = "../saves";
-    // auto len = strlen(name);
-    // auto dirp = opendir(".");
-
-    // while ((dp = readdir(dirp)) != NULL)
-    //     if (dp->d_namlen == len && !strcmp(dp->d_name, name))
-    //     {
-    //         (void)closedir(dirp);
-    //         return FOUND;
-    //     }
-    // (void)closedir(dirp);
-    // return NOT_FOUND;
-
     // boost way of listing files in a directory - only crossplatform version out there maybe
-
-    // bool find_file(const path &dir_path,         // in this directory,
-    //                const std::string &file_name, // search for this name,
-    //                path &path_found)             // placing path here if found
-    // {
-    // std::cout << "checking path...\n";
 
     const path dir_path(dir);
 
     if (!exists(dir_path))
     {
-        // return false;
-        std::cout << "path to list everything does not exist\n";
-    } else {
+        std::cout << "showLoadableFiles: path to directory (" << dir << ") does not exist\n";
+        return;
+    }
+    else
+    {
         std::cout << "\n| Loadable Files:\n\n";
     }
 
@@ -150,43 +100,23 @@ void showLoadableFiles(const std::string &dir)
 
     std::string edited_ver;
 
-    // std::cout << "checking path...2...\n";
-
     for (directory_iterator itr(dir_path); itr != end_itr; ++itr)
     {
-        // std::cout << itr->path() << "...\n";
-
         std::stringstream ss;
         ss << itr->path();
         std::string original_ver;
         ss >> original_ver;
 
         //ignore the readme.md file
-        if (original_ver.find("readme.md") != std::string::npos) {
+        if (original_ver.find("readme.md") != std::string::npos)
+        {
             continue;
         }
 
         truncateSaveForThisVersion(original_ver, edited_ver);
 
-        // std::cout << itr->path() << "\n";
-
         std::cout << "    " << CYAN << edited_ver << RESET << "\n";
-
-        // if (is_directory(itr->status()))
-        // {
-        //     if (find_file(itr->path(), file_name, path_found))
-        //         return true;
-        // }
-        // else if (itr->leaf() == file_name) // see below
-        // {
-        //     path_found = itr->path();
-        //     return true;
-        // }
     }
-    // return false;
-    // }
-
-    //list of saves end
 }
 
 void truncateSaveForThisVersion(std::string &original, std::string &edited)
