@@ -12,7 +12,7 @@ void showLoadableFiles(const std::string &dir);
 
 void truncateSaveForThisVersion(std::string &original, std::string &edited);
 
-void mergeSaves(const std::string &keep, const std::string &mergein);
+bool mergeSaves(const std::string &keep, const std::string &mergein);
 
 void load_file(bool &ls, std::string &lf, Campaign &game)
 {
@@ -44,8 +44,17 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
             mergein = file.substr(pos1 + 1);
             std::cout << "mergein file = " << mergein;
 
-            mergeSaves(keep, mergein);
-            //loadfile(ls, lf, game);
+            bool mergesuccess = mergeSaves(keep, mergein);
+
+            if (mergesuccess)
+            {
+                std::string removestuff = "rm saves/" + mergein + ".save";
+                system(removestuff.c_str());
+                simpleClearScreen();
+                load_file(ls, lf, game);
+            }
+
+
         }
     }
     else
@@ -160,7 +169,7 @@ void truncateSaveForThisVersion(std::string &original, std::string &edited)
     edited = original.substr(7, pos2 - 7);
 }
 
-void mergeSaves(const std::string &keep, const std::string &mergein)
+bool mergeSaves(const std::string &keep, const std::string &mergein)
 {
     std::ofstream saveto;
     // open with append ready
@@ -191,12 +200,17 @@ void mergeSaves(const std::string &keep, const std::string &mergein)
         {
             std::cout << "writing line from old file to new file\n";
             std::getline(readfrom, tmp);
-            if (readfrom.eof()) break;
+            if (readfrom.eof())
+                break;
             saveto << tmp << "\n";
         } while (!readfrom.eof());
         saveto.close();
         readfrom.close();
-    } else {
+        return true;
+    }
+    else
+    {
         std::cout << "both are not open, weird mate\n";
     }
+    return false;
 }
