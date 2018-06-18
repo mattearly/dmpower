@@ -12,36 +12,66 @@ void showLoadableFiles(const std::string &dir);
 
 void truncateSaveForThisVersion(std::string &original, std::string &edited);
 
+void mergeSaves(const std::string &keep, const std::string &mergein);
+
 void load_file(bool &ls, std::string &lf, Campaign &game)
 {
     //show list of previous saves
     showLoadableFiles("saves");
 
     std::string file;
-    std::ifstream thefile;
     std::cout << "\n|----------------- press enter to skip load ----------------|\n\n"
               << "Load File: ";
     std::getline(std::cin, file, '\n');
-    thefile.open(("saves/" + file + ".save").c_str());
-    if (thefile.is_open())
-    {
-        bool success = game.retrieveCharacter(thefile);
+    reduce(file);
 
-        if (success)
+    ///combine saves option
+    //if the word is combine, shoudl be followed by save to combine into, then
+    // file to merge, merged file is deleted after completion (ideally)
+    if (file.substr(0, 7) == "combine")
+    {
+        std::cout << "combine function call detected\n";
+        std::string keep, mergein;
+
+        if (file.find_first_of(" ", 8) != std::string::npos)
         {
-            std::cout << "File '" << file << "' loaded.\n\n";
+            size_t pos1 = file.find_first_of(" ", 8);
+            std::cout << "found a whitespace at " << file.find_first_of(" ", 8) << std::endl;
+
+            keep = file.substr(8, pos1 - 8);
+            std::cout << "keep file = " << keep << std::endl;
+
+            mergein = file.substr(pos1 + 1);
+            std::cout << "mergein file = " << mergein;
+
+            mergeSaves(keep, mergein);
+            //loadfile(ls, lf, game);
         }
-        else
-        {
-            std::cout << "The file named '" << file << "' doesn't seem to have much data or is invalid\n\n";
-        }
-        ls = true;
-        lf = file;
-        thefile.close();
     }
     else
     {
-        std::cout << "No file named '" << file << "'. Starting new file.\n\n";
+        std::ifstream thefile;
+        thefile.open(("saves/" + file + ".save").c_str());
+        if (thefile.is_open())
+        {
+            bool success = game.retrieveCharacter(thefile);
+
+            if (success)
+            {
+                std::cout << "File '" << file << "' loaded.\n\n";
+            }
+            else
+            {
+                std::cout << "The file named '" << file << "' doesn't seem to have much data or is invalid\n\n";
+            }
+            ls = true;
+            lf = file;
+            thefile.close();
+        }
+        else
+        {
+            std::cout << "No file named '" << file << "'. Starting new file.\n\n";
+        }
     }
 }
 
@@ -59,6 +89,7 @@ void save_file(bool &ls, std::string &lf, const Campaign &game)
     {
         std::cout << "Save As: ";
         std::getline(std::cin, file, '\n');
+        reduce(file);
     }
     else
     {
@@ -127,4 +158,45 @@ void truncateSaveForThisVersion(std::string &original, std::string &edited)
     std::size_t pos2 = original.find(".save");
 
     edited = original.substr(7, pos2 - 7);
+}
+
+void mergeSaves(const std::string &keep, const std::string &mergein)
+{
+    std::ofstream saveto;
+    // open with append ready
+    saveto.open(("saves/" + keep + ".save").c_str(), std::ios_base::app);
+    if (saveto.is_open())
+    {
+        std::cout << "\nsaveto is open\n";
+    }
+    else
+        std::cout << "saveto open failed";
+
+    // saveto.close();
+    std::ifstream readfrom;
+    // open for read only
+    readfrom.open(("saves/" + mergein + ".save").c_str());
+    if (readfrom.is_open())
+    {
+        std::cout << "readfrom is open\n";
+    }
+    else
+        std::cout << "readfrom open failed";
+
+    if (saveto.is_open() && readfrom.is_open())
+    {
+        //do the transfer update of the save
+        std::string tmp;
+        do
+        {
+            std::cout << "writing line from old file to new file\n";
+            std::getline(readfrom, tmp);
+            if (readfrom.eof()) break;
+            saveto << tmp << "\n";
+        } while (!readfrom.eof());
+        saveto.close();
+        readfrom.close();
+    } else {
+        std::cout << "both are not open, weird mate\n";
+    }
 }
