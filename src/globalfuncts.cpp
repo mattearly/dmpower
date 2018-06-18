@@ -22,7 +22,8 @@ void simpleClearScreen()
     }
 }
 
-void systemClearScreen() {
+void systemClearScreen()
+{
     system("clear");
 }
 

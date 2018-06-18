@@ -21,19 +21,19 @@ class Generic_Character_Class;
 
 class Campaign
 {
-  public:
-    std::list<Generic_Character_Class *> character_list;
+public:
+  std::list<Generic_Character_Class *> character_list;
 
-    void pc_menu();
+  void pc_menu();
 
-    std::ofstream &dumpCharacter(std::ofstream &) const; //save
+  std::ofstream &dumpCharacter(std::ofstream &) const; //save
 
-    bool retrieveCharacter(std::ifstream &); //load
+  bool retrieveCharacter(std::ifstream &); //load
 
-    bool checkname(const std::string &) const;
+  bool checkname(const std::string &) const;
 
-  private:
-    void makecharacter(Generic_Character_Class *tmp, int &starting_level);
+private:
+  void makecharacter(Generic_Character_Class *tmp, int &starting_level);
 };
 
 #endif //CAMPAIGN_H

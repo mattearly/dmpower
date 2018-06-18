@@ -10,7 +10,6 @@ ____________________________________________________________________________
 ____________________________________________________________________________
 **/
 
-
 #ifndef DUNGEONS_GEN_H
 #define DUNGEONS_GEN_H
 #pragma once
@@ -19,16 +18,15 @@ ____________________________________________________________________________
 
 using std::string;
 
-class Dungeon {
+class Dungeon
+{
 
-public:
+  public:
     Dungeon();
     //building a dungeon
     //Location
     string determineLocation() const;
     string determineExoticLocation() const;
-
-
 
     //Generate Creator
     string dungeonCreator() const;
@@ -46,17 +44,14 @@ public:
     string dungeonFactions() const;
     string dungeonEcology() const;
     string dungeonDifficulty() const;
-    
 
-
-    private:
+  private:
     //Stocking a Dungeon
     string chamberPurpose;
     string otherCharacteristics;
 
     //Area Map
     //TODO
-
 };
 
 #endif //DUNGEONS_GEN_H

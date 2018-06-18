@@ -10,7 +10,6 @@ ____________________________________________________________________________
 ____________________________________________________________________________
 **/
 
-
 #ifndef NAME_GEN_H
 #define NAME_GEN_H
 #pragma once
@@ -18,12 +17,12 @@ ____________________________________________________________________________
 #include "globalfuncts.h"
 
 /// This class relies on the names.dat file
-class CharacterName {
+class CharacterName
+{
 
-public:
+  public:
     std::string grabRandomName();
-private:
 
-
+  private:
 };
 #endif //NAME_GEN_H

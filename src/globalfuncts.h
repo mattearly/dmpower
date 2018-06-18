@@ -118,5 +118,4 @@ std::string reduce(const std::string &str,
                    const std::string &fill = " ",
                    const std::string &whitespace = " \t");
 
-
 #endif /* defined(GLOBALFUNCTS_H) */

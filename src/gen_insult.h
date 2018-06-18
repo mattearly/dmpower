@@ -19,11 +19,11 @@ ____________________________________________________________________________
 ///This class relies on the insults.dat file.
 class Insult
 {
-  public:
-    Insult();
-    std::string laydownheat() const;
+public:
+  Insult();
+  std::string laydownheat() const;
 
-  private:
+private:
 };
 
 #endif // INSULT_H

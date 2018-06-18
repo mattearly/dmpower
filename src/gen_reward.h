@@ -22,40 +22,38 @@ class Gear;
 class Magic_Items
 {
 
-  public:
-    void treasure_menu(); //REWARD ITEM GENERATOR MAIN MENU
+public:
+  void treasure_menu(); //REWARD ITEM GENERATOR MAIN MENU
 
-  private:
-    std::vector<Gear> full_gear_list;
+private:
+  std::vector<Gear> full_gear_list;
 
-    void GenerateIndividualTreasureCR_0_4();
-    void GenerateIndividualTreasureCR_5_10();
-    void GenerateIndividualTreasureCR_11_16();
-    void GenerateIndividualTreasureCR_17();
+  void GenerateIndividualTreasureCR_0_4();
+  void GenerateIndividualTreasureCR_5_10();
+  void GenerateIndividualTreasureCR_11_16();
+  void GenerateIndividualTreasureCR_17();
 
-    void GenerateHoardTreasureCR_0_4();
-    void GenerateHoardTreasureCR_5_10();
-    void GenerateHoardTreasureCR_11_16();
-    void GenerateHoardTreasureCR_17();
+  void GenerateHoardTreasureCR_0_4();
+  void GenerateHoardTreasureCR_5_10();
+  void GenerateHoardTreasureCR_11_16();
+  void GenerateHoardTreasureCR_17();
 
-    Gear TableA(const char &);
-    Gear TableB(const char &);
-    Gear TableC(const char &);
-    Gear TableD(const char &);
-    Gear TableE(const char &);
-    Gear TableF(const char &);
-    Gear TableG(const char &);
-    Gear TableH(const char &);
-    Gear TableI(const char &);
+  Gear TableA(const char &);
+  Gear TableB(const char &);
+  Gear TableC(const char &);
+  Gear TableD(const char &);
+  Gear TableE(const char &);
+  Gear TableF(const char &);
+  Gear TableG(const char &);
+  Gear TableH(const char &);
+  Gear TableI(const char &);
 
-    std::string GenerateScroll(const int &) const;
-    std::string GenerateGemstone(const int &, const int &) const;
-    std::string GenerateArt(const int &, const int &) const;
+  std::string GenerateScroll(const int &) const;
+  std::string GenerateGemstone(const int &, const int &) const;
+  std::string GenerateArt(const int &, const int &) const;
 
-    void MakeSpellbook() const;
-    void SingleScroll(const int &) const;
-
-
+  void MakeSpellbook() const;
+  void SingleScroll(const int &) const;
 };
 
 #endif //REWARD_GEN_H

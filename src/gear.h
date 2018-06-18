@@ -10,25 +10,25 @@ ____________________________________________________________________________
 ____________________________________________________________________________
 **/
 
-
 #ifndef GEAR_H
 #define GEAR_H
 #pragma once
 
 #include "globalfuncts.h"
 
-class Gear {
-public:
+class Gear
+{
+  public:
     Gear();
-    Gear(const int&, const std::string&);
-    Gear(const std::string&);
+    Gear(const int &, const std::string &);
+    Gear(const std::string &);
     void showItem() const;
-protected:
+
+  protected:
     int quantity = 0;
     std::string item_name = "voidspace - no item";
 
-private:
-
+  private:
 };
 // protected:
 // 	std::string item_name;
@@ -56,4 +56,4 @@ private:
 
 // }
 
-#endif 
+#endif
