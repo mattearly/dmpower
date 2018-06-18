@@ -41,14 +41,14 @@ Faster D&D! More D&D! More Story! Less Worry!
 
 ### 2. How To Run DM-Power
 
-*Relies on C++ Standard 11 and Make*
+*Relies on C++ Standard 11 , Boost filesystem, and Make*
 
 * Ubuntu/Mint/Debian Linux. From Bash Command Line -
     1. Install Dependencies
 
         1. `sudo apt-get update`
 
-        2. `sudo apt-get install build-essential make gcc git`
+        2. `sudo apt-get install build-essential make gcc libboost-all-dev git`
 
         * (or whatever the equivalent commands are for your distro)
 

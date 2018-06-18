@@ -2,14 +2,14 @@ TARGET = dmpower
 RUN = ./dmpower
 SRC_DIR = src
 BUILD_DIR = bin
-CFLAGS = -std=c++11 -O2 -Wall -Wextra
+CFLAGS = -std=c++11 -O2 -Wall -Wextra -lboost_filesystem -lboost_system
 OBJFLAGS = -fsanitize=leak -c
 SOURCES := $(shell find $(SRC_DIR) -name '*.cpp')
 OBJECTS := $(addprefix $(BUILD_DIR)/, $(SOURCES:$(SRC_DIR)/%.cpp=%.o))
 
 default:
 	@mkdir -p bin
-	+$(MAKE) $(TARGET)
+	@+$(MAKE) $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	$(CXX) $(OBJECTS) $(CFLAGS) -o $(TARGET)
@@ -23,12 +23,12 @@ clean:
 
 .PHONY: rebuild
 rebuild:
-	+$(MAKE) clean
-	+$(MAKE) default
+	@+$(MAKE) clean
+	@+$(MAKE) default
 
 .PHONY: run
 run:
-	+$(MAKE) default
+	@+$(MAKE) default
 	$(RUN)
 
 .PHONY: help

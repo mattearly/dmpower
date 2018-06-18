@@ -3888,7 +3888,7 @@ void Generic_Character_Class::assignStats(int &s)
 	if (charisma == 0)
 		cout << " 6. Charisma\n\n";
 	else
-		cout << RED << " 6. Charisma(DONE)" << RESET << "\n\n";
+		cout << YELLOW << " 6. Charisma(DONE)" << RESET << "\n\n";
 	bool okchoice = false;
 	do
 	{
@@ -5909,7 +5909,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
 			 << "6. Add a new Feat" << endl
 			 << "7. Quit the PC editor" << endl
 			 << endl;
-		ss = getNumber("Choice(1-5): ", 1, 7);
+		ss = getNumber("Choice(1-7): ", 1, 7);
 		switch (ss)
 		{
 		case 1:

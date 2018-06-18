@@ -23,12 +23,12 @@ string CharacterName::grabRandomName()
 
     if (fileOfNames.is_open())
     {
-        int number_of_lines = 0;  //count the number of lines
+        int number_of_lines = 0; //count the number of lines
         string line;
         while (getline(fileOfNames, line))
             ++number_of_lines;
-        fileOfNames.clear();  //clear end of file status so seekg will work
-        fileOfNames.seekg(0, ios_base::beg);  //return to beginning position
+        fileOfNames.clear();                 //clear end of file status so seekg will work
+        fileOfNames.seekg(0, ios_base::beg); //return to beginning position
 
         //pick one name randomly
         auto chosenSeed = randomNumber(1, number_of_lines);

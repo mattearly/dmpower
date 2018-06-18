@@ -1320,7 +1320,5 @@ bool Campaign::retrieveCharacter(ifstream &ins)
         if (ins.peek() == '\n')
             ins.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    // cin.clear();
-    // return ins;
     return true;
 }

@@ -2,8 +2,8 @@
 
 class Gen_Experience
 {
-  public:
-    float xpgenerator();
+public:
+  float xpgenerator();
 
-  private:
+private:
 };

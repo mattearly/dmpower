@@ -6373,4 +6373,3 @@ void Magic_Items::MakeSpellbook() const
     // add save option later
     // which might need vector<string> lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;
 }
-
