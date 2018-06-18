@@ -18,18 +18,6 @@ ____________________________________________________________________________
 #include <list>
 
 class Generic_Character_Class;
-// class Barbarian;
-// class Bard;
-// class Cleric;
-// class Druid;
-// class Fighter;
-// class Monk;
-// class Paladin;
-// class Ranger;
-// class Rouge;
-// class Sorcerer;
-// class Warlock;
-// class Wizard;
 
 class Campaign
 {

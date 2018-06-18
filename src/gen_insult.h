@@ -10,9 +10,6 @@ ____________________________________________________________________________
 ____________________________________________________________________________
 **/
 
-
-
-
 #ifndef INSULT_H
 #define INSULT_H
 #pragma once
@@ -22,10 +19,11 @@ ____________________________________________________________________________
 ///This class relies on the insults.dat file.
 class Insult
 {
-public:
+  public:
     Insult();
-	std::string laydownheat() const;
-private:
+    std::string laydownheat() const;
+
+  private:
 };
 
 #endif // INSULT_H
