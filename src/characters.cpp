@@ -3888,7 +3888,7 @@ void Generic_Character_Class::assignStats(int &s)
 	if (charisma == 0)
 		cout << " 6. Charisma\n\n";
 	else
-		cout << RED << " 6. Charisma(DONE)" << RESET << "\n\n";
+		cout << YELLOW << " 6. Charisma(DONE)" << RESET << "\n\n";
 	bool okchoice = false;
 	do
 	{
