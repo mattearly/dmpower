@@ -14,6 +14,54 @@ void truncateSaveForThisVersion(std::string &original, std::string &edited);
 
 bool mergeSaves(const std::string &keep, const std::string &mergein);
 
+void save_file(bool &ls, std::string &lf, const Campaign &game)
+{
+    if (game.character_list.empty())
+    {
+        std::cout << "nothing to save - character list empty\n";
+        return;
+    }
+
+    std::string file;
+    std::ofstream os;
+    if (ls == false)
+    {
+        std::cout << "Save As: ";
+        bool done_first_pass = false;
+        bool contains_non_alpha = true;
+        do
+        {
+            if (done_first_pass)
+            {
+                std::cout << file << " is an invalid name. Use only characters a-z & A-Z & 0-9\n";
+                std::cout << "Save As: ";
+            }
+            std::getline(std::cin, file, '\n');
+            reduce(file);
+            contains_non_alpha = file.find_first_not_of("abcdefghijklmnopqrstuvwxyz0123456789") != std::string::npos;
+            done_first_pass = true;
+        } while (contains_non_alpha);
+    }
+    else
+    {
+        file = lf;
+    }
+    //save into file after above is complete
+    os.open(("saves/" + file + ".save").c_str());
+    if (os.is_open())
+    {
+        game.dumpCharacter(os);
+        std::cout << "All data saved in file -> " << file << std::endl;
+        ls = true;
+        lf = file;
+        os.close();
+    }
+    else
+    {
+        std::cout << "Save failed.\n";
+    }
+}
+
 void load_file(bool &ls, std::string &lf, Campaign &game)
 {
     //show list of previous saves
@@ -52,9 +100,8 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
                 system(removestuff.c_str());
                 simpleClearScreen();
                 load_file(ls, lf, game);
+                // save_file(ls, lf, game);  //to update and correct formatting - to slow doesn't matter(wont hurt anything to not do this) it will update when they save again anyway
             }
-
-
         }
     }
     else
@@ -81,42 +128,6 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
         {
             std::cout << "No file named '" << file << "'. Starting new file.\n\n";
         }
-    }
-}
-
-void save_file(bool &ls, std::string &lf, const Campaign &game)
-{
-    if (game.character_list.empty())
-    {
-        std::cout << "nothing to save - character list empty\n";
-        return;
-    }
-
-    std::string file;
-    std::ofstream os;
-    if (ls == false)
-    {
-        std::cout << "Save As: ";
-        std::getline(std::cin, file, '\n');
-        reduce(file);
-    }
-    else
-    {
-        file = lf;
-    }
-    //save into file after above is complete
-    os.open(("saves/" + file + ".save").c_str());
-    if (os.is_open())
-    {
-        game.dumpCharacter(os);
-        std::cout << "All data saved in file -> " << file << std::endl;
-        ls = true;
-        lf = file;
-        os.close();
-    }
-    else
-    {
-        std::cout << "Save failed.\n";
     }
 }
 
@@ -179,7 +190,7 @@ bool mergeSaves(const std::string &keep, const std::string &mergein)
         std::cout << "\nsaveto is open\n";
     }
     else
-        std::cout << "saveto open failed";
+        std::cout << "saveto open failed\n";
 
     // saveto.close();
     std::ifstream readfrom;
@@ -190,7 +201,7 @@ bool mergeSaves(const std::string &keep, const std::string &mergein)
         std::cout << "readfrom is open\n";
     }
     else
-        std::cout << "readfrom open failed";
+        std::cout << "readfrom open failed\n";
 
     if (saveto.is_open() && readfrom.is_open())
     {
