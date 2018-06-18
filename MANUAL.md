@@ -30,7 +30,7 @@ _Build and Manage Characters_
         2. 3d6 legit
         3. Standard array [15, 14, 13, 12, 10, 8]
         4. Custom entry (within standard starting 3-18 bounds(before bonuses applied))
-    * Reliable save and load for your campaign's characters. Each campaign can have any number of characters.
+    * Reliable save and load for your campaign's characters. Each campaign can have any number of characters. You can merge your saved files together as explained at the load prompt.
     * Users cannot break the character building D&D rules unless... (see edit character below)
 
 * **Edit Character**. 'God' powers. Edit stats (min=1, max=30), give feats, give skills, give levels, change name, change alignment. DM Password entry required to help prevent unauthorized use. Password [hardcoded](src/campaign.cpp) to `password` by default, change it and recompile with `make` if you wish - or remove it all together in some crafty coded fashion. 

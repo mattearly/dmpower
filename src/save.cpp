@@ -68,7 +68,7 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
     showLoadableFiles("saves");
 
     std::string file;
-    std::cout << "\n|----------------- press enter to skip load ----------------|\n\n"
+    std::cout << "|----------------- press enter to skip load ----------------|\n\n"
               << "Load File: ";
     std::getline(std::cin, file, '\n');
     reduce(file);
@@ -78,19 +78,19 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
     // file to merge, merged file is deleted after completion (ideally)
     if (file.substr(0, 7) == "combine")
     {
-        std::cout << "combine function call detected\n";
+        // std::cout << "combine function call detected\n";
         std::string keep, mergein;
 
         if (file.find_first_of(" ", 8) != std::string::npos)
         {
             size_t pos1 = file.find_first_of(" ", 8);
-            std::cout << "found a whitespace at " << file.find_first_of(" ", 8) << std::endl;
+            // std::cout << "found a whitespace at " << file.find_first_of(" ", 8) << std::endl;
 
             keep = file.substr(8, pos1 - 8);
-            std::cout << "keep file = " << keep << std::endl;
+            // std::cout << "keep file = " << keep << std::endl;
 
             mergein = file.substr(pos1 + 1);
-            std::cout << "mergein file = " << mergein;
+            // std::cout << "mergein file = " << mergein;
 
             bool mergesuccess = mergeSaves(keep, mergein);
 
@@ -144,7 +144,8 @@ void showLoadableFiles(const std::string &dir)
     }
     else
     {
-        std::cout << "\n| Loadable Files:\n\n";
+        std::cout << "| Combine Files: 'combine SaveToKeep SaveToMergeInAndDelete'\n";
+        std::cout << "| Loadable Files:\n";
     }
 
     directory_iterator end_itr; // default construction yields past-the-end
@@ -168,6 +169,7 @@ void showLoadableFiles(const std::string &dir)
 
         std::cout << "    " << CYAN << edited_ver << RESET << "\n";
     }
+    std::cout << std::endl;
 }
 
 void truncateSaveForThisVersion(std::string &original, std::string &edited)
