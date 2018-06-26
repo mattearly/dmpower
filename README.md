@@ -6,34 +6,27 @@
 > 4. [ToDo](#5-todo-and-related-projects)
 > 5. [Support](#5-support)
 > 6. [Credits](#6-credits)
-
 > * [User Manual](MANUAL.md)
 
 ---
 
 ### 1. Introduction
 
-### Dungeon Master Power Core Version (DM-Power)
+#### Dungeon Master Power Core Version (DM-Power) key principles
 
-_An efficient heavily featured Dungeon Master toolkit that runs in Command Line Interface (CLI)._
+TL;DR: Faster & More Reliable D&D!
 
-_Uses official Wizards of the Coast (WotC) rules and is free and open source._
+DM-Power is an efficient Dungeon Master toolkit that runs in Command Line Interface (CLI). DM-Power uses official Wizards of the Coast (WotC) rules and is free and open source.
 
-My original plan was to create a helpful program for _me_ as a Dungeon Master. I have added in any tools that could save precious minutes of game time. In the improvements and continuation of this project, I strive towards improving and evolving the kit to be as useful to me as possible. 
+My original plan was to create a helpful program for _me_ as a Dungeon Master. I dred digging through books midgame and slowing down our gaming session unnecessarily. I have added in any tools that could save precious minutes of game time. In the improvements and continuation of this project, I strive towards improving and evolving the kit to be as useful as possible without going into homebrew land.
 
-Faster D&D! More D&D! More Story! Less Worry!
+DM-Power is best suited for Dungeon Masters. Players may find DM-Power to be of some use as well, especially for making and managing characters along with their level up paths.
 
-* This tool is best suited for Dungeon Masters and assisting them with keeping the game running quickly. Players may find DM-Power to be of some use as well.
+All dice rolls and generator randomness done with [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister), arguably the best randomizer out there.
 
-* Homebrew is left up to the individual. I mainly use stuff out of the books I've purchased in DM-Power (unless otherwise noted). Adapting and changing results to your game style should be done at your will.
+Fast and Reliable. No known crash cases. All crash case reports are taken as highly critical and will be fixed asap.
 
-* This toolkit does not teach the game or say many specifics about what each ability, magic item, or spell does, as that is just not the intention. The design is my interpretation of the WotC book's recommendations and guidelines into code form, at its heart I am building it just for me and adding what I would use and desire as a live DM. To use DM-Power to its largest benefit, you should be decently familiar with the rules and comfortable looking up further details as required. I recommend purchasing the official [WotC books](#6-credits)!
-
-* All dice rolls and generator randomness done with [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister), arguably the best randomizer out there.
-
-* Fast and Reliable. No known crash cases. All crash case reports are taken as highly critical.
-
-* Efficient C++ code base. All code is c++11 standard with no additional libraries.
+Note that this toolkit does not teach the game or say many specifics about what each ability, magic item, or spell does, as that is just not the intention. These details can be found on the plethora of reference data sites and apps related to D&D 5e, as well as in the official books. I recommend purchasing the official [WotC books](#6-credits)!
 
 > [back to index](#0-index)
 
@@ -43,13 +36,11 @@ Faster D&D! More D&D! More Story! Less Worry!
 
 *Relies on C++ Standard 11 , Boost filesystem, and Make*
 
-* Ubuntu/Mint/Debian Linux. From Bash Command Line -
+* **Linux**. Ubuntu/Mint/Debian Bash Command Line -
     1. Install Dependencies
 
         1. `sudo apt-get update`
-
         2. `sudo apt-get install build-essential make gcc libboost-all-dev git`
-
         * (or whatever the equivalent commands are for your distro)
 
     2. Clone this repo from github
@@ -57,8 +48,6 @@ Faster D&D! More D&D! More Story! Less Worry!
         * https:
 
             `git clone https://github.com/mattearly/DM-Power-Core-Version.git`
-
-            or 
 
         * ssh:
 
@@ -69,16 +58,13 @@ Faster D&D! More D&D! More Story! Less Worry!
         * `cd DM-Power-Core-Version/`
 
     4. Compile 
-
+    
         * `make`
 
     5. Run 
 
         * `./dmpower`
 
-    * or compile and run (steps 4 and 5 sequentially)
-
-        * `make run`
 
 * Windows. Should work about the same as Linux with [Cygwin](https://www.cygwin.com/) or [WSL](https://msdn.microsoft.com/commandline/wsl/about)
 
@@ -87,7 +73,6 @@ Faster D&D! More D&D! More Story! Less Worry!
 > [back to index](#0-index)
 
 ---
-
 
 ### 3. Dev
 
@@ -112,6 +97,7 @@ Faster D&D! More D&D! More Story! Less Worry!
 ---
 
 ### 5. Support
+
 * [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC) to keep this project alive. 
 * Donations are used to go towards development of  DM-Power-Core-Version. (see Github projects tab for more info)
 * total donated so far: $0

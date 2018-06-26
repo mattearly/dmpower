@@ -15,6 +15,7 @@ ____________________________________________________________________________
 #pragma once
 
 #include "characters.h"
+#include <string>
 
 class Generic_Character_Class;
 
