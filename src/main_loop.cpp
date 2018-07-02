@@ -14,14 +14,15 @@ using std::string;
 
 extern void save_file(bool &, string &, const Campaign &);
 
-void main_loop(bool &loadSuccess, string &loadedFile, Campaign &myGame) {
+void main_loop(bool &loadSuccess, string &loadedFile, Campaign &myGame)
+{
+    simpleClearScreen();
     int choice = 0;
     do
     {
-        cout << YELLOW << "\n---------- MAIN MENU ----------\n"
-             << RESET
-             << "1. Characters\n"
-             << "2. Magic Item and Loot Generators\n"
+        cout << YELLOW << "\n---------- MAIN MENU ----------" << RESET << "\n"
+             << "1. CHARACTERS\n"
+             << "2. LOOT\n"
              << "3. Charts\n"
              << "4. Experience Calculator\n"
              << "5. Name Generator\n"
@@ -33,8 +34,6 @@ void main_loop(bool &loadSuccess, string &loadedFile, Campaign &myGame) {
              << YELLOW << "-------------------------------\n"
              << RESET << "\n";
         choice = getNumber("Choice: ", 1, 10);
-
-        // cin.ignore(numeric_limits<streamsize>::max(), '\n');
         switch (choice)
         {
         case 1:

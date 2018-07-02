@@ -11,12 +11,7 @@ ____________________________________________________________________________
 **/
 
 #include "campaign.h"
-#include "gen_reward.h"
-#include "gen_name.h"
-#include "gen_insult.h"
-#include "gen_encounter.h"
-#include "gen_experience.h"
-#include "charts.h"
+#include "globalfuncts.h"
 #include <string>
 #include <cstdlib>
 
@@ -33,7 +28,7 @@ int main()
     Campaign myGame;
     simpleClearScreen();
     cout << "|-----------------------------------------------------------|" << endl;
-    cout << "|" << YELLOW << "Dungeon Master Power " << RESET << "- " << RED << "Dungeons & Dragons " << RESET << "- " << CYAN << "5e Core Version" << RESET << "|" << endl;
+    cout << "|" << YELLOW << "DM-Power-Core-Version" << RESET << "- " << RED << "Dungeons & Dragons 5e" << RESET << "- DM's Toolkit" << CYAN << "" << RESET << "|" << endl;
     cout << "|-----------------------------------------------------------|" << endl;
     cout << "| * Design & Code by:  " << GREEN << "matthewjearly@gmail.com" << RESET << "              |" << endl;
     cout << "| * Repo:  " << GREEN << "github.com/mattearly/DM-Power-Core-Version" << RESET << "       |" << endl;
