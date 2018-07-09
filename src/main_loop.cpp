@@ -10,18 +10,20 @@
 #include <iostream>
 
 using namespace std;
+extern bool loadSuccess;
+extern string loadedFile;
+extern Campaign myGame;
+extern string mainMessage;
 
-extern void save_file(bool &, string &, const Campaign &);
-extern string main_message;
-
-void main_loop(bool &loadSuccess, string &loadedFile, Campaign &myGame)
+void main_loop()
 {
+
     simpleClearScreen();
     int choice = 0;
     do
     {
-        cout << main_message << endl;
-        main_message = "";
+        cout << mainMessage << endl;
+        mainMessage = "";
         cout << YELLOW << "\n---------- MAIN MENU ----------" << RESET << "\n"
              << "1. CHARACTERS\n"
              << "2. LOOT\n"
@@ -30,12 +32,10 @@ void main_loop(bool &loadSuccess, string &loadedFile, Campaign &myGame)
              << "5. Name Generator\n"
              << "6. Random Encounter\n"
              << "7. NPC Insult\n"
-             << "8. Save Current\n"
-             << "9. Save & Quit\n"
-             << "10. Quit without Saving\n"
+             << "8. Quit\n"
              << YELLOW << "-------------------------------\n"
              << RESET << "\n";
-        choice = getNumber("Choice: ", 1, 10);
+        choice = getNumber("Choice: ", 1, 8);
         switch (choice)
         {
         case 1:
@@ -82,17 +82,9 @@ void main_loop(bool &loadSuccess, string &loadedFile, Campaign &myGame)
             cout << "Maybe this will make the PCs mad: " << insult.laydownheat() << "\n\n";
         }
         break;
-        case 8:
-            save_file(loadSuccess, loadedFile, myGame);
-            break;
-        case 9:
-            save_file(loadSuccess, loadedFile, myGame);
-            cout << "Exiting Program.\n";
-            break;
-        case 10:
-            cout << "Exiting Program.\n";
         default:
             break;
         }
-    } while (choice < 9);
+    } while (choice < 8);
+    cout << "Exiting Program.\n";
 }

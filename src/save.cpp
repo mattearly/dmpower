@@ -9,7 +9,10 @@
 using namespace boost::filesystem;
 using namespace std;
 
-extern string main_message;
+extern string mainMessage;
+extern string loadedFile;
+extern bool loadSuccess;
+extern Campaign myGame;
 
 void showLoadableFiles(const std::string &dir);
 
@@ -17,9 +20,9 @@ void truncateSaveForThisVersion(std::string &original, std::string &edited);
 
 bool mergeSaves(const std::string &keep, const std::string &mergein);
 
-void save_file(bool &ls, std::string &lf, const Campaign &game)
+void save_file()
 {
-    if (game.character_list.empty())
+    if (myGame.character_list.empty())
     {
         std::cout << "nothing to save - character list empty\n";
         return;
@@ -27,7 +30,7 @@ void save_file(bool &ls, std::string &lf, const Campaign &game)
 
     std::string file;
     std::ofstream os;
-    if (ls == false)
+    if (loadSuccess == false)
     {
         std::cout << "Save As: ";
         bool done_first_pass = false;
@@ -47,26 +50,24 @@ void save_file(bool &ls, std::string &lf, const Campaign &game)
     }
     else
     {
-        file = lf;
+        file = loadedFile;
     }
     //save into file after above is complete
     os.open(("saves/" + file + ".save").c_str());
     if (os.is_open())
     {
-        game.dumpCharacter(os);
+        myGame.dumpCharacter(os);
         std::cout << "All data saved in file -> " << file << std::endl;
-        ls = true;
-        lf = file;
+        loadSuccess = true;
+        loadedFile = file;
         os.close();
-    }
-    else
-    {
-        std::cout << "Save failed.\n";
     }
 }
 
-void load_file(bool &ls, std::string &lf, Campaign &game)
+void load_file()
 {
+    //bool &loadSuccess, std::string &loadedFile, Campaign &myGame
+
     //show list of previous saves
     showLoadableFiles("saves");
 
@@ -102,8 +103,7 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
                 std::string removestuff = "rm saves/" + mergein + ".save";
                 system(removestuff.c_str());
                 simpleClearScreen();
-                load_file(ls, lf, game);
-                // save_file(ls, lf, game);  //to update and correct formatting - to slow doesn't matter(wont hurt anything to not do this) it will update when they save again anyway
+                load_file();
             }
         }
     }
@@ -113,7 +113,7 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
         thefile.open(("saves/" + file + ".save").c_str());
         if (thefile.is_open())
         {
-            bool success = game.retrieveCharacter(thefile);
+            bool success = myGame.retrieveCharacter(thefile);
 
             if (success)
             {
@@ -123,14 +123,13 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
             {
                 std::cout << "The file named '" << file << "' doesn't seem to have much data or is invalid\n\n";
             }
-            ls = true;
-            lf = file;
+            loadSuccess = true;
+            loadedFile = file;
             thefile.close();
         }
         else
         {
-            // std::cout << "No file named '" << file << "'. Starting new file.\n\n";
-            main_message = "No file named '" + file + "'. Starting new file.";
+            mainMessage = "No file named '" + file + "'. Starting new file.";
         }
     }
 }

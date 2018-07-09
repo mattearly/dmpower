@@ -5,18 +5,19 @@
 
 using namespace std;
 
-extern void load_file(bool &, string &, Campaign &);
-extern void main_loop(bool &, string &, Campaign &);
+extern void load_file();
+extern void main_loop();
 
-string main_message = "";
+string mainMessage = "";
+bool loadSuccess = false;
+string loadedFile = "";
+Campaign myGame;
 
 int main()
 {
-    bool loadSuccess = false;
-    string loadedFile = "";
 
-    Campaign myGame;
     simpleClearScreen();
+
     cout << "|-----------------------------------------------------------|" << endl;
     cout << "|" << YELLOW << "DM-Power-Core-Version" << RESET << "- " << RED << "Dungeons & Dragons 5e" << RESET << "- DM's Toolkit" << CYAN << "" << RESET << " |" << endl;
     cout << "|-----------------------------------------------------------|" << endl;
@@ -24,9 +25,10 @@ int main()
     cout << "| * Repo:  " << GREEN << "github.com/mattearly/DM-Power-Core-Version" << RESET << "       |" << endl;
     cout << "|-----------------------------------------------------------|" << endl;
 
-    load_file(loadSuccess, loadedFile, myGame);
+    load_file();
 
-    main_loop(loadSuccess, loadedFile, myGame);
+    main_loop();
 
     return EXIT_SUCCESS;
+
 }

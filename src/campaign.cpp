@@ -4,22 +4,25 @@
 
 using namespace std;
 
+extern void save_file();
+
 void Campaign::pc_menu()
 {
     int choice = 0;
-    while (choice != 7)
+    while (choice != 8)
     {
         simpleClearScreen();
         cout << "----------Characters-----------\n\n"
              << " 1. " << GREEN << "NEW " << RESET << "Character" << endl
-             << " 2. " << BLUE << "LIST " << RESET << "all Characters" << endl
-             << " 3. " << BLUE << "VIEW " << RESET << "a Character" << endl
+             << " 2. " << YELLOW << "LIST " << RESET << "all Characters" << endl
+             << " 3. " << YELLOW << "VIEW " << RESET << "a Character" << endl
              << " 4. " << YELLOW << "EDIT " << RESET << "a Character" << endl
              << " 5. " << RED << "DELETE " << RESET << "a Character" << endl
              << " 6. " << RED << "DELETE ALL " << RESET << "Characters" << endl
-             << " 7. BACK to Main Menu" << endl
+             << " 7. SAVE Current Work" << endl
+             << " 8. BACK to Main Menu" << endl
              << endl;
-        choice = getNumber("Choice(1-7): ", 1, 7);
+        choice = getNumber("Choice(1-7): ", 1, 8);
         switch (choice)
         {
         case 1:
@@ -197,7 +200,7 @@ void Campaign::pc_menu()
             pressEnterToContinue();
             break;
         case 4:
-        {   //EDIT/UPDATE CHARACTER
+        { //EDIT/UPDATE CHARACTER
             if (character_list.size() < 1)
             {
                 cout << "No characters to Edit. Create characters first.\n\n";
@@ -279,6 +282,9 @@ void Campaign::pc_menu()
             }
         }
             pressEnterToContinue();
+            break;
+        case 7:
+            save_file();
             break;
         default:
             cout << "Option doesn't exist.\n";
