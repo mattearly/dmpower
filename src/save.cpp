@@ -7,6 +7,9 @@
 #include <boost/filesystem.hpp>
 
 using namespace boost::filesystem;
+using namespace std;
+
+extern string main_message;
 
 void showLoadableFiles(const std::string &dir);
 
@@ -126,7 +129,8 @@ void load_file(bool &ls, std::string &lf, Campaign &game)
         }
         else
         {
-            std::cout << "No file named '" << file << "'. Starting new file.\n\n";
+            // std::cout << "No file named '" << file << "'. Starting new file.\n\n";
+            main_message = "No file named '" + file + "'. Starting new file.";
         }
     }
 }

@@ -9,10 +9,10 @@
 #include <string>
 #include <iostream>
 
-using std::cout;
-using std::string;
+using namespace std;
 
 extern void save_file(bool &, string &, const Campaign &);
+extern string main_message;
 
 void main_loop(bool &loadSuccess, string &loadedFile, Campaign &myGame)
 {
@@ -20,6 +20,8 @@ void main_loop(bool &loadSuccess, string &loadedFile, Campaign &myGame)
     int choice = 0;
     do
     {
+        cout << main_message << endl;
+        main_message = "";
         cout << YELLOW << "\n---------- MAIN MENU ----------" << RESET << "\n"
              << "1. CHARACTERS\n"
              << "2. LOOT\n"
