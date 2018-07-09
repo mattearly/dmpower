@@ -19,7 +19,8 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
 $(BUILD_DIR):
 	mkdir -p bin
 
-.PHONY: clean
+.PHONY: cleanq
+
 clean:
 	-rm -rf $(BUILD_DIR) $(TARGET)
 

@@ -334,33 +334,23 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
         goodname = checkname(new_character->char_name);
     }
 
-    simpleClearScreen();
     new_character->setAllStats();
-
-    simpleClearScreen();
     new_character->setRace(*new_character);
-
-    simpleClearScreen();
     new_character->setAlignment();
-
-    simpleClearScreen();
     new_character->setBackground();
-
-    simpleClearScreen();
     new_character->setClassDetails(starting_level);
-
-    simpleClearScreen();
     new_character->setProficiencyBonus();
 
     character_list.push_back(new_character);
     new_character->initialSkillsSet = true;
 
-    simpleClearScreen();
     char ans = getYorN("Display Character Sheet now[y/n]?");
-    if (ans == 'Y')
-        character_list.back()->character_sheet();
 
-    pressEnterToContinue();
+    if (ans == 'Y')
+    {
+        character_list.back()->character_sheet();
+        pressEnterToContinue();
+    }
 }
 ofstream &Campaign::dumpCharacter(ofstream &os) const
 {
