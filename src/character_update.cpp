@@ -32,7 +32,6 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
             string tmp;
             while (!goodname)
             {
-                //cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 do
                 {
                     cout << "Current Name: " << char_name << "\n New Name: ";

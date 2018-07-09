@@ -1,15 +1,3 @@
-/**
-____________________________________________________________________________
->
->  https://github.com/bytePro17124/DM-Power-Core-Version
->
->  Program Created by Matthew Jay Early | @matthewjearly | matthewjearly@gmail.com
->  
->  Copyright (c) 2015-2016 Early Athens Tech Giants LLC. All rights reserved.
->
-____________________________________________________________________________
-**/
-
 #include "campaign.h"
 #include "globalfuncts.h"
 #include "characters.h"
@@ -36,7 +24,7 @@ void Campaign::pc_menu()
         {
         case 1:
         {
-            simpleClearScreen(); //non-casters - RED | arcane - YELLOW | divine - CYAN
+            simpleClearScreen();
             cout << " Create a New Character! \n\n"
                  << "Type Legend: " << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
                  << "Character Classes Available:\n\n"
@@ -210,12 +198,6 @@ void Campaign::pc_menu()
             break;
         case 4:
         {   //EDIT/UPDATE CHARACTER
-            // string pwd = "";
-            // cout << "Enter entrance keyword: ";
-            // getline(cin, pwd, '\n');
-            // if (pwd == "password")
-            // {
-            // cout << "entrance allowed\n";
             if (character_list.size() < 1)
             {
                 cout << "No characters to Edit. Create characters first.\n\n";
@@ -251,11 +233,6 @@ void Campaign::pc_menu()
                         (*it)->updateCharacter(*this);
                 }
             }
-            // }
-            // else
-            // {
-            //     cout << "entry denied";
-            // }
             pressEnterToContinue();
         }
         break;
