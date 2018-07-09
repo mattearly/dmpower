@@ -8,7 +8,6 @@ SOURCES := $(shell find $(SRC_DIR) -name '*.cpp')
 OBJECTS := $(addprefix $(BUILD_DIR)/, $(SOURCES:$(SRC_DIR)/%.cpp=%.o))
 
 default:
-	@mkdir -p bin
 	@+$(MAKE) $(TARGET)
 
 $(TARGET): $(OBJECTS)
@@ -16,6 +15,9 @@ $(TARGET): $(OBJECTS)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
 	$(CXX) $(CFLAGS) $(OBJFLAGS) $< -o $@
+
+$(BUILD_DIR):
+	mkdir -p bin
 
 .PHONY: clean
 clean:
