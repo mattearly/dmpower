@@ -3,15 +3,9 @@
 #include <iostream>
 #include "terminal_colors.h"
 
-extern void load_file();
 extern void main_loop();
 
 using std::string;
-
-string mainMessage = "";
-bool loadSuccess = false;
-string loadedFile = "";
-Campaign myGame;
 
 int main()
 {
@@ -22,8 +16,6 @@ int main()
     std::cout << "|-----------without wrapping for best results-----------|" << std::endl;
     std::cout << "|------------------58 character block-------------------|" << std::endl;
     std::cout << "|-------------------------------------------------------|" << std::endl;
-
-    load_file();
 
     /* Initiate Main Program Menu */
     main_loop();

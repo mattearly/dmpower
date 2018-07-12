@@ -66,14 +66,10 @@ void save_file()
 
 void load_file()
 {
-    //bool &loadSuccess, std::string &loadedFile, Campaign &myGame
-
     //show list of previous saves
     showLoadableFiles("saves");
-
     std::string file;
-    std::cout << "|----------------- press enter to skip load ----------------|\n\n"
-              << "Load File: ";
+    std::cout << "(leave blank to skip) Load File: ";
     std::getline(std::cin, file, '\n');
     reduce(file);
 
@@ -82,27 +78,21 @@ void load_file()
     // file to merge, merged file is deleted after completion (ideally)
     if (file.substr(0, 7) == "combine")
     {
-        // std::cout << "combine function call detected\n";
         std::string keep, mergein;
-
         if (file.find_first_of(" ", 8) != std::string::npos)
         {
             size_t pos1 = file.find_first_of(" ", 8);
-            // std::cout << "found a whitespace at " << file.find_first_of(" ", 8) << std::endl;
-
             keep = file.substr(8, pos1 - 8);
-            // std::cout << "keep file = " << keep << std::endl;
-
             mergein = file.substr(pos1 + 1);
-            // std::cout << "mergein file = " << mergein;
-
             bool mergesuccess = mergeSaves(keep, mergein);
-
             if (mergesuccess)
             {
-                std::string removestuff = "rm saves/" + mergein + ".save";
-                system(removestuff.c_str());
-                simpleClearScreen();
+                char answer = getYorN("Delete old file?(y/n):");
+                if (answer == 'Y')
+                {
+                    std::string removestuff = "rm saves/" + mergein + ".save";
+                    system(removestuff.c_str());
+                }
                 load_file();
             }
         }

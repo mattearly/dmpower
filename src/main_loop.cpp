@@ -10,8 +10,7 @@
 #include <iostream>
 
 using namespace std;
-extern bool loadSuccess;
-extern string loadedFile;
+
 extern Campaign myGame;
 extern string mainMessage;
 

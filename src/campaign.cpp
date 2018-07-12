@@ -5,11 +5,17 @@
 using namespace std;
 
 extern void save_file();
+extern void load_file();
+
+string mainMessage = "";
+bool loadSuccess = false;
+string loadedFile = "";
+Campaign myGame;
 
 void Campaign::pc_menu()
 {
     int choice = 0;
-    while (choice != 8)
+    while (choice != 9)
     {
         simpleClearScreen();
         cout << "----------Characters-----------\n\n"
@@ -20,9 +26,18 @@ void Campaign::pc_menu()
              << " 5. " << RED << "DELETE " << RESET << "a Character" << endl
              << " 6. " << RED << "DELETE ALL " << RESET << "Characters" << endl
              << " 7. SAVE Current Work" << endl
-             << " 8. BACK to Main Menu" << endl
+             << " 8. ";
+        if (loadSuccess)
+        {
+            cout << GREEN << loadedFile << RESET << " file loaded! - " << RED << "unload?" << RESET << endl;
+        }
+        else
+        {
+            cout << "LOAD File Options" << endl;
+        }
+        cout << " 9. BACK to Main Menu" << endl
              << endl;
-        choice = getNumber("Choice(1-7): ", 1, 8);
+        choice = getNumber("Choice(1-7): ", 1, 9);
         switch (choice)
         {
         case 1:
@@ -113,7 +128,6 @@ void Campaign::pc_menu()
             {
                 new_character_build = new Bard;
                 new_character_build->setInitialClassFeatures();
-
                 makecharacter(new_character_build, starting_level);
             }
             break;
@@ -285,6 +299,21 @@ void Campaign::pc_menu()
             break;
         case 7:
             save_file();
+            break;
+        case 8:
+            if (!loadSuccess)
+            {
+                load_file();
+            }
+            else
+            {
+                char answer = getYorN("Unload " + loadedFile + "?(y/n):");
+                if (answer == 'Y') {
+                    character_list.clear();
+                    loadedFile = "";
+                    loadSuccess = false;
+                }
+            }
             break;
         default:
             cout << "Option doesn't exist.\n";
@@ -793,7 +822,6 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     while (!ins.eof())
     {
         ins.ignore(numeric_limits<streamsize>::max(), '\n');
-
         int len = ins.tellg(); //get current position
         getline(ins, tmp);
         if (tmp == "Cleric")
