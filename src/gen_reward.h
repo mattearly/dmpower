@@ -42,6 +42,7 @@ private:
 
   void MakeSpellbook() const;
   void SingleScroll(const int &) const;
+
 };
 
 #endif //REWARD_GEN_H

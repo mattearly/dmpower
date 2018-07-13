@@ -23,10 +23,10 @@ void Magic_Items::treasure_menu()
         {
         case 1:
             cout << "Individual Treasure\n\n"
-                 << " 1. Challenge 0-4 \n"
-                 << " 2. Challenge 5-10 \n"
-                 << " 3. Challenge 11-16 \n"
-                 << " 4. Challenge 17+ \n\n";
+                 << " 1. Challenge Rating 0-4 \n"
+                 << " 2. Challenge Rating 5-10 \n"
+                 << " 3. Challenge Rating 11-16 \n"
+                 << " 4. Challenge Rating 17+ \n\n";
             choice = getNumber("Choice(1-4): ", 1, 4);
             switch (choice)
             {
@@ -48,11 +48,11 @@ void Magic_Items::treasure_menu()
             pressEnterToContinue();
             break;
         case 2:
-            cout << "Treasure Hoard\n\n"
-                 << " 1. Challenge 0-4 \n"
-                 << " 2. Challenge 5-10 \n"
-                 << " 3. Challenge 11-16 \n"
-                 << " 4. Challenge 17+ \n\n";
+            cout << "Generating A Treasure Hoard! For what CR?\n\n"
+                 << " 1. Challenge Rating 0-4 \n"
+                 << " 2. Challenge Rating 5-10 \n"
+                 << " 3. Challenge Rating 11-16 \n"
+                 << " 4. Challenge Rating 17+ \n\n";
             choice = getNumber("Choice(1-4): ", 1, 4);
             switch (choice)
             {
@@ -74,7 +74,7 @@ void Magic_Items::treasure_menu()
             pressEnterToContinue();
             break;
         case 3:
-            cout << "Spell figureout-er-er\n\n";
+            cout << "Spell figureout-er-er. What could it be?\n\n";
             choice = getNumber("Scroll Level?(1-9): ", 1, 9);
             SingleScroll(choice);
             choice = 0;
@@ -5974,8 +5974,7 @@ string Magic_Items::GenerateArt(const int &amount, const int &value) const
 void Magic_Items::MakeSpellbook() const
 {
     simpleClearScreen();
-    cout << "  Generating Spellbook details\n Questions about this spellbook: " << endl
-         << endl;
+    cout << "  Enter details about the Spellbook you are creating: \n\n";
     int first = getNumber("1. How many first level spells?(0-31): ", 0, 31);
     int second = getNumber("2. How many second level spells?(0-30): ", 0, 30);
     int third = getNumber("3. How many third level spells?(0-27): ", 0, 27);
@@ -5991,7 +5990,6 @@ void Magic_Items::MakeSpellbook() const
     int totalpages = getNumber("Most spellbooks have between 70 to 150 pages in total, but can be more or less.\n How many pages are in this one?\n ->", usedpages, 900);
     cout << "Spellbooks are often bound in leather or thick cloth, but can be made out of anything.\n What kind of material is this spellbook made out of? (enter anything)\n -> ";
     string material;
-    // cin.ignore(100, '\n');
     getline(cin, material);
     vector<string> spellholder;
     simpleClearScreen();
