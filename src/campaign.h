@@ -22,6 +22,8 @@ public:
 
 private:
   void makecharacter(Generic_Character_Class *tmp, int &starting_level);
+
+  void showCampaignCharacterList();
 };
 
 #endif //CAMPAIGN_H

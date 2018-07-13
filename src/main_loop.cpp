@@ -46,6 +46,8 @@ void main_loop()
         case 3:
         {
             submenu();
+            choice = 0;
+            simpleClearScreen();
         }
         break;
         default:
@@ -114,5 +116,4 @@ void submenu()
             break;
         }
     } while (choice < 6);
-    cout << "Exiting Program.\n";
 }

@@ -8,21 +8,31 @@ void Generic_Character_Class::setAnyFeat()
 	cout << "List of Feats to choose from:\n\n";
 	while (!set)
 	{
-		cout << " 1. Alert               15. Heavy Armor Master   29. Polearm Master"
-			 << "\n 2. Athlete             16. Inspiring Leader     30. Resilient"
-			 << "\n 3. Actor               17. Keen Mind            31. Ritual Caster"
-			 << "\n 4. Charger             18. Lightly Armored      32. Savage Attacker"
-			 << "\n 5. Crossbow Expert     19. Linguist             33. Sentinel"
-			 << "\n 6. Defensive Duelist   20. Lucky                34. Sharpshooter"
-			 << "\n 7. Dual Wielder        21. Mage Slayer          35. Shield Master"
-			 << "\n 8. Dungeon Delver      22. Magic Initiate       36. Skilled"
-			 << "\n 9. Durable             23. Martial Adept        37. Skulker"
-			 << "\n10. Elemental Adapt     24. Medium Armor Master  38. Spell Sniper"
-			 << "\n11. Grappler            25. Mobile               39. Tavern Brawler"
-			 << "\n12. Great Weapon Master 26. Moderately Armored   40. Tough"
-			 << "\n13. Healer              27. Mounted Combat       41. War Caster"
-			 << "\n14. Heavily Armored     28. Observant            42. Weapon Master\n\n";
-		int ss = getNumber("Feat Choice(1-42):", 1, 42);
+		cout << " 1. Alert               25. Mobile"
+			 << "\n 2. Athlete             26. Moderately Armored"
+			 << "\n 3. Actor               27. Mounted Combat"
+			 << "\n 4. Charger             28. Observant"
+			 << "\n 5. Crossbow Expert     29. Polearm Master"
+			 << "\n 6. Defensive Duelist   30. Resilient"
+			 << "\n 7. Dual Wielder        31. Ritual Caster"
+			 << "\n 8. Dungeon Delver      32. Savage Attacker"
+			 << "\n 9. Durable             33. Sentinel"
+			 << "\n10. Elemental Adapt     34. Sharpshooter"
+			 << "\n11. Grappler            35. Shield Master"
+			 << "\n12. Great Weapon Master 36. Skilled"
+			 << "\n13. Healer              37. Skulker"
+			 << "\n14. Heavily Armored     38. Spell Sniper"
+			 << "\n15. Heavy Armor Master  39. Tavern Brawler"
+			 << "\n16. Inspiring Leader    40. Tough"
+			 << "\n17. Keen Mind           41. War Caster"
+			 << "\n18. Lightly Armored     42. Weapon Master"
+			 << "\n19. Linguist  "
+			 << "\n20. Lucky "
+			 << "\n21. Mage Slayer  "
+			 << "\n22. Magic Initiate "
+			 << "\n23. Martial Adept  "
+			 << "\n24. Medium Armor Master\n";
+		int ss = getNumber("  Feat Choice(1-42):", 1, 42);
 		if (ss == 1)
 		{
 			gainAlert(set);

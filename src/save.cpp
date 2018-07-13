@@ -137,8 +137,8 @@ void showLoadableFiles(const std::string &dir)
     }
     else
     {
-        std::cout << "| Combine Files: 'combine SaveToKeep SaveToMergeInAndDelete'\n";
-        std::cout << "| Loadable Files:\n";
+        std::cout << "Combine Files: 'combine SaveToKeep SaveToMergeInAndDelete'\n";
+        std::cout << "Loadable Files:\n";
     }
 
     directory_iterator end_itr; // default construction yields past-the-end

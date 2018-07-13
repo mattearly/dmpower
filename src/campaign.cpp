@@ -221,12 +221,14 @@ void Campaign::pc_menu()
             }
             else
             {
+                cout << "Current campaign characters:\n\n";
+                showCampaignCharacterList();
+
                 bool found = false;
-                //cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 string valid_name;
                 while (!found)
                 {
-                    cout << "Name of Character to Edit/Update: ";
+                    cout << "Enter the " << CYAN << "Name" << RESET << " of Character you wish to edit: ";
                     getline(cin, valid_name);
                     valid_name[0] = toupper(valid_name[0]);
                     for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
@@ -238,11 +240,7 @@ void Campaign::pc_menu()
                     }
                     if (!found)
                         cout << "\nNo character named " << valid_name << ". List of Charcters:\n\n";
-                    for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
-                    {
-                        cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
-                    }
-                    cout << endl;
+                    showCampaignCharacterList();
                 }
                 for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
                 {
@@ -261,10 +259,12 @@ void Campaign::pc_menu()
             }
             else
             {
+                cout << "Current campaign characters:\n\n";
+                showCampaignCharacterList();
+
                 string tmp;
                 do
                 {
-                    //cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     cout << "Enter the name of the PC to Delete(leave blank to exit function): ";
                     getline(cin, tmp);
                     tmp[0] = toupper(tmp[0]);
@@ -288,7 +288,7 @@ void Campaign::pc_menu()
             if (sure == 'Y')
             {
                 character_list.clear();
-                cout << "All Characters Deleted. Press 'Cntl + C' now to reverse this.\n\n";
+                cout << "All Characters Deleted. Your next save will write this change.\n\n";
             }
             else
             {
@@ -308,7 +308,8 @@ void Campaign::pc_menu()
             else
             {
                 char answer = getYorN("Unload " + loadedFile + "?(y/n):");
-                if (answer == 'Y') {
+                if (answer == 'Y')
+                {
                     character_list.clear();
                     loadedFile = "";
                     loadSuccess = false;
@@ -1320,4 +1321,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
             ins.ignore(numeric_limits<streamsize>::max(), '\n');
     }
     return true;
+}
+
+void Campaign::showCampaignCharacterList()
+{
+    for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
+    {
+        cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+    }
+    cout << endl;
 }
