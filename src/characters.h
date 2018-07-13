@@ -121,7 +121,7 @@ class Generic_Character_Class
     //BACKGROUNDS  1 nobackground 13 phb 12 scag
     enum characterbackground
     {
-        NOBACKGROUND = 1,
+        NOBACKGROUND = 0,
         ACOLYTE,
         CHARLATAN,
         CITY_WATCH,
