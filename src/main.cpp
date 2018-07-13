@@ -1,7 +1,7 @@
 #include "campaign.h"
 #include <string>
 #include <iostream>
-#include "terminal_colors.h"
+#include "globalfuncts.h"
 
 extern void main_loop();
 
@@ -16,6 +16,8 @@ int main()
     std::cout << "|-----------without wrapping for best results-----------|" << std::endl;
     std::cout << "|------------------58 character block-------------------|" << std::endl;
     std::cout << "|-------------------------------------------------------|" << std::endl;
+
+    pressEnterToContinue();
 
     /* Initiate Main Program Menu */
     main_loop();

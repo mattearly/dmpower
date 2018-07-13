@@ -37,7 +37,7 @@ void Campaign::pc_menu()
         }
         cout << " 9. BACK to Main Menu" << endl
              << endl;
-        choice = getNumber("Choice(1-7): ", 1, 9);
+        choice = getNumber("Choice(1-9): ", 1, 9);
         switch (choice)
         {
         case 1:

@@ -13,28 +13,25 @@ using namespace std;
 
 extern Campaign myGame;
 extern string mainMessage;
+int choice = 0;
+
+void submenu();
 
 void main_loop()
 {
-
+    choice = 0;
     simpleClearScreen();
-    int choice = 0;
     do
     {
         cout << mainMessage << endl;
         mainMessage = "";
         cout << YELLOW << "\n---------- MAIN MENU ----------" << RESET << "\n"
              << "1. CHARACTERS\n"
-             << "2. LOOT\n"
-             << "3. Charts\n"
-             << "4. Experience Calculator\n"
-             << "5. Name Generator\n"
-             << "6. Random Encounter\n"
-             << "7. NPC Insult\n"
-             << "8. Quit\n"
-             << YELLOW << "-------------------------------\n"
-             << RESET << "\n";
-        choice = getNumber("Choice: ", 1, 8);
+             << "2. LOOT GENERATOR\n"
+             << "3. OTHER TOOLS\n"
+             << "4. QUIT\n"
+             << YELLOW << "-------------------------------" << RESET << "\n";
+        choice = getNumber("Choice: ", 1, 4);
         switch (choice)
         {
         case 1:
@@ -48,33 +45,65 @@ void main_loop()
         break;
         case 3:
         {
+            submenu();
+        }
+        break;
+        default:
+            break;
+        }
+    } while (choice < 4);
+    cout << "Exiting Program.\n";
+}
+
+void submenu()
+{
+    simpleClearScreen();
+    choice = 0;
+    do
+    {
+        cout << mainMessage << endl;
+        mainMessage = "";
+        cout << YELLOW << "\n---------- SUB  MENU ----------" << RESET << "\n"
+             << " 1. Charts\n"
+             << " 2. Experience Calculator\n"
+             << " 3. Name Generator\n"
+             << " 4. Random Encounter\n"
+             << " 5. NPC Insult\n"
+             << " 6. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
+             << YELLOW << "-------------------------------\n"
+             << RESET << "\n";
+        choice = getNumber("Choice: ", 1, 6);
+        switch (choice)
+        {
+
+        case 1:
+        {
             Charts chart;
             chart.showChartMenu();
         }
         break;
-        case 4:
+        case 2:
         {
             Gen_Experience gen;
             float rewardXP = gen.xpgenerator();
             cout << "EXP for Each Party Member = " << GREEN << rewardXP << RESET << "\n\n";
         }
         break;
-        case 5:
+        case 3:
         {
             CharacterName randomName;
             simpleClearScreen();
             cout << "Here is a name: " << randomName.grabRandomName() << "\n\n";
         }
         break;
-        case 6:
+        case 4:
         {
             Encounter encounter;
-            simpleClearScreen();
             cout << encounter.Gen_Encounter();
             pressEnterToContinue();
         }
         break;
-        case 7:
+        case 5:
         {
             Insult insult;
             simpleClearScreen();
@@ -84,6 +113,6 @@ void main_loop()
         default:
             break;
         }
-    } while (choice < 8);
+    } while (choice < 6);
     cout << "Exiting Program.\n";
 }

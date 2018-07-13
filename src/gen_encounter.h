@@ -7,7 +7,7 @@
 class Encounter
 {
   public:
-	bool testing = true;
+	bool testing = false;
 	Encounter();
 	std::string Gen_Encounter();
 

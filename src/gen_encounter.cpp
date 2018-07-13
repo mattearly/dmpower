@@ -18,11 +18,12 @@ std::string Encounter::Gen_Encounter()
 
     //very easy, easy, average, hard, very hard
     if (testing)
-        cout << "Seed (random difficulty changes CR anywhere from -2 to +2) is: " << seed << " (" << getDifficulty(seed) << ")\n";
+        cout << "Seed (random difficulty CR: -2 to +2): " << seed << " (" << getDifficulty(seed) << ")\n";
     if (testing)
-        cout << "Party size Difficulty Multiplier is set to: " << floor((partysize - 2) / 2) << "\n";
+        cout << "Party Size additional CR: +" << floor((partysize - 2) / 2) << "\n";
     if (testing)
         cout << "Average Party Level: " + toString(ave_lvl) << "\n\n";
+
 
     return ("Give Encounter of difficulty: " + getDifficulty(seed) + "\n" +
             " CR: " + toString(ave_lvl + seed + floor((partysize - 2) / 2)) + "\n");
@@ -63,6 +64,6 @@ std::string Encounter::getDifficulty(const int &val)
     case 2:
         return "Very Hard";
     default:
-        return "Error in Difficulty Switch";
+        return ("error in Encounter::getDifficulty. val = " + val);
     }
 }
