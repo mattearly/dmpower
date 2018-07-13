@@ -5,7 +5,7 @@ using std::endl;
 
 void Cleric::setClassDetails(const int &l)
 {
-	simpleClearScreen();
+
 	cout << " ->Set Cleric Details.\n\n";
 	level = l;
 	hitdicesize = 8;
@@ -61,7 +61,7 @@ void Cleric::setClassDetails(const int &l)
 		channel_divinity++;
 	if (clericlevelupmenus == 0 && l >= 4)
 	{
-		simpleClearScreen();
+
 		cout << "Ability Score Increase Menu for Level 4 Cleric.\n\n";
 		levelUpStats();
 		clericlevelupmenus++;
@@ -76,7 +76,7 @@ void Cleric::setClassDetails(const int &l)
 		destroy_undead += .5;
 	if (clericlevelupmenus == 1 && l >= 8)
 	{
-		simpleClearScreen();
+
 		cout << "Ability Score Increase Menu for Level 8 Cleric.\n\n";
 		levelUpStats();
 		clericlevelupmenus++;
@@ -89,7 +89,7 @@ void Cleric::setClassDetails(const int &l)
 		destroy_undead++;
 	if (clericlevelupmenus == 2 && l >= 12)
 	{
-		simpleClearScreen();
+
 		cout << "Ability Score Increase Menu for Level 12 Cleric.\n\n";
 		levelUpStats();
 		clericlevelupmenus++;
@@ -98,7 +98,7 @@ void Cleric::setClassDetails(const int &l)
 		destroy_undead++;
 	if (clericlevelupmenus == 3 && l >= 16)
 	{
-		simpleClearScreen();
+
 		cout << "Ability Score Increase Menu for Level 16 Cleric.\n\n";
 		levelUpStats();
 		clericlevelupmenus++;
@@ -111,7 +111,7 @@ void Cleric::setClassDetails(const int &l)
 		channel_divinity++;
 	if (clericlevelupmenus == 4 && l >= 19)
 	{
-		simpleClearScreen();
+
 		cout << "Ability Score Increase Menu for Level 19 Cleric.\n\n";
 		levelUpStats();
 		clericlevelupmenus++;
@@ -191,7 +191,7 @@ void Cleric::setClassDetails(const int &l)
 	//skills
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		cout << "Clerics start with three Skills.\n";
 		for (int i = 0; i < 3; i++)
 		{
@@ -242,7 +242,7 @@ void Cleric::setClassDetails(const int &l)
 }
 void Fighter::setClassDetails(const int &l)
 {
-	simpleClearScreen();
+
 	level = l;
 	hitdicesize = 10;
 	strSave = 1;
@@ -417,7 +417,7 @@ void Fighter::setClassDetails(const int &l)
 	}
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		cout << "Figthers start with 2 skills.\n";
 		for (int i = 0; i < 2; i++)
 		{
@@ -643,7 +643,7 @@ void Rogue::setClassDetails(const int &l)
 	}
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		cout << "Rogues start with 4 Skills.\n";
 		for (int i = 0; i < 4; i++)
 		{
@@ -742,7 +742,7 @@ void Rogue::setClassDetails(const int &l)
 }
 void Wizard::setClassDetails(const int &l)
 {
-	simpleClearScreen();
+
 	level = l;
 	hitdicesize = 6;
 	intSave = 1;
@@ -903,7 +903,7 @@ void Wizard::setClassDetails(const int &l)
 	}
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		cout << "Wizards start with 2 Skills.\n";
 		for (int i = 0; i < 2; i++)
 		{
@@ -962,7 +962,7 @@ void Wizard::setClassDetails(const int &l)
 }
 void Barbarian::setClassDetails(const int &l)
 {
-	simpleClearScreen();
+
 	cout << " ->Set Barbarian Details:\n\n";
 	level = l;
 	hitdicesize = 12;
@@ -1183,7 +1183,7 @@ void Barbarian::setClassDetails(const int &l)
 	}
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		cout << "Barbarians start with 2 skills.\n";
 		for (int i = 0; i < 2; i++)
 		{
@@ -1242,7 +1242,7 @@ void Barbarian::setClassDetails(const int &l)
 }
 void Druid::setClassDetails(const int &l)
 {
-	simpleClearScreen();
+
 	cout << " ->Set Druid Details.\n\n";
 	level = l;
 	hitdicesize = 8;
@@ -1380,7 +1380,7 @@ void Druid::setClassDetails(const int &l)
 	}
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		cout << "Druids start with 2 skills.\n";
 		for (int i = 0; i < 2; i++)
 		{
@@ -1455,7 +1455,7 @@ void Druid::setClassDetails(const int &l)
 }
 void Paladin::setClassDetails(const int &l)
 {
-	simpleClearScreen();
+
 	cout << " ->Set Paladin Details.\n\n";
 	level = l;
 	hitdicesize = 10;
@@ -1596,7 +1596,7 @@ void Paladin::setClassDetails(const int &l)
 	}
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		cout << "Paladins start with 2 skills.\n";
 		for (int i = 0; i < 2; i++)
 		{
@@ -1655,7 +1655,7 @@ void Paladin::setClassDetails(const int &l)
 }
 void Sorcerer::setClassDetails(const int &l)
 {
-	simpleClearScreen();
+
 	cout << " ->Set Sorcerer details.\n\n";
 	level = l;
 	hitdicesize = 6;
@@ -1815,7 +1815,7 @@ void Sorcerer::setClassDetails(const int &l)
 	}
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		cout << "Sorcerers start with 2 skills.\n";
 		for (int i = 0; i < 2; i++)
 		{
@@ -1875,7 +1875,7 @@ void Sorcerer::setClassDetails(const int &l)
 }
 void Bard::setClassDetails(const int &l)
 {
-	simpleClearScreen();
+
 	cout << "->Set Bard Details:\n\n";
 	level = l;
 	hitdicesize = 8;
@@ -2089,7 +2089,7 @@ void Bard::setClassDetails(const int &l)
 	}
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		setInstrument("Choose 3 Bard instruments.\n\n", 3);
 		setAnySkill("Bards start with 4 skills:", 4);
 	}
@@ -2097,7 +2097,7 @@ void Bard::setClassDetails(const int &l)
 }
 void Monk::setClassDetails(const int &l)
 {
-	simpleClearScreen();
+
 	cout << " ->Set Monk details.\n\n";
 	level = l;
 	hitdicesize = 8;
@@ -2220,7 +2220,7 @@ void Monk::setClassDetails(const int &l)
 	}
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		cout << "Monks start with 2 skills.\n";
 		for (int i = 0; i < 2; i++)
 		{
@@ -2279,7 +2279,7 @@ void Monk::setClassDetails(const int &l)
 }
 void Ranger::setClassDetails(const int &l)
 {
-	simpleClearScreen();
+
 	cout << " ->Set Ranger details.\n\n";
 	level = l;
 	hitdicesize = 10;
@@ -2454,7 +2454,7 @@ void Ranger::setClassDetails(const int &l)
 	}
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		cout << "Rangers start with 3 skills.\n";
 		for (int i = 0; i < 3; i++)
 		{
@@ -2530,7 +2530,7 @@ void Ranger::setClassDetails(const int &l)
 }
 void Warlock::setClassDetails(const int &l)
 {
-	simpleClearScreen();
+
 	cout << " ->Set Warlock details.\n\n";
 	level = l;
 	hitdicesize = 8;
@@ -2696,7 +2696,7 @@ void Warlock::setClassDetails(const int &l)
 	}
 	if (!initialSkillsSet)
 	{
-		simpleClearScreen();
+
 		cout << "Warlocks start with 2 skills.\n";
 		for (int i = 0; i < 2; i++)
 		{

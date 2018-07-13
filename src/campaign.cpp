@@ -15,18 +15,17 @@ Campaign myGame;
 void Campaign::pc_menu()
 {
     int choice = 0;
-    while (choice != 9)
+    while (choice != 8)
     {
         simpleClearScreen();
         cout << "----------Characters-----------\n\n"
              << " 1. " << GREEN << "NEW " << RESET << "Character" << endl
-             << " 2. " << YELLOW << "LIST " << RESET << "all Characters" << endl
-             << " 3. " << YELLOW << "VIEW " << RESET << "a Character" << endl
-             << " 4. " << YELLOW << "EDIT " << RESET << "a Character" << endl
-             << " 5. " << RED << "DELETE " << RESET << "a Character" << endl
-             << " 6. " << RED << "DELETE ALL " << RESET << "Characters" << endl
-             << " 7. SAVE Current Work" << endl
-             << " 8. ";
+             << " 2. " << YELLOW << "VIEW " << RESET << "a Character" << endl
+             << " 3. " << YELLOW << "EDIT " << RESET << "a Character" << endl
+             << " 4. " << RED << "DELETE " << RESET << "a Character" << endl
+             << " 5. " << RED << "DELETE ALL " << RESET << "Characters" << endl
+             << " 6. SAVE Current Work" << endl
+             << " 7. ";
         if (loadSuccess)
         {
             cout << GREEN << loadedFile << RESET << " file loaded! - " << RED << "unload?" << RESET << endl;
@@ -35,9 +34,9 @@ void Campaign::pc_menu()
         {
             cout << "LOAD File Options" << endl;
         }
-        cout << " 9. BACK to Main Menu" << endl
+        cout << " 8. BACK to Main Menu" << endl
              << endl;
-        choice = getNumber("Choice(1-9): ", 1, 9);
+        choice = getNumber("Choice(1-8): ", 1, 8);
         switch (choice)
         {
         case 1:
@@ -157,33 +156,16 @@ void Campaign::pc_menu()
         }
         break;
         case 2:
-        {
-            if (character_list.size() < 1)
-            {
-                cout << "Nothing to list. Create some Characters first.\n";
-            }
-            else
-            {
-                // //cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "\nCharacters built:\n\n";
-                for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
-                {
-                    cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
-                }
-            }
-        }
-            pressEnterToContinue();
-            break;
-        case 3:
-        { //CHARACTER SHEET
+        { //VIEW CHARACTER SHEET
             if (character_list.size() < 1)
             {
                 cout << "\nNothing to display. Create characters first.\n";
             }
             else
             {
+                cout << "Current campaign characters:\n\n";
+                showCampaignCharacterList();
                 bool found = false;
-                // //cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 string valid_name;
                 while (!found)
                 {
@@ -213,11 +195,13 @@ void Campaign::pc_menu()
         }
             pressEnterToContinue();
             break;
-        case 4:
+        case 3:
         { //EDIT/UPDATE CHARACTER
             if (character_list.size() < 1)
             {
                 cout << "No characters to Edit. Create characters first.\n\n";
+
+                pressEnterToContinue();
             }
             else
             {
@@ -248,10 +232,9 @@ void Campaign::pc_menu()
                         (*it)->updateCharacter(*this);
                 }
             }
-            pressEnterToContinue();
         }
         break;
-        case 5:
+        case 4:
         { //DELETE CHARACTER
             if (character_list.size() < 1)
             {
@@ -282,7 +265,7 @@ void Campaign::pc_menu()
         }
             pressEnterToContinue();
             break;
-        case 6:
+        case 5:
         { //DELETE ALL THE THINGS
             char sure = getYorN("Are you Sure you want to Delete All Player Characters?(y/n):");
             if (sure == 'Y')
@@ -297,10 +280,10 @@ void Campaign::pc_menu()
         }
             pressEnterToContinue();
             break;
-        case 7:
+        case 6:
             save_file();
             break;
-        case 8:
+        case 7:
             if (!loadSuccess)
             {
                 load_file();

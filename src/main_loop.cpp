@@ -72,7 +72,7 @@ void submenu()
              << " 4. Random Encounter\n"
              << " 5. NPC Insult\n"
              << " 6. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
-             << YELLOW << "-------------------------------\n"
+             << YELLOW << "-------------------------------"
              << RESET << "\n";
         choice = getNumber("Choice: ", 1, 6);
         switch (choice)

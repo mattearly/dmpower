@@ -2,8 +2,8 @@
 #include <iomanip>
 
 using std::cout;
-using std::setw;
 using std::endl;
+using std::setw;
 
 void Generic_Character_Class::character_sheet() const
 {
@@ -48,7 +48,6 @@ void Generic_Character_Class::character_sheet() const
 	printResistances();
 	printDisadvantages();
 }
-
 
 void Generic_Character_Class::printClassAbilities() const
 {
