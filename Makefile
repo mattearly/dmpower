@@ -8,7 +8,7 @@ SOURCES := $(shell find $(SRC_DIR) -name '*.cpp')
 OBJECTS := $(addprefix $(BUILD_DIR)/, $(SOURCES:$(SRC_DIR)/%.cpp=%.o))
 
 default:
-	@+$(MAKE) $(TARGET)
+	+$(MAKE) $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	$(CXX) $(OBJECTS) $(CFLAGS) -o $(TARGET)
@@ -26,12 +26,12 @@ clean:
 
 .PHONY: rebuild
 rebuild:
-	@+$(MAKE) clean
-	@+$(MAKE) default
+	+$(MAKE) clean
+	+$(MAKE) default
 
 .PHONY: run
 run:
-	@+$(MAKE) default
+	+$(MAKE) default
 	$(RUN)
 
 .PHONY: help
