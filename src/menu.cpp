@@ -19,20 +19,21 @@ void submenu();
 
 void menu()
 {
-    mainMessage = ">CLI_DUNGEON_MASTER_TOOLKIT build:1";
+    mainMessage = "CLI_DUNGEON_MASTER_TOOLKIT build:1";
     choice = 0;
     do
     {
         simpleClearScreen();
+        cout << ">";
         cout << mainMessage << endl;
         mainMessage = "";
         cout << CYAN << "\n---------- MAIN MENU ----------" << RESET << "\n"
-             << "1. CHARACTERS\n"
+             << "1. BUILD & MANAGE CHARACTERS\n"
              << "2. LOOT GENERATOR\n"
              << "3. OTHER TOOLS\n"
              << "4. " << RED << "QUIT" << RESET << "\n"
              << CYAN << "-------------------------------" << RESET << "\n";
-        choice = getNumber("Choice: ", 1, 4);
+        choice = getNumber("Enter Choice(1-4): ", 1, 4);
 
         switch (choice)
         {
@@ -76,7 +77,7 @@ void submenu()
              << " 6. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
              << YELLOW << "-------------------------------"
              << RESET << "\n";
-        choice = getNumber("Choice: ", 1, 6);
+        choice = getNumber("Enter Choice(1-6): ", 1, 6);
         switch (choice)
         {
 

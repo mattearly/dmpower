@@ -7,7 +7,7 @@ using namespace std;
 extern void save_file();
 extern void load_file();
 
-string mainMessage = "";
+string mainMessage;
 bool loadSuccess = false;
 string loadedFile = "";
 Campaign myGame;
@@ -18,25 +18,28 @@ void Campaign::pc_menu()
     while (choice != 8)
     {
         simpleClearScreen();
-        cout << "----------Characters-----------\n\n"
-             << " 1. " << GREEN << "NEW " << RESET << "Character" << endl
-             << " 2. " << YELLOW << "VIEW " << RESET << "a Character" << endl
-             << " 3. " << YELLOW << "EDIT " << RESET << "a Character" << endl
-             << " 4. " << RED << "DELETE " << RESET << "a Character" << endl
-             << " 5. " << RED << "DELETE ALL " << RESET << "Characters" << endl
-             << " 6. SAVE Current Work" << endl
-             << " 7. ";
+        cout << ">";
+        cout << mainMessage << "\n\n";
+        mainMessage = "";
+        cout << GREEN << "----------Characters-----------" << RESET << endl
+        << " 1. Build a New Character" << endl
+        << " 2. View Characters" << endl
+        << " 3. Edit a Character" << endl
+        << " 4. Delete a Character" << endl
+        << " 5. Delete All Characters" << endl
+        << " 6. Save Current Work" << endl
+        << " 7. ";
         if (loadSuccess)
         {
-            cout << GREEN << loadedFile << RESET << " file loaded! - " << RED << "unload?" << RESET << endl;
+            cout << GREEN << loadedFile << RESET << " file loaded - " << RED << "unload?" << RESET << endl;
         }
         else
         {
-            cout << "LOAD File Options" << endl;
+            cout << "Load a Saved File" << endl;
         }
-        cout << " 8. BACK to Main Menu" << endl
-             << endl;
-        choice = getNumber("Choice(1-8): ", 1, 8);
+        cout << " 8. Back to " << CYAN << "MAIN MENU" << RESET << endl;
+        cout << GREEN << "----------Characters-----------" << RESET << endl;
+        choice = getNumber("Enter Choice(1-8): ", 1, 8);
         switch (choice)
         {
         case 1:
@@ -112,7 +115,6 @@ void Campaign::pc_menu()
             {
                 new_character_build = new Paladin;
                 new_character_build->setInitialClassFeatures();
-
                 makecharacter(new_character_build, starting_level);
             }
             break;
@@ -141,7 +143,6 @@ void Campaign::pc_menu()
             {
                 new_character_build = new Ranger;
                 new_character_build->setInitialClassFeatures();
-
                 makecharacter(new_character_build, starting_level);
             }
             break;
@@ -305,6 +306,7 @@ void Campaign::pc_menu()
     }
     simpleClearScreen();
 }
+
 bool Campaign::checkname(const string &n) const
 {
     for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
@@ -317,6 +319,7 @@ bool Campaign::checkname(const string &n) const
     }
     return true;
 }
+
 void Campaign::makecharacter(Generic_Character_Class *new_character, int &starting_level)
 {
     bool goodname = false;
@@ -346,6 +349,7 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
         pressEnterToContinue();
     }
 }
+
 ofstream &Campaign::dumpCharacter(ofstream &os) const
 {
     int charactercount = 0;

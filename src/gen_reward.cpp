@@ -5,20 +5,26 @@
 
 using namespace std;
 
+extern string mainMessage;
+
 void Magic_Items::treasure_menu()
 {
     int choice = 0;
     Gear item;
-    while (choice != 5)
+    while (choice != 5) 
     {
         simpleClearScreen();
-        cout << " -------Random-Treasure-------\n\n"
-             << " 1. ROLL Individual Mob Treasure\n"
-             << " 2. ROLL Treasure Hoard\n"
+        cout << ">";
+        cout << mainMessage << "\n\n";
+        mainMessage = "";
+        cout << B_YELLOW << BLACK << "--------LOOT GENERATION-------" << RESET << "\n"
+             << " 1. Individual Mob Loot\n"
+             << " 2. Treasure Lair\n"
              << " 3. Scroll Generator\n"
              << " 4. Spellbook Creator\n"
-             << " 5. Back to Main Menu\n\n";
-        choice = getNumber("Choice(1-8): ", 1, 5);
+             << " 5. Back to Main Menu\n"
+             << B_YELLOW << BLACK << "------------------------------" << RESET << "\n";
+        choice = getNumber("Choice(1-5): ", 1, 5);
         switch (choice)
         {
         case 1:
