@@ -3,7 +3,8 @@ RUN = ./dmpower
 SRC_DIR = src
 BUILD_DIR = bin
 CFLAGS = -std=c++11 -O2 -Wall -Wextra -lboost_filesystem -lboost_system
-OBJFLAGS = -fsanitize=leak -c
+# OBJFLAGS = -fsanitize=leak -c  # not all compilers will support -fsanitize=leak
+OBJFLAGS = -c
 SOURCES := $(shell find $(SRC_DIR) -name '*.cpp')
 OBJECTS := $(addprefix $(BUILD_DIR)/, $(SOURCES:$(SRC_DIR)/%.cpp=%.o))
 
