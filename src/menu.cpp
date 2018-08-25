@@ -19,7 +19,7 @@ void other_tools();
 
 void menu()
 {
-    mainMessage = "CLI_DUNGEON_MASTER_TOOLKIT build:1";
+    mainMessage = "CLI_DUNGEON_MASTER_TOOLKIT build:2";
     choice = 0;
     do
     {
