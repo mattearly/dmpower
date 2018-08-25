@@ -24,11 +24,8 @@ std::string Encounter::Gen_Encounter()
     if (testing)
         cout << "Average Party Level: " + toString(ave_lvl) << "\n\n";
 
-
-    return ("Give Encounter of difficulty: " + getDifficulty(seed) + "\n" +
-            " CR: " + toString(ave_lvl + seed + floor((partysize - 2) / 2)) + "\n");
-            
-    find_terrain();
+    return ("Give " + getDifficulty(seed) + " encounter of " + "CR: " + toString(ave_lvl + seed + floor((partysize - 2) / 2)));
+    
 }
 
 void Encounter::set_party_level()
@@ -43,10 +40,6 @@ void Encounter::set_party_level()
         tmp += getNumber(1, 20);
     }
     ave_lvl = floor(tmp / partysize);
-}
-
-void Encounter::find_terrain()
-{
 }
 
 std::string Encounter::getDifficulty(const int &val)
