@@ -18,8 +18,7 @@ void Campaign::pc_menu()
     while (choice != 8)
     {
         simpleClearScreen();
-        cout << ">";
-        cout << mainMessage << "\n\n";
+        cout << ">" << mainMessage << "\n\n";
         mainMessage = "";
         cout << GREEN << "----------Characters-----------" << RESET << endl
         << " 1. Build a New Character" << endl

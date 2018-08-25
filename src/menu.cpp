@@ -15,7 +15,7 @@ extern Campaign myGame;
 extern string mainMessage;
 int choice = 0;
 
-void submenu();
+void other_tools();
 
 void menu()
 {
@@ -24,12 +24,11 @@ void menu()
     do
     {
         simpleClearScreen();
-        cout << ">";
-        cout << mainMessage << endl;
+        cout << ">" << mainMessage << "\n\n";
         mainMessage = "";
-        cout << CYAN << "\n---------- MAIN MENU ----------" << RESET << "\n"
+        cout << CYAN << "---------- MAIN MENU ----------" << RESET << "\n"
              << "1. BUILD & MANAGE CHARACTERS\n"
-             << "2. LOOT GENERATOR\n"
+             << "2. LOOT GENERATION\n"
              << "3. OTHER TOOLS\n"
              << "4. " << RED << "QUIT" << RESET << "\n"
              << CYAN << "-------------------------------" << RESET << "\n";
@@ -48,7 +47,7 @@ void menu()
         break;
         case 3:
         {
-            submenu();
+            other_tools();
             choice = 0;
         }
         break;
@@ -60,23 +59,22 @@ void menu()
     cout << "Exiting Program.\n";
 }
 
-void submenu()
+void other_tools()
 {
     choice = 0;
     do
     {
         simpleClearScreen();
-        cout << mainMessage << endl;
+        cout << ">" << mainMessage << "\n\n";
         mainMessage = "";
-        cout << YELLOW << "\n---------- SUB  MENU ----------" << RESET << "\n"
+        cout << YELLOW << "------------OTHER TOOLS------------" << RESET << "\n"
              << " 1. Charts\n"
              << " 2. Experience Calculator\n"
              << " 3. Name Generator\n"
              << " 4. Random Encounter\n"
              << " 5. NPC Insult\n"
              << " 6. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
-             << YELLOW << "-------------------------------"
-             << RESET << "\n";
+             << YELLOW << "-----------------------------------" << RESET << "\n";
         choice = getNumber("Enter Choice(1-6): ", 1, 6);
         switch (choice)
         {

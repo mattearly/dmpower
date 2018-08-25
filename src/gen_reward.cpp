@@ -14,16 +14,15 @@ void Magic_Items::treasure_menu()
     while (choice != 5) 
     {
         simpleClearScreen();
-        cout << ">";
-        cout << mainMessage << "\n\n";
+        cout << ">" << mainMessage << "\n\n";
         mainMessage = "";
-        cout << B_YELLOW << BLACK << "--------LOOT GENERATION-------" << RESET << "\n"
-             << " 1. Individual Mob Loot\n"
-             << " 2. Treasure Lair\n"
+        cout << B_YELLOW << BLACK << "------------LOOT GENERATION-----------" << RESET << "\n"
+             << " 1. Single Mob Loot - DMGUIDE: Individual Treasure\n"
+             << " 2. Treasure Lair Loot - DMGUIDE: Treasure Hoard\n"
              << " 3. Scroll Generator\n"
              << " 4. Spellbook Creator\n"
-             << " 5. Back to Main Menu\n"
-             << B_YELLOW << BLACK << "------------------------------" << RESET << "\n";
+             << " 5. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
+             << B_YELLOW << BLACK << "--------------------------------------" << RESET << "\n";
         choice = getNumber("Choice(1-5): ", 1, 5);
         switch (choice)
         {
