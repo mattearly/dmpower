@@ -27,12 +27,12 @@ std::string Encounter::Gen_Encounter()
 
     return ("Give Encounter of difficulty: " + getDifficulty(seed) + "\n" +
             " CR: " + toString(ave_lvl + seed + floor((partysize - 2) / 2)) + "\n");
+            
     find_terrain();
 }
 
 void Encounter::set_party_level()
 {
-
     ave_lvl = 0;
     int tmp(0);
     cout << "Enter the Total Number of party members (max=10): ";

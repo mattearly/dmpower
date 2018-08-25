@@ -21,17 +21,17 @@ void menu()
 {
     mainMessage = ">CLI_DUNGEON_MASTER_TOOLKIT build:1";
     choice = 0;
-    simpleClearScreen();
     do
     {
+        simpleClearScreen();
         cout << mainMessage << endl;
         mainMessage = "";
-        cout << YELLOW << "\n---------- MAIN MENU ----------" << RESET << "\n"
+        cout << CYAN << "\n---------- MAIN MENU ----------" << RESET << "\n"
              << "1. CHARACTERS\n"
              << "2. LOOT GENERATOR\n"
              << "3. OTHER TOOLS\n"
-             << "4. QUIT\n"
-             << YELLOW << "-------------------------------" << RESET << "\n";
+             << "4. " << RED << "QUIT" << RESET << "\n"
+             << CYAN << "-------------------------------" << RESET << "\n";
         choice = getNumber("Choice: ", 1, 4);
 
         switch (choice)
@@ -49,7 +49,6 @@ void menu()
         {
             submenu();
             choice = 0;
-            simpleClearScreen();
         }
         break;
         default:
@@ -62,10 +61,10 @@ void menu()
 
 void submenu()
 {
-    simpleClearScreen();
     choice = 0;
     do
     {
+        simpleClearScreen();
         cout << mainMessage << endl;
         mainMessage = "";
         cout << YELLOW << "\n---------- SUB  MENU ----------" << RESET << "\n"
@@ -91,28 +90,25 @@ void submenu()
         {
             Gen_Experience gen;
             float rewardXP = gen.xpgenerator();
-            cout << "EXP for Each Party Member = " << GREEN << rewardXP << RESET << "\n\n";
+            mainMessage = "EXP for Each Party Member = " + to_string((int)rewardXP);
         }
         break;
         case 3:
         {
             CharacterName randomName;
-            simpleClearScreen();
-            cout << "Here is a name: " << randomName.grabRandomName() << "\n\n";
+            mainMessage = "A Name: " + randomName.grabRandomName();
         }
         break;
         case 4:
         {
             Encounter encounter;
-            cout << encounter.Gen_Encounter();
-            pressEnterToContinue();
+            mainMessage = encounter.Gen_Encounter();
         }
         break;
         case 5:
         {
             Insult insult;
-            simpleClearScreen();
-            cout << "Maybe this will make the PCs mad: " << insult.laydownheat() << "\n\n";
+            mainMessage = "Listen up you " + insult.laydownheat();
         }
         break;
         default:
