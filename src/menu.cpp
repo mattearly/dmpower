@@ -107,7 +107,7 @@ void other_tools()
         case 5:
         {
             Insult insult;
-            mainMessage = "Listen up you " + insult.laydownheat();
+            mainMessage = "INSULT: Listen up you" + insult.laydownheat();
         }
         break;
         default:

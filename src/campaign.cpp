@@ -37,7 +37,7 @@ void Campaign::pc_menu()
             cout << "Load a Saved File" << endl;
         }
         cout << " 8. Back to " << CYAN << "MAIN MENU" << RESET << endl;
-        cout << GREEN << "----------Characters-----------" << RESET << endl;
+        cout << GREEN << "------------------------------" << RESET << endl;
         choice = getNumber("Enter Choice(1-8): ", 1, 8);
         switch (choice)
         {
@@ -244,7 +244,6 @@ void Campaign::pc_menu()
             {
                 cout << "Current campaign characters:\n\n";
                 showCampaignCharacterList();
-
                 string tmp;
                 do
                 {
@@ -255,15 +254,15 @@ void Campaign::pc_menu()
                     {
                         if ((*it)->char_name == tmp)
                         {
-                            cout << "Deleting " << tmp << ". Goodbye " << tmp << endl;
+                            mainMessage = "Deleted " + tmp + ". Goodbye " + tmp + ". You might be missed. *sob*";
                             character_list.erase(it);
-                            return;
+                            tmp = "";
+                            break;
                         }
                     }
                 } while (tmp != "");
             }
         }
-            pressEnterToContinue();
             break;
         case 5:
         { //DELETE ALL THE THINGS
@@ -271,14 +270,13 @@ void Campaign::pc_menu()
             if (sure == 'Y')
             {
                 character_list.clear();
-                cout << "All Characters Deleted. Your next save will write this change.\n\n";
+                mainMessage = "All Characters Deleted. Your next save will write this change.";
             }
             else
             {
-                cout << "Nothing Deleted.\n\n";
+                mainMessage = "Nothing Deleted.\n\n";
             }
         }
-            pressEnterToContinue();
             break;
         case 6:
             save_file();
@@ -801,6 +799,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
     }
     return os;
 }
+
 bool Campaign::retrieveCharacter(ifstream &ins)
 {
     string tmp;

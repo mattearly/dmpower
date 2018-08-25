@@ -24,7 +24,7 @@ void save_file()
 {
     if (myGame.character_list.empty())
     {
-        std::cout << "nothing to save - character list empty\n";
+        mainMessage = "Nothing to save - character list empty";
         return;
     }
 
@@ -57,7 +57,7 @@ void save_file()
     if (os.is_open())
     {
         myGame.dumpCharacter(os);
-        std::cout << "All data saved in file -> " << file << std::endl;
+        mainMessage = "All data saved in file: " + file;
         loadSuccess = true;
         loadedFile = file;
         os.close();
