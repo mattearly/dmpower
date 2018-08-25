@@ -123,7 +123,7 @@ int getNumber(const std::string &message, const int &a, const int &b)
         {
             continue;
         }
-        if (numbers.size() <= LARGEST_INPUT_DIGITS)
+        if (numbers.size() > 0 && numbers.size() <= LARGEST_INPUT_DIGITS)
         {
             user_input = std::stoi(numbers);
         }
@@ -167,7 +167,7 @@ int getNumber(const int &a, const int &b)
         {
             continue;
         }
-        if (numbers.size() <= LARGEST_INPUT_DIGITS)
+        if (numbers.size() > 0 && numbers.size() <= LARGEST_INPUT_DIGITS)
         {
             user_input = std::stoi(numbers);
         }
