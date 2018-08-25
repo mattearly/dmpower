@@ -8,6 +8,8 @@
 #include <type_traits>
 #include "terminal_colors.h"
 
+const int LARGEST_INPUT_DIGITS = 3;
+
 static std::random_device rgen;
 static std::mt19937 mgen(rgen());
 static std::uniform_int_distribution<int> rolld4(1, 4);

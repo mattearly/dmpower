@@ -102,7 +102,7 @@ int getNumber(const std::string &message, const int &a, const int &b)
         test.clear();
         numbers.clear();
         if (tried_once)
-            std::cout << "X - Invalid entry, try again.\n";
+            std::cout << " --Invalid entry, try again.\n";
         std::cout << message;
         std::getline(std::cin, test);
         if (test.size() > 0)
@@ -121,10 +121,12 @@ int getNumber(const std::string &message, const int &a, const int &b)
         }
         else
         {
-            user_input = -1;
+            continue;
         }
-        if (numbers.size() > 0)
+        if (numbers.size() <= LARGEST_INPUT_DIGITS)
+        {
             user_input = std::stoi(numbers);
+        }
         tried_once = true;
     } while (user_input < a || user_input > b);
     return user_input;
@@ -145,7 +147,7 @@ int getNumber(const int &a, const int &b)
         test.clear();
         numbers.clear();
         if (tried_once)
-            std::cout << "X - Invalid entry, try again.\n";
+            std::cout << " --Invalid entry, try again.\n";
         std::getline(std::cin, test);
         if (test.size() > 0)
         {
@@ -163,11 +165,12 @@ int getNumber(const int &a, const int &b)
         }
         else
         {
-            user_input = -1;
+            continue;
         }
-        if (numbers.size() > 0)
+        if (numbers.size() <= LARGEST_INPUT_DIGITS)
+        {
             user_input = std::stoi(numbers);
-        tried_once = true;
+        }
     } while (user_input < a || user_input > b);
     return user_input;
 }
