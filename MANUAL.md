@@ -15,9 +15,9 @@
 
 ### 2. Character Builder
 
- <img src="img/cliscreenshot_characters.png" height="160px" align="center"> 
+ <img src="img/cliscreenshot_characters.png" height="180px" align="left"> 
  
- <img src="img/cliscreenshot_characters2.png" height="160px" align="center">
+ <img src="img/cliscreenshot_characters2.png" height="180px" align="center">
 
 _Build and Manage Characters_
 
@@ -37,7 +37,7 @@ _Build and Manage Characters_
 
 * **Limitations**. Character Builder doesn't handle equipment, spell choices, multiclassing, or personality traits. These may be added in later.
 
-<img src="img/cliscreenshot_character.png" height="300px" align="center">
+<img src="img/cliscreenshot_character.png" height="350px" align="center">
 
 _What the end Character Sheet looks like within your terminal_
 
@@ -61,6 +61,8 @@ _What the end Character Sheet looks like within your terminal_
 ---
 
 ### 4. Other Tools
+
+<img src="img\cliscreenshot_other_tools.png" height="180px" align="center">
 
 * **Name Generator**. 7732 names from [Kisment's list](http://www.dnd.kismetrose.com/pdfs/KismetsFantasyNames.pdf) with randomized selection. Edit the file [settings/names.dat](settings/names.dat) to add/remove names. The code that handles it automatically adjusts based on the number of lines in the file. Be sure to keep the newline at the end of the file(otherwise the last name on the list will never be chosen).
 
