@@ -1,6 +1,6 @@
 # dmpower-dungeons-and-dragons-5e
 
-A Terminal based Dungeons and Dragon's 5e Toolkit. See the [Manual](MANUAL.md) for more information about the tools.
+A interative terminal based Dungeons and Dragon's 5e Toolkit. See the [Manual](MANUAL.md) for more information about the tools.
 
 ---
 
@@ -25,8 +25,8 @@ A Terminal based Dungeons and Dragon's 5e Toolkit. See the [Manual](MANUAL.md) f
 
 ### 2. Support
 
-- Any donations [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC) are used to go towards development. I'm not really expecting anything but I thought I'd at least leave the possibiliy open. Thank you for any support you are willing to give this project. 
-- In the improvements and continuation of this project, I'll strive to keep the logic as sound as possible. It should provide answers to common D&D Dungeon Master problems in the quickest and least invasive way possible.
+- Any donations [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC) are used to go towards development. I'm not really expecting anything but I thought I'd at least leave the possibiliy open. Thank you for any support you are willing to give this project. I'm also set up on Patreon [https://www.patreon.com/mattearly](patreon/mattearly)
+- In the improvements and continuation of this project, I'll strive to keep the logic as sound as possible and the program useful.
 
 ---
 
@@ -42,6 +42,7 @@ A Terminal based Dungeons and Dragon's 5e Toolkit. See the [Manual](MANUAL.md) f
 
 ### 4. Additional Notes
 
+- This interactive toolkit uses some coloring of text that will probably look best in a terminal with a dark background.
 - This D&D Toolkit uses Wizards of the Coast (WotC) rules and is free and open source.
 - This tool is best suited for Dungeon Masters, however the character creator flow has been proving irreplacable for some of players in my circle. 
 - No known crash cases. All crash case reports are taken as highly critical and will be fixed asap.
