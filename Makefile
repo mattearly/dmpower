@@ -9,8 +9,11 @@ OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(wildcard $(SRC_DIR)/
 default:
 	+$(MAKE) $(TARGET)
 
+all:
+	+$(MAKE) $(TARGET)
+
 $(TARGET): $(OBJECTS)
-	$(CXX) $(OBJECTS) $(CFLAGS) -o $@ $(LOADLIBS) 
+	$(CXX) $(OBJECTS) $(CFLAGS) -o $@ $(LOADLIBS)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
 	$(CXX) $(CFLAGS) -c $< -o $@ $(LOADLIBS)
