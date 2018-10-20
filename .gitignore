@@ -38,4 +38,7 @@ dmpower
 # IDEs
 *.vscode
 *.idea
+dmpower.config
+dmpower.files
+dmpower.includes
 
