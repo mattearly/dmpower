@@ -304,6 +304,7 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
     }
     v.setAnySkill("Half Elfs gain two of any skill:", 2);
     v.common = true; //only starting lang
+    v.elvish = true; //Player guide 5e says Elfish too
     pressEnterToContinue();
 }
 void Halforc::setRaceDetails(Generic_Character_Class &v)
