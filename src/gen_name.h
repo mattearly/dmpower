@@ -8,9 +8,9 @@
 class CharacterName
 {
 
-  public:
-    std::string grabRandomName();
+public:
+  std::string grabRandomName();
 
-  private:
+private:
 };
 #endif //NAME_GEN_H

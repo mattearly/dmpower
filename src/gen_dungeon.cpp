@@ -2,5 +2,5 @@
 
 Dungeon::Dungeon()
 {
-    chamberPurpose = "na";
+  chamberPurpose = "na";
 }
