@@ -4,7 +4,11 @@
 dmpower
 *.stackdump
 *.user
+
+# local stuff
 *.save
+local_user_settings.dat
+
 
 # Compiled Object files
 *.slo

@@ -151,7 +151,8 @@ void Campaign::pc_menu()
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-      default:;
+        break;
+      default:break;
       }
     }
       break;

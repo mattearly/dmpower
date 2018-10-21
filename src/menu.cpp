@@ -14,6 +14,7 @@ using namespace std;
 extern Campaign myGame;
 extern string mainMessage;
 static int choice = 0;
+extern void change_settings();
 
 void other_tools();
 
@@ -30,10 +31,10 @@ void menu()
          << "1. BUILD & MANAGE CHARACTERS\n"
          << "2. LOOT GENERATION\n"
          << "3. OTHER TOOLS\n"
-         << "4. " << RED << "QUIT" << RESET << "\n"
+         << "4. PROGRAM SETTINGS\n"
+         << "5. " << RED << "QUIT" << RESET << "\n"
          << CYAN << "-------------------------------" << RESET << "\n";
-    choice = getNumber("Enter Choice(1-4): ", 1, 4);
-
+    choice = getNumber("Enter Choice(1-4): ", 1, 5);
     switch (choice)
     {
     case 1:
@@ -46,15 +47,16 @@ void menu()
     }
       break;
     case 3:
-    {
       other_tools();
       choice = 0;
-    }
+      break;
+    case 4:
+      change_settings();
       break;
     default:
       break;
     }
-  } while (choice < 4);
+  } while (choice < 5);
 
   cout << "Exiting Program.\n";
 }
