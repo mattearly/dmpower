@@ -10,13 +10,17 @@ extern string mainMessage;
 ///
 string insult_mode;
 
+///
+/// \brief file
+///save location for the user settings
+string file = "./settings/local_user_settings.dat";
+
 
 ///
 /// \brief save_insult_preference saves the chosen preference to local file
 ///
 void save_insult_preference() {
 
-  std::string file = "./settings/local_user_settings.dat";
   std::ofstream os;
 
   os.open(file.c_str());
@@ -33,10 +37,22 @@ void save_insult_preference() {
 ///
 void change_settings() {
   simpleClearScreen();
+  cout << "~~~CURRENT LOCAL SETTINGS~~~\n\n";
+  std::ifstream is;
+  is.open(file.c_str());
+  if (is.is_open())
+  {
+    std::string tmp;
+    while (getline(is, tmp)) {
+      cout << tmp << endl;
+    }
+    cout << "\n~~~ end of settings ~~~\n\n";
+    is.close();
+  }
   cout << "-------- LOCAL SETTINGS --------\n"
           " 1. Change Insult Mode \n"
           " 2. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
-          "--------------------------------\n";
+                                                            "--------------------------------\n";
 
   int choice = getNumber("Choice: ", 1, 2);
   switch (choice) {
@@ -63,15 +79,14 @@ void change_settings() {
 ///
 void set_user_pref_from_file() {
 
-  std::string file = "./settings/local_user_settings.dat";
-  std::ifstream os;
+  std::ifstream is;
 
-  os.open(file.c_str());
-  if (os.is_open())
+  is.open(file.c_str());
+  if (is.is_open())
   {
     // first line in insult settings
     std::string readinstring;
-    getline(os, readinstring);
+    getline(is, readinstring);
     // insults="clean"
     // insults="dirty"
     insult_mode = readinstring.substr(9, 5);
@@ -79,7 +94,7 @@ void set_user_pref_from_file() {
     if (insult_mode.compare("dirty") != 0 && insult_mode.compare("clean") != 0) {
       cout << "insult_mode should be set but failed to be a proper string 'clean' or 'dirty'\n";
     }
-    os.close();
+    is.close();
   } else {
     insult_mode = "clean";
     cout << "Insult Mode defaulted to 'clean'\n";
