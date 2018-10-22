@@ -16,14 +16,14 @@ void Magic_Items::treasure_menu()
     simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
-    cout << YELLOW << "------------LOOT GENERATION-----------" << RESET << "\n"
-         << " 1. Single Mob Loot - DMGUIDE: Individual Treasure\n"
-         << " 2. Treasure Lair Loot - DMGUIDE: Treasure Hoard\n"
-         << " 3. Scroll Generator\n"
-         << " 4. Spellbook Creator\n"
+    cout << YELLOW << "-------------- LOOT GENERATION -------------" << RESET << "\n"
+         << " 1. Loot Single Mob - DMGUIDE: Individual Treasure\n"
+         << " 2. Loot Treasure Lair - DMGUIDE: Treasure Hoard\n"
+         << " 3. Generate Random Scroll\n"
+         << " 4. Create Wizard Spellbook\n"
          << " 5. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
-         << YELLOW << "--------------------------------------" << RESET << "\n";
-    choice = getNumber("Choice(1-5): ", 1, 5);
+         << YELLOW << "--------------------------------------------" << RESET << "\n";
+    choice = getNumber("Choice: ", 1, 5);
     switch (choice)
     {
     case 1:
@@ -32,7 +32,7 @@ void Magic_Items::treasure_menu()
            << " 2. Challenge Rating 5-10 \n"
            << " 3. Challenge Rating 11-16 \n"
            << " 4. Challenge Rating 17+ \n\n";
-      choice = getNumber("Choice(1-4): ", 1, 4);
+      choice = getNumber("Choice: ", 1, 4);
       switch (choice)
       {
       case 1:
@@ -58,7 +58,7 @@ void Magic_Items::treasure_menu()
            << " 2. Challenge Rating 5-10 \n"
            << " 3. Challenge Rating 11-16 \n"
            << " 4. Challenge Rating 17+ \n\n";
-      choice = getNumber("Choice(1-4): ", 1, 4);
+      choice = getNumber("Choice: ", 1, 4);
       switch (choice)
       {
       case 1:
@@ -80,7 +80,7 @@ void Magic_Items::treasure_menu()
       break;
     case 3:
       cout << "Spell figureout-er-er. What could it be?\n\n";
-      choice = getNumber("Scroll Level?(1-9): ", 1, 9);
+      choice = getNumber("Scroll Level: ", 1, 9);
       SingleScroll(choice);
       choice = 0;
       pressEnterToContinue();
@@ -3587,162 +3587,165 @@ string Magic_Items::GenerateScroll(const int &lvl) const
       scroll += "Charm Person (bard, druid, sorcerer, warlock, wizard)";
       break;
     case 9:
-      scroll += "Color Spray (sorcerer, wizard)";
+      scroll += "Chromatic Orb (sorcerer, wizard)";
       break;
     case 10:
-      scroll += "Command (cleric, paladin)";
+      scroll += "Color Spray (sorcerer, wizard)";
       break;
     case 11:
-      scroll += "Compelled Duel (paladin)";
+      scroll += "Command (cleric, paladin)";
       break;
     case 12:
-      scroll += "Comprehend Languages (bard, sorcerer, warlock, wizard)";
+      scroll += "Compelled Duel (paladin)";
       break;
     case 13:
-      scroll += "Create or Destroy Water (cleric, druid)";
+      scroll += "Comprehend Languages (bard, sorcerer, warlock, wizard)";
       break;
     case 14:
-      scroll += "Cure Wounds (bard, cleric, druid, paladin, ranger)";
+      scroll += "Create or Destroy Water (cleric, druid)";
       break;
     case 15:
-      scroll += "Detect Evil and Good (cleric, paladin)";
+      scroll += "Cure Wounds (bard, cleric, druid, paladin, ranger)";
       break;
     case 16:
-      scroll += "Detect Magic (bard, cleric, druid, paladin, ranger, sorcerer, wizard)";
+      scroll += "Detect Evil and Good (cleric, paladin)";
       break;
     case 17:
-      scroll += "Detect Poison and Disease (cleric, druid, paladin, ranger)";
+      scroll += "Detect Magic (bard, cleric, druid, paladin, ranger, sorcerer, wizard)";
       break;
     case 18:
-      scroll += "Disguise Self (bard, sorcerer, wizard)";
+      scroll += "Detect Poison and Disease (cleric, druid, paladin, ranger)";
       break;
     case 19:
-      scroll += "Dissonant Whispers (bard)";
+      scroll += "Disguise Self (bard, sorcerer, wizard)";
       break;
     case 20:
-      scroll += "Divine Favor (paladin)";
+      scroll += "Dissonant Whispers (bard)";
       break;
     case 21:
-      scroll += "Ensnaring Strike (ranger)";
+      scroll += "Divine Favor (paladin)";
       break;
     case 22:
-      scroll += "Entangle (druid)";
+      scroll += "Ensnaring Strike (ranger)";
       break;
     case 23:
-      scroll += "Expeditious Retreat (sorcerer, warlock, wizard)";
+      scroll += "Entangle (druid)";
       break;
     case 24:
-      scroll += "False Life (sorcerer, wizard)";
+      scroll += "Expeditious Retreat (sorcerer, warlock, wizard)";
       break;
     case 25:
-      scroll += "Faerie Fire (bard, druid)";
+      scroll += "False Life (sorcerer, wizard)";
       break;
     case 26:
-      scroll += "Feather Fall (bard, sorcerer, wizard)";
+      scroll += "Faerie Fire (bard, druid)";
       break;
     case 27:
-      scroll += "Find Familiar (wizard)";
+      scroll += "Feather Fall (bard, sorcerer, wizard)";
       break;
     case 28:
-      scroll += "Fog Cloud (druid, ranger, sorcerer, wizard)";
+      scroll += "Find Familiar (wizard)";
       break;
     case 29:
-      scroll += "Goodberry (druid, ranger)";
+      scroll += "Fog Cloud (druid, ranger, sorcerer, wizard)";
       break;
     case 30:
-      scroll += "Grease (wizard)";
+      scroll += "Goodberry (druid, ranger)";
       break;
     case 31:
-      scroll += "Guiding Bolt (cleric)";
+      scroll += "Grease (wizard)";
       break;
     case 32:
-      scroll += "Hail of Thorns (ranger)";
+      scroll += "Guiding Bolt (cleric)";
       break;
     case 33:
-      scroll += "Healing Word (bard, cleric, druid)";
+      scroll += "Hail of Thorns (ranger)";
       break;
     case 34:
-      scroll += "Hellish Rebuke (warlock)";
+      scroll += "Healing Word (bard, cleric, druid)";
       break;
     case 35:
-      scroll += "Heroism (bard, paladin)";
+      scroll += "Hellish Rebuke (warlock)";
       break;
     case 36:
-      scroll += "Hex (warlock)";
+      scroll += "Heroism (bard, paladin)";
       break;
     case 37:
-      scroll += "Hunter's Mark (ranger)";
+      scroll += "Hex (warlock)";
       break;
     case 38:
-      scroll += "Identify (bard, wizard)";
+      scroll += "Hunter's Mark (ranger)";
       break;
     case 39:
-      scroll += "Illusory Script (bard, warlock, wizard)";
+      scroll += "Identify (bard, wizard)";
       break;
     case 40:
-      scroll += "Inflict Wounds (cleric)";
+      scroll += "Illusory Script (bard, warlock, wizard)";
       break;
     case 41:
-      scroll += "Jump (druid, ranger, sorcerer, wizard)";
+      scroll += "Inflict Wounds (cleric)";
       break;
     case 42:
-      scroll += "Longstrider (bard, druid, ranger, wizard)";
+      scroll += "Jump (druid, ranger, sorcerer, wizard)";
       break;
     case 43:
-      scroll += "Mage Armor (sorcerer, wizard)";
+      scroll += "Longstrider (bard, druid, ranger, wizard)";
       break;
     case 44:
-      scroll += "Magic Missle (sorcerer, wizard)";
+      scroll += "Mage Armor (sorcerer, wizard)";
       break;
     case 45:
-      scroll += "Protection from Evil and Good (cleric, paladin, warlock, wizard)";
+      scroll += "Magic Missle (sorcerer, wizard)";
       break;
     case 46:
-      scroll += "Purify Food and Drink (cleric, druid, paladin)";
+      scroll += "Protection from Evil and Good (cleric, paladin, warlock, wizard)";
       break;
     case 47:
-      scroll += "Ray of Sickness (sorcerer, wizard)";
+      scroll += "Purify Food and Drink (cleric, druid, paladin)";
       break;
     case 48:
-      scroll += "Searing Smite (paladin)";
+      scroll += "Ray of Sickness (sorcerer, wizard)";
       break;
     case 49:
-      scroll += "Sanctuary (cleric)";
+      scroll += "Searing Smite (paladin)";
       break;
     case 50:
-      scroll += "Shield (sorcerer, wizard)";
+      scroll += "Sanctuary (cleric)";
       break;
     case 51:
-      scroll += "Shield of Faith (cleric, paladin)";
+      scroll += "Shield (sorcerer, wizard)";
       break;
     case 52:
-      scroll += "Silent Image (bard, sorcerer, wizard)";
+      scroll += "Shield of Faith (cleric, paladin)";
       break;
     case 53:
-      scroll += "Sleep (bard, sorcerer, wizard)";
+      scroll += "Silent Image (bard, sorcerer, wizard)";
       break;
     case 54:
-      scroll += "Speak with Animals (bard, druid, ranger)";
+      scroll += "Sleep (bard, sorcerer, wizard)";
       break;
     case 55:
-      scroll += "Tasha's Hideous Laughter (bard, wizard)";
+      scroll += "Speak with Animals (bard, druid, ranger)";
       break;
     case 56:
-      scroll += "Tensor's Floating Disk (wizard)";
+      scroll += "Tasha's Hideous Laughter (bard, wizard)";
       break;
     case 57:
-      scroll += "Thunderous Smite (paladin)";
+      scroll += "Tensor's Floating Disk (wizard)";
       break;
     case 58:
-      scroll += "Thunderwave (bard, druid, sorcerer, wizard)";
+      scroll += "Thunderous Smite (paladin)";
       break;
     case 59:
-      scroll += "Unseen Servant (bard, warlock, wizard)";
+      scroll += "Thunderwave (bard, druid, sorcerer, wizard)";
       break;
     case 60:
-      scroll += "Witch Bolt (sorcerer, warlock, wizard)";
+      scroll += "Unseen Servant (bard, warlock, wizard)";
       break;
     case 61:
+      scroll += "Witch Bolt (sorcerer, warlock, wizard)";
+      break;
+    case 62:
       scroll += "Wrathful Smite (paladin)";
       break;
     }
@@ -5979,8 +5982,7 @@ string Magic_Items::GenerateArt(const int &amount, const int &value) const
 void Magic_Items::MakeSpellbook() const
 {
   simpleClearScreen();
-  cout << "  Enter details about the Spellbook you are creating: \n\n";
-  int first = getNumber("1. How many first level spells?(0-31): ", 0, 31);
+  int first = getNumber("1. How many first level spells?(0-30): ", 0, 30);
   int second = getNumber("2. How many second level spells?(0-30): ", 0, 30);
   int third = getNumber("3. How many third level spells?(0-27): ", 0, 27);
   int fourth = getNumber("4. How many fourth level spells?(0-23): ", 0, 23);
@@ -5990,9 +5992,9 @@ void Magic_Items::MakeSpellbook() const
   int eighth = getNumber("8. How many eighth level spells?(0-14): ", 0, 14);
   int ninth = getNumber("9. How many ninth level spells?(0-12): ", 0, 12);
   int usedpages = ((first) + (second * 2) + (third * 3) + (fourth * 4) + (fifth * 5) + (sixth * 6) + (seventh * 7) + (eighth * 8) + (ninth * 9));
-  cout << "\n ->Based on the number of spells, there are at least " << RED << usedpages << RESET << " pages in this spellbook." << endl
+  cout << "\n ->Based on the number of spells in this spellbook, there are at least " << RED << usedpages << RESET << " pages in this spellbook." << endl
        << endl;
-  int totalpages = getNumber("Most spellbooks have between 70 to 150 pages in total, but can be more or less.\n How many pages are in this one?\n ->", usedpages, 900);
+  int totalpages = getNumber("Most spellbooks have between 70 to 150 pages in total, but can be more or less.\n How many pages are in this one?(824max)\n ->", usedpages, 824);
   cout << "Spellbooks are often bound in leather or thick cloth, but can be made out of anything.\n What kind of material is this spellbook made out of? (enter anything)\n -> ";
   string material;
   getline(cin, material);
