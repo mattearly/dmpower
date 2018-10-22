@@ -37,38 +37,40 @@ void save_insult_preference() {
 ///
 void change_settings() {
   simpleClearScreen();
-  cout << "~~~CURRENT LOCAL SETTINGS~~~\n\n";
+  cout << "Current settings: \n\n";
   std::ifstream is;
   is.open(file.c_str());
   if (is.is_open())
   {
     std::string tmp;
     while (getline(is, tmp)) {
-      cout << tmp << endl;
+      cout << " " << tmp << endl;
     }
-    cout << "\n~~~ end of settings ~~~\n\n";
+    cout << "\n\n";
     is.close();
   }
-  cout << "-------- LOCAL SETTINGS --------\n"
-          " 1. Change Insult Mode \n"
-          " 2. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
-                                                            "--------------------------------\n";
-
-  int choice = getNumber("Choice: ", 1, 2);
-  switch (choice) {
-  case 1:
-  {
-    int innerchoice = getNumber("1=clean, 2=dirty; Choice: ", 1, 2);
-    if (innerchoice == 1) {
-      insult_mode = "clean";
-    } else { // user entered 2
-      insult_mode = "dirty";
+  int choice = 0;
+  while (choice != 2) {
+    cout << "-------- SETTINGS MENU --------\n"
+            " 1. Insult Mode \n"
+            " 2. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
+            "-------------------------------\n";
+    choice = getNumber("Choice: ", 1, 2);
+    switch (choice) {
+    case 1:
+    {
+      int innerchoice = getNumber("---\n 1. set to clean\n 2. set to dirty\n---\nChoice: ", 1, 2);
+      if (innerchoice == 1) {
+        insult_mode = "clean";
+      } else { // user entered 2
+        insult_mode = "dirty";
+      }
+      save_insult_preference();
     }
-    save_insult_preference();
-  }
-    break;
-  default:
-    break;
+      break;
+    default:
+      break;
+    }
   }
 }
 
@@ -98,7 +100,6 @@ void set_user_pref_from_file() {
   } else {
     insult_mode = "clean";
     cout << "Insult Mode defaulted to 'clean'\n";
-
     //more settings later
   }
   //more settings later
