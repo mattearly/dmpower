@@ -20,21 +20,21 @@ void other_tools();
 
 void menu()
 {
-  mainMessage = "Welcome to Dungeon Master Power! [build:3]";
+  mainMessage = "Dungeon Master Power! (build:3)";
   choice = 0;
   do
   {
     simpleClearScreen();
-    cout << ">" << mainMessage << "\n\n";
+    cout << "> " << mainMessage << "\n\n";
     mainMessage = "";
     cout << CYAN << "---------- MAIN MENU ----------" << RESET << "\n"
-         << "1. BUILD & MANAGE CHARACTERS\n"
-         << "2. LOOT GENERATION\n"
-         << "3. OTHER TOOLS\n"
-         << "4. PROGRAM SETTINGS\n"
-         << "5. " << RED << "QUIT" << RESET << "\n"
+         << " 1. BUILD & MANAGE CHARACTERS\n"
+         << " 2. LOOT GENERATION\n"
+         << " 3. OTHER TOOLS\n"
+         << " 4. SETTINGS\n"
+         << " 5. " << RED << "QUIT" << RESET << "\n"
          << CYAN << "-------------------------------" << RESET << "\n";
-    choice = getNumber("Enter Choice(1-4): ", 1, 5);
+    choice = getNumber("Choice: ", 1, 5);
     switch (choice)
     {
     case 1:
@@ -97,7 +97,7 @@ void other_tools()
     case 3:
     {
       CharacterName randomName;
-      mainMessage = "A Name: " + randomName.grabRandomName();
+      mainMessage = "Random Name: " + randomName.grabRandomName();
     }
       break;
     case 4:
