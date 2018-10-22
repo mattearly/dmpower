@@ -47,6 +47,7 @@ void Generic_Character_Class::character_sheet() const
   printFeats();
   printResistances();
   printDisadvantages();
+  cout << endl;
 }
 
 void Generic_Character_Class::printClassAbilities() const

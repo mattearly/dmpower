@@ -535,7 +535,7 @@ void Generic_Character_Class::setAlignment()
        << "\n3. Chaotic Good     8. Lawful Neutral"
        << "\n4. Neutral Evil     9. Lawful Good"
        << "\n5. True Neutral\n\n";
-  int c = getNumber("Alignment choice(1-9): ", 1, 9);
+  int c = getNumber("Alignment choice: ", 1, 9);
   if (c == 1)
     alignment = "CE";
   if (c == 2)
@@ -574,7 +574,7 @@ void Generic_Character_Class::setBackground()
        << "12. Guild Artisan       25. Waterdhavian Noble\n"
        << "13. Hermit\n\n";
 
-  int ss = getNumber("Background choice(1-25): ", 1, 25);
+  int ss = getNumber("Background choice: ", 1, 25);
   backgroundofpc = static_cast<enum characterbackground>(ss);
   switch (ss)
   {

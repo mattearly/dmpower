@@ -13,8 +13,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
     character_sheet();
 
     cout
-        << "\n---------------------------"
-        << "\n\nUpdate what about " << char_name << ", the level " << level << " " << char_class << "?\n\n"
+        << "\nEditing " << GREEN << char_name << RESET << ", level " << level << " " << char_class << "\n\n"
         << "1. Change Name" << endl
         << "2. LEVEL UP!" << endl
         << "3. Change Alignment" << endl
@@ -23,7 +22,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
         << "6. Add a new Feat" << endl
         << "7. Quit the PC editor" << endl
         << endl;
-    ss = getNumber("Choice(1-7): ", 1, 7);
+    ss = getNumber("Choice: ", 1, 7);
     switch (ss)
     {
     case 1:

@@ -38,7 +38,7 @@ void Campaign::pc_menu()
     }
     cout << " 8. Back to " << CYAN << "MAIN MENU" << RESET << endl;
     cout << GREEN << "------------------------------" << RESET << endl;
-    choice = getNumber("Enter Choice(1-8): ", 1, 8);
+    choice = getNumber("Choice: ", 1, 8);
     switch (choice)
     {
     case 1:

@@ -32,7 +32,7 @@ void Generic_Character_Class::setAnyFeat()
          << "\n22. Magic Initiate "
          << "\n23. Martial Adept  "
          << "\n24. Medium Armor Master\n";
-    int ss = getNumber("  Feat Choice(1-42):", 1, 42);
+    int ss = getNumber("  Feat Choice:", 1, 42);
     if (ss == 1)
     {
       gainAlert(set);

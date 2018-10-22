@@ -17,7 +17,7 @@ void Cleric::setClassDetails(const int &l)
     cout << "Choose a Divine Domain:\n\n"
          << " 1. Arcane\n 2. Death\n 3. Knowledge\n 4. Life\n 5. Light\n"
          << " 6. Nature\n 7. Tempest\n 8. Trickery\n 9. War\n\n";
-    int ss = getNumber("Divine Domain Choice(1-8): ", 1, 9);
+    int ss = getNumber("Divine Domain Choice: ", 1, 9);
     switch (ss)
     {
     case 1:

@@ -11,7 +11,7 @@ class Magic_Items
 {
 
 public:
-  void treasure_menu(); //REWARD ITEM GENERATOR MAIN MENU
+  void treasure_menu();
 
 private:
   std::vector<Gear> full_gear_list;

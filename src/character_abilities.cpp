@@ -83,7 +83,7 @@ void Generic_Character_Class::setAnySkill(const string &message, const int &many
       cout << "\n18. Survival(Already Known)\n\n";
     else
       cout << "\n18. Survival\n\n";
-    ss = getNumber("Skill choice: ", 1, 18);
+    ss = getNumber("Skill Choice: ", 1, 18);
     if (ss == 1)
     {
       gainAcrobatics(i);

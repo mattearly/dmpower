@@ -17,7 +17,7 @@ void Charts::showChartMenu()
         << " 4. Disease Chart" << "\n"
         << " 5. Back to " << YELLOW << "OTHER TOOLS" << RESET << "\n"
         << "---------- MAIN MENU ----------" << "\n";
-    chart_choice = getNumber("Choose: ", 1, 5);
+    chart_choice = getNumber("Choice: ", 1, 5);
     switch (chart_choice)
     {
     case 1:
