@@ -435,11 +435,11 @@ std::string Generic_Character_Class::getRace() const
 // mutators
 void Generic_Character_Class::setName()
 {
-  cout << "Setting Your Character's Name (name can be changed later via Edit Character option)\n\n"
-       << " - Name must be at least 2 letters.\n"
-       << " - Cannot be the exact same as any other character's name.\n"
-          //  << " - Enter 'random' to use the name generator."
-       << "\n\n";
+  cout << "Name Your Character (can be edited later)\n"
+//       " ->Enter the name '" << GREEN << "random" << RESET << "' (without the quotes) to be suggested a random name\n\n"
+       " ->Custom name " << RED << "RESTRICTIONS" << RESET << "\n"
+       "    + Length: 2 or more characters\n"
+       "    + Must be Unique\n\n";
   string i_name;
   do
   {
