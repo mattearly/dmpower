@@ -20,7 +20,7 @@ void Campaign::pc_menu()
     simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
-    cout << GREEN << "----------Characters-----------" << RESET << endl
+    cout << GREEN << "---------- CHARACTER MANAGER -----------" << RESET << endl
          << " 1. Build a New Character" << endl
          << " 2. View Characters" << endl
          << " 3. Edit a Character" << endl
@@ -37,7 +37,7 @@ void Campaign::pc_menu()
       cout << "Load a Saved File" << endl;
     }
     cout << " 8. Back to " << CYAN << "MAIN MENU" << RESET << endl;
-    cout << GREEN << "------------------------------" << RESET << endl;
+    cout << GREEN << "----------------------------------------" << RESET << endl;
     choice = getNumber("Choice: ", 1, 8);
     switch (choice)
     {
