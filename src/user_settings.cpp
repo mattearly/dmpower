@@ -27,7 +27,7 @@ void save_insult_preference() {
   if (os.is_open())
   {
     os << "insults=\"" << insult_mode << "\"\n";
-    mainMessage = "Insult mode (\"" + insult_mode + "\") set and saved locally.";
+    mainMessage = "Insult mode set to -> " + insult_mode;
     os.close();
   }
 }
@@ -37,21 +37,25 @@ void save_insult_preference() {
 ///
 void change_settings() {
   simpleClearScreen();
-  cout << "Current settings: \n\n";
+  mainMessage = "Current settings: \n\n";
   std::ifstream is;
   is.open(file.c_str());
   if (is.is_open())
   {
+
     std::string tmp;
     while (getline(is, tmp)) {
-      cout << " " << tmp << endl;
+      mainMessage += " " + tmp + "\n";
     }
     cout << "\n\n";
     is.close();
   }
   int choice = 0;
+  bool first_pass = true;
   while (choice != 2) {
-    cout << "-------- SETTINGS MENU --------\n"
+    if (!first_pass) simpleClearScreen();
+    cout << "> " << mainMessage << endl;
+    cout << "\n-------- SETTINGS MENU --------\n"
             " 1. Insult Mode \n"
             " 2. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
             "-------------------------------\n";
@@ -71,6 +75,7 @@ void change_settings() {
     default:
       break;
     }
+    first_pass = false;
   }
 }
 
