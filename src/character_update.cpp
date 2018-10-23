@@ -121,9 +121,9 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
       break;
     default:;
     }
-    pressEnterToContinue();
+    if (ss != 7) pressEnterToContinue();
   } while (ss != 7);
-  mainMessage = "Don't forget to Save your work!";
+  mainMessage = "DON'T FORGET TO SAVE!";
 }
 
 void Generic_Character_Class::updateName(const Campaign &game)
