@@ -14,53 +14,24 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
 
     cout
         << "\nEditing " << GREEN << char_name << RESET << ", level " << level << " " << char_class << "\n\n"
-        << "1. Change Name" << endl
-        << "2. LEVEL UP!" << endl
+        << "1. LEVEL UP!" << endl
+        << "2. Change Name" << endl
         << "3. Change Alignment" << endl
-        << "4. Update Ability Stats" << endl
-        << "5. Add a new Skill Proficiency" << endl
-        << "6. Add a new Feat" << endl
-        << "7. Quit the PC editor" << endl
+        << "4. Custom Ability Stats" << endl
+        << "5. Grant New Skill Proficiency" << endl
+        << "6. Grant New Feat" << endl
+        << "7. Back to " << GREEN << "CHARACTER BUILDER" << RESET << endl
         << endl;
     ss = getNumber("Choice: ", 1, 7);
     switch (ss)
     {
     case 1:
-    {
-      bool goodname = false;
-      string tmp;
-      while (!goodname)
-      {
-        do
-        {
-          cout << "Current Name: " << char_name << "\n New Name: ";
-          getline(cin, tmp);
-          tmp[0] = toupper(tmp[0]);
-          if (tmp.size() < 2 || tmp[0] == ' ')
-          {
-            cout << "Invalid name, try another.\n";
-          }
-        } while (tmp.size() < 2 || tmp[0] == ' ');
-        goodname = game.checkname(tmp);
-      }
-      cout << char_name << " has been renamed to " << tmp << "\n\n";
-      char_name = tmp;
-    }
+      updateLevel(game);
       break;
     case 2:
-    {
-      if (level == 20)
-      {
-        cout << "Already max level.\n\n";
-      }
-      else
-      {
-        cout << "Current level is " << level << "\n\n";
-        int newlvl = getNumber("Enter new higher level: ", level + 1, 20);
-        setClassDetails(newlvl);
-        setProficiencyBonus();
-      }
-    }
+      updateName(game);
+
+
       break;
     case 3:
     {
@@ -151,4 +122,40 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
     default:;
     }
   } while (ss != 7);
+}
+
+void Generic_Character_Class::updateName(const Campaign &game)
+{
+  bool goodname = false;
+  string tmp;
+  while (!goodname)
+  {
+    do
+    {
+      cout << "Current Name: " << char_name << "\n New Name: ";
+      getline(cin, tmp);
+      tmp[0] = toupper(tmp[0]);
+      if (tmp.size() < 2 || tmp[0] == ' ')
+      {
+        cout << "Invalid name, try another.\n";
+      }
+    } while (tmp.size() < 2 || tmp[0] == ' ');
+    goodname = game.checkname(tmp);
+  }
+  cout << char_name << " has been renamed to " << tmp << "\n\n";
+  char_name = tmp;
+}
+
+void Generic_Character_Class::updateLevel(const Campaign &game)  {
+  if (level == 20)
+  {
+    cout << "Already max level.\n\n";
+  }
+  else
+  {
+    cout << "Current level is " << level << "\n\n";
+    int newlvl = getNumber("Enter new higher level: ", level + 1, 20);
+    setClassDetails(newlvl);
+    setProficiencyBonus();
+  }
 }
