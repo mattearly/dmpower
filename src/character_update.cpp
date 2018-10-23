@@ -3,6 +3,8 @@
 
 using namespace std;
 
+extern string mainMessage;
+
 void Generic_Character_Class::updateCharacter(const Campaign &game)
 {
   int ss = 0;
@@ -13,14 +15,14 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
     character_sheet();
 
     cout
-        << "\nEditing " << GREEN << char_name << RESET << ", level " << level << " " << char_class << "\n\n"
-        << "1. LEVEL UP!" << endl
-        << "2. Change Name" << endl
-        << "3. Change Alignment" << endl
-        << "4. Custom Ability Stats" << endl
-        << "5. Grant New Skill Proficiency" << endl
-        << "6. Grant New Feat" << endl
-        << "7. Back to " << GREEN << "CHARACTER BUILDER" << RESET << endl
+        << "\nEditing " << GREEN << char_name << RESET << ", level " << level << " " << alignment << " " << char_class << "\n\n"
+        << " 1. LEVEL UP!" << endl
+        << " 2. Change Name" << endl
+        << " 3. Change Alignment" << endl
+        << " 4. Custom Ability Stats" << endl
+        << " 5. Grant New Skill Proficiency" << endl
+        << " 6. Grant New Feat" << endl
+        << " 7. Back to " << GREEN << "CHARACTER MANAGER" << RESET << endl
         << endl;
     ss = getNumber("Choice: ", 1, 7);
     switch (ss)
@@ -30,8 +32,6 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
       break;
     case 2:
       updateName(game);
-
-
       break;
     case 3:
     {
@@ -121,7 +121,9 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
       break;
     default:;
     }
+    pressEnterToContinue();
   } while (ss != 7);
+  mainMessage = "Don't forget to Save your work!";
 }
 
 void Generic_Character_Class::updateName(const Campaign &game)
