@@ -45,4 +45,6 @@ local_user_settings.dat
 dmpower.config
 dmpower.files
 dmpower.includes
+*.creator
+
 
