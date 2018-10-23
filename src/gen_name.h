@@ -9,7 +9,7 @@ class CharacterName
 {
 
 public:
-  std::string grabRandomName();
+  void grabRandomName(std::string&);
 
 private:
 };

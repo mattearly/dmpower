@@ -97,7 +97,7 @@ void other_tools()
     case 3:
     {
       CharacterName randomName;
-      mainMessage = "Random Name: " + randomName.grabRandomName();
+      randomName.grabRandomName(mainMessage);
     }
       break;
     case 4:

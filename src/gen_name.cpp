@@ -3,7 +3,7 @@
 
 using namespace std;
 
-string CharacterName::grabRandomName()
+void CharacterName::grabRandomName(string& name)
 {
   ifstream fileOfNames;
   string tmpName;
@@ -30,5 +30,6 @@ string CharacterName::grabRandomName()
   {
     tmpName = "error with name file - check code";
   }
-  return tmpName;
+
+  name = tmpName;
 }

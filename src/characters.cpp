@@ -436,7 +436,7 @@ std::string Generic_Character_Class::getRace() const
 void Generic_Character_Class::setName()
 {
   cout << "Name Your Character (can be edited later)\n"
-//       " ->Enter the name '" << GREEN << "random" << RESET << "' (without the quotes) to be suggested a random name\n\n"
+       " ->Enter the name '" << GREEN << "random" << RESET << "' (without the quotes) to be suggested a random name\n\n"
        " ->Custom name " << RED << "RESTRICTIONS" << RESET << "\n"
        "    + Length: 2 or more characters\n"
        "    + Must be Unique\n\n";
@@ -451,10 +451,10 @@ void Generic_Character_Class::setName()
     {
       cout << "Invalid name, try another.\n";
     }
-    // if (i_name == "Random")
-    // {
-    // 	i_name = suggestRandomName();
-    // }
+     if (i_name == "Random")
+     {
+       suggestRandomName(i_name);
+     }
   } while (i_name.size() < 2);
   char_name = i_name;
 }
@@ -2086,26 +2086,4 @@ void Generic_Character_Class::assignStats(int &s)
   simpleClearScreen();
 }
 
-// for random name suggestion while building a new character
-// string Generic_Character_Class::suggestRandomName()
-// {
-// 	CharacterName namegen;
-// 	string random_name = "";
-// 	int choice = 0;
-// 	while (choice != 1)
-// 	{
-// 		random_name.clear();
-// 		random_name += namegen.grabRandomName();
-// 		cout << "A Random Name For Your Character:\n\n    " << random_name << endl
-// 			 << endl
-// 			 << "1 - accept " << endl
-// 			 << "2 - try again" << endl
-// 			 << "3 - leave random name generaor and enter your own name\n\n";
-// 		choice = getNumber(1, 3);
-// 		if (choice == 3)
-// 		{
-// 			return "";
-// 		}
-// 	}
-// 	return random_name;
-// }
+
