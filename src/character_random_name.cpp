@@ -14,12 +14,15 @@ void Generic_Character_Class::suggestRandomName(std::string& random_name)
   {
     random_name.clear();
     namegen.grabRandomName(random_name);
-    cout << "A Random Name For Your Character:\n\n    " << random_name << endl
+    cout << "Random Name Generated:\n\n  -> " << random_name << endl
          << endl
-         << "1 - accept " << endl
-         << "2 - try again" << endl
-         << "3 - leave random name generaor and enter your own name\n\n";
-    choice = getNumber(1, 3);
+         << " 1. Accept '" << random_name << "' as this character's name." << endl
+         << " 2. Generate another Random name" << endl
+         << " 3. Leave Random Name Generator\n\n";
+    choice = getNumber("Choice: ", 1, 3);
+    if (choice == 1) {
+      cout << "Accepted '" << random_name << "' as your character's name.\n";
+    }
     if (choice == 3)
     {
       random_name.clear();
