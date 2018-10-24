@@ -69,14 +69,14 @@ void other_tools()
     simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
-    cout << YELLOW << "------------OTHER TOOLS------------" << RESET << "\n"
+    cout << MAGENTA << "------------OTHER TOOLS------------" << RESET << "\n"
          << " 1. Charts\n"
          << " 2. Experience Calculator\n"
          << " 3. Name Generator\n"
          << " 4. Random Encounter\n"
          << " 5. NPC Insult\n"
          << " 6. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
-         << YELLOW << "-----------------------------------" << RESET << "\n";
+         << MAGENTA << "-----------------------------------" << RESET << "\n";
     choice = getNumber("Enter Choice(1-6): ", 1, 6);
     switch (choice)
     {
