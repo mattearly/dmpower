@@ -9,12 +9,19 @@ class Encounter
 public:
   bool testing = false;
   Encounter();
+
+  ///
+  /// \brief Gen_Encounter prompts user for information about the party
+  /// \return a string with details about the type of encounter generated
+  ///
   std::string Gen_Encounter();
 
 private:
   void set_party_level();
   int ave_lvl;
   int partysize;
+
+  std::string getDifficulty(const int &val);
 
   // void find_terrain();
   // std::string terrain();
@@ -52,7 +59,6 @@ private:
   // };
   // MonsterType monstertype;
 
-  std::string getDifficulty(const int &val);
 };
 
 #endif //ENCOUNTERS_H
