@@ -10,13 +10,13 @@ void Charts::showChartMenu()
   {
     simpleClearScreen();
     cout
-        << "---------- MAIN MENU ----------" << "\n"
+        << "-------------- CHARTS --------------" << "\n"
         << " 1. Level Up Chart" << "\n"
         << " 2. Poison Sales Chart" << "\n"
         << " 3. Madness Chart" << "\n"
         << " 4. Disease Chart" << "\n"
-        << " 5. Back to " << YELLOW << "OTHER TOOLS" << RESET << "\n"
-        << "---------- MAIN MENU ----------" << "\n";
+        << " 5. Back to " << MAGENTA << "OTHER TOOLS" << RESET << "\n"
+        << "------------- CHARTS ---------------" << "\n";
     chart_choice = getNumber("Choice: ", 1, 5);
     switch (chart_choice)
     {
