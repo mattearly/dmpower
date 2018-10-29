@@ -6,17 +6,17 @@
 
 class Gear
 {
-  public:
-    Gear();
-    Gear(const int &, const std::string &);
-    Gear(const std::string &);
-    void showItem() const;
+public:
+  Gear();
+  Gear(const int &, const std::string &);
+  Gear(const std::string &);
+  void showItem() const;
 
-  protected:
-    int quantity = 0;
-    std::string item_name = "voidspace - no item";
+protected:
+  int quantity = 0;
+  std::string item_name = "voidspace - no item";
 
-  private:
+private:
 };
 // protected:
 // 	std::string item_name;

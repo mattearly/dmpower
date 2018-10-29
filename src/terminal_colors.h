@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 const std::string BLINK = "\e[5m";
 const std::string BOLD = "\e[1m";

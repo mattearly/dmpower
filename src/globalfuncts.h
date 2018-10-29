@@ -23,11 +23,11 @@ static std::uniform_int_distribution<int> rolld100(1, 100);
 template <typename T, typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
 std::string toString(const T &a)
 {
-    std::string tmp = "";
-    std::stringstream stringconverter;
-    stringconverter << a;
-    tmp += stringconverter.str();
-    return tmp;
+  std::string tmp = "";
+  std::stringstream stringconverter;
+  stringconverter << a;
+  tmp += stringconverter.str();
+  return tmp;
 }
 
 int randomNumber(const int &, const int &);
@@ -39,29 +39,29 @@ int getNumber(const int &a, const int &b);
 template <class T>
 std::string D_D_Ability_Modifier(const T &a)
 {
-    std::string tmp = "";
-    int mod = ((a - 10) / 2);
-    if (mod > 0)
+  std::string tmp = "";
+  int mod = ((a - 10) / 2);
+  if (mod > 0)
+  {
+    tmp += "+";
+    tmp += toString(mod);
+  }
+  if (mod <= 0)
+  {
+    if (a < 10 && a % 2 == 1)
     {
-        tmp += "+";
-        tmp += toString(mod);
+      mod--;
     }
-    if (mod <= 0)
+    if (mod < 0)
     {
-        if (a < 10 && a % 2 == 1)
-        {
-            mod--;
-        }
-        if (mod < 0)
-        {
-            tmp += toString(mod);
-        }
-        else
-        {
-            tmp = "  ";
-        }
+      tmp += toString(mod);
     }
-    return tmp;
+    else
+    {
+      tmp = "  ";
+    }
+  }
+  return tmp;
 }
 
 int getAbilityMod(const int &);

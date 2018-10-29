@@ -4,7 +4,11 @@
 dmpower
 *.stackdump
 *.user
+
+# local stuff
 *.save
+local_user_settings.dat
+
 
 # Compiled Object files
 *.slo
@@ -38,4 +42,9 @@ dmpower
 # IDEs
 *.vscode
 *.idea
+dmpower.config
+dmpower.files
+dmpower.includes
+*.creator
+
 
