@@ -8,7 +8,7 @@ A interative terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MAN
 
 *Relies on C++ Standard 11 , Boost filesystem, and Make*
 
-*Was built on Linux and will probably run best on Linux right now. Runs fine on Cygwin and WSL for Windows*
+*Built on Linux and will probably run best on Linux right now. Runs fine on Cygwin and WSL for Windows*
 
 **Linux**
 - open terminal
@@ -29,7 +29,7 @@ A interative terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MAN
 
 ### 2. Support
 
-- - In the improvements and continuation of this project, I'll strive to keep the logic as sound as possible and the program useful.
+- In the improvements and continuation of this project, I'll strive to keep the logic as sound as possible and the program useful.
 - [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC)
 
 ---
