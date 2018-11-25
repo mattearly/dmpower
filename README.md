@@ -1,12 +1,14 @@
 # dmpower-dungeons-and-dragons-5e
 
-A interative terminal based Dungeons and Dragon's 5e Toolkit. See the [Manual](MANUAL.md) for more information about the tools.
+A interative terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MANUAL.md) for screenshots and information about the tools.
 
 ---
 
 ### 1. How To Run
 
 *Relies on C++ Standard 11 , Boost filesystem, and Make*
+
+*Was built on Linux and will probably run best on Linux right now. Runs fine on Cygwin and WSL for Windows*
 
 **Linux**
 - open terminal
@@ -17,16 +19,18 @@ A interative terminal based Dungeons and Dragon's 5e Toolkit. See the [Manual](M
 **Windows**
 - use [Cygwin](https://www.cygwin.com/) 
 - or [WSL](https://msdn.microsoft.com/commandline/wsl/about)
+- should also work with mingw compilation
+- I have not tested with Visual Studio. Should work but may need some modifications.
 
 **Mac**
-- same as Linux
+- untested, should work mostly fine, may need some modifications.
 
 ---
 
 ### 2. Support
 
-- Any donations [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC) are used to go towards development. I'm not really expecting anything but I thought I'd at least leave the possibiliy open. Thank you for any support you are willing to give this project. I'm also set up on Patreon [https://www.patreon.com/mattearly](patreon/mattearly)
-- In the improvements and continuation of this project, I'll strive to keep the logic as sound as possible and the program useful.
+- - In the improvements and continuation of this project, I'll strive to keep the logic as sound as possible and the program useful.
+- [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC)
 
 ---
 
@@ -38,12 +42,11 @@ A interative terminal based Dungeons and Dragon's 5e Toolkit. See the [Manual](M
  | --- | --- | --- |
  | [![phb](img/DnD_PHB.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [![dmg](img/DnD_DMG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [![scag](img/DnD_SCAG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
 
-- All code written by [**_Matthew Jay Early_**](https://twitter.com/matthewjayearly).
+- Programmers as accredited in the commit history - mostly me but its always nice to have help and I will accept some modifications on a case by case basis if they align with the overall goal of dmpower.
 
 ### 4. Additional Notes
 
-- This interactive toolkit uses some coloring of text that will probably look best in a terminal with a dark background.
-- This D&D Toolkit uses Wizards of the Coast (WotC) rules and is free and open source.
-- This tool is best suited for Dungeon Masters, however the character creator flow has been proving irreplacable for some of players in my circle. 
+- Uses terminal text coloring that will probably look best in a terminal with a dark background.
+- This tool is best suited for Dungeon Masters, however the character creator is helpful for anyone.
 - No known crash cases. All crash case reports are taken as highly critical and will be fixed asap.
 - This toolkit does not teach the game or say many specifics about what each ability, magic item, or spell does, as that is just not the intention. These details can be found on the plethora of reference data sites and apps related to D&D 5e, as well as in the official books. I recommend purchasing official [WotC books](#3-credits).
