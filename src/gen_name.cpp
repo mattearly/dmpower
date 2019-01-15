@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void CharacterName::grabRandomName(string& name)
+void CharacterName::grabRandomName(string &name)
 {
   ifstream fileOfNames;
   string tmpName;
@@ -28,7 +28,12 @@ void CharacterName::grabRandomName(string& name)
   }
   else
   {
-    tmpName = "error with name file - check code";
+    tmpName = "error with name file, may be in use or if not, check code";
+  }
+
+  if (*tmpName.rbegin() == '\r')
+  {
+    tmpName.erase(tmpName.length() - 1);
   }
 
   name = tmpName;
