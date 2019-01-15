@@ -20,7 +20,7 @@ void other_tools();
 
 void menu()
 {
-  mainMessage = "Dungeon Master Power! (build:3)";
+  mainMessage = "Dungeon Master Power! (build:4)";
   choice = 0;
   do
   {
