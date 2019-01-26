@@ -4,15 +4,10 @@
 
 void simpleClearScreen()
 {
-  for (int i = 0; i < 14; i++)
+  for (int i = 0; i < 14; i++)  // 14*5 is sufficient for most terminal sizes
   {
     std::cout << "\n\n\n\n\n";
   }
-}
-
-void systemClearScreen()
-{
-  system("clear");
 }
 
 char getYorN(const std::string &message)
@@ -39,7 +34,7 @@ int rollstats_hi_power()
   r2 = rolld6(mgen);
   r3 = rolld6(mgen);
   r4 = rolld6(mgen);
-  std::cout << "Rolls: " << r1 << ", " << r2 << ", " << r3 << ", " << r4 << std::endl;
+  std::cout << "d6 Dice Rolls: " << r1 << ", " << r2 << ", " << r3 << ", " << r4 << "(drop lowests die roll)"<< std::endl;
   if (r1 <= r2 && r1 <= r3 && r1 <= r4)
   {
     return (r2 + r3 + r4);
@@ -69,7 +64,7 @@ int rollstats_standard()
   r1 = rolld6(mgen);
   r2 = rolld6(mgen);
   r3 = rolld6(mgen);
-  std::cout << "Rolls: " << r1 << ", " << r2 << ", " << r3 << std::endl;
+  std::cout << "d6 Dice Rolls: " << r1 << ", " << r2 << ", " << r3 << std::endl;
   return (r1 + r2 + r3);
 }
 
