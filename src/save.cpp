@@ -68,6 +68,8 @@ void load_file()
 {
   //show list of previous saves
   showLoadableFiles("saves");
+  std::cout << "\nadditional load commands:\n"
+               "   combine 2 files: 'combine SaveToKeep SaveToMergeInAndDelete'\n\n";
   std::string file;
   std::cout << "(leave blank to skip) Load File: ";
   std::getline(std::cin, file, '\n');
@@ -137,8 +139,7 @@ void showLoadableFiles(const std::string &dir)
   }
   else
   {
-    std::cout << "Combine Files: 'combine SaveToKeep SaveToMergeInAndDelete'\n";
-    std::cout << "Loadable Files:\n";
+    std::cout << "List of loadable saves:\n";
   }
 
   directory_iterator end_itr; // default construction yields past-the-end
@@ -204,7 +205,7 @@ bool mergeSaves(const std::string &keep, const std::string &mergein)
     std::string tmp;
     do
     {
-      std::cout << "writing line from old file to new file\n";
+      // std::cout << "writing line from old file to new file\n"; //debug
       std::getline(readfrom, tmp);
       if (readfrom.eof())
         break;
