@@ -2,9 +2,11 @@
 
 A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MANUAL.md) for screenshots and information about the tools.
 
+- [download latest release](https://github.com/mattearly/dmpower-dungeons-and-dragons-5e/releases)
+
 ---
 
-### 1. How To Run
+### 1. How To BUILD & RUN
 
 *Relies on C++ Standard 11 , Boost filesystem, and Make*
 
@@ -12,7 +14,7 @@ A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MA
 
 **Linux**
 - open terminal
-- `clone` repo
+- `clone` repo (or download release and unzip)
 - `cd` into directory
 - `make run` (go install dependencies if something fails in the build, then try again)
 
