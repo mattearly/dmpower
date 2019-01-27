@@ -1,6 +1,6 @@
 # dmpower-dungeons-and-dragons-5e
 
-A interative terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MANUAL.md) for screenshots and information about the tools.
+A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MANUAL.md) for screenshots and information about the tools.
 
 ---
 
@@ -17,10 +17,10 @@ A interative terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MAN
 - `make run` (go install dependencies if something fails in the build, then try again)
 
 **Windows**
-- use [Cygwin](https://www.cygwin.com/) 
+- use [Cygwin](https://www.cygwin.com/)
 - or [WSL](https://msdn.microsoft.com/commandline/wsl/about)
 - should also work with mingw compilation
-- I have not tested with Visual Studio. Should work but may need some modifications.
+- I have not tested with Visual Studio. Should work but may need some modifications or project setup.
 
 **Mac**
 - untested, should work mostly fine, may need some modifications.
@@ -29,7 +29,7 @@ A interative terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MAN
 
 ### 2. Support
 
-- In the improvements and continuation of this project, I'll strive to keep the logic as sound as possible and the program useful.
+- For improvements and continuation of this project. I'll strive to keep the logic as sound as possible and the program useful.
 - [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC)
 
 ---
@@ -37,7 +37,7 @@ A interative terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MAN
 ### 3. Credits
 
 - Designed for Dungeons & Dragons 5th Edition Official. The core D&D data used in this program is from:
- 
+
  | [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [Sword Coast Adventurer's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
  | --- | --- | --- |
  | [![phb](img/DnD_PHB.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [![dmg](img/DnD_DMG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [![scag](img/DnD_SCAG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
