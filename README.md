@@ -30,7 +30,8 @@ A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MA
 ### 2. Support
 
 - For improvements and continuation of this project. I'll strive to keep the logic as sound as possible and the program useful.
-- [![donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC)
+- [![donate/PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC)
+- [Patreon](https://www.patreon.com/mattearly): Support my career as a software developer for as little as $1/mo.
 
 ---
 
