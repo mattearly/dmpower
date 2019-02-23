@@ -14,6 +14,9 @@ public:
   Generic_Character_Class();
   virtual ~Generic_Character_Class();
 
+  //Clone the monster, used for generate monsters with a table to monster, think like a spawner
+  virtual Generic_Character_Class *Clone() = 0;
+
   //CLASS //GENERAL (used by 2 or more classes)
   std::string char_name;
   std::string alignment;
@@ -619,185 +622,41 @@ public:
   std::string getRace() const;
 };
 
-class Cleric : public Generic_Character_Class
-{
-public:
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Cleric";
-  }
+//Define a macro for Clone definitions
+#define CLONE_CREATE(Type) virtual Generic_Character_Class *Clone() \
+                                   {                                \
+                                     return new Type;               \
+                                   }
 
-  virtual int getlevelupmenus() const
-  {
-    return clericlevelupmenus;
-  };
+//Define a macro to create the classes
+#define CREATE_CLASS(Type, Name, LevelUpMenu) class Type : public Generic_Character_Class \
+                                 {                                             \
+                                   CLONE_CREATE(Type);                         \
+                                   virtual void setInitialClassFeatures()      \
+                                   {                                           \
+                                       char_class = #Name;                     \
+                                   }                                           \
+                                                                               \
+                                   virtual int getlevelupmenus() const         \
+                                   {                                           \
+                                       return LevelUpMenu;                     \
+                                   }                                           \
+                                                                               \
+                                   virtual void setClassDetails(const int& l); \
+                                 };
 
-  virtual void setClassDetails(const int &l);
-};
 
-class Fighter : public Generic_Character_Class
-{
-public:
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Fighter";
-  }
-  virtual int getlevelupmenus() const
-  {
-    return fighterlevelupmenus;
-  };
-
-  virtual void setClassDetails(const int &l);
-};
-
-class Rogue : public Generic_Character_Class
-{
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Rogue";
-  }
-  virtual int getlevelupmenus() const
-  {
-    return roguelevelupmenus;
-  };
-
-  virtual void setClassDetails(const int &l);
-};
-
-class Wizard : public Generic_Character_Class
-{
-public:
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Wizard";
-  }
-  virtual int getlevelupmenus() const
-  {
-    return wizardlevelupmenus;
-  }
-
-  virtual void setClassDetails(const int &l);
-};
-
-class Barbarian : public Generic_Character_Class
-{
-public:
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Barbarian";
-  }
-  virtual int getlevelupmenus() const
-  {
-    return barbarianlevelupmenus;
-  }
-
-  virtual void setClassDetails(const int &l);
-};
-
-class Druid : public Generic_Character_Class
-{
-public:
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Druid";
-    druidic = true;
-  }
-  virtual int getlevelupmenus() const
-  {
-    return druidlevelupmenus;
-  };
-
-  virtual void setClassDetails(const int &l);
-};
-
-class Paladin : public Generic_Character_Class
-{
-public:
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Paladin";
-  }
-  virtual int getlevelupmenus() const
-  {
-    return paladinlevelupmenus;
-  };
-
-  virtual void setClassDetails(const int &l);
-};
-
-class Sorcerer : public Generic_Character_Class
-{
-public:
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Sorcerer";
-  }
-  virtual int getlevelupmenus() const
-  {
-    return sorcererlevelupmenus;
-  };
-
-  virtual void setClassDetails(const int &l);
-};
-
-class Bard : public Generic_Character_Class
-{
-public:
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Bard";
-  }
-  virtual int getlevelupmenus() const
-  {
-    return bardlevelupmenus;
-  };
-
-  virtual void setClassDetails(const int &l);
-};
-
-class Monk : public Generic_Character_Class
-{
-public:
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Monk";
-  }
-  virtual int getlevelupmenus() const
-  {
-    return monklevelupmenus;
-  };
-
-  virtual void setClassDetails(const int &l);
-};
-
-class Ranger : public Generic_Character_Class
-{
-public:
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Ranger";
-  }
-  virtual int getlevelupmenus() const
-  {
-    return rangerlevelupmenus;
-  };
-
-  virtual void setClassDetails(const int &l);
-};
-
-class Warlock : public Generic_Character_Class
-{
-public:
-  virtual void setInitialClassFeatures()
-  {
-    char_class = "Warlock";
-  }
-  virtual int getlevelupmenus() const
-  {
-    return warlocklevelupmenus;
-  };
-
-  virtual void setClassDetails(const int &l);
-};
+CREATE_CLASS(Cleric, Cleric, clericlevelupmenus);
+CREATE_CLASS(Fighter, Fighter, fighterlevelupmenus);
+CREATE_CLASS(Rogue, Rogue, roguelevelupmenus);
+CREATE_CLASS(Wizard, Wizard, wizardlevelupmenus);
+CREATE_CLASS(Barbarian, Barbarian, barbarianlevelupmenus);
+CREATE_CLASS(Druid, Druid, druidlevelupmenus);
+CREATE_CLASS(Paladin, Paladin, paladinlevelupmenus);
+CREATE_CLASS(Sorcerer, Sorcerer, sorcererlevelupmenus);
+CREATE_CLASS(Bard, Bard, bardlevelupmenus);
+CREATE_CLASS(Monk, Monk, monklevelupmenus);
+CREATE_CLASS(Ranger, Ranger, rangerlevelupmenus);
+CREATE_CLASS(Warlock, Warlock, warlocklevelupmenus);
 
 #endif
