@@ -12,7 +12,7 @@ class Generic_Character_Class
 {
 public:
   Generic_Character_Class();
-  ~Generic_Character_Class();
+  virtual ~Generic_Character_Class();
 
   //CLASS //GENERAL (used by 2 or more classes)
   std::string char_name;

@@ -427,6 +427,8 @@ Generic_Character_Class::Generic_Character_Class()
   wild_shape_improvement = 0;
 }
 
+Generic_Character_Class::~Generic_Character_Class() { }
+
 std::string Generic_Character_Class::getRace() const
 {
   return race;
@@ -474,59 +476,65 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
        << "\n5. Half-elf\n\n";
   int ss = getNumber("Choose Race(1-9): ", 1, 9);
   simpleClearScreen();
+
+  Races *parent = nullptr;
   if (ss == 1)
   {
-    Dragonborn *tmp = new Dragonborn;
-    tmp->setRaceDetails(v);
-    race = tmp->getRaceString();
+    parent = new Dragonborn;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
   }
   else if (ss == 2)
   {
-    Dwarf *tmp = new Dwarf;
-    tmp->setRaceDetails(v);
-    race = tmp->getRaceString();
+    parent = new Dwarf;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
   }
   else if (ss == 3)
   {
-    Elf *tmp = new Elf;
-    tmp->setRaceDetails(v);
-    race = tmp->getRaceString();
+    parent = new Elf;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
   }
   else if (ss == 4)
   {
-    Gnome *tmp = new Gnome;
-    tmp->setRaceDetails(v);
-    race = tmp->getRaceString();
+    parent = new Gnome;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
   }
   else if (ss == 5)
   {
-    Halfelf *tmp = new Halfelf;
-    tmp->setRaceDetails(v);
-    race = tmp->getRaceString();
+    parent = new Halfelf;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
   }
   else if (ss == 6)
   {
-    Halfling *tmp = new Halfling;
-    tmp->setRaceDetails(v);
-    race = tmp->getRaceString();
+    parent = new Halfling;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
   }
   else if (ss == 7)
   {
-    Halforc *tmp = new Halforc;
-    tmp->setRaceDetails(v);
-    race = tmp->getRaceString();
+    parent = new Halforc;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
   }
   else if (ss == 8)
   {
-    Human *tmp = new Human;
-    tmp->setRaceDetails(v);
-    race = tmp->getRaceString();
+    parent = new Human;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
   }
   else
   {
-    Tiefling *tmp = new Tiefling;
-    tmp->setRaceDetails(v);
-    race = tmp->getRaceString();
+    parent = new Tiefling;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+  }
+
+  if(parent != nullptr) {
+    delete parent;
   }
 }
 
