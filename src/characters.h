@@ -659,4 +659,35 @@ CREATE_CLASS(Monk, Monk, monklevelupmenus);
 CREATE_CLASS(Ranger, Ranger, rangerlevelupmenus);
 CREATE_CLASS(Warlock, Warlock, warlocklevelupmenus);
 
+class ClassClonner {
+public:
+    ClassClonner() {
+        ClassTable[0] = new Cleric;
+        ClassTable[1] = new Fighter;
+        ClassTable[2] = new Rogue;
+        ClassTable[3] = new Wizard;
+        ClassTable[4] = new Barbarian;
+        ClassTable[5] = new Druid;
+        ClassTable[6] = new Paladin;
+        ClassTable[7] = new Sorcerer;
+        ClassTable[8] = new Bard;
+        ClassTable[9] = new Monk;
+        ClassTable[10] = new Ranger;
+        ClassTable[11] = new Warlock;
+    }
+
+    ~ClassClonner() {
+        for(unsigned int i = 0; i < sizeof(ClassTable) / sizeof(ClassTable[0]); i++) {
+            delete ClassTable[i];
+        }
+    }
+
+    Generic_Character_Class *GetNewClass(unsigned int index) {
+        return ClassTable[index - 1]->Clone();
+    }
+
+private:
+    Generic_Character_Class *ClassTable[12];
+};
+
 #endif
