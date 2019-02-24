@@ -2,7 +2,7 @@ TARGET = dmpower
 RUN = ./$(TARGET)
 SRC_DIR = src
 BUILD_DIR = bin
-CFLAGS = -std=c++11 -O2 -Wall -Wextra -IC:\TDM-GCC-64\include
+CFLAGS = -std=c++11 -O2 -Wall -Wextra
 LOADLIBS = -lboost_filesystem -lboost_system
 OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(wildcard $(SRC_DIR)/*.cpp))
 
