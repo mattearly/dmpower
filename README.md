@@ -22,6 +22,10 @@ A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MA
 - use [Cygwin](https://www.cygwin.com/)
 - or [WSL](https://msdn.microsoft.com/commandline/wsl/about)
 - should also work with mingw compilation
+- In case of using the Powershell terminal you will need to activate the ansi color escape with this command
+```
+Set-ItemProperty HKCU:\Console VirtualTerminalLevel -Type DWORD 1
+```
 - I have not tested with Visual Studio. Should work but may need some modifications or project setup.
 
 **Mac**
