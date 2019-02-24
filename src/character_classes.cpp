@@ -12,7 +12,7 @@ void Cleric::setClassDetails(const int &l)
   wisSave = 1;
   chaSave = 1;
   spellcasting = true;
-  if (!divine_domain)
+  if (!cleric_attr.divine_domain)
   {
     cout << "Choose a Divine Domain:\n\n"
          << " 1. Arcane\n 2. Death\n 3. Knowledge\n 4. Life\n 5. Light\n"
@@ -21,44 +21,44 @@ void Cleric::setClassDetails(const int &l)
     switch (ss)
     {
     case 1:
-      arcana_d = true;
+      cleric_attr.arcana_d = true;
       arcana = true; //gain arcana skill
       break;
     case 2:
-      death_d = true;
+      cleric_attr.death_d = true;
       //gain martial weapon prof
       break;
     case 3:
-      knowledge_d = true;
+      cleric_attr.knowledge_d = true;
       setLanguage("First Knowledge Domain Language.\n\n");
       setLanguage("Second Knowledge Domain Language.\n\n");
       //gain double prof skills from arcana, history, nature, religion
       break;
     case 4:
-      life_d = true;
+      cleric_attr.life_d = true;
       break;
     case 5:
-      light_d = true;
+      cleric_attr.light_d = true;
       break;
     case 6:
-      nature_d = true;
+      cleric_attr.nature_d = true;
       break;
     case 7:
-      tempest_d = true;
+      cleric_attr.tempest_d = true;
       break;
     case 8:
-      trickery_d = true;
+      cleric_attr.trickery_d = true;
       break;
     case 9:
-      war_d = true;
+      cleric_attr.war_d = true;
       break;
     }
-    divine_domain = true;
+    cleric_attr.divine_domain = true;
   }
-  if (divine_domain_feature == 0 && l >= 2)
-    divine_domain_feature++;
-  if (channel_divinity == 0 && l >= 2)
-    channel_divinity++;
+  if (cleric_attr.divine_domain_feature == 0 && l >= 2)
+    cleric_attr.divine_domain_feature++;
+  if (cleric_attr.channel_divinity == 0 && l >= 2)
+    cleric_attr.channel_divinity++;
   if (clericlevelupmenus == 0 && l >= 4)
   {
 
@@ -66,14 +66,14 @@ void Cleric::setClassDetails(const int &l)
     levelUpStats();
     clericlevelupmenus++;
   }
-  if (destroy_undead == 0 && l >= 5)
-    destroy_undead += .5;
-  if (channel_divinity == 1 && l >= 6)
-    channel_divinity++;
-  if (divine_domain_feature == 1 && l >= 6)
-    divine_domain_feature++;
-  if (destroy_undead == .5 && l >= 8)
-    destroy_undead += .5;
+  if (cleric_attr.destroy_undead == 0 && l >= 5)
+    cleric_attr.destroy_undead += .5;
+  if (cleric_attr.channel_divinity == 1 && l >= 6)
+    cleric_attr.channel_divinity++;
+  if (cleric_attr.divine_domain_feature == 1 && l >= 6)
+    cleric_attr.divine_domain_feature++;
+  if (cleric_attr.destroy_undead == .5 && l >= 8)
+    cleric_attr.destroy_undead += .5;
   if (clericlevelupmenus == 1 && l >= 8)
   {
 
@@ -81,12 +81,12 @@ void Cleric::setClassDetails(const int &l)
     levelUpStats();
     clericlevelupmenus++;
   }
-  if (divine_domain_feature == 2 && l >= 8)
-    divine_domain_feature++;
-  if (divine_intervention == 0 && l >= 10)
-    divine_intervention++;
-  if (destroy_undead == 1 && l >= 11)
-    destroy_undead++;
+  if (cleric_attr.divine_domain_feature == 2 && l >= 8)
+    cleric_attr.divine_domain_feature++;
+  if (cleric_attr.divine_intervention == 0 && l >= 10)
+    cleric_attr.divine_intervention++;
+  if (cleric_attr.destroy_undead == 1 && l >= 11)
+    cleric_attr.destroy_undead++;
   if (clericlevelupmenus == 2 && l >= 12)
   {
 
@@ -94,8 +94,8 @@ void Cleric::setClassDetails(const int &l)
     levelUpStats();
     clericlevelupmenus++;
   }
-  if (destroy_undead == 2 && l >= 14)
-    destroy_undead++;
+  if (cleric_attr.destroy_undead == 2 && l >= 14)
+    cleric_attr.destroy_undead++;
   if (clericlevelupmenus == 3 && l >= 16)
   {
 
@@ -103,12 +103,12 @@ void Cleric::setClassDetails(const int &l)
     levelUpStats();
     clericlevelupmenus++;
   }
-  if (destroy_undead == 3 && l >= 17)
-    destroy_undead++;
-  if (divine_domain_feature == 3 && l >= 17)
-    divine_domain_feature++;
-  if (channel_divinity == 2 && l >= 18)
-    channel_divinity++;
+  if (cleric_attr.destroy_undead == 3 && l >= 17)
+    cleric_attr.destroy_undead++;
+  if (cleric_attr.divine_domain_feature == 3 && l >= 17)
+    cleric_attr.divine_domain_feature++;
+  if (cleric_attr.channel_divinity == 2 && l >= 18)
+    cleric_attr.channel_divinity++;
   if (clericlevelupmenus == 4 && l >= 19)
   {
 
@@ -116,12 +116,12 @@ void Cleric::setClassDetails(const int &l)
     levelUpStats();
     clericlevelupmenus++;
   }
-  if (divine_intervention == 1 && l >= 20)
-    divine_intervention++;
+  if (cleric_attr.divine_intervention == 1 && l >= 20)
+    cleric_attr.divine_intervention++;
   //cleric spells
   if (l >= 1 && l <= 3)
   {
-    cleric_cantrips_known = 3;
+    cleric_attr.cleric_cantrips_known = 3;
     first_ss = 2;
     if (l == 2)
     {
@@ -135,7 +135,7 @@ void Cleric::setClassDetails(const int &l)
   }
   else if (l >= 4 && l <= 9)
   {
-    cleric_cantrips_known = 4;
+    cleric_attr.cleric_cantrips_known = 4;
     first_ss = 4;
     second_ss = 3;
     if (l >= 5)
@@ -164,7 +164,7 @@ void Cleric::setClassDetails(const int &l)
   }
   else if (l >= 10 && l <= 20)
   {
-    cleric_cantrips_known = 5;
+    cleric_attr.cleric_cantrips_known = 5;
     first_ss = 4;
     second_ss = 3;
     third_ss = 3;
@@ -255,7 +255,7 @@ void Fighter::setClassDetails(const int &l)
          << "\n 3. Dueling      6. Two-Weapon Fighting\n\n";
     int ss = getNumber("Fighting Style Choice(1-6): ", 1, 6);
     if (ss == 1)
-      archery = true;
+      fighter_attr.archery = true;
     if (ss == 2)
       defense = true;
     if (ss == 3)
@@ -265,14 +265,14 @@ void Fighter::setClassDetails(const int &l)
     if (ss == 5)
       protection = true;
     if (ss == 6)
-      two_weapon_fighting = true;
+      fighter_attr.two_weapon_fighting = true;
     fighting_style = true;
   }
-  if (!second_wind)
-    second_wind = true;
-  if (action_surge == 0 && l >= 2)
-    action_surge++;
-  if (!martial_archtype && l >= 3)
+  if (!fighter_attr.second_wind)
+    fighter_attr.second_wind = true;
+  if (fighter_attr.action_surge == 0 && l >= 2)
+    fighter_attr.action_surge++;
+  if (!fighter_attr.martial_archtype && l >= 3)
   {
     cout << "Figther Martial Archetype:\n\n"
          << " 1. Champion"
@@ -283,26 +283,26 @@ void Fighter::setClassDetails(const int &l)
     switch (ss)
     {
     case 1:
-      champion = true;
+      fighter_attr.champion = true;
       break;
     case 2:
     {
-      battle_master = true;
+      fighter_attr.battle_master = true;
       setTools(1);
     }
       break;
     case 3:
-      eldritch_knight = true;
+      fighter_attr.eldritch_knight = true;
       spellcasting = true;
       break;
     case 4:
-      purple_dragon_knight = true;
+      fighter_attr.purple_dragon_knight = true;
       break;
     default:
       cout << "Error setting fighter archetype.\n\n";
       break;
     }
-    martial_archtype = true;
+    fighter_attr.martial_archtype = true;
   }
   if (fighterlevelupmenus == 0 && l >= 4)
   {
@@ -318,18 +318,18 @@ void Fighter::setClassDetails(const int &l)
     levelUpStats();
     fighterlevelupmenus++;
   }
-  if (martial_archtype_feature == 0 && l >= 7)
-    martial_archtype_feature++;
+  if (fighter_attr.martial_archtype_feature == 0 && l >= 7)
+    fighter_attr.martial_archtype_feature++;
   if (fighterlevelupmenus == 2 && l >= 8)
   {
     cout << "Fighter level 8 Level Up Menu: \n\n";
     levelUpStats();
     fighterlevelupmenus++;
   }
-  if (indomitable == 0 && l >= 9)
-    indomitable++;
-  if (martial_archtype_feature == 1 && l >= 10)
-    martial_archtype_feature++;
+  if (fighter_attr.indomitable == 0 && l >= 9)
+    fighter_attr.indomitable++;
+  if (fighter_attr.martial_archtype_feature == 1 && l >= 10)
+    fighter_attr.martial_archtype_feature++;
   if (extra_attack == 1 && l >= 11)
     extra_attack++;
   if (fighterlevelupmenus == 3 && l >= 12)
@@ -338,28 +338,28 @@ void Fighter::setClassDetails(const int &l)
     levelUpStats();
     fighterlevelupmenus++;
   }
-  if (indomitable == 1 && l >= 13)
-    indomitable++;
+  if (fighter_attr.indomitable == 1 && l >= 13)
+    fighter_attr.indomitable++;
   if (fighterlevelupmenus == 4 && l >= 14)
   {
     cout << "Fighter level 14 Level Up Menu: \n\n";
     levelUpStats();
     fighterlevelupmenus++;
   }
-  if (martial_archtype_feature == 2 && l >= 15)
-    martial_archtype_feature++;
+  if (fighter_attr.martial_archtype_feature == 2 && l >= 15)
+    fighter_attr.martial_archtype_feature++;
   if (fighterlevelupmenus == 5 && l >= 16)
   {
     cout << "Fighter level 16 Level Up Menu: \n\n";
     levelUpStats();
     fighterlevelupmenus++;
   }
-  if (action_surge == 1 && l >= 17)
-    action_surge++;
-  if (indomitable == 2 && l >= 17)
-    indomitable++;
-  if (martial_archtype_feature == 3 && l >= 18)
-    martial_archtype_feature++;
+  if (fighter_attr.action_surge == 1 && l >= 17)
+    fighter_attr.action_surge++;
+  if (fighter_attr.indomitable == 2 && l >= 17)
+    fighter_attr.indomitable++;
+  if (fighter_attr.martial_archtype_feature == 3 && l >= 18)
+    fighter_attr.martial_archtype_feature++;
   if (fighterlevelupmenus == 6 && l >= 19)
   {
     cout << "Fighter level 19 Level Up Menu: \n\n";
@@ -369,13 +369,13 @@ void Fighter::setClassDetails(const int &l)
   if (extra_attack == 2 && l >= 20)
     extra_attack++;
   //spells
-  if (eldritch_knight)
+  if (fighter_attr.eldritch_knight)
   {
     if (l >= 3 && l <= 9)
     {
       first_ss = 2;
-      wizard_cantrips_known = 2;
-      eldritch_spells_known = 3;
+      wizard_attr.wizard_cantrips_known = 2;
+      fighter_attr.eldritch_spells_known = 3;
       if (l >= 4)
         first_ss++;
       if (l >= 7)
@@ -383,18 +383,18 @@ void Fighter::setClassDetails(const int &l)
       if (l >= 7)
         second_ss = 2;
       if (l >= 4)
-        eldritch_spells_known++;
+        fighter_attr.eldritch_spells_known++;
       if (l >= 7)
-        eldritch_spells_known++;
+        fighter_attr.eldritch_spells_known++;
       if (l >= 8)
-        eldritch_spells_known++;
+        fighter_attr.eldritch_spells_known++;
     }
     else if (l >= 10 && l <= 20)
     {
       first_ss = 4;
       second_ss = 3;
-      wizard_cantrips_known = 3;
-      eldritch_spells_known = 7;
+      wizard_attr.wizard_cantrips_known = 3;
+      fighter_attr.eldritch_spells_known = 7;
       if (l >= 13)
         third_ss = 2;
       if (l >= 16)
@@ -402,17 +402,17 @@ void Fighter::setClassDetails(const int &l)
       if (l >= 19)
         forth_ss = 1;
       if (l >= 11)
-        eldritch_spells_known++;
+        fighter_attr.eldritch_spells_known++;
       if (l >= 13)
-        eldritch_spells_known++;
+        fighter_attr.eldritch_spells_known++;
       if (l >= 14)
-        eldritch_spells_known++;
+        fighter_attr.eldritch_spells_known++;
       if (l >= 16)
-        eldritch_spells_known++;
+        fighter_attr.eldritch_spells_known++;
       if (l >= 19)
-        eldritch_spells_known++;
+        fighter_attr.eldritch_spells_known++;
       if (l >= 20)
-        eldritch_spells_known++;
+        fighter_attr.eldritch_spells_known++;
     }
   }
   if (!initialSkillsSet)
@@ -498,13 +498,13 @@ void Rogue::setClassDetails(const int &l)
   intSave = 1;
   if (expertise == 0)
     expertise++;
-  if (!sneak_attack)
-    sneak_attack = true;
-  if (!thieves_cant)
-    thieves_cant = true;
-  if (!cunning_action && l >= 2)
-    cunning_action = true;
-  if (!roguish_archetype && l >= 3)
+  if (!rogue_attr.sneak_attack)
+    rogue_attr.sneak_attack = true;
+  if (!rogue_attr.thieves_cant)
+    rogue_attr.thieves_cant = true;
+  if (!rogue_attr.cunning_action && l >= 2)
+    rogue_attr.cunning_action = true;
+  if (!rogue_attr.roguish_archetype && l >= 3)
   {
     cout << "Roguish Archetype:\n\n"
          << " 1. Thief\n"
@@ -516,20 +516,20 @@ void Rogue::setClassDetails(const int &l)
     switch (ss)
     {
     case 1:
-      thief = true;
+      rogue_attr.thief = true;
       break;
     case 2:
-      assassin = true;
+      rogue_attr.assassin = true;
       cout << "Assassin: gained proficiency with Disguise & Poisoner kit.\n\n";
       disguise = true;
       poisoner = true;
       break;
     case 3:
-      arcane_trickster = true;
+      rogue_attr.arcane_trickster = true;
       spellcasting = true;
       break;
     case 4:
-      mastermind = true;
+      rogue_attr.mastermind = true;
       setLanguage("First bonus Rogue::Mastermind Language:\n\n");
       setLanguage("Second bonus Rogue::Mastermind Language:\n\n");
       cout << "Mastermind: gained proficiency with Disquise & Forgery Kit\n\n";
@@ -538,40 +538,40 @@ void Rogue::setClassDetails(const int &l)
       //gain gaming set
       break;
     case 5:
-      swashbuckler = true;
+      rogue_attr.swashbuckler = true;
       break;
     default:;
     }
-    roguish_archetype = true;
+    rogue_attr.roguish_archetype = true;
   }
-  if (!uncanny_dodge && l >= 5)
-    uncanny_dodge = true;
+  if (!rogue_attr.uncanny_dodge && l >= 5)
+    rogue_attr.uncanny_dodge = true;
   if (expertise == 1 && l >= 6)
     expertise++;
   if (!evasion && l >= 7)
     evasion = true;
-  if (roguish_archetype_feature == 0 && l >= 9)
-    roguish_archetype_feature++;
-  if (!reliable_talent && l >= 11)
-    reliable_talent = true;
-  if (roguish_archetype_feature == 1 && l >= 13)
-    roguish_archetype_feature++;
-  if (!blindsense && l >= 14)
-    blindsense = true;
-  if (!slippery_mind && l >= 15)
-    slippery_mind = true;
-  if (!roguish_archetype_feature && l >= 17)
-    roguish_archetype_feature++;
-  if (!elusive && l >= 18)
-    elusive = true;
-  if (!stroke_of_luck && l == 20)
-    stroke_of_luck = true;
-  if (arcane_trickster)
+  if (rogue_attr.roguish_archetype_feature == 0 && l >= 9)
+    rogue_attr.roguish_archetype_feature++;
+  if (!rogue_attr.reliable_talent && l >= 11)
+    rogue_attr.reliable_talent = true;
+  if (rogue_attr.roguish_archetype_feature == 1 && l >= 13)
+    rogue_attr.roguish_archetype_feature++;
+  if (!rogue_attr.blindsense && l >= 14)
+    rogue_attr.blindsense = true;
+  if (!rogue_attr.slippery_mind && l >= 15)
+    rogue_attr.slippery_mind = true;
+  if (!rogue_attr.roguish_archetype_feature && l >= 17)
+    rogue_attr.roguish_archetype_feature++;
+  if (!rogue_attr.elusive && l >= 18)
+    rogue_attr.elusive = true;
+  if (!rogue_attr.stroke_of_luck && l == 20)
+    rogue_attr.stroke_of_luck = true;
+  if (rogue_attr.arcane_trickster)
   {
     if (l >= 3 && l <= 9)
     {
       first_ss = 2;
-      wizard_cantrips_known = 2;
+      wizard_attr.wizard_cantrips_known = 2;
       if (l >= 4)
         first_ss++;
       if (l >= 7)
@@ -579,18 +579,18 @@ void Rogue::setClassDetails(const int &l)
       if (l >= 7)
         second_ss = 2;
       if (l >= 4)
-        arcane_t_spells_known++;
+        rogue_attr.arcane_t_spells_known++;
       if (l >= 7)
-        arcane_t_spells_known++;
+        rogue_attr.arcane_t_spells_known++;
       if (l >= 8)
-        arcane_t_spells_known++;
+        rogue_attr.arcane_t_spells_known++;
     }
     else if (l >= 10 && l <= 20)
     {
       first_ss = 4;
       second_ss = 3;
-      wizard_cantrips_known = 3;
-      eldritch_spells_known = 7;
+      wizard_attr.wizard_cantrips_known = 3;
+      fighter_attr.eldritch_spells_known = 7;
       if (l >= 13)
         third_ss = 2;
       if (l >= 16)
@@ -598,17 +598,17 @@ void Rogue::setClassDetails(const int &l)
       if (l >= 19)
         forth_ss = 1;
       if (l >= 11)
-        arcane_t_spells_known++;
+        rogue_attr.arcane_t_spells_known++;
       if (l >= 13)
-        arcane_t_spells_known++;
+        rogue_attr.arcane_t_spells_known++;
       if (l >= 14)
-        arcane_t_spells_known++;
+        rogue_attr.arcane_t_spells_known++;
       if (l >= 16)
-        arcane_t_spells_known++;
+        rogue_attr.arcane_t_spells_known++;
       if (l >= 19)
-        arcane_t_spells_known++;
+        rogue_attr.arcane_t_spells_known++;
       if (l >= 20)
-        arcane_t_spells_known++;
+        rogue_attr.arcane_t_spells_known++;
     }
   }
   if (roguelevelupmenus == 0 && l >= 4)
@@ -749,9 +749,9 @@ void Wizard::setClassDetails(const int &l)
   wisSave = 1;
   if (!spellcasting)
     spellcasting = true;
-  if (!arcane_recovery)
-    arcane_recovery = true;
-  if (!arcane_tradition && l >= 2)
+  if (!wizard_attr.arcane_recovery)
+    wizard_attr.arcane_recovery = true;
+  if (!wizard_attr.arcane_tradition && l >= 2)
   {
     cout << "Wizard Arcane Tradition:\n\n"
          << " 1. Abjuration\n"
@@ -767,56 +767,56 @@ void Wizard::setClassDetails(const int &l)
     switch (ss)
     {
     case 1:
-      abjuration = true;
+      wizard_attr.abjuration = true;
       break;
     case 2:
-      conjuration = true;
+      wizard_attr.conjuration = true;
       break;
     case 3:
-      divination = true;
+      wizard_attr.divination = true;
       break;
     case 4:
-      enchantment = true;
+      wizard_attr.enchantment = true;
       break;
     case 5:
-      evocation = true;
+      wizard_attr.evocation = true;
       break;
     case 6:
-      illusion = true;
+      wizard_attr.illusion = true;
       break;
     case 7:
-      necromancy = true;
+      wizard_attr.necromancy = true;
       break;
     case 8:
-      transmutation = true;
+      wizard_attr.transmutation = true;
       break;
     case 9:
-      bladesinging = true;
+      wizard_attr.bladesinging = true;
       performance = true;
       cout << "Bladesinger: gained Performance & proficiency in Light Armor or 1H Weapon\n";
       break;
     default:;
     }
-    arcane_tradition = true;
+    wizard_attr.arcane_tradition = true;
     cout << endl;
   }
-  if (arcane_tradition_feature == 0 && l >= 6)
-    arcane_tradition_feature++;
-  if (arcane_tradition_feature == 1 && l >= 10)
-    arcane_tradition_feature++;
-  if (arcane_tradition_feature == 2 && l >= 14)
-    arcane_tradition_feature++;
-  if (!spell_mastery && l >= 18)
-    spell_mastery = true;
-  if (!signature_spell && l == 20)
-    signature_spell = true;
+  if (wizard_attr.arcane_tradition_feature == 0 && l >= 6)
+    wizard_attr.arcane_tradition_feature++;
+  if (wizard_attr.arcane_tradition_feature == 1 && l >= 10)
+    wizard_attr.arcane_tradition_feature++;
+  if (wizard_attr.arcane_tradition_feature == 2 && l >= 14)
+    wizard_attr.arcane_tradition_feature++;
+  if (!wizard_attr.spell_mastery && l >= 18)
+    wizard_attr.spell_mastery = true;
+  if (!wizard_attr.signature_spell && l == 20)
+    wizard_attr.signature_spell = true;
   //spellslots
   for (int i = 1; i <= l; i++)
   {
     switch (i)
     {
     case 1:
-      wizard_cantrips_known = 3;
+      wizard_attr.wizard_cantrips_known = 3;
       first_ss = 2;
       break;
     case 2:
@@ -827,7 +827,7 @@ void Wizard::setClassDetails(const int &l)
       second_ss = 2;
       break;
     case 4:
-      wizard_cantrips_known++;
+      wizard_attr.wizard_cantrips_known++;
       second_ss++;
       break;
     case 5:
@@ -847,7 +847,7 @@ void Wizard::setClassDetails(const int &l)
       fifth_ss = 1;
       break;
     case 10:
-      wizard_cantrips_known++;
+      wizard_attr.wizard_cantrips_known++;
       fifth_ss++;
       break;
     case 11:
@@ -970,23 +970,23 @@ void Barbarian::setClassDetails(const int &l)
   conSave = true;
   if (l == 20)
   {
-    rages = 1000;
+    barbarian_attr.rages = 1000;
   }
   else
   {
-    rages = 2;
+    barbarian_attr.rages = 2;
     if (l > 2)
     {
-      rages++;
+      barbarian_attr.rages++;
       if (l > 5)
       {
-        rages++;
+        barbarian_attr.rages++;
         if (l > 11)
         {
-          rages++;
+          barbarian_attr.rages++;
           if (l > 16)
           {
-            rages++;
+            barbarian_attr.rages++;
           }
         }
       }
@@ -994,23 +994,23 @@ void Barbarian::setClassDetails(const int &l)
   }
   if (l > 0)
   {
-    rage_damage = 2;
+    barbarian_attr.rage_damage = 2;
     if (l > 8)
     {
-      rage_damage++;
+      barbarian_attr.rage_damage++;
       if (l > 15)
       {
-        rage_damage++;
+        barbarian_attr.rage_damage++;
       }
     }
   }
   if (!unarmored_defense && l >= 1)
     unarmored_defense = true;
-  if (!reckless_attack && l >= 2)
-    reckless_attack = true;
-  if (!danger_sense && l >= 2)
-    danger_sense = true;
-  if (!primal_path && l >= 3)
+  if (!barbarian_attr.reckless_attack && l >= 2)
+    barbarian_attr.reckless_attack = true;
+  if (!barbarian_attr.danger_sense && l >= 2)
+    barbarian_attr.danger_sense = true;
+  if (!barbarian_attr.primal_path && l >= 3)
   {
     cout << "Choose a Primal Path:\n\n";
     cout << " 1. Path of the Battlerager (Dwarf Only or check with DM)\n 2. Path of the Berserker\n 3. Path of the Totem Warrior.\n\n";
@@ -1018,138 +1018,138 @@ void Barbarian::setClassDetails(const int &l)
     switch (ss)
     {
     case 1:
-      path_of_the_battlerager = true;
+      barbarian_attr.path_of_the_battlerager = true;
       break;
     case 2:
-      path_of_the_berseker = true;
+      barbarian_attr.path_of_the_berseker = true;
       break;
     case 3:
-      path_of_the_totem_warrior = true;
+      barbarian_attr.path_of_the_totem_warrior = true;
       cout << "Choose a type for your totem Path:\n\n"
            << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
       ss = getNumber("Choice(1-3): ", 1, 3);
       if (ss == 1)
       {
-        bear_totem = true;
-        eagle_totem = false;
-        wolf_totem = false;
+        barbarian_attr.bear_totem = true;
+        barbarian_attr.eagle_totem = false;
+        barbarian_attr.wolf_totem = false;
       }
       if (ss == 2)
       {
-        eagle_totem = true;
-        bear_totem = false;
-        wolf_totem = false;
+        barbarian_attr.eagle_totem = true;
+        barbarian_attr.bear_totem = false;
+        barbarian_attr.wolf_totem = false;
       }
       if (ss == 3)
       {
-        wolf_totem = true;
-        bear_totem = false;
-        eagle_totem = false;
+        barbarian_attr.wolf_totem = true;
+        barbarian_attr.bear_totem = false;
+        barbarian_attr.eagle_totem = false;
       }
       //uthgardt totem options need added but they are minimal effect
     }
-    primal_path = true;
+    barbarian_attr.primal_path = true;
   }
   if (extra_attack == 0 && l >= 5)
   {
     extra_attack++;
   }
-  if (!fast_movement && l >= 5)
+  if (!barbarian_attr.fast_movement && l >= 5)
   {
-    fast_movement = true;
+    barbarian_attr.fast_movement = true;
     move_speed += 10;
   }
-  if (path_feature == 0 && l >= 6)
+  if (barbarian_attr.path_feature == 0 && l >= 6)
   {
-    path_feature++;
+    barbarian_attr.path_feature++;
   }
-  if (!feral_instinct && l >= 7)
+  if (!barbarian_attr.feral_instinct && l >= 7)
   {
-    feral_instinct = true;
+    barbarian_attr.feral_instinct = true;
   }
-  if (brutal_critical == 0 && l >= 9)
+  if (barbarian_attr.brutal_critical == 0 && l >= 9)
   {
-    brutal_critical++;
+    barbarian_attr.brutal_critical++;
   }
-  if (path_feature == 1 && l >= 10)
+  if (barbarian_attr.path_feature == 1 && l >= 10)
   {
-    if (path_of_the_totem_warrior)
+    if (barbarian_attr.path_of_the_totem_warrior)
     {
       cout << "Change Totem Path option:\n\n"
            << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
       int ss = getNumber("Choice: ", 1, 3);
       if (ss == 1)
       {
-        bear_totem = true;
-        eagle_totem = false;
-        wolf_totem = false;
+        barbarian_attr.bear_totem = true;
+        barbarian_attr.eagle_totem = false;
+        barbarian_attr.wolf_totem = false;
       }
       if (ss == 2)
       {
-        eagle_totem = true;
-        bear_totem = false;
-        wolf_totem = false;
+        barbarian_attr.eagle_totem = true;
+        barbarian_attr.bear_totem = false;
+        barbarian_attr.wolf_totem = false;
       }
       if (ss == 3)
       {
-        wolf_totem = true;
-        bear_totem = false;
-        eagle_totem = false;
+        barbarian_attr.wolf_totem = true;
+        barbarian_attr.bear_totem = false;
+        barbarian_attr.eagle_totem = false;
       }
     }
-    path_feature++;
+    barbarian_attr.path_feature++;
   }
-  if (!relentless_rage && l >= 11)
+  if (!barbarian_attr.relentless_rage && l >= 11)
   {
-    relentless_rage = true;
+    barbarian_attr.relentless_rage = true;
   }
-  if (brutal_critical == 1 && l >= 13)
+  if (barbarian_attr.brutal_critical == 1 && l >= 13)
   {
-    brutal_critical++;
+    barbarian_attr.brutal_critical++;
   }
-  if (path_feature == 2 && l >= 14)
+  if (barbarian_attr.path_feature == 2 && l >= 14)
   {
-    if (path_of_the_totem_warrior)
+    if (barbarian_attr.path_of_the_totem_warrior)
     {
       cout << "Change Totem Path option:\n\n"
            << " 1. Bear\n 2. Eagle\n 3. Wolf\n\n";
       int ss = getNumber("Choice: ", 1, 3);
       if (ss == 1)
       {
-        bear_totem = true;
-        eagle_totem = false;
-        wolf_totem = false;
+        barbarian_attr.bear_totem = true;
+        barbarian_attr.eagle_totem = false;
+        barbarian_attr.wolf_totem = false;
       }
       if (ss == 2)
       {
-        eagle_totem = true;
-        bear_totem = false;
-        wolf_totem = false;
+        barbarian_attr.eagle_totem = true;
+        barbarian_attr.bear_totem = false;
+        barbarian_attr.wolf_totem = false;
       }
       if (ss == 3)
       {
-        wolf_totem = true;
-        bear_totem = false;
-        eagle_totem = false;
+        barbarian_attr.wolf_totem = true;
+        barbarian_attr.bear_totem = false;
+        barbarian_attr.eagle_totem = false;
       }
     }
-    path_feature++;
+    barbarian_attr.path_feature++;
   }
-  if (!persistant_rage && l >= 15)
+  if (!barbarian_attr.persistant_rage && l >= 15)
   {
-    persistant_rage = true;
+    barbarian_attr.persistant_rage = true;
   }
-  if (brutal_critical == 2 && l >= 17)
+  if (barbarian_attr.brutal_critical == 2 && l >= 17)
   {
-    brutal_critical++;
+    barbarian_attr.brutal_critical++;
   }
-  if (!indomitable_might && l >= 18)
+  if (!barbarian_attr.indomitable_might && l >= 18)
   {
-    indomitable_might = true;
+    barbarian_attr.indomitable_might = true;
   }
-  if (!primal_champion && l >= 20)
+  if (!barbarian_attr.primal_champion && l >= 20)
   {
-    primal_champion = true;
+    barbarian_attr.primal_champion = true;
   }
   if (barbarianlevelupmenus == 0 && l >= 4)
   {
@@ -1252,9 +1252,9 @@ void Druid::setClassDetails(const int &l)
   //     druidic = true;
   if (!spellcasting)
     spellcasting = true;
-  if (!wild_shape && l >= 2)
-    wild_shape = true;
-  if (!druid_circle && l >= 2)
+  if (!druid_attr.wild_shape && l >= 2)
+    druid_attr.wild_shape = true;
+  if (!druid_attr.druid_circle && l >= 2)
   {
     cout << "Druid Circle:\n\n"
          << " 1. Circle of the Land\n 2. Circle of the Moon\n\n";
@@ -1263,32 +1263,32 @@ void Druid::setClassDetails(const int &l)
     {
       cout << "Circle of the Land type:\n\n";
       setLandtype();
-      circle_of_the_land = true;
+      druid_attr.circle_of_the_land = true;
     }
     if (ss == 2)
-      circle_of_the_moon = true;
-    druid_circle = true;
+      druid_attr.circle_of_the_moon = true;
+    druid_attr.druid_circle = true;
   }
-  if (wild_shape_improvement == .25 && l >= 4)
-    wild_shape_improvement += .25;
-  if (druid_circle_feature == 0 && l >= 6)
-    druid_circle_feature++;
-  if (wild_shape_improvement == .5 && l >= 8)
-    wild_shape_improvement += .5;
-  if (druid_circle_feature == 1 && l >= 10)
-    druid_circle_feature++;
-  if (druid_circle_feature == 2 && l >= 14)
-    druid_circle_feature++;
+  if (druid_attr.wild_shape_improvement == .25 && l >= 4)
+    druid_attr.wild_shape_improvement += .25;
+  if (druid_attr.druid_circle_feature == 0 && l >= 6)
+    druid_attr.druid_circle_feature++;
+  if (druid_attr.wild_shape_improvement == .5 && l >= 8)
+    druid_attr.wild_shape_improvement += .5;
+  if (druid_attr.druid_circle_feature == 1 && l >= 10)
+    druid_attr.druid_circle_feature++;
+  if (druid_attr.druid_circle_feature == 2 && l >= 14)
+    druid_attr.druid_circle_feature++;
   if (!timeless_body && l >= 18)
     timeless_body = true;
-  if (!beast_spells && l >= 18)
-    beast_spells = true;
-  if (!archdruid && l >= 20)
-    archdruid = true;
+  if (!druid_attr.beast_spells && l >= 18)
+    druid_attr.beast_spells = true;
+  if (!druid_attr.archdruid && l >= 20)
+    druid_attr.archdruid = true;
   //druid spells
   if (l >= 1 && l <= 3)
   {
-    druid_cantrips_known = 2;
+    druid_attr.druid_cantrips_known = 2;
     first_ss = 2;
     if (l == 2)
     {
@@ -1302,7 +1302,7 @@ void Druid::setClassDetails(const int &l)
   }
   else if (l >= 4 && l <= 9)
   {
-    druid_cantrips_known = 3;
+    druid_attr.druid_cantrips_known = 3;
     first_ss = 4;
     second_ss = 3;
     if (l >= 5)
@@ -1324,7 +1324,7 @@ void Druid::setClassDetails(const int &l)
   }
   else if (l >= 10 && l <= 20)
   {
-    druid_cantrips_known = 4;
+    druid_attr.druid_cantrips_known = 4;
     first_ss = 4;
     second_ss = 3;
     third_ss = 3;
@@ -1461,10 +1461,10 @@ void Paladin::setClassDetails(const int &l)
   hitdicesize = 10;
   wisSave = true;
   chaSave = true;
-  if (!divine_sense)
-    divine_sense = true;
-  if (!lay_on_hands)
-    lay_on_hands = true;
+  if (!paladin_attr.divine_sense)
+    paladin_attr.divine_sense = true;
+  if (!paladin_attr.lay_on_hands)
+    paladin_attr.lay_on_hands = true;
   if (!fighting_style && l >= 2)
   {
     cout << "Pick a Paladin Fighting Style:\n\n"
@@ -1483,11 +1483,11 @@ void Paladin::setClassDetails(const int &l)
   }
   if (!spellcasting && l >= 2)
     spellcasting = true;
-  if (divine_smite == 0 && l >= 2)
-    divine_smite++;
-  if (!divine_health && l >= 3)
-    divine_health = true;
-  if (!sacred_oath && l >= 3)
+  if (paladin_attr.divine_smite == 0 && l >= 2)
+    paladin_attr.divine_smite++;
+  if (!paladin_attr.divine_health && l >= 3)
+    paladin_attr.divine_health = true;
+  if (!paladin_attr.sacred_oath && l >= 3)
   {
     cout << "Pick a Paladin Oath Path:\n\n"
          << " 1. Oath of Ancients\n"
@@ -1499,44 +1499,44 @@ void Paladin::setClassDetails(const int &l)
     switch (ss)
     {
     case 1:
-      oath_of_ancients = true;
+      paladin_attr.oath_of_ancients = true;
       break;
     case 2:
-      oath_of_devotion = true;
+      paladin_attr.oath_of_devotion = true;
       break;
     case 3:
-      oath_of_the_crown = true;
+      paladin_attr.oath_of_the_crown = true;
       break;
     case 4:
-      oath_of_vengeance = true;
+      paladin_attr.oath_of_vengeance = true;
       break;
     case 5:
-      oathbreaker = true;
+      paladin_attr.oathbreaker = true;
       break;
     default:
       cout << "Error setting Paladin Oath - check code\n\n";
       break;
     }
-    sacred_oath = true;
+    paladin_attr.sacred_oath = true;
   }
   if (extra_attack == 0 && l >= 5)
     extra_attack++;
-  if (!aura_of_protection && l >= 6)
-    aura_of_protection = true;
-  if (sacred_oath_feature == 0 && l >= 7)
-    sacred_oath_feature++;
-  if (!aura_of_courage && l >= 10)
-    aura_of_courage = true;
-  if (divine_smite == 1 && l >= 11)
-    divine_smite++;
-  if (!cleansing_touch && l >= 14)
-    cleansing_touch = true;
-  if (sacred_oath_feature == 1 && l >= 15)
-    sacred_oath_feature++;
-  if (!aura_improvments && l >= 18)
-    aura_improvments = true;
-  if (sacred_oath_feature == 2 && l == 20)
-    sacred_oath_feature++;
+  if (!paladin_attr.aura_of_protection && l >= 6)
+    paladin_attr.aura_of_protection = true;
+  if (paladin_attr.sacred_oath_feature == 0 && l >= 7)
+    paladin_attr.sacred_oath_feature++;
+  if (!paladin_attr.aura_of_courage && l >= 10)
+    paladin_attr.aura_of_courage = true;
+  if (paladin_attr.divine_smite == 1 && l >= 11)
+    paladin_attr.divine_smite++;
+  if (!paladin_attr.cleansing_touch && l >= 14)
+    paladin_attr.cleansing_touch = true;
+  if (paladin_attr.sacred_oath_feature == 1 && l >= 15)
+    paladin_attr.sacred_oath_feature++;
+  if (!paladin_attr.aura_improvments && l >= 18)
+    paladin_attr.aura_improvments = true;
+  if (paladin_attr.sacred_oath_feature == 2 && l == 20)
+    paladin_attr.sacred_oath_feature++;
   //spells
   if (l >= 2)
     first_ss = 2;
@@ -1663,7 +1663,7 @@ void Sorcerer::setClassDetails(const int &l)
   chaSave = true;
   if (!spellcasting)
     spellcasting = true;
-  if (!sorcerous_origin)
+  if (!sorcerer_attr.sorcerous_origin)
   {
     cout << "Sorcerous Origin:\n\n"
          << " 1. Draconic Bloodline\n 2. Wild Magic\n 3. Storm Sorcery\n\n";
@@ -1672,109 +1672,109 @@ void Sorcerer::setClassDetails(const int &l)
     {
     case 1:
       draconic = true;
-      draconic_bloodline = true;
+      sorcerer_attr.draconic_bloodline = true;
       break;
     case 2:
-      wild_magic = true;
+      sorcerer_attr.wild_magic = true;
       break;
     case 3:
-      storm_sorcery = true;
+      sorcerer_attr.storm_sorcery = true;
       break;
     default:;
     }
-    sorcerous_origin = true;
+    sorcerer_attr.sorcerous_origin = true;
   }
-  if (!font_of_magic && l >= 2)
-    font_of_magic = true;
-  if (metamagic == 0 && l >= 3)
-    metamagic++;
-  if (sorcerous_origin_feature == 0 && l >= 6)
-    sorcerous_origin_feature++;
-  if (metamagic == 1 && l >= 10)
-    metamagic++;
-  if (sorcerous_origin_feature == 1 && l >= 14)
-    sorcerous_origin_feature++;
-  if (metamagic == 2 && l >= 17)
-    metamagic++;
-  if (sorcerous_origin_feature == 2 && l >= 18)
-    sorcerous_origin_feature++;
-  if (!sorcerous_restoration && l == 20)
-    sorcerous_restoration = true;
+  if (!sorcerer_attr.font_of_magic && l >= 2)
+    sorcerer_attr.font_of_magic = true;
+  if (sorcerer_attr.metamagic == 0 && l >= 3)
+    sorcerer_attr.metamagic++;
+  if (sorcerer_attr.sorcerous_origin_feature == 0 && l >= 6)
+    sorcerer_attr.sorcerous_origin_feature++;
+  if (sorcerer_attr.metamagic == 1 && l >= 10)
+    sorcerer_attr.metamagic++;
+  if (sorcerer_attr.sorcerous_origin_feature == 1 && l >= 14)
+    sorcerer_attr.sorcerous_origin_feature++;
+  if (sorcerer_attr.metamagic == 2 && l >= 17)
+    sorcerer_attr.metamagic++;
+  if (sorcerer_attr.sorcerous_origin_feature == 2 && l >= 18)
+    sorcerer_attr.sorcerous_origin_feature++;
+  if (!sorcerer_attr.sorcerous_restoration && l == 20)
+    sorcerer_attr.sorcerous_restoration = true;
   //spells
   if (l >= 1)
   {
-    sorcerer_cantrips_known = 4;
-    sorcerer_spells_known = 2;
+    sorcerer_attr.sorcerer_cantrips_known = 4;
+    sorcerer_attr.sorcerer_spells_known = 2;
     first_ss = 2;
   }
   if (l >= 2)
   {
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     first_ss++;
-    sorcery_points = l;
+    sorcerer_attr.sorcery_points = l;
   }
   if (l >= 3)
   {
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     first_ss++;
     second_ss += 2;
   }
   if (l >= 4)
   {
-    sorcerer_cantrips_known++;
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_cantrips_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     second_ss++;
   }
   if (l >= 5)
   {
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     third_ss += 2;
   }
   if (l >= 6)
   {
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     third_ss++;
   }
   if (l >= 7)
   {
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     forth_ss++;
   }
   if (l >= 8)
   {
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     forth_ss++;
   }
   if (l >= 9)
   {
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     forth_ss++;
     fifth_ss++;
   }
   if (l >= 10)
   {
-    sorcerer_cantrips_known++;
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_cantrips_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     fifth_ss++;
   }
   if (l >= 11)
   {
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     sixth_ss++;
   }
   if (l >= 13)
   {
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     seventh_ss++;
   }
   if (l >= 15)
   {
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     eighth_ss++;
   }
   if (l >= 17)
   {
-    sorcerer_spells_known++;
+    sorcerer_attr.sorcerer_spells_known++;
     ninth_ss++;
   }
   if (l >= 18)
@@ -1885,19 +1885,19 @@ void Bard::setClassDetails(const int &l)
   {
     spellcasting = true;
   }
-  if (bardic_inspiration == 0)
+  if (bard_attr.bardic_inspiration == 0)
   {
-    bardic_inspiration = 6;
+    bard_attr.bardic_inspiration = 6;
   }
-  if (!jack_of_all_trades && l >= 2)
+  if (!bard_attr.jack_of_all_trades && l >= 2)
   {
-    jack_of_all_trades = true;
+    bard_attr.jack_of_all_trades = true;
   }
-  if (song_of_rest == 0 && l >= 2)
+  if (bard_attr.song_of_rest == 0 && l >= 2)
   {
-    song_of_rest = 6;
+    bard_attr.song_of_rest = 6;
   }
-  if (!bard_college && l >= 3)
+  if (!bard_attr.bard_college && l >= 3)
   {
     cout << "Bard College:\n\n"
          << " 1. College of Lore\n 2. College of Valor\n\n";
@@ -1905,79 +1905,79 @@ void Bard::setClassDetails(const int &l)
     if (ss == 1)
     {
       setAnySkill("College of Lore Skills:", 3);
-      college_of_lore = true;
+      bard_attr.college_of_lore = true;
     }
     if (ss == 2)
-      college_of_valor = true;
-    bard_college = true;
+      bard_attr.college_of_valor = true;
+    bard_attr.bard_college = true;
   }
   if (expertise == 0 && l >= 3)
   {
     expertise++;
   }
-  if (bardic_inspiration <= 6 && l >= 5)
+  if (bard_attr.bardic_inspiration <= 6 && l >= 5)
   {
-    bardic_inspiration = 8;
+    bard_attr.bardic_inspiration = 8;
   }
-  if (!font_of_inspiration && l >= 5)
+  if (!bard_attr.font_of_inspiration && l >= 5)
   {
-    font_of_inspiration = true;
+    bard_attr.font_of_inspiration = true;
   }
-  if (!countercharm && l >= 6)
+  if (!bard_attr.countercharm && l >= 6)
   {
-    countercharm = true;
+    bard_attr.countercharm = true;
   }
-  if (bard_college_feature <= 0 && l >= 6)
+  if (bard_attr.bard_college_feature <= 0 && l >= 6)
   {
-    bard_college_feature++;
-    if (college_of_lore)
-      additional_magical_secrets = true;
-    if (college_of_valor && extra_attack == 0)
+    bard_attr.bard_college_feature++;
+    if (bard_attr.college_of_lore)
+      bard_attr.additional_magical_secrets = true;
+    if (bard_attr.college_of_valor && extra_attack == 0)
       extra_attack++;
   }
-  if (song_of_rest <= 6 && l >= 9)
+  if (bard_attr.song_of_rest <= 6 && l >= 9)
   {
-    song_of_rest = 8;
+    bard_attr.song_of_rest = 8;
   }
-  if (bardic_inspiration <= 8 && l >= 10)
+  if (bard_attr.bardic_inspiration <= 8 && l >= 10)
   {
-    bardic_inspiration = 10;
+    bard_attr.bardic_inspiration = 10;
   }
   if (expertise <= 1 && l >= 10)
   {
     expertise++;
   }
-  if (magical_secrets == 0 && l >= 10)
+  if (bard_attr.magical_secrets == 0 && l >= 10)
   {
-    magical_secrets++;
+    bard_attr.magical_secrets++;
   }
-  if (song_of_rest <= 8 && l >= 13)
+  if (bard_attr.song_of_rest <= 8 && l >= 13)
   {
-    song_of_rest = 10;
+    bard_attr.song_of_rest = 10;
   }
-  if (bard_college_feature <= 1 && l >= 14)
+  if (bard_attr.bard_college_feature <= 1 && l >= 14)
   {
-    bard_college_feature++;
+    bard_attr.bard_college_feature++;
   }
-  if (magical_secrets <= 1 && l >= 14)
+  if (bard_attr.magical_secrets <= 1 && l >= 14)
   {
-    magical_secrets++;
+    bard_attr.magical_secrets++;
   }
-  if (bardic_inspiration <= 10 && l >= 15)
+  if (bard_attr.bardic_inspiration <= 10 && l >= 15)
   {
-    bardic_inspiration = 12;
+    bard_attr.bardic_inspiration = 12;
   }
-  if (song_of_rest <= 10 && l >= 17)
+  if (bard_attr.song_of_rest <= 10 && l >= 17)
   {
-    song_of_rest = 12;
+    bard_attr.song_of_rest = 12;
   }
-  if (magical_secrets <= 2 && l >= 18)
+  if (bard_attr.magical_secrets <= 2 && l >= 18)
   {
-    magical_secrets++;
+    bard_attr.magical_secrets++;
   }
-  if (!superior_inspiration && l >= 20)
+  if (!bard_attr.superior_inspiration && l >= 20)
   {
-    superior_inspiration = true;
+    bard_attr.superior_inspiration = true;
   }
   //bard spells
   for (int i = 1; i <= l; i++)
@@ -1985,73 +1985,73 @@ void Bard::setClassDetails(const int &l)
     switch (i)
     {
     case 1:
-      bard_cantrips_known = 2;
-      bard_spells_known = 4;
+      bard_attr.bard_cantrips_known = 2;
+      bard_attr.bard_spells_known = 4;
       first_ss = 2;
       break;
     case 2:
-      bard_spells_known++;
+      bard_attr.bard_spells_known++;
       first_ss++;
       break;
     case 3:
-      bard_spells_known++;
+      bard_attr.bard_spells_known++;
       first_ss++;
       second_ss = 2;
       break;
     case 4:
-      bard_cantrips_known++;
-      bard_spells_known++;
+      bard_attr.bard_cantrips_known++;
+      bard_attr.bard_spells_known++;
       second_ss++;
       break;
     case 5:
-      bard_spells_known++;
+      bard_attr.bard_spells_known++;
       third_ss = 2;
       break;
     case 6:
-      bard_spells_known++;
+      bard_attr.bard_spells_known++;
       third_ss++;
-      if (additional_magical_secrets)
-        bard_spells_known += 2;
+      if (bard_attr.additional_magical_secrets)
+        bard_attr.bard_spells_known += 2;
       break;
     case 7:
-      bard_spells_known++;
+      bard_attr.bard_spells_known++;
       forth_ss = 1;
       break;
     case 8:
-      bard_spells_known++;
+      bard_attr.bard_spells_known++;
       forth_ss++;
       break;
     case 9:
-      bard_spells_known++;
+      bard_attr.bard_spells_known++;
       forth_ss++;
       fifth_ss = 1;
       break;
     case 10:
-      bard_cantrips_known++;
+      bard_attr.bard_cantrips_known++;
+      bard_attr.bard_spells_known += 2;
       fifth_ss++;
-      bard_spells_known += 2;
       break;
     case 11:
-      bard_spells_known++;
+      bard_attr.bard_spells_known++;
       sixth_ss = 1;
       break;
     case 13:
-      bard_spells_known++;
+      bard_attr.bard_spells_known++;
       seventh_ss = 1;
       break;
     case 14:
-      bard_spells_known += 2;
+      bard_attr.bard_spells_known += 2;
       break;
     case 15:
-      bard_spells_known++;
+      bard_attr.bard_spells_known++;
       eighth_ss = 1;
       break;
     case 17:
-      bard_spells_known++;
+      bard_attr.bard_spells_known++;
       ninth_ss = 1;
       break;
     case 18:
-      bard_spells_known += 2;
+      bard_attr.bard_spells_known += 2;
       break;
     case 19:
       sixth_ss++;
@@ -2106,26 +2106,26 @@ void Monk::setClassDetails(const int &l)
   if (!unarmored_defense)
     unarmored_defense = true;
   if (l >= 1 && l <= 4)
-    martial_arts = 4;
+    monk_attr.martial_arts = 4;
   else if (l >= 5 && l <= 10)
-    martial_arts = 6;
+    monk_attr.martial_arts = 6;
   else if (l >= 11 && l <= 16)
-    martial_arts = 8;
+    monk_attr.martial_arts = 8;
   else if (l >= 17 && l <= 20)
-    martial_arts = 10;
+    monk_attr.martial_arts = 10;
   if (l >= 2)
-    ki = l;
+    monk_attr.ki = l;
   if (l >= 2 && l <= 5)
-    unarmored_movement = 10;
+    monk_attr.unarmored_movement = 10;
   else if (l >= 6 && l <= 9)
-    unarmored_movement = 15;
+    monk_attr.unarmored_movement = 15;
   else if (l >= 10 && l <= 13)
-    unarmored_movement = 20;
+    monk_attr.unarmored_movement = 20;
   else if (l >= 14 && l <= 17)
-    unarmored_movement = 25;
+    monk_attr.unarmored_movement = 25;
   else if (l > -18 && l <= 20)
-    unarmored_movement = 30;
-  if (!monastic_tradition && l >= 3)
+    monk_attr.unarmored_movement = 30;
+  if (!monk_attr.monastic_tradition && l >= 3)
   {
     cout << "Monastic Tradition:\n\n"
          << " 1. Way of the Open Hand\n 2. Way of the Four Elements\n"
@@ -2135,59 +2135,59 @@ void Monk::setClassDetails(const int &l)
     switch (ss)
     {
     case 1:
-      way_of_the_open_hand = true;
+      monk_attr.way_of_the_open_hand = true;
       break;
     case 2:
-      way_of_the_four_elements = true;
+      monk_attr.way_of_the_four_elements = true;
       break;
     case 3:
-      way_of_the_long_death = true;
+      monk_attr.way_of_the_long_death = true;
       break;
     case 4:
-      way_of_the_shadow = true;
+      monk_attr.way_of_the_shadow = true;
       break;
     case 5:
-      way_of_the_sun_soul = true;
+      monk_attr.way_of_the_sun_soul = true;
       break;
     default:
       cout << "Error setting monk tradition - check code\n\n";
     }
-    monastic_tradition = true;
+    monk_attr.monastic_tradition = true;
   }
-  if (!deflect_missles && l >= 3)
-    deflect_missles = true;
-  if (!slow_fall && l >= 4)
-    slow_fall = true;
+  if (!monk_attr.deflect_missles && l >= 3)
+    monk_attr.deflect_missles = true;
+  if (!monk_attr.slow_fall && l >= 4)
+    monk_attr.slow_fall = true;
   if (extra_attack == 0 && l >= 5)
     extra_attack++;
-  if (!stunning_strike && l >= 5)
-    stunning_strike = true;
-  if (!ki_empowered_strikes && l >= 6)
-    ki_empowered_strikes = true;
-  if (monastic_tradition_feature == 0 && l >= 6)
-    monastic_tradition_feature++;
+  if (!monk_attr.stunning_strike && l >= 5)
+    monk_attr.stunning_strike = true;
+  if (!monk_attr.ki_empowered_strikes && l >= 6)
+    monk_attr.ki_empowered_strikes = true;
+  if (monk_attr.monastic_tradition_feature == 0 && l >= 6)
+    monk_attr.monastic_tradition_feature++;
   if (!evasion && l >= 7)
     evasion = true;
-  if (!stillness_of_mind && l >= 7)
-    stillness_of_mind = true;
-  if (!unarmored_movement_improvement && l >= 9)
-    unarmored_movement_improvement = true;
-  if (!purity_of_body && l >= 10)
-    purity_of_body = true;
-  if (monastic_tradition_feature == 1 && l >= 11)
-    monastic_tradition_feature++;
-  if (!tongue_of_the_sun_and_moon && l >= 13)
-    tongue_of_the_sun_and_moon = true;
-  if (!diamond_soul && l >= 14)
-    diamond_soul = true;
+  if (!monk_attr.stillness_of_mind && l >= 7)
+    monk_attr.stillness_of_mind = true;
+  if (!monk_attr.unarmored_movement_improvement && l >= 9)
+    monk_attr.unarmored_movement_improvement = true;
+  if (!monk_attr.purity_of_body && l >= 10)
+    monk_attr.purity_of_body = true;
+  if (monk_attr.monastic_tradition_feature == 1 && l >= 11)
+   monk_attr. monastic_tradition_feature++;
+  if (!monk_attr.tongue_of_the_sun_and_moon && l >= 13)
+    monk_attr.tongue_of_the_sun_and_moon = true;
+  if (!monk_attr.diamond_soul && l >= 14)
+    monk_attr.diamond_soul = true;
   if (!timeless_body && l >= 15)
     timeless_body = true;
-  if (monastic_tradition_feature == 2 && l >= 17)
-    monastic_tradition_feature++;
-  if (!empty_body && l >= 18)
-    empty_body = true;
-  if (!perfect_self && l == 20)
-    perfect_self = true;
+  if (monk_attr.monastic_tradition_feature == 2 && l >= 17)
+    monk_attr.monastic_tradition_feature++;
+  if (!monk_attr.empty_body && l >= 18)
+    monk_attr.empty_body = true;
+  if (!monk_attr.perfect_self && l == 20)
+    monk_attr.perfect_self = true;
   if (monklevelupmenus == 0 && l >= 4)
   {
     cout << "Monk level 4 Level Up menu:\n\n";
@@ -2285,17 +2285,17 @@ void Ranger::setClassDetails(const int &l)
   hitdicesize = 10;
   strSave = true;
   dexSave = true;
-  if (favored_enemy == 0)
+  if (ranger_attr.favored_enemy == 0)
   {
     cout << "Ranger Favored Enemy:\n\n";
     setFavoredEnemy();
-    favored_enemy++;
+    ranger_attr.favored_enemy++;
   }
-  if (natural_explorer == 0)
+  if (ranger_attr.natural_explorer == 0)
   {
     cout << "Natural Explorer land type:\n\n";
     setLandtype();
-    natural_explorer++;
+    ranger_attr.natural_explorer++;
   }
   if (!fighting_style && l >= 2)
   {
@@ -2303,123 +2303,123 @@ void Ranger::setClassDetails(const int &l)
          << " 1. Archery\n 2. Defense\n 3. Dueling\n 4. Two Weapon Fighting\n\n";
     int ss = getNumber("Fight Style choice: ", 1, 4);
     if (ss == 1)
-      archery = true;
+      fighter_attr.archery = true;
     if (ss == 2)
       defense = true;
     if (ss == 3)
       dueling = true;
     if (ss == 4)
-      two_weapon_fighting = true;
+      fighter_attr.two_weapon_fighting = true;
     fighting_style = true;
   }
   if (!spellcasting && l >= 2)
     spellcasting = true;
-  if (!ranger_archetype && l >= 3)
+  if (!ranger_attr.ranger_archetype && l >= 3)
   {
     cout << "Ranger Archetype:\n\n"
          << " 1. Hunter\n 2. Beast Master\n\n";
     int ss = getNumber("Archetype choice(1-2): ", 1, 2);
     if (ss == 1)
-      hunter = true;
+      ranger_attr.hunter = true;
     if (ss == 2)
-      beast_master = true;
-    ranger_archetype = true;
+      ranger_attr.beast_master = true;
+    ranger_attr.ranger_archetype = true;
   }
-  if (!primeval_awareness && l >= 3)
-    primeval_awareness = true;
+  if (!ranger_attr.primeval_awareness && l >= 3)
+    ranger_attr.primeval_awareness = true;
   if (extra_attack == 0 && l >= 5)
     extra_attack++;
-  if (favored_enemy == 1 && l >= 6)
+  if (ranger_attr.favored_enemy == 1 && l >= 6)
   {
     cout << "Ranger Favored Enemy:\n\n";
     setFavoredEnemy();
-    favored_enemy++;
+    ranger_attr.favored_enemy++;
   }
-  if (natural_explorer == 1 && l >= 6)
+  if (ranger_attr.natural_explorer == 1 && l >= 6)
   {
     cout << "Natural Explorer land type:\n\n";
     setLandtype();
-    natural_explorer++;
+    ranger_attr.natural_explorer++;
   }
-  if (ranger_archetype_feature == 0 && l >= 7)
-    ranger_archetype_feature++;
-  if (!lands_stride && l >= 8)
-    lands_stride = true;
-  if (natural_explorer == 2 && l >= 10)
+  if (ranger_attr.ranger_archetype_feature == 0 && l >= 7)
+    ranger_attr.ranger_archetype_feature++;
+  if (!ranger_attr.lands_stride && l >= 8)
+    ranger_attr.lands_stride = true;
+  if (ranger_attr.natural_explorer == 2 && l >= 10)
   {
     cout << "Natural Explorer land type:\n\n";
     setLandtype();
-    natural_explorer++;
+    ranger_attr.natural_explorer++;
   }
-  if (!hide_in_plain_sight && l >= 10)
-    hide_in_plain_sight = true;
-  if (ranger_archetype_feature == 1 && l >= 11)
-    ranger_archetype_feature++;
-  if (favored_enemy == 2 && l >= 14)
+  if (!ranger_attr.hide_in_plain_sight && l >= 10)
+   ranger_attr.hide_in_plain_sight = true;
+  if (ranger_attr.ranger_archetype_feature == 1 && l >= 11)
+    ranger_attr.ranger_archetype_feature++;
+  if (ranger_attr.favored_enemy == 2 && l >= 14)
   {
     cout << "Ranger Favored Enemy:\n\n";
     setFavoredEnemy();
-    favored_enemy++;
+    ranger_attr.favored_enemy++;
   }
-  if (!vanish && l >= 14)
-    vanish = true;
-  if (ranger_archetype_feature == 2 && l >= 15)
-    ranger_archetype_feature++;
-  if (!feral_senses && l >= 18)
-    feral_senses = true;
-  if (!foe_slayer && l == 20)
-    foe_slayer = true;
+  if (!ranger_attr.vanish && l >= 14)
+    ranger_attr.vanish = true;
+  if (ranger_attr.ranger_archetype_feature == 2 && l >= 15)
+    ranger_attr.ranger_archetype_feature++;
+  if (!ranger_attr.feral_senses && l >= 18)
+    ranger_attr.feral_senses = true;
+  if (!ranger_attr.foe_slayer && l == 20)
+    ranger_attr.foe_slayer = true;
   // spells
   if (l >= 2)
   {
-    ranger_spells_known = 2;
+    ranger_attr.ranger_spells_known = 2;
     first_ss = 2;
   }
   if (l >= 3)
   {
-    ranger_spells_known++;
+    ranger_attr.ranger_spells_known++;
     first_ss++;
   }
   if (l >= 5)
   {
-    ranger_spells_known++;
+    ranger_attr.ranger_spells_known++;
     first_ss++;
     second_ss = 2;
   }
   if (l >= 7)
   {
-    ranger_spells_known++;
+    ranger_attr.ranger_spells_known++;
     second_ss++;
   }
   if (l >= 9)
   {
-    ranger_spells_known++;
+    ranger_attr.ranger_spells_known++;
     third_ss = 2;
   }
   if (l >= 11)
   {
-    ranger_spells_known++;
+    ranger_attr.ranger_spells_known++;
     third_ss++;
   }
   if (l >= 13)
   {
-    ranger_spells_known++;
+    ranger_attr.ranger_spells_known++;
     forth_ss = 1;
   }
   if (l >= 15)
   {
-    ranger_spells_known++;
+    ranger_attr.ranger_spells_known++;
     forth_ss++;
   }
   if (l >= 17)
   {
-    ranger_spells_known++;
+    ranger_attr.ranger_spells_known++;
     forth_ss++;
     fifth_ss = 1;
   }
   if (l >= 19)
   {
-    ranger_spells_known++;
+    ranger_attr.ranger_spells_known++;
     fifth_ss++;
   }
   if (rangerlevelupmenus == 0 && l >= 4)
@@ -2536,9 +2536,9 @@ void Warlock::setClassDetails(const int &l)
   hitdicesize = 8;
   intSave = true;
   chaSave = true;
-  if (!pact_magic)
-    pact_magic = true;
-  if (!otherworldly_patron)
+  if (!warlock_attr.pact_magic)
+    warlock_attr.pact_magic = true;
+  if (!warlock_attr.otherworldly_patron)
   {
     cout << "Choose Warlock Otherworldly Patron:\n\n"
          << " 1. Archfey\n 2. Fiend\n 3. Great Old One\n 4. The Undying\n\n";
@@ -2546,123 +2546,123 @@ void Warlock::setClassDetails(const int &l)
     switch (ss)
     {
     case 1:
-      archfey = true;
+      warlock_attr.archfey = true;
       break;
     case 2:
-      fiend = true;
+      warlock_attr.fiend = true;
       break;
     case 3:
-      great_old_one = true;
+      warlock_attr.great_old_one = true;
       break;
     case 4:
-      the_undying = true;
+      warlock_attr.the_undying = true;
       break;
     default:;
     }
-    otherworldly_patron = true;
+    warlock_attr.otherworldly_patron = true;
   }
-  if (!pact_boon && l >= 3)
-    pact_boon = true;
-  if (otherworldly_patron_feature == 0 && l >= 6)
-    otherworldly_patron_feature++;
-  if (otherworldly_patron_feature == 1 && l >= 10)
-    otherworldly_patron_feature++;
-  if (mystic_arcanum == 0 && l >= 11)
-    mystic_arcanum += 6;
-  if (mystic_arcanum == 6 && l >= 13)
-    mystic_arcanum++;
-  if (otherworldly_patron_feature == 2 && l >= 14)
-    otherworldly_patron_feature++;
-  if (mystic_arcanum == 7 && l >= 15)
-    mystic_arcanum++;
-  if (mystic_arcanum == 8 && l >= 17)
-    mystic_arcanum++;
-  if (!eldritch_master && l == 20)
-    eldritch_master = true;
+  if (!warlock_attr.pact_boon && l >= 3)
+    warlock_attr.pact_boon = true;
+  if (warlock_attr.otherworldly_patron_feature == 0 && l >= 6)
+    warlock_attr.otherworldly_patron_feature++;
+  if (warlock_attr.otherworldly_patron_feature == 1 && l >= 10)
+    warlock_attr.otherworldly_patron_feature++;
+  if (warlock_attr.mystic_arcanum == 0 && l >= 11)
+    warlock_attr.mystic_arcanum += 6;
+  if (warlock_attr.mystic_arcanum == 6 && l >= 13)
+    warlock_attr.mystic_arcanum++;
+  if (warlock_attr.otherworldly_patron_feature == 2 && l >= 14)
+    warlock_attr.otherworldly_patron_feature++;
+  if (warlock_attr.mystic_arcanum == 7 && l >= 15)
+    warlock_attr.mystic_arcanum++;
+  if (warlock_attr.mystic_arcanum == 8 && l >= 17)
+    warlock_attr.mystic_arcanum++;
+  if (!warlock_attr.eldritch_master && l == 20)
+    warlock_attr.eldritch_master = true;
   //spells
   if (l >= 1)
   {
-    warlock_cantrips_known += 2;
-    warlock_spells_known += 2;
-    warlock_spell_slots++;
-    warlock_slot_level++;
+    warlock_attr.warlock_cantrips_known += 2;
+    warlock_attr.warlock_spells_known += 2;
+    warlock_attr.warlock_spell_slots++;
+    warlock_attr.warlock_slot_level++;
   }
   if (l >= 2)
   {
-    warlock_spells_known++;
-    warlock_spell_slots++;
-    eldritch_invocations_known += 2;
+    warlock_attr.warlock_spells_known++;
+    warlock_attr.warlock_spell_slots++;
+    warlock_attr.eldritch_invocations_known += 2;
   }
   if (l >= 3)
   {
-    warlock_spells_known++;
-    warlock_slot_level++;
+    warlock_attr.warlock_spells_known++;
+    warlock_attr.warlock_slot_level++;
   }
   if (l >= 4)
   {
-    warlock_cantrips_known++;
-    warlock_spells_known++;
+    warlock_attr.warlock_cantrips_known++;
+    warlock_attr.warlock_spells_known++;
   }
   if (l >= 5)
   {
-    warlock_spells_known++;
-    warlock_slot_level++;
-    eldritch_invocations_known++;
+    warlock_attr.warlock_spells_known++;
+    warlock_attr.warlock_slot_level++;
+    warlock_attr.eldritch_invocations_known++;
   }
   if (l >= 6)
   {
-    warlock_spells_known++;
+    warlock_attr.warlock_spells_known++;
   }
   if (l >= 7)
   {
-    warlock_spells_known++;
-    warlock_slot_level++;
-    eldritch_invocations_known++;
+    warlock_attr.warlock_spells_known++;
+    warlock_attr.warlock_slot_level++;
+    warlock_attr.eldritch_invocations_known++;
   }
   if (l >= 8)
   {
-    warlock_spells_known++;
+    warlock_attr.warlock_spells_known++;
   }
   if (l >= 9)
   {
-    warlock_spells_known++;
-    warlock_slot_level++;
-    eldritch_invocations_known++;
+    warlock_attr.warlock_spells_known++;
+    warlock_attr.warlock_slot_level++;
+    warlock_attr.eldritch_invocations_known++;
   }
   if (l >= 10)
   {
-    warlock_cantrips_known++;
+    warlock_attr.warlock_cantrips_known++;
   }
   if (l >= 11)
   {
-    warlock_spells_known++;
-    warlock_spell_slots++;
+    warlock_attr.warlock_spells_known++;
+    warlock_attr.warlock_spell_slots++;
   }
   if (l >= 12)
   {
-    eldritch_invocations_known++;
+    warlock_attr.eldritch_invocations_known++;
   }
   if (l >= 13)
   {
-    warlock_spells_known++;
+    warlock_attr.warlock_spells_known++;
   }
   if (l >= 15)
   {
-    warlock_spells_known++;
-    eldritch_invocations_known++;
+    warlock_attr.warlock_spells_known++;
+    warlock_attr.eldritch_invocations_known++;
   }
   if (l >= 17)
   {
-    warlock_spells_known++;
-    warlock_spell_slots++;
+    warlock_attr.warlock_spells_known++;
+    warlock_attr.warlock_spell_slots++;
   }
   if (l >= 18)
   {
-    eldritch_invocations_known++;
+    warlock_attr.eldritch_invocations_known++;
   }
   if (l >= 19)
   {
-    warlock_spells_known++;
+    warlock_attr.warlock_spells_known++;
   }
   if (warlocklevelupmenus == 0 && l >= 4)
   {

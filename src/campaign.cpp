@@ -407,195 +407,195 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->great_weapon_fighting << endl
         << (*it)->protection << endl
         << "cleric" << endl
-        << (*it)->destroy_undead << endl //cleric
-        << (*it)->channel_divinity << endl
-        << (*it)->divine_domain_feature << endl
-        << (*it)->divine_intervention << endl
-        << (*it)->cleric_cantrips_known << endl
-        << (*it)->divine_domain << endl
-        << (*it)->arcana_d << endl
-        << (*it)->death_d << endl
-        << (*it)->knowledge_d << endl
-        << (*it)->life_d << endl
-        << (*it)->light_d << endl
-        << (*it)->nature_d << endl
-        << (*it)->tempest_d << endl
-        << (*it)->trickery_d << endl
-        << (*it)->war_d << endl
+        << (*it)->cleric_attr.destroy_undead << endl //cleric
+        << (*it)->cleric_attr.channel_divinity << endl
+        << (*it)->cleric_attr.divine_domain_feature << endl
+        << (*it)->cleric_attr.divine_intervention << endl
+        << (*it)->cleric_attr.cleric_cantrips_known << endl
+        << (*it)->cleric_attr.divine_domain << endl
+        << (*it)->cleric_attr.arcana_d << endl
+        << (*it)->cleric_attr.death_d << endl
+        << (*it)->cleric_attr.knowledge_d << endl
+        << (*it)->cleric_attr.life_d << endl
+        << (*it)->cleric_attr.light_d << endl
+        << (*it)->cleric_attr.nature_d << endl
+        << (*it)->cleric_attr.tempest_d << endl
+        << (*it)->cleric_attr.trickery_d << endl
+        << (*it)->cleric_attr.war_d << endl
         << "fighter" << endl
-        << (*it)->action_surge << endl //fighter
-        << (*it)->martial_archtype_feature << endl
-        << (*it)->indomitable << endl
-        << (*it)->eldritch_spells_known << endl
-        << (*it)->second_wind << endl
-        << (*it)->martial_archtype << endl
-        << (*it)->archery << endl
-        << (*it)->two_weapon_fighting << endl
-        << (*it)->champion << endl
-        << (*it)->battle_master << endl
-        << (*it)->eldritch_knight << endl
-        << (*it)->purple_dragon_knight << endl
+        << (*it)->fighter_attr.action_surge << endl //fighter
+        << (*it)->fighter_attr.martial_archtype_feature << endl
+        << (*it)->fighter_attr.indomitable << endl
+        << (*it)->fighter_attr.eldritch_spells_known << endl
+        << (*it)->fighter_attr.second_wind << endl
+        << (*it)->fighter_attr.martial_archtype << endl
+        << (*it)->fighter_attr.archery << endl
+        << (*it)->fighter_attr.two_weapon_fighting << endl
+        << (*it)->fighter_attr.champion << endl
+        << (*it)->fighter_attr.battle_master << endl
+        << (*it)->fighter_attr.eldritch_knight << endl
+        << (*it)->fighter_attr.purple_dragon_knight << endl
         << "barbarian" << endl
-        << (*it)->rages << endl //barbarian
-        << (*it)->rage_damage << endl
-        << (*it)->path_feature << endl
-        << (*it)->brutal_critical << endl
-        << (*it)->reckless_attack << endl
-        << (*it)->danger_sense << endl
-        << (*it)->primal_path << endl
-        << (*it)->fast_movement << endl
-        << (*it)->feral_instinct << endl
-        << (*it)->relentless_rage << endl
-        << (*it)->persistant_rage << endl
-        << (*it)->indomitable_might << endl
-        << (*it)->primal_champion << endl
-        << (*it)->path_of_the_battlerager << endl
-        << (*it)->path_of_the_berseker << endl
-        << (*it)->path_of_the_totem_warrior << endl
-        << (*it)->bear_totem << endl
-        << (*it)->eagle_totem << endl
-        << (*it)->wolf_totem << endl
+        << (*it)->barbarian_attr.rages << endl //barbarian
+        << (*it)->barbarian_attr.rage_damage << endl
+        << (*it)->barbarian_attr.path_feature << endl
+        << (*it)->barbarian_attr.brutal_critical << endl
+        << (*it)->barbarian_attr.reckless_attack << endl
+        << (*it)->barbarian_attr.danger_sense << endl
+        << (*it)->barbarian_attr.primal_path << endl
+        << (*it)->barbarian_attr.fast_movement << endl
+        << (*it)->barbarian_attr.feral_instinct << endl
+        << (*it)->barbarian_attr.relentless_rage << endl
+        << (*it)->barbarian_attr.persistant_rage << endl
+        << (*it)->barbarian_attr.indomitable_might << endl
+        << (*it)->barbarian_attr.primal_champion << endl
+        << (*it)->barbarian_attr.path_of_the_battlerager << endl
+        << (*it)->barbarian_attr.path_of_the_berseker << endl
+        << (*it)->barbarian_attr.path_of_the_totem_warrior << endl
+        << (*it)->barbarian_attr.bear_totem << endl
+        << (*it)->barbarian_attr.eagle_totem << endl
+        << (*it)->barbarian_attr.wolf_totem << endl
         << "bard" << endl
-        << (*it)->bardic_inspiration << endl //bard
-        << (*it)->song_of_rest << endl
-        << (*it)->bard_college_feature << endl
-        << (*it)->magical_secrets << endl
-        << (*it)->bard_spells_known << endl
-        << (*it)->bard_cantrips_known << endl
-        << (*it)->jack_of_all_trades << endl
-        << (*it)->bard_college << endl
-        << (*it)->font_of_inspiration << endl
-        << (*it)->countercharm << endl
-        << (*it)->superior_inspiration << endl
-        << (*it)->college_of_lore << endl
-        << (*it)->college_of_valor << endl
-        << (*it)->additional_magical_secrets << endl
+        << (*it)->bard_attr.bardic_inspiration << endl //bard
+        << (*it)->bard_attr.song_of_rest << endl
+        << (*it)->bard_attr.bard_college_feature << endl
+        << (*it)->bard_attr.magical_secrets << endl
+        << (*it)->bard_attr.bard_spells_known << endl
+        << (*it)->bard_attr.bard_cantrips_known << endl
+        << (*it)->bard_attr.jack_of_all_trades << endl
+        << (*it)->bard_attr.bard_college << endl
+        << (*it)->bard_attr.font_of_inspiration << endl
+        << (*it)->bard_attr.countercharm << endl
+        << (*it)->bard_attr.superior_inspiration << endl
+        << (*it)->bard_attr.college_of_lore << endl
+        << (*it)->bard_attr.college_of_valor << endl
+        << (*it)->bard_attr.additional_magical_secrets << endl
         << "druid" << endl
-        << (*it)->wild_shape_improvement << endl //druid
-        << (*it)->druid_circle_feature << endl
-        << (*it)->druid_cantrips_known << endl
+        << (*it)->druid_attr.wild_shape_improvement << endl //druid
+        << (*it)->druid_attr.druid_circle_feature << endl
+        << (*it)->druid_attr.druid_cantrips_known << endl
         << (*it)->druidic << endl
-        << (*it)->wild_shape << endl
-        << (*it)->druid_circle << endl
-        << (*it)->beast_spells << endl
-        << (*it)->archdruid << endl
-        << (*it)->circle_of_the_moon << endl
-        << (*it)->circle_of_the_land << endl
+        << (*it)->druid_attr.wild_shape << endl
+        << (*it)->druid_attr.druid_circle << endl
+        << (*it)->druid_attr.beast_spells << endl
+        << (*it)->druid_attr.archdruid << endl
+        << (*it)->druid_attr.circle_of_the_moon << endl
+        << (*it)->druid_attr.circle_of_the_land << endl
         << "monk" << endl
-        << (*it)->monastic_tradition_feature << endl //monk
-        << (*it)->ki << endl
-        << (*it)->unarmored_movement << endl
-        << (*it)->martial_arts << endl
-        << (*it)->monastic_tradition << endl
-        << (*it)->deflect_missles << endl
-        << (*it)->slow_fall << endl
-        << (*it)->stunning_strike << endl
-        << (*it)->ki_empowered_strikes << endl
-        << (*it)->stillness_of_mind << endl
-        << (*it)->purity_of_body << endl
-        << (*it)->tongue_of_the_sun_and_moon << endl
-        << (*it)->diamond_soul << endl
-        << (*it)->empty_body << endl
-        << (*it)->perfect_self << endl
-        << (*it)->way_of_the_open_hand << endl
-        << (*it)->way_of_the_four_elements << endl
-        << (*it)->way_of_the_long_death << endl
-        << (*it)->way_of_the_shadow << endl
-        << (*it)->way_of_the_sun_soul << endl
-        << (*it)->unarmored_movement_improvement << endl
+        << (*it)->monk_attr.monastic_tradition_feature << endl //monk
+        << (*it)->monk_attr.ki << endl
+        << (*it)->monk_attr.unarmored_movement << endl
+        << (*it)->monk_attr.martial_arts << endl
+        << (*it)->monk_attr.monastic_tradition << endl
+        << (*it)->monk_attr.deflect_missles << endl
+        << (*it)->monk_attr.slow_fall << endl
+        << (*it)->monk_attr.stunning_strike << endl
+        << (*it)->monk_attr.ki_empowered_strikes << endl
+        << (*it)->monk_attr.stillness_of_mind << endl
+        << (*it)->monk_attr.purity_of_body << endl
+        << (*it)->monk_attr.tongue_of_the_sun_and_moon << endl
+        << (*it)->monk_attr.diamond_soul << endl
+        << (*it)->monk_attr.empty_body << endl
+        << (*it)->monk_attr.perfect_self << endl
+        << (*it)->monk_attr.way_of_the_open_hand << endl
+        << (*it)->monk_attr.way_of_the_four_elements << endl
+        << (*it)->monk_attr.way_of_the_long_death << endl
+        << (*it)->monk_attr.way_of_the_shadow << endl
+        << (*it)->monk_attr.way_of_the_sun_soul << endl
+        << (*it)->monk_attr.unarmored_movement_improvement << endl
         << "paladin" << endl
-        << (*it)->sacred_oath_feature << endl //paladin
-        << (*it)->divine_smite << endl
-        << (*it)->divine_sense << endl
-        << (*it)->lay_on_hands << endl
-        << (*it)->divine_health << endl
-        << (*it)->sacred_oath << endl
-        << (*it)->aura_of_protection << endl
-        << (*it)->aura_of_courage << endl
-        << (*it)->cleansing_touch << endl
-        << (*it)->aura_improvments << endl
-        << (*it)->oath_of_ancients << endl
-        << (*it)->oath_of_devotion << endl
-        << (*it)->oath_of_the_crown << endl
-        << (*it)->oath_of_vengeance << endl
-        << (*it)->oathbreaker << endl
+        << (*it)->paladin_attr.sacred_oath_feature << endl //paladin
+        << (*it)->paladin_attr.divine_smite << endl
+        << (*it)->paladin_attr.divine_sense << endl
+        << (*it)->paladin_attr.lay_on_hands << endl
+        << (*it)->paladin_attr.divine_health << endl
+        << (*it)->paladin_attr.sacred_oath << endl
+        << (*it)->paladin_attr.aura_of_protection << endl
+        << (*it)->paladin_attr.aura_of_courage << endl
+        << (*it)->paladin_attr.cleansing_touch << endl
+        << (*it)->paladin_attr.aura_improvments << endl
+        << (*it)->paladin_attr.oath_of_ancients << endl
+        << (*it)->paladin_attr.oath_of_devotion << endl
+        << (*it)->paladin_attr.oath_of_the_crown << endl
+        << (*it)->paladin_attr.oath_of_vengeance << endl
+        << (*it)->paladin_attr.oathbreaker << endl
         << "ranger" << endl
-        << (*it)->favored_enemy << endl //ranger
-        << (*it)->favored_enemy_languages << endl
-        << (*it)->natural_explorer << endl
-        << (*it)->ranger_archetype_feature << endl
-        << (*it)->ranger_spells_known << endl
-        << (*it)->ranger_archetype << endl
-        << (*it)->primeval_awareness << endl
-        << (*it)->lands_stride << endl
-        << (*it)->hide_in_plain_sight << endl
-        << (*it)->vanish << endl
-        << (*it)->feral_senses << endl
-        << (*it)->foe_slayer << endl
-        << (*it)->hunter << endl
-        << (*it)->beast_master << endl
+        << (*it)->ranger_attr.favored_enemy << endl //ranger
+        << (*it)->ranger_attr.favored_enemy_languages << endl
+        << (*it)->ranger_attr.natural_explorer << endl
+        << (*it)->ranger_attr.ranger_archetype_feature << endl
+        << (*it)->ranger_attr.ranger_spells_known << endl
+        << (*it)->ranger_attr.ranger_archetype << endl
+        << (*it)->ranger_attr.primeval_awareness << endl
+        << (*it)->ranger_attr.lands_stride << endl
+        << (*it)->ranger_attr.hide_in_plain_sight << endl
+        << (*it)->ranger_attr.vanish << endl
+        << (*it)->ranger_attr.feral_senses << endl
+        << (*it)->ranger_attr.foe_slayer << endl
+        << (*it)->ranger_attr.hunter << endl
+        << (*it)->ranger_attr.beast_master << endl
         << "rogue" << endl
-        << (*it)->roguish_archetype_feature << endl //rogue
-        << (*it)->arcane_t_spells_known << endl
-        << (*it)->sneak_attack << endl
-        << (*it)->thieves_cant << endl
-        << (*it)->cunning_action << endl
-        << (*it)->roguish_archetype << endl
-        << (*it)->uncanny_dodge << endl
-        << (*it)->reliable_talent << endl
-        << (*it)->blindsense << endl
-        << (*it)->slippery_mind << endl
-        << (*it)->elusive << endl
-        << (*it)->stroke_of_luck << endl
-        << (*it)->thief << endl
-        << (*it)->assassin << endl
-        << (*it)->arcane_trickster << endl
-        << (*it)->mastermind << endl
-        << (*it)->swashbuckler << endl
+        << (*it)->rogue_attr.roguish_archetype_feature << endl //rogue
+        << (*it)->rogue_attr.arcane_t_spells_known << endl
+        << (*it)->rogue_attr.sneak_attack << endl
+        << (*it)->rogue_attr.thieves_cant << endl
+        << (*it)->rogue_attr.cunning_action << endl
+        << (*it)->rogue_attr.roguish_archetype << endl
+        << (*it)->rogue_attr.uncanny_dodge << endl
+        << (*it)->rogue_attr.reliable_talent << endl
+        << (*it)->rogue_attr.blindsense << endl
+        << (*it)->rogue_attr.slippery_mind << endl
+        << (*it)->rogue_attr.elusive << endl
+        << (*it)->rogue_attr.stroke_of_luck << endl
+        << (*it)->rogue_attr.thief << endl
+        << (*it)->rogue_attr.assassin << endl
+        << (*it)->rogue_attr.arcane_trickster << endl
+        << (*it)->rogue_attr.mastermind << endl
+        << (*it)->rogue_attr.swashbuckler << endl
         << "sorcerer" << endl
-        << (*it)->sorcerous_origin_feature << endl //sorcerer
-        << (*it)->metamagic << endl
-        << (*it)->sorcery_points << endl
-        << (*it)->sorcerer_spells_known << endl
-        << (*it)->sorcerer_cantrips_known << endl
-        << (*it)->sorcerous_origin << endl
-        << (*it)->font_of_magic << endl
-        << (*it)->sorcerous_restoration << endl
-        << (*it)->draconic_bloodline << endl
-        << (*it)->wild_magic << endl
-        << (*it)->storm_sorcery << endl
+        << (*it)->sorcerer_attr.sorcerous_origin_feature << endl //sorcerer
+        << (*it)->sorcerer_attr.metamagic << endl
+        << (*it)->sorcerer_attr.sorcery_points << endl
+        << (*it)->sorcerer_attr.sorcerer_spells_known << endl
+        << (*it)->sorcerer_attr.sorcerer_cantrips_known << endl
+        << (*it)->sorcerer_attr.sorcerous_origin << endl
+        << (*it)->sorcerer_attr.font_of_magic << endl
+        << (*it)->sorcerer_attr.sorcerous_restoration << endl
+        << (*it)->sorcerer_attr.draconic_bloodline << endl
+        << (*it)->sorcerer_attr.wild_magic << endl
+        << (*it)->sorcerer_attr.storm_sorcery << endl
         << "warlock" << endl
-        << (*it)->warlock_slot_level << endl //warlock
-        << (*it)->eldritch_invocations_known << endl
-        << (*it)->warlock_spells_known << endl
-        << (*it)->warlock_spell_slots << endl
-        << (*it)->warlock_cantrips_known << endl
-        << (*it)->otherworldly_patron_feature << endl
-        << (*it)->mystic_arcanum << endl
-        << (*it)->otherworldly_patron << endl
-        << (*it)->pact_magic << endl
-        << (*it)->pact_boon << endl
-        << (*it)->eldritch_master << endl
-        << (*it)->archfey << endl
-        << (*it)->fiend << endl
-        << (*it)->great_old_one << endl
-        << (*it)->the_undying << endl
+        << (*it)->warlock_attr.warlock_slot_level << endl //warlock
+        << (*it)->warlock_attr.eldritch_invocations_known << endl
+        << (*it)->warlock_attr.warlock_spells_known << endl
+        << (*it)->warlock_attr.warlock_spell_slots << endl
+        << (*it)->warlock_attr.warlock_cantrips_known << endl
+        << (*it)->warlock_attr.otherworldly_patron_feature << endl
+        << (*it)->warlock_attr.mystic_arcanum << endl
+        << (*it)->warlock_attr.otherworldly_patron << endl
+        << (*it)->warlock_attr.pact_magic << endl
+        << (*it)->warlock_attr.pact_boon << endl
+        << (*it)->warlock_attr.eldritch_master << endl
+        << (*it)->warlock_attr.archfey << endl
+        << (*it)->warlock_attr.fiend << endl
+        << (*it)->warlock_attr.great_old_one << endl
+        << (*it)->warlock_attr.the_undying << endl
         << "wizard" << endl
-        << (*it)->arcane_tradition_feature << endl //wizard
-        << (*it)->wizard_cantrips_known << endl
-        << (*it)->arcane_recovery << endl
-        << (*it)->arcane_tradition << endl
-        << (*it)->spell_mastery << endl
-        << (*it)->signature_spell << endl
-        << (*it)->abjuration << endl
-        << (*it)->conjuration << endl
-        << (*it)->divination << endl
-        << (*it)->enchantment << endl
-        << (*it)->evocation << endl
-        << (*it)->illusion << endl
-        << (*it)->necromancy << endl
-        << (*it)->transmutation << endl
-        << (*it)->bladesinging << endl
+        << (*it)->wizard_attr.arcane_tradition_feature << endl //wizard
+        << (*it)->wizard_attr.wizard_cantrips_known << endl
+        << (*it)->wizard_attr.arcane_recovery << endl
+        << (*it)->wizard_attr.arcane_tradition << endl
+        << (*it)->wizard_attr.spell_mastery << endl
+        << (*it)->wizard_attr.signature_spell << endl
+        << (*it)->wizard_attr.abjuration << endl
+        << (*it)->wizard_attr.conjuration << endl
+        << (*it)->wizard_attr.divination << endl
+        << (*it)->wizard_attr.enchantment << endl
+        << (*it)->wizard_attr.evocation << endl
+        << (*it)->wizard_attr.illusion << endl
+        << (*it)->wizard_attr.necromancy << endl
+        << (*it)->wizard_attr.transmutation << endl
+        << (*it)->wizard_attr.bladesinging << endl
         << "landtypes" << endl //landtypes
         << (*it)->artic << endl
         << (*it)->coast << endl
@@ -888,206 +888,206 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->protection;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //cleric
-    ins >> v->destroy_undead;
-    ins >> v->channel_divinity;
-    ins >> v->divine_domain_feature;
-    ins >> v->divine_intervention;
-    ins >> v->cleric_cantrips_known;
-    ins >> v->divine_domain;
-    ins >> v->arcana_d;
-    ins >> v->death_d;
-    ins >> v->knowledge_d;
-    ins >> v->life_d;
-    ins >> v->light_d;
-    ins >> v->nature_d;
-    ins >> v->tempest_d;
-    ins >> v->trickery_d;
-    ins >> v->war_d;
+    ins >> v->cleric_attr.destroy_undead;
+    ins >> v->cleric_attr.channel_divinity;
+    ins >> v->cleric_attr.divine_domain_feature;
+    ins >> v->cleric_attr.divine_intervention;
+    ins >> v->cleric_attr.cleric_cantrips_known;
+    ins >> v->cleric_attr.divine_domain;
+    ins >> v->cleric_attr.arcana_d;
+    ins >> v->cleric_attr.death_d;
+    ins >> v->cleric_attr.knowledge_d;
+    ins >> v->cleric_attr.life_d;
+    ins >> v->cleric_attr.light_d;
+    ins >> v->cleric_attr.nature_d;
+    ins >> v->cleric_attr.tempest_d;
+    ins >> v->cleric_attr.trickery_d;
+    ins >> v->cleric_attr.war_d;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //fighter
-    ins >> v->action_surge;
-    ins >> v->martial_archtype_feature;
-    ins >> v->indomitable;
-    ins >> v->eldritch_spells_known;
-    ins >> v->second_wind;
-    ins >> v->martial_archtype;
-    ins >> v->archery;
-    ins >> v->two_weapon_fighting;
-    ins >> v->champion;
-    ins >> v->battle_master;
-    ins >> v->eldritch_knight;
-    ins >> v->purple_dragon_knight;
+    ins >> v->fighter_attr.action_surge;
+    ins >> v->fighter_attr.martial_archtype_feature;
+    ins >> v->fighter_attr.indomitable;
+    ins >> v->fighter_attr.eldritch_spells_known;
+    ins >> v->fighter_attr.second_wind;
+    ins >> v->fighter_attr.martial_archtype;
+    ins >> v->fighter_attr.archery;
+    ins >> v->fighter_attr.two_weapon_fighting;
+    ins >> v->fighter_attr.champion;
+    ins >> v->fighter_attr.battle_master;
+    ins >> v->fighter_attr.eldritch_knight;
+    ins >> v->fighter_attr.purple_dragon_knight;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //barbarian
-    ins >> v->rages;
-    ins >> v->rage_damage;
-    ins >> v->path_feature;
-    ins >> v->brutal_critical;
-    ins >> v->reckless_attack;
-    ins >> v->danger_sense;
-    ins >> v->primal_path;
-    ins >> v->fast_movement;
-    ins >> v->feral_instinct;
-    ins >> v->relentless_rage;
-    ins >> v->persistant_rage;
-    ins >> v->indomitable_might;
-    ins >> v->primal_champion;
-    ins >> v->path_of_the_battlerager;
-    ins >> v->path_of_the_berseker;
-    ins >> v->path_of_the_totem_warrior;
-    ins >> v->bear_totem;
-    ins >> v->eagle_totem;
-    ins >> v->wolf_totem;
+    ins >> v->barbarian_attr.rages;
+    ins >> v->barbarian_attr.rage_damage;
+    ins >> v->barbarian_attr.path_feature;
+    ins >> v->barbarian_attr.brutal_critical;
+    ins >> v->barbarian_attr.reckless_attack;
+    ins >> v->barbarian_attr.danger_sense;
+    ins >> v->barbarian_attr.primal_path;
+    ins >> v->barbarian_attr.fast_movement;
+    ins >> v->barbarian_attr.feral_instinct;
+    ins >> v->barbarian_attr.relentless_rage;
+    ins >> v->barbarian_attr.persistant_rage;
+    ins >> v->barbarian_attr.indomitable_might;
+    ins >> v->barbarian_attr.primal_champion;
+    ins >> v->barbarian_attr.path_of_the_battlerager;
+    ins >> v->barbarian_attr.path_of_the_berseker;
+    ins >> v->barbarian_attr.path_of_the_totem_warrior;
+    ins >> v->barbarian_attr.bear_totem;
+    ins >> v->barbarian_attr.eagle_totem;
+    ins >> v->barbarian_attr.wolf_totem;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //bard
-    ins >> v->bardic_inspiration;
-    ins >> v->song_of_rest;
-    ins >> v->bard_college_feature;
-    ins >> v->magical_secrets;
-    ins >> v->bard_spells_known;
-    ins >> v->bard_cantrips_known;
-    ins >> v->jack_of_all_trades;
-    ins >> v->bard_college;
-    ins >> v->font_of_inspiration;
-    ins >> v->countercharm;
-    ins >> v->superior_inspiration;
-    ins >> v->college_of_lore;
-    ins >> v->college_of_valor;
-    ins >> v->additional_magical_secrets;
+    ins >> v->bard_attr.bardic_inspiration;
+    ins >> v->bard_attr.song_of_rest;
+    ins >> v->bard_attr.bard_college_feature;
+    ins >> v->bard_attr.magical_secrets;
+    ins >> v->bard_attr.bard_spells_known;
+    ins >> v->bard_attr.bard_cantrips_known;
+    ins >> v->bard_attr.jack_of_all_trades;
+    ins >> v->bard_attr.bard_college;
+    ins >> v->bard_attr.font_of_inspiration;
+    ins >> v->bard_attr.countercharm;
+    ins >> v->bard_attr.superior_inspiration;
+    ins >> v->bard_attr.college_of_lore;
+    ins >> v->bard_attr.college_of_valor;
+    ins >> v->bard_attr.additional_magical_secrets;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //druid
-    ins >> v->wild_shape_improvement;
-    ins >> v->druid_circle_feature;
-    ins >> v->druid_cantrips_known;
+    ins >> v->druid_attr.wild_shape_improvement;
+    ins >> v->druid_attr.druid_circle_feature;
+    ins >> v->druid_attr.druid_cantrips_known;
     ins >> v->druidic;
-    ins >> v->wild_shape;
-    ins >> v->druid_circle;
-    ins >> v->beast_spells;
-    ins >> v->archdruid;
-    ins >> v->circle_of_the_moon;
-    ins >> v->circle_of_the_land;
+    ins >> v->druid_attr.wild_shape;
+    ins >> v->druid_attr.druid_circle;
+    ins >> v->druid_attr.beast_spells;
+    ins >> v->druid_attr.archdruid;
+    ins >> v->druid_attr.circle_of_the_moon;
+    ins >> v->druid_attr.circle_of_the_land;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //monk
-    ins >> v->monastic_tradition_feature;
-    ins >> v->ki;
-    ins >> v->unarmored_movement;
-    ins >> v->martial_arts;
-    ins >> v->monastic_tradition;
-    ins >> v->deflect_missles;
-    ins >> v->slow_fall;
-    ins >> v->stunning_strike;
-    ins >> v->ki_empowered_strikes;
-    ins >> v->stillness_of_mind;
-    ins >> v->purity_of_body;
-    ins >> v->tongue_of_the_sun_and_moon;
-    ins >> v->diamond_soul;
-    ins >> v->empty_body;
-    ins >> v->perfect_self;
-    ins >> v->way_of_the_open_hand;
-    ins >> v->way_of_the_four_elements;
-    ins >> v->way_of_the_long_death;
-    ins >> v->way_of_the_shadow;
-    ins >> v->way_of_the_sun_soul;
-    ins >> v->unarmored_movement_improvement;
+    ins >> v->monk_attr.monastic_tradition_feature;
+    ins >> v->monk_attr.ki;
+    ins >> v->monk_attr.unarmored_movement;
+    ins >> v->monk_attr.martial_arts;
+    ins >> v->monk_attr.monastic_tradition;
+    ins >> v->monk_attr.deflect_missles;
+    ins >> v->monk_attr.slow_fall;
+    ins >> v->monk_attr.stunning_strike;
+    ins >> v->monk_attr.ki_empowered_strikes;
+    ins >> v->monk_attr.stillness_of_mind;
+    ins >> v->monk_attr.purity_of_body;
+    ins >> v->monk_attr.tongue_of_the_sun_and_moon;
+    ins >> v->monk_attr.diamond_soul;
+    ins >> v->monk_attr.empty_body;
+    ins >> v->monk_attr.perfect_self;
+    ins >> v->monk_attr.way_of_the_open_hand;
+    ins >> v->monk_attr.way_of_the_four_elements;
+    ins >> v->monk_attr.way_of_the_long_death;
+    ins >> v->monk_attr.way_of_the_shadow;
+    ins >> v->monk_attr.way_of_the_sun_soul;
+    ins >> v->monk_attr.unarmored_movement_improvement;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //paladin
-    ins >> v->sacred_oath_feature;
-    ins >> v->divine_smite;
-    ins >> v->divine_sense;
-    ins >> v->lay_on_hands;
-    ins >> v->divine_health;
-    ins >> v->sacred_oath;
-    ins >> v->aura_of_protection;
-    ins >> v->aura_of_courage;
-    ins >> v->cleansing_touch;
-    ins >> v->aura_improvments;
-    ins >> v->oath_of_ancients;
-    ins >> v->oath_of_devotion;
-    ins >> v->oath_of_the_crown;
-    ins >> v->oath_of_vengeance;
-    ins >> v->oathbreaker;
+    ins >> v->paladin_attr.sacred_oath_feature;
+    ins >> v->paladin_attr.divine_smite;
+    ins >> v->paladin_attr.divine_sense;
+    ins >> v->paladin_attr.lay_on_hands;
+    ins >> v->paladin_attr.divine_health;
+    ins >> v->paladin_attr.sacred_oath;
+    ins >> v->paladin_attr.aura_of_protection;
+    ins >> v->paladin_attr.aura_of_courage;
+    ins >> v->paladin_attr.cleansing_touch;
+    ins >> v->paladin_attr.aura_improvments;
+    ins >> v->paladin_attr.oath_of_ancients;
+    ins >> v->paladin_attr.oath_of_devotion;
+    ins >> v->paladin_attr.oath_of_the_crown;
+    ins >> v->paladin_attr.oath_of_vengeance;
+    ins >> v->paladin_attr.oathbreaker;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //ranger
-    ins >> v->favored_enemy;
-    ins >> v->favored_enemy_languages;
-    ins >> v->natural_explorer;
-    ins >> v->ranger_archetype_feature;
-    ins >> v->ranger_spells_known;
-    ins >> v->ranger_archetype;
-    ins >> v->primeval_awareness;
-    ins >> v->lands_stride;
-    ins >> v->hide_in_plain_sight;
-    ins >> v->vanish;
-    ins >> v->feral_senses;
-    ins >> v->foe_slayer;
-    ins >> v->hunter;
-    ins >> v->beast_master;
+    ins >> v->ranger_attr.favored_enemy;
+    ins >> v->ranger_attr.favored_enemy_languages;
+    ins >> v->ranger_attr.natural_explorer;
+    ins >> v->ranger_attr.ranger_archetype_feature;
+    ins >> v->ranger_attr.ranger_spells_known;
+    ins >> v->ranger_attr.ranger_archetype;
+    ins >> v->ranger_attr.primeval_awareness;
+    ins >> v->ranger_attr.lands_stride;
+    ins >> v->ranger_attr.hide_in_plain_sight;
+    ins >> v->ranger_attr.vanish;
+    ins >> v->ranger_attr.feral_senses;
+    ins >> v->ranger_attr.foe_slayer;
+    ins >> v->ranger_attr.hunter;
+    ins >> v->ranger_attr.beast_master;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //rogue
-    ins >> v->roguish_archetype_feature;
-    ins >> v->arcane_t_spells_known;
-    ins >> v->sneak_attack;
-    ins >> v->thieves_cant;
-    ins >> v->cunning_action;
-    ins >> v->roguish_archetype;
-    ins >> v->uncanny_dodge;
-    ins >> v->reliable_talent;
-    ins >> v->blindsense;
-    ins >> v->slippery_mind;
-    ins >> v->elusive;
-    ins >> v->stroke_of_luck;
-    ins >> v->thief;
-    ins >> v->assassin;
-    ins >> v->arcane_trickster;
-    ins >> v->mastermind;
-    ins >> v->swashbuckler;
+    ins >> v->rogue_attr.roguish_archetype_feature;
+    ins >> v->rogue_attr.arcane_t_spells_known;
+    ins >> v->rogue_attr.sneak_attack;
+    ins >> v->rogue_attr.thieves_cant;
+    ins >> v->rogue_attr.cunning_action;
+    ins >> v->rogue_attr.roguish_archetype;
+    ins >> v->rogue_attr.uncanny_dodge;
+    ins >> v->rogue_attr.reliable_talent;
+    ins >> v->rogue_attr.blindsense;
+    ins >> v->rogue_attr.slippery_mind;
+    ins >> v->rogue_attr.elusive;
+    ins >> v->rogue_attr.stroke_of_luck;
+    ins >> v->rogue_attr.thief;
+    ins >> v->rogue_attr.assassin;
+    ins >> v->rogue_attr.arcane_trickster;
+    ins >> v->rogue_attr.mastermind;
+    ins >> v->rogue_attr.swashbuckler;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //sorcerer
-    ins >> v->sorcerous_origin_feature;
-    ins >> v->metamagic;
-    ins >> v->sorcery_points;
-    ins >> v->sorcerer_spells_known;
-    ins >> v->sorcerer_cantrips_known;
-    ins >> v->sorcerous_origin;
-    ins >> v->font_of_magic;
-    ins >> v->sorcerous_restoration;
-    ins >> v->draconic_bloodline;
-    ins >> v->wild_magic;
-    ins >> v->storm_sorcery;
+    ins >> v->sorcerer_attr.sorcerous_origin_feature;
+    ins >> v->sorcerer_attr.metamagic;
+    ins >> v->sorcerer_attr.sorcery_points;
+    ins >> v->sorcerer_attr.sorcerer_spells_known;
+    ins >> v->sorcerer_attr.sorcerer_cantrips_known;
+    ins >> v->sorcerer_attr.sorcerous_origin;
+    ins >> v->sorcerer_attr.font_of_magic;
+    ins >> v->sorcerer_attr.sorcerous_restoration;
+    ins >> v->sorcerer_attr.draconic_bloodline;
+    ins >> v->sorcerer_attr.wild_magic;
+    ins >> v->sorcerer_attr.storm_sorcery;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //warlock
-    ins >> v->warlock_slot_level;
-    ins >> v->eldritch_invocations_known;
-    ins >> v->warlock_spells_known;
-    ins >> v->warlock_spell_slots;
-    ins >> v->warlock_cantrips_known;
-    ins >> v->otherworldly_patron_feature;
-    ins >> v->mystic_arcanum;
-    ins >> v->otherworldly_patron;
-    ins >> v->pact_magic;
-    ins >> v->pact_boon;
-    ins >> v->eldritch_master;
-    ins >> v->archfey;
-    ins >> v->fiend;
-    ins >> v->great_old_one;
-    ins >> v->the_undying;
+    ins >> v->warlock_attr.warlock_slot_level;
+    ins >> v->warlock_attr.eldritch_invocations_known;
+    ins >> v->warlock_attr.warlock_spells_known;
+    ins >> v->warlock_attr.warlock_spell_slots;
+    ins >> v->warlock_attr.warlock_cantrips_known;
+    ins >> v->warlock_attr.otherworldly_patron_feature;
+    ins >> v->warlock_attr.mystic_arcanum;
+    ins >> v->warlock_attr.otherworldly_patron;
+    ins >> v->warlock_attr.pact_magic;
+    ins >> v->warlock_attr.pact_boon;
+    ins >> v->warlock_attr.eldritch_master;
+    ins >> v->warlock_attr.archfey;
+    ins >> v->warlock_attr.fiend;
+    ins >> v->warlock_attr.great_old_one;
+    ins >> v->warlock_attr.the_undying;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //wizard
-    ins >> v->arcane_tradition_feature;
-    ins >> v->wizard_cantrips_known;
-    ins >> v->arcane_recovery;
-    ins >> v->arcane_tradition;
-    ins >> v->spell_mastery;
-    ins >> v->signature_spell;
-    ins >> v->abjuration;
-    ins >> v->conjuration;
-    ins >> v->divination;
-    ins >> v->enchantment;
-    ins >> v->evocation;
-    ins >> v->illusion;
-    ins >> v->necromancy;
-    ins >> v->transmutation;
-    ins >> v->bladesinging;
+    ins >> v->wizard_attr.arcane_tradition_feature;
+    ins >> v->wizard_attr.wizard_cantrips_known;
+    ins >> v->wizard_attr.arcane_recovery;
+    ins >> v->wizard_attr.arcane_tradition;
+    ins >> v->wizard_attr.spell_mastery;
+    ins >> v->wizard_attr.signature_spell;
+    ins >> v->wizard_attr.abjuration;
+    ins >> v->wizard_attr.conjuration;
+    ins >> v->wizard_attr.divination;
+    ins >> v->wizard_attr.enchantment;
+    ins >> v->wizard_attr.evocation;
+    ins >> v->wizard_attr.illusion;
+    ins >> v->wizard_attr.necromancy;
+    ins >> v->wizard_attr.transmutation;
+    ins >> v->wizard_attr.bladesinging;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //landtypes
     ins >> v->artic;
