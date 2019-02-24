@@ -65,8 +65,7 @@ void Campaign::pc_menu()
       simpleClearScreen();
 
       Generic_Character_Class *new_character_build = nullptr;
-      ClassClonner clonner;
-      new_character_build = clonner.GetNewClass(select_class);
+      new_character_build = ClassClonner::GetClassClonner().GetNewClass(select_class);
       new_character_build->setInitialClassFeatures();
       makecharacter(new_character_build, starting_level);
 

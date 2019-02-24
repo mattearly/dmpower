@@ -466,7 +466,9 @@ class Generic_Character_Class
 {
 public:
   Generic_Character_Class();
-  ~Generic_Character_Class();
+  virtual ~Generic_Character_Class();
+
+  virtual Generic_Character_Class *Clone() = 0;
 
   //CLASS //GENERAL (used by 2 or more classes)
   std::string char_name;
@@ -934,6 +936,26 @@ CREATE_CLASS(Warlock, Warlock, warlocklevelupmenus);
 
 class ClassClonner {
 public:
+    static ClassClonner& GetClassClonner() {
+      static ClassClonner instance;
+      return instance;
+    }
+
+    ~ClassClonner() { }
+
+    Generic_Character_Class *GetNewClass(unsigned int index) {
+        return ClassTable[index - 1]->Clone();
+    }
+
+    void CleanResources() {
+        for(unsigned int i = 0; i < sizeof(ClassTable) / sizeof(ClassTable[0]); i++) {
+            delete ClassTable[i];
+        }
+    }
+
+    void operator=(ClassClonner const&) = delete;
+    ClassClonner(ClassClonner const&) = delete;
+private:
     ClassClonner() {
         ClassTable[0] = new Cleric;
         ClassTable[1] = new Fighter;
@@ -949,17 +971,6 @@ public:
         ClassTable[11] = new Warlock;
     }
 
-    ~ClassClonner() {
-        for(unsigned int i = 0; i < sizeof(ClassTable) / sizeof(ClassTable[0]); i++) {
-            delete ClassTable[i];
-        }
-    }
-
-    Generic_Character_Class *GetNewClass(unsigned int index) {
-        return ClassTable[index - 1]->Clone();
-    }
-
-private:
     Generic_Character_Class *ClassTable[12];
 };
 
