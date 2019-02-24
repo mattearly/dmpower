@@ -161,7 +161,7 @@ void Elf::setRaceDetails(Generic_Character_Class &v)
   case HIGH:
     v.intelligence += 1;
     v.elf_weapon_training = true;
-    v.wizard_cantrips_known++;
+    v.wizard_attr.wizard_cantrips_known++;
     v.setLanguage("High Elf bonus language.\n\n");
     cout << "->High Elf defaults & bonuses applied:\n"
          << " +1 INT, Elven Weapon Training, Wizard Cantrip, Extra language\n";

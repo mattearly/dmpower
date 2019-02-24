@@ -8,14 +8,465 @@
 
 class Campaign;
 
+struct cleric_attributes {
+  float destroy_undead;
+
+  int channel_divinity;
+  int divine_domain_feature;
+  int divine_intervention;
+  int cleric_cantrips_known;
+
+  bool divine_domain;
+  bool arcana_d;
+  bool death_d;
+  bool knowledge_d;
+  bool life_d;
+  bool light_d;
+  bool nature_d;
+  bool tempest_d;
+  bool trickery_d;
+  bool war_d;
+
+  cleric_attributes() {
+    destroy_undead = 0.0f;
+
+    channel_divinity = 0;
+    divine_domain_feature = 0;
+    divine_intervention = 0;
+    cleric_cantrips_known = 0;
+
+    divine_domain = false;
+    arcana_d = false;
+    death_d = false;
+    knowledge_d = false;
+    life_d = false;
+    light_d = false;
+    nature_d = false;
+    tempest_d = false;
+    trickery_d = false;
+    war_d = false;
+  }
+};
+
+struct fighter_attributes {
+  int action_surge;
+  int martial_archtype_feature;
+  int indomitable;
+  int eldritch_spells_known;
+
+  bool second_wind;
+  bool martial_archtype;
+  bool archery;
+  bool two_weapon_fighting;
+  bool champion;
+  bool battle_master;
+  bool eldritch_knight;
+  bool purple_dragon_knight;
+
+  fighter_attributes() {
+    action_surge = 0;
+    martial_archtype_feature = 0;
+    indomitable = 0;
+    eldritch_spells_known = 0;
+
+    second_wind = false;
+    martial_archtype = false;
+    archery = false;
+    two_weapon_fighting = false;
+    champion = false;
+    battle_master = false;
+    eldritch_knight = false;
+    purple_dragon_knight = false;
+  }
+};
+
+struct barbarian_attributes {
+  int rages;
+  int rage_damage;
+  int path_feature;
+  int brutal_critical;
+
+  bool reckless_attack;
+  bool danger_sense;
+  bool primal_path;
+  bool fast_movement;
+  bool feral_instinct;
+  bool relentless_rage;
+  bool persistant_rage;
+  bool indomitable_might;
+  bool primal_champion;
+  bool path_of_the_battlerager;
+  bool path_of_the_berseker;
+  bool path_of_the_totem_warrior;
+  bool bear_totem;
+  bool eagle_totem;
+  bool wolf_totem;
+
+  barbarian_attributes() {
+    rages = 0;
+    rage_damage = 0;
+    path_feature = 0;
+    brutal_critical = 0;
+
+    reckless_attack = false;
+    danger_sense = false;
+    primal_path = false;
+    fast_movement = false;
+    feral_instinct = false;
+    relentless_rage = false;
+    persistant_rage = false;
+    indomitable_might = false;
+    primal_champion = false;
+    path_of_the_battlerager = false;
+    path_of_the_berseker = false;
+    path_of_the_totem_warrior = false;
+    bear_totem = false;
+    eagle_totem = false;
+    wolf_totem = false;
+  }
+};
+
+struct bard_attributes {
+  int bardic_inspiration;
+  int song_of_rest;
+  int bard_college_feature;
+  int magical_secrets;
+  int bard_spells_known;
+  int bard_cantrips_known;
+
+  bool jack_of_all_trades;
+  bool bard_college;
+  bool font_of_inspiration;
+  bool countercharm;
+  bool superior_inspiration;
+  bool college_of_lore;
+  bool college_of_valor;
+  bool additional_magical_secrets;
+
+  bard_attributes() {
+    bardic_inspiration = 0;
+    song_of_rest = 0;
+    bard_college_feature = 0;
+    magical_secrets = 0;
+    bard_spells_known = 0;
+    bard_cantrips_known = 0;
+
+    jack_of_all_trades = false;
+    bard_college = false;
+    font_of_inspiration = false;
+    countercharm = false;
+    superior_inspiration = false;
+    college_of_lore = false;
+    college_of_valor = false;
+    additional_magical_secrets = false;
+  }
+};
+
+struct druid_attributes {
+  float wild_shape_improvement;
+
+  int druid_circle_feature;
+  int druid_cantrips_known;
+  
+  bool wild_shape;
+  bool druid_circle;
+  bool beast_spells;
+  bool archdruid;
+  bool circle_of_the_moon;
+  bool circle_of_the_land;
+
+  druid_attributes() {
+    wild_shape_improvement = 0.0f;
+
+    druid_circle_feature = 0;
+    druid_cantrips_known = 0;
+
+    wild_shape = false;
+    druid_circle = false;
+    beast_spells = false;
+    archdruid = false;
+    circle_of_the_moon = false;
+    circle_of_the_land = false;
+  }
+};
+
+struct monk_attributes {
+  int monastic_tradition_feature;
+  int ki;
+  int unarmored_movement;
+  int martial_arts;
+
+  bool monastic_tradition;
+  bool deflect_missles;
+  bool slow_fall;
+  bool stunning_strike;
+  bool ki_empowered_strikes;
+  bool stillness_of_mind;
+  bool purity_of_body;
+  bool tongue_of_the_sun_and_moon;
+  bool diamond_soul;
+  bool empty_body;
+  bool perfect_self;
+  bool way_of_the_open_hand;
+  bool way_of_the_four_elements;
+  bool way_of_the_long_death;
+  bool way_of_the_shadow;
+  bool way_of_the_sun_soul;
+  bool unarmored_movement_improvement;
+
+  monk_attributes() {
+    monastic_tradition_feature = 0;
+    ki = 0;
+    unarmored_movement = 0;
+    martial_arts = 0;
+
+    monastic_tradition = false;
+    deflect_missles = false;
+    slow_fall = false;
+    stunning_strike = false;
+    ki_empowered_strikes = false;
+    stillness_of_mind = false;
+    purity_of_body = false;
+    tongue_of_the_sun_and_moon = false;
+    diamond_soul = false;
+    empty_body = false;
+    perfect_self = false;
+    way_of_the_open_hand = false;
+    way_of_the_four_elements = false;
+    way_of_the_long_death = false;
+    way_of_the_shadow = false;
+    way_of_the_sun_soul = false;
+    unarmored_movement_improvement = false;
+  }
+};
+
+struct paladin_attributes {
+  int sacred_oath_feature;
+  int divine_smite;
+
+  bool divine_sense;
+  bool lay_on_hands;
+  bool divine_health;
+  bool sacred_oath;
+  bool aura_of_protection;
+  bool aura_of_courage;
+  bool cleansing_touch;
+  bool aura_improvments;
+  bool oath_of_devotion;
+  bool oath_of_ancients;
+  bool oath_of_vengeance;
+  bool oathbreaker;
+  bool oath_of_the_crown;
+
+  paladin_attributes() {
+    sacred_oath_feature = 0;
+    divine_smite = 0;
+
+    divine_sense = false;
+    lay_on_hands = false;
+    divine_health = false;
+    sacred_oath = false;
+    aura_of_protection = false;
+    aura_of_courage = false;
+    cleansing_touch = false;
+    aura_improvments = false;
+    oath_of_devotion = false;
+    oath_of_ancients = false;
+    oath_of_vengeance = false;
+    oathbreaker = false;
+    oath_of_the_crown = false;
+  }
+};
+
+struct ranger_attributes {
+  int favored_enemy;
+  int natural_explorer;
+  int ranger_archetype_feature;
+  int ranger_spells_known;
+
+  bool ranger_archetype;
+  bool primeval_awareness;
+  bool lands_stride;
+  bool hide_in_plain_sight;
+  bool vanish;
+  bool feral_senses;
+  bool foe_slayer;
+  bool hunter;
+  bool beast_master;
+  bool favored_enemy_languages;
+
+  ranger_attributes() {
+    favored_enemy = 0;
+    natural_explorer = 0;
+    ranger_archetype_feature = 0;
+    ranger_spells_known = 0;
+
+    ranger_archetype = false;
+    primeval_awareness = false;
+    lands_stride = false;
+    hide_in_plain_sight = false;
+    vanish = false;
+    feral_senses = false;
+    foe_slayer = false;
+    hunter = false;
+    beast_master = false;
+    favored_enemy_languages = false;
+  }
+};
+
+struct rogue_attributes {
+  int roguish_archetype_feature;
+  int arcane_t_spells_known;
+
+  bool sneak_attack;
+  bool thieves_cant;
+  bool cunning_action;
+  bool roguish_archetype;
+  bool uncanny_dodge;
+  bool reliable_talent;
+  bool blindsense;
+  bool slippery_mind;
+  bool elusive;
+  bool stroke_of_luck;
+  bool thief;
+  bool assassin;
+  bool arcane_trickster;
+  bool mastermind;
+  bool swashbuckler;
+
+  rogue_attributes() {
+    roguish_archetype_feature = 0;
+    arcane_t_spells_known = 0;
+
+    sneak_attack = false;
+    thieves_cant = false;
+    cunning_action = false;
+    roguish_archetype = false;
+    uncanny_dodge = false;
+    reliable_talent = false;
+    blindsense = false;
+    slippery_mind = false;
+    elusive = false;
+    stroke_of_luck = false;
+    thief = false;
+    assassin = false;
+    arcane_trickster = false;
+    mastermind = false;
+    swashbuckler = false;
+  }
+};
+
+struct sorcerer_attributes {
+  int sorcerous_origin_feature;
+  int metamagic;
+  int sorcery_points;
+  int sorcerer_spells_known;
+  int sorcerer_cantrips_known;
+
+  bool sorcerous_origin;
+  bool font_of_magic;
+  bool sorcerous_restoration;
+  bool draconic_bloodline;
+  bool wild_magic;
+  bool storm_sorcery;
+
+  sorcerer_attributes() {
+    sorcerous_origin_feature = 0;
+    metamagic = 0;
+    sorcery_points = 0;
+    sorcerer_spells_known = 0;
+    sorcerer_cantrips_known = 0;
+
+    sorcerous_origin = false;
+    font_of_magic = false;
+    sorcerous_restoration = false;
+    draconic_bloodline = false;
+    wild_magic = false;
+    storm_sorcery = false;
+  }
+};
+
+struct warlock_attributes {
+  int warlock_slot_level;
+  int eldritch_invocations_known;
+  int warlock_spells_known;
+  int warlock_spell_slots;
+  int warlock_cantrips_known;
+  int otherworldly_patron_feature;
+  int mystic_arcanum;
+
+  bool otherworldly_patron;
+  bool pact_magic;
+  bool pact_boon;
+  bool eldritch_master;
+  bool archfey;
+  bool fiend;
+  bool great_old_one;
+  bool the_undying;
+
+  warlock_attributes() {
+    warlock_slot_level = 0;
+    eldritch_invocations_known = 0;
+    warlock_spells_known = 0;
+    warlock_spell_slots = 0;
+    warlock_cantrips_known = 0;
+    otherworldly_patron_feature = 0;
+    mystic_arcanum = 0;
+
+    otherworldly_patron = false;
+    pact_magic = false;
+    pact_boon = false;
+    eldritch_master = false;
+    archfey = false;
+    fiend = false;
+    great_old_one = false;
+    the_undying = false;
+  }
+};
+
+struct wizard_attributes {
+  int arcane_tradition_feature;
+  int wizard_cantrips_known;
+
+  bool arcane_recovery;
+  bool arcane_tradition;
+  bool spell_mastery;
+  bool signature_spell;
+  bool abjuration;
+  bool conjuration;
+  bool divination;
+  bool enchantment;
+  bool evocation;
+  bool illusion;
+  bool necromancy;
+  bool transmutation;
+  bool bladesinging;
+
+  wizard_attributes() {
+    arcane_tradition_feature = 0;
+    wizard_cantrips_known = 0;
+
+    arcane_recovery = false;
+    arcane_tradition = false;
+    spell_mastery = false;
+    signature_spell = false;
+    abjuration = false;
+    conjuration = false;
+    divination = false;
+    enchantment = false;
+    evocation = false;
+    illusion = false;
+    necromancy = false;
+    transmutation = false;
+    bladesinging = false;
+  }
+};
+
 class Generic_Character_Class
 {
 public:
   Generic_Character_Class();
-  virtual ~Generic_Character_Class();
-
-  //Clone the monster, used for generate monsters with a table to monster, think like a spawner
-  virtual Generic_Character_Class *Clone() = 0;
+  ~Generic_Character_Class();
 
   //CLASS //GENERAL (used by 2 or more classes)
   std::string char_name;
@@ -53,198 +504,20 @@ public:
   int rangerlevelupmenus;
   int warlocklevelupmenus;
 
-  //CLERIC
-  float destroy_undead;
-  int channel_divinity;
-  int divine_domain_feature;
-  int divine_intervention;
-  int cleric_cantrips_known;
-  bool divine_domain, arcana_d, death_d, knowledge_d, life_d, light_d, nature_d,
-  tempest_d, trickery_d, war_d;
-
-  //FIGHTER
-  int action_surge;
-  int martial_archtype_feature;
-  int indomitable;
-  int eldritch_spells_known;
-  bool second_wind;
-  bool martial_archtype;
-  bool archery;
-  bool two_weapon_fighting;
-  bool champion;
-  bool battle_master;
-  bool eldritch_knight;
-  bool purple_dragon_knight;
-
-  //BARBARIAN
-  int rages;
-  int rage_damage;
-  int path_feature;
-  int brutal_critical;
-  bool reckless_attack;
-  bool danger_sense;
-  bool primal_path;
-  bool fast_movement;
-  bool feral_instinct;
-  bool relentless_rage;
-  bool persistant_rage;
-  bool indomitable_might;
-  bool primal_champion;
-  bool path_of_the_battlerager;
-  bool path_of_the_berseker;
-  bool path_of_the_totem_warrior;
-  bool bear_totem;
-  bool eagle_totem;
-  bool wolf_totem;
-
-  //BARD
-  int bardic_inspiration;
-  int song_of_rest;
-  int bard_college_feature;
-  int magical_secrets;
-  int bard_spells_known;
-  int bard_cantrips_known;
-  bool jack_of_all_trades;
-  bool bard_college;
-  bool font_of_inspiration;
-  bool countercharm;
-  bool superior_inspiration;
-  bool college_of_lore;
-  bool college_of_valor;
-  bool additional_magical_secrets;
-
-  //DRUID
-  float wild_shape_improvement;
-  int druid_circle_feature;
-  int druid_cantrips_known;
-  bool wild_shape;
-  bool druid_circle;
-  bool beast_spells;
-  bool archdruid;
-  bool circle_of_the_moon;
-  bool circle_of_the_land;
-
-  //MONK
-  int monastic_tradition_feature;
-  int ki;
-  int unarmored_movement;
-  int martial_arts;
-  bool monastic_tradition;
-  bool deflect_missles;
-  bool slow_fall;
-  bool stunning_strike;
-  bool ki_empowered_strikes;
-  bool stillness_of_mind;
-  bool purity_of_body;
-  bool tongue_of_the_sun_and_moon;
-  bool diamond_soul;
-  bool empty_body;
-  bool perfect_self;
-  bool way_of_the_open_hand;
-  bool way_of_the_four_elements;
-  bool way_of_the_long_death;
-  bool way_of_the_shadow;
-  bool way_of_the_sun_soul;
-  bool unarmored_movement_improvement;
-
-  //PALADIN
-  int sacred_oath_feature;
-  int divine_smite;
-  bool divine_sense;
-  bool lay_on_hands;
-  bool divine_health;
-  bool sacred_oath;
-  bool aura_of_protection;
-  bool aura_of_courage;
-  bool cleansing_touch;
-  bool aura_improvments;
-  bool oath_of_devotion;
-  bool oath_of_ancients;
-  bool oath_of_vengeance;
-  bool oathbreaker;
-  bool oath_of_the_crown;
-
-  //RANGER
-  int favored_enemy;
-  int natural_explorer;
-  int ranger_archetype_feature;
-  int ranger_spells_known;
-  bool ranger_archetype;
-  bool primeval_awareness;
-  bool lands_stride;
-  bool hide_in_plain_sight;
-  bool vanish;
-  bool feral_senses;
-  bool foe_slayer;
-  bool hunter;
-  bool beast_master;
-  bool favored_enemy_languages;
-
-  //ROGUE
-  int roguish_archetype_feature;
-  int arcane_t_spells_known;
-  bool sneak_attack;
-  bool thieves_cant;
-  bool cunning_action;
-  bool roguish_archetype;
-  bool uncanny_dodge;
-  bool reliable_talent;
-  bool blindsense;
-  bool slippery_mind;
-  bool elusive;
-  bool stroke_of_luck;
-  bool thief;
-  bool assassin;
-  bool arcane_trickster;
-  bool mastermind;
-  bool swashbuckler;
-
-  //SORCERER
-  int sorcerous_origin_feature;
-  int metamagic;
-  int sorcery_points;
-  int sorcerer_spells_known;
-  int sorcerer_cantrips_known;
-  bool sorcerous_origin;
-  bool font_of_magic;
-  bool sorcerous_restoration;
-  bool draconic_bloodline;
-  bool wild_magic;
-  bool storm_sorcery;
-
-  //WARLOCK
-  int warlock_slot_level;
-  int eldritch_invocations_known;
-  int warlock_spells_known;
-  int warlock_spell_slots;
-  int warlock_cantrips_known;
-  int otherworldly_patron_feature;
-  int mystic_arcanum;
-  bool otherworldly_patron;
-  bool pact_magic;
-  bool pact_boon;
-  bool eldritch_master;
-  bool archfey;
-  bool fiend;
-  bool great_old_one;
-  bool the_undying;
-
-  //WIZARD
-  int arcane_tradition_feature;
-  int wizard_cantrips_known;
-  bool arcane_recovery;
-  bool arcane_tradition;
-  bool spell_mastery;
-  bool signature_spell;
-  bool abjuration;
-  bool conjuration;
-  bool divination;
-  bool enchantment;
-  bool evocation;
-  bool illusion;
-  bool necromancy;
-  bool transmutation;
-  bool bladesinging;
+  //Specific class attributes
+  cleric_attributes cleric_attr;
+  fighter_attributes fighter_attr;
+  barbarian_attributes barbarian_attr;
+  bard_attributes bard_attr;
+  druid_attributes druid_attr;
+  monk_attributes monk_attr;
+  paladin_attributes paladin_attr;
+  ranger_attributes ranger_attr;
+  rogue_attributes rogue_attr;
+  sorcerer_attributes sorcerer_attr;
+  warlock_attributes warlock_attr;
+  wizard_attributes wizard_attr;
+  
 
   //landtypes
   bool artic;
