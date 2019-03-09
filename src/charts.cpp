@@ -6,7 +6,7 @@ using namespace std;
 
 void Charts::showChartMenu()
 {
-  while (chart_choice != 5)
+  while (chart_choice != 6)
   {
     simpleClearScreen();
     cout
