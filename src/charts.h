@@ -11,4 +11,5 @@ private:
   void displayPoisonSalesChart();
   void displayDiseaseChart();
   void displayMadnessChart();
+  void walkThroughPlayerBehavioralResolutionChart();
 };
