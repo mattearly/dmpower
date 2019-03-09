@@ -153,11 +153,6 @@ void Campaign::pc_menu()
         break;
       default:break;
       }
-
-      if(new_character_build != nullptr) {
-          delete new_character_build;
-      }
-
     }
       break;
     case 2:
