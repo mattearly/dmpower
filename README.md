@@ -52,4 +52,4 @@ A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MA
 - This tool is best suited for Dungeon Masters, however the character creator is helpful for anyone.
 - No known crash cases. All crash case reports are taken as highly critical and will be fixed asap.
 - This toolkit does not teach the game or say many specifics about what each ability, magic item, or spell does, as that is just not the intention. These details can be found on the plethora of reference data sites and apps related to D&D 5e, as well as in the official books. I recommend purchasing official [WotC books](#3-credits).
-- Use (doxygen)[http://www.doxygen.nl/manual/docblocks.html] to make the documentation from the code, all new code should have doxygen comments, old code will be updated slowly.
+- Use [doxygen](http://www.doxygen.nl/manual/docblocks.html) to make the documentation from the code, all new code should have doxygen comments, old code will be updated slowly.
