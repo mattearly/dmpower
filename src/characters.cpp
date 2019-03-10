@@ -427,7 +427,7 @@ Generic_Character_Class::Generic_Character_Class()
   wild_shape_improvement = 0;
 }
 
-Generic_Character_Class::~Generic_Character_Class() { }
+Generic_Character_Class::~Generic_Character_Class() {}
 
 std::string Generic_Character_Class::getRace() const
 {
@@ -439,11 +439,13 @@ void Generic_Character_Class::setName()
 {
   cout << "Name Your Character! (can be edited later)\n\n"
 
-       " -> " << RED << "RULES" << RESET << "\n"
-       "    + Length: 2 or more characters\n"
-       "    + Must be Unique\n"
-       "    + First letter is automatically Capitalized\n"
-       " -> Enter '" << GREEN << "random" << RESET << "' (without the quotes) to be suggested a random name!\n\n";
+          " -> "
+       << RED << "RULES" << RESET << "\n"
+                                     "    + Length: 2 or more characters\n"
+                                     "    + Must be Unique\n"
+                                     "    + First letter is automatically Capitalized\n"
+                                     " -> Enter '"
+       << GREEN << "random" << RESET << "' (without the quotes) to be suggested a random name!\n\n";
 
   string i_name;
   do
@@ -451,15 +453,15 @@ void Generic_Character_Class::setName()
     cout << "Enter Name: ";
     getline(cin, i_name);
     i_name[0] = toupper(i_name[0]); //makes the first letter of the name uppercase
-    i_name = reduce(i_name);		//gets rid of leading and trailing whitespace and any extra spaces in between
+    i_name = reduce(i_name);        //gets rid of leading and trailing whitespace and any extra spaces in between
     if (i_name.size() < 2 || i_name[0] == ' ')
     {
       cout << "Invalid name, try another.\n";
     }
-     if (i_name == "Random")
-     {
-       suggestRandomName(i_name);
-     }
+    if (i_name == "Random")
+    {
+      suggestRandomName(i_name);
+    }
   } while (i_name.size() < 2);
   char_name = i_name;
   simpleClearScreen();
@@ -469,11 +471,11 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
   simpleClearScreen();
   cout << "Choose a Race for your Character:\n\n"
-       << "1. Dragonborn   6. Halfing"
-       << "\n2. Dwarf        7. Half-orc"
-       << "\n3. Elf          8. Human"
-       << "\n4. Gnome        9. Tiefling"
-       << "\n5. Half-elf\n\n";
+       << "1. Dragonborn      6. Halfing\n"
+       << "2. Dwarf           7. Half-orc\n"
+       << "3. Elf             8. Human\n"
+       << "4. Gnome           9. Tiefling\n"
+       << "5. Half-elf\n\n";
   int ss = getNumber("Choose Race(1-9): ", 1, 9);
   simpleClearScreen();
 
@@ -533,7 +535,8 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
     race = parent->getRaceString();
   }
 
-  if(parent != nullptr) {
+  if (parent != nullptr)
+  {
     delete parent;
   }
 }
@@ -645,7 +648,7 @@ void Generic_Character_Class::setBackground()
     setLanguage("Second Cloistered Scholar bonus language.\n\n");
     cout << "Cloistered Scholar background: \n ->gained History, Choice Skill, & 2 Langs.\n";
   }
-    break;
+  break;
   case 6: //courtier
     insight = true;
     persuasion = true;
@@ -729,7 +732,7 @@ void Generic_Character_Class::setBackground()
     setLanguage("Inheritor bonus language.\n\n");
     cout << "Inheritor background: \n ->gained Survival, Choice Skill, Musical Instrument or Gaming set, & 1 Lang.\n";
   }
-    break;
+  break;
   case 15: //knight of the order
   {
     persuasion = true;
@@ -757,7 +760,7 @@ void Generic_Character_Class::setBackground()
     setLanguage("Knight of the Order bonus language.\n\n");
     cout << "Knight of the Order background: \n ->gained Persuasion, Choice Skill, Musical Instrument or Gaming set, & 1 Lang.\n";
   }
-    break;
+  break;
   case 16: //mercenary veteran
     athletics = true;
     persuasion = true;
@@ -881,7 +884,7 @@ void Generic_Character_Class::setBackground()
     //gain one gaming set
     cout << "Urban Bounty Hunter background: \n ->gained 2 Choice Skills, Choice instrument, gaming set(not programmed in yet), and thieves tools.\n";
   }
-    break;
+  break;
   case 23: //urchin
     sleight_of_hand = true;
     stealth = true;
@@ -1207,11 +1210,11 @@ void Generic_Character_Class::setInstrument(const string &message, const int &ma
   cout << message;
   while (count < many)
   {
-    cout << " 1. Bagpipes   6. Lyre"
-         << "\n 2. Drum       7. Horn"
-         << "\n 3. Dulcimer   8. Pan Flute"
-         << "\n 4. Flute      9. Shawm"
-         << "\n 5. Lute      10. Viol\n\n";
+    cout << "1. Bagpipes   6.  Lyre\n"
+         << "2. Drum       7.  Horn\n"
+         << "3. Dulcimer   8.  Pan Flute\n"
+         << "4. Flute      9.  Shawm\n"
+         << "5. Lute       10. Viol\n\n";
     int ss = getNumber("Choice: ", 1, 10);
     if (ss == 1 && bagpipes == 0)
     {
@@ -1284,15 +1287,15 @@ void Generic_Character_Class::setTools(const int &many)
   cout << "Pick " << many << " Tool/Supplies Proficiencie(s).\n\n";
   while (count < many)
   {
-    cout << "1. Alchemist Tools          10. Leatherworker's Supplies"
-         << "\n2. Brewer's Supplies        11. Mason's Tools"
-         << "\n3. Calligrapher's Supplies  12. Painter's Supplies"
-         << "\n4. Carpenter's Tools        13. Potter Tools"
-         << "\n5. Cartographer's Tools     14. Smith's Tools"
-         << "\n6. Cobbler's Tools          15. Tinker's Tools"
-         << "\n7. Cook's Utensils          16. Weaver's Tools"
-         << "\n8. Glassblower Tools        17. Woodcarver's Tools"
-         << "\n9. Jeweler's Tools\n\n";
+    cout << "1. Alchemist Tools          10. Leatherworker's Supplies\n"
+         << "2. Brewer's Supplies        11. Mason's Tools\n"
+         << "3. Calligrapher's Supplies  12. Painter's Supplies\n"
+         << "4. Carpenter's Tools        13. Potter Tools\n"
+         << "5. Cartographer's Tools     14. Smith's Tools\n"
+         << "6. Cobbler's Tools          15. Tinker's Tools\n"
+         << "7. Cook's Utensils          16. Weaver's Tools\n"
+         << "8. Glassblower Tools        17. Woodcarver's Tools\n"
+         << "9. Jeweler's Tools\n\n";
     int ss = getNumber("Choice: ", 1, 17);
     if (ss == 1 && alchemist == 0)
     {
@@ -1405,7 +1408,6 @@ void Generic_Character_Class::setProficiencyBonus()
 {
   proficiency_bonus = (2 + ((level - 1) / 4));
 }
-
 
 void Generic_Character_Class::increase2statsby1()
 {
@@ -1672,27 +1674,83 @@ void Generic_Character_Class::increase1statby2()
 
 void Generic_Character_Class::setLandtype()
 {
-  cout << "1. Artic    5. Grassland"
-       << "\n2. Coast    6. Mountain"
-       << "\n3. Desert   7. Swamp"
-       << "\n4. Forest   8. Underdark\n\n";
-  int ss = getNumber("Select Land Type: ", 1, 8);
-  if (ss == 1)
-    artic = true;
-  if (ss == 2)
-    coast = true;
-  if (ss == 3)
-    desert = true;
-  if (ss == 4)
-    forest = true;
-  if (ss == 5)
-    grassland = true;
-  if (ss == 6)
-    mountain = true;
-  if (ss == 7)
-    swamp = true;
-  if (ss == 8)
-    underdark = true;
+
+  bool valid_choice = false;
+
+  while (!valid_choice)
+  {
+    // show landtype menu
+    if (!artic)
+      cout << "1. Artic";
+    else
+      cout << "1. " << RED << "Artic (already known)" << RESET;
+    cout << "\n";
+
+    if (!coast)
+      cout << "2. Coast";
+    else
+      cout << "2. " << RED << "Coast (already known)" << RESET;
+    cout << "\n";
+
+    if (!desert)
+      cout << "3. Desert";
+    else
+      cout << "3. " << RED << "Desert (already known)" << RESET;
+    cout << "\n";
+
+    if (!forest)
+      cout << "4. Forest";
+    else
+      cout << "4. " << RED << "Forest (already known)" << RESET;
+    cout << "\n";
+
+    if (!grassland)
+      cout << "5. Grassland";
+    else
+      cout << "5. " << RED << "Grassland (already known)" << RESET;
+    cout << "\n";
+
+    if (!mountain)
+      cout << "6. Mountain";
+    else
+      cout << "6. " << RED << "Mountain (already known)" << RESET;
+    cout << "\n";
+
+    if (!swamp)
+      cout << "7. Swamp";
+    else
+      cout << "7. " << RED << "Swamp (already known)" << RESET;
+    cout << "\n";
+
+    if (!underdark)
+      cout << "8. Underdark";
+    else
+      cout << "8. " << RED << "Underdark (already known)" << RESET;
+    cout << "\n\n";
+
+    // get player's choice
+    int ss = getNumber("Select Land Type: ", 1, 8);
+
+    // gain landtype or retry if invalid
+    if (ss == 1 && !artic)
+      artic = valid_choice = true;
+    if (ss == 2 && !coast)
+      coast = valid_choice = true;
+    if (ss == 3 && !desert)
+      desert = valid_choice = true;
+    if (ss == 4 && !forest)
+      forest = valid_choice = true;
+    if (ss == 5 && !grassland)
+      grassland = valid_choice = true;
+    if (ss == 6 && !mountain)
+      mountain = valid_choice = true;
+    if (ss == 7 && !swamp)
+      swamp = valid_choice = true;
+    if (ss == 8 && !underdark)
+      underdark = valid_choice = true;
+
+    if (!valid_choice) cout << "Already known, choose another.\n";
+  }
 }
 
 void Generic_Character_Class::setFavoredEnemy()
