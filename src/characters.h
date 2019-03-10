@@ -525,7 +525,7 @@ public:
   virtual void setClassDetails(const int &l) = 0;
   void updateCharacter(const Campaign &);
   void updateName(const Campaign &);  //used in updateCharacter
-  void updateLevel(const Campaign &);  //used in updateCharacter
+  void updateLevel();  //used in updateCharacter
   void setProficiencyBonus();
   void increase2statsby1();
   void increase1statby2();
