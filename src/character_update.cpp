@@ -29,7 +29,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
     switch (ss)
     {
     case 1:
-      updateLevel(game);
+      updateLevel();
       break;
     case 2:
       updateName(game);
