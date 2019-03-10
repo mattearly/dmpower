@@ -64,8 +64,7 @@ void Campaign::pc_menu()
 
       simpleClearScreen();
 
-      Generic_Character_Class *new_character_build;
-
+      Generic_Character_Class *new_character_build = nullptr;
       switch (select_class)
       {
       case 1:
