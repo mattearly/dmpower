@@ -93,7 +93,9 @@ void load_file()
         if (answer == 'Y')
         {
           std::string removestuff = "rm saves/" + mergein + ".save";
-          system(removestuff.c_str());
+          if (!system(removestuff.c_str())) {
+            std::cout << "unable to remove file '" << mergein << "'\n";
+          }
         }
         load_file();
       }

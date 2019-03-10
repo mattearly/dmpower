@@ -11,6 +11,7 @@ class Races
 {
 public:
   //accessor
+  virtual ~Races() { }
   virtual void setRaceDetails(Generic_Character_Class &v) = 0;
   virtual std::string getRaceString() const = 0;
 };

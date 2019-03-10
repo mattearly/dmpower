@@ -70,9 +70,11 @@ _What the end Character Sheet looks like within your terminal_
 
 * **Charts**. There always seems to be at least one player interested in using poison. Madness can be useful in many cases (causing scenarios, things for the PC's to deal with, etc).
 
+    * Level Up chart
     * Poison Prices chart
     * Madness chart
     * Diseases chart
+    * Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/))
 
 > [back to index](#0-index)
 
