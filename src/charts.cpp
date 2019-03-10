@@ -6,24 +6,24 @@ using namespace std;
 
 void Charts::showChartMenu()
 {
-  while (chart_choice != 6)
+  const int MAXCHARTCHOICE = 6;
+  while (chart_choice != MAXCHARTCHOICE)
   {
     simpleClearScreen();
     cout
         << "----------------- CHARTS -----------------\n"
-        << " 1. Level Up Chart\n"
+        << " 1. Player Behavioral Problems Flowchart\n"
         << " 2. Poison Sales Chart\n"
         << " 3. Madness Chart\n"
         << " 4. Disease Chart\n"
-        << " 5. Resolving Basic Behavioral Problems in\n"
-           "      your Tabletop RPG Group: A Flowchart\n"
+        << " 5. Level Up Chart\n"
         << " 6. Back to " << MAGENTA << "OTHER TOOLS" << RESET << "\n"
         << "---------------- CHARTS ------------------\n";
-    chart_choice = getNumber("Choice: ", 1, 6);
+    chart_choice = getNumber("Choice: ", 1, MAXCHARTCHOICE);
     switch (chart_choice)
     {
     case 1:
-      displayExperienceChart();
+      walkThroughPlayerBehavioralResolutionChart();
       break;
     case 2:
       displayPoisonSalesChart();
@@ -35,7 +35,7 @@ void Charts::showChartMenu()
       displayDiseaseChart();
       break;
     case 5:
-      walkThroughPlayerBehavioralResolutionChart();
+      displayExperienceChart();
       break;
     case 6:
       return;
@@ -141,47 +141,42 @@ void Charts::displayMadnessChart()
 void Charts::walkThroughPlayerBehavioralResolutionChart()
 {
   simpleClearScreen();
-  cout << "So a player is giving you trouble eh?\n\n"
-       << " step 1: TALK TO THEM ABOUT IT.\n";
+  cout << "So a player is giving you trouble eh?\n"
+       << "First, talk to them about it.\n";
 
-  char answer = getYorN("Did they listen and change their behavior? (y/n)\n");
+  char answer = getYorN("Did they listen and change their behavior? (y/n): ");
   if (answer == 'Y')
   {
-    cout << "Excellent! Problem solved. Everyone can move on with thier lives.\n";
+    cout << "Excellent! Problem solved. Everyone can move on with their lives.";
     pressEnterToContinue();
     return;
   }
-  else
-  { // 'N'
-    cout << "Okay, so that didn't work, lets try something else to get your gaming group back in order.\n";
-    pressEnterToContinue();
-  }
 
-  answer = getYorN("Does this thing that is happening bother anyone else? (y/n)\n");
+  answer = getYorN("Does this thing that is happening bother anyone else? (y/n): ");
   if (answer == 'Y')
   {
-    answer = getYorN("Is this really that big of a deal to the rest of your group? (y/n)\n");
+    answer = getYorN("Is this really that big of a deal to the rest of your group? (y/n): ");
     if (answer == 'Y')
     {
-      cout << "In this case, since the person won't listen and it really bothers everyone, it is probably best to remove the player from your group. Problem solved.\n";
+      cout << "Sounds like you should consider removing this player from your group. Problem solved.";
     }
     else
     { // 'N'
-      cout << "Okay, then it is probably best to just drop it and move on. Problem solved.\n";
+      cout << "Okay, then it is probably best to just drop it and move on. Problem solved.";
     }
     pressEnterToContinue();
     return;
   }
   else
   { // 'N'
-    answer = getYorN("Are you really salty about this and can't get over it? (y/n)\n");
+    answer = getYorN("Are you really salty about this and can't get over it? (y/n): ");
     if (answer == 'Y')
     {
-      cout << "Sounds like it might be best that you find a new group. Problem solved.\n";
+      cout << "Sounds like it might be best that you find a new group. Problem solved.";
     }
     else
     { // 'N'
-      cout << "In this case, it is probably best to just let it go (queue the theme song from Disney's Frozen). Problem solved.\n";
+      cout << "It is probably best to just let it go (queue theme song from Disney's Frozen). Problem solved.";
     }
     pressEnterToContinue();
     return;
