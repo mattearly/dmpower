@@ -1192,6 +1192,14 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Superior Darkvision, ";
   if (trance)
     cout << "Trance, ";
+  if (firbolg_magic)
+    cout << "Firbolg Magic, ";
+  if (hidden_step)
+    cout << "Hidden Step, ";
+  if (powerful_build)
+    cout << "Powerful Build, ";
+  if (speech_of_beast_and_leaf)
+    cout << "Speech of Beast and Leaf, ";
   cout << endl;
 }
 void Generic_Character_Class::printLangs() const

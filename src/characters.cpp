@@ -425,6 +425,10 @@ Generic_Character_Class::Generic_Character_Class()
   backgroundofpc = NOBACKGROUND;
   destroy_undead = 0;
   wild_shape_improvement = 0;
+  firbolg_magic = 0;
+  hidden_step = 0;
+  powerful_build = 0;
+  speech_of_beast_and_leaf = 0;
 }
 
 Generic_Character_Class::~Generic_Character_Class() { }
@@ -473,8 +477,8 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
        << "\n2. Dwarf        7. Half-orc"
        << "\n3. Elf          8. Human"
        << "\n4. Gnome        9. Tiefling"
-       << "\n5. Half-elf\n\n";
-  int ss = getNumber("Choose Race(1-9): ", 1, 9);
+       << "\n5. Half-elf     10. Firbolg\n\n";
+  int ss = getNumber("Choose Race(1-10): ", 1, 10);
   simpleClearScreen();
 
   Races *parent = nullptr;
@@ -526,9 +530,13 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
     parent->setRaceDetails(v);
     race = parent->getRaceString();
   }
-  else
+  else if(ss == 9)
   {
     parent = new Tiefling;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+  } else if(ss == 10) {
+    parent = new Firbolg;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
   }

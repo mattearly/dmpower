@@ -395,6 +395,23 @@ void Tiefling::setRaceDetails(Generic_Character_Class &v)
   pressEnterToContinue();
 }
 
+void Firbolg::setRaceDetails(Generic_Character_Class &v)
+{
+  v.wisdom += 2;
+  v.strength += 1;
+  v.move_speed = 30;
+  v.firbolg_magic = true;
+  v.hidden_step = true;
+  v.powerful_build = true;
+  v.speech_of_beast_and_leaf = true;
+  v.common = true;
+  v.elvish = true;
+  v.giant = true;
+  cout << "->Firbolg defaults & bonuses applied:\n"
+       << " +2 WIS, +1 STR, 30ft Move, Firbolg Magic, Powerful Build, Speech of beast and leaf, Langs(common. elvish, giant)\n\n";
+  pressEnterToContinue();
+}
+
 //accessors
 string Tiefling::getRaceString() const
 {
@@ -490,4 +507,9 @@ string Halforc::getRaceString() const
 string Human::getRaceString() const
 {
   return "Human";
+}
+
+string Firbolg::getRaceString() const
+{
+  return "Firbolg";
 }

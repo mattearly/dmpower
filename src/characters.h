@@ -456,6 +456,10 @@ public:
   bool stout_resilience;
   bool superior_darkvision;
   bool trance;
+  bool firbolg_magic;
+  bool hidden_step;
+  bool powerful_build;
+  bool speech_of_beast_and_leaf;
 
   //RESISTANCES
   bool damage_resist_acid;
