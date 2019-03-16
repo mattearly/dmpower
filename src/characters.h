@@ -60,7 +60,7 @@ public:
   int divine_intervention;
   int cleric_cantrips_known;
   bool divine_domain, arcana_d, death_d, knowledge_d, life_d, light_d, nature_d,
-  tempest_d, trickery_d, war_d;
+      tempest_d, trickery_d, war_d;
 
   //FIGHTER
   int action_surge;
@@ -513,7 +513,7 @@ public:
 
   //CHARACTER CREATION FUNCTIONS (MUTATORS)
   void setName();
-  void suggestRandomName(std::string& );
+  void suggestRandomName(std::string &);
   void setRace(Generic_Character_Class &v);
   void setRaceBonuses();
   void setAlignment();
@@ -531,8 +531,8 @@ public:
   virtual void setInitialClassFeatures() = 0;
   virtual void setClassDetails(const int &l) = 0;
   void updateCharacter(const Campaign &);
-  void updateName(const Campaign &);  //used in updateCharacter
-  void updateLevel(const Campaign &);  //used in updateCharacter
+  void updateName(const Campaign &);
+  void updateLevel();
   void setProficiencyBonus();
   void increase2statsby1();
   void increase1statby2();
@@ -626,29 +626,28 @@ public:
   std::string getRace() const;
 };
 
-//Define a macro for Clone definitions
-#define CLONE_CREATE(Type) virtual Generic_Character_Class *Clone() \
-                                   {                                \
-                                     return new Type;               \
-                                   }
+//Macro for Clone definitions
+#define CLONE_CREATE(Type)                 \
+  virtual Generic_Character_Class *Clone() \
+  {                                        \
+    return new Type;                       \
+  }
 
-//Define a macro to create the classes
-#define CREATE_CLASS(Type, Name, LevelUpMenu) class Type : public Generic_Character_Class \
-                                 {                                             \
-                                   CLONE_CREATE(Type);                         \
-                                   virtual void setInitialClassFeatures()      \
-                                   {                                           \
-                                       char_class = #Name;                     \
-                                   }                                           \
-                                                                               \
-                                   virtual int getlevelupmenus() const         \
-                                   {                                           \
-                                       return LevelUpMenu;                     \
-                                   }                                           \
-                                                                               \
-                                   virtual void setClassDetails(const int& l); \
-                                 };
-
+//Macro to create the classes
+#define CREATE_CLASS(Type, Name, LevelUpMenu)   \
+  class Type : public Generic_Character_Class   \
+  {                                             \
+    CLONE_CREATE(Type);                         \
+    virtual void setInitialClassFeatures()      \
+    {                                           \
+      char_class = #Name;                       \
+    }                                           \
+    virtual int getlevelupmenus() const         \
+    {                                           \
+      return LevelUpMenu;                       \
+    }                                           \
+    virtual void setClassDetails(const int &l); \
+  };
 
 CREATE_CLASS(Cleric, Cleric, clericlevelupmenus);
 CREATE_CLASS(Fighter, Fighter, fighterlevelupmenus);

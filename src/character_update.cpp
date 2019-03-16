@@ -1,5 +1,6 @@
 #include "characters.h"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -28,7 +29,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
     switch (ss)
     {
     case 1:
-      updateLevel(game);
+      updateLevel();
       break;
     case 2:
       updateName(game);
@@ -148,7 +149,7 @@ void Generic_Character_Class::updateName(const Campaign &game)
   char_name = tmp;
 }
 
-void Generic_Character_Class::updateLevel(const Campaign &game)  {
+void Generic_Character_Class::updateLevel()  {
   if (level == 20)
   {
     cout << "Already max level.\n\n";
