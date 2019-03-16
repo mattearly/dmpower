@@ -43,9 +43,9 @@ A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MA
 
 - Designed for Dungeons & Dragons 5th Edition Official. The core D&D data used in this program is from:
 
- | [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [Sword Coast Adventurer's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
- | --- | --- | --- |
- | [![phb](img/DnD_PHB.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [![dmg](img/DnD_DMG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [![scag](img/DnD_SCAG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
+ | [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [Sword Coast Adventurer's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) | [Volo's guide to monsters](http://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters) |
+ | --- | --- | --- | --- |
+ | [![phb](img/DnD_PHB.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [![dmg](img/DnD_DMG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [![scag](img/DnD_SCAG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) | [![vgtm](img/DnD_VGTM.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters) |
 
 - Programmers as accredited in the commit history - mostly me but its always nice to have help and I will accept some modifications on a case by case basis if they align with the overall goal of dmpower.
 
