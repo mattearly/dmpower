@@ -470,69 +470,64 @@ void Generic_Character_Class::setName()
 void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
   simpleClearScreen();
+  const int num_races = 9;
   cout << "Choose a Race for your Character:\n\n"
        << "1. Dragonborn      6. Halfing\n"
        << "2. Dwarf           7. Half-orc\n"
        << "3. Elf             8. Human\n"
        << "4. Gnome           9. Tiefling\n"
        << "5. Half-elf\n\n";
-  int ss = getNumber("Choose Race(1-9): ", 1, 9);
-  simpleClearScreen();
-
+  int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
-  if (ss == 1)
+  switch (ss)
   {
+  case 1:
     parent = new Dragonborn;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
-  }
-  else if (ss == 2)
-  {
+    break;
+  case 2:
     parent = new Dwarf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
-  }
-  else if (ss == 3)
-  {
+    break;
+  case 3:
     parent = new Elf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
-  }
-  else if (ss == 4)
-  {
+    break;
+  case 4:
     parent = new Gnome;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
-  }
-  else if (ss == 5)
-  {
+    break;
+  case 5:
     parent = new Halfelf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
-  }
-  else if (ss == 6)
-  {
+    break;
+  case 6:
     parent = new Halfling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
-  }
-  else if (ss == 7)
-  {
+    break;
+  case 7:
     parent = new Halforc;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
-  }
-  else if (ss == 8)
-  {
+    break;
+  case 8:
     parent = new Human;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
-  }
-  else
-  {
+    break;
+  case 9:
     parent = new Tiefling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
+    break;
+  default:
+    break;
   }
 
   if (parent != nullptr)
@@ -1749,7 +1744,8 @@ void Generic_Character_Class::setLandtype()
     if (ss == 8 && !underdark)
       underdark = valid_choice = true;
 
-    if (!valid_choice) cout << "Already known, choose another.\n";
+    if (!valid_choice)
+      cout << "Already known, choose another.\n";
   }
 }
 
