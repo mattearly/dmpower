@@ -381,7 +381,7 @@ void Human::setRaceDetails(Generic_Character_Class &v)
 }
 void Tiefling::setRaceDetails(Generic_Character_Class &v)
 {
-  v.intelligence += 2;
+  v.intelligence += 1;
   v.charisma += 2;
   v.move_speed = 30;
   v.darkvision = true;
