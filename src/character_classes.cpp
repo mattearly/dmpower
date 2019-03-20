@@ -22,17 +22,17 @@ void Cleric::setClassDetails(const int &l)
     {
     case 1:
       arcana_d = true;
-      arcana = true; //gain arcana skill
+      arcana = true;
       break;
     case 2:
       death_d = true;
-      //gain martial weapon prof
+      //todo: gain martial weapon prof
       break;
     case 3:
       knowledge_d = true;
       setLanguage("First Knowledge Domain Language.\n\n");
       setLanguage("Second Knowledge Domain Language.\n\n");
-      //gain double prof skills from arcana, history, nature, religion
+      //todo: gain double prof bonus in skills: arcana, history, nature, religion
       break;
     case 4:
       life_d = true;
@@ -286,10 +286,8 @@ void Fighter::setClassDetails(const int &l)
       champion = true;
       break;
     case 2:
-    {
       battle_master = true;
       setTools(1);
-    }
       break;
     case 3:
       eldritch_knight = true;
