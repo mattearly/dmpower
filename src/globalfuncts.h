@@ -1,12 +1,10 @@
-#ifndef GLOBALFUNCTS_H
-#define GLOBALFUNCTS_H
 #pragma once
 
 #include <iostream>
 #include <sstream>
 #include <random>
 #include <type_traits>
-#include "terminal_colors.h"
+#include <string>
 
 const int LARGEST_INPUT_DIGITS = 3;
 
@@ -84,4 +82,3 @@ std::string reduce(const std::string &str,
                    const std::string &fill = " ",
                    const std::string &whitespace = " \t");
 
-#endif /* defined(GLOBALFUNCTS_H) */

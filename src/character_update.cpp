@@ -1,4 +1,5 @@
 #include "characters.h"
+#include "terminal_colors.h"
 #include <string>
 #include <iostream>
 
@@ -63,7 +64,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
       if (c == 9)
         alignment = "LG";
     }
-      break;
+    break;
     case 4:
     {
       int ss;
@@ -113,7 +114,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
         answ = getYorN("Would you like to change more stats?(y/n):");
       } while (answ != 'N');
     }
-      break;
+    break;
     case 5:
       setAnySkill("Updating Character", 1);
       break;
@@ -122,7 +123,8 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
       break;
     default:;
     }
-    if (ss != 7) pressEnterToContinue();
+    if (ss != 7)
+      pressEnterToContinue();
   } while (ss != 7);
   mainMessage = "DON'T FORGET TO SAVE!";
 }
@@ -149,7 +151,8 @@ void Generic_Character_Class::updateName(const Campaign &game)
   char_name = tmp;
 }
 
-void Generic_Character_Class::updateLevel()  {
+void Generic_Character_Class::updateLevel()
+{
   if (level == 20)
   {
     cout << "Already max level.\n\n";

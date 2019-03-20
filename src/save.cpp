@@ -1,5 +1,6 @@
 #include "campaign.h"
 #include "globalfuncts.h"
+#include "terminal_colors.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -93,7 +94,8 @@ void load_file()
         if (answer == 'Y')
         {
           std::string removestuff = "rm saves/" + mergein + ".save";
-          if (!system(removestuff.c_str())) {
+          if (!system(removestuff.c_str()))
+          {
             std::cout << "unable to remove file '" << mergein << "'\n";
           }
         }

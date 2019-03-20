@@ -1,6 +1,7 @@
-#include <iomanip>
 #include "globalfuncts.h"
 #include <cmath>
+#include <iomanip>
+#include <string>
 
 void simpleClearScreen()
 {

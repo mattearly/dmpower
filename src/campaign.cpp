@@ -1,6 +1,7 @@
 #include "campaign.h"
 #include "globalfuncts.h"
 #include "characters.h"
+#include "terminal_colors.h"
 
 using namespace std;
 
@@ -73,88 +74,89 @@ void Campaign::pc_menu()
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 2:
       {
         new_character_build = new Fighter;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 3:
       {
         new_character_build = new Rogue;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 4:
       {
         new_character_build = new Wizard;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 5:
       {
         new_character_build = new Barbarian;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 6:
       {
         new_character_build = new Druid;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 7:
       {
         new_character_build = new Paladin;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 8:
       {
         new_character_build = new Sorcerer;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 9:
       {
         new_character_build = new Bard;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 10:
       {
         new_character_build = new Monk;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 11:
       {
         new_character_build = new Ranger;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 12:
       {
         new_character_build = new Warlock;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
+      break;
+      default:
         break;
-      default:break;
       }
     }
-      break;
+    break;
     case 2:
     { //VIEW CHARACTER SHEET
       if (character_list.size() < 1)
@@ -233,7 +235,7 @@ void Campaign::pc_menu()
         }
       }
     }
-      break;
+    break;
     case 4:
     { //DELETE CHARACTER
       if (character_list.size() < 1)
@@ -263,7 +265,7 @@ void Campaign::pc_menu()
         } while (tmp != "");
       }
     }
-      break;
+    break;
     case 5:
     { //DELETE ALL THE THINGS
       char sure = getYorN("Are you Sure you want to Delete All Player Characters?(y/n):");
@@ -277,7 +279,7 @@ void Campaign::pc_menu()
         mainMessage = "Nothing Deleted.\n\n";
       }
     }
-      break;
+    break;
     case 6:
       save_file();
       break;
@@ -355,14 +357,14 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
     charactercount++;
     os
         << "saved character: " << charactercount << endl
-           //basics
+        //basics
         << (*it)->char_class << endl
         << (*it)->char_name << endl
         << (*it)->race << endl
         << (*it)->alignment << endl
         << (*it)->level << endl
 
-           //class level up menus prep for multiclass functions
+        //class level up menus prep for multiclass functions
         << (*it)->clericlevelupmenus << endl
         << (*it)->fighterlevelupmenus << endl
         << (*it)->roguelevelupmenus << endl
@@ -392,7 +394,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->intSave << endl
         << (*it)->wisSave << endl
         << (*it)->chaSave << endl
-           //class stuff - general
+        //class stuff - general
         << "generalclassstuff" << endl
         << (*it)->extra_attack << endl
         << (*it)->expertise << endl

@@ -1,9 +1,9 @@
 #include "characters.h"
+#include "terminal_colors.h"
 #include <iomanip>
+#include <string>
 
-using std::cout;
-using std::endl;
-using std::setw;
+using namespace std;
 
 void Generic_Character_Class::character_sheet() const
 {

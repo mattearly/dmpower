@@ -1,6 +1,8 @@
 #include "charts.h"
 #include "globalfuncts.h"
+#include "terminal_colors.h"
 #include <fstream>
+#include <string>
 
 using namespace std;
 

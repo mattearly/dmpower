@@ -1,5 +1,6 @@
 #include "gen_reward.h"
 #include "globalfuncts.h"
+#include "terminal_colors.h"
 #include <algorithm> //for sort function
 #include <fstream>
 

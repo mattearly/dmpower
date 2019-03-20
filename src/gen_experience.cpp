@@ -1,5 +1,6 @@
 #include "gen_experience.h"
 #include "globalfuncts.h"
+#include "terminal_colors.h"
 
 using namespace std;
 
