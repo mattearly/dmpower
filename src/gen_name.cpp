@@ -1,5 +1,6 @@
 #include "gen_name.h"
 #include <fstream>
+#include <string>
 
 using namespace std;
 
