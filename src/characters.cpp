@@ -1,8 +1,10 @@
+#include "gen_name.h"
+#include "characters.h"
+#include "terminal_colors.h"
 #include <iomanip>
 #include <cmath>
 #include <vector>
-#include "gen_name.h"
-#include "characters.h"
+#include <string>
 
 using namespace std;
 
