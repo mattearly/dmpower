@@ -1,5 +1,3 @@
-#ifndef CAMPAIGN_H
-#define CAMPAIGN_H
 #pragma once
 
 #include <fstream>
@@ -11,7 +9,7 @@ class Campaign
 {
 public:
   std::list<Generic_Character_Class *> character_list;
-
+  
   void pc_menu();
 
   std::ofstream &dumpCharacter(std::ofstream &) const; //save
@@ -25,5 +23,3 @@ private:
 
   void showCampaignCharacterList();
 };
-
-#endif //CAMPAIGN_H

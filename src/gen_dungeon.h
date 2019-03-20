@@ -1,8 +1,7 @@
-#ifndef DUNGEONS_GEN_H
-#define DUNGEONS_GEN_H
 #pragma once
 
 #include "globalfuncts.h"
+#include <string>
 
 using std::string;
 
@@ -42,4 +41,3 @@ private:
   //TODO
 };
 
-#endif //DUNGEONS_GEN_H

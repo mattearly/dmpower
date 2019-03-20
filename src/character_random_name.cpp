@@ -6,7 +6,7 @@
 using namespace std;
 
 // for random name suggestion while building a new character
-void Generic_Character_Class::suggestRandomName(std::string& random_name)
+void Generic_Character_Class::suggestRandomName(std::string &random_name)
 {
   CharacterName namegen;
   int choice = 0;
@@ -20,7 +20,8 @@ void Generic_Character_Class::suggestRandomName(std::string& random_name)
          << " 2. Generate another Random name" << endl
          << " 3. Leave Random Name Generator\n\n";
     choice = getNumber("Choice: ", 1, 3);
-    if (choice == 1) {
+    if (choice == 1)
+    {
       cout << "Accepted '" << random_name << "' as your character's name.\n";
     }
     if (choice == 3)

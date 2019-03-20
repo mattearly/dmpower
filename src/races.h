@@ -1,5 +1,3 @@
-#ifndef RACES_H
-#define RACES_H
 #pragma once
 
 #include "characters.h"
@@ -108,4 +106,3 @@ public:
   virtual std::string getRaceString() const;
 };
 
-#endif /* defined(__dm_power_poly__races__) */

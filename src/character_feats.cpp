@@ -8,7 +8,7 @@ void Generic_Character_Class::setAnyFeat()
   cout << "List of Feats to choose from:\n\n";
   while (!set)
   {
-    cout <<   " 1. Alert               25. Mobile"
+    cout << " 1. Alert               25. Mobile"
          << "\n 2. Athlete             26. Moderately Armored"
          << "\n 3. Actor               27. Mounted Combat"
          << "\n 4. Charger             28. Observant"

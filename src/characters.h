@@ -1,5 +1,3 @@
-#ifndef CHARACTERS_H
-#define CHARACTERS_H
 #pragma once
 
 #include "races.h"
@@ -658,4 +656,3 @@ CREATE_CLASS(Monk, Monk, monklevelupmenus);
 CREATE_CLASS(Ranger, Ranger, rangerlevelupmenus);
 CREATE_CLASS(Warlock, Warlock, warlocklevelupmenus);
 
-#endif
