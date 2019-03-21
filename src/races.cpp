@@ -354,7 +354,11 @@ void Halfling::setRaceDetails(Generic_Character_Class &v)
 }
 void Human::setRaceDetails(Generic_Character_Class &v)
 {
-  char rule = getYorN("Would you like to use the Variant Rule on Human Traits? (Y/N): ");
+  std::cout <<   "------------------------\n"
+  "Variant: Humans gain +1 to two different stats, a bonus skill, and a bonus feat.\n"
+  "Normal: +1 to all stats\n"
+  "------------------------\n";
+  char rule = getYorN("Would you like to use the Variant Rule on Human Traits? (y/n): ");
   if (rule == 'N')
   {
     v.strength += 1;
@@ -367,7 +371,7 @@ void Human::setRaceDetails(Generic_Character_Class &v)
   }
   else
   {
-    cout << "->Human variant, +1 to 2 differnt stats choice.\n";
+    cout << "->Human variant, +1 to 2 different stats choice.\n";
     v.increase2statsby1();
     v.setAnySkill("->Human variant, choose a skill:", 1);
     cout << "->Human variant, choose one feat.\n";
