@@ -122,9 +122,9 @@ void Dwarf::setRaceDetails(Generic_Character_Class &v)
     cout << "Mason's Tools learned!\n";
   }
   cout << "\nWhat Kind of Dwarf?\n"
-       "  1. Duergar Dwarf\n"
-       "  2. Hill Dwarf\n" 
-       "  3. Mountain Dwarf.\n\n";
+          "  1. Duergar Dwarf\n"
+          "  2. Hill Dwarf\n"
+          "  3. Mountain Dwarf.\n\n";
   subr = static_cast<enum dwarftype>(getNumber("Dwarf type(1-3): ", 1, 3));
   switch (subr)
   {
@@ -134,7 +134,7 @@ void Dwarf::setRaceDetails(Generic_Character_Class &v)
     v.undercommon = true;
     v.duergar_magic = true;
     v.sunlight_sensitivity = true;
-    cout << "Ahh, you's a Grey Drawf. Gain:\n"
+    cout << "Ahh, you's a Gray Dwarf. Gain:\n"
             " - +1 Strength\n"
             " - Superior Darkvision\n"
             " - Undercommon Language\n"
@@ -145,12 +145,16 @@ void Dwarf::setRaceDetails(Generic_Character_Class &v)
   case HILL:
     v.wisdom += 1;
     v.dwarven_toughness = true;
-    cout << "Hill Dwarf defaults & bonuses applied: +1 WIS, Dwarven Toughness(+1 HP/level)\n";
+    cout << "A Hill Dwarf you are. Gain:\n"
+            " - +1 Wisdom\n"
+            " - Dwarven Toughness(+1 HP/level)\n";
     break;
   case MOUNTAIN:
     v.strength += 2;
     v.dwarven_armor_training = true;
-    cout << "Mountain Dwarf defaults & bonuses applied: +2 STR, Dwarven Armor Training(Proficient in Medium and Light Armor)\n";
+    cout << "He's one of those beefy Mountain Dwarves! Gain:\n"
+            " - +2 Strength\n"
+            " - Dwarven Armor Training(Proficient in Medium and Light Armor)\n";
     break;
   case NA:
   default:
@@ -370,10 +374,10 @@ void Halfling::setRaceDetails(Generic_Character_Class &v)
 }
 void Human::setRaceDetails(Generic_Character_Class &v)
 {
-  std::cout <<   "------------------------\n"
-  "Variant: Humans gain +1 to two different stats, a bonus skill, and a bonus feat.\n"
-  "Normal: +1 to all stats\n"
-  "------------------------\n";
+  std::cout << "------------------------\n"
+               "Variant: Humans gain +1 to two different stats, a bonus skill, and a bonus feat.\n"
+               "Normal: +1 to all stats\n"
+               "------------------------\n";
   char rule = getYorN("Would you like to use the Variant Rule on Human Traits? (y/n): ");
   if (rule == 'N')
   {
@@ -429,18 +433,21 @@ string Dwarf::getRaceString() const
   string tmp = "";
   switch (subr)
   {
+  case DUERGAR:
+    tmp += "Duergar";
+    break;
   case HILL:
-    tmp += "Hill ";
+    tmp += "Hill";
     break;
   case MOUNTAIN:
-    tmp += "Mountain ";
+    tmp += "Mountain";
     break;
   case NA:
     break;
   default:
     break;
   }
-  return tmp + "Dwarf";
+  return tmp + " Dwarf";
 }
 string Elf::getRaceString() const
 {
