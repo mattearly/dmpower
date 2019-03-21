@@ -35,7 +35,8 @@ A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MA
 ### 2. Support
 
 - For improvements and continuation of this project. I'll strive to keep the logic sound, and the program stable and useful.
-- [![donate/PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/mattearly) - any donations will go towards finding (funding?) time to continue work on this project. Total donations so far: $0
+- [![donate/PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/mattearly) Any donations will go towards finding (funding?) time to continue work on this project. 
+  - Total donations so far: $0
  
 ---
 
@@ -52,9 +53,9 @@ A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MA
 ### 4. Contributing, what you need to know
 
  - When adding new variables to [characters.h](src/characters.h):
-    - The dumpCharacter & retrieveCharacter functions in [campaign.cpp](src/campaign.cpp)must be updated.
+    - The dumpCharacter & retrieveCharacter functions in [campaign.cpp](src/campaign.cpp) must be updated.
       - These functions run in a very specific sequential order, which is the same order they are in the character header file.
-      - All older saves will no longer work after these functions are updated, and the notes on the release update **must** reflect this. Use an older version of the program to open your older files.
+      - All older saves will no longer work after these functions are updated, and the notes on the release update **must** reflect this. Use an older version of the program to open your older files. (I plan to make some sort of fail safe in the future so people cannot try to load bad saves, like a version tag at the top of the save.)
     - The print* functions in [character_print.cpp](src/character_print.cpp) must be updated.
 - Feel free to add yourself to the [contributors file](CONTRIBUTORS.md) along with notes about what you did to halp out.
 
