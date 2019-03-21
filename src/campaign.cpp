@@ -354,6 +354,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
   int charactercount = 0;
   for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
   {
+    // todo: save version considerations
     charactercount++;
     os
         << "saved character: " << charactercount << endl
@@ -738,6 +739,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->dwarven_combat_training << endl
         << (*it)->dwarven_resilience << endl
         << (*it)->dwarven_toughness << endl
+        << (*it)->duergar_magic << endl
         << (*it)->elf_weapon_training << endl
         << (*it)->fey_ancestry << endl
         << (*it)->fleet_of_foot << endl
@@ -809,6 +811,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
   Generic_Character_Class *v;
   while (!ins.eof())
   {
+    // todo: save version considerations
     ins.ignore(numeric_limits<streamsize>::max(), '\n');
     int len = ins.tellg(); //get current position
     getline(ins, tmp);
@@ -1237,6 +1240,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->dwarven_combat_training;
     ins >> v->dwarven_resilience;
     ins >> v->dwarven_toughness;
+    ins >> v->duergar_magic;
     ins >> v->elf_weapon_training;
     ins >> v->fey_ancestry;
     ins >> v->fleet_of_foot;
