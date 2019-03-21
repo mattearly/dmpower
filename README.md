@@ -51,12 +51,12 @@ A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MA
 
 ### 4. Contributing, what you need to know
 
- - when adding new variables to [characters.h](src/characters.h)
-    - save & dumpCharacter functions must be updated
-    - load & retrieveCharacter functions must be updated
-    - these functions run in a very specific sequential order (so don't mess it up =D)
-    - all old saves will no longer work after these functoins are updated, and the notes on the release update **must** reflect this
-  - feel free to add yourself to the [contributors file](CONTRIBUTORS.md) along with notes about what you did to halp out.
+ - When adding new variables to [characters.h](src/characters.h):
+    - The dumpCharacter & retrieveCharacter functions in [campaign.cpp](src/campaign.cpp)must be updated.
+      - These functions run in a very specific sequential order, which is the order is the same order they are in the character header file.
+      - All older saves will no longer work after these functoins are updated, and the notes on the release update **must** reflect this.
+    - The print* functions in [character_print.cpp](src/character_print.cpp) must be updated.
+- Feel free to add yourself to the [contributors file](CONTRIBUTORS.md) along with notes about what you did to halp out.
 
 
 ### 5. Additional Notes

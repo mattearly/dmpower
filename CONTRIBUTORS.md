@@ -1,3 +1,3 @@
-#### [github link](github.com/username)
+#### [github user name linked](github.com/username)
 
-    - what they did to halp
+- what you did to halp
