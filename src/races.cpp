@@ -212,6 +212,29 @@ void Elf::setRaceDetails(Generic_Character_Class &v)
   cout << endl;
   pressEnterToContinue();
 }
+void Firbolg::setRaceDetails(Generic_Character_Class &v)
+{
+  v.wisdom += 2;
+  v.strength += 1;
+  v.move_speed = 30;
+  v.firbolg_magic = true;
+  v.hidden_step = true;
+  v.powerful_build = true;
+  v.speech_of_beast_and_leaf = true;
+  v.common = true;
+  v.elvish = true;
+  v.giant = true;
+  cout << "One of them wise Firbolg's eh? Gain:\n"
+          " - +2 Wisdom\n"
+          " - +1 Strength\n"
+          " - 30ft Move\n"
+          " - Firbolg Magic\n"
+          " - Powerful Build\n"
+          " - Speech of beast and leaf\n"
+          " - Languages(Common, Elvish, Giant)\n\n";
+  pressEnterToContinue();
+}
+
 void Gnome::setRaceDetails(Generic_Character_Class &v)
 {
   v.intelligence += 2;
@@ -418,7 +441,6 @@ void Tiefling::setRaceDetails(Generic_Character_Class &v)
        << " +1 INT, +2 CHA, 30ft Move, Darkvision 60ft, Hellish Resistance, Infernal Legacy, Langs(Common, Infernal)\n\n";
   pressEnterToContinue();
 }
-
 //accessors
 string Tiefling::getRaceString() const
 {
@@ -470,6 +492,10 @@ string Elf::getRaceString() const
   }
   return tmp + "Elf";
 }
+string Firbolg::getRaceString() const
+{
+  return "Firbolg";
+}
 string Gnome::getRaceString() const
 {
   string tmp = "";
@@ -518,3 +544,4 @@ string Human::getRaceString() const
 {
   return "Human";
 }
+

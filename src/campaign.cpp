@@ -755,6 +755,10 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->stout_resilience << endl
         << (*it)->superior_darkvision << endl
         << (*it)->trance << endl
+        << (*it)->firbolg_magic << endl
+        << (*it)->hidden_step << endl
+        << (*it)->powerful_build << endl
+        << (*it)->speech_of_beast_and_leaf << endl
         << "resistances" << endl //resistances
         << (*it)->damage_resist_acid << endl
         << (*it)->damage_resist_ltg << endl
@@ -1256,6 +1260,10 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->stout_resilience;
     ins >> v->superior_darkvision;
     ins >> v->trance;
+    ins >> v->firbolg_magic;
+    ins >> v->hidden_step;
+    ins >> v->powerful_build;
+    ins >> v->speech_of_beast_and_leaf;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //resistances
     ins >> v->damage_resist_acid;

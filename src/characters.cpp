@@ -295,6 +295,10 @@ Generic_Character_Class::Generic_Character_Class()
   stout_resilience = 0;
   superior_darkvision = 0;
   trance = 0;
+  firbolg_magic = 0;
+  hidden_step = 0;
+  powerful_build = 0;
+  speech_of_beast_and_leaf = 0;
   damage_resist_acid = 0;
   damage_resist_ltg = 0;
   damage_resist_fire = 0;
@@ -474,11 +478,11 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
   simpleClearScreen();
   const int num_races = 9;
   cout << "Choose a Race for your Character:\n\n"
-       << "1. Dragonborn      6. Halfing\n"
-       << "2. Dwarf           7. Half-orc\n"
-       << "3. Elf             8. Human\n"
-       << "4. Gnome           9. Tiefling\n"
-       << "5. Half-elf\n\n";
+       << "1. Dragonborn      6. Half-elf  \n"
+       << "2. Dwarf           7. Halfing\n"
+       << "3. Elf             8. Half-orc\n"
+       << "4. Firbolg         9. Human\n"
+       << "5. Gnome          10. Tiefling\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
   switch (ss)
@@ -499,31 +503,36 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
     race = parent->getRaceString();
     break;
   case 4:
-    parent = new Gnome;
+    parent = new Firbolg;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 5:
-    parent = new Halfelf;
+    parent = new Gnome;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 6:
-    parent = new Halfling;
+    parent = new Halfelf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 7:
-    parent = new Halforc;
+    parent = new Halfling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 8:
-    parent = new Human;
+    parent = new Halforc;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 9:
+    parent = new Human;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+    break;
+  case 10:
     parent = new Tiefling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
