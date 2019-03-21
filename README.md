@@ -36,7 +36,7 @@ A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MA
 
 - For improvements and continuation of this project. I'll strive to keep the logic sound, and the program stable and useful.
 - [![donate/PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PX2EZKRVB4TTC) - any donations will go towards finding (funding?) time to continue work on this project.
-
+ 
 ---
 
 ### 3. Credits
@@ -47,12 +47,22 @@ A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MA
  | --- | --- | --- |
  | [![phb](img/DnD_PHB.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [![dmg](img/DnD_DMG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [![scag](img/DnD_SCAG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) |
 
-- Programmers as accredited in the commit history - mostly me but its always nice to have help and I will accept some modifications on a case by case basis if they align with the overall goal of dmpower.
+- Programmers as accredited in the commit history - mostly me but its always nice to have help and I will accept some modifications on a case by case basis if they align with the overall goal of dmpower. That brings us to our next topic...
 
-### 4. Additional Notes
+### 4. Contributing, what you need to know
 
-- Uses terminal text coloring that will probably look best in a terminal with a dark background.
-- This tool is best suited for Dungeon Masters, however the character creator is helpful for anyone.
+ - when adding new variables to [characters.h](src/characters.h)
+    - save & dumpCharacter functions must be updated
+    - load & retrieveCharacter functions must be updated
+    - these functions run in a very specific sequential order (so don't mess it up =D)
+    - all old saves will no longer work after these functoins are updated, and the notes on the release update **must** reflect this
+  - feel free to add yourself to the [contributors file](CONTRIBUTORS.md) along with notes about what you did to halp out.
+
+
+### 5. Additional Notes
+
+- dmpower uses terminal text coloring that will probably look best in a terminal with a dark background.
+- This tool is best suited for Dungeon Masters, however the character creator could be helpful for anyone.
 - No known crash cases. All crash case reports are taken as highly critical and will be fixed asap.
 - This toolkit does not teach the game or say many specifics about what each ability, magic item, or spell does, as that is just not the intention. These details can be found on the plethora of reference data sites and apps related to D&D 5e, as well as in the official books. I recommend purchasing official [WotC books](#3-credits).
-- Use [doxygen](http://www.doxygen.nl/manual/docblocks.html) to make the documentation from the code, all new code should have doxygen comments, old code will be updated slowly.
+- Use [doxygen](http://www.doxygen.nl/manual/docblocks.html) to make the documentation from the code, all new code should have doxygen comments, old code will be updated slowly (or so we can all hope).
