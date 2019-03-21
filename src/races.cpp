@@ -121,11 +121,27 @@ void Dwarf::setRaceDetails(Generic_Character_Class &v)
     v.mason = true;
     cout << "Mason's Tools learned!\n";
   }
-  cout << "\nWhat Kind of Dwarf?\n\n"
-       << " 1. Hill Dwarf\n 2. Mountain Dwarf.\n\n";
-  subr = static_cast<enum dwarftype>(getNumber("Dwarf type(1-2): ", 1, 2));
+  cout << "\nWhat Kind of Dwarf?\n"
+       "  1. Duergar Dwarf\n"
+       "  2. Hill Dwarf\n" 
+       "  3. Mountain Dwarf.\n\n";
+  subr = static_cast<enum dwarftype>(getNumber("Dwarf type(1-3): ", 1, 3));
   switch (subr)
   {
+  case DUERGAR:
+    v.strength += 1;
+    v.superior_darkvision = true;
+    v.undercommon = true;
+    v.duergar_magic = true;
+    v.sunlight_sensitivity = true;
+    cout << "Ahh, you's a Grey Drawf. Gain:\n"
+            " - +1 Strength\n"
+            " - Superior Darkvision\n"
+            " - Undercommon Language\n"
+            " - Duergar Magic\n"
+            "Disadvantage:\n"
+            " - Sunlight Sensitivity\n";
+    break;
   case HILL:
     v.wisdom += 1;
     v.dwarven_toughness = true;

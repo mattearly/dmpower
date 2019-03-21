@@ -27,6 +27,7 @@ public:
   enum dwarftype
   {
     NA,
+    DUERGAR,
     HILL,
     MOUNTAIN
   };

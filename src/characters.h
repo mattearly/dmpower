@@ -439,6 +439,7 @@ public:
   bool dwarven_combat_training;
   bool dwarven_resilience;
   bool dwarven_toughness;
+  bool duergar_magic;
   bool elf_weapon_training;
   bool fey_ancestry;
   bool fleet_of_foot;
