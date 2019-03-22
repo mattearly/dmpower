@@ -51,6 +51,8 @@ A interactive terminal-based DUNGEONS & DRAGON'S 5E Toolkit. See the [MANUAL](MA
 
 ### 4. Contributing, what you need to know
 
+ - Many sections in lists of code (but not all) are layed out alphabetically, try to preserve the order if it seems like everything else is in order.
+ 
  - When adding new variables to [characters.h](src/characters.h):
     - The dumpCharacter & retrieveCharacter functions in [campaign.cpp](src/campaign.cpp) must be updated.
       - These functions run in a very specific sequential order, which is the same order they are in the character header file.
