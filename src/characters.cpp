@@ -299,6 +299,7 @@ Generic_Character_Class::Generic_Character_Class()
   hidden_step = 0;
   powerful_build = 0;
   speech_of_beast_and_leaf = 0;
+  silent_speech = 0;
   damage_resist_acid = 0;
   damage_resist_ltg = 0;
   damage_resist_fire = 0;

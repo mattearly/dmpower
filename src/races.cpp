@@ -346,8 +346,8 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
     cout << endl;
   }
   v.setAnySkill("Half Elfs gain two of any skill:", 2);
-  v.common = true; //only starting lang
-  v.elvish = true; //Player guide 5e says Elfish too
+  v.common = true;
+  v.elvish = true;
   pressEnterToContinue();
 }
 void Halforc::setRaceDetails(Generic_Character_Class &v)
@@ -374,10 +374,17 @@ void Halfling::setRaceDetails(Generic_Character_Class &v)
   v.halfling = true;
   cout << "->Halfling defaults & bonuses applied:\n"
        << " +2 DEX, 25ft Move, Lucky, Brave, Nimbleness, Langs(Common, Halfing)\n\n";
-  cout << "Which kind of Halfling?\n\n 1. Lightfoot\n 2. Stout.\n\n";
-  subr = static_cast<enum halflingtype>(getNumber("Halfling Type(1-2): ", 1, 2));
+  cout << "Which kind of Halfling?\n\n 1. Ghostwise\n 2. Lightfoot\n 3. Stout.\n\n";
+  subr = static_cast<enum halflingtype>(getNumber("Halfling Type(1-3): ", 1, 3));
   switch (subr)
   {
+  case GHOSTWISE:
+    v.wisdom += 1;
+    v.silent_speech = true;
+    cout << "A Ghostwise halfing! Very rare indeed. Gain: \n"
+            " - +1 Wisdom\n"
+            " - Silent Speech\n\n";
+    break;
   case LIGHTFOOT:
     v.charisma += 1;
     v.naturally_stealthy = true;
@@ -523,6 +530,9 @@ string Halfling::getRaceString() const
   string tmp = "";
   switch (subr)
   {
+  case GHOSTWISE:
+    tmp += "Ghostwise ";
+    break;
   case LIGHTFOOT:
     tmp += "Lightfoot ";
     break;
@@ -544,4 +554,3 @@ string Human::getRaceString() const
 {
   return "Human";
 }
-

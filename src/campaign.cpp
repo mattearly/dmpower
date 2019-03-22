@@ -759,6 +759,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->hidden_step << endl
         << (*it)->powerful_build << endl
         << (*it)->speech_of_beast_and_leaf << endl
+        << (*it)->silent_speech << endl
         << "resistances" << endl //resistances
         << (*it)->damage_resist_acid << endl
         << (*it)->damage_resist_ltg << endl
@@ -1264,6 +1265,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->hidden_step;
     ins >> v->powerful_build;
     ins >> v->speech_of_beast_and_leaf;
+    ins >> v->silent_speech;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //resistances
     ins >> v->damage_resist_acid;

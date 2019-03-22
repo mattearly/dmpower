@@ -460,6 +460,8 @@ public:
   bool hidden_step;
   bool powerful_build;
   bool speech_of_beast_and_leaf;
+  //ghostwise halfing stuff
+  bool silent_speech;
 
   //RESISTANCES
   bool damage_resist_acid;

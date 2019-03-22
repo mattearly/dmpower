@@ -92,6 +92,7 @@ public:
   enum halflingtype
   {
     NA,
+    GHOSTWISE,
     LIGHTFOOT,
     STOUT
   };

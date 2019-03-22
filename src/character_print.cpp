@@ -1202,6 +1202,8 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Powerful Build, ";
   if (speech_of_beast_and_leaf)
     cout << "Speech of Beast and Leaf, ";
+  if (silent_speech)
+    cout << "Silent Speech, ";
   cout << endl;
 }
 void Generic_Character_Class::printLangs() const
