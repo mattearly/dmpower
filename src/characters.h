@@ -521,6 +521,7 @@ public:
   void setAlignment();
   void setBackground();
   void setAllStats();
+  void setAllStatsAtOnce(const int &, const int &, const int &, const int &, const int &, const int & );
   void setStr(const int &);
   void setDex(const int &);
   void setCon(const int &);
@@ -663,4 +664,3 @@ CREATE_CLASS(Bard, Bard, bardlevelupmenus);
 CREATE_CLASS(Monk, Monk, monklevelupmenus);
 CREATE_CLASS(Ranger, Ranger, rangerlevelupmenus);
 CREATE_CLASS(Warlock, Warlock, warlocklevelupmenus);
-
