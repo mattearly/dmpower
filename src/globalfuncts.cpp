@@ -5,7 +5,7 @@
 
 void simpleClearScreen()
 {
-  for (int i = 0; i < 14; i++)  // 14*5 is sufficient for most terminal sizes
+  for (int i = 0; i < 14; i++) // 14*5 is sufficient for most terminal sizes
   {
     std::cout << "\n\n\n\n\n";
   }
@@ -28,6 +28,23 @@ char getYorN(const std::string &message)
   return tmp;
 }
 
+char getYorR(const std::string &message)
+{
+  char tmp;
+  do
+  {
+    std::cout << message;
+    std::cin >> tmp;
+    tmp = toupper(tmp);
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if (!(tmp == 'Y' || tmp == 'R'))
+      std::cout << "Invalid, Try again (only takes 'Y', 'R', 'y', or 'r'.\n";
+
+  } while (!(tmp == 'Y' || tmp == 'R'));
+  return tmp;
+}
+
 int rollstats_hi_power()
 {
   int r1, r2, r3, r4;
@@ -35,28 +52,34 @@ int rollstats_hi_power()
   r2 = rolld6(mgen);
   r3 = rolld6(mgen);
   r4 = rolld6(mgen);
-  std::cout << "d6 Dice Rolls: " << r1 << ", " << r2 << ", " << r3 << ", " << r4 << "(drop lowests die roll)"<< std::endl;
+  int result, d6dropped;
   if (r1 <= r2 && r1 <= r3 && r1 <= r4)
   {
-    return (r2 + r3 + r4);
+    d6dropped = r1;
+    result = (r2 + r3 + r4);
   }
   else if (r2 <= r1 && r2 <= r3 && r2 <= r4)
   {
-    return (r1 + r3 + r4);
+    d6dropped = r2;
+    result = (r1 + r3 + r4);
   }
   else if (r3 <= r1 && r3 <= r2 && r3 <= r4)
   {
-    return (r1 + r2 + r4);
+    d6dropped = r3;
+    result = (r1 + r2 + r4);
   }
   else if (r4 <= r1 && r4 <= r2 && r4 <= r3)
   {
-    return (r1 + r2 + r3);
+    d6dropped = r4;
+    result = (r1 + r2 + r3);
   }
   else
   {
     std::cout << "error in rolling function for 4d6 drop lowest";
     exit(-1);
   }
+  std::cout << "d6 rolls: " << r1 << ", " << r2 << ", " << r3 << ", " << r4 << " | dropped d6 roll: " << d6dropped << std::endl;
+  return result;
 }
 
 int rollstats_standard()
@@ -65,7 +88,7 @@ int rollstats_standard()
   r1 = rolld6(mgen);
   r2 = rolld6(mgen);
   r3 = rolld6(mgen);
-  std::cout << "d6 Dice Rolls: " << r1 << ", " << r2 << ", " << r3 << std::endl;
+  std::cout << "d6 rolls: " << r1 << ", " << r2 << ", " << r3 << std::endl;
   return (r1 + r2 + r3);
 }
 
