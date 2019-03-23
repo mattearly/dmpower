@@ -66,7 +66,17 @@ int getAbilityMod(const int &);
 
 void simpleClearScreen();
 
-char getYorN(const std::string &);
+/** show end user the message and accepts a 'y' or 'n' character from the input stream. Will keep repeating until valid input is given.
+ * @param message output message to end user before input prompt
+ * return character 'Y' or 'N' based on user's answer
+ */
+char getYorN(const std::string &message);
+
+/** show end user the message and accepts a 'y' or 'r' character from the input stream. Will keep repeating until valid input is given.
+ * @param message output message to end user before input prompt
+ * character 'Y' or 'R' based on user's answer
+ */
+char getYorR(const std::string &message);
 
 void pressEnterToContinue();
 
