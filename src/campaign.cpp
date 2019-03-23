@@ -171,7 +171,7 @@ void Campaign::pc_menu()
         string valid_name;
         while (!found)
         {
-          cout << "Name of Character to Display Character Sheet of: ";
+          cout << "Enter the character's " << GREEN << "NAME" << RESET << " who's character sheet you wish to view\n : ";
           getline(cin, valid_name);
           valid_name[0] = toupper(valid_name[0]);
           for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
@@ -179,19 +179,23 @@ void Campaign::pc_menu()
             if ((*it)->char_name == valid_name)
             {
               found = true;
+              break; //leave loop if we found the name, no need to check more
             }
           }
-          if (!found)
+          if (!found) {
             cout << "No character named " << valid_name << ". List of Charcters:\n";
-          for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
-          {
-            cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+            for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
+            {
+              cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+            }
           }
         }
         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
         {
-          if (valid_name == (*it)->char_name)
+          if (valid_name == (*it)->char_name) {
             (*it)->character_sheet();
+            break; //leave the loop if we found the name, no need to check more
+          }
         }
       }
     }
@@ -1324,7 +1328,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
   return true;
 }
 
-void Campaign::showCampaignCharacterList()
+void Campaign::showCampaignCharacterList() const
 {
   for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
   {
