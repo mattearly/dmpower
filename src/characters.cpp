@@ -5,6 +5,7 @@
 #include <cmath>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -924,18 +925,14 @@ void Generic_Character_Class::setBackground()
 void Generic_Character_Class::setAllStats()
 {
   vector<int> stats;
-
-  // display stat menu system to end user
+  cout << "How would you like to do Ability Stats?\n";
+  cout << "---------------------------------------\n";
+  cout << "1. " << RED << "Hi-Powered Legit " << RESET << "Roll Set : roll " << GREEN << "4d6 6 " << RESET << "times, dropping lowest die each time\n";
+  cout << "2. " << YELLOW << "Legit " << RESET << "Roll Set : roll " << GREEN << "3d6 6 " << RESET << "times\n";
+  cout << "3. " << BLUE << "Standard " << RESET << "Array Set : " << GREEN << "[15, 14, 13, 12, 10, 8]" << RESET << "\n";
+  cout << "4. " << CYAN << "Custom " << RESET << "Array Set : Enter in your own custom stats.\n\n";
   int stat_ver_choice = 0;
-  cout << "How would you like to do Ability Stats?\n"
-          "---------------------------------------\n\n"
-       << "1. " << RED << "Hi-Powered Legit" << RESET << "Roll Set : roll " << GREEN << "4d6 6 " << RESET << "times, dropping lowest die each time\n"
-       << "2. " << YELLOW << "Legit " << RESET << "Roll Set : roll " << GREEN << "3d6 6 " << RESET << "times\n"
-       << "3. " << BLUE << "Standard " << RESET << "Array Set : " << GREEN << "[15, 14, 13, 12, 10, 8]" << RESET << "\n"
-       << "4. " << CYAN << "Custom " << RESET << "Array Set : Enter in your own custom stats.\n\n";
   stat_ver_choice = getNumber("Choice: ", 1, 4);
-
-  // process end user choice
   switch (stat_ver_choice)
   {
   case 1:
@@ -964,69 +961,40 @@ void Generic_Character_Class::setAllStats()
   default:
     break;
   }
-
-  // if not already custom assigned, prompt to assign each score to an ability
   if (stat_ver_choice != 4)
   {
-    // display 6 results ready for assignment
-    cout << "\n\n  Your 6 Starting Ability Rolls To Assign:\n";
-    for (int j = 0; j < 6; j++)
+    sort(stats.begin(), stats.end(), [](int a, int b) { //sort 6 stats highest to lowest
+      return a > b;
+    });
+    stats.push_back(-1); //final stat control
+    char acceptStatsControl;
+    do
     {
-      cout << GREEN << stats[j] << RESET;
-      if (j != 5)
-        cout << ", ";
-    }
-    cout << "\nWe are now assigning your 6 core stats...\n";
-    // prompt for all 6 ability score assignments
-    for (int i = 0; i < 6; i++)
-    {
-      cout << "Stats Left: ";
-      for (int j = i; j < 6; j++)
+      cout << "\nStaring Character: " << char_name << ", Level " << level << " " << char_class << endl;
+      for (int i = 0; i < 7; i++) //when i == 6, last iteration is controlled by -1 at end of array
       {
-        cout << CYAN << stats[j] << RESET;
-        if (j != 5)
-          cout << ", ";
+        if (i != 6)
+        {
+          cout << "Stats Left To Assign to : ";
+          for (int j = i; j < 6; j++)
+          {
+            cout << CYAN << stats[j] << RESET;
+            if (j != 5)
+              cout << ", ";
+          }
+          cout << endl;
+        }
+        assignStats(stats[i]); //when stats[i] == -1, controlled differently
       }
-      cout << endl;
-      assignStats(stats[i]);
-    }
+
+      acceptStatsControl = getYorR("Accept assignments - yes or redo? (y/r):");
+      if (acceptStatsControl == 'R')
+      {
+        setAllStatsAtOnce(0, 0, 0, 0, 0, 0);
+      }
+    } while (acceptStatsControl != 'Y');
   }
-
-  cout << "YOUR ASSIGNED ABILITY STATS (before any bonuses)\n\n"
-       << "------\n"
-       << "  STR: ";
-  if (strength != 0)
-    cout << GREEN << strength << RESET << endl;
-  else
-    cout << RED << "Not Set(error check code)" << RESET << endl;
-  cout << "  DEX: ";
-  if (dexterity != 0)
-    cout << GREEN << dexterity << RESET << endl;
-  else
-    cout << RED << "Not Set(error check code)" << RESET << endl;
-  cout << "  CON: ";
-  if (constitution != 0)
-    cout << GREEN << constitution << RESET << endl;
-  else
-    cout << RED << "Not Set(error check code)" << RESET << endl;
-  cout << "  INT: ";
-  if (intelligence != 0)
-    cout << GREEN << intelligence << RESET << endl;
-  else
-    cout << RED << "Not Set(error check code)" << RESET << endl;
-  cout << "  WIS: ";
-  if (wisdom != 0)
-    cout << GREEN << wisdom << RESET << endl;
-  else
-    cout << RED << "Not Set(error check code)" << RESET << endl;
-  cout << "  CHA: ";
-  if (charisma != 0)
-    cout << GREEN << charisma << RESET << endl;
-  else
-    cout << RED << "Not Set(error check code)" << RESET << endl;
-  cout << "------" << endl;
-
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 
 void Generic_Character_Class::setLanguage(const string &message)
@@ -2026,134 +1994,113 @@ void Generic_Character_Class::setCha(const int &ch) { charisma = ch; }
 
 void Generic_Character_Class::assignStats(int &s)
 {
-  cout << "\n-----" << GREEN << "Stats Set So Far" << RESET << "-----\n";
-  cout << "  Strength: ";
-  if (strength != 0)
-    cout << GREEN << strength << RESET << "\n";
+  if (s != -1)
+    cout << "Assign Stat -> " << MAGENTA << s << RESET << " <- to: \n\n";
   else
-    cout << RED << "Not Set" << RESET << "\n";
-  cout << "  Dexterity: ";
-  if (dexterity != 0)
-    cout << GREEN << dexterity << RESET << "\n";
-  else
-    cout << RED << "Not Set" << RESET << "\n";
-  cout << "  Constitution: ";
-  if (constitution != 0)
-    cout << GREEN << constitution << RESET << "\n";
-  else
-    cout << RED << "Not Set" << RESET << "\n";
-  cout << "  Intelligence: ";
-  if (intelligence != 0)
-    cout << GREEN << intelligence << RESET << "\n";
-  else
-    cout << RED << "Not Set" << RESET << "\n";
-  cout << "  Wisdom: ";
-  if (wisdom != 0)
-    cout << GREEN << wisdom << RESET << "\n";
-  else
-    cout << RED << "Not Set" << RESET << "\n";
-  cout << "  Charisma: ";
-  if (charisma != 0)
-    cout << GREEN << charisma << RESET << "\n";
-  else
-    cout << RED << "Not Set" << RESET << "\n";
-  cout << "--------------------------"
-       << "\n\n";
-
-  cout << "Chosen Character Class: " << char_class << endl;
-  cout << "Assign NEXT Stat -> " << GREEN << s << RESET << " <- to: \n\n";
-
+    cout << "\nFinal Stats:\n\n";
   if (strength == 0)
     cout << " 1. Strength\n";
   else
-    cout << YELLOW << " 1. Strength(DONE)" << RESET << "\n";
+    cout << YELLOW << " 1. Strength(DONE)" << RESET << "     STR: " << strength << "\n";
 
   if (dexterity == 0)
     cout << " 2. Dexterity\n";
   else
-    cout << YELLOW << " 2. Dexterity(DONE)" << RESET << "\n";
+    cout << YELLOW << " 2. Dexterity(DONE)" << RESET << "    DEX: " << dexterity << "\n";
 
   if (constitution == 0)
     cout << " 3. Constitution\n";
   else
-    cout << YELLOW << " 3. Constitution(DONE)" << RESET << "\n";
+    cout << YELLOW << " 3. Constitution(DONE)" << RESET << " CON: " << constitution << "\n";
 
   if (intelligence == 0)
     cout << " 4. Intelligence\n";
   else
-    cout << YELLOW << " 4. Intelligence(DONE)" << RESET << "\n";
+    cout << YELLOW << " 4. Intelligence(DONE)" << RESET << " INT: " << intelligence << "\n";
 
   if (wisdom == 0)
     cout << " 5. Wisdom\n";
   else
-    cout << YELLOW << " 5. Wisdom(DONE)" << RESET << "\n";
+    cout << YELLOW << " 5. Wisdom(DONE)" << RESET << "       WIS: " << wisdom << "\n";
 
   if (charisma == 0)
     cout << " 6. Charisma\n\n";
   else
-    cout << YELLOW << " 6. Charisma(DONE)" << RESET << "\n\n";
-  bool okchoice = false;
-  do
+    cout << YELLOW << " 6. Charisma(DONE)" << RESET << "     CHA: " << charisma << "\n\n";
+  if (s != -1)
   {
-    int ss = getNumber("Assignment Choice(1-6): ", 1, 6);
-    switch (ss)
+    bool okchoice = false;
+    do
     {
-    case 1:
-      if (strength == 0)
+      int ss = getNumber("Assignment Choice(1-6): ", 1, 6);
+      switch (ss)
       {
-        setStr(s);
-        okchoice = true;
+      case 1:
+        if (strength == 0)
+        {
+          setStr(s);
+          okchoice = true;
+        }
+        else
+          cout << "Strength already set, choose another.\n";
+        break;
+      case 2:
+        if (dexterity == 0)
+        {
+          setDex(s);
+          okchoice = true;
+        }
+        else
+          cout << "Dexterity already set, choose another.\n";
+        break;
+      case 3:
+        if (constitution == 0)
+        {
+          setCon(s);
+          okchoice = true;
+        }
+        else
+          cout << "Constitution already set, choose another.\n";
+        break;
+      case 4:
+        if (intelligence == 0)
+        {
+          setInt(s);
+          okchoice = true;
+        }
+        else
+          cout << "Intelligence already set, choose another.\n";
+        break;
+      case 5:
+        if (wisdom == 0)
+        {
+          setWis(s);
+          okchoice = true;
+        }
+        else
+          cout << "Wisdom already set, choose another.\n";
+        break;
+      case 6:
+        if (charisma == 0)
+        {
+          setCha(s);
+          okchoice = true;
+        }
+        else
+          cout << "Charisma already set, choose another.\n";
+        break;
+      default:;
       }
-      else
-        cout << "Strength already set, choose another.\n";
-      break;
-    case 2:
-      if (dexterity == 0)
-      {
-        setDex(s);
-        okchoice = true;
-      }
-      else
-        cout << "Dexterity already set, choose another.\n";
-      break;
-    case 3:
-      if (constitution == 0)
-      {
-        setCon(s);
-        okchoice = true;
-      }
-      else
-        cout << "Constitution already set, choose another.\n";
-      break;
-    case 4:
-      if (intelligence == 0)
-      {
-        setInt(s);
-        okchoice = true;
-      }
-      else
-        cout << "Intelligence already set, choose another.\n";
-      break;
-    case 5:
-      if (wisdom == 0)
-      {
-        setWis(s);
-        okchoice = true;
-      }
-      else
-        cout << "Wisdom already set, choose another.\n";
-      break;
-    case 6:
-      if (charisma == 0)
-      {
-        setCha(s);
-        okchoice = true;
-      }
-      else
-        cout << "Charisma already set, choose another.\n";
-      break;
-    default:;
-    }
-  } while (!okchoice);
-  simpleClearScreen();
+    } while (!okchoice);
+  }
+}
+
+void Generic_Character_Class::setAllStatsAtOnce(const int &s, const int &d, const int &c, const int &i, const int &w, const int &ch)
+{
+  strength = s;
+  dexterity = d;
+  constitution = c;
+  intelligence = i;
+  wisdom = w;
+  charisma = ch;
 }
