@@ -477,7 +477,7 @@ void Generic_Character_Class::setName()
 void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
   simpleClearScreen();
-  const int num_races = 9;
+  const int num_races = 10;
   cout << "Choose a Race for your Character:\n\n"
        << "1. Dragonborn      6. Half-elf  \n"
        << "2. Dwarf           7. Halfing\n"
