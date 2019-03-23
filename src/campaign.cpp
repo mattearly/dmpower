@@ -171,7 +171,7 @@ void Campaign::pc_menu()
         string valid_name;
         while (!found)
         {
-          cout << "Enter the character's " << GREEN << "NAME" << RESET << " who's character sheet you wish to view\n : ";
+          cout << "Enter the character's " << GREEN << "NAME" << RESET << " whose character sheet you wish to view\n -> ";
           getline(cin, valid_name);
           valid_name[0] = toupper(valid_name[0]);
           for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
@@ -183,11 +183,12 @@ void Campaign::pc_menu()
             }
           }
           if (!found) {
-            cout << "No character named " << valid_name << ". List of Charcters:\n";
-            for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
-            {
-              cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
-            }
+            cout << "No character named " << valid_name << endl;
+            // ". List of Charcters:\n";
+            // for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
+            // {
+            //   cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+            // }
           }
         }
         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
@@ -325,6 +326,8 @@ bool Campaign::checkname(const string &n) const
 
 void Campaign::makecharacter(Generic_Character_Class *new_character, int &starting_level)
 {
+  new_character->level = starting_level;
+
   bool goodname = false;
 
   simpleClearScreen();
@@ -351,6 +354,7 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
     character_list.back()->character_sheet();
     pressEnterToContinue();
   }
+  mainMessage = "Don't forget to 'Save Current Work'";
 }
 
 ofstream &Campaign::dumpCharacter(ofstream &os) const
@@ -815,7 +819,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
 
 bool Campaign::retrieveCharacter(ifstream &ins)
 {
-  string tmp;
+  static string tmp;
   int processor;
   Generic_Character_Class *v;
   while (!ins.eof())
