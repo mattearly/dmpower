@@ -698,6 +698,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->skilled << endl
         << (*it)->skulker << endl
         << (*it)->spell_sniper << endl
+        << (*it)->svirfneblin_magic << endl
         << (*it)->tavern_brawler << endl
         << (*it)->tough << endl
         << (*it)->war_caster << endl
@@ -765,6 +766,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->speak_with_small_beasts << endl
         << (*it)->speech_of_beast_and_leaf << endl
         << (*it)->stonecunning << endl
+        << (*it)->stone_camouflage << endl
         << (*it)->stout_resilience << endl
         << (*it)->superior_darkvision << endl
         << (*it)->trance << endl
@@ -1291,6 +1293,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->skilled;
     ins >> v->skulker;
     ins >> v->spell_sniper;
+    ins >> v->svirfneblin_magic;
     ins >> v->tavern_brawler;
     ins >> v->tough;
     ins >> v->war_caster;
@@ -1370,6 +1373,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->speak_with_small_beasts;
     ins >> v->speech_of_beast_and_leaf;
     ins >> v->stonecunning;
+    ins >> v->stone_camouflage;
     ins >> v->stout_resilience;
     ins >> v->superior_darkvision;
     ins >> v->trance;

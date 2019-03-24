@@ -245,8 +245,8 @@ void Gnome::setRaceDetails(Generic_Character_Class &v)
   v.gnomish = true;
   cout << "->Gnome bonuses and defaults applied:\n"
        << " +2 INT, Darkvision, Languages(Common, Gnome)\n"
-       << "Now, which kind of Gnome?\n\n 1. Forest\n 2. Rock\n\n";
-  subr = static_cast<enum gnometype>(getNumber("Gnome type(1-2): ", 1, 2));
+       << "Now, which kind of Gnome?\n\n 1. Forest\n 2. Rock\n 3. Svirfneblin\n\n";
+  subr = static_cast<enum gnometype>(getNumber("Gnome type(1-3): ", 1, 3));
   switch (subr)
   {
   case FOREST:
@@ -260,6 +260,19 @@ void Gnome::setRaceDetails(Generic_Character_Class &v)
     v.tinker = true;
     v.artificers_lore = true;
     cout << "->Rock Gnome bonuses:\n +1 CON, Tinker, Artificers Lore\n";
+    break;
+  case SVIRFNEBLIN:
+    v.dexterity++;
+    v.superior_darkvision = true;
+    v.stone_camouflage = true;
+    v.undercommon = true;
+    // can also take a new deep gnome feat: Svirfneblin Magic
+    cout << "A Svirfneblin Gnome! Gain:\n";
+    cout << "  +1 Dexterity\n";
+    cout << "  Superior Darkvision\n";
+    cout << "  Stone Camouflage\n";
+    cout << "  Undercommon Language\n";
+    cout << "  you may take the feat 'Svirfneblin Magic' if desired\n"; 
     break;
   case NA:
     break;
@@ -515,6 +528,8 @@ string Gnome::getRaceString() const
   case ROCK:
     tmp += "Rock ";
     break;
+  case SVIRFNEBLIN:
+    tmp += "Svirfneblin ";
   case NA:
     break;
   default:

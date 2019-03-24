@@ -65,7 +65,8 @@ public:
   {
     NA,
     FOREST,
-    ROCK
+    ROCK,
+    SVIRFNEBLIN
   };
   gnometype subr;
   virtual void setRaceDetails(Generic_Character_Class &v);

@@ -242,6 +242,7 @@ Generic_Character_Class::Generic_Character_Class()
   tough = 0;
   war_caster = 0;
   weapon_master = 0;
+  svirfneblin_magic = 0;
   abyssal = 0;
   celestial = 0;
   common = 0;
@@ -296,6 +297,7 @@ Generic_Character_Class::Generic_Character_Class()
   natural_illusionist = 0;
   naturally_stealthy = 0;
   speak_with_small_beasts = 0;
+  stone_camouflage = 0;
   stonecunning = 0;
   stout_resilience = 0;
   superior_darkvision = 0;

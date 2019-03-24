@@ -26,13 +26,13 @@ void Generic_Character_Class::setAnyFeat()
          << "\n16. Inspiring Leader    40. Tough"
          << "\n17. Keen Mind           41. War Caster"
          << "\n18. Lightly Armored     42. Weapon Master"
-         << "\n19. Linguist  "
+         << "\n19. Linguist            43. Svirfneblin Magic"
          << "\n20. Lucky "
          << "\n21. Mage Slayer  "
          << "\n22. Magic Initiate "
          << "\n23. Martial Adept  "
          << "\n24. Medium Armor Master\n";
-    int ss = getNumber("  Feat Choice:", 1, 42);
+    int ss = getNumber("  Feat Choice:", 1, 43);
     if (ss == 1)
     {
       gainAlert(set);
@@ -200,6 +200,9 @@ void Generic_Character_Class::setAnyFeat()
     if (ss == 42)
     {
       gainWeapon_master(set);
+    }
+    if (ss == 43) {
+      gainSvirfneblin_magic(set);
     }
   }
 }
@@ -788,6 +791,18 @@ void Generic_Character_Class::gainWeapon_master(bool &s)
   }
   else
   {
+    cout << "Feat already known.\n";
+  }
+}
+
+void Generic_Character_Class::gainSvirfneblin_magic(bool &s) {
+  if (race.find("Svirfneblin") == std::string::npos) {
+    std:: cout << "feat only available to Svirfneblin Gnomes! Choose another.\n";
+  } else if (!svirfneblin_magic) {
+    svirfneblin_magic = true;
+    std::cout << "Svirfneblin Magic learned!\n";
+    s = true;
+  } else {
     cout << "Feat already known.\n";
   }
 }

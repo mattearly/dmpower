@@ -393,6 +393,7 @@ public:
   bool tough;
   bool war_caster;
   bool weapon_master;
+  bool svirfneblin_magic;
 
   //LANGUAGES
   bool abyssal;
@@ -458,6 +459,7 @@ public:
   bool speak_with_small_beasts;
   bool speech_of_beast_and_leaf; //firbolg
   bool stonecunning;
+  bool stone_camouflage;  //svirfneblin gnome
   bool stout_resilience;
   bool superior_darkvision;
   bool trance;
@@ -609,6 +611,7 @@ public:
   void gainTough(bool &s);
   void gainWar_caster(bool &s);
   void gainWeapon_master(bool &s);
+  void gainSvirfneblin_magic(bool &s);
 
   //CHARACTER DISPLAYING FUNCTIONS (ACCESSORS)
   std::string getBackground() const;

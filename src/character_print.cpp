@@ -1102,6 +1102,8 @@ void Generic_Character_Class::printFeats() const
     cout << "Skulker, ";
   if (spell_sniper)
     cout << "Spell Sniper, ";
+  if (svirfneblin_magic) 
+    cout << "Svirfneblin Magic, ";
   if (tavern_brawler)
     cout << "Tavern Brawler, ";
   if (tough)
@@ -1191,6 +1193,8 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Speak With Small Beasts, ";
   if (stonecunning)
     cout << "Stonecunning, ";
+  if (stone_camouflage)
+    cout << "Stone Camouflage, ";
   if (stout_resilience)
     cout << "Stout Resilience, ";
   if (superior_darkvision)
