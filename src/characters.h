@@ -442,26 +442,24 @@ public:
   bool duergar_magic;
   bool elf_weapon_training;
   bool fey_ancestry;
+  bool firbolg_magic; //firbolg
   bool fleet_of_foot;
   bool halflinglucky;
   bool halfling_nimbleness;
   bool hellish_resistance;
+  bool hidden_step; //firbolg
   bool infernal_legacy;
   bool mask_of_the_wild;
   bool natural_illusionist;
   bool naturally_stealthy;
+  bool powerful_build; //firbolg
+  bool silent_speech;  //ghostwise halfing
   bool speak_with_small_beasts;
+  bool speech_of_beast_and_leaf; //firbolg
   bool stonecunning;
   bool stout_resilience;
   bool superior_darkvision;
   bool trance;
-  //firbolg stuff
-  bool firbolg_magic;
-  bool hidden_step;
-  bool powerful_build;
-  bool speech_of_beast_and_leaf;
-  //ghostwise halfing stuff
-  bool silent_speech;
 
   //RESISTANCES
   bool damage_resist_acid;
@@ -521,7 +519,7 @@ public:
   void setAlignment();
   void setBackground();
   void setAllStats();
-  void setAllStatsAtOnce(const int &, const int &, const int &, const int &, const int &, const int & );
+  void setAllStatsAtOnce(const int &, const int &, const int &, const int &, const int &, const int &);
   void setStr(const int &);
   void setDex(const int &);
   void setCon(const int &);
