@@ -6,13 +6,14 @@
 using namespace std;
 
 extern string mainMessage;
+extern bool clearScreens;
 
 void Generic_Character_Class::updateCharacter(const Campaign &game)
 {
   int ss = 0;
   do
   {
-    simpleClearScreen();
+    if (clearScreens) simpleClearScreen();
 
     character_sheet();
 

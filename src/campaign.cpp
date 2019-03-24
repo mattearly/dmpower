@@ -7,6 +7,7 @@ using namespace std;
 
 extern void save_file();
 extern void load_file();
+extern bool clearScreens;
 
 string mainMessage;
 bool loadSuccess = false;
@@ -18,7 +19,7 @@ void Campaign::pc_menu()
   int choice = 0;
   while (choice != 8)
   {
-    simpleClearScreen();
+    if (clearScreens) simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
     cout << GREEN << "---------- CHARACTER MANAGER -----------" << RESET << endl
@@ -31,7 +32,7 @@ void Campaign::pc_menu()
          << " 7. ";
     if (loadSuccess)
     {
-      cout << GREEN << loadedFile << RESET << " file loaded - " << RED << "unload?" << RESET << endl;
+      cout << GREEN << loadedFile << RESET << " file loaded - " << RED << "UNLOAD?" << RESET << endl;
     }
     else
     {
@@ -44,7 +45,7 @@ void Campaign::pc_menu()
     {
     case 1:
     {
-      simpleClearScreen();
+      if (clearScreens) simpleClearScreen();
       cout << " Create a New Character! \n\n"
            << "Type Legend: " << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
            << "Character Classes Available:\n\n"
@@ -63,7 +64,7 @@ void Campaign::pc_menu()
       int select_class = getNumber("Your Class Choice(1-12): ", 1, 12);
       int starting_level = getNumber("\nStarting Character Level(1-20): ", 1, 20);
 
-      simpleClearScreen();
+      if (clearScreens) simpleClearScreen();
 
       Generic_Character_Class *new_character_build = nullptr;
       switch (select_class)
@@ -295,20 +296,16 @@ void Campaign::pc_menu()
       }
       else
       {
-        char answer = getYorN("Unload " + loadedFile + "?(y/n):");
-        if (answer == 'Y')
-        {
-          character_list.clear();
-          loadedFile = "";
-          loadSuccess = false;
-        }
+        character_list.clear();
+        loadedFile = "";
+        loadSuccess = false;
       }
       break;
     default:
       cout << "Option doesn't exist.\n";
     }
   }
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
 }
 
 bool Campaign::checkname(const string &n) const
@@ -330,7 +327,7 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
 
   bool goodname = false;
 
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
   while (!goodname)
   {
     new_character->setName();
@@ -750,24 +747,24 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->duergar_magic << endl
         << (*it)->elf_weapon_training << endl
         << (*it)->fey_ancestry << endl
+        << (*it)->firbolg_magic << endl
         << (*it)->fleet_of_foot << endl
         << (*it)->halflinglucky << endl
         << (*it)->halfling_nimbleness << endl
+        << (*it)->hidden_step << endl
         << (*it)->hellish_resistance << endl
         << (*it)->infernal_legacy << endl
         << (*it)->mask_of_the_wild << endl
         << (*it)->natural_illusionist << endl
         << (*it)->naturally_stealthy << endl
+        << (*it)->powerful_build << endl
+        << (*it)->silent_speech << endl
         << (*it)->speak_with_small_beasts << endl
+        << (*it)->speech_of_beast_and_leaf << endl
         << (*it)->stonecunning << endl
         << (*it)->stout_resilience << endl
         << (*it)->superior_darkvision << endl
         << (*it)->trance << endl
-        << (*it)->firbolg_magic << endl
-        << (*it)->hidden_step << endl
-        << (*it)->powerful_build << endl
-        << (*it)->speech_of_beast_and_leaf << endl
-        << (*it)->silent_speech << endl
         << "resistances" << endl //resistances
         << (*it)->damage_resist_acid << endl
         << (*it)->damage_resist_ltg << endl
@@ -1256,24 +1253,24 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->duergar_magic;
     ins >> v->elf_weapon_training;
     ins >> v->fey_ancestry;
+    ins >> v->firbolg_magic;
     ins >> v->fleet_of_foot;
     ins >> v->halflinglucky;
     ins >> v->halfling_nimbleness;
+    ins >> v->hidden_step;
     ins >> v->hellish_resistance;
     ins >> v->infernal_legacy;
     ins >> v->mask_of_the_wild;
     ins >> v->natural_illusionist;
     ins >> v->naturally_stealthy;
+    ins >> v->powerful_build;
+    ins >> v->silent_speech;
     ins >> v->speak_with_small_beasts;
+    ins >> v->speech_of_beast_and_leaf;
     ins >> v->stonecunning;
     ins >> v->stout_resilience;
     ins >> v->superior_darkvision;
     ins >> v->trance;
-    ins >> v->firbolg_magic;
-    ins >> v->hidden_step;
-    ins >> v->powerful_build;
-    ins >> v->speech_of_beast_and_leaf;
-    ins >> v->silent_speech;
     ins.get();
     ins.ignore(numeric_limits<streamsize>::max(), '\n'); //resistances
     ins >> v->damage_resist_acid;

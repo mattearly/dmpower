@@ -14,6 +14,7 @@ extern string mainMessage;
 extern string loadedFile;
 extern bool loadSuccess;
 extern Campaign myGame;
+extern bool clearScreens;
 
 void showLoadableFiles(const std::string &dir);
 
@@ -67,7 +68,7 @@ void save_file()
 
 void load_file()
 {
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
   //show list of previous saves
   showLoadableFiles("saves");
   std::cout << YELLOW << "additional load commands:" << RESET << "\n";
@@ -130,15 +131,12 @@ void load_file()
 
       if (success)
       {
-        std::cout << "File '" << file << "' loaded.\n\n";
+        mainMessage = "File '" + file + "' loaded.";
+        loadedFile = file;
+        loadSuccess = true;
+      } else {
+        mainMessage = "Failed to load file: " + file + " - check code.";
       }
-      else
-      {
-        std::cout << "The file named '" << file << "' doesn't seem to have much data or is invalid\n\n";
-      }
-      loadSuccess = true;
-      loadedFile = file;
-      thefile.close();
     }
     else
     {

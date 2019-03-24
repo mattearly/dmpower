@@ -7,8 +7,9 @@ dmpower
 
 # local stuff
 *.save
-local_user_settings.
+local_user_settings.*
 *.dmpsave
+userSettings.*
 
 
 # Compiled Object files

@@ -17,6 +17,8 @@ static int choice = 0;
 extern Campaign myGame;
 extern string mainMessage;
 extern void change_settings();
+extern bool clearScreens;
+
 
 void other_tools();
 
@@ -26,7 +28,7 @@ void menu()
   choice = 0;
   do
   {
-    simpleClearScreen();
+    if (clearScreens) simpleClearScreen();
     cout << "> " << mainMessage << "\n\n";
     mainMessage = "";
     cout << CYAN << "---------- MAIN MENU ----------" << RESET << "\n"
@@ -68,7 +70,7 @@ void other_tools()
   choice = 0;
   do
   {
-    simpleClearScreen();
+    if (clearScreens) simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
     cout << MAGENTA << "------------OTHER TOOLS------------" << RESET << "\n"

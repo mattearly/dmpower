@@ -7,6 +7,7 @@
 using namespace std;
 
 extern string mainMessage;
+extern bool clearScreens;
 
 void Magic_Items::treasure_menu()
 {
@@ -14,7 +15,7 @@ void Magic_Items::treasure_menu()
   Gear item;
   while (choice != 5)
   {
-    simpleClearScreen();
+    if (clearScreens) simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
     cout << YELLOW << "-------------- LOOT GENERATION -------------" << RESET << "\n"
@@ -97,7 +98,7 @@ void Magic_Items::treasure_menu()
       break;
     }
   }
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
 }
 void Magic_Items::GenerateIndividualTreasureCR_0_4()
 {
@@ -5982,7 +5983,7 @@ string Magic_Items::GenerateArt(const int &amount, const int &value) const
 
 void Magic_Items::MakeSpellbook() const
 {
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
   int first = getNumber("1. How many first level spells?(0-30): ", 0, 30);
   int second = getNumber("2. How many second level spells?(0-30): ", 0, 30);
   int third = getNumber("3. How many third level spells?(0-27): ", 0, 27);
@@ -6000,7 +6001,7 @@ void Magic_Items::MakeSpellbook() const
   string material;
   getline(cin, material);
   vector<string> spellholder;
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
   cout << " A New Spellbook Is Found!\n\n";
   cout << usedpages << " / " << totalpages << " pages used." << endl;
   cout << "Made out of: " << material << endl;

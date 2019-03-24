@@ -4,10 +4,11 @@
 #include <string>
 
 using namespace std;
+extern bool clearScreens;
 
 void Generic_Character_Class::character_sheet() const
 {
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
   cout << " " << char_name << "'s Character Sheet:\n";
   cout << "->" << GREEN << " Class(Level): " << RESET << char_class << "(" << level << ")\n";
   cout << "->" << GREEN << " Alignment: " << RESET << alignment << "\n";

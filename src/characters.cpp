@@ -9,6 +9,8 @@
 
 using namespace std;
 
+extern bool clearScreens;
+
 Generic_Character_Class::Generic_Character_Class()
 {
   char_name = "";
@@ -472,12 +474,12 @@ void Generic_Character_Class::setName()
     }
   } while (i_name.size() < 2);
   char_name = i_name;
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
 }
 
 void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
   const int num_races = 10;
   cout << "Choose a Race for your Character:\n\n"
        << "1. Dragonborn      6. Half-elf  \n"
@@ -551,7 +553,7 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 
 void Generic_Character_Class::setAlignment()
 {
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
   cout << "Pick an Alignment for " << char_name << ".\n\n"
        << "1. Chaotic Evil     6. Neutral Good"
        << "\n2. Chaotic Neutral  7. Lawful Evil"
@@ -581,7 +583,7 @@ void Generic_Character_Class::setAlignment()
 
 void Generic_Character_Class::setBackground()
 {
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
   cout << "Pick a background for your character.\n\n"
        << " 1. Acolyte             14. Inheritor\n"
        << " 2. Charlatan           15. Knight of the Order\n"
@@ -970,7 +972,8 @@ void Generic_Character_Class::setAllStats()
     char acceptStatsControl;
     do
     {
-      cout << "\nStaring Character: " << char_name << ", Level " << level << " " << char_class << endl;
+      cout << "\nStaring Character: \n";
+      cout << char_name << ", Level " << level << " " << char_class << endl;
       for (int i = 0; i < 7; i++) //when i == 6, last iteration is controlled by -1 at end of array
       {
         if (i != 6)
