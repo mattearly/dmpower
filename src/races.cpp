@@ -135,26 +135,27 @@ void Dwarf::setRaceDetails(Generic_Character_Class &v)
     v.duergar_magic = true;
     v.sunlight_sensitivity = true;
     cout << "Ahh, you's a Gray Dwarf. Gain:\n"
-            " - +1 Strength\n"
-            " - Superior Darkvision\n"
-            " - Undercommon Language\n"
-            " - Duergar Magic\n"
+            "  +1 Strength\n"
+            "  Superior Darkvision\n"
+            "  Undercommon Language\n"
+            "  Duergar Resilience\n"
+            "  Duergar Magic\n"
             "Disadvantage:\n"
-            " - Sunlight Sensitivity\n";
+            "  Sunlight Sensitivity\n";
     break;
   case HILL:
     v.wisdom += 1;
     v.dwarven_toughness = true;
     cout << "A Hill Dwarf you are. Gain:\n"
-            " - +1 Wisdom\n"
-            " - Dwarven Toughness(+1 HP/level)\n";
+            "  +1 Wisdom\n"
+            "  Dwarven Toughness(+1 HP/level)\n";
     break;
   case MOUNTAIN:
     v.strength += 2;
     v.dwarven_armor_training = true;
     cout << "He's one of those beefy Mountain Dwarves! Gain:\n"
-            " - +2 Strength\n"
-            " - Dwarven Armor Training(Proficient in Medium and Light Armor)\n";
+            "  +2 Strength\n"
+            "  Dwarven Armor Training(Proficient in Medium and Light Armor)\n";
     break;
   case NA:
   default:
@@ -225,13 +226,13 @@ void Firbolg::setRaceDetails(Generic_Character_Class &v)
   v.elvish = true;
   v.giant = true;
   cout << "One of them wise Firbolg's eh? Gain:\n"
-          " - +2 Wisdom\n"
-          " - +1 Strength\n"
-          " - 30ft Move\n"
-          " - Firbolg Magic\n"
-          " - Powerful Build\n"
-          " - Speech of beast and leaf\n"
-          " - Languages(Common, Elvish, Giant)\n\n";
+          "  +2 Wisdom\n"
+          "  +1 Strength\n"
+          "  30ft Move\n"
+          "  Firbolg Magic\n"
+          "  Powerful Build\n"
+          "  Speech of beast and leaf\n"
+          "  Languages(Common, Elvish, Giant)\n\n";
   pressEnterToContinue();
 }
 
@@ -382,8 +383,8 @@ void Halfling::setRaceDetails(Generic_Character_Class &v)
     v.wisdom += 1;
     v.silent_speech = true;
     cout << "A Ghostwise halfing! Very rare indeed. Gain: \n"
-            " - +1 Wisdom\n"
-            " - Silent Speech\n\n";
+            "  +1 Wisdom\n"
+            "  Silent Speech\n\n";
     break;
   case LIGHTFOOT:
     v.charisma += 1;

@@ -283,6 +283,8 @@ Generic_Character_Class::Generic_Character_Class()
   dwarven_combat_training = 0;
   dwarven_resilience = 0;
   dwarven_toughness = 0;
+  duergar_magic = 0;
+  duergar_resilience = 0;
   elf_weapon_training = 0;
   fey_ancestry = 0;
   fleet_of_foot = 0;

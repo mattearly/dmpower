@@ -1163,6 +1163,8 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Dwarven Resilience, ";
   if (dwarven_toughness)
     cout << "Dwarven Toughness, ";
+  if (duergar_resilience)
+    cout << "Duergar Resilience, ";
   if (duergar_magic)
     cout << "Duergar Magic, ";
   if (elf_weapon_training)

@@ -746,6 +746,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->dwarven_combat_training << endl
         << (*it)->dwarven_resilience << endl
         << (*it)->dwarven_toughness << endl
+        << (*it)->duergar_resilience << endl
         << (*it)->duergar_magic << endl
         << (*it)->elf_weapon_training << endl
         << (*it)->fey_ancestry << endl
@@ -1350,6 +1351,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->dwarven_combat_training;
     ins >> v->dwarven_resilience;
     ins >> v->dwarven_toughness;
+    ins >> v->duergar_resilience;
     ins >> v->duergar_magic;
     ins >> v->elf_weapon_training;
     ins >> v->fey_ancestry;
