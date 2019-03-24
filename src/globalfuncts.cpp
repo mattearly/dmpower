@@ -45,6 +45,22 @@ char getYorR(const std::string &message)
   return tmp;
 }
 
+char getAorRorQ(const std::string &message) {
+  char tmp;
+  do
+  {
+    std::cout << message;
+    std::cin >> tmp;
+    tmp = toupper(tmp);
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if (!(tmp == 'A' || tmp == 'R' || tmp == 'Q')) {
+      std::cout << "Invalid, Try again (only takes 'A', 'R', 'Q', 'a', 'r', or 'q'.\n";
+    }
+  } while (!(tmp == 'A' || tmp == 'R' || tmp == 'Q'));
+  return tmp;
+}
+
 int rollstats_hi_power()
 {
   int r1, r2, r3, r4;
