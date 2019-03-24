@@ -447,15 +447,12 @@ std::string Generic_Character_Class::getRace() const
 // mutators
 void Generic_Character_Class::setName()
 {
-  cout << "Name Your Character! (can be edited later)\n\n"
-
-          " -> "
-       << RED << "RULES" << RESET << "\n"
-                                     "    + Length: 2 or more characters\n"
-                                     "    + Must be Unique\n"
-                                     "    + First letter is automatically Capitalized\n"
-                                     " -> Enter '"
-       << GREEN << "random" << RESET << "' (without the quotes) to be suggested a random name!\n\n";
+  cout << "Name Your Character! (can be edited later)\n\n";
+  cout << "-> " << MAGENTA << "RULES" << RESET << "\n";
+  cout << "    Length: 2 or more characters\n";
+  cout << "    Must be Unique\n";
+  cout << "    First letter is automatically Capitalized\n";
+  cout << "    Enter '" << GREEN << "random" << RESET <<"' (without the quotes) to be suggested a random name!\n\n";
 
   string i_name;
   do
@@ -481,12 +478,12 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
   if (clearScreens) simpleClearScreen();
   const int num_races = 10;
-  cout << "Choose a Race for your Character:\n\n"
-       << "1. Dragonborn      6. Half-elf  \n"
-       << "2. Dwarf           7. Halfing\n"
-       << "3. Elf             8. Half-orc\n"
-       << "4. Firbolg         9. Human\n"
-       << "5. Gnome          10. Tiefling\n\n";
+  cout << "Choose a Race for your Character:\n\n";
+  cout << "1. Dragonborn      6. Half-elf  \n";
+  cout << "2. Dwarf           7. Halfing\n";
+  cout << "3. Elf             8. Half-orc\n";
+  cout << "4. Firbolg         9. Human\n";
+  cout << "5. Gnome          10. Tiefling\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
   switch (ss)
@@ -554,12 +551,12 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 void Generic_Character_Class::setAlignment()
 {
   if (clearScreens) simpleClearScreen();
-  cout << "Pick an Alignment for " << char_name << ".\n\n"
-       << "1. Chaotic Evil     6. Neutral Good"
-       << "\n2. Chaotic Neutral  7. Lawful Evil"
-       << "\n3. Chaotic Good     8. Lawful Neutral"
-       << "\n4. Neutral Evil     9. Lawful Good"
-       << "\n5. True Neutral\n\n";
+  cout << "Pick an Alignment for " << char_name << ".\n\n";
+  cout << "1. Chaotic Evil     6. Neutral Good\n";
+  cout << "2. Chaotic Neutral  7. Lawful Evil\n";
+  cout << "3. Chaotic Good     8. Lawful Neutral\n";
+  cout << "4. Neutral Evil     9. Lawful Good\n";
+  cout << "5. True Neutral\n\n";
   int c = getNumber("Alignment choice: ", 1, 9);
   if (c == 1)
     alignment = "CE";
@@ -584,21 +581,20 @@ void Generic_Character_Class::setAlignment()
 void Generic_Character_Class::setBackground()
 {
   if (clearScreens) simpleClearScreen();
-  cout << "Pick a background for your character.\n\n"
-       << " 1. Acolyte             14. Inheritor\n"
-       << " 2. Charlatan           15. Knight of the Order\n"
-       << " 3. City Watch          16. Mercenary Veteran\n"
-       << " 4. Clan Crafter        17. Noble\n"
-       << " 5. Cloistered Scholar  18. Outlander\n"
-       << " 6. Courtier            19. Sage\n"
-       << " 7. Criminal            20. Sailor\n"
-       << " 8. Entertainer         21. Soldier\n"
-       << " 9. Faction Agent       22. Urban Bounty Hunter\n"
-       << "10. Far Traveler        23. Urchin\n"
-       << "11. Folk Hero           24. Uthgardt Tribe Member\n"
-       << "12. Guild Artisan       25. Waterdhavian Noble\n"
-       << "13. Hermit\n\n";
-
+  cout << "Pick a background for your character.\n\n";
+  cout << " 1. Acolyte             14. Inheritor\n";
+  cout << " 2. Charlatan           15. Knight of the Order\n";
+  cout << " 3. City Watch          16. Mercenary Veteran\n";
+  cout << " 4. Clan Crafter        17. Noble\n";
+  cout << " 5. Cloistered Scholar  18. Outlander\n";
+  cout << " 6. Courtier            19. Sage\n";
+  cout << " 7. Criminal            20. Sailor\n";
+  cout << " 8. Entertainer         21. Soldier\n";
+  cout << " 9. Faction Agent       22. Urban Bounty Hunter\n";
+  cout << "10. Far Traveler        23. Urchin\n";
+  cout << "11. Folk Hero           24. Uthgardt Tribe Member\n";
+  cout << "12. Guild Artisan       25. Waterdhavian Noble\n";
+  cout << "13. Hermit\n\n";
   int ss = getNumber("Background choice: ", 1, 25);
   backgroundofpc = static_cast<enum characterbackground>(ss);
   switch (ss)
