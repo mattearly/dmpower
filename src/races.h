@@ -76,6 +76,14 @@ public:
 class Halfelf : public Races
 {
 public:
+  enum elfheritagetype {
+    NA,
+    AQUATIC,
+    DROW,
+    MOON,
+    SUN,
+    WOOD
+  } elfheritage;
   virtual void setRaceDetails(Generic_Character_Class &v);
   virtual std::string getRaceString() const;
 };

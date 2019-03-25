@@ -1,4 +1,5 @@
 #include "races.h"
+#include <string>
 
 using namespace std;
 
@@ -272,7 +273,7 @@ void Gnome::setRaceDetails(Generic_Character_Class &v)
     cout << "  Superior Darkvision\n";
     cout << "  Stone Camouflage\n";
     cout << "  Undercommon Language\n";
-    cout << "  you may take the feat 'Svirfneblin Magic' if desired\n"; 
+    cout << "  you may take the feat 'Svirfneblin Magic' if desired\n";
     break;
   case NA:
     break;
@@ -286,16 +287,23 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
   v.charisma += 2;
   v.move_speed = 30;
   v.darkvision = true;
-  cout << "->Halfelf defaults & bonuses applied:\n"
-       << " +2 CHA & +1 to two other stats, 30ft Move, Darkvision 60ft\n\n";
+  v.common = true;
+  v.elvish = true;
+  cout << "->Halfelf, half... human? Let's face it, this race is OP. Gain: \n";
+  cout << "  +2 Charisma\n";
+  cout << "  30ft move\n";
+  cout << "  Darkvision\n";
+  cout << "  Common and Elven Languages known\n";
+  cout << "  +1 to two other stats\n";
+  cout << "  ... and there is more after you choose the +1 stats\n\n";
   int ss = 0;
   for (int i = 0; i < 2; i++)
   {
     int tmp = ss;
     if (ss == 0)
-      cout << "Choose a stat to give +1: \n\n";
+      cout << "First +1 stat: \n\n";
     if (ss != 0)
-      cout << "Choose another stat to give +1: \n\n";
+      cout << "Second +1 stat: \n\n";
     if (ss == 0)
     {
       cout << " 1. +1 Strength\n 2. +1 Dexterity\n 3. +1 Constitution"
@@ -358,10 +366,92 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
       cout << "Wisdom Increased by 1!\n";
     }
     cout << endl;
+    cout << endl;
   }
-  v.setAnySkill("Half Elfs gain two of any skill:", 2);
-  v.common = true;
-  v.elvish = true;
+  cout << "Halfelfs' can also choose one of the following:\n\n";
+  cout << "  1. Two skill proficiencies\n";
+  cout << "  2. Keen Senses    <-option 1. is directly better (WotC wut why?)\n";
+  cout << "  3. Elf Weapon Training   (Wood, Moon, or Sun elf heritage)\n";
+  cout << "  4. Fleet of Foot         (Wood elf heritage)\n";
+  cout << "  5. Mask of the Wild      (Wood elf heritage)\n";
+  cout << "  6. Cantrip               (Moon or Sun elf heritage)\n";
+  cout << "  7. Drow Magic            (Drow elf heritage)\n";
+  cout << "  8. 30ft Swim Speed       (Aquatic elf heritage)\n\n";
+  ss = getNumber("Choice: ", 1, 8);
+  switch (ss)
+  {
+  case 1:
+    v.setAnySkill("Gain any two skills:", 2);
+    break;
+  case 2:
+    v.perception = true; // keen senses
+    v.setAnySkill("We'll just pretend you picked option 1 and chose the first skill as Perception. Pick one more skill", 1);
+    break;
+  case 3:
+    v.elf_weapon_training = true;
+    std::cout << "Which elf heritage are you?\n\n";
+    std::cout << "1. Wood elf\n";
+    std::cout << "2. Moon elf\n";
+    std::cout << "3. Sun elf\n";
+    ss = getNumber("Choice: ", 1, 3);
+    switch (ss)
+    {
+    case 1:
+      elfheritage = WOOD;
+      break;
+    case 2:
+      elfheritage = MOON;
+      break;
+    case 3:
+      elfheritage = SUN;
+      break;
+    default:
+      break;
+    }
+    cout << "Elf Weapon Training gained!";
+    break;
+  case 4:
+    v.fleet_of_foot = true;
+    elfheritage = WOOD;
+    std::cout << "Fleet of Foot gained!";
+    break;
+  case 5:
+    v.mask_of_the_wild = true;
+    elfheritage = WOOD;
+    std::cout << "Mask of the Wild gained!";
+    break;
+  case 6:
+    v.wizard_cantrips_known++;
+    std::cout << "Which elf heritage are you?\n\n";
+    std::cout << "1. Moon elf\n";
+    std::cout << "2. Sun elf\n";
+    ss = getNumber("Choice: ", 1, 2);
+    switch (ss)
+    {
+    case 1:
+      elfheritage = MOON;
+      break;
+    case 2:
+      elfheritage = SUN;
+      break;
+    default:
+      break;
+    }
+    std::cout << "Cantrip gained!";
+    break;
+  case 7:
+    v.drow_magic = true;
+    elfheritage = DROW;
+    std::cout << "Drow magic gained!";
+    break;
+  case 8:
+    v.swim_speed = 30;
+    elfheritage = AQUATIC;
+    std::cout << "swim speed gained (30ft)";
+    break;
+  default:
+    break;
+  }
   pressEnterToContinue();
 }
 void Halforc::setRaceDetails(Generic_Character_Class &v)
@@ -539,7 +629,27 @@ string Gnome::getRaceString() const
 }
 string Halfelf::getRaceString() const
 {
-  return "Halfelf";
+  string tmp = "";
+  switch (elfheritage) {
+    case AQUATIC:
+    tmp += " (Aquatic Elf Heritage)";
+    break;
+    case DROW:
+    tmp += " (Drow Elf Heritage)";
+    break;
+    case MOON:
+    tmp += " (Moon Elf Heritage)";
+    break;
+    case SUN:
+    tmp += " (Sun Elf Heritage)";
+    break;
+    case WOOD:
+    tmp += " (Wood Elf Heritage)";
+    break;
+    case NA: 
+    default: break;
+  }
+  return "Halfelf" + tmp;
 }
 string Halfling::getRaceString() const
 {
