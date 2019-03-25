@@ -336,8 +336,8 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
     }
     while ((cout << "Enter a number to choose : " && !(cin >> ss)) || ((ss < 1 || ss > 5) || ss == tmp))
     {
-      std::cin.clear();
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      cin.clear();
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
       cout << "Invalid, try again." << endl;
     }
     if (ss == 1)
@@ -389,10 +389,10 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
     break;
   case 3:
     v.elf_weapon_training = true;
-    std::cout << "Which elf heritage are you?\n\n";
-    std::cout << "1. Wood elf\n";
-    std::cout << "2. Moon elf\n";
-    std::cout << "3. Sun elf\n";
+    cout << "Which elf heritage are you?\n\n";
+    cout << "1. Wood elf\n";
+    cout << "2. Moon elf\n";
+    cout << "3. Sun elf\n";
     ss = getNumber("Choice: ", 1, 3);
     switch (ss)
     {
@@ -413,18 +413,18 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
   case 4:
     v.fleet_of_foot = true;
     elfheritage = WOOD;
-    std::cout << "Fleet of Foot gained!";
+    cout << "Fleet of Foot gained!";
     break;
   case 5:
     v.mask_of_the_wild = true;
     elfheritage = WOOD;
-    std::cout << "Mask of the Wild gained!";
+    cout << "Mask of the Wild gained!";
     break;
   case 6:
     v.wizard_cantrips_known++;
-    std::cout << "Which elf heritage are you?\n\n";
-    std::cout << "1. Moon elf\n";
-    std::cout << "2. Sun elf\n";
+    cout << "Which elf heritage are you?\n\n";
+    cout << "1. Moon elf\n";
+    cout << "2. Sun elf\n";
     ss = getNumber("Choice: ", 1, 2);
     switch (ss)
     {
@@ -437,17 +437,17 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
     default:
       break;
     }
-    std::cout << "Cantrip gained!";
+    cout << "Cantrip gained!";
     break;
   case 7:
     v.drow_magic = true;
     elfheritage = DROW;
-    std::cout << "Drow magic gained!";
+    cout << "Drow magic gained!";
     break;
   case 8:
     v.swim_speed = 30;
     elfheritage = AQUATIC;
-    std::cout << "swim speed gained (30ft)";
+    cout << "swim speed gained (30ft)";
     break;
   default:
     break;
@@ -508,10 +508,10 @@ void Halfling::setRaceDetails(Generic_Character_Class &v)
 }
 void Human::setRaceDetails(Generic_Character_Class &v)
 {
-  std::cout << "------------------------\n"
-               "Variant: Humans gain +1 to two different stats, a bonus skill, and a bonus feat.\n"
-               "Normal: +1 to all stats\n"
-               "------------------------\n";
+  cout << "------------------------\n"
+          "Variant: Humans gain +1 to two different stats, a bonus skill, and a bonus feat.\n"
+          "Normal: +1 to all stats\n"
+          "------------------------\n";
   char rule = getYorN("Would you like to use the Variant Rule on Human Traits? (y/n): ");
   if (rule == 'N')
   {
@@ -540,23 +540,71 @@ void Human::setRaceDetails(Generic_Character_Class &v)
 void Tiefling::setRaceDetails(Generic_Character_Class &v)
 {
   v.intelligence += 1;
-  v.charisma += 2;
   v.move_speed = 30;
   v.darkvision = true;
   v.hellish_resistance = true;
   v.damage_resist_fire = true;
-  v.infernal_legacy = true;
   v.common = true;
   v.infernal = true;
-  cout << "->Tiefling defaults & bonuses applied:\n"
-       << " +1 INT, +2 CHA, 30ft Move, Darkvision 60ft, Hellish Resistance, Infernal Legacy, Langs(Common, Infernal)\n\n";
+  cout << "->A Tiefling!?! Gain:\n";
+  cout << "  +1 Intelligence\n";
+  cout << "  30ft Move\n";
+  cout << "  Darkvision\n";
+  cout << "  Hellish Resistance\n";
+  cout << "  Common and Infernal Languages\n\n";
+
+
+  cout << "Choose one of the four abilities: \n\n";
+  cout << "  1. Infernal Legacy\n";
+  cout << "  2. Devil's Tongue\n";
+  cout << "  3. Hellfire\n";
+  cout << "  4. Winged\n\n";
+  int ss = getNumber("Choice: ", 1, 4);
+  switch (ss)
+  {
+  case 1:
+    v.infernal_legacy = true;
+    cout << "Infernal Legacy gained.";
+    break;
+  case 2:
+    v.devils_tongue = true;
+    cout << "Devil's Tongue gained.";
+    break;
+  case 3:
+    v.hellfire = true;
+    cout << "Hellfire gained.";
+    break;
+  case 4:
+    v.fly_speed = 30; // winged
+    cout << "You have bat-like wings. Gain 30ft fly speed.";
+    break;
+  default:
+    break;
+  }
+  cout << endl << endl;
+
+  cout << "Are you a Feral(+2 dex) or Not(+2 charisma)?\n\n";
+  ss = getNumber(" 1. Feral\n 2. Not\n\nChoice:", 1, 2);
+  switch (ss)
+  {
+  case 1:
+    v.dexterity += 2;
+    type = FERAL;
+    cout << "  +2 Dexterity gained. You are a Feral Tiefling.\n";
+    break;
+  case 2:
+    v.charisma += 2;
+    cout << "  +2 Charisma gained.\n";
+    break;
+  default:
+    break;
+  }
+
+
   pressEnterToContinue();
 }
+
 //accessors
-string Tiefling::getRaceString() const
-{
-  return "Tiefling";
-}
 string Dragonborn::getRaceString() const
 {
   return "Dragonborn";
@@ -630,24 +678,26 @@ string Gnome::getRaceString() const
 string Halfelf::getRaceString() const
 {
   string tmp = "";
-  switch (elfheritage) {
-    case AQUATIC:
+  switch (elfheritage)
+  {
+  case AQUATIC:
     tmp += " (Aquatic Elf Heritage)";
     break;
-    case DROW:
+  case DROW:
     tmp += " (Drow Elf Heritage)";
     break;
-    case MOON:
+  case MOON:
     tmp += " (Moon Elf Heritage)";
     break;
-    case SUN:
+  case SUN:
     tmp += " (Sun Elf Heritage)";
     break;
-    case WOOD:
+  case WOOD:
     tmp += " (Wood Elf Heritage)";
     break;
-    case NA: 
-    default: break;
+  case NA:
+  default:
+    break;
   }
   return "Halfelf" + tmp;
 }
@@ -679,4 +729,17 @@ string Halforc::getRaceString() const
 string Human::getRaceString() const
 {
   return "Human";
+}
+string Tiefling::getRaceString() const
+{
+  string tmp = "";
+  switch (type)
+  {
+  case FERAL:
+    tmp += "Feral ";
+    break;
+  default:
+    break;
+  }
+  return tmp + "Tiefling";
 }

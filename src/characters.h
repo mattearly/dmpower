@@ -426,6 +426,7 @@ public:
   bool breath_weapon_poison;
   bool breath_weapon_cold;
   bool darkvision;
+  bool devils_tongue; //tiefling variant
   bool draconic_ancestry_black;
   bool draconic_ancestry_blue;
   bool draconic_ancestry_brass;
@@ -450,6 +451,7 @@ public:
   bool fleet_of_foot;
   bool halflinglucky;
   bool halfling_nimbleness;
+  bool hellfire;  //tiefling variant
   bool hellish_resistance;
   bool hidden_step; //firbolg
   bool infernal_legacy;

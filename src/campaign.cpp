@@ -187,11 +187,6 @@ void Campaign::pc_menu()
           }
           if (!found) {
             cout << "No character named " << valid_name << endl;
-            // ". List of Charcters:\n";
-            // for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
-            // {
-            //   cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
-            // }
           }
         }
         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
@@ -303,8 +298,7 @@ void Campaign::pc_menu()
         loadSuccess = false;
       }
       break;
-    default:
-      cout << "Option doesn't exist.\n";
+    default:break;
     }
   }
   if (clearScreens) simpleClearScreen();
@@ -733,6 +727,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->breath_weapon_poison << endl
         << (*it)->breath_weapon_cold << endl
         << (*it)->darkvision << endl
+        << (*it)->devils_tongue << endl
         << (*it)->draconic_ancestry_black << endl
         << (*it)->draconic_ancestry_blue << endl
         << (*it)->draconic_ancestry_brass << endl
@@ -758,6 +753,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->halflinglucky << endl
         << (*it)->halfling_nimbleness << endl
         << (*it)->hidden_step << endl
+        << (*it)->hellfire << endl
         << (*it)->hellish_resistance << endl
         << (*it)->infernal_legacy << endl
         << (*it)->mask_of_the_wild << endl
@@ -1342,6 +1338,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->breath_weapon_poison;
     ins >> v->breath_weapon_cold;
     ins >> v->darkvision;
+    ins >> v->devils_tongue;
     ins >> v->draconic_ancestry_black;
     ins >> v->draconic_ancestry_blue;
     ins >> v->draconic_ancestry_brass;
@@ -1367,6 +1364,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->halflinglucky;
     ins >> v->halfling_nimbleness;
     ins >> v->hidden_step;
+    ins >> v->hellfire;
     ins >> v->hellish_resistance;
     ins >> v->infernal_legacy;
     ins >> v->mask_of_the_wild;

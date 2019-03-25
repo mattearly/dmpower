@@ -268,6 +268,7 @@ Generic_Character_Class::Generic_Character_Class()
   breath_weapon_poison = 0;
   breath_weapon_cold = 0;
   darkvision = 0;
+  devils_tongue = 0;
   draconic_ancestry_black = 0;
   draconic_ancestry_blue = 0;
   draconic_ancestry_brass = 0;
@@ -291,6 +292,7 @@ Generic_Character_Class::Generic_Character_Class()
   fleet_of_foot = 0;
   halflinglucky = 0;
   halfling_nimbleness = 0;
+  hellfire = 0;
   hellish_resistance = 0;
   infernal_legacy = 0;
   mask_of_the_wild = 0;

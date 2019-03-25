@@ -120,6 +120,10 @@ public:
 class Tiefling : public Races
 {
 public:
+  enum tieflingtype {
+    NA,
+    FERAL
+  } type;
   virtual void setRaceDetails(Generic_Character_Class &v);
   virtual std::string getRaceString() const;
 };

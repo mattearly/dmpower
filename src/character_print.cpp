@@ -1,6 +1,7 @@
 #include "characters.h"
 #include "terminal_colors.h"
 #include <iomanip>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -1135,6 +1136,8 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Poison Breath Weapon, ";
   if (darkvision)
     cout << "Darkvision, ";
+  if (devils_tongue)
+    cout << "Devil's Tongue, ";
   if (draconic_ancestry_black)
     cout << "Draconic Ancestry(black), ";
   if (draconic_ancestry_blue)
@@ -1181,6 +1184,8 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Lucky(halfling), ";
   if (halfling_nimbleness)
     cout << "Halfling Nimbleness, ";
+  if (hellfire)
+    cout << "Hellfire, ";
   if (hellish_resistance)
     cout << "Hellish Resistance, ";
   if (infernal_legacy)
