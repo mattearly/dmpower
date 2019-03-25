@@ -121,10 +121,14 @@ void load_file()
       load_file();
     }
   }
-  else
+  else if (file.length() > 0)
   {
     std::ifstream thefile;
     thefile.open(("saves/" + file + ".dmpsave").c_str());
+    if (thefile.fail()) {
+      std::cout << "could not open file (fail triggered)\n";
+      return;
+    } 
     if (thefile.is_open())
     {
       bool success = myGame.retrieveCharacter(thefile);
