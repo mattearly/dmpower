@@ -11,6 +11,8 @@ using namespace std;
 
 extern bool clearScreens;
 
+extern bool quitBuilding;
+
 Generic_Character_Class::Generic_Character_Class()
 {
   char_name = "";
@@ -994,12 +996,18 @@ void Generic_Character_Class::setAllStats()
         assignStats(stats[i]); //when stats[i] == -1, controlled differently
       }
 
-      acceptStatsControl = getYorR("Accept assignments - yes or redo? (y/r):");
+      acceptStatsControl = getAorRorQ("Stats done. Accept, Redo, or Quit? (a/r/q): ");
       if (acceptStatsControl == 'R')
       {
         setAllStatsAtOnce(0, 0, 0, 0, 0, 0);
+      } 
+      else if (acceptStatsControl == 'Q') 
+      {
+        // reset everything and return to character menu
+        quitBuilding = true;
+        break;	
       }
-    } while (acceptStatsControl != 'Y');
+    } while (acceptStatsControl != 'A');
   }
   // pressEnterToContinue();
 }
