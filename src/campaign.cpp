@@ -388,6 +388,8 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
 
         << (*it)->backgroundofpc << endl
         << (*it)->move_speed << endl
+        << (*it)->fly_speed << endl
+        << (*it)->swim_speed << endl
         << (*it)->hitdicesize << endl
         << (*it)->proficiency_bonus << endl
         << (*it)->strength << endl
@@ -896,6 +898,8 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     if (debugRetrieve) cout << "background set to: " << charBackgroundProcessor << endl;
 
     ins >> v->move_speed;
+    ins >> v->fly_speed;
+    ins >> v->swim_speed;
     ins >> v->hitdicesize;
     ins >> v->proficiency_bonus;
     ins >> v->strength;

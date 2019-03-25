@@ -370,6 +370,8 @@ Generic_Character_Class::Generic_Character_Class()
   warlocklevelupmenus = 0;
   hitdicesize = 0;
   move_speed = 0;
+  fly_speed = 0;
+  swim_speed = 0;
   proficiency_bonus = 0;
   extra_attack = 0;
   expertise = 0;

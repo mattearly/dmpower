@@ -18,7 +18,9 @@ void Generic_Character_Class::character_sheet() const
        << "(Ave NPC HP: " << ((((hitdicesize + 2) / 2)) * level) + (getAbilityMod(constitution) * level)
        << " Ave PC HP: " << hitdicesize + ((((hitdicesize + 2) / 2)) * (level - 1)) + (getAbilityMod(constitution) * level)
        << ")\n";
-  cout << "->" << GREEN << " Move Speed: " << RESET << move_speed << "ft\n";
+  if (move_speed > 0) cout << "->" << GREEN << " Move Speed: " << RESET << move_speed << "ft\n";
+  if (fly_speed > 0) cout << "->" << GREEN << " Fly Speed: " << RESET << fly_speed << "ft\n";
+  if (swim_speed > 0) cout << "->" << GREEN << " Swim Speed: " << RESET << swim_speed << "ft\n";
   cout << "->" << GREEN << " Proficiency Bonus:" << RESET << " +" << proficiency_bonus;
   cout << "\n->" << MAGENTA << " Str: " << RESET << setw(2) << strength << " " << D_D_Ability_Modifier(strength);
   if (strSave)
