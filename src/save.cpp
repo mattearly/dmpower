@@ -126,7 +126,7 @@ void load_file()
     std::ifstream thefile;
     thefile.open(("saves/" + file + ".dmpsave").c_str());
     if (thefile.fail()) {
-      std::cout << "could not open file (fail triggered)\n";
+      std::cout << "Could not open file (fail triggered)\n";
       return;
     } 
     if (thefile.is_open())
@@ -141,10 +141,6 @@ void load_file()
       } else {
         mainMessage = "Failed to load file: " + file + " - check code.";
       }
-    }
-    else
-    {
-      mainMessage = "No file named '" + file + "'. Starting new file.";
     }
   }
 }
