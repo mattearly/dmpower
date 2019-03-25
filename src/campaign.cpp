@@ -11,6 +11,8 @@ extern void save_file();
 extern void load_file();
 extern bool clearScreens;
 
+bool quitBuilding = false;
+
 string mainMessage;
 bool loadSuccess = false;
 string loadedFile = "";
