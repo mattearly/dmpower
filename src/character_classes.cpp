@@ -1611,7 +1611,7 @@ void Paladin::setClassDetails(const int &l)
       else
         cout << "\n 3. Intimidation";
       if (medicine)
-        cout << "\n4. Medicine(Already Known)";
+        cout << "\n 4. Medicine(Already Known)";
       else
         cout << "\n 4. Medicine";
       if (persuasion)
