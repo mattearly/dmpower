@@ -3,6 +3,60 @@
 
 using namespace std;
 
+void Aasimar::setRaceDetails(Generic_Character_Class &v)
+{
+  v.charisma += 2;
+  v.move_speed = 30;
+  v.darkvision = true;
+  v.damage_resist_radiant = true;  //celestial resistance
+  v.damage_resist_necrotic = true; //celestial resistance
+  v.healing_hands = true;
+  v.light_bearer = true;
+  v.common = true;
+  v.celestial = true;
+  cout << "Aasimar race chosen. Gain:\n";
+  cout << "  +2 Charisma\n";
+  cout << "  30ft move speed\n";
+  cout << "  Celestial Resistance (necrotic & radiant)\n";
+  cout << "  Healing Hands\n";
+  cout << "  Light Bearer\n";
+  cout << "  Common and Celestial Languages\n\n";
+  cout << "Choose a Celestial Subrace\n\n";
+  cout << " 1. Protector\n";
+  cout << " 2. Scourge\n";
+  cout << " 3. Fallen\n\n";
+  int ss = getNumber("Choice: ", 1, 3);
+  switch (ss)
+  {
+  case 1:
+    subr = PROTECTOR;
+    v.wisdom++;
+    v.radiant_soul = true;
+    cout << "Protector. Gain:\n";
+    cout << "  +1 Wisdom\n";
+    cout << "  Radiant Soul\n";
+    break;
+  case 2:
+    subr = SCOURGE;
+    v.constitution++;
+    v.radiant_consumption = true;
+    cout << "Scourge. Gain:\n";
+    cout << "  +1 Constitution\n";
+    cout << "  Radiant Consumption\n";
+    break;
+  case 3:
+    subr = FALLEN;
+    v.strength++;
+    v.necrotic_shroud++;
+    cout << "Fallen. Gain:\n";
+    cout << "  +1 Strength\n";
+    cout << "  Necrotic Shroud\n";
+    break;
+  default:
+    break;
+  }
+}
+
 //mutators
 void Dragonborn::setRaceDetails(Generic_Character_Class &v)
 {
@@ -605,6 +659,22 @@ void Tiefling::setRaceDetails(Generic_Character_Class &v)
 }
 
 //accessors
+string Aasimar::getRaceString() const {
+  string tmp = "";
+  switch(subr) {
+    case PROTECTOR:
+    tmp += "Protector ";
+    break;
+    case SCOURGE:
+    tmp += "Scourge ";
+    break;
+    case FALLEN:
+    tmp += "Fallen ";
+    break;
+    default:break;
+  }
+  return tmp + "Aasimar";
+}
 string Dragonborn::getRaceString() const
 {
   return "Dragonborn";

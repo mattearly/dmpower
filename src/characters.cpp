@@ -445,6 +445,13 @@ Generic_Character_Class::Generic_Character_Class()
   backgroundofpc = NOBACKGROUND;
   destroy_undead = 0;
   wild_shape_improvement = 0;
+  radiant_soul = 0;
+  radiant_consumption = 0;
+  necrotic_shroud = 0;
+  light_bearer = 0;
+  healing_hands = 0;
+  damage_resist_necrotic = 0;
+  damage_resist_radiant = 0;
 }
 
 Generic_Character_Class::~Generic_Character_Class() {}
@@ -462,7 +469,7 @@ void Generic_Character_Class::setName()
   cout << "    Length: 2 or more characters\n";
   cout << "    Must be Unique\n";
   cout << "    First letter is automatically Capitalized\n";
-  cout << "    Enter '" << GREEN << "random" << RESET <<"' (without the quotes) to be suggested a random name!\n\n";
+  cout << "    Enter '" << GREEN << "random" << RESET << "' (without the quotes) to be suggested a random name!\n\n";
 
   string i_name;
   do
@@ -481,69 +488,82 @@ void Generic_Character_Class::setName()
     }
   } while (i_name.size() < 2);
   char_name = i_name;
-  if (clearScreens) simpleClearScreen();
+  if (clearScreens)
+    simpleClearScreen();
 }
 
 void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
-  if (clearScreens) simpleClearScreen();
-  const int num_races = 10;
+  if (clearScreens)
+    simpleClearScreen();
+  const int num_races = 11;
   cout << "Choose a Race for your Character:\n\n";
-  cout << "1. Dragonborn      6. Half-elf  \n";
-  cout << "2. Dwarf           7. Halfing\n";
-  cout << "3. Elf             8. Half-orc\n";
-  cout << "4. Firbolg         9. Human\n";
-  cout << "5. Gnome          10. Tiefling\n\n";
+  cout << " 1. Aasimar\n";
+  cout << " 2. Dragonborn\n";
+  cout << " 3. Dwarf\n";
+  cout << " 4. Elf\n";
+  cout << " 5. Firbolg\n";
+  cout << " 6. Gnome\n";
+  cout << " 7. Half-elf  \n";
+  cout << " 8. Halfing\n";
+  cout << " 9. Half-orc\n";
+  cout << " 10. Human\n";
+  cout << " 11. Tiefling\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
   switch (ss)
   {
   case 1:
-    parent = new Dragonborn;
+    parent = new Aasimar;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 2:
-    parent = new Dwarf;
+    parent = new Dragonborn;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 3:
-    parent = new Elf;
+    parent = new Dwarf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 4:
-    parent = new Firbolg;
+    parent = new Elf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 5:
-    parent = new Gnome;
+    parent = new Firbolg;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 6:
-    parent = new Halfelf;
+    parent = new Gnome;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 7:
-    parent = new Halfling;
+    parent = new Halfelf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 8:
-    parent = new Halforc;
+    parent = new Halfling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 9:
-    parent = new Human;
+    parent = new Halforc;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 10:
+    parent = new Human;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+    break;
+  case 11:
     parent = new Tiefling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
@@ -1000,12 +1020,12 @@ void Generic_Character_Class::setAllStats()
       if (acceptStatsControl == 'R')
       {
         setAllStatsAtOnce(0, 0, 0, 0, 0, 0);
-      } 
-      else if (acceptStatsControl == 'Q') 
+      }
+      else if (acceptStatsControl == 'Q')
       {
         // reset everything and return to character menu
         quitBuilding = true;
-        break;	
+        break;
       }
     } while (acceptStatsControl != 'A');
   }

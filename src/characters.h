@@ -451,14 +451,19 @@ public:
   bool fleet_of_foot;
   bool halflinglucky;
   bool halfling_nimbleness;
+  bool healing_hands; // aasimar
   bool hellfire;  //tiefling variant
   bool hellish_resistance;
   bool hidden_step; //firbolg
   bool infernal_legacy;
+  bool light_bearer; //assimar
   bool mask_of_the_wild;
   bool natural_illusionist;
   bool naturally_stealthy;
+  bool necrotic_shroud; //assimar
   bool powerful_build; //firbolg
+  bool radiant_consumption; //assimar
+  bool radiant_soul; //assimar
   bool silent_speech;  //ghostwise halfing
   bool speak_with_small_beasts;
   bool speech_of_beast_and_leaf; //firbolg
@@ -474,6 +479,8 @@ public:
   bool damage_resist_fire;
   bool damage_resist_poison;
   bool damage_resist_cold;
+  bool damage_resist_radiant;
+  bool damage_resist_necrotic;
 
   //DISADVANATAGES
   bool sunlight_sensitivity;

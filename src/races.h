@@ -14,6 +14,19 @@ public:
   virtual std::string getRaceString() const = 0;
 };
 
+class Aasimar : public Races {
+public:
+  enum aasimartype 
+  {
+    NA,
+    PROTECTOR,
+    SCOURGE,
+    FALLEN
+  } subr;
+  virtual void setRaceDetails(Generic_Character_Class &v);
+  virtual std::string getRaceString() const;
+};
+
 class Dragonborn : public Races
 {
 public:

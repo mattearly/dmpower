@@ -754,14 +754,19 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->fleet_of_foot << endl
         << (*it)->halflinglucky << endl
         << (*it)->halfling_nimbleness << endl
+        << (*it)->healing_hands << endl
         << (*it)->hidden_step << endl
         << (*it)->hellfire << endl
         << (*it)->hellish_resistance << endl
         << (*it)->infernal_legacy << endl
+        << (*it)->light_bearer << endl
         << (*it)->mask_of_the_wild << endl
         << (*it)->natural_illusionist << endl
         << (*it)->naturally_stealthy << endl
+        << (*it)->necrotic_shroud << endl
         << (*it)->powerful_build << endl
+        << (*it)->radiant_consumption << endl
+        << (*it)->radiant_soul << endl
         << (*it)->silent_speech << endl
         << (*it)->speak_with_small_beasts << endl
         << (*it)->speech_of_beast_and_leaf << endl
@@ -776,6 +781,8 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->damage_resist_fire << endl
         << (*it)->damage_resist_poison << endl
         << (*it)->damage_resist_cold << endl
+        << (*it)->damage_resist_necrotic << endl
+        << (*it)->damage_resist_radiant << endl
         << "disadvantages" << endl //disadvantages
         << (*it)->sunlight_sensitivity << endl
         << "tools" << endl //artisan tools & supplies
@@ -1365,14 +1372,19 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->fleet_of_foot;
     ins >> v->halflinglucky;
     ins >> v->halfling_nimbleness;
+    ins >> v->healing_hands;
     ins >> v->hidden_step;
     ins >> v->hellfire;
     ins >> v->hellish_resistance;
     ins >> v->infernal_legacy;
+    ins >> v->light_bearer;
     ins >> v->mask_of_the_wild;
     ins >> v->natural_illusionist;
     ins >> v->naturally_stealthy;
+    ins >> v->necrotic_shroud;
     ins >> v->powerful_build;
+    ins >> v->radiant_consumption;
+    ins >> v->radiant_soul;
     ins >> v->silent_speech;
     ins >> v->speak_with_small_beasts;
     ins >> v->speech_of_beast_and_leaf;
@@ -1393,6 +1405,8 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->damage_resist_fire;
     ins >> v->damage_resist_poison;
     ins >> v->damage_resist_cold;
+    ins >> v->damage_resist_necrotic;
+    ins >> v->damage_resist_radiant;
 
     if (debugRetrieve) cout << "resistances set" << endl;
     ins.get();

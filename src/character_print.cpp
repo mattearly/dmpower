@@ -1184,18 +1184,28 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Lucky(halfling), ";
   if (halfling_nimbleness)
     cout << "Halfling Nimbleness, ";
+  if (healing_hands)
+    cout << "Healing Hands, ";
   if (hellfire)
     cout << "Hellfire, ";
   if (hellish_resistance)
     cout << "Hellish Resistance, ";
   if (infernal_legacy)
     cout << "Infernal Legacy, ";
+  if (light_bearer)
+    cout << "Light Bearer, ";
   if (mask_of_the_wild)
     cout << "Mask of the Wild, ";
   if (natural_illusionist)
     cout << "Natural Illusionist, ";
   if (naturally_stealthy)
     cout << "Naturally Stealthy, ";
+  if (necrotic_shroud)
+    cout << "Necrotic Shroud, ";
+  if (radiant_consumption)
+    cout << "Radiant Consumption, ";
+  if (radiant_soul)
+    cout << "Radiant Soul, ";
   if (speak_with_small_beasts)
     cout << "Speak With Small Beasts, ";
   if (stonecunning)
@@ -1350,7 +1360,11 @@ void Generic_Character_Class::printResistances() const
   if (damage_resist_poison)
     cout << "Poison, ";
   if (damage_resist_cold)
-    cout << "Cold";
+    cout << "Cold, ";
+  if (damage_resist_necrotic)
+    cout << "Necrotic, ";
+  if (damage_resist_radiant)
+    cout << "Radiant";
   cout << endl;
 }
 void Generic_Character_Class::printDisadvantages() const
