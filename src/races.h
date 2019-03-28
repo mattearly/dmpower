@@ -171,3 +171,10 @@ public:
   virtual void setRaceDetails(Generic_Character_Class &v);
   virtual std::string getRaceString() const;
 };
+
+class Triton : public Races
+{
+public:
+  virtual void setRaceDetails(Generic_Character_Class &v);
+  virtual std::string getRaceString() const;
+};

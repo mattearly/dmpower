@@ -697,6 +697,14 @@ void Tabaxi::setRaceDetails(Generic_Character_Class &v)
   v.perception = true;
   v.stealth = true;
   v.common = true;
+  cout << "A Tabaxi you are... Meow. Gain: \n";
+  cout << "  +2 Dexterity\n";
+  cout << "  +1 Charisma\n";
+  cout << "  Darkvision\n";
+  cout << "  Feline Agility\n";
+  cout << "  Cat's Claws\n";
+  cout << "  Cat's Talent(Perception & Stealth)\n";
+  cout << "  Common Lang and.. \n";
   v.setLanguage("Tabaxi know one language of your choice.");
   pressEnterToContinue();
 }
@@ -763,6 +771,27 @@ void Tiefling::setRaceDetails(Generic_Character_Class &v)
     break;
   }
 
+  pressEnterToContinue();
+}
+void Triton::setRaceDetails(Generic_Character_Class &v)
+{
+  v.strength++;
+  v.constitution++;
+  v.charisma++;
+  v.move_speed = 30;
+  v.swim_speed = 30;
+  v.amphibious = true;
+  v.control_air_and_water = true;
+  v.emissary_of_the_sea = true;
+  v.guardian_of_the_depths = true;
+  v.damage_resist_cold = true;
+  cout << "You are a TRITON!? Gain: \n";
+  cout << "  +1 Strength, Constitution, & Charisma\n";
+  cout << "  30ft Move Speed & Swim Speed\n";
+  cout << "  Amphibious\n";
+  cout << "  Control Air and Water\n";
+  cout << "  Emissary of the Sea\n";
+  cout << "  Guardian of the Depths (Cold Resistance + more)\n";
   pressEnterToContinue();
 }
 
@@ -939,4 +968,8 @@ string Tiefling::getRaceString() const
     break;
   }
   return tmp + "Tiefling";
+}
+string Triton::getRaceString() const
+{
+  return "Triton";
 }

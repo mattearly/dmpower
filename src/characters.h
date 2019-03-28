@@ -489,6 +489,12 @@ public:
   bool feline_agility;
   bool cats_claws;
 
+  // triton
+  bool amphibious;
+  bool control_air_and_water;
+  bool emissary_of_the_sea;
+  bool guardian_of_the_depths;
+
   //RESISTANCES
   bool damage_resist_acid;
   bool damage_resist_ltg;

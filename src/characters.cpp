@@ -462,6 +462,10 @@ Generic_Character_Class::Generic_Character_Class()
   hold_breath = 0;
   natural_armor = 0;
   hungry_jaws = 0;
+  amphibious = 0;
+  control_air_and_water = 0;
+  emissary_of_the_sea = 0;
+  guardian_of_the_depths = 0;
 }
 
 Generic_Character_Class::~Generic_Character_Class() {}
@@ -506,7 +510,7 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
   if (clearScreens)
     simpleClearScreen();
-  const int num_races = 15;
+  const int num_races = 16;
   cout << "Choose a Race for your Character:\n\n";
   cout << " 1. Aasimar\n";
   cout << " 2. Dragonborn\n";
@@ -522,7 +526,8 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
   cout << " 12. Kenku\n";
   cout << " 13. Lizardfolk\n";
   cout << " 14. Tabaxi\n";
-  cout << " 15. Tiefling\n\n";
+  cout << " 15. Tiefling\n";
+  cout << " 16. Triton\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
   switch (ss)
@@ -599,6 +604,11 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
     break;
   case 15:
     parent = new Tiefling;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+    break;
+  case 16:
+    parent = new Triton;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;

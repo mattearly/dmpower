@@ -1256,6 +1256,15 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Feline Agility, ";
   if (cats_claws)
     cout << "Cat's Claws, ";
+  // Triton stuff
+  if (amphibious)
+    cout << "Amphibious, ";
+  if (control_air_and_water)
+    cout << "Control Air and Water, ";
+  if (emissary_of_the_sea)
+    cout << "Emissary of the Sea, ";
+  if (guardian_of_the_depths)
+    cout << "Guardian of the Depths, ";
 
   cout << endl;
 }

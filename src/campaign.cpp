@@ -808,6 +808,12 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->feline_agility << endl
         << (*it)->cats_claws << endl
 
+        //triton stuff
+        << (*it)->amphibious << endl
+        << (*it)->control_air_and_water << endl
+        << (*it)->emissary_of_the_sea << endl
+        << (*it)->guardian_of_the_depths << endl
+
         << "resistances" << endl //resistances
         << (*it)->damage_resist_acid << endl
         << (*it)->damage_resist_ltg << endl
@@ -1451,6 +1457,12 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     //tabaxi stuff
     ins >> v->feline_agility;
     ins >> v->cats_claws;
+    //triton stuff
+    ins >> v->amphibious;
+    ins >> v->control_air_and_water;
+    ins >> v->emissary_of_the_sea;
+    ins >> v->guardian_of_the_depths;
+
     if (debugRetrieve)
       cout << "character features set" << endl;
 
