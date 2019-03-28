@@ -779,6 +779,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->speech_of_beast_and_leaf << endl
         << (*it)->stonecunning << endl
         << (*it)->stone_camouflage << endl
+        << (*it)->stones_endurance << endl
         << (*it)->stout_resilience << endl
         << (*it)->superior_darkvision << endl
         << (*it)->trance << endl
@@ -1397,6 +1398,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->speech_of_beast_and_leaf;
     ins >> v->stonecunning;
     ins >> v->stone_camouflage;
+    ins >> v->stones_endurance;
     ins >> v->stout_resilience;
     ins >> v->superior_darkvision;
     ins >> v->trance;

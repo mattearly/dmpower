@@ -55,6 +55,7 @@ void Aasimar::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
+  pressEnterToContinue();
 }
 
 //mutators
@@ -334,6 +335,27 @@ void Gnome::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
+  pressEnterToContinue();
+}
+
+void Goliath::setRaceDetails(Generic_Character_Class &v)
+{
+  v.strength += 2;
+  v.constitution++;
+  v.move_speed = 30;
+  v.athletics = true; //natural athlete
+  v.stones_endurance = true;
+  v.powerful_build = true;
+  v.common = true;
+  v.giant = true;
+  cout << "You are a big guy... a Goliath. Gain: \n";
+  cout << "  +2 Strength\n";
+  cout << "  +1 Constitution\n";
+  cout << "  30ft Move Speed\n";
+  cout << "  Natural Athlete (free athletics skill)\n";
+  cout << "  Stone's Endurance\n";
+  cout << "  Powerful Build\n";
+  cout << "  Giant and Common Languages\n";
   pressEnterToContinue();
 }
 void Halfelf::setRaceDetails(Generic_Character_Class &v)
@@ -744,6 +766,10 @@ string Gnome::getRaceString() const
     break;
   }
   return tmp + "Gnome";
+}
+string Goliath::getRaceString() const
+{
+  return "Goliath";
 }
 string Halfelf::getRaceString() const
 {

@@ -452,6 +452,7 @@ Generic_Character_Class::Generic_Character_Class()
   healing_hands = 0;
   damage_resist_necrotic = 0;
   damage_resist_radiant = 0;
+  stones_endurance = 0;
 }
 
 Generic_Character_Class::~Generic_Character_Class() {}
@@ -504,11 +505,12 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
   cout << " 4. Elf\n";
   cout << " 5. Firbolg\n";
   cout << " 6. Gnome\n";
-  cout << " 7. Half-elf  \n";
-  cout << " 8. Halfing\n";
-  cout << " 9. Half-orc\n";
-  cout << " 10. Human\n";
-  cout << " 11. Tiefling\n\n";
+  cout << " 7. Goliath\n";
+  cout << " 8. Half-elf  \n";
+  cout << " 9. Halfing\n";
+  cout << " 10. Half-orc\n";
+  cout << " 11. Human\n";
+  cout << " 12. Tiefling\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
   switch (ss)
@@ -544,26 +546,31 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
     race = parent->getRaceString();
     break;
   case 7:
-    parent = new Halfelf;
+    parent = new Goliath;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 8:
-    parent = new Halfling;
+    parent = new Halfelf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 9:
-    parent = new Halforc;
+    parent = new Halfling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 10:
-    parent = new Human;
+    parent = new Halforc;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 11:
+    parent = new Human;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+    break;
+  case 12:
     parent = new Tiefling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();

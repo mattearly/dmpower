@@ -469,6 +469,7 @@ public:
   bool speech_of_beast_and_leaf; //firbolg
   bool stonecunning;
   bool stone_camouflage;  //svirfneblin gnome
+  bool stones_endurance;  //goliath 
   bool stout_resilience;
   bool superior_darkvision;
   bool trance;

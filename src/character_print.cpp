@@ -1212,6 +1212,8 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Stonecunning, ";
   if (stone_camouflage)
     cout << "Stone Camouflage, ";
+  if (stones_endurance)
+    cout << "Stone's Endurance, ";
   if (stout_resilience)
     cout << "Stout Resilience, ";
   if (superior_darkvision)

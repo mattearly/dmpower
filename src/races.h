@@ -86,6 +86,13 @@ public:
   virtual std::string getRaceString() const;
 };
 
+class Goliath : public Races
+{
+public:
+  virtual void setRaceDetails(Generic_Character_Class &v);
+  virtual std::string getRaceString() const;
+};
+
 class Halfelf : public Races
 {
 public:
