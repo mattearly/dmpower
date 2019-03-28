@@ -1251,6 +1251,12 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Natural Armor(" << natural_armor << "AC), ";
   if (hungry_jaws)
     cout << "Hungry Jaws, ";
+  // tabaxi stuff
+  if (feline_agility)
+    cout << "Feline Agility, ";
+  if (cats_claws)
+    cout << "Cat's Claws, ";
+
   cout << endl;
 }
 void Generic_Character_Class::printLangs() const

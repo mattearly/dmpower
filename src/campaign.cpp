@@ -796,12 +796,18 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->stout_resilience << endl
         << (*it)->superior_darkvision << endl
         << (*it)->trance << endl
+
         //lizardfolk stuff
         << (*it)->lizardfolk_bite << endl
         << (*it)->cunning_artisan << endl
         << (*it)->hold_breath << endl
         << (*it)->natural_armor << endl
         << (*it)->hungry_jaws << endl
+
+        //tabaxi stuff
+        << (*it)->feline_agility << endl
+        << (*it)->cats_claws << endl
+
         << "resistances" << endl //resistances
         << (*it)->damage_resist_acid << endl
         << (*it)->damage_resist_ltg << endl
@@ -1442,7 +1448,9 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->hold_breath;
     ins >> v->natural_armor;
     ins >> v->hungry_jaws;
-
+    //tabaxi stuff
+    ins >> v->feline_agility;
+    ins >> v->cats_claws;
     if (debugRetrieve)
       cout << "character features set" << endl;
 

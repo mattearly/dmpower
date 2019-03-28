@@ -685,6 +685,21 @@ void Lizardfolk::setRaceDetails(Generic_Character_Class &v)
   }
   pressEnterToContinue();
 }
+void Tabaxi::setRaceDetails(Generic_Character_Class &v)
+{
+  v.dexterity += 2;
+  v.charisma++;
+  v.move_speed = 30;
+  v.darkvision = true;
+  v.feline_agility = true;
+  v.cats_claws = true; //climb speed 20ft + slashing attack
+  v.climb_speed = 20;
+  v.perception = true;
+  v.stealth = true;
+  v.common = true;
+  v.setLanguage("Tabaxi know one language of your choice.");
+  pressEnterToContinue();
+}
 void Tiefling::setRaceDetails(Generic_Character_Class &v)
 {
   v.intelligence += 1;
@@ -907,6 +922,10 @@ string Kenku::getRaceString() const
 string Lizardfolk::getRaceString() const
 {
   return "Lizardfolk";
+}
+string Tabaxi::getRaceString() const
+{
+  return "Tabaxi";
 }
 string Tiefling::getRaceString() const
 {

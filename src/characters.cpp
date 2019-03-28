@@ -506,7 +506,7 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
   if (clearScreens)
     simpleClearScreen();
-  const int num_races = 14;
+  const int num_races = 15;
   cout << "Choose a Race for your Character:\n\n";
   cout << " 1. Aasimar\n";
   cout << " 2. Dragonborn\n";
@@ -521,7 +521,8 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
   cout << " 11. Human\n";
   cout << " 12. Kenku\n";
   cout << " 13. Lizardfolk\n";
-  cout << " 14. Tiefling\n\n";
+  cout << " 14. Tabaxi\n";
+  cout << " 15. Tiefling\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
   switch (ss)
@@ -592,6 +593,11 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
     race = parent->getRaceString();
     break;
   case 14:
+    parent = new Tabaxi;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+    break;
+  case 15:
     parent = new Tiefling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();

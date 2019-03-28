@@ -485,6 +485,10 @@ public:
   int natural_armor;
   bool hungry_jaws;
 
+  // tabaxi
+  bool feline_agility;
+  bool cats_claws;
+
   //RESISTANCES
   bool damage_resist_acid;
   bool damage_resist_ltg;
