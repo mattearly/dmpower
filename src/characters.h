@@ -650,6 +650,7 @@ public:
   std::string getBackground() const;
   void character_sheet() const;
   void printClassAbilities() const;
+  void printCantrips() const;
   void printSpellSlots() const;
   void printSkills() const;
   void printFeats() const;
