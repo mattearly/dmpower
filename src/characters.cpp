@@ -1047,172 +1047,181 @@ void Generic_Character_Class::setLanguage(const string &message)
   while (!success)
   {
     cout << message;
+    if (auran) 
+      cout << " 1 - Auran(Already Known)\n";
+    else
+      cout << " 1 - Auran\n";
     if (abyssal)
-      cout << " 1 - Abyssal(Already Known)";
+      cout << " 2 - Abyssal(Already Known)\n";
     else
-      cout << " 1 - Abyssal";
+      cout << " 2 - Abyssal\n";
     if (celestial)
-      cout << "\n 2 - Celestial(Already Known)";
+      cout << " 3 - Celestial(Already Known)\n";
     else
-      cout << "\n 2 - Celestial";
+      cout << " 3 - Celestial\n";
     if (deep_speech)
-      cout << "\n 3 - Deep Speech(Already Known)";
+      cout << " 4 - Deep Speech(Already Known)\n";
     else
-      cout << "\n 3 - Deep Speech";
+      cout << " 4 - Deep Speech\n";
     if (draconic)
-      cout << "\n 4 - Draconic(Already Known)";
+      cout << " 5 - Draconic(Already Known)\n";
     else
-      cout << "\n 4 - Draconic";
+      cout << " 5 - Draconic\n";
     if (druidic)
-      cout << "\n 5 - Druidic(Already Known)";
+      cout << " 6 - Druidic(Already Known)\n";
     else
-      cout << "\n 5 - Druidic";
+      cout << " 6 - Druidic\n";
     if (dwarvish)
-      cout << "\n 6 - Dwarvish(Already Known)";
+      cout << " 7 - Dwarvish(Already Known)\n";
     else
-      cout << "\n 6 - Dwarvish";
+      cout << " 7 - Dwarvish\n";
     if (elvish)
-      cout << "\n 7 - Elvish(Already Known)";
+      cout << " 8 - Elvish(Already Known)\n";
     else
-      cout << "\n 7 - Elvish";
+      cout << " 8 - Elvish\n";
     if (giant)
-      cout << "\n 8 - Giant(Already Known)";
+      cout << " 9 - Giant(Already Known)\n";
     else
-      cout << "\n 8 - Giant";
+      cout << " 9 - Giant\n";
     if (gnomish)
-      cout << "\n 9 - Gnomish(Already Known)";
+      cout << " 10 - Gnomish(Already Known)\n";
     else
-      cout << "\n 9 - Gnomish";
+      cout << " 10 - Gnomish\n";
     if (goblin)
-      cout << "\n 10 - Goblin(Already Known)";
+      cout << " 11 - Goblin(Already Known)\n";
     else
-      cout << "\n 10 - Goblin";
+      cout << " 11 - Goblin\n";
     if (gnoll)
-      cout << "\n 11 - Gnoll(Already Known)";
+      cout << " 12 - Gnoll(Already Known)\n";
     else
-      cout << "\n 11 - Gnoll";
+      cout << " 12 - Gnoll\n";
     if (halfling)
-      cout << "\n 12 - Halfling(Already Known)";
+      cout << " 13 - Halfling(Already Known)\n";
     else
-      cout << "\n 12 - Halfling";
+      cout << " 13 - Halfling\n";
     if (infernal)
-      cout << "\n 13 - Infernal(Already Known)";
+      cout << " 14 - Infernal(Already Known)\n";
     else
-      cout << "\n 13 - Infernal";
+      cout << " 14 - Infernal\n";
     if (orc)
-      cout << "\n 14 - Orc(Already Known)";
+      cout << " 15 - Orc(Already Known)\n";
     else
-      cout << "\n 14 - Orc";
+      cout << " 15 - Orc\n";
     if (primordial)
-      cout << "\n 15 - Primordial(Already Known)";
+      cout << " 16- Primordial(Already Known)\n";
     else
-      cout << "\n 15 - Primordial";
+      cout << " 16 - Primordial\n";
     if (sylvan)
-      cout << "\n 16 - Sylvan(Already Known)";
+      cout << " 17 - Sylvan(Already Known)\n";
     else
-      cout << "\n 16 - Sylvan";
+      cout << " 17 - Sylvan\n";
     if (undercommon)
-      cout << "\n 17 - Undercommon(Already Known)\n\n";
+      cout << " 18 - Undercommon(Already Known)\n\n";
     else
-      cout << "\n 17 - Undercommon\n\n";
-    int ss = getNumber("Language Choice: ", 1, 17);
-    if (ss == 1 && abyssal == 0)
+      cout << " 18- Undercommon\n\n";
+    int ss = getNumber("Language Choice: ", 1, 18);
+    if (ss == 1 && auran == 0) {
+      auran = true;
+      cout << "Auran Language learned!\n";
+      success = 1;
+    }
+    if (ss == 2 && abyssal == 0)
     {
       abyssal = true;
       cout << "Abyssal Language learned!\n";
       success = 1;
     }
-    if (ss == 2 && celestial == 0)
+    if (ss == 3 && celestial == 0)
     {
       celestial = true;
       cout << "Celestial Language learned!\n";
       success = 1;
     }
-    if (ss == 3 && deep_speech == 0)
+    if (ss == 4 && deep_speech == 0)
     {
       deep_speech = true;
       cout << "Deep Speech Language learned!\n";
       success = 1;
     }
-    if (ss == 4 && draconic == 0)
+    if (ss == 5 && draconic == 0)
     {
       draconic = true;
       cout << "Draconic Language learned!\n";
       success = 1;
     }
-    if (ss == 5 && druidic == 0)
+    if (ss == 6 && druidic == 0)
     {
       druidic = true;
       cout << "Druidic Language learned!\n";
       success = 1;
     }
-    if (ss == 6 && dwarvish == 0)
+    if (ss == 7 && dwarvish == 0)
     {
       dwarvish = true;
       cout << "Dwarvish Language learned!\n";
       success = 1;
     }
-    if (ss == 7 && elvish == 0)
+    if (ss == 8 && elvish == 0)
     {
       elvish = true;
       cout << "Elvish Language learned!\n";
       success = 1;
     }
-    if (ss == 8 && giant == 0)
+    if (ss == 9 && giant == 0)
     {
       giant = true;
       cout << "Giant Language learned!\n";
       success = 1;
     }
-    if (ss == 9 && gnomish == 0)
+    if (ss == 10 && gnomish == 0)
     {
       gnomish = true;
       cout << "Gnomish Language learned!\n";
       success = 1;
     }
-    if (ss == 10 && goblin == 0)
+    if (ss == 11 && goblin == 0)
     {
       goblin = true;
       cout << "Goblin Language learned!\n";
       success = 1;
     }
-    if (ss == 11 && gnoll == 0)
+    if (ss == 12 && gnoll == 0)
     {
       gnoll = true;
       cout << "Gnoll Language learned!\n";
       success = 1;
     }
-    if (ss == 12 && halfling == 0)
+    if (ss == 13 && halfling == 0)
     {
       halfling = true;
       cout << "Halfling Language learned!\n";
       success = 1;
     }
-    if (ss == 13 && infernal == 0)
+    if (ss == 14 && infernal == 0)
     {
       infernal = true;
       cout << "Infernal Language learned!\n";
       success = 1;
     }
-    if (ss == 14 && orc == 0)
+    if (ss == 15 && orc == 0)
     {
       orc = true;
       cout << "Orc Language learned!\n";
       success = 1;
     }
-    if (ss == 15 && primordial == 0)
+    if (ss == 16 && primordial == 0)
     {
       primordial = true;
       cout << "Primordial Language learned!\n";
       success = 1;
     }
-    if (ss == 16 && sylvan == 0)
+    if (ss == 17 && sylvan == 0)
     {
       sylvan = true;
       cout << "Sylvan Language learned!\n";
       success = 1;
     }
-    if (ss == 17 && undercommon == 0)
+    if (ss == 18 && undercommon == 0)
     {
       undercommon = true;
       cout << "Undercommon Language learned!\n";

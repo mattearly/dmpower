@@ -399,6 +399,7 @@ public:
 
   //LANGUAGES
   bool abyssal;
+  bool auran;
   bool celestial;
   bool common;
   bool deep_speech;
