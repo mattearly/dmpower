@@ -245,6 +245,7 @@ Generic_Character_Class::Generic_Character_Class()
   war_caster = 0;
   weapon_master = 0;
   svirfneblin_magic = 0;
+  auran = 0;
   abyssal = 0;
   celestial = 0;
   common = 0;
