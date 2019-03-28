@@ -587,7 +587,8 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 
 void Generic_Character_Class::setAlignment()
 {
-  if (clearScreens) simpleClearScreen();
+  if (clearScreens)
+    simpleClearScreen();
   cout << "Pick an Alignment for " << char_name << ".\n\n";
   cout << "1. Chaotic Evil     6. Neutral Good\n";
   cout << "2. Chaotic Neutral  7. Lawful Evil\n";
@@ -617,7 +618,8 @@ void Generic_Character_Class::setAlignment()
 
 void Generic_Character_Class::setBackground()
 {
-  if (clearScreens) simpleClearScreen();
+  if (clearScreens)
+    simpleClearScreen();
   cout << "Pick a background for your character.\n\n";
   cout << " 1. Acolyte             14. Inheritor\n";
   cout << " 2. Charlatan           15. Knight of the Order\n";

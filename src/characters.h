@@ -443,8 +443,8 @@ public:
   bool dwarven_combat_training;
   bool dwarven_resilience;
   bool dwarven_toughness;
-  bool duergar_magic;  // duergar dwarf
-  bool duergar_resilience;  // duergar dwarf
+  bool duergar_magic;      // duergar dwarf
+  bool duergar_resilience; // duergar dwarf
   bool elf_weapon_training;
   bool fey_ancestry;
   bool firbolg_magic; //firbolg
@@ -452,7 +452,7 @@ public:
   bool halflinglucky;
   bool halfling_nimbleness;
   bool healing_hands; // aasimar
-  bool hellfire;  //tiefling variant
+  bool hellfire;      //tiefling variant
   bool hellish_resistance;
   bool hidden_step; //firbolg
   bool infernal_legacy;
@@ -460,16 +460,16 @@ public:
   bool mask_of_the_wild;
   bool natural_illusionist;
   bool naturally_stealthy;
-  bool necrotic_shroud; //assimar
-  bool powerful_build; //firbolg
+  bool necrotic_shroud;     //assimar
+  bool powerful_build;      //firbolg
   bool radiant_consumption; //assimar
-  bool radiant_soul; //assimar
-  bool silent_speech;  //ghostwise halfing
+  bool radiant_soul;        //assimar
+  bool silent_speech;       //ghostwise halfing
   bool speak_with_small_beasts;
   bool speech_of_beast_and_leaf; //firbolg
   bool stonecunning;
-  bool stone_camouflage;  //svirfneblin gnome
-  bool stones_endurance;  //goliath 
+  bool stone_camouflage; //svirfneblin gnome
+  bool stones_endurance; //goliath
   bool stout_resilience;
   bool superior_darkvision;
   bool trance;

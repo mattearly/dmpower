@@ -629,7 +629,6 @@ void Tiefling::setRaceDetails(Generic_Character_Class &v)
   cout << "  Hellish Resistance\n";
   cout << "  Common and Infernal Languages\n\n";
 
-
   cout << "Choose one of the four abilities: \n\n";
   cout << "  1. Infernal Legacy\n";
   cout << "  2. Devil's Tongue\n";
@@ -657,7 +656,8 @@ void Tiefling::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
-  cout << endl << endl;
+  cout << endl
+       << endl;
 
   cout << "Are you a Feral(+2 dex) or Not(+2 charisma)?\n\n";
   ss = getNumber(" 1. Feral\n 2. Not\n\nChoice:", 1, 2);
@@ -676,24 +676,26 @@ void Tiefling::setRaceDetails(Generic_Character_Class &v)
     break;
   }
 
-
   pressEnterToContinue();
 }
 
 //accessors
-string Aasimar::getRaceString() const {
+string Aasimar::getRaceString() const
+{
   string tmp = "";
-  switch(subr) {
-    case PROTECTOR:
+  switch (subr)
+  {
+  case PROTECTOR:
     tmp += "Protector ";
     break;
-    case SCOURGE:
+  case SCOURGE:
     tmp += "Scourge ";
     break;
-    case FALLEN:
+  case FALLEN:
     tmp += "Fallen ";
     break;
-    default:break;
+  default:
+    break;
   }
   return tmp + "Aasimar";
 }

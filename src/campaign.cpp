@@ -23,7 +23,8 @@ void Campaign::pc_menu()
   int choice = 0;
   while (choice != 8)
   {
-    if (clearScreens) simpleClearScreen();
+    if (clearScreens)
+      simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
     cout << GREEN << "---------- CHARACTER MANAGER -----------" << RESET << endl
@@ -49,7 +50,8 @@ void Campaign::pc_menu()
     {
     case 1:
     {
-      if (clearScreens) simpleClearScreen();
+      if (clearScreens)
+        simpleClearScreen();
       cout << " Create a New Character! \n\n"
            << "Type Legend: " << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
            << "Character Classes Available:\n\n"
@@ -68,7 +70,8 @@ void Campaign::pc_menu()
       int select_class = getNumber("Your Class Choice(1-12): ", 1, 12);
       int starting_level = getNumber("\nStarting Character Level(1-20): ", 1, 20);
 
-      if (clearScreens) simpleClearScreen();
+      if (clearScreens)
+        simpleClearScreen();
 
       Generic_Character_Class *new_character_build = nullptr;
       switch (select_class)
@@ -187,13 +190,15 @@ void Campaign::pc_menu()
               break; //leave loop if we found the name, no need to check more
             }
           }
-          if (!found) {
+          if (!found)
+          {
             cout << "No character named " << valid_name << endl;
           }
         }
         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
         {
-          if (valid_name == (*it)->char_name) {
+          if (valid_name == (*it)->char_name)
+          {
             (*it)->character_sheet();
             break; //leave the loop if we found the name, no need to check more
           }
@@ -300,10 +305,12 @@ void Campaign::pc_menu()
         loadSuccess = false;
       }
       break;
-    default:break;
+    default:
+      break;
     }
   }
-  if (clearScreens) simpleClearScreen();
+  if (clearScreens)
+    simpleClearScreen();
 }
 
 bool Campaign::checkname(const string &n) const
@@ -325,7 +332,8 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
 
   bool goodname = false;
 
-  if (clearScreens) simpleClearScreen();
+  if (clearScreens)
+    simpleClearScreen();
   while (!goodname)
   {
     new_character->setName();
@@ -333,8 +341,9 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   }
 
   new_character->setAllStats();
-  
-  if (quitBuilding) {
+
+  if (quitBuilding)
+  {
     quitBuilding = false;
     delete new_character;
     return;
@@ -843,9 +852,9 @@ bool Campaign::retrieveCharacter(ifstream &ins)
   static int charBackgroundProcessor;
   static Generic_Character_Class *v;
 
-  getline(ins, sbuffer);  // absorb the first line
+  getline(ins, sbuffer); // absorb the first line
 
-  do 
+  do
   {
     // int len = ins.tellg(); //get current position
     getline(ins, charClassTempVar);
@@ -875,19 +884,22 @@ bool Campaign::retrieveCharacter(ifstream &ins)
       v = new Wizard;
     else
       return false;
-    
+
     // ins.seekg(len, ios_base::beg); //return to position  // no need we'll just set what we have
     v->char_class = charClassTempVar;
 
-    if (debugRetrieve) cout << "class set:  " << charClassTempVar << endl;
+    if (debugRetrieve)
+      cout << "class set:  " << charClassTempVar << endl;
 
     getline(ins, v->char_name);
 
-    if (debugRetrieve) cout << "name of char: " << v->char_name << endl;
+    if (debugRetrieve)
+      cout << "name of char: " << v->char_name << endl;
 
     getline(ins, v->race);
 
-    if (debugRetrieve) cout << "race set: " << v->race << endl;
+    if (debugRetrieve)
+      cout << "race set: " << v->race << endl;
 
     getline(ins, v->alignment);
     ins >> v->level;
@@ -904,11 +916,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->rangerlevelupmenus;
     ins >> v->warlocklevelupmenus;
 
-    if (debugRetrieve) cout << "name, race, alignment, level up menus set" << endl;
+    if (debugRetrieve)
+      cout << "name, race, alignment, level up menus set" << endl;
 
     ins >> charBackgroundProcessor;
     v->backgroundofpc = static_cast<enum Generic_Character_Class::characterbackground>(charBackgroundProcessor);
-    if (debugRetrieve) cout << "background set to: " << charBackgroundProcessor << endl;
+    if (debugRetrieve)
+      cout << "background set to: " << charBackgroundProcessor << endl;
 
     ins >> v->move_speed;
     ins >> v->fly_speed;
@@ -928,11 +942,12 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->wisSave;
     ins >> v->chaSave;
 
-    if (debugRetrieve) cout << "basic abiliity stats" << endl;
+    if (debugRetrieve)
+      cout << "basic abiliity stats" << endl;
 
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //  class stuff general
-    getline(ins,sbuffer);
+    getline(ins, sbuffer);
 
     ins >> v->extra_attack;
     ins >> v->expertise;
@@ -946,12 +961,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->great_weapon_fighting;
     ins >> v->protection;
 
-    if (debugRetrieve) cout << "general class stuff set" << endl;
+    if (debugRetrieve)
+      cout << "general class stuff set" << endl;
 
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //cleric
     getline(ins, sbuffer);
-    
+
     ins >> v->destroy_undead;
     ins >> v->channel_divinity;
     ins >> v->divine_domain_feature;
@@ -967,11 +983,11 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->tempest_d;
     ins >> v->trickery_d;
     ins >> v->war_d;
-    
+
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //fighter
     getline(ins, sbuffer);
-    
+
     ins >> v->action_surge;
     ins >> v->martial_archtype_feature;
     ins >> v->indomitable;
@@ -984,11 +1000,11 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->battle_master;
     ins >> v->eldritch_knight;
     ins >> v->purple_dragon_knight;
-    
+
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //barbarian
     getline(ins, sbuffer);
-    
+
     ins >> v->rages;
     ins >> v->rage_damage;
     ins >> v->path_feature;
@@ -1008,7 +1024,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->bear_totem;
     ins >> v->eagle_totem;
     ins >> v->wolf_totem;
-    
+
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //bard
     getline(ins, sbuffer);
@@ -1040,7 +1056,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->archdruid;
     ins >> v->circle_of_the_moon;
     ins >> v->circle_of_the_land;
-    
+
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //monk
     getline(ins, sbuffer);
@@ -1066,7 +1082,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->way_of_the_shadow;
     ins >> v->way_of_the_sun_soul;
     ins >> v->unarmored_movement_improvement;
-    
+
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //paladin
     getline(ins, sbuffer);
@@ -1086,7 +1102,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->oath_of_the_crown;
     ins >> v->oath_of_vengeance;
     ins >> v->oathbreaker;
-    
+
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //ranger
     getline(ins, sbuffer);
@@ -1105,7 +1121,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->foe_slayer;
     ins >> v->hunter;
     ins >> v->beast_master;
-    
+
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //rogue
     getline(ins, sbuffer);
@@ -1127,7 +1143,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->arcane_trickster;
     ins >> v->mastermind;
     ins >> v->swashbuckler;
-    
+
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //sorcerer
     getline(ins, sbuffer);
@@ -1143,7 +1159,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->draconic_bloodline;
     ins >> v->wild_magic;
     ins >> v->storm_sorcery;
-    
+
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //warlock
     getline(ins, sbuffer);
@@ -1163,7 +1179,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->fiend;
     ins >> v->great_old_one;
     ins >> v->the_undying;
-    
+
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //wizard
     getline(ins, sbuffer);
@@ -1184,13 +1200,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->transmutation;
     ins >> v->bladesinging;
 
-    if (debugRetrieve) cout << "precise class stuff set" << endl;
-
+    if (debugRetrieve)
+      cout << "precise class stuff set" << endl;
 
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //landtypes
     getline(ins, sbuffer);
-    
+
     ins >> v->artic;
     ins >> v->coast;
     ins >> v->desert;
@@ -1200,13 +1216,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->swamp;
     ins >> v->underdark;
 
-    if (debugRetrieve) cout << "landtypes set" << endl;
-
+    if (debugRetrieve)
+      cout << "landtypes set" << endl;
 
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //creaturetype
     getline(ins, sbuffer);
-    
+
     ins >> v->twohumanoids;
     ins >> v->aberrations;
     ins >> v->beasts;
@@ -1222,13 +1238,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->plants;
     ins >> v->undead;
 
-    if (debugRetrieve) cout << "creaturetype set " << endl;
-
+    if (debugRetrieve)
+      cout << "creaturetype set " << endl;
 
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //spellslots
     getline(ins, sbuffer);
-    
+
     ins >> v->first_ss;
     ins >> v->second_ss;
     ins >> v->third_ss;
@@ -1240,7 +1256,8 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->ninth_ss;
     ins >> v->warlock_ss;
 
-    if (debugRetrieve) cout << "spellslots set" << endl;
+    if (debugRetrieve)
+      cout << "spellslots set" << endl;
 
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //skills
@@ -1266,7 +1283,8 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->stealth;
     ins >> v->survival;
 
-    if (debugRetrieve) cout << "skills set" << endl;
+    if (debugRetrieve)
+      cout << "skills set" << endl;
 
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //feats
@@ -1316,7 +1334,8 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->war_caster;
     ins >> v->weapon_master;
 
-    if (debugRetrieve) cout << "feats set" << endl;
+    if (debugRetrieve)
+      cout << "feats set" << endl;
 
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //languages
@@ -1341,7 +1360,8 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->sylvan;
     ins >> v->undercommon;
 
-    if (debugRetrieve) cout << "languages set" << endl;
+    if (debugRetrieve)
+      cout << "languages set" << endl;
 
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //features
@@ -1403,12 +1423,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->superior_darkvision;
     ins >> v->trance;
 
-    if (debugRetrieve) cout << "character features set" << endl;
+    if (debugRetrieve)
+      cout << "character features set" << endl;
 
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //resistances
     getline(ins, sbuffer);
-    
+
     ins >> v->damage_resist_acid;
     ins >> v->damage_resist_ltg;
     ins >> v->damage_resist_fire;
@@ -1417,18 +1438,20 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->damage_resist_necrotic;
     ins >> v->damage_resist_radiant;
 
-    if (debugRetrieve) cout << "resistances set" << endl;
+    if (debugRetrieve)
+      cout << "resistances set" << endl;
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //disadvantages
     getline(ins, sbuffer);
-    
+
     ins >> v->sunlight_sensitivity;
 
-    if (debugRetrieve) cout << "disadvantages set" << endl;
+    if (debugRetrieve)
+      cout << "disadvantages set" << endl;
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //artisan tools & supplies
     getline(ins, sbuffer);
-    
+
     ins >> v->alchemist;
     ins >> v->brewer;
     ins >> v->calligrapher;
@@ -1447,11 +1470,12 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->weaver;
     ins >> v->woodcarver;
 
-    if (debugRetrieve) cout << "artisan tools and supplies set" << endl;
+    if (debugRetrieve)
+      cout << "artisan tools and supplies set" << endl;
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //kits & tools
     getline(ins, sbuffer);
-    
+
     ins >> v->disguise;
     ins >> v->forgery;
     ins >> v->herbalism;
@@ -1460,7 +1484,8 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->thieves;
     ins >> v->vehicle;
 
-    if (debugRetrieve) cout << "kits and tools set" << endl;
+    if (debugRetrieve)
+      cout << "kits and tools set" << endl;
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //musical instruments
     getline(ins, sbuffer);
@@ -1476,8 +1501,9 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->shawm;
     ins >> v->viol;
 
-    if (debugRetrieve) cout << "musical instruments set" << endl;
-    
+    if (debugRetrieve)
+      cout << "musical instruments set" << endl;
+
     character_list.push_back(v);
 
     ins.get();
@@ -1497,16 +1523,15 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     //   }
     // }
 
-
     // if (debugRetrieve) cout << "before final peek" << endl;
     // if (ins.peek() == '\n') {
     //   if (debugRetrieve) cout << "final peek found a NEWLINE to ignore" << endl;
     //   ins.ignore(numeric_limits<streamsize>::max(), '\n');
     // }
-    
-  // }
-  // if (debugRetrieve) cout << "returning true" << endl;
-  // return true;
+
+    // }
+    // if (debugRetrieve) cout << "returning true" << endl;
+    // return true;
   } while (getline(ins, sbuffer));
   return true;
 }

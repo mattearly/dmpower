@@ -9,14 +9,15 @@ class Races
 {
 public:
   //accessor
-  virtual ~Races() { }
+  virtual ~Races() {}
   virtual void setRaceDetails(Generic_Character_Class &v) = 0;
   virtual std::string getRaceString() const = 0;
 };
 
-class Aasimar : public Races {
+class Aasimar : public Races
+{
 public:
-  enum aasimartype 
+  enum aasimartype
   {
     NA,
     PROTECTOR,
@@ -96,7 +97,8 @@ public:
 class Halfelf : public Races
 {
 public:
-  enum elfheritagetype {
+  enum elfheritagetype
+  {
     NA,
     AQUATIC,
     DROW,
@@ -140,11 +142,11 @@ public:
 class Tiefling : public Races
 {
 public:
-  enum tieflingtype {
+  enum tieflingtype
+  {
     NA,
     FERAL
   } type;
   virtual void setRaceDetails(Generic_Character_Class &v);
   virtual std::string getRaceString() const;
 };
-

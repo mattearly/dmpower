@@ -9,7 +9,8 @@ extern bool clearScreens;
 
 void Generic_Character_Class::character_sheet() const
 {
-  if (clearScreens) simpleClearScreen();
+  if (clearScreens)
+    simpleClearScreen();
   cout << " " << char_name << "'s Character Sheet:\n";
   cout << "->" << GREEN << " Class(Level): " << RESET << char_class << "(" << level << ")\n";
   cout << "->" << GREEN << " Alignment: " << RESET << alignment << "\n";
@@ -19,9 +20,12 @@ void Generic_Character_Class::character_sheet() const
        << "(Ave NPC HP: " << ((((hitdicesize + 2) / 2)) * level) + (getAbilityMod(constitution) * level)
        << " Ave PC HP: " << hitdicesize + ((((hitdicesize + 2) / 2)) * (level - 1)) + (getAbilityMod(constitution) * level)
        << ")\n";
-  if (move_speed > 0) cout << "->" << GREEN << " Move Speed: " << RESET << move_speed << "ft\n";
-  if (fly_speed > 0) cout << "->" << GREEN << " Fly Speed: " << RESET << fly_speed << "ft\n";
-  if (swim_speed > 0) cout << "->" << GREEN << " Swim Speed: " << RESET << swim_speed << "ft\n";
+  if (move_speed > 0)
+    cout << "->" << GREEN << " Move Speed: " << RESET << move_speed << "ft\n";
+  if (fly_speed > 0)
+    cout << "->" << GREEN << " Fly Speed: " << RESET << fly_speed << "ft\n";
+  if (swim_speed > 0)
+    cout << "->" << GREEN << " Swim Speed: " << RESET << swim_speed << "ft\n";
   cout << "->" << GREEN << " Proficiency Bonus:" << RESET << " +" << proficiency_bonus;
   cout << "\n->" << MAGENTA << " Str: " << RESET << setw(2) << strength << " " << D_D_Ability_Modifier(strength);
   if (strSave)
@@ -1105,7 +1109,7 @@ void Generic_Character_Class::printFeats() const
     cout << "Skulker, ";
   if (spell_sniper)
     cout << "Spell Sniper, ";
-  if (svirfneblin_magic) 
+  if (svirfneblin_magic)
     cout << "Svirfneblin Magic, ";
   if (tavern_brawler)
     cout << "Tavern Brawler, ";
