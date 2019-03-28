@@ -333,6 +333,13 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   }
 
   new_character->setAllStats();
+  
+  if (quitBuilding) {
+    quitBuilding = false;
+    delete new_character;
+    return;
+  }
+
   new_character->setRace(*new_character);
   new_character->setAlignment();
   new_character->setBackground();
