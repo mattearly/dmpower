@@ -1145,7 +1145,7 @@ void Generic_Character_Class::setLanguage(const string &message)
     else
       cout << " 15 - Orc\n";
     if (primordial)
-      cout << " 16- Primordial(Already Known)\n";
+      cout << " 16 - Primordial(Already Known)\n";
     else
       cout << " 16 - Primordial\n";
     if (sylvan)
@@ -1155,7 +1155,7 @@ void Generic_Character_Class::setLanguage(const string &message)
     if (undercommon)
       cout << " 18 - Undercommon(Already Known)\n\n";
     else
-      cout << " 18- Undercommon\n\n";
+      cout << " 18 - Undercommon\n\n";
     int ss = getNumber("Language Choice: ", 1, 18);
     if (ss == 1 && auran == 0)
     {
