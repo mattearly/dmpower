@@ -13,18 +13,18 @@
 using namespace std;
 
 static int choice = 0;
+char buildNumber = '6'; 
 
 extern Campaign myGame;
 extern string mainMessage;
 extern void change_settings();
 extern bool clearScreens;
 
-
 void other_tools();
 
 void menu()
 {
-  mainMessage = "Dungeon Master Power! (build:6)";
+  mainMessage = "Dungeon Master Power! (build:" + to_string(buildNumber) + ")";
   choice = 0;
   do
   {

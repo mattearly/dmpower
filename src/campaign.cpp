@@ -7,6 +7,7 @@ bool debugRetrieve = true;
 
 using namespace std;
 
+extern char buildNumber;
 extern void save_file();
 extern void load_file();
 extern bool clearScreens;
@@ -370,6 +371,7 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
 
 ofstream &Campaign::dumpCharacter(ofstream &os) const
 {
+  os << buildNumber << endl; // build number to keep saves working correctly
   int charactercount = 0;
   for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
   {
@@ -867,13 +869,22 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
 
 bool Campaign::retrieveCharacter(ifstream &ins)
 {
-  // todo: save version considerations
 
   static string charClassTempVar;
   static string sbuffer;
   static int charBackgroundProcessor;
   static Generic_Character_Class *v;
 
+  char this_version;
+  this_version = ins.get();
+  cout << "version retrieved is: " << this_version << endl; 
+  if (this_version == buildNumber) {
+    cout << "Versions Match\n";
+  } else {
+    cout << "Versions Do Not Match\n";
+  }
+
+  getline(ins, sbuffer); // the newline left over from ins.get()
   getline(ins, sbuffer); // absorb the first line
 
   do
