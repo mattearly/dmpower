@@ -1,6 +1,6 @@
-### Contributing to DungeonMasterPower, what you need to know
+### Contributing to Dungeon Master Power, what you need to know
 
- - Go by the official D&D books and rules in general. Some homebrew may be added, but only in small doses on only where it can be taken as a suggestion and not as a set rule (such as the name generator).
+ - Go by the official D&D books and rules in general. Some homebrew may be added, but only in small doses in only where it can be taken as a suggestion and not as a set rule (such as the name generator).
 
 #### The source code
 
@@ -21,8 +21,7 @@
 
 #### Response time for issues and pull requests
 
-- it completely depends on how busy I am and if I am currently working on this or something else. Expect somewhere between same day and up to one week.
-
+- It depends on how busy I am and if I am currently working on this or something else. Expect somewhere between same day and up to one week.
 
 #### if you have contributed
 

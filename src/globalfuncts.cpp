@@ -55,7 +55,7 @@ char getAorRorQ(const std::string &message) {
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     if (!(tmp == 'A' || tmp == 'R' || tmp == 'Q')) {
-      std::cout << "Invalid, Try again (only takes 'A', 'R', 'Q', 'a', 'r', or 'q'.\n";
+      std::cout << "Invalid, Try again (Only accpets A/a/R/r/Q/q)\n";
     }
   } while (!(tmp == 'A' || tmp == 'R' || tmp == 'Q'));
   return tmp;

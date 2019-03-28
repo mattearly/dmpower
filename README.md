@@ -1,10 +1,10 @@
 # About
 
-[Dungeon Master Power](https://github.com/mattearly/DungeonMasterPower/releases) is a powerful minimalistic interactive terminal-based Dungeons & Dragons's 5th Edition Toolkit. See the [MANUAL](MANUAL.md) for screenshots and information about the ever-evolving toolset.
+[Dungeon Master Power](https://github.com/mattearly/DungeonMasterPower/releases) is a powerful minimalistic interactive terminal-based Dungeons & Dragons's 5th Edition Toolkit. The intention is to make being the Dungeon Master less tedious and time consuming so you can focus more on your game's story, and less on looking up charts. See the [MANUAL](MANUAL.md) for screenshots and information about the ever-evolving toolset.
 
 # Getting Started
 
-Dungeon Master Power runs in a terminal on any operating system. Dungeon Master Power uses terminal text coloring that will look best in a terminal with a solid dark background.
+Dungeon Master Power runs in a terminal on any operating system and uses text coloring that will look best in a terminal with a solid dark background.
 
 ## Prerequisites
 
@@ -28,6 +28,7 @@ make gcc libboost-filesystem-dev
 ````
 
 - run once built
+
 ````
 ./dmpower
 ````
@@ -61,7 +62,7 @@ So here I am now, still working on this piece of software.
 
 # Support
 
-Hey you got this far! If you'd like to help progress this program, consider donating to help keep the lights on.
+Hey you got this far, thank you for your intrest! If you'd like to help progress this program, consider donating to help keep the lights on. Also, sharing and using the program helps out too, so feel free to let your friends know about it.
 
 - [![donate/PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/mattearly) 
 
@@ -75,4 +76,4 @@ The core D&D data used in this program is from:
  | --- | --- | --- | --- |
  | [![phb](img/DnD_PHB.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook) | [![dmg](img/DnD_DMG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide) | [![scag](img/DnD_SCAG.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide) | [![vgtm](img/DnD_VGTM.png)](http://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters) |
 
-Programmers as accredited in the commit history and contributers file - mostly me but its always nice to have help and I will accept some modifications on a case by case basis if they align with the overall goal of dmpower. See the [CONTRIBUTING](CONTRIBUTING.md) file for more information on how you can help with the code.
+Programmers as accredited in the commit history and contributers file - mostly me but its always nice to have help and I will accept some modifications on a case by case basis if they align with the overall goal of dmpower. See the [CONTRIBUTING](CONTRIBUTING.md) file for more information on how you can help with the code, and of course, feel free to correct or report any typos or issues you find.
