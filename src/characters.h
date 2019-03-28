@@ -477,6 +477,13 @@ public:
   bool superior_darkvision;
   bool trance;
 
+  // lizardfolk
+  bool lizardfolk_bite;
+  bool cunning_artisan;
+  int hold_breath;
+  int natural_armor;
+  bool hungry_jaws;
+
   //RESISTANCES
   bool damage_resist_acid;
   bool damage_resist_ltg;

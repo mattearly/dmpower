@@ -630,20 +630,58 @@ void Kenku::setRaceDetails(Generic_Character_Class &v)
   cout << "  Mimicry\n";
   cout << "  Common and Auran Languages\n";
   int ss = getNumber("Kenku Training. Gain one of these skills: \n  1. Acrobatics\n  2. Deception\n  3. Stealth\n  4. Sleight of Hand.\n\nChoice: ", 1, 4);
-  switch (ss) {
-    case 1:
+  switch (ss)
+  {
+  case 1:
     v.acrobatics = true;
     break;
-    case 2:
+  case 2:
     v.deception = true;
     break;
-    case 3:
+  case 3:
     v.stealth = true;
     break;
-    case 4:
+  case 4:
     v.sleight_of_hand = true;
     break;
-    default:break;
+  default:
+    break;
+  }
+  pressEnterToContinue();
+}
+void Lizardfolk::setRaceDetails(Generic_Character_Class &v)
+{
+  v.constitution += 2;
+  v.wisdom++;
+  v.move_speed = 30;
+  v.swim_speed = 30;
+  v.lizardfolk_bite = true;
+  v.cunning_artisan = true;
+  v.hold_breath = 15;
+  v.natural_armor = 13;
+  v.hungry_jaws = true;
+  v.common = true;
+  v.draconic = true;
+  int ss = getNumber("Hunter's Lore. Gain one of these skills: \n  1. Animal Handling\n  2. Nature\n  3. Perception\n  4. Stealth\n  5. Survival\n\nChoice: ", 1, 5);
+  switch (ss)
+  {
+  case 1:
+    v.animal_handling = true;
+    break;
+  case 2:
+    v.nature = true;
+    break;
+  case 3:
+    v.perception = true;
+    break;
+  case 4:
+    v.stealth = true;
+    break;
+  case 5:
+    v.survival = true;
+    break;
+  default:
+    break;
   }
   pressEnterToContinue();
 }
@@ -865,6 +903,10 @@ string Human::getRaceString() const
 string Kenku::getRaceString() const
 {
   return "Kenku";
+}
+string Lizardfolk::getRaceString() const
+{
+  return "Lizardfolk";
 }
 string Tiefling::getRaceString() const
 {

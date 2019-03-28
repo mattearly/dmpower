@@ -146,6 +146,13 @@ public:
   virtual std::string getRaceString() const;
 };
 
+class Lizardfolk : public Races
+{
+public:
+  virtual void setRaceDetails(Generic_Character_Class &v);
+  virtual std::string getRaceString() const;
+};
+
 class Tiefling : public Races
 {
 public:

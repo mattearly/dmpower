@@ -1238,6 +1238,17 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Speech of Beast and Leaf, ";
   if (silent_speech)
     cout << "Silent Speech, ";
+  // lizardfolk stuff
+  if (lizardfolk_bite)
+    cout << "Bite, ";
+  if (cunning_artisan)
+    cout << "Cunning Artisan, ";
+  if (hold_breath)
+    cout << "Hold Breath(" << hold_breath << "m), ";
+  if (natural_armor)
+    cout << "Natural Armor(" << natural_armor << "AC), ";
+  if (hungry_jaws)
+    cout << "Hungry Jaws, ";
   cout << endl;
 }
 void Generic_Character_Class::printLangs() const
