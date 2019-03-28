@@ -26,6 +26,8 @@ void Generic_Character_Class::character_sheet() const
     cout << "->" << GREEN << " Fly Speed: " << RESET << fly_speed << "ft\n";
   if (swim_speed > 0)
     cout << "->" << GREEN << " Swim Speed: " << RESET << swim_speed << "ft\n";
+  if (climb_speed > 0)
+    cout << "->" << GREEN << " Climb Speed: " << RESET << climb_speed << "ft\n";
   cout << "->" << GREEN << " Proficiency Bonus:" << RESET << " +" << proficiency_bonus;
   cout << "\n->" << MAGENTA << " Str: " << RESET << setw(2) << strength << " " << D_D_Ability_Modifier(strength);
   if (strSave)

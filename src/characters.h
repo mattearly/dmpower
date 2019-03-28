@@ -35,6 +35,7 @@ public:
   int move_speed;
   int fly_speed;
   int swim_speed;
+  int climb_speed;
   int proficiency_bonus;
   int extra_attack;
   int expertise;
