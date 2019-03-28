@@ -766,6 +766,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->duergar_resilience << endl
         << (*it)->duergar_magic << endl
         << (*it)->elf_weapon_training << endl
+        << (*it)->expert_forgery << endl
         << (*it)->fey_ancestry << endl
         << (*it)->firbolg_magic << endl
         << (*it)->fleet_of_foot << endl
@@ -778,6 +779,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->infernal_legacy << endl
         << (*it)->light_bearer << endl
         << (*it)->mask_of_the_wild << endl
+        << (*it)->mimicry << endl
         << (*it)->natural_illusionist << endl
         << (*it)->naturally_stealthy << endl
         << (*it)->necrotic_shroud << endl
@@ -1397,6 +1399,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->duergar_resilience;
     ins >> v->duergar_magic;
     ins >> v->elf_weapon_training;
+    ins >> v->expert_forgery;
     ins >> v->fey_ancestry;
     ins >> v->firbolg_magic;
     ins >> v->fleet_of_foot;
@@ -1409,6 +1412,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->infernal_legacy;
     ins >> v->light_bearer;
     ins >> v->mask_of_the_wild;
+    ins >> v->mimicry;
     ins >> v->natural_illusionist;
     ins >> v->naturally_stealthy;
     ins >> v->necrotic_shroud;

@@ -454,6 +454,8 @@ Generic_Character_Class::Generic_Character_Class()
   damage_resist_necrotic = 0;
   damage_resist_radiant = 0;
   stones_endurance = 0;
+  expert_forgery = 0;
+  mimicry = 0;
 }
 
 Generic_Character_Class::~Generic_Character_Class() {}
@@ -498,7 +500,7 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
   if (clearScreens)
     simpleClearScreen();
-  const int num_races = 11;
+  const int num_races = 13;
   cout << "Choose a Race for your Character:\n\n";
   cout << " 1. Aasimar\n";
   cout << " 2. Dragonborn\n";
@@ -511,7 +513,8 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
   cout << " 9. Halfing\n";
   cout << " 10. Half-orc\n";
   cout << " 11. Human\n";
-  cout << " 12. Tiefling\n\n";
+  cout << " 12. Kenku\n";
+  cout << " 13. Tiefling\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
   switch (ss)
@@ -572,6 +575,11 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
     race = parent->getRaceString();
     break;
   case 12:
+    parent = new Kenku;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+    break;
+  case 13:
     parent = new Tiefling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();

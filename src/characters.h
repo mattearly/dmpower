@@ -447,6 +447,7 @@ public:
   bool duergar_magic;      // duergar dwarf
   bool duergar_resilience; // duergar dwarf
   bool elf_weapon_training;
+  bool expert_forgery; // kenku
   bool fey_ancestry;
   bool firbolg_magic; //firbolg
   bool fleet_of_foot;
@@ -459,6 +460,7 @@ public:
   bool infernal_legacy;
   bool light_bearer; //assimar
   bool mask_of_the_wild;
+  bool mimicry; // kenku
   bool natural_illusionist;
   bool naturally_stealthy;
   bool necrotic_shroud;     //assimar

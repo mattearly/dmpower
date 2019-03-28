@@ -1180,6 +1180,8 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Duergar Magic, ";
   if (elf_weapon_training)
     cout << "Elf Weapon Training, ";
+  if (expert_forgery)
+    cout << "Expert Forgery, ";
   if (fey_ancestry)
     cout << "Fey Ancestry, ";
   if (fleet_of_foot)
@@ -1200,6 +1202,8 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Light Bearer, ";
   if (mask_of_the_wild)
     cout << "Mask of the Wild, ";
+  if (mimicry)
+    cout << "Mimicry, ";
   if (natural_illusionist)
     cout << "Natural Illusionist, ";
   if (naturally_stealthy)

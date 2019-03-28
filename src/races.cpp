@@ -613,6 +613,40 @@ void Human::setRaceDetails(Generic_Character_Class &v)
   v.setLanguage("->Humans gain 'know one language of your choice.'\n\n");
   pressEnterToContinue();
 }
+void Kenku::setRaceDetails(Generic_Character_Class &v)
+{
+  v.dexterity += 2;
+  v.wisdom++;
+  v.move_speed = 30;
+  v.expert_forgery = true;
+  v.mimicry = true;
+  v.common = true;
+  v.auran = true;
+  cout << "babababababirdbirdbird... bird with no words. A Kenku, master of mimicry. Gain: \n";
+  cout << "  +2 Dexterity\n";
+  cout << "  +1 Wisdom\n";
+  cout << "  30ft Move Speed\n";
+  cout << "  Expert Forgery\n";
+  cout << "  Mimicry\n";
+  cout << "  Common and Auran Languages\n";
+  int ss = getNumber("Kenku Training. Gain one of these skills: \n  1. Acrobatics\n  2. Deception\n  3. Stealth\n  4. Sleight of Hand.\n\nChoice: ", 1, 4);
+  switch (ss) {
+    case 1:
+    v.acrobatics = true;
+    break;
+    case 2:
+    v.deception = true;
+    break;
+    case 3:
+    v.stealth = true;
+    break;
+    case 4:
+    v.sleight_of_hand = true;
+    break;
+    default:break;
+  }
+  pressEnterToContinue();
+}
 void Tiefling::setRaceDetails(Generic_Character_Class &v)
 {
   v.intelligence += 1;
@@ -827,6 +861,10 @@ string Halforc::getRaceString() const
 string Human::getRaceString() const
 {
   return "Human";
+}
+string Kenku::getRaceString() const
+{
+  return "Kenku";
 }
 string Tiefling::getRaceString() const
 {
