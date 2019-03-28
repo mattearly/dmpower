@@ -49,6 +49,7 @@ void Generic_Character_Class::character_sheet() const
     cout << GREEN << "  <-SaveProficient" << RESET;
   cout << endl;
   printClassAbilities();
+  printCantrips();
   printSpellSlots();
   printSkills();
   printOtherAbilities();
@@ -924,23 +925,28 @@ void Generic_Character_Class::printClassAbilities() const
     cout << "Signature Spell, ";
   cout << endl;
 }
+
+void Generic_Character_Class::printCantrips() const
+{
+  cout << "->" << MAGENTA << " Cantrips: " << RESET;
+  if (bard_cantrips_known > 0)
+    cout << "Bard(" << bard_cantrips_known << ")";
+  if (cleric_cantrips_known > 0)
+    cout << "Cleric(" << cleric_cantrips_known << ")";
+  if (druid_cantrips_known > 0)
+    cout << "Druid(" << druid_cantrips_known << ")";
+  if (wizard_cantrips_known > 0)
+    cout << "Wizard(" << wizard_cantrips_known << ")";
+  if (sorcerer_cantrips_known > 0)
+    cout << "Sorcerer(" << sorcerer_cantrips_known << ")";
+  if (warlock_cantrips_known > 0)
+    cout << "Warlock(" << warlock_cantrips_known << ")";
+}
+
 void Generic_Character_Class::printSpellSlots() const
 {
   if (spellcasting || pact_magic)
   {
-    cout << "->" << MAGENTA << " Cantrips: " << RESET;
-    if (bard_cantrips_known > 0)
-      cout << "Bard(" << bard_cantrips_known << ")";
-    if (cleric_cantrips_known > 0)
-      cout << "Cleric(" << cleric_cantrips_known << ")";
-    if (druid_cantrips_known > 0)
-      cout << "Druid(" << druid_cantrips_known << ")";
-    if (wizard_cantrips_known > 0)
-      cout << "Wizard(" << wizard_cantrips_known << ")";
-    if (sorcerer_cantrips_known > 0)
-      cout << "Sorcerer(" << sorcerer_cantrips_known << ")";
-    if (warlock_cantrips_known > 0)
-      cout << "Warlock(" << warlock_cantrips_known << ")";
     cout << "\n->" << MAGENTA << " Spell Slots: " << RESET;
     if (warlock_slot_level > 0)
       cout << "Warlock Slot Level(" << warlock_slot_level << ")";
@@ -962,6 +968,7 @@ void Generic_Character_Class::printSpellSlots() const
       cout << "/" << eighth_ss;
     if (ninth_ss > 0)
       cout << "/" << ninth_ss;
+
     cout << "\n->" << MAGENTA << " Spells Known: " << RESET;
     if (bard_spells_known > 0)
       cout << "Bard(" << bard_spells_known << ")";
