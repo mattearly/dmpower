@@ -718,6 +718,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->war_caster << endl
         << (*it)->weapon_master << endl
         << "languages" << endl //languages
+        << (*it)->auran << endl
         << (*it)->abyssal << endl
         << (*it)->celestial << endl
         << (*it)->common << endl
@@ -1341,6 +1342,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //languages
     getline(ins, sbuffer);
 
+    ins >> v->auran;
     ins >> v->abyssal;
     ins >> v->celestial;
     ins >> v->common;

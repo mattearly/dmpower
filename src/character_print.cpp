@@ -1239,6 +1239,8 @@ void Generic_Character_Class::printOtherAbilities() const
 void Generic_Character_Class::printLangs() const
 {
   cout << "->" << CYAN << " Languages: " << RESET;
+  if (auran)
+    cout << "Auran, ";
   if (abyssal)
     cout << "Abyssal, ";
   if (celestial)

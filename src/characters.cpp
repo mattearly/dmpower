@@ -1047,7 +1047,7 @@ void Generic_Character_Class::setLanguage(const string &message)
   while (!success)
   {
     cout << message;
-    if (auran) 
+    if (auran)
       cout << " 1 - Auran(Already Known)\n";
     else
       cout << " 1 - Auran\n";
@@ -1120,7 +1120,8 @@ void Generic_Character_Class::setLanguage(const string &message)
     else
       cout << " 18- Undercommon\n\n";
     int ss = getNumber("Language Choice: ", 1, 18);
-    if (ss == 1 && auran == 0) {
+    if (ss == 1 && auran == 0)
+    {
       auran = true;
       cout << "Auran Language learned!\n";
       success = 1;
