@@ -81,11 +81,20 @@ int getAbilityMod(const int &ability)
   return mod;
 }
 
+//Hacky solution for random character
+bool is_random = false;
+
 /// getNumber provides a 'message' to the user via console and
 /// continues prompting for a integer 'user_input' such that  'a <= user_input <= b'
 /// doesn't work with negative numbers as -1 is the flag for certainly invalid input
 int getNumber(const std::string &message, const int &a, const int &b)
 {
+  if(is_random) {
+    int rand_num = randomNumber(a, b);
+    std::cout << message << rand_num << std::endl;
+    return rand_num;
+  }
+
   bool tried_once = false;
   int user_input;
   std::string test;

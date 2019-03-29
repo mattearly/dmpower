@@ -4,6 +4,8 @@
 
 using namespace std;
 
+extern bool is_random;
+
 extern void save_file();
 extern void load_file();
 
@@ -44,6 +46,17 @@ void Campaign::pc_menu()
     case 1:
     {
       simpleClearScreen();
+      cout << "Create Random Character\n\n";
+      cout << "1. Random Character" << endl;
+      cout << "2. Manual Character" << endl;
+      int randomized = getNumber("Choice: ", 1, 2);
+
+      if(randomized == 1) {
+        is_random = true;
+      } else { 
+        is_random = false;
+      }
+
       cout << " Create a New Character! \n\n"
            << "Type Legend: " << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
            << "Character Classes Available:\n\n"
@@ -153,6 +166,8 @@ void Campaign::pc_menu()
         break;
       default:break;
       }
+
+      is_random = false;
     }
       break;
     case 2:
