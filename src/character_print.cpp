@@ -941,6 +941,7 @@ void Generic_Character_Class::printCantrips() const
     cout << "Sorcerer(" << sorcerer_cantrips_known << ")";
   if (warlock_cantrips_known > 0)
     cout << "Warlock(" << warlock_cantrips_known << ")";
+  cout << endl;
 }
 
 void Generic_Character_Class::printSpellSlots() const
