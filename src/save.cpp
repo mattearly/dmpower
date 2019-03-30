@@ -204,6 +204,7 @@ bool mergeSaves(const std::string &keep, const std::string &mergein)
   if (saveto.is_open() && readfrom.is_open())
   {
     std::string tmp;
+    getline(readfrom, tmp);  // eat the first line which is the save version
     do
     {
       std::getline(readfrom, tmp);
