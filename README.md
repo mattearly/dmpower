@@ -1,6 +1,6 @@
 # About
 
-[Dungeon Master Power](https://github.com/mattearly/DungeonMasterPower/releases) is a powerful minimalistic interactive terminal-based Dungeons & Dragons's 5th Edition Toolkit. The intention is to make being the Dungeon Master less tedious and time consuming so you can focus more on your game's story, and less on looking up charts. See the [MANUAL](MANUAL.md) for screenshots and information about the ever-evolving toolset.
+[Dungeon Master Power](https://github.com/mattearly/DungeonMasterPower/releases) is a powerful minimalistic interactive terminal-based Dungeons & Dragons's 5th Edition Toolkit. The intention is to make being the Dungeon Master less tedious and time consuming so you can focus more on your game's story, and less on looking up charts and stat blocks. See the [MANUAL](MANUAL.md) for screenshots and information about the ever-evolving toolset.
 
 # Getting Started
 
@@ -53,17 +53,17 @@ I haven't tested but it should work fine, may need homebrew for boost libraries.
 
 # Foundation / Why this program?
 
-A quick story. I decided to start making this tool on my own accord when I, as a DM, couldn't find any D&D software that I liked. This was sometime around late 2015 while I was in college studying Comp Sci and on occasion playing D&D with a few friends. I had a long background of being a DM so I new pretty well what I needed in a tool and I needed a project to work on outside of class, and C++ was what I was learning at the time (so that's why this is all C++ and not something easier). At first I was just seeing what I could do, but eventually it grew to be usable, and everyone wanted to make their characters with it, which was cool and motivated me to keep going. Also, I just love the treasure rolling tools, they're so great for planning.
+A quick story. I decided to start making this tool on my own accord when I, as a DM, couldn't find any D&D software that I liked. This was sometime around late 2015 while I was in college studying Comp Sci and on occasion playing D&D with a few friends. I had a long background of being a DM so I new pretty well what I needed in a tool and I needed a project to work on outside of class, and C++ was what I was learning at the time. At first I was just seeing what I could do, but eventually it grew to be usable and I've been tweaking and expanding it ever since.
 
-How can you say no to making your D&D character in about 1 minute? Sure beats the usual 1-2hr character building sessions we all have experienced... sometimes painfully experienced. With this you get your stats all set without having to dig through books and check every bit of logic. You can go straight to the important part: story, gear, and what makes your character special. If you are a wizard you can even get a randomized Spellbook from dmpower if that's your thing. 
+How can you say no to making your D&D character in about 1 minute? Sure beats the usual 1-2hr character building sessions we all have experienced... sometimes painfully experienced. With this you get your stats all set without having to dig through books for options. You can go straight to the important part: story, gear, and what makes your character unique. If you are a wizard you can even get a randomized Spellbook from dmpower if that's your thing. 
 
-And oh my... have you ever found a Spellbook in game? How much time did that take? With this program it can be done quickly, reliably and randomly. The amount of time I've lost in the past trying to figure out "what spells..." Never again.
+And oh my... have you ever found a Spellbook in game? How much time did that take? With this program it can be done quickly, reliably and randomly. The amount of time I've lost in the past trying to figure out "what spells..." Never again. Want to figure out what kind of loot is throughout a lair you are designing? Try the Lair Treasure Generator.
 
-So here I am now, still working on this piece of software. 
+So here I am now, still working on this piece of software.
 
 # Support
 
-Hey you got this far, thank you for your intrest! If you'd like to help progress this program, consider donating to help keep the lights on. Also, sharing and using the program helps out too, so feel free to let your friends know about it.
+Hey you got this far, thank you for your intrest! If you'd like to help progress this program, consider donating to help keep the lights on. Also, sharing and using the program helps out too, so feel free to let your D&D friends know about it.
 
 - [![donate/PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/mattearly) 
 
