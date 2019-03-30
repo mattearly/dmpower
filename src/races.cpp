@@ -47,7 +47,7 @@ void Aasimar::setRaceDetails(Generic_Character_Class &v)
   case 3:
     subr = FALLEN;
     v.strength++;
-    v.necrotic_shroud++;
+    v.necrotic_shroud = true;
     cout << "Fallen. Gain:\n";
     cout << "  +1 Strength\n";
     cout << "  Necrotic Shroud\n";
