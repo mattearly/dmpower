@@ -8,201 +8,163 @@ void Generic_Character_Class::setAnyFeat()
   cout << "List of Feats to choose from:\n\n";
   while (!set)
   {
-    cout << " 1. Alert               25. Mobile"
-         << "\n 2. Athlete             26. Moderately Armored"
-         << "\n 3. Actor               27. Mounted Combat"
-         << "\n 4. Charger             28. Observant"
-         << "\n 5. Crossbow Expert     29. Polearm Master"
-         << "\n 6. Defensive Duelist   30. Resilient"
-         << "\n 7. Dual Wielder        31. Ritual Caster"
-         << "\n 8. Dungeon Delver      32. Savage Attacker"
-         << "\n 9. Durable             33. Sentinel"
-         << "\n10. Elemental Adapt     34. Sharpshooter"
-         << "\n11. Grappler            35. Shield Master"
-         << "\n12. Great Weapon Master 36. Skilled"
-         << "\n13. Healer              37. Skulker"
-         << "\n14. Heavily Armored     38. Spell Sniper"
-         << "\n15. Heavy Armor Master  39. Tavern Brawler"
-         << "\n16. Inspiring Leader    40. Tough"
-         << "\n17. Keen Mind           41. War Caster"
-         << "\n18. Lightly Armored     42. Weapon Master"
-         << "\n19. Linguist            43. Svirfneblin Magic"
-         << "\n20. Lucky "
-         << "\n21. Mage Slayer  "
-         << "\n22. Magic Initiate "
-         << "\n23. Martial Adept  "
-         << "\n24. Medium Armor Master\n";
+    cout << " 1. Alert                25. Mobile\n";
+    cout << " 2. Athlete              26. Moderately Armored\n";
+    cout << " 3. Actor                27. Mounted Combat\n";
+    cout << " 4. Charger              28. Observant\n";
+    cout << " 5. Crossbow Expert      29. Polearm Master\n";
+    cout << " 6. Defensive Duelist    30. Resilient\n";
+    cout << " 7. Dual Wielder         31. Ritual Caster\n";
+    cout << " 8. Dungeon Delver       32. Savage Attacker\n";
+    cout << " 9. Durable              33. Sentinel\n";
+    cout << "10. Elemental Adapt      34. Sharpshooter\n";
+    cout << "11. Grappler             35. Shield Master\n";
+    cout << "12. Great Weapon Master  36. Skilled\n";
+    cout << "13. Healer               37. Skulker\n";
+    cout << "14. Heavily Armored      38. Spell Sniper\n";
+    cout << "15. Heavy Armor Master   39. Tavern Brawler\n";
+    cout << "16. Inspiring Leader     40. Tough\n";
+    cout << "17. Keen Mind            41. War Caster\n";
+    cout << "18. Lightly Armored      42. Weapon Master\n";
+    cout << "19. Linguist             43. Svirfneblin Magic\n";
+    cout << "20. Lucky\n";
+    cout << "21. Mage Slayer\n";
+    cout << "22. Magic Initiate\n";
+    cout << "23. Martial Adept\n";
+    cout << "24. Medium Armor Master\n\n";
     int ss = getNumber("  Feat Choice:", 1, 43);
-    if (ss == 1)
-    {
-      gainAlert(set);
-    }
-    if (ss == 2)
-    {
-      gainAthlete(set);
-    }
-    if (ss == 3)
-    {
-      gainActor(set);
-    }
-    if (ss == 4)
-    {
-      gainCharger(set);
-    }
-    if (ss == 5)
-    {
-      gainCrossbow_expert(set);
-    }
-    if (ss == 6)
-    {
-      gainDefensive_duelist(set);
-    }
-    if (ss == 7)
-    {
-      gainDual_wielder(set);
-    }
-    if (ss == 8)
-    {
-      gainDungeon_delver(set);
-    }
-    if (ss == 9)
-    {
-      gainDurable(set);
-    }
-    if (ss == 10)
-    {
-      gainElemental_adept(set);
-    }
-    if (ss == 11)
-    {
-      gainGrappler(set);
-    }
-    if (ss == 12)
-    {
-      gainGreat_weapon_master(set);
-    }
-    if (ss == 13)
-    {
-      gainHealer(set);
-    }
-    if (ss == 14)
-    {
-      gainHeavily_armored(set);
-    }
-    if (ss == 15)
-    {
-      gainHeavy_armor_master(set);
-    }
-    if (ss == 16)
-    {
-      gainInspiring_leader(set);
-    }
-    if (ss == 17)
-    {
-      gainKeen_mind(set);
-    }
-    if (ss == 18)
-    {
-      gainLightly_armored(set);
-    }
-    if (ss == 19)
-    {
-      gainLinguist(set);
-    }
-    if (ss == 20)
-    {
-      gainLucky(set);
-    }
-    if (ss == 21)
-    {
-      gainMage_slayer(set);
-    }
-    if (ss == 22)
-    {
-      gainMagic_initiate(set);
-    }
-    if (ss == 23)
-    {
-      gainMartial_adept(set);
-    }
-    if (ss == 24)
-    {
-      gainMedium_armor_master(set);
-    }
-    if (ss == 25)
-    {
-      gainMobile(set);
-    }
-    if (ss == 26)
-    {
-      gainModerately_armored(set);
-    }
-    if (ss == 27)
-    {
-      gainMounted_combatant(set);
-    }
-    if (ss == 28)
-    {
-      gainObservant(set);
-    }
-    if (ss == 29)
-    {
-      gainPolearm_master(set);
-    }
-    if (ss == 30)
-    {
-      gainResilient(set);
-    }
-    if (ss == 31)
-    {
-      gainRitual_caster(set);
-    }
-    if (ss == 32)
-    {
-      gainSavage_attaker(set);
-    }
-    if (ss == 33)
-    {
-      gainSentinel(set);
-    }
-    if (ss == 34)
-    {
-      gainSharpshooter(set);
-    }
-    if (ss == 35)
-    {
-      gainShield_master(set);
-    }
-    if (ss == 36)
-    {
-      gainSkilled(set);
-    }
-    if (ss == 37)
-    {
-      gainSkulker(set);
-    }
-    if (ss == 38)
-    {
-      gainSpell_sniper(set);
-    }
-    if (ss == 39)
-    {
-      gainTavern_brawler(set);
-    }
-    if (ss == 40)
-    {
-      gainTough(set);
-    }
-    if (ss == 41)
-    {
-      gainWar_caster(set);
-    }
-    if (ss == 42)
-    {
-      gainWeapon_master(set);
-    }
-    if (ss == 43) {
-      gainSvirfneblin_magic(set);
+    switch (ss) {
+      case 1:
+        gainAlert(set);
+        break;
+      case 2:
+        gainAthlete(set);
+        break;
+      case 3:
+        gainActor(set);
+        break;
+      case 4:
+        gainCharger(set);
+        break;
+      case 5:
+        gainCrossbow_expert(set);
+        break;
+      case 6:
+        gainDefensive_duelist(set);
+        break;
+      case 7:
+        gainDual_wielder(set);
+        break;
+      case 8:
+        gainDungeon_delver(set);
+        break;
+      case 9:
+        gainDurable(set);
+        break;
+      case 10:
+        gainElemental_adept(set);
+        break;
+      case 11:
+        gainGrappler(set);
+        break;
+      case 12:
+        gainGreat_weapon_master(set);
+        break;
+      case 13:
+        gainHealer(set);
+        break;
+      case 14:
+        gainHeavily_armored(set);
+        break;
+      case 15:
+        gainHeavy_armor_master(set);
+        break;
+      case 16:
+        gainInspiring_leader(set);
+        break;
+      case 17:
+        gainKeen_mind(set);
+        break;
+      case 18:
+        gainLightly_armored(set);
+        break;
+      case 19:
+        gainLinguist(set);
+        break;
+      case 20:
+        gainLucky(set);
+        break;
+      case 21:
+        gainMage_slayer(set);
+        break;
+      case 22:
+        gainMagic_initiate(set);
+        break;
+      case 23:
+        gainMartial_adept(set);
+        break;
+      case 24:
+        gainMedium_armor_master(set);
+        break;
+      case 25:
+        gainMobile(set);
+        break;
+      case 26:
+        gainModerately_armored(set);
+        break;
+      case 27:
+        gainMounted_combatant(set);
+        break;
+      case 28:
+        gainObservant(set);
+        break;
+      case 29:
+        gainPolearm_master(set);
+        break;
+      case 30:
+        gainResilient(set);
+        break;
+      case 31:
+        gainRitual_caster(set);
+        break;
+      case 32:
+        gainSavage_attaker(set);
+        break;
+      case 33:
+        gainSentinel(set);
+        break;
+      case 34:
+        gainSharpshooter(set);
+        break;
+      case 35:
+        gainShield_master(set);
+        break;
+      case 36:
+        gainSkilled(set);
+        break;
+      case 37:
+        gainSkulker(set);
+        break;
+      case 38:
+        gainSpell_sniper(set);
+        break;
+      case 39:
+        gainTavern_brawler(set);
+        break;
+      case 40:
+        gainTough(set);
+        break;
+      case 41:
+        gainWar_caster(set);
+        break;
+      case 42:
+        gainWeapon_master(set);
+        break;
+      case 43:
+        gainSvirfneblin_magic(set);
+        break;
+      default:
+        std::cout << "this... is not possible! check code.\n";
     }
   }
 }
