@@ -3,11 +3,11 @@
 #include "characters.h"
 #include "terminal_colors.h"
 
-bool debugRetrieve = true;
-
 using namespace std;
 
-extern char buildNumber;
+bool debugRetrieve = true;
+
+extern string buildNumber;
 extern void save_file();
 extern void load_file();
 extern bool clearScreens;
@@ -56,15 +56,15 @@ void Campaign::pc_menu()
       cout << " Create a New Character! \n\n"
            << "Type Legend: " << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
            << "Character Classes Available:\n\n"
-           << CYAN << " 1. Cleric" << CYAN << "      7. Paladin\n\n"
+           << CYAN << " 1. Cleric" << CYAN << "      7. Paladin\n"
            << RESET
-           << RED << " 2. Fighter" << YELLOW << "     8. Sorcerer\n\n"
+           << RED << " 2. Fighter" << YELLOW << "     8. Sorcerer\n"
            << RESET
-           << RED << " 3. Rogue" << YELLOW << "       9. Bard\n\n"
+           << RED << " 3. Rogue" << YELLOW << "       9. Bard\n"
            << RESET
-           << YELLOW << " 4. Wizard" << RED << "     10. Monk\n\n"
+           << YELLOW << " 4. Wizard" << RED << "     10. Monk\n"
            << RESET
-           << RED << " 5. Barbarian" << CYAN << "  11. Ranger\n\n"
+           << RED << " 5. Barbarian" << CYAN << "  11. Ranger\n"
            << RESET
            << CYAN << " 6. Druid" << YELLOW << "      12. Warlock\n\n"
            << RESET;
@@ -875,17 +875,21 @@ bool Campaign::retrieveCharacter(ifstream &ins)
   static int charBackgroundProcessor;
   static Generic_Character_Class *v;
 
-  char this_version;
-  this_version = ins.get();
+  string this_version;
+
+  getline(ins, this_version);
+  // this_version = ins.get();
+
   cout << "version retrieved is: " << this_version << endl; 
-  if (this_version == buildNumber) {
+
+  if (this_version.compare(buildNumber) == 0) {
     cout << "Versions Match\n";
   } else {
     cout << "Versions Do Not Match\n";
   }
 
-  getline(ins, sbuffer); // the newline left over from ins.get()
-  getline(ins, sbuffer); // absorb the first line
+  // getline(ins, sbuffer); // the newline left over from ins.get()
+  getline(ins, sbuffer); // absorb the first line of "saved character: x"
 
   do
   {

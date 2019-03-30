@@ -13,7 +13,7 @@
 using namespace std;
 
 static int choice = 0;
-char buildNumber = '6'; 
+string buildNumber = "6"; // iterate with every new build release
 
 extern Campaign myGame;
 extern string mainMessage;
@@ -24,7 +24,7 @@ void other_tools();
 
 void menu()
 {
-  mainMessage = "Dungeon Master Power! (build:" + to_string(buildNumber) + ")";
+  mainMessage = "Dungeon Master Power! (build:" + buildNumber + ")";
   choice = 0;
   do
   {
