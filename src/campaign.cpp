@@ -32,10 +32,8 @@ void Campaign::pc_menu()
          << " 1. Build a New Character" << endl
          << " 2. View Characters" << endl
          << " 3. Edit a Character" << endl
-         << " 4. Delete a Character" << endl
-         << " 5. Delete All Characters" << endl
-         << " 6. Save Current Work" << endl
-         << " 7. ";
+         << " 4. Save Current Work" << endl
+         << " 5. ";
     if (loadSuccess)
     {
       cout << GREEN << loadedFile << RESET << " file loaded - " << RED << "UNLOAD?" << RESET << endl;
@@ -44,6 +42,10 @@ void Campaign::pc_menu()
     {
       cout << "Load a Saved File" << endl;
     }
+    
+
+    cout << " 6. Delete a Character" << endl;
+    cout << " 7. Delete All Characters" << endl;
     cout << " 8. Back to " << CYAN << "MAIN MENU" << RESET << endl;
     cout << GREEN << "----------------------------------------" << RESET << endl;
     choice = getNumber("Choice: ", 1, 8);
@@ -180,8 +182,9 @@ void Campaign::pc_menu()
         string valid_name;
         while (!found)
         {
-          cout << "Enter the character's " << GREEN << "NAME" << RESET << " whose character sheet you wish to view\n -> ";
+          cout << "VIEW: Enter the character's " << GREEN << "NAME" << RESET << " (leave blank to exit)\n->";
           getline(cin, valid_name);
+          if (valid_name.length() == 0) break;  //break out of while loop, still hits for loop below but wont find anything. todo: improve
           valid_name[0] = toupper(valid_name[0]);
           for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
           {
@@ -201,32 +204,31 @@ void Campaign::pc_menu()
           if (valid_name == (*it)->char_name)
           {
             (*it)->character_sheet();
+            pressEnterToContinue();
             break; //leave the loop if we found the name, no need to check more
           }
         }
       }
     }
-      pressEnterToContinue();
       break;
     case 3:
     { //EDIT/UPDATE CHARACTER
       if (character_list.size() < 1)
       {
         cout << "No characters to Edit. Create characters first.\n\n";
-
         pressEnterToContinue();
       }
       else
       {
         cout << "Current campaign characters:\n\n";
         showCampaignCharacterList();
-
         bool found = false;
         string valid_name;
         while (!found)
         {
-          cout << "Enter the " << CYAN << "Name" << RESET << " of Character you wish to edit: ";
+          cout << "EDIT: Enter the character's " << GREEN << "Name" << RESET << " (leave blank to exit)\n->";
           getline(cin, valid_name);
+          if (valid_name.length() == 0) break; //break out of while loop, still hits for loop below but wont find anything. todo: improve
           valid_name[0] = toupper(valid_name[0]);
           for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
           {
@@ -237,17 +239,33 @@ void Campaign::pc_menu()
           }
           if (!found)
             cout << "\nNo character named " << valid_name << ". List of Charcters:\n\n";
-          showCampaignCharacterList();
         }
         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
         {
-          if (valid_name == (*it)->char_name)
+          if (valid_name == (*it)->char_name) {
             (*it)->updateCharacter(*this);
+            break;
+          }
         }
       }
     }
     break;
     case 4:
+      save_file();
+      break;
+    case 5:
+      if (!loadSuccess)
+      {
+        load_file();
+      }
+      else
+      {
+        character_list.clear();
+        loadedFile = "";
+        loadSuccess = false;
+      }
+      break;
+    case 6:
     { //DELETE CHARACTER
       if (character_list.size() < 1)
       {
@@ -260,8 +278,9 @@ void Campaign::pc_menu()
         string tmp;
         do
         {
-          cout << "Enter the name of the PC to Delete(leave blank to exit function): ";
+          cout << "DELETE: Enter character's " << GREEN << "NAME" << RESET << " (leave blank to exit)\n->";
           getline(cin, tmp);
+          if (tmp.length() == 0) break; //break out of do-while loop
           tmp[0] = toupper(tmp[0]);
           for (list<Generic_Character_Class *>::iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
           {
@@ -277,7 +296,7 @@ void Campaign::pc_menu()
       }
     }
     break;
-    case 5:
+    case 7:
     { //DELETE ALL THE THINGS
       char sure = getYorN("Are you Sure you want to Delete All Player Characters?(y/n):");
       if (sure == 'Y')
@@ -291,21 +310,6 @@ void Campaign::pc_menu()
       }
     }
     break;
-    case 6:
-      save_file();
-      break;
-    case 7:
-      if (!loadSuccess)
-      {
-        load_file();
-      }
-      else
-      {
-        character_list.clear();
-        loadedFile = "";
-        loadSuccess = false;
-      }
-      break;
     default:
       break;
     }
