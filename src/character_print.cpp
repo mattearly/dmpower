@@ -1278,6 +1278,12 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Composite Plating, ";
   if (living_construct)
     cout << "Living Construct, ";
+  // changeling stuff
+  if (shapechanger)
+    cout << "Shapechanger, ";
+  // shifter stuff
+  if (shifting)
+    cout << "Shifting, ";
 
   cout << endl;
 }

@@ -499,6 +499,12 @@ public:
   bool composite_plating;
   bool living_construct;
 
+  //changeling
+  bool shapechanger;
+
+  //shifter
+  bool shifting;
+
   //RESISTANCES
   bool damage_resist_acid;
   bool damage_resist_ltg;

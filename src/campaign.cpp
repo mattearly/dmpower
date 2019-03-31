@@ -797,27 +797,27 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->stout_resilience << endl
         << (*it)->superior_darkvision << endl
         << (*it)->trance << endl
-
         //lizardfolk stuff
         << (*it)->lizardfolk_bite << endl
         << (*it)->cunning_artisan << endl
         << (*it)->hold_breath << endl
         << (*it)->natural_armor << endl
         << (*it)->hungry_jaws << endl
-
         //tabaxi stuff
         << (*it)->feline_agility << endl
         << (*it)->cats_claws << endl
-
         //triton stuff
         << (*it)->amphibious << endl
         << (*it)->control_air_and_water << endl
         << (*it)->emissary_of_the_sea << endl
         << (*it)->guardian_of_the_depths << endl
-
         //warforged stuff
         << (*it)->composite_plating << endl
         << (*it)->living_construct << endl
+        //changeling stuff
+        << (*it)->shapechanger << endl
+        //shifter stuff
+        << (*it)->shifting << endl
 
         << "resistances" << endl //resistances
         << (*it)->damage_resist_acid << endl
@@ -1483,6 +1483,10 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     //warforged stuff
     ins >> v->composite_plating;
     ins >> v->living_construct;
+    //changeling stuff
+    ins >> v->shapechanger;
+    //shifter stuff
+    ins >> v->shifting;
 
     if (debugRetrieve)
       cout << "character features set" << endl;

@@ -59,6 +59,23 @@ void Aasimar::setRaceDetails(Generic_Character_Class &v)
   }
   pressEnterToContinue();
 }
+void Changeling::setRaceDetails(Generic_Character_Class &v)
+{
+  v.dexterity++;
+  v.charisma++;
+  v.move_speed = 30;
+  v.deception = true;  //Duplicity
+  v.shapechanger = true;
+  v.common = true;
+  cout << "A Changeling! Gain:\n";
+  cout << "  + 1 Dexterity and Charisma\n";
+  cout << "  30ft Move Speed\n";
+  cout << "  Duplicity (deception prof)\n";
+  cout << "  Shapechanger\n";
+  cout << "  Common and two other languages\n";
+  v.setLanguage("First changeling Lang:\n\n");
+  v.setLanguage("Second changeling Lang:\n\n");
+}
 void Dragonborn::setRaceDetails(Generic_Character_Class &v)
 {
   v.strength += 2;
@@ -706,6 +723,49 @@ void Tabaxi::setRaceDetails(Generic_Character_Class &v)
   v.setLanguage("Tabaxi know one language of your choice.");
   pressEnterToContinue();
 }
+void Shifter::setRaceDetails(Generic_Character_Class &v)
+{
+  v.dexterity++;
+  v.move_speed = 30;
+  v.darkvision = true;
+  v.shifting = true;
+  v.common = true;
+  v.sylvan = true;
+  cout << "You are a Shifter! Gain:\n";
+  cout << "  +1 Dexterity\n";
+  cout << "  30ft Move Speed\n";
+  cout << "  Shifting\n";
+  cout << "  Common and Sylvan Languages\n";
+  cout << "What kind of shifter?\n\n";
+  cout << " 1. Beasthide\n";
+  cout << " 2. Cliffwalk\n";
+  cout << " 3. Longstride\n";
+  cout << " 4. Longtooth\n";
+  cout << " 5. Razorclaw\n";
+  cout << " 6. Wildhunt\n\n";
+  int ss = getNumber("Choice: ", 1, 6);
+  switch(ss){
+    case 1:
+      subr = BEASTHIDE;
+      break;
+    case 2:
+      subr = CLIFFWALK;
+      break;
+    case 3:
+      subr = LONGSTRIDE;
+      break;
+    case 4:
+      subr = LONGTOOTH;
+      break;
+    case 5:
+      subr = RAZORCLAW;
+      break;
+    case 6:
+      subr = WILDHUNT;
+      break;
+    default: break;
+  }
+}
 void Tiefling::setRaceDetails(Generic_Character_Class &v)
 {
   v.intelligence += 1;
@@ -807,7 +867,7 @@ void Warforged::setRaceDetails(Generic_Character_Class &v)
   cout << "  Composite Plating\n";
   cout << "  Living Construct\n";
   cout << "  Common Language and one of your choice\n";
-  v.setLanguage("Choose a language:");
+  v.setLanguage("Choose a language:\n\n");
   pressEnterToContinue();
 }
 
@@ -832,6 +892,10 @@ string Aasimar::getRaceString() const
     break;
   }
   return tmp + "Aasimar";
+}
+string Changeling::getRaceString() const
+{
+  return "Changeling";
 }
 string Dragonborn::getRaceString() const
 {
@@ -969,6 +1033,29 @@ string Kenku::getRaceString() const
 string Lizardfolk::getRaceString() const
 {
   return "Lizardfolk";
+}
+string Shifter::getRaceString() const
+{
+  string tmp = "";
+  switch(subr){
+  case BEASTHIDE:
+    tmp += "Beasthide ";
+    break;
+  case LONGSTRIDE:
+    tmp += "Cliffwalk ";
+    break;
+  case LONGTOOTH:
+    tmp += "Longtooth ";
+    break;
+  case RAZORCLAW:
+    tmp += "Razorclaw ";
+    break;
+  case WILDHUNT:
+    tmp += "Wildhunt ";
+    break;
+  default: break;
+  }
+  return tmp + "Shifter";
 }
 string Tabaxi::getRaceString() const
 {

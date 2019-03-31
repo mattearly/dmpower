@@ -28,6 +28,13 @@ public:
   virtual std::string getRaceString() const;
 };
 
+class Changeling : public Races
+{
+public:
+  virtual void setRaceDetails(Generic_Character_Class &v);
+  virtual std::string getRaceString() const;
+};
+
 class Dragonborn : public Races
 {
 public:
@@ -149,6 +156,23 @@ public:
 class Lizardfolk : public Races
 {
 public:
+  virtual void setRaceDetails(Generic_Character_Class &v);
+  virtual std::string getRaceString() const;
+};
+
+class Shifter : public Races
+{
+public:
+  enum shiftertype
+  {
+    NA,
+    BEASTHIDE,
+    CLIFFWALK,
+    LONGSTRIDE,
+    LONGTOOTH,
+    RAZORCLAW,
+    WILDHUNT
+  } subr;
   virtual void setRaceDetails(Generic_Character_Class &v);
   virtual std::string getRaceString() const;
 };

@@ -467,6 +467,8 @@ Generic_Character_Class::Generic_Character_Class()
   guardian_of_the_depths = 0;
   composite_plating = 0;
   living_construct = 0;
+  shapechanger = 0;
+  shifting = 0;
 }
 
 Generic_Character_Class::~Generic_Character_Class() {}
@@ -511,25 +513,27 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
   if (clearScreens)
     simpleClearScreen();
-  const int num_races = 17;
+  const int num_races = 19;
   cout << "Choose a Race for your Character:\n\n";
   cout << " 1. Aasimar\n";
-  cout << " 2. Dragonborn\n";
-  cout << " 3. Dwarf\n";
-  cout << " 4. Elf\n";
-  cout << " 5. Firbolg\n";
-  cout << " 6. Gnome\n";
-  cout << " 7. Goliath\n";
-  cout << " 8. Half-elf  \n";
-  cout << " 9. Halfing\n";
-  cout << " 10. Half-orc\n";
-  cout << " 11. Human\n";
-  cout << " 12. Kenku\n";
-  cout << " 13. Lizardfolk\n";
-  cout << " 14. Tabaxi\n";
-  cout << " 15. Tiefling\n";
-  cout << " 16. Triton\n";
-  cout << " 17. Warforged\n\n";
+  cout << " 2. Changeling\n";
+  cout << " 3. Dragonborn\n";
+  cout << " 4. Dwarf\n";
+  cout << " 5. Elf\n";
+  cout << " 6. Firbolg\n";
+  cout << " 7. Gnome\n";
+  cout << " 8. Goliath\n";
+  cout << " 9. Half-elf  \n";
+  cout << " 10. Halfing\n";
+  cout << " 11. Half-orc\n";
+  cout << " 12. Human\n";
+  cout << " 13. Kenku\n";
+  cout << " 14. Lizardfolk\n";
+  cout << " 15. Shifter\n";
+  cout << " 16. Tabaxi\n";
+  cout << " 17. Tiefling\n";
+  cout << " 18. Triton\n";
+  cout << " 19. Warforged\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
   switch (ss)
@@ -540,81 +544,91 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
     race = parent->getRaceString();
     break;
   case 2:
-    parent = new Dragonborn;
+    parent = new Changeling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 3:
-    parent = new Dwarf;
+    parent = new Dragonborn;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 4:
-    parent = new Elf;
+    parent = new Dwarf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 5:
-    parent = new Firbolg;
+    parent = new Elf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 6:
-    parent = new Gnome;
+    parent = new Firbolg;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 7:
-    parent = new Goliath;
+    parent = new Gnome;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 8:
-    parent = new Halfelf;
+    parent = new Goliath;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 9:
-    parent = new Halfling;
+    parent = new Halfelf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 10:
-    parent = new Halforc;
+    parent = new Halfling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 11:
-    parent = new Human;
+    parent = new Halforc;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 12:
-    parent = new Kenku;
+    parent = new Human;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 13:
-    parent = new Lizardfolk;
+    parent = new Kenku;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 14:
-    parent = new Tabaxi;
+    parent = new Lizardfolk;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 15:
-    parent = new Tiefling;
+    parent = new Shifter;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 16:
-    parent = new Triton;
+    parent = new Tabaxi;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 17:
+    parent = new Tiefling;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+    break;
+  case 18:
+    parent = new Triton;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+    break;
+  case 19:
     parent = new Warforged;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
