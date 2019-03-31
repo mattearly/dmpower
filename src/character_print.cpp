@@ -948,7 +948,7 @@ void Generic_Character_Class::printSpellSlots() const
 {
   if (spellcasting || pact_magic)
   {
-    cout << "\n->" << MAGENTA << " Spell Slots: " << RESET;
+    cout << "->" << MAGENTA << " Spell Slots: " << RESET;
     if (warlock_slot_level > 0)
       cout << "Warlock Slot Level(" << warlock_slot_level << ")";
     if (first_ss > 0)
@@ -1273,6 +1273,11 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Emissary of the Sea, ";
   if (guardian_of_the_depths)
     cout << "Guardian of the Depths, ";
+  // Warforged stuff
+  if (composite_plating)
+    cout << "Composite Plating, ";
+  if (living_construct)
+    cout << "Living Construct, ";
 
   cout << endl;
 }

@@ -3,6 +3,8 @@
 
 using namespace std;
 
+// Set Race Details for All Classes
+
 void Aasimar::setRaceDetails(Generic_Character_Class &v)
 {
   v.charisma += 2;
@@ -57,8 +59,6 @@ void Aasimar::setRaceDetails(Generic_Character_Class &v)
   }
   pressEnterToContinue();
 }
-
-//mutators
 void Dragonborn::setRaceDetails(Generic_Character_Class &v)
 {
   v.strength += 2;
@@ -291,7 +291,6 @@ void Firbolg::setRaceDetails(Generic_Character_Class &v)
           "  Languages(Common, Elvish, Giant)\n\n";
   pressEnterToContinue();
 }
-
 void Gnome::setRaceDetails(Generic_Character_Class &v)
 {
   v.intelligence += 2;
@@ -337,7 +336,6 @@ void Gnome::setRaceDetails(Generic_Character_Class &v)
   }
   pressEnterToContinue();
 }
-
 void Goliath::setRaceDetails(Generic_Character_Class &v)
 {
   v.strength += 2;
@@ -794,8 +792,28 @@ void Triton::setRaceDetails(Generic_Character_Class &v)
   cout << "  Guardian of the Depths (Cold Resistance + more)\n";
   pressEnterToContinue();
 }
+void Warforged::setRaceDetails(Generic_Character_Class &v)
+{
+  v.strength += 2;
+  v.constitution++;
+  v.move_speed = 30;
+  v.composite_plating = true; // +1 AC
+  v.living_construct = true; // immune to disease, no eat, no sleep
+  v.common = true;
+  cout << "You are a Warforged! Gain:\n";
+  cout << "  +2 Strength\n";
+  cout << "  +1 Constitution\n";
+  cout << "  30ft Move Speed\n";
+  cout << "  Composite Plating\n";
+  cout << "  Living Construct\n";
+  cout << "  Common Language and one of your choice\n";
+  v.setLanguage("Choose a language:");
+  pressEnterToContinue();
+}
 
-//accessors
+
+// Get Race String for All Classes
+
 string Aasimar::getRaceString() const
 {
   string tmp = "";
@@ -972,4 +990,8 @@ string Tiefling::getRaceString() const
 string Triton::getRaceString() const
 {
   return "Triton";
+}
+string Warforged::getRaceString() const
+{
+  return "Warforged";
 }

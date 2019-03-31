@@ -10,7 +10,6 @@
 using namespace std;
 
 extern bool clearScreens;
-
 extern bool quitBuilding;
 
 Generic_Character_Class::Generic_Character_Class()
@@ -466,6 +465,8 @@ Generic_Character_Class::Generic_Character_Class()
   control_air_and_water = 0;
   emissary_of_the_sea = 0;
   guardian_of_the_depths = 0;
+  composite_plating = 0;
+  living_construct = 0;
 }
 
 Generic_Character_Class::~Generic_Character_Class() {}
@@ -510,7 +511,7 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
   if (clearScreens)
     simpleClearScreen();
-  const int num_races = 16;
+  const int num_races = 17;
   cout << "Choose a Race for your Character:\n\n";
   cout << " 1. Aasimar\n";
   cout << " 2. Dragonborn\n";
@@ -527,7 +528,8 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
   cout << " 13. Lizardfolk\n";
   cout << " 14. Tabaxi\n";
   cout << " 15. Tiefling\n";
-  cout << " 16. Triton\n\n";
+  cout << " 16. Triton\n";
+  cout << " 17. Warforged\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
   switch (ss)
@@ -609,6 +611,11 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
     break;
   case 16:
     parent = new Triton;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+    break;
+  case 17:
+    parent = new Warforged;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
@@ -1740,9 +1747,7 @@ void Generic_Character_Class::increase1statby2()
 
 void Generic_Character_Class::setLandtype()
 {
-
   bool valid_choice = false;
-
   while (!valid_choice)
   {
     // show landtype menu

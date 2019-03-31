@@ -495,6 +495,10 @@ public:
   bool emissary_of_the_sea;
   bool guardian_of_the_depths;
 
+  // warforged
+  bool composite_plating;
+  bool living_construct;
+
   //RESISTANCES
   bool damage_resist_acid;
   bool damage_resist_ltg;

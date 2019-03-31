@@ -375,7 +375,6 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
   int charactercount = 0;
   for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
   {
-    // todo: save version considerations
     charactercount++;
     os
         << "saved character: " << charactercount << endl
@@ -815,6 +814,10 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->control_air_and_water << endl
         << (*it)->emissary_of_the_sea << endl
         << (*it)->guardian_of_the_depths << endl
+
+        //warforged stuff
+        << (*it)->composite_plating << endl
+        << (*it)->living_construct << endl
 
         << "resistances" << endl //resistances
         << (*it)->damage_resist_acid << endl
@@ -1477,6 +1480,9 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->control_air_and_water;
     ins >> v->emissary_of_the_sea;
     ins >> v->guardian_of_the_depths;
+    //warforged stuff
+    ins >> v->composite_plating;
+    ins >> v->living_construct;
 
     if (debugRetrieve)
       cout << "character features set" << endl;
