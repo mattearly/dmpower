@@ -46,7 +46,7 @@ void save_file()
       }
       std::getline(std::cin, file, '\n');
       reduce(file);
-      contains_non_alpha = file.find_first_not_of("abcdefghijklmnopqrstuvwxyz0123456789") != std::string::npos;
+      contains_non_alpha = file.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") != std::string::npos;
       done_first_pass = true;
     } while (contains_non_alpha);
   }
