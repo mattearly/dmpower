@@ -83,6 +83,9 @@ The core D&D data used in this program (so far) is from:
 * pending [The Tortle Package]()
 * pending [Mordenkain's Tome of Foes]()
 
-Trying to keep it based on offical stuff so that this program will be helpful for everyone and not become a mess of homebrew madness after a while.
+Trying to keep it based on offical stuff so that this program will be helpful for everyone. However there are some additional sources used.
+
+* [Kismet's Name List](http://www.dnd.kismetrose.com/MyCharacterNameList.html)
+* [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
 
 Programmers as accredited in the commit history and contributers file - mostly me but its always nice to have help and I will accept some modifications on a case by case basis if they align with the overall goal of dmpower. See the [CONTRIBUTING](CONTRIBUTING.md) file for more information on how you can help with the code, and of course, feel free to correct or report any typos or issues you find.
