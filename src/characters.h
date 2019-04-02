@@ -400,6 +400,7 @@ public:
 
   //LANGUAGES
   bool abyssal;
+  bool aquan;
   bool auran;
   bool celestial;
   bool common;
@@ -481,7 +482,7 @@ public:
   // lizardfolk
   bool lizardfolk_bite;
   bool cunning_artisan;
-  int hold_breath;
+  int hold_breath;  //and tortle
   int natural_armor;
   bool hungry_jaws;
 
@@ -504,6 +505,16 @@ public:
 
   //shifter
   bool shifting;
+
+  //tortle
+  bool shell;
+  bool retreat_to_shell;
+  bool turtle_snapper;
+  bool razorback;
+  bool razor_fist;
+  bool softshell;
+  bool nomad;
+  bool shell_master;
 
   //RESISTANCES
   bool damage_resist_acid;

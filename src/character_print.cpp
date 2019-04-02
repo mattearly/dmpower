@@ -1284,16 +1284,33 @@ void Generic_Character_Class::printOtherAbilities() const
   // shifter stuff
   if (shifting)
     cout << "Shifting, ";
+  // tortle package stuff
+  if (shell)
+    cout << "Shell, ";
+  if (retreat_to_shell)
+    cout << "Retreat to Shell, ";
+  if (turtle_snapper)
+    cout << "Turtle Snapper, ";
+  if (razorback)
+    cout << "Razorback, ";
+  if (softshell)
+    cout << "Softshell, ";
+  if (nomad)
+    cout << "Nomad, ";
+  if (shell_master)
+    cout << "Shell Master, ";
 
   cout << endl;
 }
 void Generic_Character_Class::printLangs() const
 {
   cout << "->" << CYAN << " Languages: " << RESET;
-  if (auran)
-    cout << "Auran, ";
   if (abyssal)
     cout << "Abyssal, ";
+  if (aquan)
+    cout << "Aquan, ";
+  if (auran)
+    cout << "Auran, ";
   if (celestial)
     cout << "Celestial, ";
   if (common)

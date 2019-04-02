@@ -831,6 +831,58 @@ void Tiefling::setRaceDetails(Generic_Character_Class &v)
 
   pressEnterToContinue();
 }
+void Tortle::setRaceDetails(Generic_Character_Class &v)
+{
+  v.constitution++;
+  v.wisdom++;
+  v.move_speed = 25;
+  v.swim_speed = 30;
+  v.shell = true; // 13 ac + con mod
+  v.hold_breath = 60;
+  v.retreat_to_shell = true;
+  v.turtle_snapper = true;
+  v.common = true;
+  v.aquan = true;
+  cout << "A Tortle! Oh Shell No. Gain:\n";
+  cout << "  +1 Constitution & Wisdom\n";
+  cout << "  25ft Move Speed\n";
+  cout << "  30ft Swim Speed\n";
+  cout << "  Shell\n";
+  cout << "  Hold Breath(60 mins)\n";
+  cout << "  Retreat to Shell\n";
+  cout << "  Turtle Snapper\n";
+  cout << "  Common and Aquan Languages\n";
+  cout << "Pick a Shell Type:\n\n";
+  cout << " 1. Razorback\n";
+  cout << " 2. Softshell\n";
+  cout << " 3. Desert\n\n";
+  int ss = getNumber("Choice", 1, 3);
+  switch(ss) {
+  case 1:
+    subr = RAZORBACK;
+    v.strength++;
+    v.razorback = true;
+    v.razor_fist = true;
+    break;
+  case 2:
+    subr = SOFTSHELL;
+    v.wisdom++;
+    v.shell = false;
+    v.retreat_to_shell = false;
+    v.softshell = true; //13 ac + dex mod
+    v.move_speed = 30;  // tortle agility
+    v.swim_speed = 40;  // tortle agility
+    break;
+  case 3:
+    subr = DESERT;
+    v.constitution++;
+    v.nomad = true;
+    v.survival = true; //from nomad
+    v.shell_master = true;
+    break;
+  default: break;
+  }
+}
 void Triton::setRaceDetails(Generic_Character_Class &v)
 {
   v.strength++;
@@ -1073,6 +1125,24 @@ string Tiefling::getRaceString() const
     break;
   }
   return tmp + "Tiefling";
+}
+string Tortle::getRaceString() const
+{
+  string tmp = "";
+  switch (subr)
+  {
+    case RAZORBACK:
+    tmp += "Razorback ";
+    break;
+    case SOFTSHELL:
+    tmp += "Softshell ";
+    break;
+    case DESERT:
+    tmp += "Desert ";
+    break;
+    default: break;
+  }
+  return tmp + "Tortle";
 }
 string Triton::getRaceString() const
 {

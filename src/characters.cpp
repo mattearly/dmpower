@@ -246,6 +246,7 @@ Generic_Character_Class::Generic_Character_Class()
   svirfneblin_magic = 0;
   auran = 0;
   abyssal = 0;
+  aquan = 0;
   celestial = 0;
   common = 0;
   deep_speech = 0;
@@ -469,6 +470,14 @@ Generic_Character_Class::Generic_Character_Class()
   living_construct = 0;
   shapechanger = 0;
   shifting = 0;
+  shell = 0;
+  retreat_to_shell = 0;
+  turtle_snapper = 0;
+  razorback = 0;
+  razor_fist = 0;
+  softshell = 0;
+  nomad = 0;
+  shell_master = 0;
 }
 
 Generic_Character_Class::~Generic_Character_Class() {}
@@ -513,7 +522,7 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
   if (clearScreens)
     simpleClearScreen();
-  const int num_races = 19;
+  const int num_races = 20;
   cout << "Choose a Race for your Character:\n\n";
   cout << " 1. Aasimar\n";
   cout << " 2. Changeling\n";
@@ -532,8 +541,9 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
   cout << " 15. Shifter\n";
   cout << " 16. Tabaxi\n";
   cout << " 17. Tiefling\n";
-  cout << " 18. Triton\n";
-  cout << " 19. Warforged\n\n";
+  cout << " 18. Tortle\n";
+  cout << " 19. Triton\n";
+  cout << " 20. Warforged\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
   switch (ss)
@@ -624,11 +634,16 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
     race = parent->getRaceString();
     break;
   case 18:
-    parent = new Triton;
+    parent = new Tortle;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 19:
+    parent = new Triton;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+    break;
+  case 20:
     parent = new Warforged;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
@@ -1174,10 +1189,14 @@ void Generic_Character_Class::setLanguage(const string &message)
     else
       cout << " 17 - Sylvan\n";
     if (undercommon)
-      cout << " 18 - Undercommon(Already Known)\n\n";
+      cout << " 18 - Undercommon(Already Known)\n";
     else
-      cout << " 18 - Undercommon\n\n";
-    int ss = getNumber("Language Choice: ", 1, 18);
+      cout << " 18 - Undercommon\n";
+    if (aquan)
+      cout << " 19 - Aquan(Already Knwon)\n\n";
+    else
+      cout << " 19 - Aquan\n\n";
+    int ss = getNumber("Language Choice: ", 1, 19);
     if (ss == 1 && auran == 0)
     {
       auran = true;
@@ -1284,6 +1303,12 @@ void Generic_Character_Class::setLanguage(const string &message)
     {
       undercommon = true;
       cout << "Undercommon Language learned!\n";
+      success = 1;
+    }
+    if (ss == 19 && aquan == 0)
+    {
+      aquan = true;
+      cout << "Aquan Language learned!\n";
       success = 1;
     }
     if (success == 0)

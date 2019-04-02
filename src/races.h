@@ -196,6 +196,19 @@ public:
   virtual std::string getRaceString() const;
 };
 
+class Tortle : public Races
+{
+public:
+  enum tortletype {
+    NA,
+    RAZORBACK,
+    SOFTSHELL,
+    DESERT
+  } subr;
+  virtual void setRaceDetails(Generic_Character_Class &v);
+  virtual std::string getRaceString() const;
+};
+
 class Triton : public Races
 {
 public:

@@ -724,8 +724,9 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->war_caster << endl
         << (*it)->weapon_master << endl
         << "languages" << endl //languages
-        << (*it)->auran << endl
         << (*it)->abyssal << endl
+        << (*it)->aquan << endl
+        << (*it)->auran << endl
         << (*it)->celestial << endl
         << (*it)->common << endl
         << (*it)->deep_speech << endl
@@ -822,6 +823,16 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->shapechanger << endl
         //shifter stuff
         << (*it)->shifting << endl
+        //tortle stuff
+        << (*it)->shell << endl
+        << (*it)->hold_breath << endl
+        << (*it)->retreat_to_shell << endl
+        << (*it)->turtle_snapper << endl
+        << (*it)->razorback << endl
+        << (*it)->razor_fist << endl
+        << (*it)->softshell << endl
+        << (*it)->nomad << endl
+        << (*it)->shell_master << endl
 
         << "resistances" << endl //resistances
         << (*it)->damage_resist_acid << endl
@@ -1386,8 +1397,9 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //languages
     getline(ins, sbuffer);
 
-    ins >> v->auran;
     ins >> v->abyssal;
+    ins >> v->aquan;
+    ins >> v->auran;
     ins >> v->celestial;
     ins >> v->common;
     ins >> v->deep_speech;
@@ -1491,6 +1503,15 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->shapechanger;
     //shifter stuff
     ins >> v->shifting;
+    //tortle
+    ins >> v->shell;
+    ins >> v->retreat_to_shell;
+    ins >> v->turtle_snapper;
+    ins >> v->razorback;
+    ins >> v->razor_fist;
+    ins >> v->softshell;
+    ins >> v->nomad;
+    ins >> v->shell_master;
 
     if (debugRetrieve)
       cout << "character features set" << endl;
