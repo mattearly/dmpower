@@ -404,6 +404,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->warlocklevelupmenus << endl
 
         << (*it)->backgroundofpc << endl
+
         << (*it)->move_speed << endl
         << (*it)->fly_speed << endl
         << (*it)->swim_speed << endl
@@ -783,6 +784,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->hidden_step << endl
         << (*it)->hellfire << endl
         << (*it)->hellish_resistance << endl
+        << (*it)->hold_breath << endl
         << (*it)->infernal_legacy << endl
         << (*it)->light_bearer << endl
         << (*it)->mask_of_the_wild << endl
@@ -805,7 +807,6 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         //lizardfolk stuff
         << (*it)->lizardfolk_bite << endl
         << (*it)->cunning_artisan << endl
-        << (*it)->hold_breath << endl
         << (*it)->natural_armor << endl
         << (*it)->hungry_jaws << endl
         //tabaxi stuff
@@ -825,7 +826,6 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->shifting << endl
         //tortle stuff
         << (*it)->shell << endl
-        << (*it)->hold_breath << endl
         << (*it)->retreat_to_shell << endl
         << (*it)->turtle_snapper << endl
         << (*it)->razorback << endl
@@ -958,6 +958,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
 
     getline(ins, v->alignment);
     ins >> v->level;
+
     ins >> v->clericlevelupmenus;
     ins >> v->fighterlevelupmenus;
     ins >> v->roguelevelupmenus;
@@ -1463,6 +1464,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->hidden_step;
     ins >> v->hellfire;
     ins >> v->hellish_resistance;
+    ins >> v->hold_breath;
     ins >> v->infernal_legacy;
     ins >> v->light_bearer;
     ins >> v->mask_of_the_wild;
@@ -1485,7 +1487,6 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     //lizardfolk stuff
     ins >> v->lizardfolk_bite;
     ins >> v->cunning_artisan;
-    ins >> v->hold_breath;
     ins >> v->natural_armor;
     ins >> v->hungry_jaws;
     //tabaxi stuff
@@ -1519,6 +1520,8 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     // ins.ignore(numeric_limits<streamsize>::max(), '\n'); //resistances
     getline(ins, sbuffer);
+
+    /// TODO: STOPS LOADING HERE
 
     ins >> v->damage_resist_acid;
     ins >> v->damage_resist_ltg;
