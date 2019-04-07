@@ -63,15 +63,15 @@ So here I am now, still working on this piece of software.
 
 # Support
 
-Hey you got this far, thank you for your intrest! If you'd like to help progress this program, consider donating to help keep the lights on. Also, sharing and using the program helps out too, so feel free to let your D&D friends know about it.
+Hey you got this far, thank you for your intrest! If you'd like to help compensate me the immense amount of time I spent/spend on this, consider donating to help keep the lights on.
 
 - [![donate/PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/mattearly) 
 
-Any donations will go towards finding and funding time to continue work on this project. The more support I can get the faster this toolkit can advance. This will include improvements, more additions, and more attention.
+Any donations will go towards finding and funding time and is not in any way for the content, you'll need the books to figure out what all the stuff is (or [DnDBeyond](https://www.dndbeyond.com/)).
 
 # Credits
 
-The core D&D data used in this program (so far) is from:
+The lists and logic D&D data used in this program (so far) are from:
 
 * [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook)
 * [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide)
@@ -80,8 +80,9 @@ The core D&D data used in this program (so far) is from:
 * [Wayfinder's Guide to Eberron](https://www.dmsguild.com/product/247882/wayfinders-guide-to-eberron-5e)
 * pending [Xanathar's Guide to Everything]()
 * pending [Guildmaster's Guide to Ravnica]()
-* pending [The Tortle Package]()
+* [The Tortle Package](https://www.dmsguild.com/product/221716/Tortle-Package-5e)
 * pending [Mordenkain's Tome of Foes]()
+* [Elemental Guide of Evil](https://www.dmsguild.com/product/145542/Elemental-Evil-Players-Companion-5e)
 
 Trying to keep it based on offical stuff so that this program will be helpful for everyone. However there are some additional sources used.
 
