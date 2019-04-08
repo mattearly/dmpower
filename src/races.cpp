@@ -3,8 +3,26 @@
 
 using namespace std;
 
-// Set Race Details for All Classes
-
+//--------------- setRaceDetails functions --------------//
+void Aarakocra::setRaceDetails(Generic_Character_Class &v)
+{
+  v.dexterity += 2;
+  v.wisdom++;
+  v.move_speed = 25;
+  v.fly_speed = 50;
+  v.talons = true;
+  v.common = true;
+  v.aarakocra = true;
+  v.auran = true;
+  cout << "caww cawww caww. Aarakocra gain:\n";
+  cout << "  +2 Dexterity\n";
+  cout << "  +1 Wisdom\n";
+  cout << "  25ft move speed\n";
+  cout << "  50ft fly speed\n";
+  cout << "  Talons\n";
+  cout << "  Common, Aarakocra, and Auran Languages\n";
+  pressEnterToContinue();
+}
 void Aasimar::setRaceDetails(Generic_Character_Class &v)
 {
   v.charisma += 2;
@@ -937,8 +955,13 @@ void Warforged::setRaceDetails(Generic_Character_Class &v)
   pressEnterToContinue();
 }
 
-// Get Race String for All Classes
 
+///--------- getRaceString functions ----------//
+
+string Aarakocra::getRaceString() const
+{
+  return "Aarakocra";
+}
 string Aasimar::getRaceString() const
 {
   string tmp = "";

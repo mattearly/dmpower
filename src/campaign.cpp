@@ -838,6 +838,8 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->softshell << endl
         << (*it)->nomad << endl
         << (*it)->shell_master << endl
+        //aarakocra stuff
+        << (*it)->talons << endl
 
         << "resistances" << endl //resistances
         << (*it)->damage_resist_acid << endl
@@ -1521,6 +1523,8 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->softshell;
     ins >> v->nomad;
     ins >> v->shell_master;
+    //Aarakocra stuff
+    ins >> v->talons;
 
     if (debugRetrieve)
       cout << "character features set" << endl;

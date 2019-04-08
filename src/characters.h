@@ -399,6 +399,7 @@ public:
   bool svirfneblin_magic;
 
   //LANGUAGES
+  bool aarakocra;
   bool abyssal;
   bool aquan;
   bool auran;
@@ -478,34 +479,27 @@ public:
   bool stout_resilience;
   bool superior_darkvision;
   bool trance;
-
   // lizardfolk
   bool lizardfolk_bite;
   bool cunning_artisan;
   int hold_breath;  //and tortle
   int natural_armor;
   bool hungry_jaws;
-
   // tabaxi
   bool feline_agility;
   bool cats_claws;
-
   // triton
   bool amphibious;
   bool control_air_and_water;
   bool emissary_of_the_sea;
   bool guardian_of_the_depths;
-
   // warforged
   bool composite_plating;
   bool living_construct;
-
   //changeling
   bool shapechanger;
-
   //shifter
   bool shifting;
-
   //tortle
   bool shell;
   bool retreat_to_shell;
@@ -515,6 +509,8 @@ public:
   bool softshell;
   bool nomad;
   bool shell_master;
+  //aarakocra
+  bool talons;
 
   //RESISTANCES
   bool damage_resist_acid;

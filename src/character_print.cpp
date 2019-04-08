@@ -1299,12 +1299,17 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Nomad, ";
   if (shell_master)
     cout << "Shell Master, ";
+  //aarakocra stuff
+  if (talons)
+    cout << "Talons, ";
 
   cout << endl;
 }
 void Generic_Character_Class::printLangs() const
 {
   cout << "->" << CYAN << " Languages: " << RESET;
+  if (aarakocra)
+    cout << "Aarakocra, ";
   if (abyssal)
     cout << "Abyssal, ";
   if (aquan)

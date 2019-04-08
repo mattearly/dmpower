@@ -14,6 +14,13 @@ public:
   virtual std::string getRaceString() const = 0;
 };
 
+class Aarakocra : public Races
+{
+public:
+  virtual void setRaceDetails(Generic_Character_Class &v);
+  virtual std::string getRaceString() const;
+};
+
 class Aasimar : public Races
 {
 public:
