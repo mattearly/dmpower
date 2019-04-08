@@ -69,8 +69,10 @@ void Campaign::pc_menu()
            << RESET
            << CYAN << " 6. Druid" << YELLOW << "      12. Warlock\n\n"
            << RESET;
-      int select_class = getNumber("Your Class Choice(1-12): ", 1, 12);
-      int starting_level = getNumber("\nStarting Character Level(1-20): ", 1, 20);
+      int select_class = getNumberOrQ(1, 12);
+      if (select_class == -1)
+        return;
+      int starting_level = getNumber("Starting Level(1-20): ", 1, 20);
 
       if (clearScreens)
         simpleClearScreen();
