@@ -28,10 +28,25 @@ std::string toString(const T &a)
   return tmp;
 }
 
-int randomNumber(const int &, const int &);
+/** Returns an integer result from start to end
+ * @param start the bottom of the possibility of the random result
+ * @param end the top end possibility of the random result
+ */
+int randomNumber(const int &start, const int &end);
 
+/** Prompts the user with the custom message for a number between a and b
+ * @param message Message given to the end user every prompt including retrys
+ * @param a Lower end of the valid numbers accepted. Must be less than b.
+ * @param b Higher end of the valid numbers accepted. Must be greater than a.
+ * @return the valid user choice
+ */
 int getNumber(const std::string &message, const int &a, const int &b);
 
+/** Waits for the user to enter a number between a and b
+ * @param a Lower end of the valid numbers accepted. Must be less than b.
+ * @param b Higher end of the valid numbers accepted. Must be greater than a.
+ * @return the valid user choice
+ */
 int getNumber(const int &a, const int &b);
 
 template <class T>

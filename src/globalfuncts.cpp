@@ -110,6 +110,9 @@ int rollstats_standard()
 
 int randomNumber(const int &start, const int &end)
 {
+  if (start >= end) {
+    throw std::invalid_argument("start must be less end end.");
+  }
   std::uniform_int_distribution<int> totalroll(start, end);
   return totalroll(mgen);
 }
@@ -121,9 +124,6 @@ int getAbilityMod(const int &ability)
   return mod;
 }
 
-/// getNumber provides a 'message' to the user via console and
-/// continues prompting for a integer 'user_input' such that  'a <= user_input <= b'
-/// doesn't work with negative numbers as -1 is the flag for certainly invalid input
 int getNumber(const std::string &message, const int &a, const int &b)
 {
   bool tried_once = false;
@@ -167,8 +167,6 @@ int getNumber(const std::string &message, const int &a, const int &b)
   return user_input;
 }
 
-/// continues prompting for a integer 'user_input' such that  'a <= user_input <= b'
-/// doesn't work with negative numbers as -1 is the flag for certainly invalid input
 int getNumber(const int &a, const int &b)
 {
   bool tried_once = false;
