@@ -42,7 +42,6 @@ void Campaign::pc_menu()
     {
       cout << "Load a Saved File" << endl;
     }
-    
 
     cout << " 6. Delete a Character" << endl;
     cout << " 7. Delete All Characters" << endl;
@@ -184,7 +183,8 @@ void Campaign::pc_menu()
         {
           cout << "VIEW: Enter the character's " << GREEN << "NAME" << RESET << " (leave blank to exit)\n->";
           getline(cin, valid_name);
-          if (valid_name.length() == 0) break;  //break out of while loop, still hits for loop below but wont find anything. todo: improve
+          if (valid_name.length() == 0)
+            break; //break out of while loop, still hits for loop below but wont find anything. todo: improve
           valid_name[0] = toupper(valid_name[0]);
           for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
           {
@@ -210,7 +210,7 @@ void Campaign::pc_menu()
         }
       }
     }
-      break;
+    break;
     case 3:
     { //EDIT/UPDATE CHARACTER
       if (character_list.size() < 1)
@@ -228,7 +228,8 @@ void Campaign::pc_menu()
         {
           cout << "EDIT: Enter the character's " << GREEN << "Name" << RESET << " (leave blank to exit)\n->";
           getline(cin, valid_name);
-          if (valid_name.length() == 0) break; //break out of while loop, still hits for loop below but wont find anything. todo: improve
+          if (valid_name.length() == 0)
+            break; //break out of while loop, still hits for loop below but wont find anything. todo: improve
           valid_name[0] = toupper(valid_name[0]);
           for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
           {
@@ -242,7 +243,8 @@ void Campaign::pc_menu()
         }
         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
         {
-          if (valid_name == (*it)->char_name) {
+          if (valid_name == (*it)->char_name)
+          {
             (*it)->updateCharacter(*this);
             break;
           }
@@ -280,7 +282,8 @@ void Campaign::pc_menu()
         {
           cout << "DELETE: Enter character's " << GREEN << "NAME" << RESET << " (leave blank to exit)\n->";
           getline(cin, tmp);
-          if (tmp.length() == 0) break; //break out of do-while loop
+          if (tmp.length() == 0)
+            break; //break out of do-while loop
           tmp[0] = toupper(tmp[0]);
           for (list<Generic_Character_Class *>::iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
           {
@@ -780,21 +783,16 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->fleet_of_foot << endl
         << (*it)->halflinglucky << endl
         << (*it)->halfling_nimbleness << endl
-        << (*it)->healing_hands << endl
         << (*it)->hidden_step << endl
         << (*it)->hellfire << endl
         << (*it)->hellish_resistance << endl
         << (*it)->hold_breath << endl
         << (*it)->infernal_legacy << endl
-        << (*it)->light_bearer << endl
         << (*it)->mask_of_the_wild << endl
         << (*it)->mimicry << endl
         << (*it)->natural_illusionist << endl
         << (*it)->naturally_stealthy << endl
-        << (*it)->necrotic_shroud << endl
         << (*it)->powerful_build << endl
-        << (*it)->radiant_consumption << endl
-        << (*it)->radiant_soul << endl
         << (*it)->silent_speech << endl
         << (*it)->speak_with_small_beasts << endl
         << (*it)->speech_of_beast_and_leaf << endl
@@ -804,6 +802,13 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->stout_resilience << endl
         << (*it)->superior_darkvision << endl
         << (*it)->trance << endl
+        //aasimar stuff
+        << (*it)->healing_hands << endl
+
+        << (*it)->light_bearer << endl
+        << (*it)->necrotic_shroud << endl
+        << (*it)->radiant_consumption << endl
+        << (*it)->radiant_soul << endl
         //lizardfolk stuff
         << (*it)->lizardfolk_bite << endl
         << (*it)->cunning_artisan << endl
@@ -898,17 +903,19 @@ bool Campaign::retrieveCharacter(ifstream &ins)
   getline(ins, this_version);
   // this_version = ins.get();
 
-  cout << "version retrieved is: " << this_version << endl; 
+  cout << "version retrieved is: " << this_version << endl;
 
-  if (this_version.compare(buildNumber) == 0) {
+  if (this_version.compare(buildNumber) == 0)
+  {
     cout << "Versions Match\n";
-  } else {
+  }
+  else
+  {
     cout << "Versions Do Not Match\n";
   }
 
-  // getline(ins, sbuffer); // the newline left over from ins.get()
   getline(ins, sbuffer); // absorb the first line of "saved character: x"
-
+  
   do
   {
     // int len = ins.tellg(); //get current position
@@ -1460,21 +1467,16 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->fleet_of_foot;
     ins >> v->halflinglucky;
     ins >> v->halfling_nimbleness;
-    ins >> v->healing_hands;
     ins >> v->hidden_step;
     ins >> v->hellfire;
     ins >> v->hellish_resistance;
     ins >> v->hold_breath;
     ins >> v->infernal_legacy;
-    ins >> v->light_bearer;
     ins >> v->mask_of_the_wild;
     ins >> v->mimicry;
     ins >> v->natural_illusionist;
     ins >> v->naturally_stealthy;
-    ins >> v->necrotic_shroud;
     ins >> v->powerful_build;
-    ins >> v->radiant_consumption;
-    ins >> v->radiant_soul;
     ins >> v->silent_speech;
     ins >> v->speak_with_small_beasts;
     ins >> v->speech_of_beast_and_leaf;
@@ -1484,6 +1486,12 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->stout_resilience;
     ins >> v->superior_darkvision;
     ins >> v->trance;
+    //aasimar stuff
+    ins >> v->healing_hands;
+    ins >> v->light_bearer;
+    ins >> v->necrotic_shroud;
+    ins >> v->radiant_consumption;
+    ins >> v->radiant_soul;
     //lizardfolk stuff
     ins >> v->lizardfolk_bite;
     ins >> v->cunning_artisan;
