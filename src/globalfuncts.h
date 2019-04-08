@@ -49,6 +49,10 @@ int getNumber(const std::string &message, const int &a, const int &b);
  */
 int getNumber(const int &a, const int &b);
 
+/** Calculates the ability modifier of a start ready for printing
+ * @param a the original stat
+ * @return a string of the modifier with a + or - prepended accordingly
+ */
 template <class T>
 std::string D_D_Ability_Modifier(const T &a)
 {
@@ -81,35 +85,50 @@ int getAbilityMod(const int &);
 
 void simpleClearScreen();
 
-/** show end user the message and accepts a 'y' or 'n' (or capital versions of)  character from the input stream. Will keep repeating until valid input is given.
+/** show end user the message and accepts a 'y' or 'n' (or capital versions of)  
+ * character from the input stream. Will keep repeating until valid input is given.
  * @param message output message to end user before input prompt
- * return character 'Y' or 'N' based on user's answer
+ * @return character 'Y' or 'N' based on user's answer
  */
 char getYorN(const std::string &message);
 
-/** show end user the message and accepts a 'y' or 'r' (or capital versions of)  character from the input stream. Will keep repeating until valid input is given.
+/** show end user the message and accepts a 'y' or 'r' (or capital versions of)  
+ * character from the input stream. Will keep repeating until valid input is given.
  * @param message output message to end user before input prompt
- * character 'Y' or 'R' based on user's answer
+ * @return character 'Y' or 'R' based on user's answer
  */
 char getYorR(const std::string &message);
 
-/** 'yes' or 'retry' or 'quit' - show end user the message and accepts a 'y' or 'r' or 'q' (or capital versions of) character from the input stream. 
+/** 'yes' or 'retry' or 'quit' - show end user the message and 
+ * accepts a 'y' or 'r' or 'q' (or capital versions of) character from the input stream. 
  * Will keep repeating until valid input is given.
  * @param message output message to end user before input prompt
- * character 'Y' or 'R' or 'Q' based on user's answer
+ * @return character 'Y' or 'R' or 'Q' based on user's answer
  */
 char getAorRorQ(const std::string &message);
 
+/** flow control. used to halt the continuation of scrolling, program continues after a newline entry
+ */
 void pressEnterToContinue();
 
+/** rolls 4d6 drop lowest
+ * @return result of highest 3d6 of the 4d6
+ */
 int rollstats_hi_power();
 
+/** rolls 3d6
+ * @return result of the 3d6 roll
+ */
 int rollstats_standard();
 
-//Trims whitespace - from http://stackoverflow.com/questions/1798112/removing-leading-and-trailing-spaces-from-a-string
+/** Trims whitespace
+ * from http://stackoverflow.com/questions/1798112/removing-leading-and-trailing-spaces-from-a-string
+ */
 std::string trim(const std::string &str, const std::string &whitespace = " \t");
 
-//Reduces whitespace - from http://stackoverflow.com/questions/1798112/removing-leading-and-trailing-spaces-from-a-string
+/** Reduces whitespace
+ * from http://stackoverflow.com/questions/1798112/removing-leading-and-trailing-spaces-from-a-string
+ */
 std::string reduce(const std::string &str,
                    const std::string &fill = " ",
                    const std::string &whitespace = " \t");
