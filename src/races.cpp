@@ -64,7 +64,7 @@ void Changeling::setRaceDetails(Generic_Character_Class &v)
   v.dexterity++;
   v.charisma++;
   v.move_speed = 30;
-  v.deception = true;  //Duplicity
+  v.deception = true; //Duplicity
   v.shapechanger = true;
   v.common = true;
   cout << "A Changeling! Gain:\n";
@@ -81,8 +81,8 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
   v.strength += 2;
   v.charisma++;
   v.move_speed = 30;
-  v.draconic = 1;
-  v.common = 1;
+  v.draconic = true;
+  v.common = true;
   cout << "->Dragonborn defaults & bonuses applied:\n +2 STR, +1 CHA, 30ft Move, & Languages(Common, Draconic)\n\n";
   cout << "Pick a type of Draconic Ancestry:\n\n"
        << " 1. Black    6. Gold"
@@ -93,6 +93,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
   int ss = getNumber("Enter a number to choose(1-10): ", 1, 10);
   if (ss == 1)
   {
+    dragcolor = BLACK;
     v.draconic_ancestry_black = true;
     v.breath_weapon_acid = true;
     v.damage_resist_acid = true;
@@ -100,6 +101,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
   }
   else if (ss == 2)
   {
+    dragcolor = BLUE;
     v.draconic_ancestry_blue = true;
     v.breath_weapon_ltg = true;
     v.damage_resist_ltg = true;
@@ -107,6 +109,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
   }
   else if (ss == 3)
   {
+    dragcolor = BRASS;
     v.draconic_ancestry_brass = true;
     v.breath_weapon_fire = true;
     v.damage_resist_fire = true;
@@ -114,6 +117,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
   }
   else if (ss == 4)
   {
+    dragcolor = BRONZE;
     v.draconic_ancestry_bronze = true;
     v.breath_weapon_ltg = true;
     v.damage_resist_ltg = true;
@@ -121,6 +125,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
   }
   else if (ss == 5)
   {
+    dragcolor = COPPER;
     v.draconic_ancestry_copper = true;
     v.breath_weapon_acid = true;
     v.damage_resist_acid = true;
@@ -128,6 +133,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
   }
   else if (ss == 6)
   {
+    dragcolor = GOLD;
     v.draconic_ancestry_gold = true;
     v.breath_weapon_fire = true;
     v.damage_resist_fire = true;
@@ -135,6 +141,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
   }
   else if (ss == 7)
   {
+    dragcolor = GREEN;
     v.draconic_ancestry_green = true;
     v.breath_weapon_poison = true;
     v.damage_resist_poison = true;
@@ -142,6 +149,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
   }
   else if (ss == 8)
   {
+    dragcolor = RED;
     v.draconic_ancestry_red = true;
     v.breath_weapon_fire = true;
     v.damage_resist_fire = true;
@@ -149,6 +157,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
   }
   else if (ss == 9)
   {
+    dragcolor = SILVER;
     v.draconic_ancestry_silver = true;
     v.breath_weapon_cold = true;
     v.damage_resist_cold = true;
@@ -156,6 +165,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
   }
   else if (ss == 10)
   {
+    dragcolor = WHITE;
     v.draconic_ancestry_white = true;
     v.breath_weapon_cold = true;
     v.damage_resist_cold = true;
@@ -744,26 +754,28 @@ void Shifter::setRaceDetails(Generic_Character_Class &v)
   cout << " 5. Razorclaw\n";
   cout << " 6. Wildhunt\n\n";
   int ss = getNumber("Choice: ", 1, 6);
-  switch(ss){
-    case 1:
-      subr = BEASTHIDE;
-      break;
-    case 2:
-      subr = CLIFFWALK;
-      break;
-    case 3:
-      subr = LONGSTRIDE;
-      break;
-    case 4:
-      subr = LONGTOOTH;
-      break;
-    case 5:
-      subr = RAZORCLAW;
-      break;
-    case 6:
-      subr = WILDHUNT;
-      break;
-    default: break;
+  switch (ss)
+  {
+  case 1:
+    subr = BEASTHIDE;
+    break;
+  case 2:
+    subr = CLIFFWALK;
+    break;
+  case 3:
+    subr = LONGSTRIDE;
+    break;
+  case 4:
+    subr = LONGTOOTH;
+    break;
+  case 5:
+    subr = RAZORCLAW;
+    break;
+  case 6:
+    subr = WILDHUNT;
+    break;
+  default:
+    break;
   }
 }
 void Tiefling::setRaceDetails(Generic_Character_Class &v)
@@ -857,7 +869,8 @@ void Tortle::setRaceDetails(Generic_Character_Class &v)
   cout << " 2. Softshell\n";
   cout << " 3. Desert\n\n";
   int ss = getNumber("Choice", 1, 3);
-  switch(ss) {
+  switch (ss)
+  {
   case 1:
     subr = RAZORBACK;
     v.strength++;
@@ -880,7 +893,8 @@ void Tortle::setRaceDetails(Generic_Character_Class &v)
     v.survival = true; //from nomad
     v.shell_master = true;
     break;
-  default: break;
+  default:
+    break;
   }
 }
 void Triton::setRaceDetails(Generic_Character_Class &v)
@@ -910,7 +924,7 @@ void Warforged::setRaceDetails(Generic_Character_Class &v)
   v.constitution++;
   v.move_speed = 30;
   v.composite_plating = true; // +1 AC
-  v.living_construct = true; // immune to disease, no eat, no sleep
+  v.living_construct = true;  // immune to disease, no eat, no sleep
   v.common = true;
   cout << "You are a Warforged! Gain:\n";
   cout << "  +2 Strength\n";
@@ -922,7 +936,6 @@ void Warforged::setRaceDetails(Generic_Character_Class &v)
   v.setLanguage("Choose a language:\n\n");
   pressEnterToContinue();
 }
-
 
 // Get Race String for All Classes
 
@@ -951,7 +964,43 @@ string Changeling::getRaceString() const
 }
 string Dragonborn::getRaceString() const
 {
-  return "Dragonborn";
+  string tmp = "";
+  switch (dragcolor)
+  {
+  case BLACK:
+    tmp += "Black ";
+    break;
+  case BLUE:
+    tmp += "Blue ";
+    break;
+  case BRASS:
+    tmp += "Brass ";
+    break;
+  case BRONZE:
+    tmp += "Bronze ";
+    break;
+  case COPPER:
+    tmp += "Copper ";
+    break;
+  case GOLD:
+    tmp += "Gold ";
+    break;
+  case GREEN:
+    tmp += "Green ";
+    break;
+  case RED:
+    tmp += "Red ";
+    break;
+  case SILVER:
+    tmp += "Silver ";
+    break;
+  case WHITE:
+    tmp += "White ";
+    break;
+  default:
+    break;
+  }
+  return tmp + "Dragonborn";
 }
 string Dwarf::getRaceString() const
 {
@@ -1089,7 +1138,8 @@ string Lizardfolk::getRaceString() const
 string Shifter::getRaceString() const
 {
   string tmp = "";
-  switch(subr){
+  switch (subr)
+  {
   case BEASTHIDE:
     tmp += "Beasthide ";
     break;
@@ -1105,7 +1155,8 @@ string Shifter::getRaceString() const
   case WILDHUNT:
     tmp += "Wildhunt ";
     break;
-  default: break;
+  default:
+    break;
   }
   return tmp + "Shifter";
 }
@@ -1131,16 +1182,17 @@ string Tortle::getRaceString() const
   string tmp = "";
   switch (subr)
   {
-    case RAZORBACK:
+  case RAZORBACK:
     tmp += "Razorback ";
     break;
-    case SOFTSHELL:
+  case SOFTSHELL:
     tmp += "Softshell ";
     break;
-    case DESERT:
+  case DESERT:
     tmp += "Desert ";
     break;
-    default: break;
+  default:
+    break;
   }
   return tmp + "Tortle";
 }

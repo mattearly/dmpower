@@ -38,6 +38,20 @@ public:
 class Dragonborn : public Races
 {
 public:
+  enum dragoncolor
+  {
+    NA,
+    BLACK,
+    BLUE,
+    BRASS,
+    BRONZE,
+    COPPER,
+    GOLD,
+    GREEN,
+    RED,
+    SILVER,
+    WHITE
+  } dragcolor;
   virtual void setRaceDetails(Generic_Character_Class &v);
   virtual std::string getRaceString() const;
 };
