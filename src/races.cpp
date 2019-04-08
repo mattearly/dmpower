@@ -718,7 +718,7 @@ void Tabaxi::setRaceDetails(Generic_Character_Class &v)
   v.darkvision = true;
   v.feline_agility = true;
   v.cats_claws = true; //climb speed 20ft + slashing attack
-  v.climb_speed = 20;
+  v.climb_speed = 20;  // from cats claws
   v.perception = true;
   v.stealth = true;
   v.common = true;
