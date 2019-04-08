@@ -45,7 +45,8 @@ char getYorR(const std::string &message)
   return tmp;
 }
 
-char getAorRorQ(const std::string &message) {
+char getAorRorQ(const std::string &message)
+{
   char tmp;
   do
   {
@@ -54,7 +55,8 @@ char getAorRorQ(const std::string &message) {
     tmp = toupper(tmp);
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    if (!(tmp == 'A' || tmp == 'R' || tmp == 'Q')) {
+    if (!(tmp == 'A' || tmp == 'R' || tmp == 'Q'))
+    {
       std::cout << "Invalid, Try again (Only accpets A/a/R/r/Q/q)\n";
     }
   } while (!(tmp == 'A' || tmp == 'R' || tmp == 'Q'));
@@ -110,7 +112,8 @@ int rollstats_standard()
 
 int randomNumber(const int &start, const int &end)
 {
-  if (start >= end) {
+  if (start >= end)
+  {
     throw std::invalid_argument("start must be less end end.");
   }
   std::uniform_int_distribution<int> totalroll(start, end);
@@ -126,6 +129,14 @@ int getAbilityMod(const int &ability)
 
 int getNumber(const std::string &message, const int &a, const int &b)
 {
+  if (a >= b)
+  {
+    throw std::invalid_argument("a must be less than b");
+  }
+  if (a < 0 | b < 0)
+  {
+    throw std::invalid_argument("a and b must be positive");
+  }
   bool tried_once = false;
   int user_input;
   std::string test;
@@ -137,7 +148,7 @@ int getNumber(const std::string &message, const int &a, const int &b)
     test.clear();
     numbers.clear();
     if (tried_once)
-      std::cout << " --Invalid entry, try again.\n";
+      std::cout << " --Invalid entry.\n";
     std::cout << message;
     std::getline(std::cin, test);
     if (test.size() > 0)
@@ -169,6 +180,14 @@ int getNumber(const std::string &message, const int &a, const int &b)
 
 int getNumber(const int &a, const int &b)
 {
+  if (a >= b)
+  {
+    throw std::invalid_argument("a must be less than b");
+  }
+  if (a < 0 | b < 0)
+  {
+    throw std::invalid_argument("a and b must be positive");
+  }
   bool tried_once = false;
   int user_input;
   std::string test;
@@ -180,10 +199,66 @@ int getNumber(const int &a, const int &b)
     test.clear();
     numbers.clear();
     if (tried_once)
-      std::cout << " --Invalid entry, try again.\n";
+      std::cout << " --Invalid entry.\n";
+    std::cout << "Choice(" << a << "-" << b << "): ";
     std::getline(std::cin, test);
     if (test.size() > 0)
     {
+      for (uint32_t i = 0; i < test.size(); i++)
+      {
+        if (isdigit(test[i]))
+        {
+          numbers += test[i];
+        }
+        else
+        {
+          break;
+        }
+      }
+    }
+    else
+    {
+      continue;
+    }
+    if (numbers.size() > 0 && numbers.size() <= LARGEST_INPUT_DIGITS)
+    {
+      user_input = std::stoi(numbers);
+    }
+  } while (user_input < a || user_input > b);
+  return user_input;
+}
+
+int getNumberOrQ(const int &a, const int &b)
+{
+  if (a >= b)
+  {
+    throw std::invalid_argument("a must be less than b");
+  }
+  if (a < 0 | b < 0)
+  {
+    throw std::invalid_argument("a and b must be positive");
+  }
+
+  bool tried_once = false;
+  int user_input;
+  std::string test;
+  std::string numbers;
+
+  do
+  {
+    user_input = -1;
+    test.clear();
+    numbers.clear();
+    if (tried_once)
+      std::cout << " --Invalid entry.\n";
+    std::cout << "Choice(" << a << "-" << b << " or 'q' to quit): ";
+    std::getline(std::cin, test);
+    if (test.size() > 0)
+    {
+      if (test.compare("q") == 0)
+      {
+        return -1;
+      }
       for (uint32_t i = 0; i < test.size(); i++)
       {
         if (isdigit(test[i]))

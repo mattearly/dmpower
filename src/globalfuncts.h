@@ -42,12 +42,19 @@ int randomNumber(const int &start, const int &end);
  */
 int getNumber(const std::string &message, const int &a, const int &b);
 
-/** Waits for the user to enter a number between a and b
+/** Asks for the user to enter a number between a and b
  * @param a Lower end of the valid numbers accepted. Must be less than b.
  * @param b Higher end of the valid numbers accepted. Must be greater than a.
  * @return the valid user choice
  */
 int getNumber(const int &a, const int &b);
+
+/** Asks for the user to enter a number between a and b or the character 'q'
+ * @param a Lower end of the valid numbers accepted. Must be less than b.
+ * @param b Higher end of the valid numbers accepted. Must be greater than a.
+ * @return the valid user choice or -1 if the user chose to quit
+ */
+int getNumberOrQ(const int &a, const int &b);
 
 /** Calculates the ability modifier of a start ready for printing
  * @param a the original stat
@@ -132,4 +139,3 @@ std::string trim(const std::string &str, const std::string &whitespace = " \t");
 std::string reduce(const std::string &str,
                    const std::string &fill = " ",
                    const std::string &whitespace = " \t");
-
