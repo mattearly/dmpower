@@ -59,7 +59,7 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
 {
   if (clearScreens)
     simpleClearScreen();
-  const int num_races = 21;
+  const int num_races = 22;
   cout << "Choose a Race for your Character:\n\n";
   cout << " 1. Aarakocra\n";
   cout << " 2. Aasimar\n";
@@ -68,20 +68,21 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
   cout << " 5. Dwarf\n";
   cout << " 6. Elf\n";
   cout << " 7. Firbolg\n";
-  cout << " 8. Gnome\n";
-  cout << " 9. Goliath\n";
-  cout << " 10. Half-elf  \n";
-  cout << " 11. Halfing\n";
-  cout << " 12. Half-orc\n";
-  cout << " 13. Human\n";
-  cout << " 14. Kenku\n";
-  cout << " 15. Lizardfolk\n";
-  cout << " 16. Shifter\n";
-  cout << " 17. Tabaxi\n";
-  cout << " 18. Tiefling\n";
-  cout << " 19. Tortle\n";
-  cout << " 20. Triton\n";
-  cout << " 21. Warforged\n\n";
+  cout << " 8. Genasi\n";
+  cout << " 9. Gnome\n";
+  cout << " 10. Goliath\n";
+  cout << " 11. Half-elf  \n";
+  cout << " 12. Halfing\n";
+  cout << " 13. Half-orc\n";
+  cout << " 14. Human\n";
+  cout << " 15. Kenku\n";
+  cout << " 16. Lizardfolk\n";
+  cout << " 17. Shifter\n";
+  cout << " 18. Tabaxi\n";
+  cout << " 19. Tiefling\n";
+  cout << " 20. Tortle\n";
+  cout << " 21. Triton\n";
+  cout << " 22. Warforged\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
   Races *parent = nullptr;
   switch (ss)
@@ -122,71 +123,76 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
     race = parent->getRaceString();
     break;
   case 8:
-    parent = new Gnome;
+    parent = new Genasi;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 9:
-    parent = new Goliath;
+    parent = new Gnome;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 10:
-    parent = new Halfelf;
+    parent = new Goliath;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 11:
-    parent = new Halfling;
+    parent = new Halfelf;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 12:
-    parent = new Halforc;
+    parent = new Halfling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
   case 13:
+    parent = new Halforc;
+    parent->setRaceDetails(v);
+    race = parent->getRaceString();
+    break;
+  case 14:
     parent = new Human;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
-  case 141:
+  case 15:
     parent = new Kenku;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
-  case 15:
+  case 16:
     parent = new Lizardfolk;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
-  case 16:
+  case 17:
     parent = new Shifter;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
-  case 17:
+  case 18:
     parent = new Tabaxi;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
-  case 18:
+  case 19:
     parent = new Tiefling;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
-  case 19:
+  case 20:
     parent = new Tortle;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
-  case 20:
+  case 21:
     parent = new Triton;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
     break;
-  case 21:
+  case 22:
     parent = new Warforged;
     parent->setRaceDetails(v);
     race = parent->getRaceString();
@@ -857,7 +863,7 @@ void Generic_Character_Class::setLanguage(const string &message)
       aquan = true;
       cout << "Aquan Language learned!\n";
       success = 1;
-    }   
+    }
     if (ss == 20 && aquan == 0)
     {
       aarakocra = true;
@@ -1793,7 +1799,8 @@ void Generic_Character_Class::setAllStatsAtOnce(const int &s, const int &d, cons
   charisma = ch;
 }
 
-void Generic_Character_Class::wipeStats() {
+void Generic_Character_Class::wipeStats()
+{
   char_name = "";
   alignment = "";
   race = "";
@@ -2261,4 +2268,10 @@ void Generic_Character_Class::wipeStats() {
   feline_agility = 0;
   cats_claws = 0;
   talons = 0;
+  unending_breath = 0;
+  mingle_with_the_wind = 0;
+  earth_walk = 0;
+  merge_with_stone = 0;
+  reach_to_the_blaze = 0;
+  call_to_the_wave = 0;
 }

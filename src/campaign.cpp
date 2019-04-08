@@ -840,6 +840,13 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->shell_master << endl
         //aarakocra stuff
         << (*it)->talons << endl
+        //genasi stuff
+        << (*it)->unending_breath << endl
+        << (*it)->mingle_with_the_wind << endl
+        << (*it)->earth_walk << endl
+        << (*it)->merge_with_stone << endl
+        << (*it)->reach_to_the_blaze << endl
+        << (*it)->call_to_the_wave << endl
 
         << "resistances" << endl //resistances
         << (*it)->damage_resist_acid << endl
@@ -917,7 +924,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
   }
 
   getline(ins, sbuffer); // absorb the first line of "saved character: x"
-  
+
   do
   {
     // int len = ins.tellg(); //get current position
@@ -1525,6 +1532,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->shell_master;
     //Aarakocra stuff
     ins >> v->talons;
+    //genasi stuff
+    ins >> v->unending_breath;
+    ins >> v->mingle_with_the_wind;
+    ins >> v->earth_walk;
+    ins >> v->merge_with_stone;
+    ins >> v->reach_to_the_blaze;
+    ins >> v->call_to_the_wave;
 
     if (debugRetrieve)
       cout << "character features set" << endl;

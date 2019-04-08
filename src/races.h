@@ -100,6 +100,21 @@ public:
   virtual std::string getRaceString() const;
 };
 
+class Genasi : public Races
+{
+public:
+  enum genasitype
+  {
+    NA,
+    AIR,
+    EARTH,
+    FIRE,
+    WATER
+  } subr;
+  virtual void setRaceDetails(Generic_Character_Class &v);
+  virtual std::string getRaceString() const;
+};
+
 class Gnome : public Races
 {
 public:
@@ -220,7 +235,8 @@ public:
 class Tortle : public Races
 {
 public:
-  enum tortletype {
+  enum tortletype
+  {
     NA,
     RAZORBACK,
     SOFTSHELL,

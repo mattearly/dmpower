@@ -482,7 +482,7 @@ public:
   // lizardfolk
   bool lizardfolk_bite;
   bool cunning_artisan;
-  int hold_breath;  //and tortle
+  int hold_breath; //and tortle
   int natural_armor;
   bool hungry_jaws;
   // tabaxi
@@ -511,6 +511,13 @@ public:
   bool shell_master;
   //aarakocra
   bool talons;
+  //genasi
+  bool unending_breath;
+  bool mingle_with_the_wind;
+  bool earth_walk;
+  bool merge_with_stone;
+  bool reach_to_the_blaze;
+  bool call_to_the_wave;
 
   //RESISTANCES
   bool damage_resist_acid;

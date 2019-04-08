@@ -1302,6 +1302,19 @@ void Generic_Character_Class::printOtherAbilities() const
   //aarakocra stuff
   if (talons)
     cout << "Talons, ";
+  //genasi stuff
+  if (unending_breath)
+    cout << "Unending Breath, ";
+  if (mingle_with_the_wind)
+    cout << "Mingle with the Wind, ";
+  if (earth_walk)
+    cout << "Earth Walk, ";
+  if (merge_with_stone)
+    cout << "Merge with Stone, ";
+  if (reach_to_the_blaze)
+    cout << "Reach to the Blaze, ";
+  if (call_to_the_wave)
+    cout << "Call to the Wave, ";
 
   cout << endl;
 }

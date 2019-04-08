@@ -336,6 +336,67 @@ void Firbolg::setRaceDetails(Generic_Character_Class &v)
           "  Languages(Common, Elvish, Giant)\n\n";
   pressEnterToContinue();
 }
+void Genasi::setRaceDetails(Generic_Character_Class &v)
+{
+  v.constitution += 2;
+  v.move_speed = 30;
+  v.common = true;
+  v.primordial = true;
+  cout << "A being of the elements? A Genasi you say?  Gain:\n";
+  cout << "  +2 Constitution\n";
+  cout << "  30ft Move Speed\n";
+  cout << "  Common and Primordial languages\n\n";
+  subr = static_cast<enum genasitype>(getNumber("Choose A Type of Genasai:\n\n 1. Air\n 2. Earth\n 3. Fire\n 4. Water\n\nChoice: ",
+                                                1, 4));
+  switch (subr)
+  {
+  case AIR:
+    v.dexterity++;
+    v.unending_breath = true;
+    v.mingle_with_the_wind = true;
+    cout << "Air Genasi. Gain:\n";
+    cout << "  +1 Dexterity\n";
+    cout << "  Unending Breath\n";
+    cout << "  Mingle with the Wind\n";
+    break;
+  case EARTH:
+    v.strength++;
+    v.earth_walk = true;
+    v.merge_with_stone = true;
+    cout << "Earth Genasi. Gain:\n";
+    cout << "  +1 Constitution\n";
+    cout << "  Earth Walk\n";
+    cout << "  Merge with Stone\n";
+    break;
+  case FIRE:
+    v.intelligence++;
+    v.darkvision = true;
+    v.damage_resist_fire = true;
+    v.reach_to_the_blaze = true;
+    cout << "Fire Genasi. Gain:\n";
+    cout << "  +1 Intelligence\n";
+    cout << "  Darkvision\n";
+    cout << "  Damage Resist Fire\n";
+    cout << "  Reach to the Blaze\n";
+    break;
+  case WATER:
+    v.wisdom++;
+    v.damage_resist_acid = true;
+    v.amphibious = true;
+    v.swim_speed = 30;
+    v.call_to_the_wave = true;
+    cout << "Water Genasi. Gain:\n";
+    cout << "  +1 Wisdom\n";
+    cout << "  Damage Resist Acid\n";
+    cout << "  Amphibious\n";
+    cout << "  30ft Swim Speed\n";
+    cout << "  Call to the Wave\n";
+    break;
+  default:
+    break;
+  }
+  pressEnterToContinue();
+}
 void Gnome::setRaceDetails(Generic_Character_Class &v)
 {
   v.intelligence += 2;
@@ -955,7 +1016,6 @@ void Warforged::setRaceDetails(Generic_Character_Class &v)
   pressEnterToContinue();
 }
 
-
 ///--------- getRaceString functions ----------//
 
 string Aarakocra::getRaceString() const
@@ -1071,6 +1131,28 @@ string Firbolg::getRaceString() const
 {
   return "Firbolg";
 }
+string Genasi::getRaceString() const
+{
+  string tmp = "";
+  switch (subr)
+  {
+  case AIR:
+    tmp += "Air ";
+    break;
+  case EARTH:
+    tmp += "Earth ";
+    break;
+  case FIRE:
+    tmp += "Fire ";
+    break;
+  case WATER:
+    tmp += "Water ";
+    break;
+  default:
+    break;
+  }
+  return tmp + "Genasi";
+}
 string Gnome::getRaceString() const
 {
   string tmp = "";
@@ -1084,7 +1166,6 @@ string Gnome::getRaceString() const
     break;
   case SVIRFNEBLIN:
     tmp += "Svirfneblin ";
-  case NA:
     break;
   default:
     break;
