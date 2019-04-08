@@ -598,6 +598,7 @@ public:
   void setFavoredEnemy();
   void levelUpStats();
   void assignStats(int &s);
+  void wipeStats();
 
   //skill gaining functions
   void setAnySkill(const std::string &, const int &);
