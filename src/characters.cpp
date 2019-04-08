@@ -28,11 +28,12 @@ std::string Generic_Character_Class::getRace() const
 void Generic_Character_Class::setName()
 {
   cout << "Name Your Character! (can be edited later)\n\n";
-  cout << "-> " << MAGENTA << "RULES" << RESET << "\n";
-  cout << "    Length: 2 or more characters\n";
-  cout << "    Must be Unique\n";
-  cout << "    First letter is automatically Capitalized\n";
-  cout << "    Enter '" << GREEN << "random" << RESET << "' (without the quotes) to be suggested a random name!\n\n";
+  cout << "  " << MAGENTA << "NAME RULES" << RESET << "\n";
+  cout << "    Length must be 2 or more characters.\n";
+  cout << "    Must be unique, no other characters with this name in the campaign.\n";
+  cout << "    First letter is automatically Capitalized.\n";
+  cout << "    Enter " << GREEN << "random" << RESET << " or " << GREEN << "ok" << RESET << " to be suggested a random name.\n";
+  cout << "    Enter " << GREEN << "no" << RESET << " to be given a random name.\n\n";
 
   string i_name;
   do
@@ -41,13 +42,17 @@ void Generic_Character_Class::setName()
     getline(cin, i_name);
     i_name[0] = toupper(i_name[0]); //makes the first letter of the name uppercase
     i_name = reduce(i_name);        //gets rid of leading and trailing whitespace and any extra spaces in between
-    if (i_name.size() < 2 || i_name[0] == ' ')
+    if (i_name.size() < 2)
     {
       cout << "Invalid name, try another.\n";
     }
-    if (i_name == "Random")
+    if (i_name == "Ok" || i_name == "Random")
     {
       suggestRandomName(i_name);
+    }
+    else if (i_name == "No")
+    {
+      giveRandomName(i_name);
     }
   } while (i_name.size() < 2);
   char_name = i_name;
@@ -584,7 +589,8 @@ void Generic_Character_Class::setBackground()
 void Generic_Character_Class::setAllStats()
 {
   vector<int> stats;
-  cout << "How would you like to do Ability Stats?\n";
+  cout << "How would you like to do Ability Stats for " 
+  << GREEN << char_name << RESET << endl;
   cout << "---------------------------------------\n";
   cout << "1. " << RED << "Hi-Powered Legit " << RESET << "Roll Set : roll " << GREEN << "4d6 6 " << RESET << "times, dropping lowest die each time\n";
   cout << "2. " << YELLOW << "Legit " << RESET << "Roll Set : roll " << GREEN << "3d6 6 " << RESET << "times\n";
@@ -630,7 +636,7 @@ void Generic_Character_Class::setAllStats()
     do
     {
       cout << "\nStaring Character: \n";
-      cout << char_name << ", Level " << level << " " << char_class << endl;
+      cout << GREEN << char_name << ", Level " << level << " " << char_class << RESET << endl;
       for (int i = 0; i < 7; i++) //when i == 6, last iteration is controlled by -1 at end of array
       {
         if (i != 6)
