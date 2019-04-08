@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// for random name suggestion while building a new character
 void Generic_Character_Class::suggestRandomName(std::string &random_name)
 {
   CharacterName namegen;
@@ -30,4 +29,11 @@ void Generic_Character_Class::suggestRandomName(std::string &random_name)
       return;
     }
   }
+}
+
+void Generic_Character_Class::giveRandomName(std::string &random_name)
+{
+  random_name.clear();
+  CharacterName namegen;
+  namegen.grabRandomName(random_name);
 }

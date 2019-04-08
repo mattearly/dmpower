@@ -574,6 +574,7 @@ public:
   //CHARACTER CREATION FUNCTIONS (MUTATORS)
   void setName();
   void suggestRandomName(std::string &);
+  void giveRandomName(std::string &);
   void setRace(Generic_Character_Class &v);
   void setRaceBonuses();
   void setAlignment();
