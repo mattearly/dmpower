@@ -30,7 +30,7 @@ void Campaign::pc_menu()
     mainMessage = "";
     cout << GREEN << "---------- CHARACTER MANAGER -----------" << RESET << endl
          << " 1. Build a New Character" << endl
-         << " 2. View Characters" << endl
+         << " 2. View & Export Characters" << endl
          << " 3. Edit a Character" << endl
          << " 4. Save Current Work" << endl
          << " 5. ";
@@ -170,7 +170,7 @@ void Campaign::pc_menu()
     }
     break;
     case 2:
-    { //VIEW CHARACTER SHEET
+    { //VIEW & EXPORT CHARACTER SHEET
       if (character_list.size() < 1)
       {
         cout << "\nNothing to display. Create characters first.\n";
@@ -206,7 +206,14 @@ void Campaign::pc_menu()
           if (valid_name == (*it)->char_name)
           {
             (*it)->character_sheet();
-            pressEnterToContinue();
+            char to_export = getYorN("Export/Print Character? (y/n): ");
+            if (to_export == 'Y') 
+            {
+              std::string printname = (*it)->char_name + " lvl " + toString((*it)->level) + " " +
+                                      (*it)->race + " " + (*it)->char_class;
+              (*it)->exportPrint(printname);
+              mainMessage = printname + " exported, check exports folder.";
+            }
             break; //leave the loop if we found the name, no need to check more
           }
         }
@@ -373,9 +380,19 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   if (ans == 'Y')
   {
     character_list.back()->character_sheet();
-    pressEnterToContinue();
+
+    // ASK IF PLAYER WANTS TO EXPORT
+    char to_export = getYorN("Export/Print Character? (y/n): ");
+    if (to_export == 'Y') 
+    {
+      std::string printname = character_list.back()->char_name + " lvl " + toString(character_list.back()->level) + " " +
+                              character_list.back()->race + " " + character_list.back()->char_class;
+      new_character->exportPrint(printname);
+      mainMessage = printname + " exported, check exports folder. ";
+    }
+
   }
-  mainMessage = "Don't forget to 'Save Current Work'";
+  mainMessage += "Don't forget to 'Save Current Work'";
 }
 
 ofstream &Campaign::dumpCharacter(ofstream &os) const

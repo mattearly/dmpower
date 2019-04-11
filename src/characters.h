@@ -689,6 +689,8 @@ public:
   void landtype() const;
   virtual int getlevelupmenus() const = 0;
   std::string getRace() const;
+
+  void exportPrint(const std::string &title) const;
 };
 
 //Macro for Clone definitions
