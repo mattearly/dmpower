@@ -133,7 +133,7 @@ int getNumber(const std::string &message, const int &a, const int &b)
   {
     throw std::invalid_argument("a must be less than b");
   }
-  if (a < 0 | b < 0)
+  if (a < 0 || b < 0)
   {
     throw std::invalid_argument("a and b must be positive");
   }
@@ -184,7 +184,7 @@ int getNumber(const int &a, const int &b)
   {
     throw std::invalid_argument("a must be less than b");
   }
-  if (a < 0 | b < 0)
+  if (a < 0 || b < 0)
   {
     throw std::invalid_argument("a and b must be positive");
   }
@@ -234,7 +234,7 @@ int getNumberOrQ(const int &a, const int &b)
   {
     throw std::invalid_argument("a must be less than b");
   }
-  if (a < 0 | b < 0)
+  if (a < 0 || b < 0)
   {
     throw std::invalid_argument("a and b must be positive");
   }
