@@ -7,6 +7,8 @@
 
 > * [Back to project README](README.md)
 
+These Screenshots are pretty out of date. I made a video of it running here: [DMPOWER BUILD 6](https://youtu.be/9VJpPyqnssY)
+
 ### -> MAIN MENU
 <img src="img/cliscreenshot.png" height="160px" align="center">
 
@@ -74,7 +76,7 @@ _What the end Character Sheet looks like within your terminal_
     * Poison Prices chart
     * Madness chart
     * Diseases chart
-    * Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/))
+    * Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
 
 > [back to index](#0-index)
 

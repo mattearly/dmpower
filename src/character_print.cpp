@@ -1,13 +1,16 @@
 #include "characters.h"
+#include "terminal_colors.h"
 #include <iomanip>
+#include <iostream>
+#include <string>
 
-using std::cout;
-using std::endl;
-using std::setw;
+using namespace std;
+extern bool clearScreens;
 
 void Generic_Character_Class::character_sheet() const
 {
-  simpleClearScreen();
+  if (clearScreens)
+    simpleClearScreen();
   cout << " " << char_name << "'s Character Sheet:\n";
   cout << "->" << GREEN << " Class(Level): " << RESET << char_class << "(" << level << ")\n";
   cout << "->" << GREEN << " Alignment: " << RESET << alignment << "\n";
@@ -17,7 +20,14 @@ void Generic_Character_Class::character_sheet() const
        << "(Ave NPC HP: " << ((((hitdicesize + 2) / 2)) * level) + (getAbilityMod(constitution) * level)
        << " Ave PC HP: " << hitdicesize + ((((hitdicesize + 2) / 2)) * (level - 1)) + (getAbilityMod(constitution) * level)
        << ")\n";
-  cout << "->" << GREEN << " Move Speed: " << RESET << move_speed << "ft\n";
+  if (move_speed > 0)
+    cout << "->" << GREEN << " Move Speed: " << RESET << move_speed << "ft\n";
+  if (fly_speed > 0)
+    cout << "->" << GREEN << " Fly Speed: " << RESET << fly_speed << "ft\n";
+  if (swim_speed > 0)
+    cout << "->" << GREEN << " Swim Speed: " << RESET << swim_speed << "ft\n";
+  if (climb_speed > 0)
+    cout << "->" << GREEN << " Climb Speed: " << RESET << climb_speed << "ft\n";
   cout << "->" << GREEN << " Proficiency Bonus:" << RESET << " +" << proficiency_bonus;
   cout << "\n->" << MAGENTA << " Str: " << RESET << setw(2) << strength << " " << D_D_Ability_Modifier(strength);
   if (strSave)
@@ -39,6 +49,7 @@ void Generic_Character_Class::character_sheet() const
     cout << GREEN << "  <-SaveProficient" << RESET;
   cout << endl;
   printClassAbilities();
+  printCantrips();
   printSpellSlots();
   printSkills();
   printOtherAbilities();
@@ -914,24 +925,30 @@ void Generic_Character_Class::printClassAbilities() const
     cout << "Signature Spell, ";
   cout << endl;
 }
+
+void Generic_Character_Class::printCantrips() const
+{
+  cout << "->" << MAGENTA << " Cantrips: " << RESET;
+  if (bard_cantrips_known > 0)
+    cout << "Bard(" << bard_cantrips_known << ")";
+  if (cleric_cantrips_known > 0)
+    cout << "Cleric(" << cleric_cantrips_known << ")";
+  if (druid_cantrips_known > 0)
+    cout << "Druid(" << druid_cantrips_known << ")";
+  if (wizard_cantrips_known > 0)
+    cout << "Wizard(" << wizard_cantrips_known << ")";
+  if (sorcerer_cantrips_known > 0)
+    cout << "Sorcerer(" << sorcerer_cantrips_known << ")";
+  if (warlock_cantrips_known > 0)
+    cout << "Warlock(" << warlock_cantrips_known << ")";
+  cout << endl;
+}
+
 void Generic_Character_Class::printSpellSlots() const
 {
   if (spellcasting || pact_magic)
   {
-    cout << "->" << MAGENTA << " Cantrips: " << RESET;
-    if (bard_cantrips_known > 0)
-      cout << "Bard(" << bard_cantrips_known << ")";
-    if (cleric_cantrips_known > 0)
-      cout << "Cleric(" << cleric_cantrips_known << ")";
-    if (druid_cantrips_known > 0)
-      cout << "Druid(" << druid_cantrips_known << ")";
-    if (wizard_cantrips_known > 0)
-      cout << "Wizard(" << wizard_cantrips_known << ")";
-    if (sorcerer_cantrips_known > 0)
-      cout << "Sorcerer(" << sorcerer_cantrips_known << ")";
-    if (warlock_cantrips_known > 0)
-      cout << "Warlock(" << warlock_cantrips_known << ")";
-    cout << "\n->" << MAGENTA << " Spell Slots: " << RESET;
+    cout << "->" << MAGENTA << " Spell Slots: " << RESET;
     if (warlock_slot_level > 0)
       cout << "Warlock Slot Level(" << warlock_slot_level << ")";
     if (first_ss > 0)
@@ -952,6 +969,7 @@ void Generic_Character_Class::printSpellSlots() const
       cout << "/" << eighth_ss;
     if (ninth_ss > 0)
       cout << "/" << ninth_ss;
+
     cout << "\n->" << MAGENTA << " Spells Known: " << RESET;
     if (bard_spells_known > 0)
       cout << "Bard(" << bard_spells_known << ")";
@@ -1101,6 +1119,8 @@ void Generic_Character_Class::printFeats() const
     cout << "Skulker, ";
   if (spell_sniper)
     cout << "Spell Sniper, ";
+  if (svirfneblin_magic)
+    cout << "Svirfneblin Magic, ";
   if (tavern_brawler)
     cout << "Tavern Brawler, ";
   if (tough)
@@ -1130,6 +1150,8 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Poison Breath Weapon, ";
   if (darkvision)
     cout << "Darkvision, ";
+  if (devils_tongue)
+    cout << "Devil's Tongue, ";
   if (draconic_ancestry_black)
     cout << "Draconic Ancestry(black), ";
   if (draconic_ancestry_blue)
@@ -1162,8 +1184,14 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Dwarven Resilience, ";
   if (dwarven_toughness)
     cout << "Dwarven Toughness, ";
+  if (duergar_resilience)
+    cout << "Duergar Resilience, ";
+  if (duergar_magic)
+    cout << "Duergar Magic, ";
   if (elf_weapon_training)
     cout << "Elf Weapon Training, ";
+  if (expert_forgery)
+    cout << "Expert Forgery, ";
   if (fey_ancestry)
     cout << "Fey Ancestry, ";
   if (fleet_of_foot)
@@ -1172,33 +1200,135 @@ void Generic_Character_Class::printOtherAbilities() const
     cout << "Lucky(halfling), ";
   if (halfling_nimbleness)
     cout << "Halfling Nimbleness, ";
+  if (healing_hands)
+    cout << "Healing Hands, ";
+  if (hellfire)
+    cout << "Hellfire, ";
   if (hellish_resistance)
     cout << "Hellish Resistance, ";
   if (infernal_legacy)
     cout << "Infernal Legacy, ";
+  if (light_bearer)
+    cout << "Light Bearer, ";
   if (mask_of_the_wild)
     cout << "Mask of the Wild, ";
+  if (mimicry)
+    cout << "Mimicry, ";
   if (natural_illusionist)
     cout << "Natural Illusionist, ";
   if (naturally_stealthy)
     cout << "Naturally Stealthy, ";
+  if (necrotic_shroud)
+    cout << "Necrotic Shroud, ";
+  if (radiant_consumption)
+    cout << "Radiant Consumption, ";
+  if (radiant_soul)
+    cout << "Radiant Soul, ";
   if (speak_with_small_beasts)
     cout << "Speak With Small Beasts, ";
   if (stonecunning)
     cout << "Stonecunning, ";
+  if (stone_camouflage)
+    cout << "Stone Camouflage, ";
+  if (stones_endurance)
+    cout << "Stone's Endurance, ";
   if (stout_resilience)
     cout << "Stout Resilience, ";
   if (superior_darkvision)
     cout << "Superior Darkvision, ";
   if (trance)
     cout << "Trance, ";
+  if (firbolg_magic)
+    cout << "Firbolg Magic, ";
+  if (hidden_step)
+    cout << "Hidden Step, ";
+  if (powerful_build)
+    cout << "Powerful Build, ";
+  if (speech_of_beast_and_leaf)
+    cout << "Speech of Beast and Leaf, ";
+  if (silent_speech)
+    cout << "Silent Speech, ";
+  // lizardfolk stuff
+  if (lizardfolk_bite)
+    cout << "Bite, ";
+  if (cunning_artisan)
+    cout << "Cunning Artisan, ";
+  if (hold_breath)
+    cout << "Hold Breath(" << hold_breath << "m), ";
+  if (natural_armor)
+    cout << "Natural Armor(" << natural_armor << "AC), ";
+  if (hungry_jaws)
+    cout << "Hungry Jaws, ";
+  // tabaxi stuff
+  if (feline_agility)
+    cout << "Feline Agility, ";
+  if (cats_claws)
+    cout << "Cat's Claws, ";
+  // Triton stuff
+  if (amphibious)
+    cout << "Amphibious, ";
+  if (control_air_and_water)
+    cout << "Control Air and Water, ";
+  if (emissary_of_the_sea)
+    cout << "Emissary of the Sea, ";
+  if (guardian_of_the_depths)
+    cout << "Guardian of the Depths, ";
+  // Warforged stuff
+  if (composite_plating)
+    cout << "Composite Plating, ";
+  if (living_construct)
+    cout << "Living Construct, ";
+  // changeling stuff
+  if (shapechanger)
+    cout << "Shapechanger, ";
+  // shifter stuff
+  if (shifting)
+    cout << "Shifting, ";
+  // tortle package stuff
+  if (shell)
+    cout << "Shell, ";
+  if (retreat_to_shell)
+    cout << "Retreat to Shell, ";
+  if (turtle_snapper)
+    cout << "Turtle Snapper, ";
+  if (razorback)
+    cout << "Razorback, ";
+  if (softshell)
+    cout << "Softshell, ";
+  if (nomad)
+    cout << "Nomad, ";
+  if (shell_master)
+    cout << "Shell Master, ";
+  //aarakocra stuff
+  if (talons)
+    cout << "Talons, ";
+  //genasi stuff
+  if (unending_breath)
+    cout << "Unending Breath, ";
+  if (mingle_with_the_wind)
+    cout << "Mingle with the Wind, ";
+  if (earth_walk)
+    cout << "Earth Walk, ";
+  if (merge_with_stone)
+    cout << "Merge with Stone, ";
+  if (reach_to_the_blaze)
+    cout << "Reach to the Blaze, ";
+  if (call_to_the_wave)
+    cout << "Call to the Wave, ";
+
   cout << endl;
 }
 void Generic_Character_Class::printLangs() const
 {
   cout << "->" << CYAN << " Languages: " << RESET;
+  if (aarakocra)
+    cout << "Aarakocra, ";
   if (abyssal)
     cout << "Abyssal, ";
+  if (aquan)
+    cout << "Aquan, ";
+  if (auran)
+    cout << "Auran, ";
   if (celestial)
     cout << "Celestial, ";
   if (common)
@@ -1324,7 +1454,11 @@ void Generic_Character_Class::printResistances() const
   if (damage_resist_poison)
     cout << "Poison, ";
   if (damage_resist_cold)
-    cout << "Cold";
+    cout << "Cold, ";
+  if (damage_resist_necrotic)
+    cout << "Necrotic, ";
+  if (damage_resist_radiant)
+    cout << "Radiant";
   cout << endl;
 }
 void Generic_Character_Class::printDisadvantages() const

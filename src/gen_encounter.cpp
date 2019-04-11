@@ -25,7 +25,6 @@ std::string Encounter::Gen_Encounter()
     cout << "Average Party Level: " + toString(ave_lvl) << "\n\n";
 
   return ("Give " + getDifficulty(seed) + " encounter of " + "CR: " + toString(ave_lvl + seed + floor((partysize - 2) / 2)));
-
 }
 
 void Encounter::set_party_level()

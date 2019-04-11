@@ -1,7 +1,9 @@
 #include "gen_experience.h"
 #include "globalfuncts.h"
+#include "terminal_colors.h"
 
 using namespace std;
+extern bool clearScreens;
 
 float Gen_Experience::xpgenerator()
 {
@@ -11,7 +13,7 @@ float Gen_Experience::xpgenerator()
   char ans;
   do
   {
-    simpleClearScreen();
+    if (clearScreens) simpleClearScreen();
     cout << "****EXPERIENCE GENERATOR****\n\n";
     cout << "Challenge Rating Chart\n\n"
          << " 1. CR 0      18. CR 14\n"
@@ -191,6 +193,6 @@ float Gen_Experience::xpgenerator()
     ans = getYorN("Are there more to add(Y/N)?");
   } while (ans == 'Y');
   int party = getNumber("\nSplit between how many party members?(max=10): ", 1, 10);
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
   return (total / party);
 }

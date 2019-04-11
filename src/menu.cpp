@@ -6,25 +6,29 @@
 #include "gen_name.h"
 #include "gen_encounter.h"
 #include "gen_insult.h"
+#include "terminal_colors.h"
 #include <string>
 #include <iostream>
 
 using namespace std;
 
+static int choice = 0;
+string buildNumber = "6"; // iterate with every new build release
+
 extern Campaign myGame;
 extern string mainMessage;
-static int choice = 0;
 extern void change_settings();
+extern bool clearScreens;
 
 void other_tools();
 
 void menu()
 {
-  mainMessage = "Dungeon Master Power! (build:5)";
+  mainMessage = "Dungeon Master Power! (build:" + buildNumber + ")";
   choice = 0;
   do
   {
-    simpleClearScreen();
+    if (clearScreens) simpleClearScreen();
     cout << "> " << mainMessage << "\n\n";
     mainMessage = "";
     cout << CYAN << "---------- MAIN MENU ----------" << RESET << "\n"
@@ -45,7 +49,7 @@ void menu()
       Magic_Items gen;
       gen.treasure_menu();
     }
-      break;
+    break;
     case 3:
       other_tools();
       choice = 0;
@@ -66,7 +70,7 @@ void other_tools()
   choice = 0;
   do
   {
-    simpleClearScreen();
+    if (clearScreens) simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
     cout << MAGENTA << "------------OTHER TOOLS------------" << RESET << "\n"
@@ -86,32 +90,32 @@ void other_tools()
       Charts chart;
       chart.showChartMenu();
     }
-      break;
+    break;
     case 2:
     {
       Gen_Experience gen;
       float rewardXP = gen.xpgenerator();
       mainMessage = "EXP for Each Party Member = " + to_string((int)rewardXP);
     }
-      break;
+    break;
     case 3:
     {
       CharacterName randomName;
       randomName.grabRandomName(mainMessage);
     }
-      break;
+    break;
     case 4:
     {
       Encounter encounter;
       mainMessage = encounter.Gen_Encounter();
     }
-      break;
+    break;
     case 5:
     {
       Insult insult;
       mainMessage = "INSULT: Listen up you" + insult.laydownheat();
     }
-      break;
+    break;
     default:
       break;
     }

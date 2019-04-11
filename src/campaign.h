@@ -1,5 +1,3 @@
-#ifndef CAMPAIGN_H
-#define CAMPAIGN_H
 #pragma once
 
 #include <fstream>
@@ -23,7 +21,5 @@ public:
 private:
   void makecharacter(Generic_Character_Class *tmp, int &starting_level);
 
-  void showCampaignCharacterList();
+  void showCampaignCharacterList() const;
 };
-
-#endif //CAMPAIGN_H

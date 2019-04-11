@@ -1,5 +1,3 @@
-#ifndef REWARD_GEN_H
-#define REWARD_GEN_H
 #pragma once
 
 #include "gear.h"
@@ -45,4 +43,3 @@ private:
 
 };
 
-#endif //REWARD_GEN_H

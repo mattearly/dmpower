@@ -7,8 +7,10 @@ dmpower
 
 # local stuff
 *.save
-local_user_settings.dat
-
+local_user_settings.*
+*.dmpsave
+userSettings.*
+*lvl*.txt
 
 # Compiled Object files
 *.slo
@@ -42,9 +44,9 @@ local_user_settings.dat
 # IDEs
 *.vscode
 *.idea
-dmpower.config
-dmpower.files
-dmpower.includes
+DungeonMasterPower.config
+DungeonMasterPower.files
+DungeonMasterPower.includes
 *.creator
 
 

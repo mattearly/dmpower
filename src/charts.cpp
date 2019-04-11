@@ -1,15 +1,19 @@
 #include "charts.h"
 #include "globalfuncts.h"
+#include "terminal_colors.h"
 #include <fstream>
+#include <string>
 
 using namespace std;
+
+extern bool clearScreens;
 
 void Charts::showChartMenu()
 {
   const int MAXCHARTCHOICE = 6;
   while (chart_choice != MAXCHARTCHOICE)
   {
-    simpleClearScreen();
+    if (clearScreens) simpleClearScreen();
     cout
         << "----------------- CHARTS -----------------\n"
         << " 1. Player Behavioral Problems Flowchart\n"
@@ -140,7 +144,7 @@ void Charts::displayMadnessChart()
 
 void Charts::walkThroughPlayerBehavioralResolutionChart()
 {
-  simpleClearScreen();
+  if (clearScreens) simpleClearScreen();
   cout << "So a player is giving you trouble eh?\n"
        << "First, talk to them about it.\n";
 
