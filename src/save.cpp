@@ -71,9 +71,9 @@ void load_file()
   if (clearScreens) simpleClearScreen();
   //show list of previous saves
   showLoadableFiles("saves");
-  std::cout << YELLOW << "additional load commands:" << RESET << "\n";
-  cout << "   combine 2 files: 'combine SaveToKeep SaveToMergeIn'\n";
-  cout << "   delete a file: 'delete SaveToDelete'\n";
+  std::cout << YELLOW << "additional save management commands:" << RESET << "\n";
+  cout << "   combine 2 files: '" << GREEN << "combine SaveToKeep SaveToMergeIn" << RESET << "'\n";
+  cout << "   delete a file: '" << GREEN << "delete SaveToDelete" << RESET << "'\n";
   std::cout << std::endl;
   std::string file;
   std::cout << "(leave blank to skip) Load File: ";

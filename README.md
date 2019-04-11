@@ -36,6 +36,8 @@ make gcc libboost-filesystem-dev
 ### Run on Windows
 
 Use [Cygwin](https://www.cygwin.com/), or [WSL](https://msdn.microsoft.com/commandline/wsl/about), or mingw, or Powershell. Pretty much anything you can get the dependencies on it will work with.
+
+- If you are using Cygwin, you will need the packages `gcc-core`, `make`, `libboost-devel`, and of course `git` for the git clone command, then it should work just like the linux build and run above.
 - In case of using the Powershell terminal, you will need to activate the ansi color escape with this command:
   - `Set-ItemProperty HKCU:\Console VirtualTerminalLevel -Type DWORD 1`
   - [more discussion on this topic](https://stackoverflow.com/questions/51680709/colored-text-output-in-powershell-console-using-ansi-vt100-codes)
@@ -47,19 +49,35 @@ I haven't tested but it should work fine, may need homebrew for boost libraries.
 
 # Additional Notes
 
-- This tool is best suited for Dungeon Masters, however the character creator could be helpful for anyone.
+- This tool is best suited for Dungeon Masters and doing stat blocks for characters, treasures, & the like; ideally saving you tons of time and making your planning much much faster so you and you're players can focus more on the story.
 - This toolkit does not teach the game or say many specifics about what each ability, magic item, or spell does, as that is just not the intention. These details can be found on the plethora of reference data sites and apps related to D&D 5e, as well as in the official books.
 - I tend to update this based on what 'I' need and based on requests. If there is something you would like to see added, feel free to let me know.
 
 # Foundation / Why this program?
 
-A quick story. I decided to start making this tool on my own accord when I, as a DM, couldn't find any D&D software that I liked. This was sometime around late 2015 while I was in college studying Comp Sci and on occasion playing D&D with a few friends. I had a long background of being a DM so I new pretty well what I needed in a tool and I needed a project to work on outside of class, and C++ was what I was learning at the time. At first I was just seeing what I could do, but eventually it grew to be usable and I've been tweaking and expanding it ever since.
+A quick story. I decided to start making this tool on my own accord when I, as a DM, couldn't find any D&D software that I liked. This was sometime around late 2015 while I was in college studying Comp Sci and on occasion playing D&D with a few friends. I had a long background of being a DM so I new pretty well what I needed in a tool and I needed a project to work on outside of class, and C++ was what I was learning at the time. At first I was just seeing what I could do, but eventually it grew to be usable and I've been tweaking and expanding it ever since. 
 
-How can you say no to making your D&D character in about 1 minute? Sure beats the usual 1-2hr character building sessions we all have experienced... sometimes painfully experienced. With this you get your stats all set without having to dig through books for options. You can go straight to the important part: story, gear, and what makes your character unique. If you are a wizard you can even get a randomized Spellbook from dmpower if that's your thing. 
+I choose not to steer away from C++ because I like this being fast, responsive, and reliable. C++ allows me to be as meticulous as I prefer (yeah I see all your slow crashing web sites trying to do this stuff). You can run this tool reliably on the oldest of machines and it should still seem fast.
 
-And oh my... have you ever found a Spellbook in game? How much time did that take? With this program it can be done quickly, reliably and randomly. The amount of time I've lost in the past trying to figure out "what spells..." Never again. Want to figure out what kind of loot is throughout a lair you are designing? Try the Lair Treasure Generator.
+So, how can you say no to making a NPC/PC character in about 1-2 minutes? Sure beats the usual 1-2hr character building sessions we all have experienced... sometimes painfully experienced. With this you get your stats all set without having to dig through books for potential options. You can go straight to the important part: story, gear, and what makes your character unique. If you are a wizard you can even get a randomized Spellbook from dmpower if that's your thing. 
 
-So here I am now, still working on this piece of software.
+And oh my... speaking of spellbooks, have you ever found a Spellbook in game? How much time did that take? With this program it can be done quickly, reliably and randomly. The amount of time I've lost in the past trying to figure out "what spells..." Never again. 
+
+Can we talk about putting treasure in a dungeon? Say you are populating a dungeon - Try rolling Lair Treasure and pepper it in, add pieces to your monsters, or whatever you like. I found that works quite well.
+
+I still play D&D on occasion, and when I do, I use this tool. It makes the experience so much less stressful and (down)time consuming. So here I am now, still working on this piece of software, showing it to the world now even though it was originally just intended for my personal use.
+
+# Dev Road Map
+
+#### future outline, ETA dates may be pushed back based on how busy I am with real life work and such
+
+- **build7** - focus on code cleanup, refactoring, and documenting the code base to make updating easier in the future. There is a lot to refactor, I have some big redo's in mind! May add in more feats (currently only has Player's Handbook feats) and a few other various smaller things. May add in basic starting gear for stat blocks. *ETA mid-May 2019*
+- **build8** - focus on adding a proper Encouner Generator based on terrain, location, and party level. And add a Dungeon Generator (its been a long time coming). *ETA mid-June 2019*
+- **build9** - ??? probably fixing bugs and adding stuff I notice while working on build7 and build8. *ETA mid-July 2019*
+
+The road map is vague right now as this is an unfunded personal project. I have some general ideas and try to release a new build every 1-2 months. I will make no promises unless there is some magical funding one day (not expecting it). In general I try to incorporate more features from the offical books, more stuff to make being a Dungeon Master less stressful, and make dmpower easier to use.
+
+See release tab for release history. There was also several years of no releases and me just iterating/figuring it out, so this doing release thing is kind of new to dmpower.
 
 # Support
 
@@ -67,7 +85,7 @@ Hey you got this far, thank you for your intrest! If you'd like to help compensa
 
 - [![donate/PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/mattearly) 
 
-Any donations will go towards finding and funding time and is not in any way for the content, you'll need the books to figure out what all the stuff is (or [DnDBeyond](https://www.dndbeyond.com/)).
+Any donations will go towards finding and funding time and is not in any way for the content, you'll need the official books and pdf's (links below) to figure out what all the stuff is (or [DnDBeyond](https://www.dndbeyond.com/)).
 
 # Credits
 
@@ -90,3 +108,5 @@ Trying to keep it based on offical stuff so that this program will be helpful fo
 * [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
 
 Programmers as accredited in the commit history and contributers file - mostly me but its always nice to have help and I will accept some modifications on a case by case basis if they align with the overall goal of dmpower. See the [CONTRIBUTING](CONTRIBUTING.md) file for more information on how you can help with the code, and of course, feel free to correct or report any typos or issues you find.
+
+DungeonMasterPower is not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. Dungeons & Dragons® is a trademark of Wizards of the Coast. For more information about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please visit their website at dnd.wizards.com.

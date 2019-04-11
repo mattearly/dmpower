@@ -40,7 +40,7 @@ void Campaign::pc_menu()
     }
     else
     {
-      cout << "Load a Saved File" << endl;
+      cout << "Load & Manage Saves" << endl;
     }
 
     cout << " 6. Delete a Character" << endl;
