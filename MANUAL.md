@@ -7,6 +7,8 @@
 
 > * [Back to project README](README.md)
 
+These Screenshots are pretty out of date. I made a video of it running here: [DMPOWER BUILD 6](https://youtu.be/9VJpPyqnssY)
+
 ### -> MAIN MENU
 <img src="img/cliscreenshot.png" height="160px" align="center">
 
