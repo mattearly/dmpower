@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool debugRetrieve = true;
+bool debugRetrieve = false;
 
 extern string buildNumber;
 extern void save_file();
