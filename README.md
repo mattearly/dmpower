@@ -75,19 +75,15 @@ I still play D&D on occasion, and when I do, I use this tool. It makes the exper
 - **build8** - focus on adding a proper Encouner Generator based on terrain, location, and party level. And add a Dungeon Generator (its been a long time coming). *ETA mid-June 2019*
 - **build9** - ??? probably fixing bugs and adding stuff I notice while working on build7 and build8. *ETA mid-July 2019*
 
-The road map is vague right now as this is an unfunded personal project. I have some general ideas and try to release a new build every 1-2 months. I will make no promises unless there is some magical funding one day (not expecting it). In general I try to incorporate more features from the offical books, more stuff to make being a Dungeon Master less stressful, and make dmpower easier to use.
-
 See release tab for release history. There was also several years of no releases and me just iterating/figuring it out, so this doing release thing is kind of new to dmpower.
 
 # Support
 
-Hey you got this far, thank you for your intrest! If you'd like to help compensate me the immense amount of time I spent/spend on this, consider donating to help keep the lights on.
-
-- [![donate/PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/mattearly) 
-
-Any donations will go towards finding and funding time and is not in any way for the content, you'll need the official books and pdf's (links below) to figure out what all the stuff is (or [DnDBeyond](https://www.dndbeyond.com/)).
+Support this project by giving it a Star or sharing with a friend. After sharing this work with the community and finding out I could get in trouble by allowing anyone kind of financial support, I've taken down the donation link that was to help me fund time and wasn't in any way for the content. Its k, I got $0.00 of donations in the multiple years of it being up, this has never been any sort of monetary gain nor was it expected.
 
 # Credits
+
+Go support WotC and buy their stuff!
 
 The lists and logic D&D data used in this program (so far) are from:
 
