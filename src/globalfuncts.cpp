@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iomanip>
 #include <string>
+#include <stdexcept>
 
 void simpleClearScreen()
 {
