@@ -1,12 +1,10 @@
-#ifndef GLOBALFUNCTS_H
-#define GLOBALFUNCTS_H
 #pragma once
 
 #include <iostream>
 #include <sstream>
 #include <random>
 #include <type_traits>
-#include "terminal_colors.h"
+#include <string>
 
 const int LARGEST_INPUT_DIGITS = 3;
 
@@ -30,12 +28,38 @@ std::string toString(const T &a)
   return tmp;
 }
 
-int randomNumber(const int &, const int &);
+/** Returns an integer result from start to end
+ * @param start the bottom of the possibility of the random result
+ * @param end the top end possibility of the random result
+ */
+int randomNumber(const int &start, const int &end);
 
+/** Prompts the user with the custom message for a number between a and b
+ * @param message Message given to the end user every prompt including retrys
+ * @param a Lower end of the valid numbers accepted. Must be less than b.
+ * @param b Higher end of the valid numbers accepted. Must be greater than a.
+ * @return the valid user choice
+ */
 int getNumber(const std::string &message, const int &a, const int &b);
 
+/** Asks for the user to enter a number between a and b
+ * @param a Lower end of the valid numbers accepted. Must be less than b.
+ * @param b Higher end of the valid numbers accepted. Must be greater than a.
+ * @return the valid user choice
+ */
 int getNumber(const int &a, const int &b);
 
+/** Asks for the user to enter a number between a and b or the character 'q'
+ * @param a Lower end of the valid numbers accepted. Must be less than b.
+ * @param b Higher end of the valid numbers accepted. Must be greater than a.
+ * @return the valid user choice or -1 if the user chose to quit
+ */
+int getNumberOrQ(const int &a, const int &b);
+
+/** Calculates the ability modifier of a start ready for printing
+ * @param a the original stat
+ * @return a string of the modifier with a + or - prepended accordingly
+ */
 template <class T>
 std::string D_D_Ability_Modifier(const T &a)
 {
@@ -68,20 +92,50 @@ int getAbilityMod(const int &);
 
 void simpleClearScreen();
 
-char getYorN(const std::string &);
+/** show end user the message and accepts a 'y' or 'n' (or capital versions of)  
+ * character from the input stream. Will keep repeating until valid input is given.
+ * @param message output message to end user before input prompt
+ * @return character 'Y' or 'N' based on user's answer
+ */
+char getYorN(const std::string &message);
 
+/** show end user the message and accepts a 'y' or 'r' (or capital versions of)  
+ * character from the input stream. Will keep repeating until valid input is given.
+ * @param message output message to end user before input prompt
+ * @return character 'Y' or 'R' based on user's answer
+ */
+char getYorR(const std::string &message);
+
+/** 'yes' or 'retry' or 'quit' - show end user the message and 
+ * accepts a 'y' or 'r' or 'q' (or capital versions of) character from the input stream. 
+ * Will keep repeating until valid input is given.
+ * @param message output message to end user before input prompt
+ * @return character 'Y' or 'R' or 'Q' based on user's answer
+ */
+char getAorRorQ(const std::string &message);
+
+/** flow control. used to halt the continuation of scrolling, program continues after a newline entry
+ */
 void pressEnterToContinue();
 
+/** rolls 4d6 drop lowest
+ * @return result of highest 3d6 of the 4d6
+ */
 int rollstats_hi_power();
 
+/** rolls 3d6
+ * @return result of the 3d6 roll
+ */
 int rollstats_standard();
 
-//Trims whitespace - from http://stackoverflow.com/questions/1798112/removing-leading-and-trailing-spaces-from-a-string
+/** Trims whitespace
+ * from http://stackoverflow.com/questions/1798112/removing-leading-and-trailing-spaces-from-a-string
+ */
 std::string trim(const std::string &str, const std::string &whitespace = " \t");
 
-//Reduces whitespace - from http://stackoverflow.com/questions/1798112/removing-leading-and-trailing-spaces-from-a-string
+/** Reduces whitespace
+ * from http://stackoverflow.com/questions/1798112/removing-leading-and-trailing-spaces-from-a-string
+ */
 std::string reduce(const std::string &str,
                    const std::string &fill = " ",
                    const std::string &whitespace = " \t");
-
-#endif /* defined(GLOBALFUNCTS_H) */

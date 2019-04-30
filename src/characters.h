@@ -1,5 +1,3 @@
-#ifndef CHARACTERS_H
-#define CHARACTERS_H
 #pragma once
 
 #include "races.h"
@@ -35,6 +33,9 @@ public:
   int level;
   int hitdicesize;
   int move_speed;
+  int fly_speed;
+  int swim_speed;
+  int climb_speed;
   int proficiency_bonus;
   int extra_attack;
   int expertise;
@@ -395,9 +396,13 @@ public:
   bool tough;
   bool war_caster;
   bool weapon_master;
+  bool svirfneblin_magic;
 
   //LANGUAGES
+  bool aarakocra;
   bool abyssal;
+  bool aquan;
+  bool auran;
   bool celestial;
   bool common;
   bool deep_speech;
@@ -425,6 +430,7 @@ public:
   bool breath_weapon_poison;
   bool breath_weapon_cold;
   bool darkvision;
+  bool devils_tongue; //tiefling variant
   bool draconic_ancestry_black;
   bool draconic_ancestry_blue;
   bool draconic_ancestry_brass;
@@ -441,21 +447,77 @@ public:
   bool dwarven_combat_training;
   bool dwarven_resilience;
   bool dwarven_toughness;
+  bool duergar_magic;      // duergar dwarf
+  bool duergar_resilience; // duergar dwarf
   bool elf_weapon_training;
+  bool expert_forgery; // kenku
   bool fey_ancestry;
+  bool firbolg_magic; //firbolg
   bool fleet_of_foot;
   bool halflinglucky;
   bool halfling_nimbleness;
+  bool healing_hands; // aasimar
+  bool hellfire;      //tiefling variant
   bool hellish_resistance;
+  bool hidden_step; //firbolg
   bool infernal_legacy;
+  bool light_bearer; //assimar
   bool mask_of_the_wild;
+  bool mimicry; // kenku
   bool natural_illusionist;
   bool naturally_stealthy;
+  bool necrotic_shroud;     //assimar
+  bool powerful_build;      //firbolg
+  bool radiant_consumption; //assimar
+  bool radiant_soul;        //assimar
+  bool silent_speech;       //ghostwise halfing
   bool speak_with_small_beasts;
+  bool speech_of_beast_and_leaf; //firbolg
   bool stonecunning;
+  bool stone_camouflage; //svirfneblin gnome
+  bool stones_endurance; //goliath
   bool stout_resilience;
   bool superior_darkvision;
   bool trance;
+  // lizardfolk
+  bool lizardfolk_bite;
+  bool cunning_artisan;
+  int hold_breath; //and tortle
+  int natural_armor;
+  bool hungry_jaws;
+  // tabaxi
+  bool feline_agility;
+  bool cats_claws;
+  // triton
+  bool amphibious;
+  bool control_air_and_water;
+  bool emissary_of_the_sea;
+  bool guardian_of_the_depths;
+  // warforged
+  bool composite_plating;
+  bool living_construct;
+  //changeling
+  bool shapechanger;
+  //shifter
+  bool shifting;
+  //tortle
+  bool shell;
+  bool retreat_to_shell;
+  bool turtle_snapper;
+  bool razorback;
+  bool razor_fist;
+  bool softshell;
+  bool nomad;
+  bool shell_master;
+  //aarakocra
+  bool talons;
+  //genasi
+  bool unending_breath;
+  bool mingle_with_the_wind;
+  bool earth_walk;
+  bool merge_with_stone;
+  bool reach_to_the_blaze;
+  bool call_to_the_wave;
 
   //RESISTANCES
   bool damage_resist_acid;
@@ -463,6 +525,8 @@ public:
   bool damage_resist_fire;
   bool damage_resist_poison;
   bool damage_resist_cold;
+  bool damage_resist_radiant;
+  bool damage_resist_necrotic;
 
   //DISADVANATAGES
   bool sunlight_sensitivity;
@@ -510,11 +574,13 @@ public:
   //CHARACTER CREATION FUNCTIONS (MUTATORS)
   void setName();
   void suggestRandomName(std::string &);
+  void giveRandomName(std::string &);
   void setRace(Generic_Character_Class &v);
   void setRaceBonuses();
   void setAlignment();
   void setBackground();
   void setAllStats();
+  void setAllStatsAtOnce(const int &, const int &, const int &, const int &, const int &, const int &);
   void setStr(const int &);
   void setDex(const int &);
   void setCon(const int &);
@@ -536,6 +602,7 @@ public:
   void setFavoredEnemy();
   void levelUpStats();
   void assignStats(int &s);
+  void wipeStats();
 
   //skill gaining functions
   void setAnySkill(const std::string &, const int &);
@@ -603,11 +670,13 @@ public:
   void gainTough(bool &s);
   void gainWar_caster(bool &s);
   void gainWeapon_master(bool &s);
+  void gainSvirfneblin_magic(bool &s);
 
   //CHARACTER DISPLAYING FUNCTIONS (ACCESSORS)
   std::string getBackground() const;
   void character_sheet() const;
   void printClassAbilities() const;
+  void printCantrips() const;
   void printSpellSlots() const;
   void printSkills() const;
   void printFeats() const;
@@ -620,6 +689,8 @@ public:
   void landtype() const;
   virtual int getlevelupmenus() const = 0;
   std::string getRace() const;
+
+  void exportPrint(const std::string &title) const;
 };
 
 //Macro for Clone definitions
@@ -657,5 +728,3 @@ CREATE_CLASS(Bard, Bard, bardlevelupmenus);
 CREATE_CLASS(Monk, Monk, monklevelupmenus);
 CREATE_CLASS(Ranger, Ranger, rangerlevelupmenus);
 CREATE_CLASS(Warlock, Warlock, warlocklevelupmenus);
-
-#endif

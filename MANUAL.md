@@ -5,16 +5,7 @@
 > 3. [OTHER TOOLS](#3-other-tools)
 > 4. [SETTINGS](#4-settings)
 
-> * [Back to project README](README.md)
-
-### -> MAIN MENU
-<img src="img/cliscreenshot.png" height="160px" align="center">
-
 ### 1. BUILD & MANAGE CHARACTERS
-
- <img src="img/cliscreenshot_characters.png" height="200px" align="left"> 
- 
- <img src="img/cliscreenshot_characters2.png" height="200px" align="center">
 
 * **New Character**. Walks though creating a new character and prompts all relevant options.
 
@@ -36,15 +27,11 @@
 
 _What the end Character Sheet looks like within your terminal_
 
-<img src="img/cliscreenshot_character.png" height="480px" align="center">
-
 > [back to index](#0-index)
 
 ---
 
 ### 2. LOOT GENERATION
-
-<img src="img/cliscreenshot_treasure.png" height="200px" align="center">
 
 * **Spellbook Generator** : Tell it how many of for each level (enter 0 to skip spells of that level), and it generates a spellbook full or randomly chosen Wizard spells. Also tells you how many pages are being used in the spellbook. Excellent for NPC wizards or players that like the idea of having random spells.
 
@@ -52,13 +39,9 @@ _What the end Character Sheet looks like within your terminal_
 
 * **Loot Rollers**. Try out the Hoard Loot option for a treasure cache or to populate a dungeon being built. All scrolls that are given are automatically put through the Scroll Generator (no more `level x unspecific scroll`, here you get `Level 3 Scroll of Fireball (sorcerer, wizard)` for example).
 
-> [back to index](#0-index)
-
 ---
 
 ### 3. OTHER TOOLS
-
-<img src="img\cliscreenshot_other_tools.png" height="180px" align="center">
 
 * **Name Generator**. 7732 names from [Kisment's list](http://www.dnd.kismetrose.com/pdfs/KismetsFantasyNames.pdf) with randomized selection. Edit the file [data/names.dat](data/names.dat) to add/remove names. The code that handles it automatically adjusts based on the number of lines in the file. Be sure to keep the newline at the end of the file(otherwise the last name on the list will never be chosen).
 
@@ -74,12 +57,10 @@ _What the end Character Sheet looks like within your terminal_
     * Poison Prices chart
     * Madness chart
     * Diseases chart
-    * Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/))
+    * Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
 
 > [back to index](#0-index)
 
 ### 4. SETTINGS
 
 * Introduced in build 3, a user preferences save area. Currently holds insult mode setting.
-
-Enjoy the Power!

@@ -1,5 +1,3 @@
-#ifndef NAME_GEN_H
-#define NAME_GEN_H
 #pragma once
 
 #include "globalfuncts.h"
@@ -9,8 +7,8 @@ class CharacterName
 {
 
 public:
-  void grabRandomName(std::string&);
+  void grabRandomName(std::string &);
 
 private:
 };
-#endif //NAME_GEN_H
+

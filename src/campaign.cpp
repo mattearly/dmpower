@@ -1,13 +1,17 @@
 #include "campaign.h"
 #include "globalfuncts.h"
 #include "characters.h"
+#include "terminal_colors.h"
 
 using namespace std;
 
-extern bool is_random;
-
+extern bool is_random;  // for random character gen
+extern string buildNumber;  // this is for the save version compatability
 extern void save_file();
 extern void load_file();
+extern bool clearScreens;  // a togglable setting
+
+bool quitBuilding = false;   // for exiting out of the build character at certain points
 
 string mainMessage;
 bool loadSuccess = false;
@@ -19,25 +23,27 @@ void Campaign::pc_menu()
   int choice = 0;
   while (choice != 8)
   {
-    simpleClearScreen();
+    if (clearScreens)
+      simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
     cout << GREEN << "---------- CHARACTER MANAGER -----------" << RESET << endl
          << " 1. Build a New Character" << endl
-         << " 2. View Characters" << endl
+         << " 2. View & Export Characters" << endl
          << " 3. Edit a Character" << endl
-         << " 4. Delete a Character" << endl
-         << " 5. Delete All Characters" << endl
-         << " 6. Save Current Work" << endl
-         << " 7. ";
+         << " 4. Save Current Work" << endl
+         << " 5. ";
     if (loadSuccess)
     {
-      cout << GREEN << loadedFile << RESET << " file loaded - " << RED << "unload?" << RESET << endl;
+      cout << GREEN << loadedFile << RESET << " file loaded - " << RED << "UNLOAD?" << RESET << endl;
     }
     else
     {
-      cout << "Load a Saved File" << endl;
+      cout << "Load & Manage Saves" << endl;
     }
+
+    cout << " 6. Delete a Character" << endl;
+    cout << " 7. Delete All Characters" << endl;
     cout << " 8. Back to " << CYAN << "MAIN MENU" << RESET << endl;
     cout << GREEN << "----------------------------------------" << RESET << endl;
     choice = getNumber("Choice: ", 1, 8);
@@ -45,37 +51,36 @@ void Campaign::pc_menu()
     {
     case 1:
     {
-      simpleClearScreen();
-      cout << "Create Random Character\n\n";
+      if (clearScreens)
+        simpleClearScreen();
+      cout << "Create Random Character?\n\n";
       cout << "1. Random Character" << endl;
       cout << "2. Manual Character" << endl;
       int randomized = getNumber("Choice: ", 1, 2);
-
-      if(randomized == 1) {
-        is_random = true;
-      } else { 
-        is_random = false;
-      }
+      is_random = (randomized == 1) ? true : false;
 
       cout << " Create a New Character! \n\n"
            << "Type Legend: " << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
            << "Character Classes Available:\n\n"
-           << CYAN << " 1. Cleric" << CYAN << "      7. Paladin\n\n"
+           << CYAN << " 1. Cleric" << CYAN << "      7. Paladin\n"
            << RESET
-           << RED << " 2. Fighter" << YELLOW << "     8. Sorcerer\n\n"
+           << RED << " 2. Fighter" << YELLOW << "     8. Sorcerer\n"
            << RESET
-           << RED << " 3. Rogue" << YELLOW << "       9. Bard\n\n"
+           << RED << " 3. Rogue" << YELLOW << "       9. Bard\n"
            << RESET
-           << YELLOW << " 4. Wizard" << RED << "     10. Monk\n\n"
+           << YELLOW << " 4. Wizard" << RED << "     10. Monk\n"
            << RESET
-           << RED << " 5. Barbarian" << CYAN << "  11. Ranger\n\n"
+           << RED << " 5. Barbarian" << CYAN << "  11. Ranger\n"
            << RESET
            << CYAN << " 6. Druid" << YELLOW << "      12. Warlock\n\n"
            << RESET;
-      int select_class = getNumber("Your Class Choice(1-12): ", 1, 12);
-      int starting_level = getNumber("\nStarting Character Level(1-20): ", 1, 20);
+      int select_class = getNumberOrQ(1, 12);
+      if (select_class == -1)
+        return;
+      int starting_level = getNumber("Starting Level(1-20): ", 1, 20);
 
-      simpleClearScreen();
+      if (clearScreens)
+        simpleClearScreen();
 
       Generic_Character_Class *new_character_build = nullptr;
       switch (select_class)
@@ -86,92 +91,93 @@ void Campaign::pc_menu()
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 2:
       {
         new_character_build = new Fighter;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 3:
       {
         new_character_build = new Rogue;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 4:
       {
         new_character_build = new Wizard;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 5:
       {
         new_character_build = new Barbarian;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 6:
       {
         new_character_build = new Druid;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 7:
       {
         new_character_build = new Paladin;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 8:
       {
         new_character_build = new Sorcerer;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 9:
       {
         new_character_build = new Bard;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 10:
       {
         new_character_build = new Monk;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 11:
       {
         new_character_build = new Ranger;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
-        break;
+      break;
       case 12:
       {
         new_character_build = new Warlock;
         new_character_build->setInitialClassFeatures();
         makecharacter(new_character_build, starting_level);
       }
+      break;
+      default:
         break;
-      default:break;
       }
 
       is_random = false;
     }
-      break;
+    break;
     case 2:
-    { //VIEW CHARACTER SHEET
+    { //VIEW & EXPORT CHARACTER SHEET
       if (character_list.size() < 1)
       {
         cout << "\nNothing to display. Create characters first.\n";
@@ -184,51 +190,62 @@ void Campaign::pc_menu()
         string valid_name;
         while (!found)
         {
-          cout << "Name of Character to Display Character Sheet of: ";
+          cout << "VIEW: Enter the character's " << GREEN << "NAME" << RESET << " (leave blank to exit)\n->";
           getline(cin, valid_name);
+          if (valid_name.length() == 0)
+            break; //break out of while loop, still hits for loop below but wont find anything. todo: improve
           valid_name[0] = toupper(valid_name[0]);
           for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
           {
             if ((*it)->char_name == valid_name)
             {
               found = true;
+              break; //leave loop if we found the name, no need to check more
             }
           }
           if (!found)
-            cout << "No character named " << valid_name << ". List of Charcters:\n";
-          for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
           {
-            cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+            cout << "No character named " << valid_name << endl;
           }
         }
         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
         {
           if (valid_name == (*it)->char_name)
+          {
             (*it)->character_sheet();
+            char to_export = getYorN("Export/Print Character? (y/n): ");
+            if (to_export == 'Y') 
+            {
+              std::string printname = (*it)->char_name + " lvl " + toString((*it)->level) + " " +
+                                      (*it)->race + " " + (*it)->char_class;
+              (*it)->exportPrint(printname);
+              mainMessage = printname + " exported, check exports folder.";
+            }
+            break; //leave the loop if we found the name, no need to check more
+          }
         }
       }
     }
-      pressEnterToContinue();
-      break;
+    break;
     case 3:
     { //EDIT/UPDATE CHARACTER
       if (character_list.size() < 1)
       {
         cout << "No characters to Edit. Create characters first.\n\n";
-
         pressEnterToContinue();
       }
       else
       {
         cout << "Current campaign characters:\n\n";
         showCampaignCharacterList();
-
         bool found = false;
         string valid_name;
         while (!found)
         {
-          cout << "Enter the " << CYAN << "Name" << RESET << " of Character you wish to edit: ";
+          cout << "EDIT: Enter the character's " << GREEN << "Name" << RESET << " (leave blank to exit)\n->";
           getline(cin, valid_name);
+          if (valid_name.length() == 0)
+            break; //break out of while loop, still hits for loop below but wont find anything. todo: improve
           valid_name[0] = toupper(valid_name[0]);
           for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
           {
@@ -239,17 +256,34 @@ void Campaign::pc_menu()
           }
           if (!found)
             cout << "\nNo character named " << valid_name << ". List of Charcters:\n\n";
-          showCampaignCharacterList();
         }
         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
         {
           if (valid_name == (*it)->char_name)
+          {
             (*it)->updateCharacter(*this);
+            break;
+          }
         }
       }
     }
-      break;
+    break;
     case 4:
+      save_file();
+      break;
+    case 5:
+      if (!loadSuccess)
+      {
+        load_file();
+      }
+      else
+      {
+        character_list.clear();
+        loadedFile = "";
+        loadSuccess = false;
+      }
+      break;
+    case 6:
     { //DELETE CHARACTER
       if (character_list.size() < 1)
       {
@@ -262,8 +296,10 @@ void Campaign::pc_menu()
         string tmp;
         do
         {
-          cout << "Enter the name of the PC to Delete(leave blank to exit function): ";
+          cout << "DELETE: Enter character's " << GREEN << "NAME" << RESET << " (leave blank to exit)\n->";
           getline(cin, tmp);
+          if (tmp.length() == 0)
+            break; //break out of do-while loop
           tmp[0] = toupper(tmp[0]);
           for (list<Generic_Character_Class *>::iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
           {
@@ -278,8 +314,8 @@ void Campaign::pc_menu()
         } while (tmp != "");
       }
     }
-      break;
-    case 5:
+    break;
+    case 7:
     { //DELETE ALL THE THINGS
       char sure = getYorN("Are you Sure you want to Delete All Player Characters?(y/n):");
       if (sure == 'Y')
@@ -292,31 +328,13 @@ void Campaign::pc_menu()
         mainMessage = "Nothing Deleted.\n\n";
       }
     }
-      break;
-    case 6:
-      save_file();
-      break;
-    case 7:
-      if (!loadSuccess)
-      {
-        load_file();
-      }
-      else
-      {
-        char answer = getYorN("Unload " + loadedFile + "?(y/n):");
-        if (answer == 'Y')
-        {
-          character_list.clear();
-          loadedFile = "";
-          loadSuccess = false;
-        }
-      }
-      break;
+    break;
     default:
-      cout << "Option doesn't exist.\n";
+      break;
     }
   }
-  simpleClearScreen();
+  if (clearScreens)
+    simpleClearScreen();
 }
 
 bool Campaign::checkname(const string &n) const
@@ -334,9 +352,12 @@ bool Campaign::checkname(const string &n) const
 
 void Campaign::makecharacter(Generic_Character_Class *new_character, int &starting_level)
 {
+  new_character->level = starting_level;
+
   bool goodname = false;
 
-  simpleClearScreen();
+  if (clearScreens)
+    simpleClearScreen();
   while (!goodname)
   {
     new_character->setName();
@@ -344,6 +365,14 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   }
 
   new_character->setAllStats();
+
+  if (quitBuilding)
+  {
+    quitBuilding = false;
+    delete new_character;
+    return;
+  }
+
   new_character->setRace(*new_character);
   new_character->setAlignment();
   new_character->setBackground();
@@ -358,26 +387,38 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   if (ans == 'Y')
   {
     character_list.back()->character_sheet();
-    pressEnterToContinue();
+
+    // ASK IF PLAYER WANTS TO EXPORT
+    char to_export = getYorN("Export/Print Character? (y/n): ");
+    if (to_export == 'Y') 
+    {
+      std::string printname = character_list.back()->char_name + " lvl " + toString(character_list.back()->level) + " " +
+                              character_list.back()->race + " " + character_list.back()->char_class;
+      new_character->exportPrint(printname);
+      mainMessage = printname + " exported, check exports folder. ";
+    }
+
   }
+  mainMessage += "Don't forget to 'Save Current Work'";
 }
 
 ofstream &Campaign::dumpCharacter(ofstream &os) const
 {
+  os << buildNumber << endl; // build number to keep saves working correctly
   int charactercount = 0;
   for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
   {
     charactercount++;
     os
         << "saved character: " << charactercount << endl
-           //basics
+        //basics
         << (*it)->char_class << endl
         << (*it)->char_name << endl
         << (*it)->race << endl
         << (*it)->alignment << endl
         << (*it)->level << endl
 
-           //class level up menus prep for multiclass functions
+        //class level up menus prep for multiclass functions
         << (*it)->clericlevelupmenus << endl
         << (*it)->fighterlevelupmenus << endl
         << (*it)->roguelevelupmenus << endl
@@ -392,7 +433,11 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->warlocklevelupmenus << endl
 
         << (*it)->backgroundofpc << endl
+
         << (*it)->move_speed << endl
+        << (*it)->fly_speed << endl
+        << (*it)->swim_speed << endl
+        << (*it)->climb_speed << endl
         << (*it)->hitdicesize << endl
         << (*it)->proficiency_bonus << endl
         << (*it)->strength << endl
@@ -407,7 +452,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->intSave << endl
         << (*it)->wisSave << endl
         << (*it)->chaSave << endl
-           //class stuff - general
+        //class stuff - general
         << "generalclassstuff" << endl
         << (*it)->extra_attack << endl
         << (*it)->expertise << endl
@@ -488,7 +533,6 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->wild_shape_improvement << endl //druid
         << (*it)->druid_circle_feature << endl
         << (*it)->druid_cantrips_known << endl
-        << (*it)->druidic << endl
         << (*it)->wild_shape << endl
         << (*it)->druid_circle << endl
         << (*it)->beast_spells << endl
@@ -704,16 +748,20 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->skilled << endl
         << (*it)->skulker << endl
         << (*it)->spell_sniper << endl
+        << (*it)->svirfneblin_magic << endl
         << (*it)->tavern_brawler << endl
         << (*it)->tough << endl
         << (*it)->war_caster << endl
         << (*it)->weapon_master << endl
         << "languages" << endl //languages
         << (*it)->abyssal << endl
+        << (*it)->aquan << endl
+        << (*it)->auran << endl
         << (*it)->celestial << endl
         << (*it)->common << endl
         << (*it)->deep_speech << endl
         << (*it)->draconic << endl
+        << (*it)->druidic << endl
         << (*it)->dwarvish << endl
         << (*it)->elvish << endl
         << (*it)->giant << endl
@@ -735,6 +783,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->breath_weapon_poison << endl
         << (*it)->breath_weapon_cold << endl
         << (*it)->darkvision << endl
+        << (*it)->devils_tongue << endl
         << (*it)->draconic_ancestry_black << endl
         << (*it)->draconic_ancestry_blue << endl
         << (*it)->draconic_ancestry_brass << endl
@@ -751,27 +800,88 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->dwarven_combat_training << endl
         << (*it)->dwarven_resilience << endl
         << (*it)->dwarven_toughness << endl
+        << (*it)->duergar_resilience << endl
+        << (*it)->duergar_magic << endl
         << (*it)->elf_weapon_training << endl
+        << (*it)->expert_forgery << endl
         << (*it)->fey_ancestry << endl
+        << (*it)->firbolg_magic << endl
         << (*it)->fleet_of_foot << endl
         << (*it)->halflinglucky << endl
         << (*it)->halfling_nimbleness << endl
+        << (*it)->hidden_step << endl
+        << (*it)->hellfire << endl
         << (*it)->hellish_resistance << endl
+        << (*it)->hold_breath << endl
         << (*it)->infernal_legacy << endl
         << (*it)->mask_of_the_wild << endl
+        << (*it)->mimicry << endl
         << (*it)->natural_illusionist << endl
         << (*it)->naturally_stealthy << endl
+        << (*it)->powerful_build << endl
+        << (*it)->silent_speech << endl
         << (*it)->speak_with_small_beasts << endl
+        << (*it)->speech_of_beast_and_leaf << endl
         << (*it)->stonecunning << endl
+        << (*it)->stone_camouflage << endl
+        << (*it)->stones_endurance << endl
         << (*it)->stout_resilience << endl
         << (*it)->superior_darkvision << endl
         << (*it)->trance << endl
+        //aasimar stuff
+        << (*it)->healing_hands << endl
+
+        << (*it)->light_bearer << endl
+        << (*it)->necrotic_shroud << endl
+        << (*it)->radiant_consumption << endl
+        << (*it)->radiant_soul << endl
+        //lizardfolk stuff
+        << (*it)->lizardfolk_bite << endl
+        << (*it)->cunning_artisan << endl
+        << (*it)->natural_armor << endl
+        << (*it)->hungry_jaws << endl
+        //tabaxi stuff
+        << (*it)->feline_agility << endl
+        << (*it)->cats_claws << endl
+        //triton stuff
+        << (*it)->amphibious << endl
+        << (*it)->control_air_and_water << endl
+        << (*it)->emissary_of_the_sea << endl
+        << (*it)->guardian_of_the_depths << endl
+        //warforged stuff
+        << (*it)->composite_plating << endl
+        << (*it)->living_construct << endl
+        //changeling stuff
+        << (*it)->shapechanger << endl
+        //shifter stuff
+        << (*it)->shifting << endl
+        //tortle stuff
+        << (*it)->shell << endl
+        << (*it)->retreat_to_shell << endl
+        << (*it)->turtle_snapper << endl
+        << (*it)->razorback << endl
+        << (*it)->razor_fist << endl
+        << (*it)->softshell << endl
+        << (*it)->nomad << endl
+        << (*it)->shell_master << endl
+        //aarakocra stuff
+        << (*it)->talons << endl
+        //genasi stuff
+        << (*it)->unending_breath << endl
+        << (*it)->mingle_with_the_wind << endl
+        << (*it)->earth_walk << endl
+        << (*it)->merge_with_stone << endl
+        << (*it)->reach_to_the_blaze << endl
+        << (*it)->call_to_the_wave << endl
+
         << "resistances" << endl //resistances
         << (*it)->damage_resist_acid << endl
         << (*it)->damage_resist_ltg << endl
         << (*it)->damage_resist_fire << endl
         << (*it)->damage_resist_poison << endl
         << (*it)->damage_resist_cold << endl
+        << (*it)->damage_resist_necrotic << endl
+        << (*it)->damage_resist_radiant << endl
         << "disadvantages" << endl //disadvantages
         << (*it)->sunlight_sensitivity << endl
         << "tools" << endl //artisan tools & supplies
@@ -817,46 +927,79 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
 
 bool Campaign::retrieveCharacter(ifstream &ins)
 {
-  string tmp;
-  int processor;
-  Generic_Character_Class *v;
-  while (!ins.eof())
+  bool debugRetrieve = false;  // change to true to see the console logs
+
+  static string charClassTempVar;
+  static string sbuffer;
+  static int charBackgroundProcessor;
+  static Generic_Character_Class *v;
+
+//----------- LOAD IN SAVE VERSION NUMBER --------//
+  getline(ins, sbuffer);
+
+  if (debugRetrieve)
+    cout << "version retrieved is: " << sbuffer << endl;
+
+  if (sbuffer.compare(buildNumber) != 0)
   {
-    ins.ignore(numeric_limits<streamsize>::max(), '\n');
-    int len = ins.tellg(); //get current position
-    getline(ins, tmp);
-    if (tmp == "Cleric")
+    cout << "Versions Do Not Match\n";
+    return false;
+  }
+
+//---------- GET WHICH SAVED CHARACTER # ---------//
+  getline(ins, sbuffer);
+
+  do
+  {
+
+    if (debugRetrieve)
+      cout << "Loading in " << sbuffer << endl;
+
+//--------- LOAD IN CHARACTER CLASS ----------//
+    getline(ins, charClassTempVar);
+    if (charClassTempVar == "Cleric")
       v = new Cleric;
-    else if (tmp == "Fighter")
+    else if (charClassTempVar == "Fighter")
       v = new Fighter;
-    else if (tmp == "Barbarian")
+    else if (charClassTempVar == "Barbarian")
       v = new Barbarian;
-    else if (tmp == "Bard")
+    else if (charClassTempVar == "Bard")
       v = new Bard;
-    else if (tmp == "Druid")
+    else if (charClassTempVar == "Druid")
       v = new Druid;
-    else if (tmp == "Monk")
+    else if (charClassTempVar == "Monk")
       v = new Monk;
-    else if (tmp == "Paladin")
+    else if (charClassTempVar == "Paladin")
       v = new Paladin;
-    else if (tmp == "Ranger")
+    else if (charClassTempVar == "Ranger")
       v = new Ranger;
-    else if (tmp == "Rogue")
+    else if (charClassTempVar == "Rogue")
       v = new Rogue;
-    else if (tmp == "Sorcerer")
+    else if (charClassTempVar == "Sorcerer")
       v = new Sorcerer;
-    else if (tmp == "Warlock")
+    else if (charClassTempVar == "Warlock")
       v = new Warlock;
-    else if (tmp == "Wizard")
+    else if (charClassTempVar == "Wizard")
       v = new Wizard;
     else
       return false;
-    ins.seekg(len, ios_base::beg); //return to position
+    v->char_class = charClassTempVar;
 
-    getline(ins, v->char_class);
+    if (debugRetrieve)
+      cout << "class set:  " << charClassTempVar << endl;
+
+//----- LOAD IN NAME, RACE, ALIGNMENT -------//
     getline(ins, v->char_name);
     getline(ins, v->race);
     getline(ins, v->alignment);
+
+    if (debugRetrieve)
+    {
+      cout << "name of char: " << v->char_name << endl;
+      cout << "race set: " << v->race << endl;
+    }
+
+//------ LOAD IN LEVELS SET ----------//
     ins >> v->level;
     ins >> v->clericlevelupmenus;
     ins >> v->fighterlevelupmenus;
@@ -870,9 +1013,22 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->monklevelupmenus;
     ins >> v->rangerlevelupmenus;
     ins >> v->warlocklevelupmenus;
-    ins >> processor;
-    v->backgroundofpc = static_cast<enum Generic_Character_Class::characterbackground>(processor);
+
+    if (debugRetrieve)
+      cout << "level up menus set" << endl;
+
+//------------- LOAD IN BACKGROUND ------------------//
+    ins >> charBackgroundProcessor;
+    v->backgroundofpc = static_cast<enum Generic_Character_Class::characterbackground>(charBackgroundProcessor);
+    
+    if (debugRetrieve)
+      cout << "background set to: " << charBackgroundProcessor << endl;
+
+//----------- LOAD IN BASIC STAT BLOCK -----------//
     ins >> v->move_speed;
+    ins >> v->fly_speed;
+    ins >> v->swim_speed;
+    ins >> v->climb_speed;
     ins >> v->hitdicesize;
     ins >> v->proficiency_bonus;
     ins >> v->strength;
@@ -887,8 +1043,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->intSave;
     ins >> v->wisSave;
     ins >> v->chaSave;
+
+    if (debugRetrieve)
+      cout << "basic abiliity stats" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //  class stuff general
+    getline(ins, sbuffer);
+
+//--------- LOAD IN GENERAL CLASS STUFF ---------//
     ins >> v->extra_attack;
     ins >> v->expertise;
     ins >> v->spellcasting;
@@ -900,8 +1061,14 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->dueling;
     ins >> v->great_weapon_fighting;
     ins >> v->protection;
+
+    if (debugRetrieve)
+      cout << "general class stuff set" << endl;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //cleric
+    getline(ins, sbuffer);
+
+//--------- LOAD IN CLERIC CLASS ------------//
     ins >> v->destroy_undead;
     ins >> v->channel_divinity;
     ins >> v->divine_domain_feature;
@@ -917,8 +1084,11 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->tempest_d;
     ins >> v->trickery_d;
     ins >> v->war_d;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //fighter
+    getline(ins, sbuffer);
+
+//--------- LOAD IN FIGHTER CLASS -------------//
     ins >> v->action_surge;
     ins >> v->martial_archtype_feature;
     ins >> v->indomitable;
@@ -931,8 +1101,11 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->battle_master;
     ins >> v->eldritch_knight;
     ins >> v->purple_dragon_knight;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //barbarian
+    getline(ins, sbuffer);
+
+//--------- LOAD IN BARBARIAN CLASS -------------//
     ins >> v->rages;
     ins >> v->rage_damage;
     ins >> v->path_feature;
@@ -952,8 +1125,11 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->bear_totem;
     ins >> v->eagle_totem;
     ins >> v->wolf_totem;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //bard
+    getline(ins, sbuffer);
+
+//---------- LOAD IN BARD CLASS ------------//
     ins >> v->bardic_inspiration;
     ins >> v->song_of_rest;
     ins >> v->bard_college_feature;
@@ -968,20 +1144,25 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->college_of_lore;
     ins >> v->college_of_valor;
     ins >> v->additional_magical_secrets;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //druid
+    getline(ins, sbuffer);
+
+//----------- LOAD IN DRUID CLASS ----------//
     ins >> v->wild_shape_improvement;
     ins >> v->druid_circle_feature;
     ins >> v->druid_cantrips_known;
-    ins >> v->druidic;
     ins >> v->wild_shape;
     ins >> v->druid_circle;
     ins >> v->beast_spells;
     ins >> v->archdruid;
     ins >> v->circle_of_the_moon;
     ins >> v->circle_of_the_land;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //monk
+    getline(ins, sbuffer);
+
+//---------- LOAD IN MONK CLASS -----------//
     ins >> v->monastic_tradition_feature;
     ins >> v->ki;
     ins >> v->unarmored_movement;
@@ -1003,8 +1184,11 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->way_of_the_shadow;
     ins >> v->way_of_the_sun_soul;
     ins >> v->unarmored_movement_improvement;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //paladin
+    getline(ins, sbuffer);
+
+//-------- LOAD IN PALADIN CLASS --------//
     ins >> v->sacred_oath_feature;
     ins >> v->divine_smite;
     ins >> v->divine_sense;
@@ -1020,8 +1204,11 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->oath_of_the_crown;
     ins >> v->oath_of_vengeance;
     ins >> v->oathbreaker;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //ranger
+    getline(ins, sbuffer);
+
+//-------- LOAD IN RANGER CLASS ----------//
     ins >> v->favored_enemy;
     ins >> v->favored_enemy_languages;
     ins >> v->natural_explorer;
@@ -1036,8 +1223,11 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->foe_slayer;
     ins >> v->hunter;
     ins >> v->beast_master;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //rogue
+    getline(ins, sbuffer);
+
+//-------- LOAD IN ROGUE CLASS ----------//
     ins >> v->roguish_archetype_feature;
     ins >> v->arcane_t_spells_known;
     ins >> v->sneak_attack;
@@ -1055,8 +1245,11 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->arcane_trickster;
     ins >> v->mastermind;
     ins >> v->swashbuckler;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //sorcerer
+    getline(ins, sbuffer);
+
+//-------- LOAD IN SORCERER CLASS ----------//
     ins >> v->sorcerous_origin_feature;
     ins >> v->metamagic;
     ins >> v->sorcery_points;
@@ -1068,8 +1261,11 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->draconic_bloodline;
     ins >> v->wild_magic;
     ins >> v->storm_sorcery;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //warlock
+    getline(ins, sbuffer);
+
+//--------- LOAD IN WARLOCK CLASS --------//
     ins >> v->warlock_slot_level;
     ins >> v->eldritch_invocations_known;
     ins >> v->warlock_spells_known;
@@ -1085,8 +1281,11 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->fiend;
     ins >> v->great_old_one;
     ins >> v->the_undying;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //wizard
+    getline(ins, sbuffer);
+
+//--------- LOAD IN WIZARD CLASS -------//
     ins >> v->arcane_tradition_feature;
     ins >> v->wizard_cantrips_known;
     ins >> v->arcane_recovery;
@@ -1102,8 +1301,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->necromancy;
     ins >> v->transmutation;
     ins >> v->bladesinging;
+
+    if (debugRetrieve)
+      cout << "precise class stuff set" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //landtypes
+    getline(ins, sbuffer);
+
+//------- LOAD IN RANGER LANDTYPES --------//
     ins >> v->artic;
     ins >> v->coast;
     ins >> v->desert;
@@ -1112,8 +1316,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->mountain;
     ins >> v->swamp;
     ins >> v->underdark;
+
+    if (debugRetrieve)
+      cout << "landtypes set" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //creaturetype
+    getline(ins, sbuffer);
+
+//------ LOAD IN FAVORED ENEMY CREATURETYPS ------//
     ins >> v->twohumanoids;
     ins >> v->aberrations;
     ins >> v->beasts;
@@ -1128,8 +1337,14 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->oozes;
     ins >> v->plants;
     ins >> v->undead;
+
+    if (debugRetrieve)
+      cout << "creaturetype set " << endl;
+
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //spellslots
+    getline(ins, sbuffer);
+
+//------- LOAD IN SPELLSLOTS ------//
     ins >> v->first_ss;
     ins >> v->second_ss;
     ins >> v->third_ss;
@@ -1140,8 +1355,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->eighth_ss;
     ins >> v->ninth_ss;
     ins >> v->warlock_ss;
+
+    if (debugRetrieve)
+      cout << "spellslots set" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //skills
+    getline(ins, sbuffer);
+
+//------- LOAD IN SKILLS ------//
     ins >> v->initialSkillsSet;
     ins >> v->acrobatics;
     ins >> v->animal_handling;
@@ -1161,8 +1381,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->sleight_of_hand;
     ins >> v->stealth;
     ins >> v->survival;
+
+    if (debugRetrieve)
+      cout << "skills set" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //feats
+    getline(ins, sbuffer);
+
+//------ LOAD IN FEATS ------//
     ins >> v->alert;
     ins >> v->athlete;
     ins >> v->actor;
@@ -1201,17 +1426,26 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->skilled;
     ins >> v->skulker;
     ins >> v->spell_sniper;
+    ins >> v->svirfneblin_magic;
     ins >> v->tavern_brawler;
     ins >> v->tough;
     ins >> v->war_caster;
     ins >> v->weapon_master;
+
+    if (debugRetrieve)
+      cout << "feats set" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //languages
+    getline(ins, sbuffer);
+
+//------ LOAD IN LANGUAGES ------//
     ins >> v->abyssal;
+    ins >> v->aquan;
+    ins >> v->auran;
     ins >> v->celestial;
     ins >> v->common;
     ins >> v->deep_speech;
     ins >> v->draconic;
+    ins >> v->druidic;
     ins >> v->dwarvish;
     ins >> v->elvish;
     ins >> v->giant;
@@ -1224,8 +1458,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->primordial;
     ins >> v->sylvan;
     ins >> v->undercommon;
+
+    if (debugRetrieve)
+      cout << "languages set" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //features
+    getline(ins, sbuffer);
+
+//----- LOAD IN RACE AND OTHER FEATURES -----//
     ins >> v->artificers_lore;
     ins >> v->brave;
     ins >> v->breath_weapon_acid;
@@ -1234,6 +1473,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->breath_weapon_poison;
     ins >> v->breath_weapon_cold;
     ins >> v->darkvision;
+    ins >> v->devils_tongue;
     ins >> v->draconic_ancestry_black;
     ins >> v->draconic_ancestry_blue;
     ins >> v->draconic_ancestry_brass;
@@ -1250,33 +1490,107 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->dwarven_combat_training;
     ins >> v->dwarven_resilience;
     ins >> v->dwarven_toughness;
+    ins >> v->duergar_resilience;
+    ins >> v->duergar_magic;
     ins >> v->elf_weapon_training;
+    ins >> v->expert_forgery;
     ins >> v->fey_ancestry;
+    ins >> v->firbolg_magic;
     ins >> v->fleet_of_foot;
     ins >> v->halflinglucky;
     ins >> v->halfling_nimbleness;
+    ins >> v->hidden_step;
+    ins >> v->hellfire;
     ins >> v->hellish_resistance;
+    ins >> v->hold_breath;
     ins >> v->infernal_legacy;
     ins >> v->mask_of_the_wild;
+    ins >> v->mimicry;
     ins >> v->natural_illusionist;
     ins >> v->naturally_stealthy;
+    ins >> v->powerful_build;
+    ins >> v->silent_speech;
     ins >> v->speak_with_small_beasts;
+    ins >> v->speech_of_beast_and_leaf;
     ins >> v->stonecunning;
+    ins >> v->stone_camouflage;
+    ins >> v->stones_endurance;
     ins >> v->stout_resilience;
     ins >> v->superior_darkvision;
     ins >> v->trance;
+    //aasimar stuff
+    ins >> v->healing_hands;
+    ins >> v->light_bearer;
+    ins >> v->necrotic_shroud;
+    ins >> v->radiant_consumption;
+    ins >> v->radiant_soul;
+    //lizardfolk stuff
+    ins >> v->lizardfolk_bite;
+    ins >> v->cunning_artisan;
+    ins >> v->natural_armor;
+    ins >> v->hungry_jaws;
+    //tabaxi stuff
+    ins >> v->feline_agility;
+    ins >> v->cats_claws;
+    //triton stuff
+    ins >> v->amphibious;
+    ins >> v->control_air_and_water;
+    ins >> v->emissary_of_the_sea;
+    ins >> v->guardian_of_the_depths;
+    //warforged stuff
+    ins >> v->composite_plating;
+    ins >> v->living_construct;
+    //changeling stuff
+    ins >> v->shapechanger;
+    //shifter stuff
+    ins >> v->shifting;
+    //tortle
+    ins >> v->shell;
+    ins >> v->retreat_to_shell;
+    ins >> v->turtle_snapper;
+    ins >> v->razorback;
+    ins >> v->razor_fist;
+    ins >> v->softshell;
+    ins >> v->nomad;
+    ins >> v->shell_master;
+    //Aarakocra stuff
+    ins >> v->talons;
+    //genasi stuff
+    ins >> v->unending_breath;
+    ins >> v->mingle_with_the_wind;
+    ins >> v->earth_walk;
+    ins >> v->merge_with_stone;
+    ins >> v->reach_to_the_blaze;
+    ins >> v->call_to_the_wave;
+
+    if (debugRetrieve)
+      cout << "character features set" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //resistances
+    getline(ins, sbuffer);
+
+//----- LOAD IN RESISTANCES -----//
     ins >> v->damage_resist_acid;
     ins >> v->damage_resist_ltg;
     ins >> v->damage_resist_fire;
     ins >> v->damage_resist_poison;
     ins >> v->damage_resist_cold;
+    ins >> v->damage_resist_necrotic;
+    ins >> v->damage_resist_radiant;
+
+    if (debugRetrieve)
+      cout << "resistances set" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //disadvantages
+    getline(ins, sbuffer);
+
+//---- LOAD IN DISADVANTAGES ----//
     ins >> v->sunlight_sensitivity;
+
+    if (debugRetrieve)
+      cout << "disadvantages set" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //artisan tools & supplies
+    getline(ins, sbuffer);
+
+//----- LOAD IN ARTISAN TOOLS -----//
     ins >> v->alchemist;
     ins >> v->brewer;
     ins >> v->calligrapher;
@@ -1294,8 +1608,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->tinker;
     ins >> v->weaver;
     ins >> v->woodcarver;
+
+    if (debugRetrieve)
+      cout << "artisan tools and supplies set" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //kits & tools
+    getline(ins, sbuffer);
+
+//----- LOAD IN KITS ------//
     ins >> v->disguise;
     ins >> v->forgery;
     ins >> v->herbalism;
@@ -1303,8 +1622,13 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->poisoner;
     ins >> v->thieves;
     ins >> v->vehicle;
+
+    if (debugRetrieve)
+      cout << "kits and tools set" << endl;
     ins.get();
-    ins.ignore(numeric_limits<streamsize>::max(), '\n'); //musical instruments
+    getline(ins, sbuffer);
+
+//----- LOAD IN MUSICAL INSTRUMENTS -----//
     ins >> v->bagpipes;
     ins >> v->drum;
     ins >> v->dulcimer;
@@ -1315,15 +1639,18 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->pan_flute;
     ins >> v->shawm;
     ins >> v->viol;
+
+    if (debugRetrieve)
+      cout << "musical instruments set" << endl;
+    
     character_list.push_back(v);
+
     ins.get();
-    if (ins.peek() == '\n')
-      ins.ignore(numeric_limits<streamsize>::max(), '\n');
-  }
+  } while (getline(ins, sbuffer));
   return true;
 }
 
-void Campaign::showCampaignCharacterList()
+void Campaign::showCampaignCharacterList() const
 {
   for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
   {

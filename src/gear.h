@@ -1,5 +1,3 @@
-#ifndef GEAR_H
-#define GEAR_H
 #pragma once
 
 #include "globalfuncts.h"
@@ -44,4 +42,3 @@ private:
 
 // }
 
-#endif

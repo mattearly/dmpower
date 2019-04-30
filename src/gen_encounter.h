@@ -1,5 +1,3 @@
-#ifndef ENCOUNTERS_H
-#define ENCOUNTERS_H
 #pragma once
 
 #include <string>
@@ -58,7 +56,4 @@ private:
   // 	UNDEAD
   // };
   // MonsterType monstertype;
-
 };
-
-#endif //ENCOUNTERS_H

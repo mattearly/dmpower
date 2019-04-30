@@ -1,5 +1,6 @@
 #include "campaign.h"
 #include "globalfuncts.h"
+#include "terminal_colors.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -13,6 +14,7 @@ extern string mainMessage;
 extern string loadedFile;
 extern bool loadSuccess;
 extern Campaign myGame;
+extern bool clearScreens;
 
 void showLoadableFiles(const std::string &dir);
 
@@ -44,7 +46,7 @@ void save_file()
       }
       std::getline(std::cin, file, '\n');
       reduce(file);
-      contains_non_alpha = file.find_first_not_of("abcdefghijklmnopqrstuvwxyz0123456789") != std::string::npos;
+      contains_non_alpha = file.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") != std::string::npos;
       done_first_pass = true;
     } while (contains_non_alpha);
   }
@@ -53,7 +55,7 @@ void save_file()
     file = loadedFile;
   }
   //save into file after above is complete
-  os.open(("saves/" + file + ".save").c_str());
+  os.open(("saves/" + file + ".dmpsave").c_str());
   if (os.is_open())
   {
     myGame.dumpCharacter(os);
@@ -66,19 +68,22 @@ void save_file()
 
 void load_file()
 {
+  if (clearScreens) simpleClearScreen();
   //show list of previous saves
   showLoadableFiles("saves");
-  std::cout << "\nadditional load commands:\n"
-               "   combine 2 files: 'combine SaveToKeep SaveToMergeInAndDelete'\n\n";
+  std::cout << YELLOW << "additional save management commands:" << RESET << "\n";
+  cout << "   combine 2 files: '" << GREEN << "combine SaveToKeep SaveToMergeIn" << RESET << "'\n";
+  cout << "   delete a file: '" << GREEN << "delete SaveToDelete" << RESET << "'\n";
+  std::cout << std::endl;
   std::string file;
   std::cout << "(leave blank to skip) Load File: ";
   std::getline(std::cin, file, '\n');
   reduce(file);
 
-  ///combine saves option
-  //if the word is combine, shoudl be followed by save to combine into, then
-  // file to merge, merged file is deleted after completion (ideally)
-  if (file.substr(0, 7) == "combine")
+  //combine saves option
+  // if the word is combine followed by a space,
+  // the next 2 words should be the one to keep and the one to merge in
+  if (file.substr(0, 8) == "combine ")
   {
     std::string keep, mergein;
     if (file.find_first_of(" ", 8) != std::string::npos)
@@ -89,41 +94,53 @@ void load_file()
       bool mergesuccess = mergeSaves(keep, mergein);
       if (mergesuccess)
       {
-        char answer = getYorN("Delete old file?(y/n):");
-        if (answer == 'Y')
+        std::string removestuff = "rm saves/" + mergein + ".dmpsave";
+        if (system(removestuff.c_str()))
         {
-          std::string removestuff = "rm saves/" + mergein + ".save";
-          if (!system(removestuff.c_str())) {
-            std::cout << "unable to remove file '" << mergein << "'\n";
-          }
+          std::cout << "unable to remove file '" << mergein << "'\n";
         }
         load_file();
       }
     }
   }
-  else
+
+  // delete saves option
+  // if the word is delete followed by a space, the next word should be the file to delete
+  else if (file.substr(0, 7) == "delete ")
+  {
+    std::string fileToRemove;
+    if (file.find_first_not_of(" ", 7) != std::string::npos)
+    {
+      size_t pos1 = file.find_first_of(" ", 7);
+      fileToRemove = file.substr(7, pos1 - 7);
+      std::string removestuff = "rm saves/" + fileToRemove + ".dmpsave";
+      if (system(removestuff.c_str()))
+      {
+        std::cout << "unable to remove file '" << fileToRemove << "'\n";
+      }
+      load_file();
+    }
+  }
+  else if (file.length() > 0)
   {
     std::ifstream thefile;
-    thefile.open(("saves/" + file + ".save").c_str());
+    thefile.open(("saves/" + file + ".dmpsave").c_str());
+    if (thefile.fail()) {
+      std::cout << "Could not open file (fail triggered)\n";
+      return;
+    } 
     if (thefile.is_open())
     {
       bool success = myGame.retrieveCharacter(thefile);
 
       if (success)
       {
-        std::cout << "File '" << file << "' loaded.\n\n";
+        mainMessage = "File '" + file + "' loaded.";
+        loadedFile = file;
+        loadSuccess = true;
+      } else {
+        mainMessage = "Failed to load file: " + file + " - check code.";
       }
-      else
-      {
-        std::cout << "The file named '" << file << "' doesn't seem to have much data or is invalid\n\n";
-      }
-      loadSuccess = true;
-      loadedFile = file;
-      thefile.close();
-    }
-    else
-    {
-      mainMessage = "No file named '" + file + "'. Starting new file.";
     }
   }
 }
@@ -155,8 +172,8 @@ void showLoadableFiles(const std::string &dir)
     std::string original_ver;
     ss >> original_ver;
 
-    //ignore the readme.md file
-    if (original_ver.find("readme.md") != std::string::npos)
+    //ignore anything that is not *.dmpsave
+    if (original_ver.find(".dmpsave") == std::string::npos)
     {
       continue;
     }
@@ -170,10 +187,8 @@ void showLoadableFiles(const std::string &dir)
 
 void truncateSaveForThisVersion(std::string &original, std::string &edited)
 {
-  // std::cout << "truncating...\n";
   edited.clear();
-  // std::size_t pos1 = original.find("");
-  std::size_t pos2 = original.find(".save");
+  std::size_t pos2 = original.find(".dmpsave");
 
   edited = original.substr(7, pos2 - 7);
 }
@@ -181,45 +196,27 @@ void truncateSaveForThisVersion(std::string &original, std::string &edited)
 bool mergeSaves(const std::string &keep, const std::string &mergein)
 {
   std::ofstream saveto;
-  // open with append ready
-  saveto.open(("saves/" + keep + ".save").c_str(), std::ios_base::app);
-  if (saveto.is_open())
-  {
-    std::cout << "\nsaveto is open\n";
-  }
-  else
-    std::cout << "saveto open failed\n";
+  saveto.open(("saves/" + keep + ".dmpsave").c_str(), std::ios_base::app);  //open write-to file with append
 
-  // saveto.close();
   std::ifstream readfrom;
-  // open for read only
-  readfrom.open(("saves/" + mergein + ".save").c_str());
-  if (readfrom.is_open())
-  {
-    std::cout << "readfrom is open\n";
-  }
-  else
-    std::cout << "readfrom open failed\n";
+  readfrom.open(("saves/" + mergein + ".dmpsave").c_str());
 
   if (saveto.is_open() && readfrom.is_open())
   {
-    //do the transfer update of the save
     std::string tmp;
+    getline(readfrom, tmp);  // eat the first line which is the save version
     do
     {
-      // std::cout << "writing line from old file to new file\n"; //debug
       std::getline(readfrom, tmp);
       if (readfrom.eof())
         break;
       saveto << tmp << "\n";
     } while (!readfrom.eof());
-    saveto.close();
-    readfrom.close();
     return true;
   }
   else
   {
-    std::cout << "both are not open, weird mate\n";
+    std::cout << "Error opening both requested files\n";
   }
   return false;
 }

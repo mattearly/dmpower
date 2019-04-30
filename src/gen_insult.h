@@ -1,5 +1,3 @@
-#ifndef INSULT_H
-#define INSULT_H
 #pragma once
 
 #include <string>
@@ -14,4 +12,3 @@ public:
 private:
 };
 
-#endif // INSULT_H
