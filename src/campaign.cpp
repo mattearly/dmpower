@@ -180,7 +180,7 @@ void Campaign::pc_menu()
     { //VIEW & EXPORT CHARACTER SHEET
       if (character_list.size() < 1)
       {
-        cout << "\nNothing to display. Create characters first.\n";
+        mainMessage = "Nothing to display. Create characters first.";
       }
       else
       {
@@ -231,8 +231,7 @@ void Campaign::pc_menu()
     { //EDIT/UPDATE CHARACTER
       if (character_list.size() < 1)
       {
-        cout << "No characters to Edit. Create characters first.\n\n";
-        pressEnterToContinue();
+        mainMessage = "No characters to Edit. Create some characters first.";
       }
       else
       {
@@ -287,7 +286,7 @@ void Campaign::pc_menu()
     { //DELETE CHARACTER
       if (character_list.size() < 1)
       {
-        cout << "No characters. Nothing to Delete! \n";
+        mainMessage = "No characters. Nothing to Delete!";
       }
       else
       {
