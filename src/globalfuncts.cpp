@@ -4,6 +4,8 @@
 #include <string>
 #include <stdexcept>
 
+bool is_random = false; // for the random character gen operation triggers
+
 void simpleClearScreen()
 {
   for (int i = 0; i < 14; i++) // 14*5 is sufficient for most terminal sizes
@@ -48,6 +50,12 @@ char getYorR(const std::string &message)
 
 char getAorRorQ(const std::string &message)
 {
+
+  if (is_random)
+  {
+    return 'A';
+  }
+
   char tmp;
   do
   {
@@ -138,6 +146,14 @@ int getNumber(const std::string &message, const int &a, const int &b)
   {
     throw std::invalid_argument("a and b must be positive");
   }
+
+  if (is_random)
+  {
+    int rand_num = randomNumber(a, b);
+    std::cout << message << rand_num << std::endl;
+    return rand_num;
+  }
+
   bool tried_once = false;
   int user_input;
   std::string test;
@@ -189,6 +205,13 @@ int getNumber(const int &a, const int &b)
   {
     throw std::invalid_argument("a and b must be positive");
   }
+
+  if (is_random)
+  {
+    int rand_num = randomNumber(a, b);
+    return rand_num;
+  }
+
   bool tried_once = false;
   int user_input;
   std::string test;
@@ -238,6 +261,12 @@ int getNumberOrQ(const int &a, const int &b)
   if (a < 0 || b < 0)
   {
     throw std::invalid_argument("a and b must be positive");
+  }
+
+  if (is_random)
+  {
+    int rand_num = randomNumber(a, b);
+    return rand_num;
   }
 
   bool tried_once = false;
