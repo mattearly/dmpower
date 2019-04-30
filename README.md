@@ -1,6 +1,6 @@
-[Dungeon Master Power](https://github.com/mattearly/DungeonMasterPower/releases) is a interactive terminal-based D&D5e toolkit. Its use is intended for Game Masters to aid in game prep and on the fly assistance.
+DungeonMasterPower is an interactive terminal-based D&D5e toolkit. Its use is intended for Game Masters to aid in game prep and on the fly assistance.
 
-[DungeonMasterPower BUILD 6 VIDEO](https://youtu.be/9VJpPyqnssY)
+[DMPOWER BUILD 6 VIDEO](https://youtu.be/9VJpPyqnssY)
 
 <img src="img/main_menu.png" height="230px" align="left"> 
 <img src="img/character_manager.png" height="230px" align="center"> 

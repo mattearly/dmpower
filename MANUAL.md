@@ -5,8 +5,6 @@
 > 3. [OTHER TOOLS](#3-other-tools)
 > 4. [SETTINGS](#4-settings)
 
-[DMPOWER BUILD 6 VIDEO](https://youtu.be/9VJpPyqnssY)
-
 ### 1. BUILD & MANAGE CHARACTERS
 
 * **New Character**. Walks though creating a new character and prompts all relevant options.
