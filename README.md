@@ -1,15 +1,9 @@
 DungeonMasterPower is an interactive terminal-based D&D5e toolkit. Its use is intended for Game Masters to aid in game prep and on the fly assistance.
 
-[DMPOWER BUILD 6 VIDEO](https://youtu.be/9VJpPyqnssY)
+<img src="img/character_manager.png" height="300px" align="left"> 
+<img src="img/character_sheet.png" height="300px" align="center"> 
 
-<img src="img/main_menu.png" height="400px" align="left"> 
-<img src="img/character_manager.png" height="400px" align="center"> 
-<img src="img/new_character.png" height="400px" align="center"> 
-<img src="img/race_select.png" height="400px" align="center"> 
-<img src="img/character_sheet.png" height="400px" align="center"> 
-<img src="img/treasure_hoard.png" height="400px" align="center"> 
-<img src="img/spellbook_gen.png" height="400px" align="center"> 
-<img src="img/random_spellbook.png" height="400px" align="center"> 
+[DMPOWER BUILD 6 VIDEO](https://youtu.be/9VJpPyqnssY)
 
 ### Run on Linux
 
@@ -104,3 +98,14 @@ See the [CONTRIBUTING](CONTRIBUTING.md) file for more information on how you can
 
 # Legal
 DungeonMasterPower is not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. Dungeons & Dragons® is a trademark of Wizards of the Coast. For more information about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please visit their website at dnd.wizards.com.
+
+# Some Additional Screenshots
+
+<img src="img/main_menu.png" height="300px" align="left"> 
+<img src="img/new_character.png" height="300px" align="center"> 
+
+<img src="img/race_select.png" height="300px" align="left"> 
+<img src="img/treasure_hoard.png" height="300px" align="center"> 
+
+<img src="img/spellbook_gen.png" height="300px" align="left"> 
+<img src="img/random_spellbook.png" height="300px" align="center"> 
