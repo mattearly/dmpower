@@ -12,6 +12,8 @@ using namespace std;
 extern bool clearScreens;
 extern bool quitBuilding;
 
+extern bool is_random;
+
 Generic_Character_Class::Generic_Character_Class()
 {
   wipeStats();
@@ -24,9 +26,19 @@ std::string Generic_Character_Class::getRace() const
   return race;
 }
 
+
+
 // mutators
 void Generic_Character_Class::setName()
 {
+  if(is_random) {
+    string random_name;
+    CharacterName name_generator;
+    name_generator.grabRandomName(random_name);
+    char_name = random_name;
+    return;
+  }
+
   cout << "Name Your Character! (can be edited later)\n\n";
   cout << "  " << MAGENTA << "NAME RULES" << RESET << "\n";
   cout << "    Length must be 2 or more characters.\n";
@@ -1123,12 +1135,11 @@ void Generic_Character_Class::increase2statsby1()
            << " 4. +1 Int\n 5. +1 Wis\n 6. (can't choose)\n\n";
     default:;
     }
-    while ((cout << "Enter a number to choose: " && !(cin >> ss)) || ((ss < 1 || ss > 6) || ss == tmp))
-    {
-      std::cin.clear();
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-      cout << "Invalid, try again." << endl;
-    }
+
+    do {
+      ss = getNumber("Enter a number to choose: ", 1, 6);
+    } while(ss == tmp);
+
     if (ss == 1)
     {
       if (strength < 20)
@@ -1256,12 +1267,11 @@ void Generic_Character_Class::increase1statby2()
            << "\n 4. +2 Int\n 5. +2 Wis\n 6. (can't choose)\n\n";
     default:;
     }
-    while ((cout << "Enter a number to choose: " && !(cin >> ss)) || ((ss < 1 || ss > 6) || ss == tmp))
-    {
-      std::cin.clear();
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-      cout << "Invalid, try again." << endl;
-    }
+    
+    do {
+      ss = getNumber("Enter a number to choose: ", 1, 6);
+    } while(ss == tmp);
+
     if (ss == 1)
     {
       if (strength < 19)

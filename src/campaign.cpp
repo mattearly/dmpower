@@ -5,12 +5,13 @@
 
 using namespace std;
 
-extern string buildNumber;
+extern bool is_random;  // for random character gen
+extern string buildNumber;  // this is for the save version compatability
 extern void save_file();
 extern void load_file();
-extern bool clearScreens;
+extern bool clearScreens;  // a togglable setting
 
-bool quitBuilding = false;
+bool quitBuilding = false;   // for exiting out of the build character at certain points
 
 string mainMessage;
 bool loadSuccess = false;
@@ -52,6 +53,12 @@ void Campaign::pc_menu()
     {
       if (clearScreens)
         simpleClearScreen();
+      cout << "Create Random Character?\n\n";
+      cout << "1. Random Character" << endl;
+      cout << "2. Manual Character" << endl;
+      int randomized = getNumber("Choice: ", 1, 2);
+      is_random = (randomized == 1) ? true : false;
+
       cout << " Create a New Character! \n\n"
            << "Type Legend: " << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
            << "Character Classes Available:\n\n"
@@ -165,6 +172,8 @@ void Campaign::pc_menu()
       default:
         break;
       }
+
+      is_random = false;
     }
     break;
     case 2:
