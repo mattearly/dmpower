@@ -6,12 +6,17 @@
 using namespace std;
 
 extern bool is_random;  // for random character gen
-extern string buildNumber;  // this is for the save version compatability
 extern void save_file();
 extern void load_file();
 extern bool clearScreens;  // a togglable setting
 
 bool quitBuilding = false;   // for exiting out of the build character at certain points
+
+/** saveVersion is the build version of current saves.
+ * Update saveVersion to the current build version if the saves 
+ * have changed in this verison.
+ */
+const string saveVersion = "6"; 
 
 string mainMessage;
 bool loadSuccess = false;
@@ -403,7 +408,7 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
 
 ofstream &Campaign::dumpCharacter(ofstream &os) const
 {
-  os << buildNumber << endl; // build number to keep saves working correctly
+  os << saveVersion << endl; // build number to keep saves working correctly
   int charactercount = 0;
   for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
   {
@@ -939,7 +944,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
   if (debugRetrieve)
     cout << "version retrieved is: " << sbuffer << endl;
 
-  if (sbuffer.compare(buildNumber) != 0)
+  if (sbuffer.compare(saveVersion) != 0)
   {
     cout << "Versions Do Not Match\n";
     return false;
