@@ -26,8 +26,6 @@ std::string Generic_Character_Class::getRace() const
   return race;
 }
 
-
-
 // mutators
 void Generic_Character_Class::setName()
 {
