@@ -1,14 +1,15 @@
-# About
+[Dungeon Master Power](https://github.com/mattearly/DungeonMasterPower/releases) is a interactive terminal-based D&D5e toolkit. Its use is intended for Game Masters to aid in game prep and on the fly assistance.
 
-[Dungeon Master Power](https://github.com/mattearly/DungeonMasterPower/releases) is a powerful minimalistic interactive terminal-based Dungeons & Dragons's 5th Edition Toolkit. The intention is to make being the Dungeon Master less tedious and time consuming so you can focus more on your game's story, and less on looking up charts and stat blocks. See the [MANUAL](MANUAL.md) for screenshots and information about the ever-evolving toolset.
+[DungeonMasterPower BUILD 6 VIDEO](https://youtu.be/9VJpPyqnssY)
 
-# Getting Started
-
-Dungeon Master Power runs in a terminal on any operating system and uses text coloring that will look best in a terminal with a solid dark background.
-
-## Prerequisites
-
-C++ Standard 11, Boost filesystem, and Make
+<img src="img/main_menu.png" height="230px" align="left"> 
+<img src="img/character_manager.png" height="230px" align="center"> 
+<img src="img/new_character.png" height="230px" align="center"> 
+<img src="img/race_select.png" height="230px" align="center"> 
+<img src="img/character_sheet.png" height="230px" align="center"> 
+<img src="img/treasure_hoard.png" height="230px" align="center"> 
+<img src="img/spellbook_gen.png" height="230px" align="center"> 
+<img src="img/random_spellbook.png" height="230px" align="center"> 
 
 ### Run on Linux
 
@@ -30,7 +31,7 @@ make gcc libboost-filesystem-dev
 - run once built
 
 ````
-./dmpower
+./DungeonMasterPower
 ````
 
 ### Run on Windows
@@ -49,9 +50,11 @@ I haven't tested but it should work fine, may need homebrew for boost libraries.
 
 # Additional Notes
 
-- This tool is best suited for Dungeon Masters and doing stat blocks for characters, treasures, & the like; ideally saving you tons of time and making your planning much much faster so you and you're players can focus more on the story.
-- This toolkit does not teach the game or say many specifics about what each ability, magic item, or spell does, as that is just not the intention. These details can be found on the plethora of reference data sites and apps related to D&D 5e, as well as in the official books.
-- I tend to update this based on what 'I' need and based on requests. If there is something you would like to see added, feel free to let me know.
+This tool is best suited for Dungeon Masters and doing stat blocks for characters, treasures, & the like; ideally saving you tons of time and making your planning much much faster so you and you're players can focus more on the story.
+
+This toolkit does not teach the game or say many specifics about what each ability, magic item, or spell does, as that is just not the intention. These details can be found on from D&D Beyond or their books or as otherwise referenced in the Credits below.
+
+I tend to update this based on what 'I' need and based on requests. If there is something you would like to see added, feel free to let me know.
 
 # Foundation / Why this program?
 
@@ -59,7 +62,7 @@ A quick story. I decided to start making this tool on my own accord when I, as a
 
 I choose not to steer away from C++ because I like this being fast, responsive, and reliable. C++ allows me to be as meticulous as I prefer (yeah I see all your slow crashing web sites trying to do this stuff). You can run this tool reliably on the oldest of machines and it should still seem fast.
 
-So, how can you say no to making a NPC/PC character in about 1-2 minutes? Sure beats the usual 1-2hr character building sessions we all have experienced... sometimes painfully experienced. With this you get your stats all set without having to dig through books for potential options. You can go straight to the important part: story, gear, and what makes your character unique. If you are a wizard you can even get a randomized Spellbook from dmpower if that's your thing. 
+So, how can you say no to making a NPC/PC character in about 1-2 minutes? Sure beats the usual 1-2hr character building sessions we all have experienced... sometimes painfully experienced. With this you get your stats all set without having to dig through books for potential options. You can go straight to the important part: story, gear, and what makes your character unique. If you are a wizard you can even get a randomized Spellbook from DungeonMasterPower if that's your thing. 
 
 And oh my... speaking of spellbooks, have you ever found a Spellbook in game? How much time did that take? With this program it can be done quickly, reliably and randomly. The amount of time I've lost in the past trying to figure out "what spells..." Never again. 
 
@@ -69,40 +72,35 @@ I still play D&D on occasion, and when I do, I use this tool. It makes the exper
 
 # Dev Road Map
 
-#### future outline, ETA dates may be pushed back based on how busy I am with real life work and such
-
-- **build7** - focus on code cleanup, refactoring, and documenting the code base to make updating easier in the future. There is a lot to refactor, I have some big redo's in mind! May add in more feats (currently only has Player's Handbook feats) and a few other various smaller things. May add in basic starting gear for stat blocks. *ETA mid-May 2019*
-- **build8** - focus on adding a proper Encouner Generator based on terrain, location, and party level. And add a Dungeon Generator (its been a long time coming). *ETA mid-June 2019*
-- **build9** - ??? probably fixing bugs and adding stuff I notice while working on build7 and build8. *ETA mid-July 2019*
-
-See release tab for release history. There was also several years of no releases and me just iterating/figuring it out, so this doing release thing is kind of new to dmpower.
+Varies. This is not a funded project, so it depends on how busy I am with real life and how much D&D I'm playing.
 
 # Support
 
-Support this project by giving it a Star or sharing with a friend. After sharing this work with the community and finding out I could get in trouble by allowing anyone kind of financial support, I've taken down the donation link that was to help me fund time and wasn't in any way for the content. Its k, I got $0.00 of donations in the multiple years of it being up, this has never been any sort of monetary gain nor was it expected.
+Share this project with a friend and/or give it a star to support this project.
 
 # Credits
 
-Go support WotC and buy their stuff!
-
-The lists and logic D&D data used in this program (so far) are from:
+The list of abilites and items are from various DD& books. Nothign has been added from the pending ones yet.
 
 * [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook)
 * [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide)
 * [Sword Coast Adventurer's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide)
 * [Volo's Guide to Monsters](http://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters)
 * [Wayfinder's Guide to Eberron](https://www.dmsguild.com/product/247882/wayfinders-guide-to-eberron-5e)
-* pending [Xanathar's Guide to Everything]()
-* pending [Guildmaster's Guide to Ravnica]()
+* pending ~~[Xanathar's Guide to Everything]()~~
+* pending ~~[Guildmaster's Guide to Ravnica]()~~
 * [The Tortle Package](https://www.dmsguild.com/product/221716/Tortle-Package-5e)
-* pending [Mordenkain's Tome of Foes]()
+* pending ~~[Mordenkain's Tome of Foes]()~~
 * [Elemental Guide of Evil](https://www.dmsguild.com/product/145542/Elemental-Evil-Players-Companion-5e)
 
-Trying to keep it based on offical stuff so that this program will be helpful for everyone. However there are some additional sources used.
+Trying to keep DungeonMasterPower based on offical stuff so that this program will be helpful for everyone. However there are some additional sources used.
 
 * [Kismet's Name List](http://www.dnd.kismetrose.com/MyCharacterNameList.html)
 * [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
 
-Programmers as accredited in the commit history and contributers file - mostly me but its always nice to have help and I will accept some modifications on a case by case basis if they align with the overall goal of dmpower. See the [CONTRIBUTING](CONTRIBUTING.md) file for more information on how you can help with the code, and of course, feel free to correct or report any typos or issues you find.
+# Contributing
 
+See the [CONTRIBUTING](CONTRIBUTING.md) file for more information on how you can help with the code, and of course, feel free to correct or report any typos or issues you find.
+
+# Legal
 DungeonMasterPower is not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. Dungeons & Dragons® is a trademark of Wizards of the Coast. For more information about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please visit their website at dnd.wizards.com.
