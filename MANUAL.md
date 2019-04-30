@@ -5,18 +5,9 @@
 > 3. [OTHER TOOLS](#3-other-tools)
 > 4. [SETTINGS](#4-settings)
 
-> * [Back to project README](README.md)
-
-These Screenshots are pretty out of date. I made a video of it running here: [DMPOWER BUILD 6](https://youtu.be/9VJpPyqnssY)
-
-### -> MAIN MENU
-<img src="img/cliscreenshot.png" height="160px" align="center">
+[DMPOWER BUILD 6 VIDEO](https://youtu.be/9VJpPyqnssY)
 
 ### 1. BUILD & MANAGE CHARACTERS
-
- <img src="img/cliscreenshot_characters.png" height="200px" align="left"> 
- 
- <img src="img/cliscreenshot_characters2.png" height="200px" align="center">
 
 * **New Character**. Walks though creating a new character and prompts all relevant options.
 
@@ -38,15 +29,11 @@ These Screenshots are pretty out of date. I made a video of it running here: [DM
 
 _What the end Character Sheet looks like within your terminal_
 
-<img src="img/cliscreenshot_character.png" height="480px" align="center">
-
 > [back to index](#0-index)
 
 ---
 
 ### 2. LOOT GENERATION
-
-<img src="img/cliscreenshot_treasure.png" height="200px" align="center">
 
 * **Spellbook Generator** : Tell it how many of for each level (enter 0 to skip spells of that level), and it generates a spellbook full or randomly chosen Wizard spells. Also tells you how many pages are being used in the spellbook. Excellent for NPC wizards or players that like the idea of having random spells.
 
@@ -54,13 +41,9 @@ _What the end Character Sheet looks like within your terminal_
 
 * **Loot Rollers**. Try out the Hoard Loot option for a treasure cache or to populate a dungeon being built. All scrolls that are given are automatically put through the Scroll Generator (no more `level x unspecific scroll`, here you get `Level 3 Scroll of Fireball (sorcerer, wizard)` for example).
 
-> [back to index](#0-index)
-
 ---
 
 ### 3. OTHER TOOLS
-
-<img src="img\cliscreenshot_other_tools.png" height="180px" align="center">
 
 * **Name Generator**. 7732 names from [Kisment's list](http://www.dnd.kismetrose.com/pdfs/KismetsFantasyNames.pdf) with randomized selection. Edit the file [data/names.dat](data/names.dat) to add/remove names. The code that handles it automatically adjusts based on the number of lines in the file. Be sure to keep the newline at the end of the file(otherwise the last name on the list will never be chosen).
 
@@ -83,5 +66,3 @@ _What the end Character Sheet looks like within your terminal_
 ### 4. SETTINGS
 
 * Introduced in build 3, a user preferences save area. Currently holds insult mode setting.
-
-Enjoy the Power!
