@@ -44,17 +44,19 @@ I haven't tested but it should work fine, may need homebrew for boost libraries.
 
 # Foundation / Why this program?
 
-I decided to start making this tool on my own accord when I, as a DM, couldn't find any D&D software that I liked. This was sometime around late 2015 while I was in college studying Comp Sci and on occasion playing D&D with a few friends. I had a long background of being a DM so I new pretty well what I needed in a tool and I needed a project to work on outside of class, and C++ was what I was learning at the time. At first I was just seeing what I could do, but eventually it grew to be usable and I've been tweaking and expanding it ever since. 
+I decided to start making this tool on my own accord when I, as a GM, couldn't find any D&D software that I liked. This was sometime around late 2015 while I was in college studying Computer Science and on occasion playing D&D with a few friends. I had a long background of being a GM so I knew pretty well what I needed in a tool and I needed a project to work on outside of class, and C++ was what I was learning at the time. At first I was just seeing what I could do, but eventually it grew to be usable and I've been tweaking and expanding it ever since.
 
-I choose not to steer away from C++ because I like this being fast, responsive, and reliable. You can run this tool reliably on the oldest of machines and it should still seem fast.
+Going forward, I choose not to steer away from C++ because I found it to be fast, responsive, and reliable. You can run this tool reliably on the oldest of machines and it should still seem fast.
 
-So, how can you say no to making a NPC/PC character in about 1-2 minutes? Sure beats the usual 1-2hr character building sessions we all have experienced... sometimes painfully experienced. With this you get your stats all set without having to dig through books for potential options. You can go straight to the important part: story, gear, and what makes your character unique. If you are a wizard you can even get a randomized Spellbook if that's your thing. 
+So, how can you say no to making a NPC/PC character in about 1-2 minutes? You can go straight to the important part: story, gear, and what makes your character unique. This process sure beats the usual 1-2hr character building sessions we all have experienced... sometimes painfully experienced. Having all your options available without having to dig through books saves a lot of time. If you are a wizard you can even get a randomized Spellbook if that's your thing.
 
-And oh my... speaking of spellbooks, have you ever found a Spellbook in game? How much time did that take? With this program it can be done quickly, reliably and randomly. The amount of time I've lost in the past trying to figure out "what spells..." Never again. 
+Speaking of Spellbooks, have you ever found a Spellbook in game? How much time did that take? I would guess more than a couple minutes. I've experienced this pain and seen other GM's go through it many times. I built and included a tool to help GM's handle this time-sink.
 
-Can we talk about putting treasure in a dungeon? Say you are populating a dungeon - Try rolling Lair Treasure and pepper it in, add pieces to your monsters, or whatever you like. I found that works quite well.
+I have also found that adding content to a dungeon or lair is a creative process that can take a long time. I'm working on tools to help with that as well, some of them are still in progress. One thing that really helps is to roll up the treasure ahead of time with the reward generator, and then have the creatures have pieces that makes sense, and place/hide the rest accordingly. I found that works quite well and the continuity feels better.
 
-I still play D&D on occasion, and when I do, I use this tool. So here I am now, still working on this piece of software, showing it to the world now even though it was originally just intended for my personal use. Hope you like it.
+I still play D&D on occasion, and when I do, I use this tool and take notes on how to improve it. It would be great if you could leave any notes that you think would make the program better as well. I'll try to keep this moving forward when I have time to work on it.
+
+So here I am now, still working on this piece of software, showing it to the world now even though it was originally just intended for my personal use.
 
 # Support
 
