@@ -160,9 +160,12 @@ void Generic_Character_Class::updateLevel()
   }
   else
   {
-    cout << "Current level is " << level << "\n\n";
-    int newlvl = getNumber("Enter new higher level: ", level + 1, 20);
-    setClassDetails(newlvl);
-    setProficiencyBonus();
+    cout << "Current level is " << level << " choose a higher one to level up to.\n\n";
+    int newlvl = getNumberOrQ(level + 1, 20);
+    if (newlvl > level)
+    {
+      setClassDetails(newlvl);
+      setProficiencyBonus();
+    }
   }
 }

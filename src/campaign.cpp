@@ -60,10 +60,20 @@ void Campaign::pc_menu()
         simpleClearScreen();
       cout << "Create Random Character?\n\n";
       cout << "1. Random Character" << endl;
-      cout << "2. Manual Character" << endl;
+      cout << "2. Manual Character" << endl << endl;
       int randomized = getNumber("Choice: ", 1, 2);
       is_random = (randomized == 1) ? true : false;
 
+      int starting_level = 0;
+
+      if (is_random)
+      {
+        cout << "Pick a level for your random character.\n\n";
+        is_random = false;
+        starting_level = getNumber("Starting Level(1-20): ", 1, 20);
+        is_random = true;
+      }
+      
       cout << " Create a New Character! \n\n"
            << "Type Legend: " << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
            << "Character Classes Available:\n\n"
@@ -82,8 +92,12 @@ void Campaign::pc_menu()
       int select_class = getNumberOrQ(1, 12);
       if (select_class == -1)
         return;
-      int starting_level = getNumber("Starting Level(1-20): ", 1, 20);
 
+      if (!is_random)
+      {
+        starting_level = getNumber("Starting Level(1-20): ", 1, 20);
+      }
+      
       if (clearScreens)
         simpleClearScreen();
 

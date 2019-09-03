@@ -21,7 +21,7 @@ void Aarakocra::setRaceDetails(Generic_Character_Class &v)
   cout << "  50ft fly speed\n";
   cout << "  Talons\n";
   cout << "  Common, Aarakocra, and Auran Languages\n";
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Aasimar::setRaceDetails(Generic_Character_Class &v)
 {
@@ -75,7 +75,7 @@ void Aasimar::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Changeling::setRaceDetails(Generic_Character_Class &v)
 {
@@ -86,7 +86,7 @@ void Changeling::setRaceDetails(Generic_Character_Class &v)
   v.shapechanger = true;
   v.common = true;
   cout << "A Changeling! Gain:\n";
-  cout << "  + 1 Dexterity and Charisma\n";
+  cout << "  +1 Dexterity and Charisma\n";
   cout << "  30ft Move Speed\n";
   cout << "  Duplicity (deception prof)\n";
   cout << "  Shapechanger\n";
@@ -189,7 +189,7 @@ void Dragonborn::setRaceDetails(Generic_Character_Class &v)
     v.damage_resist_cold = true;
     cout << "->White Dragon Ancestry. Cold Breath and DR Cold gained!\n";
   }
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Dwarf::setRaceDetails(Generic_Character_Class &v)
 {
@@ -262,7 +262,7 @@ void Dwarf::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Elf::setRaceDetails(Generic_Character_Class &v)
 {
@@ -312,7 +312,7 @@ void Elf::setRaceDetails(Generic_Character_Class &v)
     break;
   }
   cout << endl;
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Firbolg::setRaceDetails(Generic_Character_Class &v)
 {
@@ -334,7 +334,7 @@ void Firbolg::setRaceDetails(Generic_Character_Class &v)
           "  Powerful Build\n"
           "  Speech of beast and leaf\n"
           "  Languages(Common, Elvish, Giant)\n\n";
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Genasi::setRaceDetails(Generic_Character_Class &v)
 {
@@ -395,7 +395,7 @@ void Genasi::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Gnome::setRaceDetails(Generic_Character_Class &v)
 {
@@ -440,7 +440,7 @@ void Gnome::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Goliath::setRaceDetails(Generic_Character_Class &v)
 {
@@ -460,7 +460,7 @@ void Goliath::setRaceDetails(Generic_Character_Class &v)
   cout << "  Stone's Endurance\n";
   cout << "  Powerful Build\n";
   cout << "  Giant and Common Languages\n";
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Halfelf::setRaceDetails(Generic_Character_Class &v)
 {
@@ -632,7 +632,7 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Halforc::setRaceDetails(Generic_Character_Class &v)
 {
@@ -645,7 +645,7 @@ void Halforc::setRaceDetails(Generic_Character_Class &v)
   v.orc = true;
   cout << "->Half-orc defaults & bonuses applied:\n"
        << " +2 STR, +1 CON, 30ft Move, Darkvision 60ft, Intimidation, Langs(Common, Orc)\n\n";
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Halfling::setRaceDetails(Generic_Character_Class &v)
 {
@@ -684,7 +684,7 @@ void Halfling::setRaceDetails(Generic_Character_Class &v)
   case NA:
   default:;
   }
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Human::setRaceDetails(Generic_Character_Class &v)
 {
@@ -715,7 +715,7 @@ void Human::setRaceDetails(Generic_Character_Class &v)
   cout << "->Human base move speed is " << v.move_speed << ".\n";
   v.common = true;
   v.setLanguage("->Humans gain 'know one language of your choice.'\n\n");
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Kenku::setRaceDetails(Generic_Character_Class &v)
 {
@@ -751,7 +751,7 @@ void Kenku::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Lizardfolk::setRaceDetails(Generic_Character_Class &v)
 {
@@ -787,7 +787,7 @@ void Lizardfolk::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Tabaxi::setRaceDetails(Generic_Character_Class &v)
 {
@@ -810,7 +810,7 @@ void Tabaxi::setRaceDetails(Generic_Character_Class &v)
   cout << "  Cat's Talent(Perception & Stealth)\n";
   cout << "  Common Lang and.. \n";
   v.setLanguage("Tabaxi know one language of your choice.");
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Shifter::setRaceDetails(Generic_Character_Class &v)
 {
@@ -920,7 +920,7 @@ void Tiefling::setRaceDetails(Generic_Character_Class &v)
     break;
   }
 
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Tortle::setRaceDetails(Generic_Character_Class &v)
 {
@@ -995,7 +995,7 @@ void Triton::setRaceDetails(Generic_Character_Class &v)
   cout << "  Control Air and Water\n";
   cout << "  Emissary of the Sea\n";
   cout << "  Guardian of the Depths (Cold Resistance + more)\n";
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 void Warforged::setRaceDetails(Generic_Character_Class &v)
 {
@@ -1013,7 +1013,7 @@ void Warforged::setRaceDetails(Generic_Character_Class &v)
   cout << "  Living Construct\n";
   cout << "  Common Language and one of your choice\n";
   v.setLanguage("Choose a language:\n\n");
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 
 ///--------- getRaceString functions ----------//

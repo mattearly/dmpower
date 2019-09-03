@@ -593,7 +593,7 @@ void Generic_Character_Class::setBackground()
     cout << "Error setting background\n\n";
     break;
   }
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 
 void Generic_Character_Class::setAllStats()
@@ -607,7 +607,25 @@ void Generic_Character_Class::setAllStats()
   cout << "3. " << BLUE << "Standard " << RESET << "Array Set : " << GREEN << "[15, 14, 13, 12, 10, 8]" << RESET << "\n";
   cout << "4. " << CYAN << "Custom " << RESET << "Array Set : Enter in your own custom stats.\n\n";
   int stat_ver_choice = 0;
-  stat_ver_choice = getNumber("Choice: ", 1, 4);
+
+  if (is_random)
+  {
+    int hi_or_standard = rolld6(mgen);
+    if (hi_or_standard < 4)
+    { 
+      stat_ver_choice = 1;
+    }
+    else
+    {
+      stat_ver_choice = 3;
+    }
+  }
+  else
+  {
+    stat_ver_choice = getNumber("Choice: ", 1, 4);
+  }
+  
+
   switch (stat_ver_choice)
   {
   case 1:
@@ -1542,7 +1560,7 @@ void Generic_Character_Class::levelUpStats()
     setAnyFeat();
   default:;
   }
-  pressEnterToContinue();
+  // pressEnterToContinue();
 }
 
 // displayers
