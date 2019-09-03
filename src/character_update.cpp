@@ -13,7 +13,8 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
   int ss = 0;
   do
   {
-    if (clearScreens) simpleClearScreen();
+    if (clearScreens)
+      simpleClearScreen();
 
     character_sheet();
 

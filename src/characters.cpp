@@ -6,8 +6,14 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <iostream>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::sort;
+using std::string;
+using std::vector;
 
 extern bool clearScreens;
 extern bool quitBuilding;
@@ -29,7 +35,8 @@ std::string Generic_Character_Class::getRace() const
 // mutators
 void Generic_Character_Class::setName()
 {
-  if(is_random) {
+  if (is_random)
+  {
     string random_name;
     CharacterName name_generator;
     name_generator.grabRandomName(random_name);
@@ -599,8 +606,8 @@ void Generic_Character_Class::setBackground()
 void Generic_Character_Class::setAllStats()
 {
   vector<int> stats;
-  cout << "How would you like to do Ability Stats for " 
-  << GREEN << char_name << RESET << endl;
+  cout << "How would you like to do Ability Stats for "
+       << GREEN << char_name << RESET << endl;
   cout << "---------------------------------------\n";
   cout << "1. " << RED << "Hi-Powered Legit " << RESET << "Roll Set : roll " << GREEN << "4d6 6 " << RESET << "times, dropping lowest die each time\n";
   cout << "2. " << YELLOW << "Legit " << RESET << "Roll Set : roll " << GREEN << "3d6 6 " << RESET << "times\n";
@@ -612,7 +619,7 @@ void Generic_Character_Class::setAllStats()
   {
     int hi_or_standard = rolld6(mgen);
     if (hi_or_standard < 4)
-    { 
+    {
       stat_ver_choice = 1;
     }
     else
@@ -624,7 +631,6 @@ void Generic_Character_Class::setAllStats()
   {
     stat_ver_choice = getNumber("Choice: ", 1, 4);
   }
-  
 
   switch (stat_ver_choice)
   {
@@ -1152,9 +1158,10 @@ void Generic_Character_Class::increase2statsby1()
     default:;
     }
 
-    do {
+    do
+    {
       ss = getNumber("Enter a number to choose: ", 1, 6);
-    } while(ss == tmp);
+    } while (ss == tmp);
 
     if (ss == 1)
     {
@@ -1283,10 +1290,11 @@ void Generic_Character_Class::increase1statby2()
            << "\n 4. +2 Int\n 5. +2 Wis\n 6. (can't choose)\n\n";
     default:;
     }
-    
-    do {
+
+    do
+    {
       ss = getNumber("Enter a number to choose: ", 1, 6);
-    } while(ss == tmp);
+    } while (ss == tmp);
 
     if (ss == 1)
     {

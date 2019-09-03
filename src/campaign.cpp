@@ -5,18 +5,18 @@
 
 using namespace std;
 
-extern bool is_random;  // for random character gen
+extern bool is_random; // for random character gen
 extern void save_file();
 extern void load_file();
-extern bool clearScreens;  // a togglable setting
+extern bool clearScreens; // a togglable setting
 
-bool quitBuilding = false;   // for exiting out of the build character at certain points
+bool quitBuilding = false; // for exiting out of the build character at certain points
 
 /** saveVersion is the build version of current saves.
  * Update saveVersion to the current build version if the saves 
  * have changed in this verison.
  */
-const string saveVersion = "6"; 
+const string saveVersion = "6";
 
 string mainMessage;
 bool loadSuccess = false;
@@ -60,7 +60,8 @@ void Campaign::pc_menu()
         simpleClearScreen();
       cout << "Create Random Character?\n\n";
       cout << "1. Random Character" << endl;
-      cout << "2. Manual Character" << endl << endl;
+      cout << "2. Manual Character" << endl
+           << endl;
       int randomized = getNumber("Choice: ", 1, 2);
       is_random = (randomized == 1) ? true : false;
 
@@ -73,7 +74,7 @@ void Campaign::pc_menu()
         starting_level = getNumber("Starting Level(1-20): ", 1, 20);
         is_random = true;
       }
-      
+
       cout << " Create a New Character! \n\n"
            << "Type Legend: " << YELLOW << "ARCANE " << CYAN << "DIVINE " << RED << "NON CASTER" << RESET << "\n\n"
            << "Character Classes Available:\n\n"
@@ -97,7 +98,7 @@ void Campaign::pc_menu()
       {
         starting_level = getNumber("Starting Level(1-20): ", 1, 20);
       }
-      
+
       if (clearScreens)
         simpleClearScreen();
 
@@ -233,7 +234,7 @@ void Campaign::pc_menu()
           {
             (*it)->character_sheet();
             char to_export = getYorN("Export/Print Character? (y/n): ");
-            if (to_export == 'Y') 
+            if (to_export == 'Y')
             {
               std::string printname = (*it)->char_name + " lvl " + toString((*it)->level) + " " +
                                       (*it)->race + " " + (*it)->char_class;
@@ -408,14 +409,13 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
 
     // ASK IF PLAYER WANTS TO EXPORT
     char to_export = getYorN("Export/Print Character? (y/n): ");
-    if (to_export == 'Y') 
+    if (to_export == 'Y')
     {
       std::string printname = character_list.back()->char_name + " lvl " + toString(character_list.back()->level) + " " +
                               character_list.back()->race + " " + character_list.back()->char_class;
       new_character->exportPrint(printname);
       mainMessage = printname + " exported, check exports folder. ";
     }
-
   }
   mainMessage += "Don't forget to 'Save Current Work'";
 }
@@ -945,14 +945,14 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
 
 bool Campaign::retrieveCharacter(ifstream &ins)
 {
-  bool debugRetrieve = false;  // change to true to see the console logs
+  bool debugRetrieve = false; // change to true to see the console logs
 
   static string charClassTempVar;
   static string sbuffer;
   static int charBackgroundProcessor;
   static Generic_Character_Class *v;
 
-//----------- LOAD IN SAVE VERSION NUMBER --------//
+  //----------- LOAD IN SAVE VERSION NUMBER --------//
   getline(ins, sbuffer);
 
   if (debugRetrieve)
@@ -964,7 +964,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     return false;
   }
 
-//---------- GET WHICH SAVED CHARACTER # ---------//
+  //---------- GET WHICH SAVED CHARACTER # ---------//
   getline(ins, sbuffer);
 
   do
@@ -973,7 +973,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     if (debugRetrieve)
       cout << "Loading in " << sbuffer << endl;
 
-//--------- LOAD IN CHARACTER CLASS ----------//
+    //--------- LOAD IN CHARACTER CLASS ----------//
     getline(ins, charClassTempVar);
     if (charClassTempVar == "Cleric")
       v = new Cleric;
@@ -1006,7 +1006,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     if (debugRetrieve)
       cout << "class set:  " << charClassTempVar << endl;
 
-//----- LOAD IN NAME, RACE, ALIGNMENT -------//
+    //----- LOAD IN NAME, RACE, ALIGNMENT -------//
     getline(ins, v->char_name);
     getline(ins, v->race);
     getline(ins, v->alignment);
@@ -1017,7 +1017,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
       cout << "race set: " << v->race << endl;
     }
 
-//------ LOAD IN LEVELS SET ----------//
+    //------ LOAD IN LEVELS SET ----------//
     ins >> v->level;
     ins >> v->clericlevelupmenus;
     ins >> v->fighterlevelupmenus;
@@ -1035,14 +1035,14 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     if (debugRetrieve)
       cout << "level up menus set" << endl;
 
-//------------- LOAD IN BACKGROUND ------------------//
+    //------------- LOAD IN BACKGROUND ------------------//
     ins >> charBackgroundProcessor;
     v->backgroundofpc = static_cast<enum Generic_Character_Class::characterbackground>(charBackgroundProcessor);
-    
+
     if (debugRetrieve)
       cout << "background set to: " << charBackgroundProcessor << endl;
 
-//----------- LOAD IN BASIC STAT BLOCK -----------//
+    //----------- LOAD IN BASIC STAT BLOCK -----------//
     ins >> v->move_speed;
     ins >> v->fly_speed;
     ins >> v->swim_speed;
@@ -1067,7 +1067,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//--------- LOAD IN GENERAL CLASS STUFF ---------//
+    //--------- LOAD IN GENERAL CLASS STUFF ---------//
     ins >> v->extra_attack;
     ins >> v->expertise;
     ins >> v->spellcasting;
@@ -1086,7 +1086,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//--------- LOAD IN CLERIC CLASS ------------//
+    //--------- LOAD IN CLERIC CLASS ------------//
     ins >> v->destroy_undead;
     ins >> v->channel_divinity;
     ins >> v->divine_domain_feature;
@@ -1106,7 +1106,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//--------- LOAD IN FIGHTER CLASS -------------//
+    //--------- LOAD IN FIGHTER CLASS -------------//
     ins >> v->action_surge;
     ins >> v->martial_archtype_feature;
     ins >> v->indomitable;
@@ -1123,7 +1123,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//--------- LOAD IN BARBARIAN CLASS -------------//
+    //--------- LOAD IN BARBARIAN CLASS -------------//
     ins >> v->rages;
     ins >> v->rage_damage;
     ins >> v->path_feature;
@@ -1147,7 +1147,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//---------- LOAD IN BARD CLASS ------------//
+    //---------- LOAD IN BARD CLASS ------------//
     ins >> v->bardic_inspiration;
     ins >> v->song_of_rest;
     ins >> v->bard_college_feature;
@@ -1166,7 +1166,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//----------- LOAD IN DRUID CLASS ----------//
+    //----------- LOAD IN DRUID CLASS ----------//
     ins >> v->wild_shape_improvement;
     ins >> v->druid_circle_feature;
     ins >> v->druid_cantrips_known;
@@ -1180,7 +1180,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//---------- LOAD IN MONK CLASS -----------//
+    //---------- LOAD IN MONK CLASS -----------//
     ins >> v->monastic_tradition_feature;
     ins >> v->ki;
     ins >> v->unarmored_movement;
@@ -1206,7 +1206,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//-------- LOAD IN PALADIN CLASS --------//
+    //-------- LOAD IN PALADIN CLASS --------//
     ins >> v->sacred_oath_feature;
     ins >> v->divine_smite;
     ins >> v->divine_sense;
@@ -1226,7 +1226,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//-------- LOAD IN RANGER CLASS ----------//
+    //-------- LOAD IN RANGER CLASS ----------//
     ins >> v->favored_enemy;
     ins >> v->favored_enemy_languages;
     ins >> v->natural_explorer;
@@ -1245,7 +1245,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//-------- LOAD IN ROGUE CLASS ----------//
+    //-------- LOAD IN ROGUE CLASS ----------//
     ins >> v->roguish_archetype_feature;
     ins >> v->arcane_t_spells_known;
     ins >> v->sneak_attack;
@@ -1267,7 +1267,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//-------- LOAD IN SORCERER CLASS ----------//
+    //-------- LOAD IN SORCERER CLASS ----------//
     ins >> v->sorcerous_origin_feature;
     ins >> v->metamagic;
     ins >> v->sorcery_points;
@@ -1283,7 +1283,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//--------- LOAD IN WARLOCK CLASS --------//
+    //--------- LOAD IN WARLOCK CLASS --------//
     ins >> v->warlock_slot_level;
     ins >> v->eldritch_invocations_known;
     ins >> v->warlock_spells_known;
@@ -1303,7 +1303,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//--------- LOAD IN WIZARD CLASS -------//
+    //--------- LOAD IN WIZARD CLASS -------//
     ins >> v->arcane_tradition_feature;
     ins >> v->wizard_cantrips_known;
     ins >> v->arcane_recovery;
@@ -1325,7 +1325,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//------- LOAD IN RANGER LANDTYPES --------//
+    //------- LOAD IN RANGER LANDTYPES --------//
     ins >> v->artic;
     ins >> v->coast;
     ins >> v->desert;
@@ -1340,7 +1340,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//------ LOAD IN FAVORED ENEMY CREATURETYPS ------//
+    //------ LOAD IN FAVORED ENEMY CREATURETYPS ------//
     ins >> v->twohumanoids;
     ins >> v->aberrations;
     ins >> v->beasts;
@@ -1362,7 +1362,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//------- LOAD IN SPELLSLOTS ------//
+    //------- LOAD IN SPELLSLOTS ------//
     ins >> v->first_ss;
     ins >> v->second_ss;
     ins >> v->third_ss;
@@ -1379,7 +1379,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//------- LOAD IN SKILLS ------//
+    //------- LOAD IN SKILLS ------//
     ins >> v->initialSkillsSet;
     ins >> v->acrobatics;
     ins >> v->animal_handling;
@@ -1405,7 +1405,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//------ LOAD IN FEATS ------//
+    //------ LOAD IN FEATS ------//
     ins >> v->alert;
     ins >> v->athlete;
     ins >> v->actor;
@@ -1455,7 +1455,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//------ LOAD IN LANGUAGES ------//
+    //------ LOAD IN LANGUAGES ------//
     ins >> v->abyssal;
     ins >> v->aquan;
     ins >> v->auran;
@@ -1482,7 +1482,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//----- LOAD IN RACE AND OTHER FEATURES -----//
+    //----- LOAD IN RACE AND OTHER FEATURES -----//
     ins >> v->artificers_lore;
     ins >> v->brave;
     ins >> v->breath_weapon_acid;
@@ -1586,7 +1586,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//----- LOAD IN RESISTANCES -----//
+    //----- LOAD IN RESISTANCES -----//
     ins >> v->damage_resist_acid;
     ins >> v->damage_resist_ltg;
     ins >> v->damage_resist_fire;
@@ -1600,7 +1600,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//---- LOAD IN DISADVANTAGES ----//
+    //---- LOAD IN DISADVANTAGES ----//
     ins >> v->sunlight_sensitivity;
 
     if (debugRetrieve)
@@ -1608,7 +1608,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//----- LOAD IN ARTISAN TOOLS -----//
+    //----- LOAD IN ARTISAN TOOLS -----//
     ins >> v->alchemist;
     ins >> v->brewer;
     ins >> v->calligrapher;
@@ -1632,7 +1632,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//----- LOAD IN KITS ------//
+    //----- LOAD IN KITS ------//
     ins >> v->disguise;
     ins >> v->forgery;
     ins >> v->herbalism;
@@ -1646,7 +1646,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins.get();
     getline(ins, sbuffer);
 
-//----- LOAD IN MUSICAL INSTRUMENTS -----//
+    //----- LOAD IN MUSICAL INSTRUMENTS -----//
     ins >> v->bagpipes;
     ins >> v->drum;
     ins >> v->dulcimer;
@@ -1660,7 +1660,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
 
     if (debugRetrieve)
       cout << "musical instruments set" << endl;
-    
+
     character_list.push_back(v);
 
     ins.get();
