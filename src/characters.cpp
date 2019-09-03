@@ -106,7 +106,7 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
   cout << " 21. Triton\n";
   cout << " 22. Warforged\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
-  Races *parent = nullptr; ss = 14;
+  Races *parent = nullptr;
   switch (ss)
   {
   case 1:
@@ -609,7 +609,7 @@ void Generic_Character_Class::setAllStats()
   cout << "How would you like to do Ability Stats for "
        << GREEN << char_name << RESET << endl;
   cout << "---------------------------------------\n";
-  cout << "1. " << RED << "Hi-Powered Legit " << RESET << "Roll Set : roll " << GREEN << "4d6 6 " << RESET << "times, dropping lowest die each time\n";
+  cout << "1. " << RED << "High-Powered Legit " << RESET << "Roll Set : roll " << GREEN << "4d6 6 " << RESET << "times, dropping lowest die each time\n";
   cout << "2. " << YELLOW << "Legit " << RESET << "Roll Set : roll " << GREEN << "3d6 6 " << RESET << "times\n";
   cout << "3. " << BLUE << "Standard " << RESET << "Array Set : " << GREEN << "[15, 14, 13, 12, 10, 8]" << RESET << "\n";
   cout << "4. " << CYAN << "Custom " << RESET << "Array Set : Enter in your own custom stats.\n\n";
@@ -617,15 +617,19 @@ void Generic_Character_Class::setAllStats()
 
   if (is_random)
   {
-    int hi_or_standard = rolld6(mgen);
-    if (hi_or_standard < 4)
-    {
-      stat_ver_choice = 1;
-    }
-    else
-    {
-      stat_ver_choice = 3;
-    }
+    //! optional high powered vs standard array randomly
+    // int hi_or_standard = rolld6(mgen);
+    // if (hi_or_standard < 4)
+    // {
+    //   stat_ver_choice = 1;
+    // }
+    // else
+    // {
+    //   stat_ver_choice = 3;
+    // }
+
+    // standard array stats with random characters
+    stat_ver_choice = 3;
   }
   else
   {
