@@ -484,6 +484,7 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
       cout << "First +1 stat: \n\n";
     if (ss != 0)
       cout << "Second +1 stat: \n\n";
+
     if (ss == 0)
     {
       cout << " 1. +1 Strength\n 2. +1 Dexterity\n 3. +1 Constitution"
@@ -514,12 +515,12 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
       cout << " 1. +1 Strength\n 2. +1 Dexterity\n 3. +1 Constitution"
            << "\n 4. +1 Intelligence\n 5. (can't choose)\n\n";
     }
-    while ((cout << "Enter a number to choose : " && !(cin >> ss)) || ((ss < 1 || ss > 5) || ss == tmp))
+
+    while (ss < 1 || ss == tmp)
     {
-      cin.clear();
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');
-      cout << "Invalid, try again." << endl;
+      ss = getNumber(1, 5);
     }
+
     if (ss == 1)
     {
       v.strength += 1;
