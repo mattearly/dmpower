@@ -106,7 +106,7 @@ void Generic_Character_Class::setRace(Generic_Character_Class &v)
   cout << " 21. Triton\n";
   cout << " 22. Warforged\n\n";
   int ss = getNumber("Choose Race: ", 1, num_races);
-  Races *parent = nullptr;
+  Races *parent = nullptr; ss = 14;
   switch (ss)
   {
   case 1:

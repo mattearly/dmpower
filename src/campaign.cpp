@@ -401,6 +401,7 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   character_list.push_back(new_character);
   new_character->initialSkillsSet = true;
 
+  is_random = false;
   char ans = getYorN("Display Character Sheet now[y/n]?");
 
   if (ans == 'Y')

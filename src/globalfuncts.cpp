@@ -16,7 +16,15 @@ void simpleClearScreen()
 
 char getYorN(const std::string &message)
 {
+
   char tmp;
+
+  if (is_random)
+  {
+    rolld6(mgen) < 4 ? tmp = 'Y' : tmp = 'N';  // for human Y/N on variant, Y if 1-3, N if 4-6
+    return tmp;
+  }
+
   do
   {
     std::cout << message;
