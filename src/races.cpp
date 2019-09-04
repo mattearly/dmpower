@@ -989,6 +989,8 @@ void Triton::setRaceDetails(Generic_Character_Class &v)
   v.emissary_of_the_sea = true;
   v.guardian_of_the_depths = true;
   v.damage_resist_cold = true;
+  v.common = true;
+  v.primordial = true;
   cout << "You are a TRITON!? Gain: \n";
   cout << "  +1 Strength, Constitution, & Charisma\n";
   cout << "  30ft Move Speed & Swim Speed\n";
@@ -996,6 +998,7 @@ void Triton::setRaceDetails(Generic_Character_Class &v)
   cout << "  Control Air and Water\n";
   cout << "  Emissary of the Sea\n";
   cout << "  Guardian of the Depths (Cold Resistance + more)\n";
+  cout << "  Common and Primordial languages known\n";
   // pressEnterToContinue();
 }
 void Warforged::setRaceDetails(Generic_Character_Class &v)
