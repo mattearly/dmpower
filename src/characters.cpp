@@ -908,7 +908,7 @@ void Generic_Character_Class::setLanguage(const string &message)
       cout << "Aquan Language learned!\n";
       success = 1;
     }
-    if (ss == 20 && aquan == 0)
+    if (ss == 20 && aarakocra == 0)
     {
       aarakocra = true;
       cout << "Aarakocra Language learned!\n";
@@ -2077,6 +2077,7 @@ void Generic_Character_Class::wipeStats()
   svirfneblin_magic = 0;
   auran = 0;
   abyssal = 0;
+  aarakocra = 0;
   aquan = 0;
   celestial = 0;
   common = 0;

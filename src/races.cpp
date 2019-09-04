@@ -991,7 +991,7 @@ void Triton::setRaceDetails(Generic_Character_Class &v)
   v.damage_resist_cold = true;
   v.common = true;
   v.primordial = true;
-  cout << "You are a TRITON!? Gain: \n";
+  cout << "You are a Merfolk!? Gain: \n";
   cout << "  +1 Strength, Constitution, & Charisma\n";
   cout << "  30ft Move Speed & Swim Speed\n";
   cout << "  Amphibious\n";
