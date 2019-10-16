@@ -2,7 +2,7 @@ TARGET = dmpower
 RUN = ./$(TARGET)
 SRC_DIR = src
 BUILD_DIR = bin
-CFLAGS = -std=c++11 -O2 -Wall -Wextra
+CFLAGS = -std=c++11 -O3 -Wall -Wextra
 LOADLIBS = -lboost_filesystem -lboost_system
 OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(wildcard $(SRC_DIR)/*.cpp))
 
@@ -41,8 +41,8 @@ debug: $(TARGET)
 
 .PHONY: help
 help:
-	@echo "`make`         - builds/updates everything, is ready to run with `$(RUN)` after completion"
-	@echo "`make clean`   - removes object file folder and executable"
-	@echo "`make rebuild` - removes object file folder and executable and then builds and updates everything"
-	@echo "`make debug`   - builds/updates with -g. Use `make clean` first if a previous build was made"
-	@echo "`make run`     - builds/updates everything, runs immediately"
+	$(info `make`         - builds/updates everything, is ready to run with `$(RUN)` after completion")
+	$(info `make clean`   - removes object file folder and executable)
+	$(info `make rebuild` - removes object file folder and executable and then builds and updates everything)
+	$(info `make debug`   - builds/updates with -g. Use `make clean` first if a previous build was made)
+	$(info `make run`     - builds/updates everything, runs immediately")
