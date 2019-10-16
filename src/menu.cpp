@@ -13,7 +13,7 @@
 using namespace std;
 
 static int choice = 0;
-string buildNumber = "7"; // iterate with every new build release
+string buildNumber = "8"; // iterate with every new build release
 
 extern Campaign myGame;
 extern string mainMessage;
