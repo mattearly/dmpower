@@ -25,5 +25,4 @@
 
 #### If you have contributed
 
-- Feel free to add yourself to the [contributors file](CONTRIBUTORS.md) along with notes about what you did. Should I even have this file if there is git commit history? idk but it's here.
-
+- Thanks. You have earned a pat on the back. *pat pat pat* consider that debt paid. You have also earned one Matt Cool Point, which is redeemable at your local Matt outlet.
