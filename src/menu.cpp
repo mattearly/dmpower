@@ -34,7 +34,7 @@ void menu()
     cout << CYAN << "---------- MAIN MENU ----------" << RESET << "\n"
          << " 1. " << GREEN << "BUILD & MANAGE CHARACTERS" << RESET << "\n"
          << " 2. " << YELLOW << "LOOT GENERATION" << RESET << "\n"
-         << " 3. " << MAGENTA << "OTHER TOOLS" << RESET << "\n"
+         << " 3. " << MAGENTA << "MORE TOOLS" << RESET << "\n"
          << " 4. SETTINGS\n"
          << " 5. " << RED << "QUIT" << RESET << "\n"
          << CYAN << "-------------------------------" << RESET << "\n";
