@@ -82,8 +82,6 @@ May need homebrew for boost libraries.
 
 * **Random Characters**. When starting a new character, the user is given the option to generate everything about the character except the level randomly.
 
-_What the end Character Sheet looks like within your terminal_
-
 ---
 
 ### 2. LOOT GENERATION
