@@ -43,6 +43,8 @@ May need homebrew for boost libraries.
 
 # Some Screenshots
 
+*Screenshots taken on Windows Cygwin64 with green default text and black background. Your experience will vary depending on your terminal settings.*
+
 <img src="img/character_manager.png" align="left"> 
 <img src="img/character_sheet.png" align="center">
 <img src="img/main_menu.png" align="center"> 
