@@ -21,7 +21,7 @@ make run
 make gcc libboost-filesystem-dev
 ````
 
-- run once built
+- run from terminal once built
 
 ````
 ./dmpower
@@ -44,16 +44,12 @@ May need homebrew for boost libraries.
 # Some Screenshots
 
 <img src="img/character_manager.png" align="left"> 
-<img src="img/character_sheet.png" align="center"> 
-
+<img src="img/character_sheet.png" align="left">
 <img src="img/main_menu.png"  align="left"> 
-<img src="img/new_character.png"  align="center"> 
-
-<img src="img/race_select.png"  align="left"> 
-<img src="img/treasure_hoard.png"  align="center"> 
-
+<img src="img/new_character.png"  align="left"> 
+<img src="img/treasure_hoard.png"  align="left">
 <img src="img/spellbook_gen.png"  align="left"> 
-<img src="img/random_spellbook.png"  align="center"> 
+<img src="img/random_spellbook.png"  align="left"> 
 
 ### 0. Program Usage Index (MANWELL?)
 
@@ -61,6 +57,8 @@ May need homebrew for boost libraries.
 > 2. [LOOT GENERATION](#2-loot-generation)
 > 3. [OTHER TOOLS](#3-other-tools)
 > 4. [SETTINGS](#4-settings)
+
+---
 
 ### 1. BUILD & MANAGE CHARACTERS
 
@@ -82,9 +80,9 @@ May need homebrew for boost libraries.
 
 * **Limitations**. Character Builder doesn't handle equipment, spell choices, multiclassing, or personality traits. These may be added in later.
 
-_What the end Character Sheet looks like within your terminal_
+* **Random Characters**. When starting a new character, the user is given the option to generate everything about the character except the level randomly.
 
-> [back to index](#0-program-usage-index-(manwell?))
+_What the end Character Sheet looks like within your terminal_
 
 ---
 
@@ -98,7 +96,7 @@ _What the end Character Sheet looks like within your terminal_
 
 ---
 
-### 3. OTHER TOOLS
+### 3. MORE TOOLS
 
 * **Name Generator**. 7732 names from [Kisment's list](http://www.dnd.kismetrose.com/pdfs/KismetsFantasyNames.pdf) with randomized selection. Edit the file [data/names.dat](data/names.dat) to add/remove names. The code that handles it automatically adjusts based on the number of lines in the file. Be sure to keep the newline at the end of the file(otherwise the last name on the list will never be chosen).
 
@@ -116,11 +114,13 @@ _What the end Character Sheet looks like within your terminal_
     * Diseases chart
     * Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
 
-> [back to index](#0-program-usage-index-(manwell?))
+---
 
 ### 4. SETTINGS
 
-* Introduced in build 3, a user preferences save area. Currently holds insult mode setting.
+* Introduced in build 3, a user preferences save area. Currently holds insult mode setting and clear screen preferences.
+
+---
 
 ## Credits and Data Sources
 
