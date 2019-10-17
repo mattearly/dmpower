@@ -44,12 +44,12 @@ May need homebrew for boost libraries.
 # Some Screenshots
 
 <img src="img/character_manager.png" align="left"> 
-<img src="img/character_sheet.png" align="left">
-<img src="img/main_menu.png"  align="left"> 
-<img src="img/new_character.png"  align="left"> 
-<img src="img/treasure_hoard.png"  align="left">
-<img src="img/spellbook_gen.png"  align="left"> 
-<img src="img/random_spellbook.png"  align="left"> 
+<img src="img/character_sheet.png" align="center">
+<img src="img/main_menu.png" align="center"> 
+<img src="img/new_character.png" align="center"> 
+<img src="img/treasure_hoard.png" align="center">
+<img src="img/spellbook_gen.png" align="center"> 
+<img src="img/random_spellbook.png" align="center"> 
 
 ### 0. Program Usage Index (MANWELL?)
 
