@@ -12,9 +12,11 @@ extern bool clearScreens; // a togglable setting
 
 bool quitBuilding = false; // for exiting out of the build character at certain points
 
-/** saveVersion is the build version of current saves.
- * Update saveVersion to the current build version if the saves 
- * have changed in this verison.
+/** 
+ * 'saveVersion' is the build version of current saves.
+ * 
+ * Update saveVersion to the current build version if the saves have changed in this 
+ * verison. Otherwise, it can be noted as backwards compatible to the version here.
  */
 const string saveVersion = "6";
 
