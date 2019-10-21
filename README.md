@@ -55,14 +55,14 @@ May need homebrew for boost libraries.
 
 ### 0. Program Usage Index (MANWELL?)
 
-> 1. [BUILD & MANAGE CHARACTERS](#1-build-&-manage-characters)
+> 1. [BUILD & MANAGE CHARACTERS](#1-build-and-manage-characters)
 > 2. [LOOT GENERATION](#2-loot-generation)
-> 3. [OTHER TOOLS](#3-other-tools)
+> 3. [OTHER TOOLS](#3-more-tools)
 > 4. [SETTINGS](#4-settings)
 
 ---
 
-### 1. BUILD & MANAGE CHARACTERS
+### 1. BUILD AND MANAGE CHARACTERS
 
 * **New Character**. Walks though creating a new character and prompts all relevant options.
 
