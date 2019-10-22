@@ -41,8 +41,10 @@ debug: $(TARGET)
 
 .PHONY: help
 help:
-	$(info `make`         - builds/updates everything, is ready to run with `$(RUN)` after completion")
+	$(info ----------------------------)
+	$(info `make`         - builds/updates everything, is ready to run with `$(RUN)` after completion)
 	$(info `make clean`   - removes object file folder and executable)
 	$(info `make rebuild` - removes object file folder and executable and then builds and updates everything)
 	$(info `make debug`   - builds/updates with -g. Use `make clean` first if a previous build was made)
-	$(info `make run`     - builds/updates everything, runs immediately")
+	$(info `make run`     - builds/updates everything, runs immediately)
+	$(info ----------------------------)
