@@ -13,7 +13,7 @@
       - All older saves will no longer work after these functions are updated, and the notes on the release update **must** reflect this. Use an older version of the program to open your older files.
     - The print* functions in [character_print.cpp](src/character_print.cpp) must be updated.
 
-3. Its probably also worth noting that this was one of my first C++ projects I started when I was just learning to program, so some of the ways I did things may seem strange to developers who have been in the game for a long time. I'm hear to learn if there is a better way and I'm always looking to scale better, however at this point I am also taking into account the time involved in any major refactor to keep all current features displayed to the user in a fully functional state.
+3. Its probably also worth noting that this was one of my first C++ projects I started when I was just learning to program. I'm here to learn if there is a better way and I'm always looking to scale better, however at this point I am also taking into account the time involved in any major refactor to keep all current features displayed to the user in a fully functional state.
 
 #### Documenting code
 
