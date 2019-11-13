@@ -79,10 +79,9 @@ May need homebrew for boost libraries.
     * Users cannot break the character building D&D rules unless... (see edit character below)
 
 * **Edit Character**. DM God Powers. Edit stats (min=1, max=30), give feats, give skills, give levels, change name, change alignment.  
+* **Limitations**. Character Builder doesn't handle equipment, spell choices, multiclassing, or personality traits. These may be great features to add in later.
 
-* **Limitations**. Character Builder doesn't handle equipment, spell choices, multiclassing, or personality traits. These may be added in later.
-
-* **Random Characters**. When starting a new character, the user is given the option to generate everything about the character except the level randomly.
+* **Random Characters**. When starting a new character, the user is given the option to randomly generate everything about the character, except the level.
 
 ---
 
