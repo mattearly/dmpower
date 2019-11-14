@@ -1367,6 +1367,9 @@ string Generic_Character_Class::getBackground() const
   case WATERDHAVIAN_NOBLE:
     tmp = "Waterdhavain Noble";
     break;
+  case CUSTOM:
+    tmp = "Custom Background";
+    break;
   default:
     tmp = "Error Displaying Background - Check Code";
     break;

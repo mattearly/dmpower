@@ -313,7 +313,8 @@ public:
     URBAN_BOUNTY_HUNTER,
     URCHIN,
     UTHGARDT_TRIBE_MEMBER,
-    WATERDHAVIAN_NOBLE
+    WATERDHAVIAN_NOBLE,
+    CUSTOM
   };
   characterbackground backgroundofpc;
 
