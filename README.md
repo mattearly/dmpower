@@ -2,15 +2,15 @@
 
 Dungeon Master Power (dmpower) is a terminal-based D&D5e toolkit intended for Dungeon Masters to aid in game prep and on the fly assistance.  
 
-[DMPOWER BUILD 6 VIDEO](https://youtu.be/9VJpPyqnssY)
+[DMPOWER 6 VIDEO](https://youtu.be/9VJpPyqnssY)
 
 ### Run dmpower on Linux (easy and optimal)
 
 - Open terminal, clone master or download release, then build and run.
 
 ````
-git clone https://github.com/mattearly/DungeonMasterPower.git
-cd DungeonMasterPower/
+git clone https://github.com/mattearly/dmpower-dungeons-and-dragons-5e.git
+cd dmpower-dungeons-and-dragons-5e/
 make run
 ````
 
@@ -45,13 +45,13 @@ May need homebrew for boost libraries.
 
 *Screenshots taken on Windows Cygwin64 with green default text and black background. Your experience will vary depending on your terminal settings.*
 
-<img src="img/character_manager.png" align="left"> 
-<img src="img/character_sheet.png" align="center">
-<img src="img/main_menu.png" align="center"> 
-<img src="img/new_character.png" align="center"> 
-<img src="img/treasure_hoard.png" align="center">
-<img src="img/spellbook_gen.png" align="center"> 
-<img src="img/random_spellbook.png" align="center"> 
+<img src="img/character_manager.png" width="400" align="left"> 
+<img src="img/character_sheet.png" width="400" align="center">
+<img src="img/main_menu.png" width="400" align="center"> 
+<img src="img/new_character.png" width="400" align="center"> 
+<img src="img/treasure_hoard.png" width="400" align="center">
+<img src="img/spellbook_gen.png" width="400" align="center"> 
+<img src="img/random_spellbook.png" width="400" align="center"> 
 
 ### 0. Program Usage Index (MANWELL?)
 
