@@ -1246,8 +1246,14 @@ void Druid::setClassDetails(const int &l)
   hitdicesize = 8;
   intSave = true;
   wisSave = true;
-  // if (!druidic)    //now learned earlier (in campaign.cpp) to avoid conflicts
-  //     druidic = true;
+  if (!druidic)
+  {
+    druidic = true;
+  }
+  else
+  {
+    std::cout << "unable to learn Druidic lang from class features - already known\n";
+  }
   if (!spellcasting)
     spellcasting = true;
   if (!wild_shape && l >= 2)
