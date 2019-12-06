@@ -348,12 +348,12 @@ void Generic_Character_Class::setBackground()
             getline(std::cin, tmpName);  //todo; make this actually save
 
             // prompt for 2 skill proficiencies
-            setAnySkill("Custom Background Skill: ", 2);
+            setAnySkill("Custom Background Skill: \n", 2);
 
             // prompt for skill, lang, or tool prof twice
             for (int i = 0; i < 2; ++i)
             {
-                int tmp = getNumber("1 for skill, 2 for lang, 3 for tool prof. Choice: ", 1, 3);
+                int tmp = getNumber(" 1. Add skill\n 2. Add Language\n 3. Add Tool Proficiency\n  Choice: ", 1, 3);
                 switch (tmp)
                 {
                 case 1:
