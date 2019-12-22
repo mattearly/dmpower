@@ -10,7 +10,6 @@
 
 using std::cin;
 using std::cout;
-using std::endl;
 using std::sort;
 using std::string;
 using std::vector;
@@ -264,7 +263,7 @@ void Generic_Character_Class::setAllStats()
 {
   vector<int> stats;
   cout << "How would you like to do Ability Stats for "
-       << GREEN << char_name << RESET << endl;
+       << GREEN << char_name << RESET << '\n';
   cout << "---------------------------------------\n";
   cout << "1. " << RED << "High-Powered Legit " << RESET << "Roll Set : roll " << GREEN << "4d6 6 " << RESET << "times, dropping lowest die each time\n";
   cout << "2. " << YELLOW << "Legit " << RESET << "Roll Set : roll " << GREEN << "3d6 6 " << RESET << "times\n";
@@ -331,7 +330,7 @@ void Generic_Character_Class::setAllStats()
     do
     {
       cout << "\nStaring Character: \n";
-      cout << GREEN << char_name << ", Level " << level << " " << char_class << RESET << endl;
+      cout << GREEN << char_name << ", Level " << level << " " << char_class << RESET << '\n';
       for (int i = 0; i < 7; i++) //when i == 6, last iteration is controlled by -1 at end of array
       {
         if (i != 6)
@@ -343,7 +342,7 @@ void Generic_Character_Class::setAllStats()
             if (j != 5)
               cout << ", ";
           }
-          cout << endl;
+          cout << '\n';
         }
         assignStats(stats[i]); //when stats[i] == -1, controlled differently
       }

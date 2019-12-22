@@ -18,5 +18,5 @@ Gear::Gear(const string &i)
 
 void Gear::showItem() const
 {
-  cout << quantity << " " << item_name << endl;
+  cout << quantity << " " << item_name << '\n';
 }

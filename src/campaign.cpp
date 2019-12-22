@@ -34,25 +34,25 @@ void Campaign::pc_menu()
       simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
-    cout << GREEN << "---------- CHARACTER MANAGER -----------" << RESET << endl
-         << " 1. Build a New Character" << endl
-         << " 2. View & Export Characters" << endl
-         << " 3. Edit a Character" << endl
-         << " 4. Save Current Work" << endl
+    cout << GREEN << "---------- CHARACTER MANAGER -----------" << RESET << '\n'
+         << " 1. Build a New Character" << '\n'
+         << " 2. View & Export Characters" << '\n'
+         << " 3. Edit a Character" << '\n'
+         << " 4. Save Current Work" << '\n'
          << " 5. ";
     if (loadSuccess)
     {
-      cout << GREEN << loadedFile << RESET << " file loaded - " << RED << "UNLOAD?" << RESET << endl;
+      cout << GREEN << loadedFile << RESET << " file loaded - " << RED << "UNLOAD?" << RESET << '\n';
     }
     else
     {
-      cout << "Load & Manage Saves" << endl;
+      cout << "Load & Manage Saves" << '\n';
     }
 
-    cout << " 6. Delete a Character" << endl;
-    cout << " 7. Delete All Characters" << endl;
-    cout << " 8. Back to " << CYAN << "MAIN MENU" << RESET << endl;
-    cout << GREEN << "----------------------------------------" << RESET << endl;
+    cout << " 6. Delete a Character" << '\n';
+    cout << " 7. Delete All Characters" << '\n';
+    cout << " 8. Back to " << CYAN << "MAIN MENU" << RESET << '\n';
+    cout << GREEN << "----------------------------------------" << RESET << '\n';
     choice = getNumber("Choice: ", 1, 8);
     switch (choice)
     {
@@ -61,9 +61,9 @@ void Campaign::pc_menu()
       if (clearScreens)
         simpleClearScreen();
       cout << "Create Random Character?\n\n";
-      cout << "1. Random Character" << endl;
-      cout << "2. Manual Character" << endl
-           << endl;
+      cout << "1. Random Character" << '\n';
+      cout << "2. Manual Character" << '\n'
+           << '\n';
       int randomized = getNumber("Choice: ", 1, 2);
       is_random = (randomized == 1) ? true : false;
 
@@ -227,7 +227,7 @@ void Campaign::pc_menu()
           }
           if (!found)
           {
-            cout << "No character named " << valid_name << endl;
+            cout << "No character named " << valid_name << '\n';
           }
         }
         for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
@@ -425,523 +425,523 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
 
 ofstream &Campaign::dumpCharacter(ofstream &os) const
 {
-  os << saveVersion << endl; // build number to keep saves working correctly
+  os << saveVersion << '\n'; // build number to keep saves working correctly
   int charactercount = 0;
   for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
   {
     charactercount++;
     os
-        << "saved character: " << charactercount << endl
+        << "saved character: " << charactercount << '\n'
         //basics
-        << (*it)->char_class << endl
-        << (*it)->char_name << endl
-        << (*it)->race << endl
-        << (*it)->alignment << endl
-        << (*it)->level << endl
+        << (*it)->char_class << '\n'
+        << (*it)->char_name << '\n'
+        << (*it)->race << '\n'
+        << (*it)->alignment << '\n'
+        << (*it)->level << '\n'
 
         //class level up menus prep for multiclass functions
-        << (*it)->clericlevelupmenus << endl
-        << (*it)->fighterlevelupmenus << endl
-        << (*it)->roguelevelupmenus << endl
-        << (*it)->wizardlevelupmenus << endl
-        << (*it)->barbarianlevelupmenus << endl
-        << (*it)->druidlevelupmenus << endl
-        << (*it)->paladinlevelupmenus << endl
-        << (*it)->sorcererlevelupmenus << endl
-        << (*it)->bardlevelupmenus << endl
-        << (*it)->monklevelupmenus << endl
-        << (*it)->rangerlevelupmenus << endl
-        << (*it)->warlocklevelupmenus << endl
+        << (*it)->clericlevelupmenus << '\n'
+        << (*it)->fighterlevelupmenus << '\n'
+        << (*it)->roguelevelupmenus << '\n'
+        << (*it)->wizardlevelupmenus << '\n'
+        << (*it)->barbarianlevelupmenus << '\n'
+        << (*it)->druidlevelupmenus << '\n'
+        << (*it)->paladinlevelupmenus << '\n'
+        << (*it)->sorcererlevelupmenus << '\n'
+        << (*it)->bardlevelupmenus << '\n'
+        << (*it)->monklevelupmenus << '\n'
+        << (*it)->rangerlevelupmenus << '\n'
+        << (*it)->warlocklevelupmenus << '\n'
 
-        << (*it)->backgroundofpc << endl
+        << (*it)->backgroundofpc << '\n'
 
-        << (*it)->move_speed << endl
-        << (*it)->fly_speed << endl
-        << (*it)->swim_speed << endl
-        << (*it)->climb_speed << endl
-        << (*it)->hitdicesize << endl
-        << (*it)->proficiency_bonus << endl
-        << (*it)->strength << endl
-        << (*it)->dexterity << endl
-        << (*it)->constitution << endl
-        << (*it)->intelligence << endl
-        << (*it)->wisdom << endl
-        << (*it)->charisma << endl
-        << (*it)->strSave << endl
-        << (*it)->dexSave << endl
-        << (*it)->conSave << endl
-        << (*it)->intSave << endl
-        << (*it)->wisSave << endl
-        << (*it)->chaSave << endl
+        << (*it)->move_speed << '\n'
+        << (*it)->fly_speed << '\n'
+        << (*it)->swim_speed << '\n'
+        << (*it)->climb_speed << '\n'
+        << (*it)->hitdicesize << '\n'
+        << (*it)->proficiency_bonus << '\n'
+        << (*it)->strength << '\n'
+        << (*it)->dexterity << '\n'
+        << (*it)->constitution << '\n'
+        << (*it)->intelligence << '\n'
+        << (*it)->wisdom << '\n'
+        << (*it)->charisma << '\n'
+        << (*it)->strSave << '\n'
+        << (*it)->dexSave << '\n'
+        << (*it)->conSave << '\n'
+        << (*it)->intSave << '\n'
+        << (*it)->wisSave << '\n'
+        << (*it)->chaSave << '\n'
         //class stuff - general
-        << "generalclassstuff" << endl
-        << (*it)->extra_attack << endl
-        << (*it)->expertise << endl
-        << (*it)->spellcasting << endl
-        << (*it)->timeless_body << endl
-        << (*it)->evasion << endl
-        << (*it)->unarmored_defense << endl
-        << (*it)->fighting_style << endl
-        << (*it)->defense << endl
-        << (*it)->dueling << endl
-        << (*it)->great_weapon_fighting << endl
-        << (*it)->protection << endl
-        << "cleric" << endl
-        << (*it)->destroy_undead << endl //cleric
-        << (*it)->channel_divinity << endl
-        << (*it)->divine_domain_feature << endl
-        << (*it)->divine_intervention << endl
-        << (*it)->cleric_cantrips_known << endl
-        << (*it)->divine_domain << endl
-        << (*it)->arcana_d << endl
-        << (*it)->death_d << endl
-        << (*it)->knowledge_d << endl
-        << (*it)->life_d << endl
-        << (*it)->light_d << endl
-        << (*it)->nature_d << endl
-        << (*it)->tempest_d << endl
-        << (*it)->trickery_d << endl
-        << (*it)->war_d << endl
-        << "fighter" << endl
-        << (*it)->action_surge << endl //fighter
-        << (*it)->martial_archtype_feature << endl
-        << (*it)->indomitable << endl
-        << (*it)->eldritch_spells_known << endl
-        << (*it)->second_wind << endl
-        << (*it)->martial_archtype << endl
-        << (*it)->archery << endl
-        << (*it)->two_weapon_fighting << endl
-        << (*it)->champion << endl
-        << (*it)->battle_master << endl
-        << (*it)->eldritch_knight << endl
-        << (*it)->purple_dragon_knight << endl
-        << "barbarian" << endl
-        << (*it)->rages << endl //barbarian
-        << (*it)->rage_damage << endl
-        << (*it)->path_feature << endl
-        << (*it)->brutal_critical << endl
-        << (*it)->reckless_attack << endl
-        << (*it)->danger_sense << endl
-        << (*it)->primal_path << endl
-        << (*it)->fast_movement << endl
-        << (*it)->feral_instinct << endl
-        << (*it)->relentless_rage << endl
-        << (*it)->persistant_rage << endl
-        << (*it)->indomitable_might << endl
-        << (*it)->primal_champion << endl
-        << (*it)->path_of_the_battlerager << endl
-        << (*it)->path_of_the_berseker << endl
-        << (*it)->path_of_the_totem_warrior << endl
-        << (*it)->bear_totem << endl
-        << (*it)->eagle_totem << endl
-        << (*it)->wolf_totem << endl
-        << "bard" << endl
-        << (*it)->bardic_inspiration << endl //bard
-        << (*it)->song_of_rest << endl
-        << (*it)->bard_college_feature << endl
-        << (*it)->magical_secrets << endl
-        << (*it)->bard_spells_known << endl
-        << (*it)->bard_cantrips_known << endl
-        << (*it)->jack_of_all_trades << endl
-        << (*it)->bard_college << endl
-        << (*it)->font_of_inspiration << endl
-        << (*it)->countercharm << endl
-        << (*it)->superior_inspiration << endl
-        << (*it)->college_of_lore << endl
-        << (*it)->college_of_valor << endl
-        << (*it)->additional_magical_secrets << endl
-        << "druid" << endl
-        << (*it)->wild_shape_improvement << endl //druid
-        << (*it)->druid_circle_feature << endl
-        << (*it)->druid_cantrips_known << endl
-        << (*it)->wild_shape << endl
-        << (*it)->druid_circle << endl
-        << (*it)->beast_spells << endl
-        << (*it)->archdruid << endl
-        << (*it)->circle_of_the_moon << endl
-        << (*it)->circle_of_the_land << endl
-        << "monk" << endl
-        << (*it)->monastic_tradition_feature << endl //monk
-        << (*it)->ki << endl
-        << (*it)->unarmored_movement << endl
-        << (*it)->martial_arts << endl
-        << (*it)->monastic_tradition << endl
-        << (*it)->deflect_missles << endl
-        << (*it)->slow_fall << endl
-        << (*it)->stunning_strike << endl
-        << (*it)->ki_empowered_strikes << endl
-        << (*it)->stillness_of_mind << endl
-        << (*it)->purity_of_body << endl
-        << (*it)->tongue_of_the_sun_and_moon << endl
-        << (*it)->diamond_soul << endl
-        << (*it)->empty_body << endl
-        << (*it)->perfect_self << endl
-        << (*it)->way_of_the_open_hand << endl
-        << (*it)->way_of_the_four_elements << endl
-        << (*it)->way_of_the_long_death << endl
-        << (*it)->way_of_the_shadow << endl
-        << (*it)->way_of_the_sun_soul << endl
-        << (*it)->unarmored_movement_improvement << endl
-        << "paladin" << endl
-        << (*it)->sacred_oath_feature << endl //paladin
-        << (*it)->divine_smite << endl
-        << (*it)->divine_sense << endl
-        << (*it)->lay_on_hands << endl
-        << (*it)->divine_health << endl
-        << (*it)->sacred_oath << endl
-        << (*it)->aura_of_protection << endl
-        << (*it)->aura_of_courage << endl
-        << (*it)->cleansing_touch << endl
-        << (*it)->aura_improvments << endl
-        << (*it)->oath_of_ancients << endl
-        << (*it)->oath_of_devotion << endl
-        << (*it)->oath_of_the_crown << endl
-        << (*it)->oath_of_vengeance << endl
-        << (*it)->oathbreaker << endl
-        << "ranger" << endl
-        << (*it)->favored_enemy << endl //ranger
-        << (*it)->favored_enemy_languages << endl
-        << (*it)->natural_explorer << endl
-        << (*it)->ranger_archetype_feature << endl
-        << (*it)->ranger_spells_known << endl
-        << (*it)->ranger_archetype << endl
-        << (*it)->primeval_awareness << endl
-        << (*it)->lands_stride << endl
-        << (*it)->hide_in_plain_sight << endl
-        << (*it)->vanish << endl
-        << (*it)->feral_senses << endl
-        << (*it)->foe_slayer << endl
-        << (*it)->hunter << endl
-        << (*it)->beast_master << endl
-        << "rogue" << endl
-        << (*it)->roguish_archetype_feature << endl //rogue
-        << (*it)->arcane_t_spells_known << endl
-        << (*it)->sneak_attack << endl
-        << (*it)->thieves_cant << endl
-        << (*it)->cunning_action << endl
-        << (*it)->roguish_archetype << endl
-        << (*it)->uncanny_dodge << endl
-        << (*it)->reliable_talent << endl
-        << (*it)->blindsense << endl
-        << (*it)->slippery_mind << endl
-        << (*it)->elusive << endl
-        << (*it)->stroke_of_luck << endl
-        << (*it)->thief << endl
-        << (*it)->assassin << endl
-        << (*it)->arcane_trickster << endl
-        << (*it)->mastermind << endl
-        << (*it)->swashbuckler << endl
-        << "sorcerer" << endl
-        << (*it)->sorcerous_origin_feature << endl //sorcerer
-        << (*it)->metamagic << endl
-        << (*it)->sorcery_points << endl
-        << (*it)->sorcerer_spells_known << endl
-        << (*it)->sorcerer_cantrips_known << endl
-        << (*it)->sorcerous_origin << endl
-        << (*it)->font_of_magic << endl
-        << (*it)->sorcerous_restoration << endl
-        << (*it)->draconic_bloodline << endl
-        << (*it)->wild_magic << endl
-        << (*it)->storm_sorcery << endl
-        << "warlock" << endl
-        << (*it)->warlock_slot_level << endl //warlock
-        << (*it)->eldritch_invocations_known << endl
-        << (*it)->warlock_spells_known << endl
-        << (*it)->warlock_spell_slots << endl
-        << (*it)->warlock_cantrips_known << endl
-        << (*it)->otherworldly_patron_feature << endl
-        << (*it)->mystic_arcanum << endl
-        << (*it)->otherworldly_patron << endl
-        << (*it)->pact_magic << endl
-        << (*it)->pact_boon << endl
-        << (*it)->eldritch_master << endl
-        << (*it)->archfey << endl
-        << (*it)->fiend << endl
-        << (*it)->great_old_one << endl
-        << (*it)->the_undying << endl
-        << "wizard" << endl
-        << (*it)->arcane_tradition_feature << endl //wizard
-        << (*it)->wizard_cantrips_known << endl
-        << (*it)->arcane_recovery << endl
-        << (*it)->arcane_tradition << endl
-        << (*it)->spell_mastery << endl
-        << (*it)->signature_spell << endl
-        << (*it)->abjuration << endl
-        << (*it)->conjuration << endl
-        << (*it)->divination << endl
-        << (*it)->enchantment << endl
-        << (*it)->evocation << endl
-        << (*it)->illusion << endl
-        << (*it)->necromancy << endl
-        << (*it)->transmutation << endl
-        << (*it)->bladesinging << endl
-        << "landtypes" << endl //landtypes
-        << (*it)->artic << endl
-        << (*it)->coast << endl
-        << (*it)->desert << endl
-        << (*it)->forest << endl
-        << (*it)->grassland << endl
-        << (*it)->mountain << endl
-        << (*it)->swamp << endl
-        << (*it)->underdark << endl
-        << "creaturetype" << endl //creaturetype
-        << (*it)->twohumanoids << endl
-        << (*it)->aberrations << endl
-        << (*it)->beasts << endl
-        << (*it)->celestials << endl
-        << (*it)->constructs << endl
-        << (*it)->dragons << endl
-        << (*it)->elementals << endl
-        << (*it)->fey << endl
-        << (*it)->fiends << endl
-        << (*it)->giants << endl
-        << (*it)->monstrosities << endl
-        << (*it)->oozes << endl
-        << (*it)->plants << endl
-        << (*it)->undead << endl
-        << "spellslots" << endl //spellslots
-        << (*it)->first_ss << endl
-        << (*it)->second_ss << endl
-        << (*it)->third_ss << endl
-        << (*it)->forth_ss << endl
-        << (*it)->fifth_ss << endl
-        << (*it)->sixth_ss << endl
-        << (*it)->seventh_ss << endl
-        << (*it)->eighth_ss << endl
-        << (*it)->ninth_ss << endl
-        << (*it)->warlock_ss << endl
-        << "skills" << endl //skills
-        << (*it)->initialSkillsSet << endl
-        << (*it)->acrobatics << endl
-        << (*it)->animal_handling << endl
-        << (*it)->arcana << endl
-        << (*it)->athletics << endl
-        << (*it)->deception << endl
-        << (*it)->history << endl
-        << (*it)->insight << endl
-        << (*it)->intimidation << endl
-        << (*it)->investigation << endl
-        << (*it)->medicine << endl
-        << (*it)->nature << endl
-        << (*it)->perception << endl
-        << (*it)->performance << endl
-        << (*it)->persuasion << endl
-        << (*it)->religion << endl
-        << (*it)->sleight_of_hand << endl
-        << (*it)->stealth << endl
-        << (*it)->survival << endl
-        << "feats" << endl //feats
-        << (*it)->alert << endl
-        << (*it)->athlete << endl
-        << (*it)->actor << endl
-        << (*it)->charger << endl
-        << (*it)->crossbow_expert << endl
-        << (*it)->defensive_duelist << endl
-        << (*it)->dual_wielder << endl
-        << (*it)->dungeon_delver << endl
-        << (*it)->durable << endl
-        << (*it)->elemental_adept << endl
-        << (*it)->grappler << endl
-        << (*it)->great_weapon_master << endl
-        << (*it)->healer << endl
-        << (*it)->heavily_armored << endl
-        << (*it)->heavy_armor_master << endl
-        << (*it)->inspiring_leader << endl
-        << (*it)->keen_mind << endl
-        << (*it)->lightly_armored << endl
-        << (*it)->linguist << endl
-        << (*it)->lucky << endl
-        << (*it)->mage_slayer << endl
-        << (*it)->magic_initiate << endl
-        << (*it)->martial_adept << endl
-        << (*it)->medium_armor_master << endl
-        << (*it)->mobile << endl
-        << (*it)->moderately_armored << endl
-        << (*it)->mounted_combatant << endl
-        << (*it)->observant << endl
-        << (*it)->polearm_master << endl
-        << (*it)->resilient << endl
-        << (*it)->ritual_caster << endl
-        << (*it)->savage_attacker << endl
-        << (*it)->sentinel << endl
-        << (*it)->sharpshooter << endl
-        << (*it)->shield_master << endl
-        << (*it)->skilled << endl
-        << (*it)->skulker << endl
-        << (*it)->spell_sniper << endl
-        << (*it)->svirfneblin_magic << endl
-        << (*it)->tavern_brawler << endl
-        << (*it)->tough << endl
-        << (*it)->war_caster << endl
-        << (*it)->weapon_master << endl
-        << "languages" << endl //languages
-        << (*it)->abyssal << endl
-        << (*it)->aquan << endl
-        << (*it)->auran << endl
-        << (*it)->celestial << endl
-        << (*it)->common << endl
-        << (*it)->deep_speech << endl
-        << (*it)->draconic << endl
-        << (*it)->druidic << endl
-        << (*it)->dwarvish << endl
-        << (*it)->elvish << endl
-        << (*it)->giant << endl
-        << (*it)->gnomish << endl
-        << (*it)->goblin << endl
-        << (*it)->gnoll << endl
-        << (*it)->halfling << endl
-        << (*it)->infernal << endl
-        << (*it)->orc << endl
-        << (*it)->primordial << endl
-        << (*it)->sylvan << endl
-        << (*it)->undercommon << endl
-        << "features" << endl //features
-        << (*it)->artificers_lore << endl
-        << (*it)->brave << endl
-        << (*it)->breath_weapon_acid << endl
-        << (*it)->breath_weapon_ltg << endl
-        << (*it)->breath_weapon_fire << endl
-        << (*it)->breath_weapon_poison << endl
-        << (*it)->breath_weapon_cold << endl
-        << (*it)->darkvision << endl
-        << (*it)->devils_tongue << endl
-        << (*it)->draconic_ancestry_black << endl
-        << (*it)->draconic_ancestry_blue << endl
-        << (*it)->draconic_ancestry_brass << endl
-        << (*it)->draconic_ancestry_bronze << endl
-        << (*it)->draconic_ancestry_copper << endl
-        << (*it)->draconic_ancestry_gold << endl
-        << (*it)->draconic_ancestry_green << endl
-        << (*it)->draconic_ancestry_red << endl
-        << (*it)->draconic_ancestry_silver << endl
-        << (*it)->draconic_ancestry_white << endl
-        << (*it)->drow_magic << endl
-        << (*it)->drow_weapon_training << endl
-        << (*it)->dwarven_armor_training << endl
-        << (*it)->dwarven_combat_training << endl
-        << (*it)->dwarven_resilience << endl
-        << (*it)->dwarven_toughness << endl
-        << (*it)->duergar_resilience << endl
-        << (*it)->duergar_magic << endl
-        << (*it)->elf_weapon_training << endl
-        << (*it)->expert_forgery << endl
-        << (*it)->fey_ancestry << endl
-        << (*it)->firbolg_magic << endl
-        << (*it)->fleet_of_foot << endl
-        << (*it)->halflinglucky << endl
-        << (*it)->halfling_nimbleness << endl
-        << (*it)->hidden_step << endl
-        << (*it)->hellfire << endl
-        << (*it)->hellish_resistance << endl
-        << (*it)->hold_breath << endl
-        << (*it)->infernal_legacy << endl
-        << (*it)->mask_of_the_wild << endl
-        << (*it)->mimicry << endl
-        << (*it)->natural_illusionist << endl
-        << (*it)->naturally_stealthy << endl
-        << (*it)->powerful_build << endl
-        << (*it)->silent_speech << endl
-        << (*it)->speak_with_small_beasts << endl
-        << (*it)->speech_of_beast_and_leaf << endl
-        << (*it)->stonecunning << endl
-        << (*it)->stone_camouflage << endl
-        << (*it)->stones_endurance << endl
-        << (*it)->stout_resilience << endl
-        << (*it)->superior_darkvision << endl
-        << (*it)->trance << endl
+        << "generalclassstuff" << '\n'
+        << (*it)->extra_attack << '\n'
+        << (*it)->expertise << '\n'
+        << (*it)->spellcasting << '\n'
+        << (*it)->timeless_body << '\n'
+        << (*it)->evasion << '\n'
+        << (*it)->unarmored_defense << '\n'
+        << (*it)->fighting_style << '\n'
+        << (*it)->defense << '\n'
+        << (*it)->dueling << '\n'
+        << (*it)->great_weapon_fighting << '\n'
+        << (*it)->protection << '\n'
+        << "cleric" << '\n'
+        << (*it)->destroy_undead << '\n' //cleric
+        << (*it)->channel_divinity << '\n'
+        << (*it)->divine_domain_feature << '\n'
+        << (*it)->divine_intervention << '\n'
+        << (*it)->cleric_cantrips_known << '\n'
+        << (*it)->divine_domain << '\n'
+        << (*it)->arcana_d << '\n'
+        << (*it)->death_d << '\n'
+        << (*it)->knowledge_d << '\n'
+        << (*it)->life_d << '\n'
+        << (*it)->light_d << '\n'
+        << (*it)->nature_d << '\n'
+        << (*it)->tempest_d << '\n'
+        << (*it)->trickery_d << '\n'
+        << (*it)->war_d << '\n'
+        << "fighter" << '\n'
+        << (*it)->action_surge << '\n' //fighter
+        << (*it)->martial_archtype_feature << '\n'
+        << (*it)->indomitable << '\n'
+        << (*it)->eldritch_spells_known << '\n'
+        << (*it)->second_wind << '\n'
+        << (*it)->martial_archtype << '\n'
+        << (*it)->archery << '\n'
+        << (*it)->two_weapon_fighting << '\n'
+        << (*it)->champion << '\n'
+        << (*it)->battle_master << '\n'
+        << (*it)->eldritch_knight << '\n'
+        << (*it)->purple_dragon_knight << '\n'
+        << "barbarian" << '\n'
+        << (*it)->rages << '\n' //barbarian
+        << (*it)->rage_damage << '\n'
+        << (*it)->path_feature << '\n'
+        << (*it)->brutal_critical << '\n'
+        << (*it)->reckless_attack << '\n'
+        << (*it)->danger_sense << '\n'
+        << (*it)->primal_path << '\n'
+        << (*it)->fast_movement << '\n'
+        << (*it)->feral_instinct << '\n'
+        << (*it)->relentless_rage << '\n'
+        << (*it)->persistant_rage << '\n'
+        << (*it)->indomitable_might << '\n'
+        << (*it)->primal_champion << '\n'
+        << (*it)->path_of_the_battlerager << '\n'
+        << (*it)->path_of_the_berseker << '\n'
+        << (*it)->path_of_the_totem_warrior << '\n'
+        << (*it)->bear_totem << '\n'
+        << (*it)->eagle_totem << '\n'
+        << (*it)->wolf_totem << '\n'
+        << "bard" << '\n'
+        << (*it)->bardic_inspiration << '\n' //bard
+        << (*it)->song_of_rest << '\n'
+        << (*it)->bard_college_feature << '\n'
+        << (*it)->magical_secrets << '\n'
+        << (*it)->bard_spells_known << '\n'
+        << (*it)->bard_cantrips_known << '\n'
+        << (*it)->jack_of_all_trades << '\n'
+        << (*it)->bard_college << '\n'
+        << (*it)->font_of_inspiration << '\n'
+        << (*it)->countercharm << '\n'
+        << (*it)->superior_inspiration << '\n'
+        << (*it)->college_of_lore << '\n'
+        << (*it)->college_of_valor << '\n'
+        << (*it)->additional_magical_secrets << '\n'
+        << "druid" << '\n'
+        << (*it)->wild_shape_improvement << '\n' //druid
+        << (*it)->druid_circle_feature << '\n'
+        << (*it)->druid_cantrips_known << '\n'
+        << (*it)->wild_shape << '\n'
+        << (*it)->druid_circle << '\n'
+        << (*it)->beast_spells << '\n'
+        << (*it)->archdruid << '\n'
+        << (*it)->circle_of_the_moon << '\n'
+        << (*it)->circle_of_the_land << '\n'
+        << "monk" << '\n'
+        << (*it)->monastic_tradition_feature << '\n' //monk
+        << (*it)->ki << '\n'
+        << (*it)->unarmored_movement << '\n'
+        << (*it)->martial_arts << '\n'
+        << (*it)->monastic_tradition << '\n'
+        << (*it)->deflect_missles << '\n'
+        << (*it)->slow_fall << '\n'
+        << (*it)->stunning_strike << '\n'
+        << (*it)->ki_empowered_strikes << '\n'
+        << (*it)->stillness_of_mind << '\n'
+        << (*it)->purity_of_body << '\n'
+        << (*it)->tongue_of_the_sun_and_moon << '\n'
+        << (*it)->diamond_soul << '\n'
+        << (*it)->empty_body << '\n'
+        << (*it)->perfect_self << '\n'
+        << (*it)->way_of_the_open_hand << '\n'
+        << (*it)->way_of_the_four_elements << '\n'
+        << (*it)->way_of_the_long_death << '\n'
+        << (*it)->way_of_the_shadow << '\n'
+        << (*it)->way_of_the_sun_soul << '\n'
+        << (*it)->unarmored_movement_improvement << '\n'
+        << "paladin" << '\n'
+        << (*it)->sacred_oath_feature << '\n' //paladin
+        << (*it)->divine_smite << '\n'
+        << (*it)->divine_sense << '\n'
+        << (*it)->lay_on_hands << '\n'
+        << (*it)->divine_health << '\n'
+        << (*it)->sacred_oath << '\n'
+        << (*it)->aura_of_protection << '\n'
+        << (*it)->aura_of_courage << '\n'
+        << (*it)->cleansing_touch << '\n'
+        << (*it)->aura_improvments << '\n'
+        << (*it)->oath_of_ancients << '\n'
+        << (*it)->oath_of_devotion << '\n'
+        << (*it)->oath_of_the_crown << '\n'
+        << (*it)->oath_of_vengeance << '\n'
+        << (*it)->oathbreaker << '\n'
+        << "ranger" << '\n'
+        << (*it)->favored_enemy << '\n' //ranger
+        << (*it)->favored_enemy_languages << '\n'
+        << (*it)->natural_explorer << '\n'
+        << (*it)->ranger_archetype_feature << '\n'
+        << (*it)->ranger_spells_known << '\n'
+        << (*it)->ranger_archetype << '\n'
+        << (*it)->primeval_awareness << '\n'
+        << (*it)->lands_stride << '\n'
+        << (*it)->hide_in_plain_sight << '\n'
+        << (*it)->vanish << '\n'
+        << (*it)->feral_senses << '\n'
+        << (*it)->foe_slayer << '\n'
+        << (*it)->hunter << '\n'
+        << (*it)->beast_master << '\n'
+        << "rogue" << '\n'
+        << (*it)->roguish_archetype_feature << '\n' //rogue
+        << (*it)->arcane_t_spells_known << '\n'
+        << (*it)->sneak_attack << '\n'
+        << (*it)->thieves_cant << '\n'
+        << (*it)->cunning_action << '\n'
+        << (*it)->roguish_archetype << '\n'
+        << (*it)->uncanny_dodge << '\n'
+        << (*it)->reliable_talent << '\n'
+        << (*it)->blindsense << '\n'
+        << (*it)->slippery_mind << '\n'
+        << (*it)->elusive << '\n'
+        << (*it)->stroke_of_luck << '\n'
+        << (*it)->thief << '\n'
+        << (*it)->assassin << '\n'
+        << (*it)->arcane_trickster << '\n'
+        << (*it)->mastermind << '\n'
+        << (*it)->swashbuckler << '\n'
+        << "sorcerer" << '\n'
+        << (*it)->sorcerous_origin_feature << '\n' //sorcerer
+        << (*it)->metamagic << '\n'
+        << (*it)->sorcery_points << '\n'
+        << (*it)->sorcerer_spells_known << '\n'
+        << (*it)->sorcerer_cantrips_known << '\n'
+        << (*it)->sorcerous_origin << '\n'
+        << (*it)->font_of_magic << '\n'
+        << (*it)->sorcerous_restoration << '\n'
+        << (*it)->draconic_bloodline << '\n'
+        << (*it)->wild_magic << '\n'
+        << (*it)->storm_sorcery << '\n'
+        << "warlock" << '\n'
+        << (*it)->warlock_slot_level << '\n' //warlock
+        << (*it)->eldritch_invocations_known << '\n'
+        << (*it)->warlock_spells_known << '\n'
+        << (*it)->warlock_spell_slots << '\n'
+        << (*it)->warlock_cantrips_known << '\n'
+        << (*it)->otherworldly_patron_feature << '\n'
+        << (*it)->mystic_arcanum << '\n'
+        << (*it)->otherworldly_patron << '\n'
+        << (*it)->pact_magic << '\n'
+        << (*it)->pact_boon << '\n'
+        << (*it)->eldritch_master << '\n'
+        << (*it)->archfey << '\n'
+        << (*it)->fiend << '\n'
+        << (*it)->great_old_one << '\n'
+        << (*it)->the_undying << '\n'
+        << "wizard" << '\n'
+        << (*it)->arcane_tradition_feature << '\n' //wizard
+        << (*it)->wizard_cantrips_known << '\n'
+        << (*it)->arcane_recovery << '\n'
+        << (*it)->arcane_tradition << '\n'
+        << (*it)->spell_mastery << '\n'
+        << (*it)->signature_spell << '\n'
+        << (*it)->abjuration << '\n'
+        << (*it)->conjuration << '\n'
+        << (*it)->divination << '\n'
+        << (*it)->enchantment << '\n'
+        << (*it)->evocation << '\n'
+        << (*it)->illusion << '\n'
+        << (*it)->necromancy << '\n'
+        << (*it)->transmutation << '\n'
+        << (*it)->bladesinging << '\n'
+        << "landtypes" << '\n' //landtypes
+        << (*it)->artic << '\n'
+        << (*it)->coast << '\n'
+        << (*it)->desert << '\n'
+        << (*it)->forest << '\n'
+        << (*it)->grassland << '\n'
+        << (*it)->mountain << '\n'
+        << (*it)->swamp << '\n'
+        << (*it)->underdark << '\n'
+        << "creaturetype" << '\n' //creaturetype
+        << (*it)->twohumanoids << '\n'
+        << (*it)->aberrations << '\n'
+        << (*it)->beasts << '\n'
+        << (*it)->celestials << '\n'
+        << (*it)->constructs << '\n'
+        << (*it)->dragons << '\n'
+        << (*it)->elementals << '\n'
+        << (*it)->fey << '\n'
+        << (*it)->fiends << '\n'
+        << (*it)->giants << '\n'
+        << (*it)->monstrosities << '\n'
+        << (*it)->oozes << '\n'
+        << (*it)->plants << '\n'
+        << (*it)->undead << '\n'
+        << "spellslots" << '\n' //spellslots
+        << (*it)->first_ss << '\n'
+        << (*it)->second_ss << '\n'
+        << (*it)->third_ss << '\n'
+        << (*it)->forth_ss << '\n'
+        << (*it)->fifth_ss << '\n'
+        << (*it)->sixth_ss << '\n'
+        << (*it)->seventh_ss << '\n'
+        << (*it)->eighth_ss << '\n'
+        << (*it)->ninth_ss << '\n'
+        << (*it)->warlock_ss << '\n'
+        << "skills" << '\n' //skills
+        << (*it)->initialSkillsSet << '\n'
+        << (*it)->acrobatics << '\n'
+        << (*it)->animal_handling << '\n'
+        << (*it)->arcana << '\n'
+        << (*it)->athletics << '\n'
+        << (*it)->deception << '\n'
+        << (*it)->history << '\n'
+        << (*it)->insight << '\n'
+        << (*it)->intimidation << '\n'
+        << (*it)->investigation << '\n'
+        << (*it)->medicine << '\n'
+        << (*it)->nature << '\n'
+        << (*it)->perception << '\n'
+        << (*it)->performance << '\n'
+        << (*it)->persuasion << '\n'
+        << (*it)->religion << '\n'
+        << (*it)->sleight_of_hand << '\n'
+        << (*it)->stealth << '\n'
+        << (*it)->survival << '\n'
+        << "feats" << '\n' //feats
+        << (*it)->alert << '\n'
+        << (*it)->athlete << '\n'
+        << (*it)->actor << '\n'
+        << (*it)->charger << '\n'
+        << (*it)->crossbow_expert << '\n'
+        << (*it)->defensive_duelist << '\n'
+        << (*it)->dual_wielder << '\n'
+        << (*it)->dungeon_delver << '\n'
+        << (*it)->durable << '\n'
+        << (*it)->elemental_adept << '\n'
+        << (*it)->grappler << '\n'
+        << (*it)->great_weapon_master << '\n'
+        << (*it)->healer << '\n'
+        << (*it)->heavily_armored << '\n'
+        << (*it)->heavy_armor_master << '\n'
+        << (*it)->inspiring_leader << '\n'
+        << (*it)->keen_mind << '\n'
+        << (*it)->lightly_armored << '\n'
+        << (*it)->linguist << '\n'
+        << (*it)->lucky << '\n'
+        << (*it)->mage_slayer << '\n'
+        << (*it)->magic_initiate << '\n'
+        << (*it)->martial_adept << '\n'
+        << (*it)->medium_armor_master << '\n'
+        << (*it)->mobile << '\n'
+        << (*it)->moderately_armored << '\n'
+        << (*it)->mounted_combatant << '\n'
+        << (*it)->observant << '\n'
+        << (*it)->polearm_master << '\n'
+        << (*it)->resilient << '\n'
+        << (*it)->ritual_caster << '\n'
+        << (*it)->savage_attacker << '\n'
+        << (*it)->sentinel << '\n'
+        << (*it)->sharpshooter << '\n'
+        << (*it)->shield_master << '\n'
+        << (*it)->skilled << '\n'
+        << (*it)->skulker << '\n'
+        << (*it)->spell_sniper << '\n'
+        << (*it)->svirfneblin_magic << '\n'
+        << (*it)->tavern_brawler << '\n'
+        << (*it)->tough << '\n'
+        << (*it)->war_caster << '\n'
+        << (*it)->weapon_master << '\n'
+        << "languages" << '\n' //languages
+        << (*it)->abyssal << '\n'
+        << (*it)->aquan << '\n'
+        << (*it)->auran << '\n'
+        << (*it)->celestial << '\n'
+        << (*it)->common << '\n'
+        << (*it)->deep_speech << '\n'
+        << (*it)->draconic << '\n'
+        << (*it)->druidic << '\n'
+        << (*it)->dwarvish << '\n'
+        << (*it)->elvish << '\n'
+        << (*it)->giant << '\n'
+        << (*it)->gnomish << '\n'
+        << (*it)->goblin << '\n'
+        << (*it)->gnoll << '\n'
+        << (*it)->halfling << '\n'
+        << (*it)->infernal << '\n'
+        << (*it)->orc << '\n'
+        << (*it)->primordial << '\n'
+        << (*it)->sylvan << '\n'
+        << (*it)->undercommon << '\n'
+        << "features" << '\n' //features
+        << (*it)->artificers_lore << '\n'
+        << (*it)->brave << '\n'
+        << (*it)->breath_weapon_acid << '\n'
+        << (*it)->breath_weapon_ltg << '\n'
+        << (*it)->breath_weapon_fire << '\n'
+        << (*it)->breath_weapon_poison << '\n'
+        << (*it)->breath_weapon_cold << '\n'
+        << (*it)->darkvision << '\n'
+        << (*it)->devils_tongue << '\n'
+        << (*it)->draconic_ancestry_black << '\n'
+        << (*it)->draconic_ancestry_blue << '\n'
+        << (*it)->draconic_ancestry_brass << '\n'
+        << (*it)->draconic_ancestry_bronze << '\n'
+        << (*it)->draconic_ancestry_copper << '\n'
+        << (*it)->draconic_ancestry_gold << '\n'
+        << (*it)->draconic_ancestry_green << '\n'
+        << (*it)->draconic_ancestry_red << '\n'
+        << (*it)->draconic_ancestry_silver << '\n'
+        << (*it)->draconic_ancestry_white << '\n'
+        << (*it)->drow_magic << '\n'
+        << (*it)->drow_weapon_training << '\n'
+        << (*it)->dwarven_armor_training << '\n'
+        << (*it)->dwarven_combat_training << '\n'
+        << (*it)->dwarven_resilience << '\n'
+        << (*it)->dwarven_toughness << '\n'
+        << (*it)->duergar_resilience << '\n'
+        << (*it)->duergar_magic << '\n'
+        << (*it)->elf_weapon_training << '\n'
+        << (*it)->expert_forgery << '\n'
+        << (*it)->fey_ancestry << '\n'
+        << (*it)->firbolg_magic << '\n'
+        << (*it)->fleet_of_foot << '\n'
+        << (*it)->halflinglucky << '\n'
+        << (*it)->halfling_nimbleness << '\n'
+        << (*it)->hidden_step << '\n'
+        << (*it)->hellfire << '\n'
+        << (*it)->hellish_resistance << '\n'
+        << (*it)->hold_breath << '\n'
+        << (*it)->infernal_legacy << '\n'
+        << (*it)->mask_of_the_wild << '\n'
+        << (*it)->mimicry << '\n'
+        << (*it)->natural_illusionist << '\n'
+        << (*it)->naturally_stealthy << '\n'
+        << (*it)->powerful_build << '\n'
+        << (*it)->silent_speech << '\n'
+        << (*it)->speak_with_small_beasts << '\n'
+        << (*it)->speech_of_beast_and_leaf << '\n'
+        << (*it)->stonecunning << '\n'
+        << (*it)->stone_camouflage << '\n'
+        << (*it)->stones_endurance << '\n'
+        << (*it)->stout_resilience << '\n'
+        << (*it)->superior_darkvision << '\n'
+        << (*it)->trance << '\n'
         //aasimar stuff
-        << (*it)->healing_hands << endl
+        << (*it)->healing_hands << '\n'
 
-        << (*it)->light_bearer << endl
-        << (*it)->necrotic_shroud << endl
-        << (*it)->radiant_consumption << endl
-        << (*it)->radiant_soul << endl
+        << (*it)->light_bearer << '\n'
+        << (*it)->necrotic_shroud << '\n'
+        << (*it)->radiant_consumption << '\n'
+        << (*it)->radiant_soul << '\n'
         //lizardfolk stuff
-        << (*it)->lizardfolk_bite << endl
-        << (*it)->cunning_artisan << endl
-        << (*it)->natural_armor << endl
-        << (*it)->hungry_jaws << endl
+        << (*it)->lizardfolk_bite << '\n'
+        << (*it)->cunning_artisan << '\n'
+        << (*it)->natural_armor << '\n'
+        << (*it)->hungry_jaws << '\n'
         //tabaxi stuff
-        << (*it)->feline_agility << endl
-        << (*it)->cats_claws << endl
+        << (*it)->feline_agility << '\n'
+        << (*it)->cats_claws << '\n'
         //triton stuff
-        << (*it)->amphibious << endl
-        << (*it)->control_air_and_water << endl
-        << (*it)->emissary_of_the_sea << endl
-        << (*it)->guardian_of_the_depths << endl
+        << (*it)->amphibious << '\n'
+        << (*it)->control_air_and_water << '\n'
+        << (*it)->emissary_of_the_sea << '\n'
+        << (*it)->guardian_of_the_depths << '\n'
         //warforged stuff
-        << (*it)->composite_plating << endl
-        << (*it)->living_construct << endl
+        << (*it)->composite_plating << '\n'
+        << (*it)->living_construct << '\n'
         //changeling stuff
-        << (*it)->shapechanger << endl
+        << (*it)->shapechanger << '\n'
         //shifter stuff
-        << (*it)->shifting << endl
+        << (*it)->shifting << '\n'
         //tortle stuff
-        << (*it)->shell << endl
-        << (*it)->retreat_to_shell << endl
-        << (*it)->turtle_snapper << endl
-        << (*it)->razorback << endl
-        << (*it)->razor_fist << endl
-        << (*it)->softshell << endl
-        << (*it)->nomad << endl
-        << (*it)->shell_master << endl
+        << (*it)->shell << '\n'
+        << (*it)->retreat_to_shell << '\n'
+        << (*it)->turtle_snapper << '\n'
+        << (*it)->razorback << '\n'
+        << (*it)->razor_fist << '\n'
+        << (*it)->softshell << '\n'
+        << (*it)->nomad << '\n'
+        << (*it)->shell_master << '\n'
         //aarakocra stuff
-        << (*it)->talons << endl
+        << (*it)->talons << '\n'
         //genasi stuff
-        << (*it)->unending_breath << endl
-        << (*it)->mingle_with_the_wind << endl
-        << (*it)->earth_walk << endl
-        << (*it)->merge_with_stone << endl
-        << (*it)->reach_to_the_blaze << endl
-        << (*it)->call_to_the_wave << endl
+        << (*it)->unending_breath << '\n'
+        << (*it)->mingle_with_the_wind << '\n'
+        << (*it)->earth_walk << '\n'
+        << (*it)->merge_with_stone << '\n'
+        << (*it)->reach_to_the_blaze << '\n'
+        << (*it)->call_to_the_wave << '\n'
 
-        << "resistances" << endl //resistances
-        << (*it)->damage_resist_acid << endl
-        << (*it)->damage_resist_ltg << endl
-        << (*it)->damage_resist_fire << endl
-        << (*it)->damage_resist_poison << endl
-        << (*it)->damage_resist_cold << endl
-        << (*it)->damage_resist_necrotic << endl
-        << (*it)->damage_resist_radiant << endl
-        << "disadvantages" << endl //disadvantages
-        << (*it)->sunlight_sensitivity << endl
-        << "tools" << endl //artisan tools & supplies
-        << (*it)->alchemist << endl
-        << (*it)->brewer << endl
-        << (*it)->calligrapher << endl
-        << (*it)->carpenter << endl
-        << (*it)->cartographer << endl
-        << (*it)->cobbler << endl
-        << (*it)->cook << endl
-        << (*it)->glassblower << endl
-        << (*it)->jeweler << endl
-        << (*it)->leatherworker << endl
-        << (*it)->mason << endl
-        << (*it)->painter << endl
-        << (*it)->potter << endl
-        << (*it)->smith << endl
-        << (*it)->tinker << endl
-        << (*it)->weaver << endl
-        << (*it)->woodcarver << endl
-        << "kits" << endl //kits & tools
-        << (*it)->disguise << endl
-        << (*it)->forgery << endl
-        << (*it)->herbalism << endl
-        << (*it)->navigator << endl
-        << (*it)->poisoner << endl
-        << (*it)->thieves << endl
-        << (*it)->vehicle << endl
-        << "musicalinstruments" << endl //musical instruments
-        << (*it)->bagpipes << endl
-        << (*it)->drum << endl
-        << (*it)->dulcimer << endl
-        << (*it)->flute << endl
-        << (*it)->lute << endl
-        << (*it)->lyre << endl
-        << (*it)->horn << endl
-        << (*it)->pan_flute << endl
-        << (*it)->shawm << endl
-        << (*it)->viol << endl;
+        << "resistances" << '\n' //resistances
+        << (*it)->damage_resist_acid << '\n'
+        << (*it)->damage_resist_ltg << '\n'
+        << (*it)->damage_resist_fire << '\n'
+        << (*it)->damage_resist_poison << '\n'
+        << (*it)->damage_resist_cold << '\n'
+        << (*it)->damage_resist_necrotic << '\n'
+        << (*it)->damage_resist_radiant << '\n'
+        << "disadvantages" << '\n' //disadvantages
+        << (*it)->sunlight_sensitivity << '\n'
+        << "tools" << '\n' //artisan tools & supplies
+        << (*it)->alchemist << '\n'
+        << (*it)->brewer << '\n'
+        << (*it)->calligrapher << '\n'
+        << (*it)->carpenter << '\n'
+        << (*it)->cartographer << '\n'
+        << (*it)->cobbler << '\n'
+        << (*it)->cook << '\n'
+        << (*it)->glassblower << '\n'
+        << (*it)->jeweler << '\n'
+        << (*it)->leatherworker << '\n'
+        << (*it)->mason << '\n'
+        << (*it)->painter << '\n'
+        << (*it)->potter << '\n'
+        << (*it)->smith << '\n'
+        << (*it)->tinker << '\n'
+        << (*it)->weaver << '\n'
+        << (*it)->woodcarver << '\n'
+        << "kits" << '\n' //kits & tools
+        << (*it)->disguise << '\n'
+        << (*it)->forgery << '\n'
+        << (*it)->herbalism << '\n'
+        << (*it)->navigator << '\n'
+        << (*it)->poisoner << '\n'
+        << (*it)->thieves << '\n'
+        << (*it)->vehicle << '\n'
+        << "musicalinstruments" << '\n' //musical instruments
+        << (*it)->bagpipes << '\n'
+        << (*it)->drum << '\n'
+        << (*it)->dulcimer << '\n'
+        << (*it)->flute << '\n'
+        << (*it)->lute << '\n'
+        << (*it)->lyre << '\n'
+        << (*it)->horn << '\n'
+        << (*it)->pan_flute << '\n'
+        << (*it)->shawm << '\n'
+        << (*it)->viol << '\n';
   }
   return os;
 }
@@ -959,7 +959,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
   getline(ins, sbuffer);
 
   if (debugRetrieve)
-    cout << "version retrieved is: " << sbuffer << endl;
+    cout << "version retrieved is: " << sbuffer << '\n';
 
   if (sbuffer.compare(saveVersion) != 0)
   {
@@ -974,7 +974,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
   {
 
     if (debugRetrieve)
-      cout << "Loading in " << sbuffer << endl;
+      cout << "Loading in " << sbuffer << '\n';
 
     //--------- LOAD IN CHARACTER CLASS ----------//
     getline(ins, charClassTempVar);
@@ -1007,7 +1007,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     v->char_class = charClassTempVar;
 
     if (debugRetrieve)
-      cout << "class set:  " << charClassTempVar << endl;
+      cout << "class set:  " << charClassTempVar << '\n';
 
     //----- LOAD IN NAME, RACE, ALIGNMENT -------//
     getline(ins, v->char_name);
@@ -1016,8 +1016,8 @@ bool Campaign::retrieveCharacter(ifstream &ins)
 
     if (debugRetrieve)
     {
-      cout << "name of char: " << v->char_name << endl;
-      cout << "race set: " << v->race << endl;
+      cout << "name of char: " << v->char_name << '\n';
+      cout << "race set: " << v->race << '\n';
     }
 
     //------ LOAD IN LEVELS SET ----------//
@@ -1036,14 +1036,14 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->warlocklevelupmenus;
 
     if (debugRetrieve)
-      cout << "level up menus set" << endl;
+      cout << "level up menus set" << '\n';
 
     //------------- LOAD IN BACKGROUND ------------------//
     ins >> charBackgroundProcessor;
     v->backgroundofpc = static_cast<enum Generic_Character_Class::characterbackground>(charBackgroundProcessor);
 
     if (debugRetrieve)
-      cout << "background set to: " << charBackgroundProcessor << endl;
+      cout << "background set to: " << charBackgroundProcessor << '\n';
 
     //----------- LOAD IN BASIC STAT BLOCK -----------//
     ins >> v->move_speed;
@@ -1066,7 +1066,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->chaSave;
 
     if (debugRetrieve)
-      cout << "basic abiliity stats" << endl;
+      cout << "basic abiliity stats" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1084,7 +1084,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->protection;
 
     if (debugRetrieve)
-      cout << "general class stuff set" << endl;
+      cout << "general class stuff set" << '\n';
 
     ins.get();
     getline(ins, sbuffer);
@@ -1324,7 +1324,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->bladesinging;
 
     if (debugRetrieve)
-      cout << "precise class stuff set" << endl;
+      cout << "precise class stuff set" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1339,7 +1339,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->underdark;
 
     if (debugRetrieve)
-      cout << "landtypes set" << endl;
+      cout << "landtypes set" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1360,7 +1360,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->undead;
 
     if (debugRetrieve)
-      cout << "creaturetype set " << endl;
+      cout << "creaturetype set " << '\n';
 
     ins.get();
     getline(ins, sbuffer);
@@ -1378,7 +1378,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->warlock_ss;
 
     if (debugRetrieve)
-      cout << "spellslots set" << endl;
+      cout << "spellslots set" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1404,7 +1404,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->survival;
 
     if (debugRetrieve)
-      cout << "skills set" << endl;
+      cout << "skills set" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1454,7 +1454,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->weapon_master;
 
     if (debugRetrieve)
-      cout << "feats set" << endl;
+      cout << "feats set" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1481,7 +1481,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->undercommon;
 
     if (debugRetrieve)
-      cout << "languages set" << endl;
+      cout << "languages set" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1585,7 +1585,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->call_to_the_wave;
 
     if (debugRetrieve)
-      cout << "character features set" << endl;
+      cout << "character features set" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1599,7 +1599,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->damage_resist_radiant;
 
     if (debugRetrieve)
-      cout << "resistances set" << endl;
+      cout << "resistances set" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1607,7 +1607,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->sunlight_sensitivity;
 
     if (debugRetrieve)
-      cout << "disadvantages set" << endl;
+      cout << "disadvantages set" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1631,7 +1631,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->woodcarver;
 
     if (debugRetrieve)
-      cout << "artisan tools and supplies set" << endl;
+      cout << "artisan tools and supplies set" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1645,7 +1645,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->vehicle;
 
     if (debugRetrieve)
-      cout << "kits and tools set" << endl;
+      cout << "kits and tools set" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
@@ -1662,7 +1662,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->viol;
 
     if (debugRetrieve)
-      cout << "musical instruments set" << endl;
+      cout << "musical instruments set" << '\n';
 
     character_list.push_back(v);
 
@@ -1675,7 +1675,7 @@ void Campaign::showCampaignCharacterList() const
 {
   for (list<Generic_Character_Class *>::const_iterator it = this->character_list.begin(); it != this->character_list.end(); ++it)
   {
-    cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << endl;
+    cout << (*it)->char_name << " - " << (*it)->race << " " << (*it)->char_class << "(" << (*it)->level << ")" << '\n';
   }
-  cout << endl;
+  cout << '\n';
 }

@@ -1,7 +1,6 @@
 #include "characters.h"
 
 using std::cout;
-using std::endl;
 
 void Cleric::setClassDetails(const int &l)
 {
@@ -796,7 +795,7 @@ void Wizard::setClassDetails(const int &l)
     default:;
     }
     arcane_tradition = true;
-    cout << endl;
+    cout << '\n';
   }
   if (arcane_tradition_feature == 0 && l >= 6)
     arcane_tradition_feature++;
@@ -1872,7 +1871,7 @@ void Sorcerer::setClassDetails(const int &l)
       {
         gainReligion(i);
       }
-      cout << endl;
+      cout << '\n';
     }
   }
   cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
@@ -2527,7 +2526,7 @@ void Ranger::setClassDetails(const int &l)
       {
         gainSurvival(i);
       }
-      cout << endl;
+      cout << '\n';
     }
   }
   cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
@@ -2761,7 +2760,7 @@ void Warlock::setClassDetails(const int &l)
       {
         gainReligion(i);
       }
-      cout << endl;
+      cout << '\n';
     }
   }
   cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";

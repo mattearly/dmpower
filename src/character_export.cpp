@@ -4,7 +4,7 @@
 #include <iomanip>
 
 /**
- * Exports a printer friendly version of your character sheet
+ * Exports a printer fri'\n'y version of your character sheet
  *   This is not a Load/Save file
  * @param[in] title  the name of the file, suggest name, race, class, level
  */
@@ -51,7 +51,7 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
   os << "\n-> Cha: " << std::setw(2) << charisma << " " << D_D_Ability_Modifier(charisma);
   if (chaSave)
     os  << "  <-SaveProficient";
-  os << std::endl;
+  os << '\n';
 
 //-----------------------PRINT CLASS ABILITIES------------------------//
 
@@ -915,7 +915,7 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
     os << "Spell Mastery, ";
   if (signature_spell)
     os << "Signature Spell, ";
-  os << std::endl;
+  os << '\n';
 
 //-------------------------PRINT CANTRIPS------------------------//
 
@@ -932,7 +932,7 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
     os << "Sorcerer(" << sorcerer_cantrips_known << ")";
   if (warlock_cantrips_known > 0)
     os << "Warlock(" << warlock_cantrips_known << ")";
-  os << std::endl;
+  os << '\n';
 }
 
 //-----------------------PRINT SPELL SLOTS-----------------------//
@@ -987,7 +987,7 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
         os << ", 9th";
       os << "], ";
     }
-    os << std::endl;
+    os << '\n';
   }
 
 //----------------------PRINT SKILLS------------------------//
@@ -1029,7 +1029,7 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
     os << "Stealth, ";
   if (survival)
     os << "Survival";
-  os << std::endl;
+  os << '\n';
 
 //------------------------PRINT FEATS----------------------------//
 
@@ -1120,7 +1120,7 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
     os << "War Caster, ";
   if (weapon_master)
     os << "Weapon Master.";
-  os << std::endl;
+  os << '\n';
 
 //---------------------------PRINT OTHER ABILITES----------------------//
 
@@ -1307,7 +1307,7 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
   if (call_to_the_wave)
     os << "Call to the Wave, ";
 
-  os << std::endl;
+  os << '\n';
 
 //-------------------------PRINT LANGUAGES------------------------//
 
@@ -1354,7 +1354,7 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
     os << "Sylvan, ";
   if (undercommon)
     os << "Undercommon.";
-  os << std::endl;
+  os << '\n';
 
 //---------------------ARTISAN TOOLS------------------------------//
 
@@ -1393,7 +1393,7 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
     os << "Weaver's tools, ";
   if (woodcarver)
     os << "Woodcarver's tools.";
-  os << std::endl;
+  os << '\n';
 
 //-----------------------PRINT OTHER KITS AND TOOLS-------------------//
   os << "-> Other Kits and Tools: ";
@@ -1411,7 +1411,7 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
     os << "Thieves' tools, ";
   if (vehicle)
     os << "Vehicle(land or water).";
-  os << std::endl;
+  os << '\n';
   os << "-> Musical Instrument(s): ";
   if (bagpipes)
     os << "Bagpipes, ";
@@ -1433,7 +1433,7 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
     os << "Shawm, ";
   if (viol)
     os << "Viol.";
-  os << std::endl;
+  os << '\n';
 
 //------------------------PRINT RESISTANCES----------------------//
 
@@ -1452,13 +1452,13 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
     os << "Necrotic, ";
   if (damage_resist_radiant)
     os << "Radiant";
-  os << std::endl;
+  os << '\n';
 
 //-------------------PRINT DISADVANTAGES-------------------------//
   os << "-> Disadvantages: ";
   if (sunlight_sensitivity)
-    os << "Sunlight Sensitivty" << std::endl;
+    os << "Sunlight Sensitivty" << '\n';
 
-  os << std::endl;
+  os << '\n';
 
 }

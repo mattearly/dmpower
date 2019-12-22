@@ -74,7 +74,7 @@ void load_file()
   std::cout << YELLOW << "additional save management commands:" << RESET << "\n";
   cout << "   combine 2 files: '" << GREEN << "combine SaveToKeep SaveToMergeIn" << RESET << "'\n";
   cout << "   delete a file: '" << GREEN << "delete SaveToDelete" << RESET << "'\n";
-  std::cout << std::endl;
+  std::cout << '\n';
   std::string file;
   std::cout << "(leave blank to skip) Load File: ";
   std::getline(std::cin, file, '\n');
@@ -182,7 +182,7 @@ void showLoadableFiles(const std::string &dir)
 
     std::cout << "    " << CYAN << edited_ver << RESET << "\n";
   }
-  std::cout << std::endl;
+  std::cout << '\n';
 }
 
 void truncateSaveForThisVersion(std::string &original, std::string &edited)

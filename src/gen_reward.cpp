@@ -109,7 +109,7 @@ void Magic_Items::GenerateIndividualTreasureCR_0_4()
     gr = rolld100(mgen);
   else
     gr = getNumber("Enter d100 result: ", 1, 100);
-  cout << "Gold Roll = " << gr << endl;
+  cout << "Gold Roll = " << gr << '\n';
   if (gr <= 30)
   {
     int copper = 0;
@@ -149,7 +149,7 @@ void Magic_Items::GenerateIndividualTreasureCR_0_4()
     Gear tmp(plat, "pp");
     tmplist.push_back(tmp);
   }
-  cout << endl;
+  cout << '\n';
   for (auto &it : tmplist)
   {
     it.showItem();
@@ -164,7 +164,7 @@ void Magic_Items::GenerateIndividualTreasureCR_5_10()
     gr = rolld100(mgen);
   else
     gr = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Gold Roll: " << gr << endl;
+  cout << "Gold Roll: " << gr << '\n';
   if (gr <= 30)
   {
     int copper = 0;
@@ -231,7 +231,7 @@ void Magic_Items::GenerateIndividualTreasureCR_5_10()
     Gear tmp1(plat, "pp");
     tmplist.push_back(tmp1);
   }
-  cout << endl;
+  cout << '\n';
   for (auto &it : tmplist)
   {
     it.showItem();
@@ -246,7 +246,7 @@ void Magic_Items::GenerateIndividualTreasureCR_11_16()
     gr = rolld100(mgen);
   else
     gr = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Gold Roll: " << gr << endl;
+  cout << "Gold Roll: " << gr << '\n';
   if (gr <= 20)
   {
     int silver = 0;
@@ -295,7 +295,7 @@ void Magic_Items::GenerateIndividualTreasureCR_11_16()
     Gear tmp1(plat, "pp");
     tmplist.push_back(tmp1);
   }
-  cout << endl;
+  cout << '\n';
   for (auto &it : tmplist)
   {
     it.showItem();
@@ -310,7 +310,7 @@ void Magic_Items::GenerateIndividualTreasureCR_17()
     gr = rolld100(mgen);
   else
     gr = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Gold Roll: " << gr << endl;
+  cout << "Gold Roll: " << gr << '\n';
   if (gr <= 15)
   {
     int elec = 0;
@@ -347,7 +347,7 @@ void Magic_Items::GenerateIndividualTreasureCR_17()
     Gear tmp1(plat, "pp");
     tmplist.push_back(tmp1);
   }
-  cout << endl;
+  cout << '\n';
   for (auto &it : tmplist)
   {
     it.showItem();
@@ -379,7 +379,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4()
     mr = rolld100(mgen);
   else
     mr = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Magic Item Roll = " << mr << endl;
+  cout << "Magic Item Roll = " << mr << '\n';
   if (mr <= 6)
   {
     cout << "shittiest roll ever.\n";
@@ -548,7 +548,7 @@ void Magic_Items::GenerateHoardTreasureCR_0_4()
     tmplist.push_back(tmp);
     tmplist.push_back(TableG(ans));
   }
-  cout << endl;
+  cout << '\n';
   for (auto &it : tmplist)
   {
     it.showItem();
@@ -584,7 +584,7 @@ void Magic_Items::GenerateHoardTreasureCR_5_10()
     mr = rolld100(mgen);
   else
     mr = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Magic Item Roll = " << mr << endl;
+  cout << "Magic Item Roll = " << mr << '\n';
   if (mr <= 4)
   {
     cout << "crappiest roll ever :|\n";
@@ -874,7 +874,7 @@ void Magic_Items::GenerateHoardTreasureCR_5_10()
     tmplist.push_back(tmp);
     tmplist.push_back(TableH(ans));
   }
-  cout << endl;
+  cout << '\n';
   for (auto &it : tmplist)
   {
     it.showItem();
@@ -900,7 +900,7 @@ void Magic_Items::GenerateHoardTreasureCR_11_16()
     mr = rolld100(mgen);
   else
     mr = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Magic Item Roll = " << mr << endl;
+  cout << "Magic Item Roll = " << mr << '\n';
   if (mr <= 3)
   {
     cout << "crappiest roll ever :|\n";
@@ -1246,7 +1246,7 @@ void Magic_Items::GenerateHoardTreasureCR_11_16()
     tmplist.push_back(tmp);
     tmplist.push_back(TableI(ans));
   }
-  cout << endl;
+  cout << '\n';
   for (auto &it : tmplist)
   {
     it.showItem();
@@ -1272,7 +1272,7 @@ void Magic_Items::GenerateHoardTreasureCR_17()
     mr = rolld100(mgen);
   else
     mr = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Magic Item Roll = " << mr << endl;
+  cout << "Magic Item Roll = " << mr << '\n';
   if (mr <= 2)
   {
     cout << "crappiest roll ever :|\n";
@@ -1505,7 +1505,7 @@ void Magic_Items::GenerateHoardTreasureCR_17()
     for (int i(0); i < c; i++)
       tmplist.push_back(TableI(ans));
   }
-  cout << endl;
+  cout << '\n';
   for (auto &it : tmplist)
   {
     it.showItem();
@@ -1519,7 +1519,7 @@ Gear Magic_Items::TableA(const char &r)
     roll = rolld100(mgen);
   else
     roll = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Table A Roll = " << roll << endl;
+  cout << "Table A Roll = " << roll << '\n';
   if (roll <= 50)
   {
     Gear tmp(1, "Potion of Healing");
@@ -1568,7 +1568,7 @@ Gear Magic_Items::TableB(const char &r)
     roll = rolld100(mgen);
   else
     roll = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Table B Roll = " << roll << endl;
+  cout << "Table B Roll = " << roll << '\n';
   if (roll <= 15)
   {
     Gear tmp(1, "Potion of greater healing");
@@ -1773,7 +1773,7 @@ Gear Magic_Items::TableC(const char &r)
     roll = rolld100(mgen);
   else
     roll = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Table C Roll = " << roll << endl;
+  cout << "Table C Roll = " << roll << '\n';
   if (roll <= 15)
   {
     Gear tmp(1, "Potion of superior healing");
@@ -1904,7 +1904,7 @@ Gear Magic_Items::TableC(const char &r)
   }
   else if (roll <= 93)
   {
-    Gear tmp(1, "Decanter of endless water");
+    Gear tmp(1, "Decanter of '\n'ess water");
     return tmp;
   }
   else if (roll <= 94)
@@ -1951,7 +1951,7 @@ Gear Magic_Items::TableD(const char &r)
     roll = rolld100(mgen);
   else
     roll = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Table D Roll = " << roll << endl;
+  cout << "Table D Roll = " << roll << '\n';
   if (roll <= 20)
   {
     Gear tmp(1, "Potion of supreme healing");
@@ -2044,7 +2044,7 @@ Gear Magic_Items::TableE(const char &r)
     roll = rolld100(mgen);
   else
     roll = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Table E Roll = " << roll << endl;
+  cout << "Table E Roll = " << roll << '\n';
   if (roll <= 30)
   {
     string scroll = GenerateScroll(8);
@@ -2091,7 +2091,7 @@ Gear Magic_Items::TableF(const char &r)
     roll = rolld100(mgen);
   else
     roll = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Table F Roll = " << roll << endl;
+  cout << "Table F Roll = " << roll << '\n';
   if (roll <= 15)
   {
     Gear tmp(1, "Weapon, +1");
@@ -2401,7 +2401,7 @@ Gear Magic_Items::TableG(const char &r)
     roll = rolld100(mgen);
   else
     roll = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Table G Roll = " << roll << endl;
+  cout << "Table G Roll = " << roll << '\n';
   if (roll <= 11)
   {
     Gear tmp(1, "Weapon, +2");
@@ -2893,7 +2893,7 @@ Gear Magic_Items::TableH(const char &r)
     roll = rolld100(mgen);
   else
     roll = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Table H Roll = " << roll << endl;
+  cout << "Table H Roll = " << roll << '\n';
   if (roll <= 10)
   {
     Gear tmp(1, "Weapon, +3");
@@ -3248,7 +3248,7 @@ Gear Magic_Items::TableI(const char &r)
     roll = rolld100(mgen);
   else
     roll = getNumber("Enter d100 roll result: ", 1, 100);
-  cout << "Table I Roll = " << roll << endl;
+  cout << "Table I Roll = " << roll << '\n';
   if (roll <= 5)
   {
     Gear tmp(1, "Defender");
@@ -4821,7 +4821,7 @@ void Magic_Items::SingleScroll(const int &lvl) const
       cout << "Wrathful Smite (paladin)";
       break;
     }
-    cout << endl;
+    cout << '\n';
     break;
   case 2:
     cout << "\n Level 2 Scroll of -> ";
@@ -5006,7 +5006,7 @@ void Magic_Items::SingleScroll(const int &lvl) const
       cout << "Zone of Truth (bard, cleric, paladin)";
       break;
     }
-    cout << endl;
+    cout << '\n';
     break;
   case 3:
     cout << "\n Level 3 Scroll of -> ";
@@ -5164,7 +5164,7 @@ void Magic_Items::SingleScroll(const int &lvl) const
       cout << "Wind Wall (druid, ranger)";
       break;
     }
-    cout << endl;
+    cout << '\n';
     break;
   case 4:
     cout << "\n Level 4 Scroll of -> ";
@@ -5274,7 +5274,7 @@ void Magic_Items::SingleScroll(const int &lvl) const
       cout << "Wall of Fire (druid, sorcerer, wizard)";
       break;
     }
-    cout << endl;
+    cout << '\n';
     break;
   case 5:
     cout << "\n Level 5 Scroll of -> ";
@@ -5408,7 +5408,7 @@ void Magic_Items::SingleScroll(const int &lvl) const
       cout << "Wall of Stone (druid, sorcerer, wizard)";
       break;
     }
-    cout << endl;
+    cout << '\n';
     break;
   case 6:
     cout << "\n Level 6 Scroll of -> ";
@@ -5512,7 +5512,7 @@ void Magic_Items::SingleScroll(const int &lvl) const
       cout << "Word of Recall (cleric)";
       break;
     }
-    cout << endl;
+    cout << '\n';
     break;
   case 7:
     cout << "\n Level 7 Scroll of -> ";
@@ -5580,7 +5580,7 @@ void Magic_Items::SingleScroll(const int &lvl) const
       cout << "Teleport (bard, sorcerer, wizard)";
       break;
     }
-    cout << endl;
+    cout << '\n';
     break;
   case 8:
     cout << "\n Level 8 Scroll of -> ";
@@ -5645,7 +5645,7 @@ void Magic_Items::SingleScroll(const int &lvl) const
       cout << "Tsunami (druid)";
       break;
     }
-    cout << endl;
+    cout << '\n';
     break;
   case 9:
     cout << "\n Level 9 Scroll of -> ";
@@ -5701,7 +5701,7 @@ void Magic_Items::SingleScroll(const int &lvl) const
       cout << "Wish (sorcerer, wizard)";
       break;
     }
-    cout << endl;
+    cout << '\n';
     break;
   }
 }
@@ -5994,8 +5994,8 @@ void Magic_Items::MakeSpellbook() const
   int eighth = getNumber("8. How many eighth level spells?(0-14): ", 0, 14);
   int ninth = getNumber("9. How many ninth level spells?(0-12): ", 0, 12);
   int usedpages = ((first) + (second * 2) + (third * 3) + (fourth * 4) + (fifth * 5) + (sixth * 6) + (seventh * 7) + (eighth * 8) + (ninth * 9));
-  cout << "\n ->Based on the number of spells in this spellbook, there are at least " << RED << usedpages << RESET << " pages in this spellbook." << endl
-       << endl;
+  cout << "\n ->Based on the number of spells in this spellbook, there are at least " << RED << usedpages << RESET << " pages in this spellbook." << '\n'
+       << '\n';
   int totalpages = getNumber("Most spellbooks have between 70 to 150 pages in total, but can be more or less.\n How many pages are in this one?(824max)\n ->", usedpages, 824);
   cout << "Spellbooks are often bound in leather or thick cloth, but can be made out of anything.\n What kind of material is this spellbook made out of? (enter anything)\n -> ";
   string material;
@@ -6003,8 +6003,8 @@ void Magic_Items::MakeSpellbook() const
   vector<string> spellholder;
   if (clearScreens) simpleClearScreen();
   cout << " A New Spellbook Is Found!\n\n";
-  cout << usedpages << " / " << totalpages << " pages used." << endl;
-  cout << "Made out of: " << material << endl;
+  cout << usedpages << " / " << totalpages << " pages used." << '\n';
+  cout << "Made out of: " << material << '\n';
   //LEVEL 1 SPELLS
   if (first > 0)
   {
@@ -6041,7 +6041,7 @@ void Magic_Items::MakeSpellbook() const
     sort(spellholder.begin(), spellholder.end());
     for (auto i : spellholder)
     { //output all spells
-      cout << i << endl;
+      cout << i << '\n';
     }
     spellholder.clear();
   }
@@ -6081,7 +6081,7 @@ void Magic_Items::MakeSpellbook() const
     sort(spellholder.begin(), spellholder.end());
     for (auto i : spellholder)
     { //output all spells
-      cout << i << endl;
+      cout << i << '\n';
     }
     spellholder.clear();
   }
@@ -6121,7 +6121,7 @@ void Magic_Items::MakeSpellbook() const
     sort(spellholder.begin(), spellholder.end());
     for (auto i : spellholder)
     { //output all spells
-      cout << i << endl;
+      cout << i << '\n';
     }
     spellholder.clear();
   }
@@ -6161,7 +6161,7 @@ void Magic_Items::MakeSpellbook() const
     sort(spellholder.begin(), spellholder.end());
     for (auto i : spellholder)
     { //output all spells
-      cout << i << endl;
+      cout << i << '\n';
     }
     spellholder.clear();
   }
@@ -6201,7 +6201,7 @@ void Magic_Items::MakeSpellbook() const
     sort(spellholder.begin(), spellholder.end());
     for (auto i : spellholder)
     { //output all spells
-      cout << i << endl;
+      cout << i << '\n';
     }
     spellholder.clear();
   }
@@ -6241,7 +6241,7 @@ void Magic_Items::MakeSpellbook() const
     sort(spellholder.begin(), spellholder.end());
     for (auto i : spellholder)
     { //output all spells
-      cout << i << endl;
+      cout << i << '\n';
     }
     spellholder.clear();
   }
@@ -6281,7 +6281,7 @@ void Magic_Items::MakeSpellbook() const
     sort(spellholder.begin(), spellholder.end());
     for (auto i : spellholder)
     { //output all spells
-      cout << i << endl;
+      cout << i << '\n';
     }
     spellholder.clear();
   }
@@ -6321,7 +6321,7 @@ void Magic_Items::MakeSpellbook() const
     sort(spellholder.begin(), spellholder.end());
     for (auto i : spellholder)
     { //output all spells
-      cout << i << endl;
+      cout << i << '\n';
     }
     spellholder.clear();
   }
@@ -6361,7 +6361,7 @@ void Magic_Items::MakeSpellbook() const
     sort(spellholder.begin(), spellholder.end());
     for (auto i : spellholder)
     { //output all spells
-      cout << i << endl;
+      cout << i << '\n';
     }
     spellholder.clear();
   }

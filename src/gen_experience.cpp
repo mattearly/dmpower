@@ -40,8 +40,8 @@ float Gen_Experience::xpgenerator()
     {
       cout << GREEN << i << RESET << ", ";
     }
-    cout << "\nTotal unsplit so far: " << GREEN << total << RESET << " total" << endl;
-    cout << endl;
+    cout << "\nTotal unsplit so far: " << GREEN << total << RESET << " total" << '\n';
+    cout << '\n';
     selected_rating = getNumber("Choose CR by the chart(1-34): ", 1, 34);
     switch (selected_rating)
     {
@@ -183,7 +183,7 @@ float Gen_Experience::xpgenerator()
     default:
       break;
     }
-    cout << "\nTotal unsplit so far: " << GREEN << total << RESET << " total" << endl;
+    cout << "\nTotal unsplit so far: " << GREEN << total << RESET << " total" << '\n';
     cout << "CRs so far: ";
     for (auto i : crlist)
     {
