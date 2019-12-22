@@ -21,7 +21,7 @@ void Charts::showChartMenu()
         << " 3. Madness Chart\n"
         << " 4. Disease Chart\n"
         << " 5. Level Up Chart\n"
-        << " 6. Back to " << MAGENTA << "OTHER TOOLS" << RESET << "\n"
+        << " 6. Back to " << MAGENTA << "OTHER TOOLS" << RESET << '\n'
         << "---------------- CHARTS ------------------\n";
     chart_choice = getNumber("Choice: ", 1, MAXCHARTCHOICE);
     switch (chart_choice)

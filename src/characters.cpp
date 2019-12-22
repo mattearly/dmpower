@@ -44,7 +44,7 @@ void Generic_Character_Class::setName()
   }
 
   cout << "Name Your Character! (can be edited later)\n\n";
-  cout << "  " << MAGENTA << "NAME RULES" << RESET << "\n";
+  cout << "  " << MAGENTA << "NAME RULES" << RESET << '\n';
   cout << "    Length must be 2 or more characters.\n";
   cout << "    Must be unique, no other characters with this name in the campaign.\n";
   cout << "    First letter is automatically Capitalized.\n";
@@ -267,7 +267,7 @@ void Generic_Character_Class::setAllStats()
   cout << "---------------------------------------\n";
   cout << "1. " << RED << "High-Powered Legit " << RESET << "Roll Set : roll " << GREEN << "4d6 6 " << RESET << "times, dropping lowest die each time\n";
   cout << "2. " << YELLOW << "Legit " << RESET << "Roll Set : roll " << GREEN << "3d6 6 " << RESET << "times\n";
-  cout << "3. " << BLUE << "Standard " << RESET << "Array Set : " << GREEN << "[15, 14, 13, 12, 10, 8]" << RESET << "\n";
+  cout << "3. " << BLUE << "Standard " << RESET << "Array Set : " << GREEN << "[15, 14, 13, 12, 10, 8]" << RESET << '\n';
   cout << "4. " << CYAN << "Custom " << RESET << "Array Set : Enter in your own custom stats.\n\n";
   int stat_ver_choice = 0;
 
@@ -1053,43 +1053,43 @@ void Generic_Character_Class::setLandtype()
       cout << "1. Artic";
     else
       cout << "1. " << RED << "Artic (already known)" << RESET;
-    cout << "\n";
+    cout << '\n';
 
     if (!coast)
       cout << "2. Coast";
     else
       cout << "2. " << RED << "Coast (already known)" << RESET;
-    cout << "\n";
+    cout << '\n';
 
     if (!desert)
       cout << "3. Desert";
     else
       cout << "3. " << RED << "Desert (already known)" << RESET;
-    cout << "\n";
+    cout << '\n';
 
     if (!forest)
       cout << "4. Forest";
     else
       cout << "4. " << RED << "Forest (already known)" << RESET;
-    cout << "\n";
+    cout << '\n';
 
     if (!grassland)
       cout << "5. Grassland";
     else
       cout << "5. " << RED << "Grassland (already known)" << RESET;
-    cout << "\n";
+    cout << '\n';
 
     if (!mountain)
       cout << "6. Mountain";
     else
       cout << "6. " << RED << "Mountain (already known)" << RESET;
-    cout << "\n";
+    cout << '\n';
 
     if (!swamp)
       cout << "7. Swamp";
     else
       cout << "7. " << RED << "Swamp (already known)" << RESET;
-    cout << "\n";
+    cout << '\n';
 
     if (!underdark)
       cout << "8. Underdark";
@@ -1398,27 +1398,27 @@ void Generic_Character_Class::assignStats(int &s)
   if (strength == 0)
     cout << " 1. Strength\n";
   else
-    cout << YELLOW << " 1. Strength(DONE)" << RESET << "     STR: " << strength << "\n";
+    cout << YELLOW << " 1. Strength(DONE)" << RESET << "     STR: " << strength << '\n';
 
   if (dexterity == 0)
     cout << " 2. Dexterity\n";
   else
-    cout << YELLOW << " 2. Dexterity(DONE)" << RESET << "    DEX: " << dexterity << "\n";
+    cout << YELLOW << " 2. Dexterity(DONE)" << RESET << "    DEX: " << dexterity << '\n';
 
   if (constitution == 0)
     cout << " 3. Constitution\n";
   else
-    cout << YELLOW << " 3. Constitution(DONE)" << RESET << " CON: " << constitution << "\n";
+    cout << YELLOW << " 3. Constitution(DONE)" << RESET << " CON: " << constitution << '\n';
 
   if (intelligence == 0)
     cout << " 4. Intelligence\n";
   else
-    cout << YELLOW << " 4. Intelligence(DONE)" << RESET << " INT: " << intelligence << "\n";
+    cout << YELLOW << " 4. Intelligence(DONE)" << RESET << " INT: " << intelligence << '\n';
 
   if (wisdom == 0)
     cout << " 5. Wisdom\n";
   else
-    cout << YELLOW << " 5. Wisdom(DONE)" << RESET << "       WIS: " << wisdom << "\n";
+    cout << YELLOW << " 5. Wisdom(DONE)" << RESET << "       WIS: " << wisdom << '\n';
 
   if (charisma == 0)
     cout << " 6. Charisma\n\n";

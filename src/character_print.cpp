@@ -13,9 +13,9 @@ void Generic_Character_Class::character_sheet() const
     simpleClearScreen();
   cout << " " << char_name << "'s Character Sheet:\n";
   cout << "->" << GREEN << " Class(Level): " << RESET << char_class << "(" << level << ")\n";
-  cout << "->" << GREEN << " Alignment: " << RESET << alignment << "\n";
-  cout << "->" << GREEN << " Race: " << RESET << race << "\n";
-  cout << "->" << GREEN << " Background: " << RESET << getBackground() << "\n";
+  cout << "->" << GREEN << " Alignment: " << RESET << alignment << '\n';
+  cout << "->" << GREEN << " Race: " << RESET << race << '\n';
+  cout << "->" << GREEN << " Background: " << RESET << getBackground() << '\n';
   cout << "->" << GREEN << " Hit Dice: " << RESET << level << "d" << hitdicesize
        << "(Ave NPC HP: " << ((((hitdicesize + 2) / 2)) * level) + (getAbilityMod(constitution) * level)
        << " Ave PC HP: " << hitdicesize + ((((hitdicesize + 2) / 2)) * (level - 1)) + (getAbilityMod(constitution) * level)

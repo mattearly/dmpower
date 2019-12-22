@@ -20,7 +20,7 @@ std::string Encounter::Gen_Encounter()
   if (testing)
     cout << "Seed (random difficulty CR: -2 to +2): " << seed << " (" << getDifficulty(seed) << ")\n";
   if (testing)
-    cout << "Party Size additional CR: +" << floor((partysize - 2) / 2) << "\n";
+    cout << "Party Size additional CR: +" << floor((partysize - 2) / 2) << '\n';
   if (testing)
     cout << "Average Party Level: " + toString(ave_lvl) << "\n\n";
 

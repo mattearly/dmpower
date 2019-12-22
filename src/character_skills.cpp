@@ -8,7 +8,7 @@ using std::string;
 void Generic_Character_Class::setAnySkill(const string &message, const int &many)
 {
   int ss(0);
-  cout << message << "\n";
+  cout << message << '\n';
   for (int i = 0; i < many; i++)
   {
     if (acrobatics)

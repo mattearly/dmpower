@@ -31,13 +31,13 @@ void menu()
     if (clearScreens) simpleClearScreen();
     cout << "> " << mainMessage << "\n\n";
     mainMessage = "";
-    cout << CYAN << "---------- MAIN MENU ----------" << RESET << "\n"
-         << " 1. " << GREEN << "BUILD & MANAGE CHARACTERS" << RESET << "\n"
-         << " 2. " << YELLOW << "LOOT GENERATION" << RESET << "\n"
-         << " 3. " << MAGENTA << "MORE TOOLS" << RESET << "\n"
+    cout << CYAN << "---------- MAIN MENU ----------" << RESET << '\n'
+         << " 1. " << GREEN << "BUILD & MANAGE CHARACTERS" << RESET << '\n'
+         << " 2. " << YELLOW << "LOOT GENERATION" << RESET << '\n'
+         << " 3. " << MAGENTA << "MORE TOOLS" << RESET << '\n'
          << " 4. SETTINGS\n"
-         << " 5. " << RED << "QUIT" << RESET << "\n"
-         << CYAN << "-------------------------------" << RESET << "\n";
+         << " 5. " << RED << "QUIT" << RESET << '\n'
+         << CYAN << "-------------------------------" << RESET << '\n';
     choice = getNumber("Choice: ", 1, 5);
     switch (choice)
     {
@@ -73,14 +73,14 @@ void other_tools()
     if (clearScreens) simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
-    cout << MAGENTA << "------------OTHER TOOLS------------" << RESET << "\n"
+    cout << MAGENTA << "------------OTHER TOOLS------------" << RESET << '\n'
          << " 1. Charts\n"
          << " 2. Experience Calculator\n"
          << " 3. Name Generator\n"
          << " 4. Random Encounter\n"
          << " 5. NPC Insult\n"
-         << " 6. Back to " << CYAN << "MAIN MENU" << RESET << "\n"
-         << MAGENTA << "-----------------------------------" << RESET << "\n";
+         << " 6. Back to " << CYAN << "MAIN MENU" << RESET << '\n'
+         << MAGENTA << "-----------------------------------" << RESET << '\n';
     choice = getNumber("Enter Choice(1-6): ", 1, 6);
     switch (choice)
     {

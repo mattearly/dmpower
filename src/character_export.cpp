@@ -17,9 +17,9 @@ void Generic_Character_Class::exportPrint(const std::string &title) const
   
   os << " " << char_name << "'s Character Sheet:\n";
   os << "-> Class(Level): " << char_class << "(" << level << ")\n";
-  os << "-> Alignment: " << alignment << "\n";
-  os << "-> Race: " << race << "\n";
-  os << "-> Background: " << getBackground() << "\n";
+  os << "-> Alignment: " << alignment << '\n';
+  os << "-> Race: " << race << '\n';
+  os << "-> Background: " << getBackground() << '\n';
   os << "-> Hit Dice: " << level << "d" << hitdicesize
        << "(Ave NPC HP: " << ((((hitdicesize + 2) / 2)) * level) + (getAbilityMod(constitution) * level)
        << " Ave PC HP: " << hitdicesize + ((((hitdicesize + 2) / 2)) * (level - 1)) + (getAbilityMod(constitution) * level)

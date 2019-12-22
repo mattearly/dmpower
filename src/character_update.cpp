@@ -39,7 +39,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
       break;
     case 3:
     {
-      cout << "Current Alignment is: " << alignment << "\n";
+      cout << "Current Alignment is: " << alignment << '\n';
       cout << "Pick new Alignment for " << char_name << ".\n\n"
            << "1. Chaotic Evil     6. Neutral Good"
            << "\n2. Chaotic Neutral  7. Lawful Evil"
