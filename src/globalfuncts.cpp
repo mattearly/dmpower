@@ -113,7 +113,7 @@ int rollstats_hi_power()
     std::cout << "error in rolling function for 4d6 drop lowest";
     exit(-1);
   }
-  std::cout << "d6 rolls: " << r1 << ", " << r2 << ", " << r3 << ", " << r4 << " | dropped d6 roll: " << d6dropped << std::endl;
+  std::cout << "d6 rolls: " << r1 << ", " << r2 << ", " << r3 << ", " << r4 << " | dropped d6 roll: " << d6dropped << '\n';
   return result;
 }
 
@@ -123,7 +123,7 @@ int rollstats_standard()
   r1 = rolld6(mgen);
   r2 = rolld6(mgen);
   r3 = rolld6(mgen);
-  std::cout << "d6 rolls: " << r1 << ", " << r2 << ", " << r3 << std::endl;
+  std::cout << "d6 rolls: " << r1 << ", " << r2 << ", " << r3 << '\n';
   return (r1 + r2 + r3);
 }
 
@@ -158,7 +158,7 @@ int getNumber(const std::string &message, const int &a, const int &b)
   if (is_random)
   {
     int rand_num = randomNumber(a, b);
-    std::cout << message << rand_num << std::endl;
+    std::cout << message << rand_num << '\n';
     return rand_num;
   }
 

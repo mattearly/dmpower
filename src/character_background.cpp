@@ -243,7 +243,7 @@ void Generic_Character_Class::setBackground()
     {
         for (int i = 0; i < 2; i++)
         {
-            cout << "\n";
+            cout << '\n';
             if (i == 0)
                 cout << "First ";
             else

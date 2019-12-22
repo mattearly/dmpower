@@ -21,8 +21,8 @@ std::string userSettingsFile = "./settings/userSettings.dat";
 bool saveUserSettings() {
   std::ofstream __savefile(userSettingsFile.c_str());
   if (__savefile.is_open()) {
-    __savefile << "insults=\"" << insult_mode << "\"" << std::endl;
-    __savefile << clearScreens << std::endl;
+    __savefile << "insults=\"" << insult_mode << "\"" << '\n';
+    __savefile << clearScreens << '\n';
   }
   return true;
 }
@@ -39,7 +39,7 @@ void change_settings() {
       simpleClearScreen();
     std::cout << "\n-------- SETTINGS MENU --------\n"
                  " 1. Insult Mode: "
-              << insult_mode << std::endl;
+              << insult_mode << '\n';
     std::cout << " 2. Clear Screens: " <<
         [](const bool &x) {
           if (x)
@@ -47,9 +47,9 @@ void change_settings() {
           else
             return "Off";
         }(clearScreens)
-              << std::endl;
+              << '\n';
     std::cout << " 3. Save and exit to " << CYAN << "MAIN MENU" << RESET
-              << std::endl;
+              << '\n';
     std::cout << "-------------------------------\n";
     choice = getNumber("Choice: ", 1, 3);
     switch (choice) {

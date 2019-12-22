@@ -71,10 +71,10 @@ void load_file()
   if (clearScreens) simpleClearScreen();
   //show list of previous saves
   showLoadableFiles("saves");
-  std::cout << YELLOW << "additional save management commands:" << RESET << "\n";
+  std::cout << YELLOW << "additional save management commands:" << RESET << '\n';
   cout << "   combine 2 files: '" << GREEN << "combine SaveToKeep SaveToMergeIn" << RESET << "'\n";
   cout << "   delete a file: '" << GREEN << "delete SaveToDelete" << RESET << "'\n";
-  std::cout << std::endl;
+  std::cout << '\n';
   std::string file;
   std::cout << "(leave blank to skip) Load File: ";
   std::getline(std::cin, file, '\n');
@@ -180,9 +180,9 @@ void showLoadableFiles(const std::string &dir)
 
     truncateSaveForThisVersion(original_ver, edited_ver);
 
-    std::cout << "    " << CYAN << edited_ver << RESET << "\n";
+    std::cout << "    " << CYAN << edited_ver << RESET << '\n';
   }
-  std::cout << std::endl;
+  std::cout << '\n';
 }
 
 void truncateSaveForThisVersion(std::string &original, std::string &edited)
@@ -210,7 +210,7 @@ bool mergeSaves(const std::string &keep, const std::string &mergein)
       std::getline(readfrom, tmp);
       if (readfrom.eof())
         break;
-      saveto << tmp << "\n";
+      saveto << tmp << '\n';
     } while (!readfrom.eof());
     return true;
   }

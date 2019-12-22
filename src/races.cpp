@@ -311,7 +311,7 @@ void Elf::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
-  cout << endl;
+  cout << '\n';
   // pressEnterToContinue();
 }
 void Firbolg::setRaceDetails(Generic_Character_Class &v)
@@ -546,8 +546,8 @@ void Halfelf::setRaceDetails(Generic_Character_Class &v)
       v.wisdom += 1;
       cout << "Wisdom Increased by 1!\n";
     }
-    cout << endl;
-    cout << endl;
+    cout << '\n';
+    cout << '\n';
   }
   cout << "Halfelfs' can also choose one of the following:\n\n";
   cout << "  1. Two skill proficiencies\n";
@@ -901,8 +901,8 @@ void Tiefling::setRaceDetails(Generic_Character_Class &v)
   default:
     break;
   }
-  cout << endl
-       << endl;
+  cout << '\n'
+       << '\n';
 
   cout << "Are you a Feral(+2 dex) or Not(+2 charisma)?\n\n";
   ss = getNumber(" 1. Feral\n 2. Not\n\nChoice:", 1, 2);

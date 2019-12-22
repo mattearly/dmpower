@@ -20,14 +20,14 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
 
     cout
         << "\nEditing " << GREEN << char_name << RESET << ", level " << level << " " << alignment << " " << char_class << "\n\n"
-        << " 1. LEVEL UP!" << endl
-        << " 2. Change Name" << endl
-        << " 3. Change Alignment" << endl
-        << " 4. Custom Ability Stats" << endl
-        << " 5. Grant New Skill Proficiency" << endl
-        << " 6. Grant New Feat" << endl
-        << " 7. Back to " << GREEN << "CHARACTER MANAGER" << RESET << endl
-        << endl;
+        << " 1. LEVEL UP!" << '\n'
+        << " 2. Change Name" << '\n'
+        << " 3. Change Alignment" << '\n'
+        << " 4. Custom Ability Stats" << '\n'
+        << " 5. Grant New Skill Proficiency" << '\n'
+        << " 6. Grant New Feat" << '\n'
+        << " 7. Back to " << GREEN << "CHARACTER MANAGER" << RESET << '\n'
+        << '\n';
     ss = getNumber("Choice: ", 1, 7);
     switch (ss)
     {
@@ -39,7 +39,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
       break;
     case 3:
     {
-      cout << "Current Alignment is: " << alignment << "\n";
+      cout << "Current Alignment is: " << alignment << '\n';
       cout << "Pick new Alignment for " << char_name << ".\n\n"
            << "1. Chaotic Evil     6. Neutral Good"
            << "\n2. Chaotic Neutral  7. Lawful Evil"
@@ -74,13 +74,13 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
       do
       {
         cout << "Current Ability Stats: \n\n"
-             << "1. Str: " << strength << endl
-             << "2. Dex: " << dexterity << endl
-             << "3. Con: " << constitution << endl
-             << "4. Int: " << intelligence << endl
-             << "5. Wis: " << wisdom << endl
-             << "6. Cha: " << charisma << endl
-             << endl;
+             << "1. Str: " << strength << '\n'
+             << "2. Dex: " << dexterity << '\n'
+             << "3. Con: " << constitution << '\n'
+             << "4. Int: " << intelligence << '\n'
+             << "5. Wis: " << wisdom << '\n'
+             << "6. Cha: " << charisma << '\n'
+             << '\n';
         ss = getNumber("Choose a stat to edit(1-6): ", 1, 6);
         switch (ss)
         {
@@ -106,13 +106,13 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
           break;
         }
         cout << "New Stats: \n\n"
-             << "1. Str: " << strength << endl
-             << "2. Dexterity: " << dexterity << endl
-             << "3. Constitution: " << constitution << endl
-             << "4. Intelligence: " << intelligence << endl
-             << "5. Wisdom: " << wisdom << endl
-             << "6. Charisma: " << charisma << endl
-             << endl;
+             << "1. Str: " << strength << '\n'
+             << "2. Dexterity: " << dexterity << '\n'
+             << "3. Constitution: " << constitution << '\n'
+             << "4. Intelligence: " << intelligence << '\n'
+             << "5. Wisdom: " << wisdom << '\n'
+             << "6. Charisma: " << charisma << '\n'
+             << '\n';
         answ = getYorN("Would you like to change more stats?(y/n):");
       } while (answ != 'N');
     }

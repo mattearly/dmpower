@@ -13,9 +13,9 @@ void Generic_Character_Class::character_sheet() const
     simpleClearScreen();
   cout << " " << char_name << "'s Character Sheet:\n";
   cout << "->" << GREEN << " Class(Level): " << RESET << char_class << "(" << level << ")\n";
-  cout << "->" << GREEN << " Alignment: " << RESET << alignment << "\n";
-  cout << "->" << GREEN << " Race: " << RESET << race << "\n";
-  cout << "->" << GREEN << " Background: " << RESET << getBackground() << "\n";
+  cout << "->" << GREEN << " Alignment: " << RESET << alignment << '\n';
+  cout << "->" << GREEN << " Race: " << RESET << race << '\n';
+  cout << "->" << GREEN << " Background: " << RESET << getBackground() << '\n';
   cout << "->" << GREEN << " Hit Dice: " << RESET << level << "d" << hitdicesize
        << "(Ave NPC HP: " << ((((hitdicesize + 2) / 2)) * level) + (getAbilityMod(constitution) * level)
        << " Ave PC HP: " << hitdicesize + ((((hitdicesize + 2) / 2)) * (level - 1)) + (getAbilityMod(constitution) * level)
@@ -47,7 +47,7 @@ void Generic_Character_Class::character_sheet() const
   cout << "\n->" << MAGENTA << " Cha: " << RESET << setw(2) << charisma << " " << D_D_Ability_Modifier(charisma);
   if (chaSave)
     cout << GREEN << "  <-SaveProficient" << RESET;
-  cout << endl;
+  cout << '\n';
   printClassAbilities();
   printCantrips();
   printSpellSlots();
@@ -58,7 +58,7 @@ void Generic_Character_Class::character_sheet() const
   printFeats();
   printResistances();
   printDisadvantages();
-  cout << endl;
+  cout << '\n';
 }
 
 void Generic_Character_Class::printClassAbilities() const
@@ -923,7 +923,7 @@ void Generic_Character_Class::printClassAbilities() const
     cout << "Spell Mastery, ";
   if (signature_spell)
     cout << "Signature Spell, ";
-  cout << endl;
+  cout << '\n';
 }
 
 void Generic_Character_Class::printCantrips() const
@@ -941,7 +941,7 @@ void Generic_Character_Class::printCantrips() const
     cout << "Sorcerer(" << sorcerer_cantrips_known << ")";
   if (warlock_cantrips_known > 0)
     cout << "Warlock(" << warlock_cantrips_known << ")";
-  cout << endl;
+  cout << '\n';
 }
 
 void Generic_Character_Class::printSpellSlots() const
@@ -996,7 +996,7 @@ void Generic_Character_Class::printSpellSlots() const
         cout << ", 9th";
       cout << "], ";
     }
-    cout << endl;
+    cout << '\n';
   }
 }
 void Generic_Character_Class::printSkills() const
@@ -1038,7 +1038,7 @@ void Generic_Character_Class::printSkills() const
     cout << "Stealth, ";
   if (survival)
     cout << "Survival";
-  cout << endl;
+  cout << '\n';
 }
 void Generic_Character_Class::printFeats() const
 {
@@ -1129,7 +1129,7 @@ void Generic_Character_Class::printFeats() const
     cout << "War Caster, ";
   if (weapon_master)
     cout << "Weapon Master.";
-  cout << endl;
+  cout << '\n';
 }
 void Generic_Character_Class::printOtherAbilities() const
 {
@@ -1316,7 +1316,7 @@ void Generic_Character_Class::printOtherAbilities() const
   if (call_to_the_wave)
     cout << "Call to the Wave, ";
 
-  cout << endl;
+  cout << '\n';
 }
 void Generic_Character_Class::printLangs() const
 {
@@ -1363,7 +1363,7 @@ void Generic_Character_Class::printLangs() const
     cout << "Sylvan, ";
   if (undercommon)
     cout << "Undercommon.";
-  cout << endl;
+  cout << '\n';
 }
 void Generic_Character_Class::printToolsInstruments() const
 {
@@ -1402,7 +1402,7 @@ void Generic_Character_Class::printToolsInstruments() const
     cout << "Weaver's tools, ";
   if (woodcarver)
     cout << "Woodcarver's tools.";
-  cout << endl;
+  cout << '\n';
   cout << "->" << CYAN << " Other Kits and Tools: " << RESET;
   if (disguise)
     cout << "Disguise kit, ";
@@ -1418,7 +1418,7 @@ void Generic_Character_Class::printToolsInstruments() const
     cout << "Thieves' tools, ";
   if (vehicle)
     cout << "Vehicle(land or water).";
-  cout << endl;
+  cout << '\n';
   cout << "->" << CYAN << " Musical Instrument(s): " << RESET;
   if (bagpipes)
     cout << "Bagpipes, ";
@@ -1440,7 +1440,7 @@ void Generic_Character_Class::printToolsInstruments() const
     cout << "Shawm, ";
   if (viol)
     cout << "Viol.";
-  cout << endl;
+  cout << '\n';
 }
 void Generic_Character_Class::printResistances() const
 {
@@ -1459,11 +1459,11 @@ void Generic_Character_Class::printResistances() const
     cout << "Necrotic, ";
   if (damage_resist_radiant)
     cout << "Radiant";
-  cout << endl;
+  cout << '\n';
 }
 void Generic_Character_Class::printDisadvantages() const
 {
   cout << "->" << RED << " Disadvantages: " << RESET;
   if (sunlight_sensitivity)
-    cout << "Sunlight Sensitivty" << endl;
+    cout << "Sunlight Sensitivty" << '\n';
 }
