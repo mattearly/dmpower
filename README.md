@@ -1,31 +1,25 @@
 # dmpower-dungeons-and-dragons-5e
 
-Dungeon Master Power (dmpower) is a terminal-based D&D5e toolkit intended for Dungeon Masters to aid in game prep and on the fly assistance.  
-
-[DMPOWER 6 VIDEO](https://youtu.be/9VJpPyqnssY)
+Dungeon Master Power (dmpower) is a terminal-based D&D5e toolkit intended for Dungeon Masters to aid in game prep and on the fly assistance. All you have to do is launch it and all options will be prompted in a custom terminal menu system.
 
 ### Run dmpower on Linux (easy and optimal)
 
-- Open terminal, clone master or download release, then build and run.
+Dependencies:
 
-````
-git clone https://github.com/mattearly/dmpower-dungeons-and-dragons-5e.git
-cd dmpower-dungeons-and-dragons-5e/
-make run
-````
+- git
+- make
+- C++17
+- boost filesystem
 
-- `make run` builds and runs the program right away. There are other make options. Try `make help` to see other options.
-- go install dependencies if something fails in the build, then try again. If you are using debian, the packages you will need are:
+`sudo apt install git make g++ libboost-filesystem-dev` *cmd may vary on your OS, this was last tested on lxubuntu*
 
-````
-make gcc libboost-filesystem-dev
-````
+Build and Run:
 
-- run from terminal once built
+1. `git clone https://github.com/mattearly/dmpower`
+2. `cd dmpower/`
+3. `make run`
 
-````
-./dmpower
-````
+Install dependencies if something fails to build, then try again.
 
 ### Run on Windows (easy)
 
@@ -45,15 +39,13 @@ May need homebrew for boost libraries.
 
 *Screenshots taken on Windows Cygwin64 with green default text and black background. Your experience will vary depending on your terminal settings.*
 
-<img src="img/character_manager.png" width="400" align="left"> 
-<img src="img/character_sheet.png" width="400" align="center">
-<img src="img/main_menu.png" width="400" align="center"> 
-<img src="img/new_character.png" width="400" align="center"> 
-<img src="img/treasure_hoard.png" width="400" align="center">
-<img src="img/spellbook_gen.png" width="400" align="center"> 
-<img src="img/random_spellbook.png" width="400" align="center"> 
+<img src="img/character_manager.png" width="400" align="left">
+<img src="img/main_menu.png" width="400" align="center">
+<img src="img/character_sheet.png" width="400" align="left">
+<img src="img/new_character.png" width="400" align="center">
+<img src="img/random_spellbook.png" width="400" align="center">
 
-### 0. Program Usage Index (MANWELL?)
+## 0. Manual
 
 > 1. [BUILD & MANAGE CHARACTERS](#1-build-and-manage-characters)
 > 2. [LOOT GENERATION](#2-loot-generation)
@@ -64,26 +56,21 @@ May need homebrew for boost libraries.
 
 ### 1. BUILD AND MANAGE CHARACTERS
 
-* **New Character**. Walks though creating a new character and prompts all relevant options.
+##### sub options
 
-    * Class logic for levels 1 to 20 programmed in.
-    * Fully configured Races, Class Archtype Paths, Class Spell Slots, Feats, Skills, Proficiencies, Backgrounds, and Variant Options. Logically based on WotC Books ([see credits](#credits-and-data-sources)).
-    * Four Starting Stat Point Options:
-        1. 4d6 drop lowest
-        2. 3d6 legit
-        3. Standard array [15, 14, 13, 12, 10, 8]
-        4. Custom entry (within standard starting 3-18 bounds(before bonuses applied))
-    * Characters Save by Unique Name
-    * Random Name Suggestions Available from Kismet's list (see name generator below).
-    * Reliable save and load for your campaign's characters. Each campaign can have any number of characters. You can merge your saved files together as explained at the load prompt.
-    * Users cannot break the character building D&D rules unless... (see edit character below)
+* **New Character**. Walks though creating a new character and prompts ALL relevant options.
 
-* **Edit Character**. DM God Powers. Edit stats (min=1, max=30), give feats, give skills, give levels, change name, change alignment.  
+    * Level 1 to 20 supported.
+    * Almost all core book PC Races, Classes, Archtype Paths, Spell Slots, Feats, Skills, Proficiencies, Backgrounds, and Variant Options.
+    * Starting Stat Options: 4d6 drop low, 3d6 legit, Standard (15, 14, 13, 12, 10, 8), Custom(3 to 18 per score).
+    * Save, Load, and Export.
+    * Random Name Generator (7,700+ names, editable config).
+    * Random Character Generator, give it a level of character to build and it does the rest, producing a random character from all available options. Dynamic scalable randomization system.
+
+* **Edit Character**. DM God Powers. Edit stats (min=1, max=30), give feats, give skills, give levels, change name, change alignment.
 * **Limitations**. Character Builder doesn't handle equipment, spell choices, multiclassing, or personality traits. These may be great features to add in later.
 
-* **Random Characters**. When starting a new character, the user is given the option to randomly generate everything about the character, except the level.
-
----
+[back to index](#0-manual)---
 
 ### 2. LOOT GENERATION
 
@@ -117,7 +104,8 @@ May need homebrew for boost libraries.
 
 ### 4. SETTINGS
 
-* Introduced in build 3, a user preferences save area. Currently holds insult mode setting and clear screen preferences.
+* NPC insult settings (clean or dirty)
+* Clear Screen preference (on or off)
 
 ---
 
@@ -129,10 +117,10 @@ May need homebrew for boost libraries.
 * [Sword Coast Adventurer's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide)
 * [Volo's Guide to Monsters](http://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters)
 * [Wayfinder's Guide to Eberron](https://www.dmsguild.com/product/247882/wayfinders-guide-to-eberron-5e)
-* pending ~~[Xanathar's Guide to Everything]()~~
-* pending ~~[Guildmaster's Guide to Ravnica]()~~
+* to analyze [Xanathar's Guide to Everything]()
+* to analyze [Guildmaster's Guide to Ravnica]()
 * [The Tortle Package](https://www.dmsguild.com/product/221716/Tortle-Package-5e)
-* pending ~~[Mordenkain's Tome of Foes]()~~
+* to analyze [Mordenkain's Tome of Foes]()
 * [Elemental Guide of Evil](https://www.dmsguild.com/product/145542/Elemental-Evil-Players-Companion-5e)
 
 *Other*
