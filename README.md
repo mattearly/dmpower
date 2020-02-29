@@ -1,6 +1,6 @@
 # dmpower-dungeons-and-dragons-5e
 
-Dungeon Master Power (dmpower) is a terminal-based D&D5e toolkit intended for Dungeon Masters to aid in game prep and on the fly assistance. All you have to do is launch it and all options will be prompted in a custom terminal menu system.
+Dungeon Master Power (dmpower) is a terminal-based D&D5e toolkit intended for Dungeon Masters to aid in game prep and on the fly assistance. All you have to do is launch it and all options will be prompted in my custom terminal menu system, which is built to be fast and be uncrashable by bad user prompt input.
 
 ### Run dmpower on Linux (easy and optimal)
 
@@ -56,9 +56,7 @@ May need homebrew for boost libraries.
 
 ### 1. BUILD AND MANAGE CHARACTERS
 
-##### sub options
-
-* **New Character**. Walks though creating a new character and prompts ALL relevant options.
+* **Build Characters**. Walk though creating a new character with prompts for ALL relevant options.
 
     * Level 1 to 20 supported.
     * Almost all core book PC Races, Classes, Archtype Paths, Spell Slots, Feats, Skills, Proficiencies, Backgrounds, and Variant Options.
@@ -70,7 +68,9 @@ May need homebrew for boost libraries.
 * **Edit Character**. DM God Powers. Edit stats (min=1, max=30), give feats, give skills, give levels, change name, change alignment.
 * **Limitations**. Character Builder doesn't handle equipment, spell choices, multiclassing, or personality traits. These may be great features to add in later.
 
-[back to index](#0-manual)---
+[back to index](#0-manual)
+
+---
 
 ### 2. LOOT GENERATION
 
@@ -79,6 +79,8 @@ May need homebrew for boost libraries.
 * **Scroll Generator** : You can also grab a single spell of any level and class randomly using the Scroll Generator.
 
 * **Loot Rollers**. Try out the Hoard Loot option for a treasure cache or to populate a dungeon being built. All scrolls that are given are automatically put through the Scroll Generator (no more `level x unspecific scroll`, here you get `Level 3 Scroll of Fireball (sorcerer, wizard)` for example).
+
+[back to index](#0-manual)
 
 ---
 
@@ -100,6 +102,8 @@ May need homebrew for boost libraries.
     * Diseases chart
     * Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
 
+[back to index](#0-manual)
+
 ---
 
 ### 4. SETTINGS
@@ -107,9 +111,11 @@ May need homebrew for boost libraries.
 * NPC insult settings (clean or dirty)
 * Clear Screen preference (on or off)
 
+[back to index](#0-manual)
+
 ---
 
-## Credits and Data Sources
+## Sources
 
 *WoTC*
 * [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook)
