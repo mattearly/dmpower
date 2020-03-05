@@ -1842,7 +1842,7 @@ void Generic_Character_Class::wipeStats()
   warlock_ss = 0;
   twohumanoids = 0;
   backgroundofpc = NOBACKGROUND;
-  custom_background_name = "";
+  custom_background_name = "na";
   destroy_undead = 0;
   wild_shape_improvement = 0;
   radiant_soul = 0;
