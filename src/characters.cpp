@@ -262,28 +262,26 @@ void Generic_Character_Class::setAlignment()
 void Generic_Character_Class::setAllStats()
 {
   vector<int> stats;
-  cout << "How would you like to do Ability Stats for "
+  cout << "Assign Ability Stat style for "
        << GREEN << char_name << RESET << '\n';
   cout << "---------------------------------------\n";
-  cout << "1. " << RED << "High-Powered Legit " << RESET << "Roll Set : roll " << GREEN << "4d6 6 " << RESET << "times, dropping lowest die each time\n";
-  cout << "2. " << YELLOW << "Legit " << RESET << "Roll Set : roll " << GREEN << "3d6 6 " << RESET << "times\n";
-  cout << "3. " << BLUE << "Standard " << RESET << "Array Set : " << GREEN << "[15, 14, 13, 12, 10, 8]" << RESET << '\n';
-  cout << "4. " << CYAN << "Custom " << RESET << "Array Set : Enter in your own custom stats.\n\n";
+
+  cout << "1. " << RED
+  << "High-Powered " << RESET << "Roll Set : roll " << GREEN << "4d6 6 " << RESET << "times, dropping lowest die each time\n";
+
+  cout << "2. " << YELLOW
+  << "Legit " << RESET << "Roll Set        : roll " << GREEN << "3d6 6 " << RESET << "times\n";
+
+  cout << "3. " << BLUE
+  << "Standard " << RESET << "Array Set    : " << GREEN << "[15, 14, 13, 12, 10, 8]" << RESET << '\n';
+
+  cout << "4. " << CYAN
+  << "Custom " << RESET << "Array Set      : Enter in your own custom stats(starting bounds still apply).\n\n";
+
   int stat_ver_choice = 0;
 
   if (is_random)
   {
-    //! optional high powered vs standard array randomly
-    // int hi_or_standard = rolld6(mgen);
-    // if (hi_or_standard < 4)
-    // {
-    //   stat_ver_choice = 1;
-    // }
-    // else
-    // {
-    //   stat_ver_choice = 3;
-    // }
-
     // standard array stats with random characters
     stat_ver_choice = 3;
   }
@@ -368,7 +366,7 @@ void Generic_Character_Class::setLanguage(const string &message)
   bool success = 0;
   while (!success)
   {
-    cout << message;
+    cout << message << '\n';
     if (auran)
       cout << " 1 - Auran(Already Known)\n";
     else
@@ -1284,98 +1282,6 @@ void Generic_Character_Class::creaturetype() const
     cout << "Humanoids(" << twohumanoids * 2 << ")";
 }
 
-string Generic_Character_Class::getBackground() const
-{
-  string tmp = "";
-  switch (backgroundofpc)
-  {
-  case NOBACKGROUND:
-    break;
-  case ACOLYTE:
-    tmp = "Acolyte";
-    break;
-  case CHARLATAN:
-    tmp = "Charlatan";
-    break;
-  case CRIMINAL:
-    tmp = "Criminal";
-    break;
-  case ENTERTAINER:
-    tmp = "Entertainer";
-    break;
-  case FOLK_HERO:
-    tmp = "Folk Hero";
-    break;
-  case GUILD_ARTISAN:
-    tmp = "Guild Artisan";
-    break;
-  case HERMIT:
-    tmp = "Hermit";
-    break;
-  case NOBLE:
-    tmp = "Noble";
-    break;
-  case OUTLANDER:
-    tmp = "Outlander";
-    break;
-  case SAGE:
-    tmp = "Sage";
-    break;
-  case SAILOR:
-    tmp = "Sailor";
-    break;
-  case SOLDIER:
-    tmp = "Soldier";
-    break;
-  case URCHIN:
-    tmp = "Urchin";
-    break;
-  case CITY_WATCH:
-    tmp = "City Watch";
-    break;
-  case CLAN_CRAFTER:
-    tmp = "Clan Crafter";
-    break;
-  case CLOISTERED_SCHOLAR:
-    tmp = "Cloistered Scholar";
-    break;
-  case COURTIER:
-    tmp = "Courtier";
-    break;
-  case FACTION_AGENT:
-    tmp = "Faction Agent";
-    break;
-  case FAR_TRAVELER:
-    tmp = "Far Traveler";
-    break;
-  case INHERITOR:
-    tmp = "Inheritoir";
-    break;
-  case KNIGHT_OF_THE_ORDER:
-    tmp = "Knight of the Order";
-    break;
-  case MERCENARY_VETERAN:
-    tmp = "Mercenary Veteran";
-    break;
-  case URBAN_BOUNTY_HUNTER:
-    tmp = "Urban Bounty Hunter";
-    break;
-  case UTHGARDT_TRIBE_MEMBER:
-    tmp = "Uthgardt Tribe Member";
-    break;
-  case WATERDHAVIAN_NOBLE:
-    tmp = "Waterdhavain Noble";
-    break;
-  case CUSTOM:
-    tmp = "Custom Background";
-    break;
-  default:
-    tmp = "Error Displaying Background - Check Code";
-    break;
-  }
-  return tmp;
-}
-
 // helpers
 void Generic_Character_Class::setStr(const int &s) { strength = s; }
 
@@ -1936,6 +1842,7 @@ void Generic_Character_Class::wipeStats()
   warlock_ss = 0;
   twohumanoids = 0;
   backgroundofpc = NOBACKGROUND;
+  custom_background_name = "na";
   destroy_undead = 0;
   wild_shape_improvement = 0;
   radiant_soul = 0;

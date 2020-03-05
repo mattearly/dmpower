@@ -128,18 +128,30 @@ void load_file()
     if (thefile.fail()) {
       std::cout << "Could not open file (fail triggered)\n";
       return;
-    } 
+    }
     if (thefile.is_open())
     {
-      bool success = myGame.retrieveCharacter(thefile);
+      int return_code = myGame.retrieveCharacter(thefile);
 
-      if (success)
-      {
-        mainMessage = "File '" + file + "' loaded.";
-        loadedFile = file;
-        loadSuccess = true;
-      } else {
-        mainMessage = "Failed to load file: " + file + " - check code.";
+      // notify user of the result of the load
+      switch(return_code){
+        case 1:
+          mainMessage = "File '" + file + "' loaded.";
+          loadedFile = file;
+          loadSuccess = true;
+          break;
+        case 0:
+          mainMessage = "Failed to load file: " + file + ", failed to set CLASS";
+          break;
+        case -1:
+          mainMessage = "Failed to load file: " + file + ", your save version is too old!";
+          break;
+        case -2:
+          mainMessage = "Failed to load file: " + file + ", this dmpower client is too old!";
+          break;
+        default:
+          mainMessage = "Failed to load file: " + file + ", generic failure";
+          break;
       }
     }
   }

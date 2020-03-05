@@ -12,13 +12,13 @@ extern bool clearScreens; // a togglable setting
 
 bool quitBuilding = false; // for exiting out of the build character at certain points
 
-/** 
+/**
  * 'saveVersion' is the build version of current saves.
- * 
- * Update saveVersion to the current build version if the saves have changed in this 
+ *
+ * Update saveVersion to the current build version if the saves have changed in this
  * verison. Otherwise, it can be noted as backwards compatible to the version here.
  */
-const string saveVersion = "6";
+const string saveVersion = "9";
 
 string mainMessage;
 bool loadSuccess = false;
@@ -403,24 +403,24 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   character_list.push_back(new_character);
   new_character->initialSkillsSet = true;
 
+  // turn random var back off in case it was on
   is_random = false;
-  char ans = getYorN("Display Character Sheet now[y/n]?");
 
-  if (ans == 'Y')
+  // show character sheet after building is complete
+  character_list.back()->character_sheet();
+
+  // ASK IF PLAYER WANTS TO EXPORT
+  char to_export = getYorN("Export/Print This Snapshot? (y/n): ");
+  if (to_export == 'Y')
   {
-    character_list.back()->character_sheet();
-
-    // ASK IF PLAYER WANTS TO EXPORT
-    char to_export = getYorN("Export/Print Character? (y/n): ");
-    if (to_export == 'Y')
-    {
-      std::string printname = character_list.back()->char_name + " lvl " + toString(character_list.back()->level) + " " +
-                              character_list.back()->race + " " + character_list.back()->char_class;
-      new_character->exportPrint(printname);
-      mainMessage = printname + " exported, check exports folder. ";
-    }
+    std::string printname = character_list.back()->char_name + " lvl " + toString(character_list.back()->level) + " " +
+                            character_list.back()->race + " " + character_list.back()->char_class;
+    new_character->exportPrint(printname);
+    mainMessage = printname + " exported, check exports folder. ";
   }
-  mainMessage += "Don't forget to 'Save Current Work'";
+
+  //update main message to something useful
+  mainMessage += "Don't forget to '4. Save Current Work' or else your characters changes wont be reloadable";
 }
 
 ofstream &Campaign::dumpCharacter(ofstream &os) const
@@ -454,6 +454,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->warlocklevelupmenus << '\n'
 
         << (*it)->backgroundofpc << '\n'
+        << (*it)->custom_background_name << '\n'
 
         << (*it)->move_speed << '\n'
         << (*it)->fly_speed << '\n'
@@ -946,7 +947,11 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
   return os;
 }
 
-bool Campaign::retrieveCharacter(ifstream &ins)
+// return 1 for successful load
+// return 0 for generic failed load
+// return -1 for version mismatch, yours too old
+// return -2 for version mismatch, our client to old
+int Campaign::retrieveCharacter(ifstream &ins)
 {
   bool debugRetrieve = false; // change to true to see the console logs
 
@@ -959,20 +964,27 @@ bool Campaign::retrieveCharacter(ifstream &ins)
   getline(ins, sbuffer);
 
   if (debugRetrieve)
-    cout << "version retrieved is: " << sbuffer << '\n';
-
-  if (sbuffer.compare(saveVersion) != 0)
   {
-    cout << "Versions Do Not Match\n";
-    return false;
+    cout << "version of save: " << sbuffer << '\n';
+    cout << "version of dmpower: " << saveVersion << '\n';
   }
+
+  if (sbuffer.compare(saveVersion) < 0)
+  {
+    return -1;
+  }
+  else if (sbuffer.compare(saveVersion) > 0)
+  {
+    return -2;
+  }
+  //else we have a match version, continue.
+
 
   //---------- GET WHICH SAVED CHARACTER # ---------//
   getline(ins, sbuffer);
 
   do
   {
-
     if (debugRetrieve)
       cout << "Loading in " << sbuffer << '\n';
 
@@ -1003,7 +1015,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     else if (charClassTempVar == "Wizard")
       v = new Wizard;
     else
-      return false;
+      return false;  // character setting failed, don't continue
     v->char_class = charClassTempVar;
 
     if (debugRetrieve)
@@ -1043,7 +1055,19 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     v->backgroundofpc = static_cast<enum Generic_Character_Class::characterbackground>(charBackgroundProcessor);
 
     if (debugRetrieve)
+    {
       cout << "background set to: " << charBackgroundProcessor << '\n';
+    }
+
+    ins >> v->custom_background_name;
+
+    if (debugRetrieve)
+    {
+      if (v->backgroundofpc == Generic_Character_Class::characterbackground::CUSTOM)
+      {
+        std::cout << "custom background name: " << v->custom_background_name << '\n'; 
+      }
+    }
 
     //----------- LOAD IN BASIC STAT BLOCK -----------//
     ins >> v->move_speed;
@@ -1066,7 +1090,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->chaSave;
 
     if (debugRetrieve)
-      cout << "basic abiliity stats" << '\n';
+      cout << "basic ability stats" << '\n';
     ins.get();
     getline(ins, sbuffer);
 

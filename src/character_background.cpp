@@ -1,5 +1,6 @@
 #include "characters.h"
 extern bool clearScreens;
+extern bool is_random;
 using std::cout;
 
 void Generic_Character_Class::setBackground()
@@ -340,12 +341,22 @@ void Generic_Character_Class::setBackground()
         break;
     case 26: // CUSTOM
         // show directions/details
-        std::cout << "Setting a Custom Background (2 skills + 2(skill, lang, or tool))\n";
+        std::cout << "Custom Backgrounds have your choice of 2 skills + 2(skill, lang, or tool)\n";
         {
             // prompt for name of custom background
             std::string tmpName = "";
             std::cout << "Enter the name of your Custom Background\n ->";
-            getline(std::cin, tmpName);  //todo; make this actually save
+
+            if (!is_random) // if not random, ask user
+            {
+              getline(std::cin, tmpName);
+            }
+            else
+            {
+              tmpName = "Random";
+            }
+
+            custom_background_name = tmpName;
 
             // prompt for 2 skill proficiencies
             setAnySkill("Custom Background Skill: \n", 2);
@@ -353,7 +364,7 @@ void Generic_Character_Class::setBackground()
             // prompt for skill, lang, or tool prof twice
             for (int i = 0; i < 2; ++i)
             {
-                int tmp = getNumber(" 1. Add skill\n 2. Add Language\n 3. Add Tool Proficiency\n  Choice: ", 1, 3);
+                int tmp = getNumber("\n 1. Add Skill\n 2. Add Language\n 3. Add Tool Proficiency\n\n  Choice: ", 1, 3);
                 switch (tmp)
                 {
                 case 1:
@@ -389,4 +400,97 @@ void Generic_Character_Class::setBackground()
         break;
     }
     // pressEnterToContinue();
+}
+
+
+std::string Generic_Character_Class::getBackground() const
+{
+  std::string tmp = "";
+  switch (backgroundofpc)
+  {
+  case NOBACKGROUND:
+    break;
+  case ACOLYTE:
+    tmp = "Acolyte";
+    break;
+  case CHARLATAN:
+    tmp = "Charlatan";
+    break;
+  case CRIMINAL:
+    tmp = "Criminal";
+    break;
+  case ENTERTAINER:
+    tmp = "Entertainer";
+    break;
+  case FOLK_HERO:
+    tmp = "Folk Hero";
+    break;
+  case GUILD_ARTISAN:
+    tmp = "Guild Artisan";
+    break;
+  case HERMIT:
+    tmp = "Hermit";
+    break;
+  case NOBLE:
+    tmp = "Noble";
+    break;
+  case OUTLANDER:
+    tmp = "Outlander";
+    break;
+  case SAGE:
+    tmp = "Sage";
+    break;
+  case SAILOR:
+    tmp = "Sailor";
+    break;
+  case SOLDIER:
+    tmp = "Soldier";
+    break;
+  case URCHIN:
+    tmp = "Urchin";
+    break;
+  case CITY_WATCH:
+    tmp = "City Watch";
+    break;
+  case CLAN_CRAFTER:
+    tmp = "Clan Crafter";
+    break;
+  case CLOISTERED_SCHOLAR:
+    tmp = "Cloistered Scholar";
+    break;
+  case COURTIER:
+    tmp = "Courtier";
+    break;
+  case FACTION_AGENT:
+    tmp = "Faction Agent";
+    break;
+  case FAR_TRAVELER:
+    tmp = "Far Traveler";
+    break;
+  case INHERITOR:
+    tmp = "Inheritoir";
+    break;
+  case KNIGHT_OF_THE_ORDER:
+    tmp = "Knight of the Order";
+    break;
+  case MERCENARY_VETERAN:
+    tmp = "Mercenary Veteran";
+    break;
+  case URBAN_BOUNTY_HUNTER:
+    tmp = "Urban Bounty Hunter";
+    break;
+  case UTHGARDT_TRIBE_MEMBER:
+    tmp = "Uthgardt Tribe Member";
+    break;
+  case WATERDHAVIAN_NOBLE:
+    tmp = "Waterdhavain Noble";
+    break;
+  case CUSTOM:
+    tmp = "Custom: " + custom_background_name;
+    break;
+  default:
+    tmp = "Error Displaying Background - Check Code";
+    break;
+  }
+  return tmp;
 }

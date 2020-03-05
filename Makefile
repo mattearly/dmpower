@@ -2,7 +2,8 @@ TARGET = dmpower
 RUN = ./$(TARGET)
 SRC_DIR = src
 BUILD_DIR = bin
-CFLAGS = -std=c++11 -O3 -Wall -Wextra
+CFLAGS = -std=c++11 -Wall -Wextra
+OPTIMIZE = -O3
 LOADLIBS = -lboost_filesystem -lboost_system
 OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(wildcard $(SRC_DIR)/*.cpp))
 
@@ -39,12 +40,17 @@ run:
 debug: CFLAGS += -g
 debug: $(TARGET)
 
+.PHONY: opt
+opt: CFLAGS += -O3
+opt: $(TARGET)
+
 .PHONY: help
 help:
 	$(info ----------------------------)
 	$(info `make`         - builds/updates everything, is ready to run with `$(RUN)` after completion)
 	$(info `make clean`   - removes object file folder and executable)
 	$(info `make rebuild` - removes object file folder and executable and then builds and updates everything)
-	$(info `make debug`   - builds/updates with -g. Use `make clean` first if a previous build was made)
+	$(info `make debug`   - builds/updates with -g. Use `make clean` first if a previous build was made. Builds debug objects for troubleshooting while developing.)
+	$(info `make opt`     - builds/updates with -O3. Run `make clean` first if a previous build was made. Results longer compile time but a more optimized build for your system.)
 	$(info `make run`     - builds/updates everything, runs immediately)
 	$(info ----------------------------)
