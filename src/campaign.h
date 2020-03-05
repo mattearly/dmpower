@@ -14,7 +14,7 @@ public:
 
   std::ofstream &dumpCharacter(std::ofstream &) const; //save
 
-  bool retrieveCharacter(std::ifstream &); //load
+  int retrieveCharacter(std::ifstream &); //load
 
   bool checkname(const std::string &) const;
 

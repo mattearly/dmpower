@@ -317,6 +317,7 @@ public:
     CUSTOM
   };
   characterbackground backgroundofpc;
+  std::string custom_background_name;
 
   //ABILITY SCORES
   int strength;

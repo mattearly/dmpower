@@ -12,13 +12,13 @@ extern bool clearScreens; // a togglable setting
 
 bool quitBuilding = false; // for exiting out of the build character at certain points
 
-/** 
+/**
  * 'saveVersion' is the build version of current saves.
- * 
- * Update saveVersion to the current build version if the saves have changed in this 
+ *
+ * Update saveVersion to the current build version if the saves have changed in this
  * verison. Otherwise, it can be noted as backwards compatible to the version here.
  */
-const string saveVersion = "6";
+const string saveVersion = "9";
 
 string mainMessage;
 bool loadSuccess = false;
@@ -454,6 +454,7 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
         << (*it)->warlocklevelupmenus << '\n'
 
         << (*it)->backgroundofpc << '\n'
+        << (*it)->custom_background_name << '\n'
 
         << (*it)->move_speed << '\n'
         << (*it)->fly_speed << '\n'
@@ -946,7 +947,11 @@ ofstream &Campaign::dumpCharacter(ofstream &os) const
   return os;
 }
 
-bool Campaign::retrieveCharacter(ifstream &ins)
+// return 1 for successful load
+// return 0 for generic failed load
+// return -1 for version mismatch, yours too old
+// return -2 for version mismatch, our client to old
+int Campaign::retrieveCharacter(ifstream &ins)
 {
   bool debugRetrieve = false; // change to true to see the console logs
 
@@ -961,18 +966,22 @@ bool Campaign::retrieveCharacter(ifstream &ins)
   if (debugRetrieve)
     cout << "version retrieved is: " << sbuffer << '\n';
 
-  if (sbuffer.compare(saveVersion) != 0)
+  if (sbuffer.compare(saveVersion) < 0)
   {
-    cout << "Versions Do Not Match\n";
-    return false;
+    return -1;
   }
+  else if (sbuffer.compare(saveVersion) > 0)
+  {
+    return -2;
+  }
+  //else we have a match version, continue,
+
 
   //---------- GET WHICH SAVED CHARACTER # ---------//
   getline(ins, sbuffer);
 
   do
   {
-
     if (debugRetrieve)
       cout << "Loading in " << sbuffer << '\n';
 
@@ -1003,7 +1012,7 @@ bool Campaign::retrieveCharacter(ifstream &ins)
     else if (charClassTempVar == "Wizard")
       v = new Wizard;
     else
-      return false;
+      return false;  // character setting failed, don't continue
     v->char_class = charClassTempVar;
 
     if (debugRetrieve)
@@ -1044,6 +1053,8 @@ bool Campaign::retrieveCharacter(ifstream &ins)
 
     if (debugRetrieve)
       cout << "background set to: " << charBackgroundProcessor << '\n';
+
+    ins >> v->custom_background_name;
 
     //----------- LOAD IN BASIC STAT BLOCK -----------//
     ins >> v->move_speed;
