@@ -403,24 +403,24 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   character_list.push_back(new_character);
   new_character->initialSkillsSet = true;
 
+  // turn random var back off in case it was on
   is_random = false;
-  char ans = getYorN("Display Character Sheet now[y/n]?");
 
-  if (ans == 'Y')
+  // show character sheet after building is complete
+  character_list.back()->character_sheet();
+
+  // ASK IF PLAYER WANTS TO EXPORT
+  char to_export = getYorN("Export/Print This Snapshot? (y/n): ");
+  if (to_export == 'Y')
   {
-    character_list.back()->character_sheet();
-
-    // ASK IF PLAYER WANTS TO EXPORT
-    char to_export = getYorN("Export/Print Character? (y/n): ");
-    if (to_export == 'Y')
-    {
-      std::string printname = character_list.back()->char_name + " lvl " + toString(character_list.back()->level) + " " +
-                              character_list.back()->race + " " + character_list.back()->char_class;
-      new_character->exportPrint(printname);
-      mainMessage = printname + " exported, check exports folder. ";
-    }
+    std::string printname = character_list.back()->char_name + " lvl " + toString(character_list.back()->level) + " " +
+                            character_list.back()->race + " " + character_list.back()->char_class;
+    new_character->exportPrint(printname);
+    mainMessage = printname + " exported, check exports folder. ";
   }
-  mainMessage += "Don't forget to 'Save Current Work'";
+
+  //update main message to something useful
+  mainMessage += "Don't forget to '4. Save Current Work' or else your characters changes wont be reloadable";
 }
 
 ofstream &Campaign::dumpCharacter(ofstream &os) const
