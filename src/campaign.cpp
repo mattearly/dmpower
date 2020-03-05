@@ -964,7 +964,10 @@ int Campaign::retrieveCharacter(ifstream &ins)
   getline(ins, sbuffer);
 
   if (debugRetrieve)
-    cout << "version retrieved is: " << sbuffer << '\n';
+  {
+    cout << "version of save: " << sbuffer << '\n';
+    cout << "version of dmpower: " << saveVersion << '\n';
+  }
 
   if (sbuffer.compare(saveVersion) < 0)
   {
@@ -974,7 +977,7 @@ int Campaign::retrieveCharacter(ifstream &ins)
   {
     return -2;
   }
-  //else we have a match version, continue,
+  //else we have a match version, continue.
 
 
   //---------- GET WHICH SAVED CHARACTER # ---------//
@@ -1052,9 +1055,19 @@ int Campaign::retrieveCharacter(ifstream &ins)
     v->backgroundofpc = static_cast<enum Generic_Character_Class::characterbackground>(charBackgroundProcessor);
 
     if (debugRetrieve)
+    {
       cout << "background set to: " << charBackgroundProcessor << '\n';
+    }
 
     ins >> v->custom_background_name;
+
+    if (debugRetrieve)
+    {
+      if (v->backgroundofpc == Generic_Character_Class::characterbackground::CUSTOM)
+      {
+        std::cout << "custom background name: " << v->custom_background_name << '\n'; 
+      }
+    }
 
     //----------- LOAD IN BASIC STAT BLOCK -----------//
     ins >> v->move_speed;
@@ -1077,7 +1090,7 @@ int Campaign::retrieveCharacter(ifstream &ins)
     ins >> v->chaSave;
 
     if (debugRetrieve)
-      cout << "basic abiliity stats" << '\n';
+      cout << "basic ability stats" << '\n';
     ins.get();
     getline(ins, sbuffer);
 
