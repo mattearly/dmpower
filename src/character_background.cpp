@@ -364,7 +364,7 @@ void Generic_Character_Class::setBackground()
             // prompt for skill, lang, or tool prof twice
             for (int i = 0; i < 2; ++i)
             {
-                int tmp = getNumber("\n 1. Add skill\n 2. Add Language\n 3. Add Tool Proficiency\n\n  Choice: ", 1, 3);
+                int tmp = getNumber("\n 1. Add Skill\n 2. Add Language\n 3. Add Tool Proficiency\n\n  Choice: ", 1, 3);
                 switch (tmp)
                 {
                 case 1:
