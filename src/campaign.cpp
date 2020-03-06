@@ -1059,8 +1059,8 @@ int Campaign::retrieveCharacter(ifstream &ins)
       cout << "background set to: " << charBackgroundProcessor << '\n';
     }
 
-    ins >> v->custom_background_name;
-
+    getline(ins, v->custom_background_name);
+    
     if (debugRetrieve)
     {
       if (v->backgroundofpc == Generic_Character_Class::characterbackground::CUSTOM)
