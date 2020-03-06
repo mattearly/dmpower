@@ -1230,56 +1230,56 @@ void Generic_Character_Class::levelUpStats()
 }
 
 // displayers
-void Generic_Character_Class::landtype() const
+void Generic_Character_Class::landtype(std::ostream& stream) const
 {
   if (artic)
-    cout << "Artic, ";
+    stream << "Artic, ";
   if (coast)
-    cout << "Coast, ";
+    stream << "Coast, ";
   if (desert)
-    cout << "Desert, ";
+    stream << "Desert, ";
   if (forest)
-    cout << "Forest, ";
+    stream << "Forest, ";
   if (grassland)
-    cout << "Grassland, ";
+    stream << "Grassland, ";
   if (mountain)
-    cout << "Mountain, ";
+    stream << "Mountain, ";
   if (swamp)
-    cout << "Swamp, ";
+    stream << "Swamp, ";
   if (underdark)
-    cout << "Underdark";
+    stream << "Underdark";
 }
 
-void Generic_Character_Class::creaturetype() const
+void Generic_Character_Class::creaturetype(std::ostream& stream) const
 {
   if (aberrations)
-    cout << "Aberration, ";
+    stream << "Aberration, ";
   if (beasts)
-    cout << "Beasts, ";
+    stream << "Beasts, ";
   if (celestials)
-    cout << "Celestials, ";
+    stream << "Celestials, ";
   if (constructs)
-    cout << "Constructs, ";
+    stream << "Constructs, ";
   if (dragons)
-    cout << "Dragons, ";
+    stream << "Dragons, ";
   if (elementals)
-    cout << "Elementals, ";
+    stream << "Elementals, ";
   if (fey)
-    cout << "Fey, ";
+    stream << "Fey, ";
   if (fiends)
-    cout << "Fiends, ";
+    stream << "Fiends, ";
   if (giants)
-    cout << "Giants, ";
+    stream << "Giants, ";
   if (monstrosities)
-    cout << "Monstrosities, ";
+    stream << "Monstrosities, ";
   if (oozes)
-    cout << "Oozes, ";
+    stream << "Oozes, ";
   if (plants)
-    cout << "Plants, ";
+    stream << "Plants, ";
   if (undead)
-    cout << "Undead, ";
+    stream << "Undead, ";
   if (twohumanoids > 0)
-    cout << "Humanoids(" << twohumanoids * 2 << ")";
+    stream << "Humanoids(" << twohumanoids * 2 << ")";
 }
 
 // helpers

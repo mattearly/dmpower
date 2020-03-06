@@ -347,7 +347,7 @@ void Generic_Character_Class::printClassAbilities() const
     else
     {
       cout << "Land)[Bonus Cantrip, Natural Recovery, Circle Spells(";
-      landtype();
+      landtype(cout);
       cout << ")";
       if (druid_circle_feature >= 1)
         cout << ", Land's Stride";
@@ -598,7 +598,7 @@ void Generic_Character_Class::printClassAbilities() const
   if (favored_enemy > 0)
   {
     cout << "Favored Enemy[";
-    creaturetype();
+    creaturetype(cout);
     cout << "], ";
   }
   if (favored_enemy_languages)
@@ -606,7 +606,7 @@ void Generic_Character_Class::printClassAbilities() const
   if (natural_explorer > 0)
   {
     cout << "Natural Explorer[";
-    landtype();
+    landtype(cout);
     cout << "], ";
   }
   if (ranger_archetype)

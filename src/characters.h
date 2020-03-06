@@ -687,8 +687,8 @@ public:
   void printToolsInstruments() const;
   void printResistances() const;
   void printDisadvantages() const;
-  void creaturetype() const;
-  void landtype() const;
+  void creaturetype(std::ostream& stream) const;
+  void landtype(std::ostream& stream) const;
   virtual int getlevelupmenus() const = 0;
   std::string getRace() const;
 
