@@ -1,25 +1,62 @@
 # dmpower-dungeons-and-dragons-5e
 
-Dungeon Master Power (dmpower) is a terminal-based D&D5e toolkit intended for Dungeon Masters to aid in game prep and on the fly assistance. All you have to do is launch it and all options will be prompted in my custom terminal menu system, which is built to be fast and be uncrashable by bad user prompt input.
+Dungeon Master Power (dmpower) is a terminal-based D&D5e toolkit intended for Dungeon Masters to aid in game prep and/or on the fly assistance.
 
-### Run dmpower on Linux (easy and optimal)
+All you have to do is run it in your terminal and all options will be prompted by my custom menu system, which is built to be uncrashable by bad input.
+
+## Features
+
+### 5th Edition Characters
+
+- 12 classes with meticulously programmed level class trees, level 1 to 20, random name generator, 4 common starting stat options, 22 races (+ additional subraces), 9 alignments, 25 backgrounds + custom backgrounds supported, 18 skills, 20 languages, 42 feats, calculates average hit points, calculates spell slots, and much more.
+- Save, Load, and Export. Save/load a list of characters based on a unique campaign name.
+- Character Editor for DMs. Edit stats (min=1, max=30), give feats, give skills, give levels, change name, change alignment.
+- Limitations: Character Builder doesn't handle equipment, spell choices (only a chart of your spell slots), multiclassing, or personality traits. Also the weaker NPC classes from the DM guide (such as warrior, expert, etc) are not included.
+
+### LOOT GENERATION
+
+- Loot rollers for single mob or a treasure horde (charts in the DM Guide).
+- Spellbook Generator. Generates a spellbook of randomly chosen Wizard spells. Also tells you how many pages are being used in the spellbook. Excellent for NPC wizards or players that like the idea of having random spells.
+- All scroll loot is pregenerated int a spell name so the DM actually knows what scroll is found (something the charts in the DM guide lacks).
+
+### MORE VARIOUS TOOLS
+
+- Name Generator. 7732 names from [Kisment's list](http://www.dnd.kismetrose.com/pdfs/KismetsFantasyNames.pdf) with randomized selection. Edit the file [data/names.dat](data/names.dat) to add/remove names. The code that handles it automatically adjusts based on the number of lines in the file. Be sure to keep the newline at the end of the file(otherwise the last name on the list will never be chosen).
+- XP Calculator. Total up Challenge Ratings split it with the party. This prompts for CR's that the party has overcome and then divides by the number of players. Pretty standard calculator stuff.
+- Insult Generator. Has clean and dirty mode, use depending on your group's style. Defaults to clean. Easily adapted to new words by editing the settings file [data/insults-dirty.dat](data/insults-dirty.dat) or [data/insults-clean.dat](data/insults-clean.dat) - just note that if you change the number of words in that file, it must be adjusted in the code as well, you'll find the number of words hardcoded in [src/gen_insult.cpp](src/gen_insult.cpp) (to be improved later to be more adaptable and automatic).
+- Random Encounter CRs. Difficulty Generator that accounts for all party member levels and group size, generates and appropriate Challenge Rating even for the oddest of groups. Seeded from -2 to +2 representing _Very Easy_, _Easy_, _Normal_, _Hard_, _Very Hard_
+- Charts. There always seems to be at least one player interested in using poison. Madness can be useful in many cases (causing scenarios, things for the PC's to deal with, etc).
+  - Level Up chart
+  - Poison Prices chart
+  - Madness chart
+  - Diseases chart
+  - Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
+
+There are probably more features that I've missed, I've been tweaking this program for years.
+
+### SAVED USER SETTINGS
+
+- Toggle NPC insult settings (clean or dirty)
+- Toggle Clear Screen preference (on or off) (part of my custom menu system flow options)
+
+## Running dmpower on any OS
+
+### Run on Linux (easy and optimal)
 
 Dependencies:
 
-- git
-- make
-- C++17
-- boost filesystem
-
-`sudo apt install git make g++ libboost-filesystem-dev` *cmd may vary on your OS, this was last tested on lxubuntu*
+- git `git`
+- make `make`
+- C++11 `g++`
+- boost filesystem `libboost-filesystem-dev`
 
 Build and Run:
 
-1. `git clone https://github.com/mattearly/dmpower`
-2. `cd dmpower/`
-3. `make run`
+1. `git clone https://github.com/mattearly/dmpower`  clone this repo (or go to releases and pick a version, or clone however you are comfortable cloning. I would suggest forking if you are going to work on it and make pull requests.)
+2. `cd dmpower/`  change directory to where you downloaded the files
+3. `make run` use this make command to build the program and run it after the build finishes
 
-Install dependencies if something fails to build, then try again.
+Install dependencies if something fails to build, error messages should tell you what you need and it is likely one of the above dependencies.
 
 ### Run on Windows (easy)
 
@@ -35,100 +72,35 @@ Use [Cygwin](https://www.cygwin.com/), or [WSL](https://msdn.microsoft.com/comma
 
 May need homebrew for boost libraries.
 
-# Some Screenshots
+#### Some Screenshots
 
 *Screenshots taken on Windows Cygwin64 with green default text and black background. Your experience will vary depending on your terminal settings.*
 
-<img src="img/character_manager.png" width="400" align="left">
-<img src="img/main_menu.png" width="400" align="center">
-<img src="img/character_sheet.png" width="400" align="left">
-<img src="img/new_character.png" width="400" align="center">
-<img src="img/random_spellbook.png" width="400" align="center">
-
-## 0. Manual
-
-> 1. [BUILD & MANAGE CHARACTERS](#1-build-and-manage-characters)
-> 2. [LOOT GENERATION](#2-loot-generation)
-> 3. [OTHER TOOLS](#3-more-tools)
-> 4. [SETTINGS](#4-settings)
-
----
-
-### 1. BUILD AND MANAGE CHARACTERS
-
-* **Build Characters**. Walk though creating a new character with prompts for ALL relevant options.
-
-    * Level 1 to 20 supported.
-    * Almost all core book PC Races, Classes, Archtype Paths, Spell Slots, Feats, Skills, Proficiencies, Backgrounds, and Variant Options.
-    * Starting Stat Options: 4d6 drop low, 3d6 legit, Standard (15, 14, 13, 12, 10, 8), Custom(3 to 18 per score).
-    * Save, Load, and Export.
-    * Random Name Generator (7,700+ names, editable config).
-    * Random Character Generator, give it a level of character to build and it does the rest, producing a random character from all available options. Dynamic scalable randomization system.
-
-* **Edit Character**. DM God Powers. Edit stats (min=1, max=30), give feats, give skills, give levels, change name, change alignment.
-* **Limitations**. Character Builder doesn't handle equipment, spell choices, multiclassing, or personality traits. These may be great features to add in later.
-
-[back to index](#0-manual)
-
----
-
-### 2. LOOT GENERATION
-
-* **Spellbook Generator** : Tell it how many of for each level (enter 0 to skip spells of that level), and it generates a spellbook full or randomly chosen Wizard spells. Also tells you how many pages are being used in the spellbook. Excellent for NPC wizards or players that like the idea of having random spells.
-
-* **Scroll Generator** : You can also grab a single spell of any level and class randomly using the Scroll Generator.
-
-* **Loot Rollers**. Try out the Hoard Loot option for a treasure cache or to populate a dungeon being built. All scrolls that are given are automatically put through the Scroll Generator (no more `level x unspecific scroll`, here you get `Level 3 Scroll of Fireball (sorcerer, wizard)` for example).
-
-[back to index](#0-manual)
-
----
-
-### 3. MORE TOOLS
-
-* **Name Generator**. 7732 names from [Kisment's list](http://www.dnd.kismetrose.com/pdfs/KismetsFantasyNames.pdf) with randomized selection. Edit the file [data/names.dat](data/names.dat) to add/remove names. The code that handles it automatically adjusts based on the number of lines in the file. Be sure to keep the newline at the end of the file(otherwise the last name on the list will never be chosen).
-
-* **Party Experience Calculator**. Total up Challenge Ratings split it with the party. This prompts for CR's that the party has overcome and then divides by the number of players. Pretty standard calculator stuff.
-
-* **Insult Generator**. Has clean and dirty mode, use depending on your group's style. Defaults to clean. Easily adapted to new words by editing the settings file [data/insults-dirty.dat](data/insults-dirty.dat) or [data/insults-clean.dat](data/insults-clean.dat) - just note that if you change the number of words in that file, it must be adjusted in the code as well, you'll find the number of words hardcoded in [src/gen_insult.cpp](src/gen_insult.cpp) (to be improved later to be more adaptable and automatic).
-
-* **Random Encounters**. Difficulty Generator that accounts for all party member levels and group size, generates and appropriate Challenge Rating even for the oddest of groups. Seeded from -2 to +2 representing _Very Easy_, _Easy_, _Normal_, _Hard_, _Very Hard_
-
-* **Charts**. There always seems to be at least one player interested in using poison. Madness can be useful in many cases (causing scenarios, things for the PC's to deal with, etc).
-
-    * Level Up chart
-    * Poison Prices chart
-    * Madness chart
-    * Diseases chart
-    * Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
-
-[back to index](#0-manual)
-
----
-
-### 4. SETTINGS
-
-* NPC insult settings (clean or dirty)
-* Clear Screen preference (on or off)
-
-[back to index](#0-manual)
-
----
+[screenshots folder](/img/)
 
 ## Sources
 
-*WoTC*
-* [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook)
-* [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide)
-* [Sword Coast Adventurer's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide)
-* [Volo's Guide to Monsters](http://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters)
-* [Wayfinder's Guide to Eberron](https://www.dmsguild.com/product/247882/wayfinders-guide-to-eberron-5e)
-* to analyze [Xanathar's Guide to Everything]()
-* to analyze [Guildmaster's Guide to Ravnica]()
-* [The Tortle Package](https://www.dmsguild.com/product/221716/Tortle-Package-5e)
-* to analyze [Mordenkain's Tome of Foes]()
-* [Elemental Guide of Evil](https://www.dmsguild.com/product/145542/Elemental-Evil-Players-Companion-5e)
+### Books
 
-*Other*
-* [Kismet's Name List](http://www.dnd.kismetrose.com/MyCharacterNameList.html)
-* [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
+- [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook)
+- [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide)
+- [Sword Coast Adventurer's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide)
+- [Volo's Guide to Monsters](http://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters)
+- [Wayfinder's Guide to Eberron](https://www.dmsguild.com/product/247882/wayfinders-guide-to-eberron-5e)
+- [The Tortle Package](https://www.dmsguild.com/product/221716/Tortle-Package-5e)
+- [Elemental Guide of Evil](https://www.dmsguild.com/product/145542/Elemental-Evil-Players-Companion-5e)
+
+### Internet
+
+- [Kismet's Name List](http://www.dnd.kismetrose.com/MyCharacterNameList.html)
+- [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
+
+## Other Notes
+
+dmpower is an open source non-profit community project that I started on my own while at University. It or I am not directly affiliated with Wizards of the Coast or Hasbro (if someone from one of those companies sees this and would like to have a further discussion about it, I am available).
+
+dmpower is not to be used for any form of profit or sale. I personally just wanted something I was motivated to work on while studying to improve my C++ Programming skills and I was getting tired of flipping through books and causing downtime in my D&D games, thus I was motivated to continue building this program. It has taken many hours and there were many many completely failed early versions that have been scrapped. All the code was written by me (Matthew Early) (unless otherwise noted by the git commits from various contributors).
+
+Also the usual applies of use at your own risk and I am not responsible for damage etc etc the usual stuff you see on free software.
+
+If you wish to contribute or help this program move along, feel free to dig in.
