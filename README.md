@@ -15,7 +15,7 @@ All you have to do is run it in your terminal and all options will be prompted b
 
 ### LOOT GENERATION
 
-- Loot rollers for single mob or a treasure horde (charts in the DM Guide).
+- Loot rollers for single mob or a treasure hoard (charts in the DM Guide).
 - Spellbook Generator. Generates a spellbook of randomly chosen Wizard spells. Also tells you how many pages are being used in the spellbook. Excellent for NPC wizards or players that like the idea of having random spells.
 - All scroll loot is pregenerated int a spell name so the DM actually knows what scroll is found (something the charts in the DM guide lacks).
 
@@ -24,7 +24,7 @@ All you have to do is run it in your terminal and all options will be prompted b
 - Name Generator. 7732 names from [Kisment's list](http://www.dnd.kismetrose.com/pdfs/KismetsFantasyNames.pdf) with randomized selection. Edit the file [data/names.dat](data/names.dat) to add/remove names. The code that handles it automatically adjusts based on the number of lines in the file. Be sure to keep the newline at the end of the file(otherwise the last name on the list will never be chosen).
 - XP Calculator. Total up Challenge Ratings split it with the party. This prompts for CR's that the party has overcome and then divides by the number of players. Pretty standard calculator stuff.
 - Insult Generator. Has clean and dirty mode, use depending on your group's style. Defaults to clean. Easily adapted to new words by editing the settings file [data/insults-dirty.dat](data/insults-dirty.dat) or [data/insults-clean.dat](data/insults-clean.dat) - just note that if you change the number of words in that file, it must be adjusted in the code as well, you'll find the number of words hardcoded in [src/gen_insult.cpp](src/gen_insult.cpp) (to be improved later to be more adaptable and automatic).
-- Random Encounter CRs. Difficulty Generator that accounts for all party member levels and group size, generates and appropriate Challenge Rating even for the oddest of groups. Seeded from -2 to +2 representing _Very Easy_, _Easy_, _Normal_, _Hard_, _Very Hard_
+- Random Encounter CRs. Difficulty Generator that accounts for all party member levels and group size, generates an appropriate Challenge Rating even for the oddest of groups. Seeded from -2 to +2 representing _Very Easy_, _Easy_, _Normal_, _Hard_, _Very Hard_
 - Charts. There always seems to be at least one player interested in using poison. Madness can be useful in many cases (causing scenarios, things for the PC's to deal with, etc).
   - Level Up chart
   - Poison Prices chart
@@ -103,4 +103,4 @@ dmpower is not to be used for any form of profit or sale. I personally just want
 
 Also the usual applies of use at your own risk and I am not responsible for damage etc etc the usual stuff you see on free software.
 
-If you wish to contribute or help this program move along, feel free to dig in.
+If you wish to contribute or help this program move along, feel free to dig in. There is always a master branch which should be the latest release version. There may be a buildX branch that I am working on for the next version, once it is complete, it is turned into a release and master is updated, prompting a creating of the buildX for the next version. There is no specific timeframe on these versions as this is an unfunded do-what-you-want non-profit program. I tend to work on it when I am in between D&D session based on the needs I noticed while playing.
