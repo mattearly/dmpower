@@ -19,13 +19,14 @@ bool clearScreens = true;
 std::string userSettingsFile = "./settings/userSettings.dat";
 
 bool saveUserSettings() {
-  std::ofstream __savefile(userSettingsFile.c_str());
-  if (__savefile.is_open()) {
-    __savefile << "insults=\"" << insult_mode << "\"" << '\n';
-    __savefile << clearScreens << '\n';
+  std::ofstream saveFileStream(userSettingsFile.c_str());
+  if (saveFileStream.is_open()) {
+    saveFileStream << "insults=\"" << insult_mode << "\"" << '\n';
+    saveFileStream << clearScreens << '\n';
   }
   return true;
 }
+
 ///
 /// \brief change_settings allows user to change available program settings
 ///
@@ -37,29 +38,16 @@ void change_settings() {
   while (choice != 3) {
     if (!first_pass && clearScreens)
       simpleClearScreen();
-    std::cout << "\n-------- SETTINGS MENU --------\n"
-                 " 1. Insult Mode: "
-              << insult_mode << '\n';
-    std::cout << " 2. Clear Screens: " <<
-        [](const bool &x) {
-          if (x)
-            return "On";
-          else
-            return "Off";
-        }(clearScreens)
-              << '\n';
-    std::cout << " 3. Save and exit to " << CYAN << "MAIN MENU" << RESET
-              << '\n';
-    std::cout << "-------------------------------\n";
+    std::cout << 
+      "\n-------- SETTINGS MENU --------"
+      "\n 1. Insult Mode: " << insult_mode << 
+      "\n 2. Clear Screens: " << (clearScreens ? "On" : "Off") <<
+      "\n 3. Save and exit to " << CYAN << "MAIN MENU" << RESET << 
+      "\n-------------------------------\n";
     choice = getNumber("Choice: ", 1, 3);
     switch (choice) {
     case 1: {
-      insult_mode = [](const std::string &x) {
-        if (x == "dirty")
-          return "clean";
-        else
-          return "dirty";
-      }(insult_mode);
+      insult_mode = insult_mode.compare("dirty") == 0 ? "clean" : "dirty"; // toggle
     } break;
     case 2:
       clearScreens = clearScreens ? false : true; // toggle
