@@ -1,6 +1,4 @@
-extern void menu();
-extern void set_user_pref_from_file();
-extern void load_last_save();
+#include "globalfuncts.h"
 
 int main()
 {

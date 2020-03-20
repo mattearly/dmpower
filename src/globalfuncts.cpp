@@ -5,22 +5,16 @@
 #include <stdexcept>
 
 std::string lastSave;
-
 bool is_random = false; // for the random character gen operation triggers
-
 std::string buildNumber = "9"; // iterate with every new build release
-
-/**
- * 'saveVersion' is the build version of last compatible version with saves from this build number.
- * Update saveVersion to the current build version if the saves have changed in this
- * version. Otherwise, it can be noted as backwards compatible to the version here.
- */
-std::string saveVersion = "9";
-
+std::string saveVersion = "9"; // oldest version the current saves work with
 std::string mainMessage;
 bool loadSuccess = false;
 std::string loadedFile = "";
 Campaign myGame;
+std::string insult_mode;
+bool clearScreens = true;
+bool autoSave = false;
 
 void simpleClearScreen()
 {

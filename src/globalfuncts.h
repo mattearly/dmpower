@@ -11,6 +11,7 @@ extern Campaign myGame;
 extern std::string mainMessage;
 extern void change_settings();
 extern bool clearScreens;
+extern bool autoSave;
 extern std::string buildNumber;
 extern bool is_random; // for random character gen
 extern void save_file();
@@ -23,6 +24,13 @@ extern std::string loadedFile;
 extern void note_last_save(const std::string& save_name);
 extern bool loadSuccess;
 extern std::string saveVersion;
+extern std::string insult_mode;
+extern void menu();
+extern void set_user_pref_from_file();
+extern void load_last_save();
+extern void auto_save();
+extern std::string insult_mode;
+extern bool clearScreens;
 
 const int LARGEST_INPUT_DIGITS = 3;
 

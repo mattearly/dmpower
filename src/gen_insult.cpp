@@ -4,7 +4,6 @@
 
 using namespace std;
 
-extern string insult_mode;
 
 Insult::Insult()
 {
