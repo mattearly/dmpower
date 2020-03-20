@@ -12,6 +12,7 @@ using namespace std;
 
 extern string mainMessage;
 extern string loadedFile;
+extern void note_last_save(const std::string& save_name);
 extern bool loadSuccess;
 extern Campaign myGame;
 extern bool clearScreens;
@@ -62,6 +63,7 @@ void save_file()
     mainMessage = "All data saved in file: " + file;
     loadSuccess = true;
     loadedFile = file;
+    note_last_save(loadedFile);
     os.close();
   }
 }
@@ -231,4 +233,44 @@ bool mergeSaves(const std::string &keep, const std::string &mergein)
     std::cout << "Error opening both requested files\n";
   }
   return false;
+}
+
+void load_file(const std::string& filename)
+{
+   if (filename.length() > 0)
+  {
+    std::ifstream thefile;
+    thefile.open(("saves/" + filename + ".dmpsave").c_str());
+    if (thefile.fail()) 
+    {
+      std::cout << "Could not open file (fail triggered)\n";
+      return;
+    }
+    if (thefile.is_open())
+    {
+      int return_code = myGame.retrieveCharacter(thefile);
+
+      // notify user of the result of the load
+      switch(return_code)
+      {
+        case 1:
+          mainMessage = "File '" + filename + "' loaded.";
+          loadedFile = filename;
+          loadSuccess = true;
+          break;
+        case 0:
+          mainMessage = "Failed to load file: " + filename + ", failed to set CLASS";
+          break;
+        case -1:
+          mainMessage = "Failed to load file: " + filename + ", your save version is too old!";
+          break;
+        case -2:
+          mainMessage = "Failed to load file: " + filename + ", this dmpower client is too old!";
+          break;
+        default:
+          mainMessage = "Failed to load file: " + filename + ", generic failure";
+          break;
+      }
+    }
+  }
 }

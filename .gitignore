@@ -10,6 +10,7 @@ dmpower
 local_user_settings.*
 *.dmpsave
 userSettings.*
+lastSave.*
 *lvl*.txt
 
 # Compiled Object files
