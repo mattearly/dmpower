@@ -1058,7 +1058,7 @@ int Campaign::retrieveCharacter(ifstream &ins)
     {
       cout << "background set to: " << charBackgroundProcessor << '\n';
     }
-
+    ins.get(); // absorb newline from previous ins >> charBackgroundprocessor
     getline(ins, v->custom_background_name);
     
     if (debugRetrieve)
