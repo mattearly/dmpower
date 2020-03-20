@@ -5,25 +5,7 @@
 
 using namespace std;
 
-extern bool is_random; // for random character gen
-extern void save_file();
-extern void load_file();
-extern bool clearScreens; // a togglable setting
-
 bool quitBuilding = false; // for exiting out of the build character at certain points
-
-/**
- * 'saveVersion' is the build version of current saves.
- *
- * Update saveVersion to the current build version if the saves have changed in this
- * verison. Otherwise, it can be noted as backwards compatible to the version here.
- */
-const string saveVersion = "9";
-
-string mainMessage;
-bool loadSuccess = false;
-string loadedFile = "";
-Campaign myGame;
 
 void Campaign::pc_menu()
 {

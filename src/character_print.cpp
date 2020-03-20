@@ -3,9 +3,9 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include "globalfuncts.h"
 
 using namespace std;
-extern bool clearScreens;
 
 void Generic_Character_Class::character_sheet() const
 {

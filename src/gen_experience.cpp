@@ -3,7 +3,6 @@
 #include "terminal_colors.h"
 
 using namespace std;
-extern bool clearScreens;
 
 float Gen_Experience::xpgenerator()
 {

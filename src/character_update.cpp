@@ -2,11 +2,9 @@
 #include "terminal_colors.h"
 #include <string>
 #include <iostream>
+#include "globalfuncts.h"
 
 using namespace std;
-
-extern string mainMessage;
-extern bool clearScreens;
 
 void Generic_Character_Class::updateCharacter(const Campaign &game)
 {

@@ -6,8 +6,6 @@
 
 using namespace std;
 
-extern bool clearScreens;
-
 void Charts::showChartMenu()
 {
   const int MAXCHARTCHOICE = 6;

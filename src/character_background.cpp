@@ -1,6 +1,6 @@
 #include "characters.h"
-extern bool clearScreens;
-extern bool is_random;
+#include "globalfuncts.h"
+
 using std::cout;
 
 void Generic_Character_Class::setBackground()

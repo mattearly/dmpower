@@ -13,21 +13,15 @@
 using namespace std;
 
 static int choice = 0;
-string buildNumber = "9"; // iterate with every new build release
-
-extern Campaign myGame;
-extern string mainMessage;
-extern void change_settings();
-extern bool clearScreens;
 
 void other_tools();
 
 void menu()
 {
   mainMessage = "Dungeon Master Power! (build:" + buildNumber + ")";
-  choice = 0;
   do
   {
+    choice = 0;
     if (clearScreens) simpleClearScreen();
     cout << "> " << mainMessage << "\n\n";
     mainMessage = "";
@@ -52,7 +46,6 @@ void menu()
     break;
     case 3:
       other_tools();
-      choice = 0;
       break;
     case 4:
       change_settings();

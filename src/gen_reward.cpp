@@ -6,9 +6,6 @@
 
 using namespace std;
 
-extern string mainMessage;
-extern bool clearScreens;
-
 void Magic_Items::treasure_menu()
 {
   int choice = 0;

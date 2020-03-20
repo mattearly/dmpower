@@ -5,6 +5,24 @@
 #include <random>
 #include <type_traits>
 #include <string>
+#include "campaign.h"
+
+extern Campaign myGame;
+extern std::string mainMessage;
+extern void change_settings();
+extern bool clearScreens;
+extern std::string buildNumber;
+extern bool is_random; // for random character gen
+extern void save_file();
+extern void load_file();
+extern void load_file(const std::string& filename);
+extern bool quitBuilding;
+extern std::string lastSave;
+extern std::string mainMessage;
+extern std::string loadedFile;
+extern void note_last_save(const std::string& save_name);
+extern bool loadSuccess;
+extern std::string saveVersion;
 
 const int LARGEST_INPUT_DIGITS = 3;
 

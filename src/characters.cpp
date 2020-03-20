@@ -7,17 +7,13 @@
 #include <string>
 #include <algorithm>
 #include <iostream>
+#include "globalfuncts.h"
 
 using std::cin;
 using std::cout;
 using std::sort;
 using std::string;
 using std::vector;
-
-extern bool clearScreens;
-extern bool quitBuilding;
-
-extern bool is_random;
 
 Generic_Character_Class::Generic_Character_Class()
 {
