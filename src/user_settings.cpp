@@ -23,8 +23,9 @@ bool saveUserSettings() {
   if (saveFileStream.is_open()) {
     saveFileStream << "insults=\"" << insult_mode << "\"" << '\n';
     saveFileStream << clearScreens << '\n';
+    return true;
   }
-  return true;
+  return false;
 }
 
 ///
