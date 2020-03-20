@@ -177,6 +177,11 @@ void Campaign::pc_menu()
         break;
       }
 
+      if (autoSave)
+      {
+        auto_save();
+      }
+
       is_random = false;
     }
     break;
@@ -268,6 +273,10 @@ void Campaign::pc_menu()
             break;
           }
         }
+      }
+      if (autoSave)
+      { 
+        auto_save();
       }
     }
     break;

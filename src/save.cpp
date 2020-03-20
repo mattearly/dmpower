@@ -10,7 +10,6 @@
 using namespace boost::filesystem;
 using namespace std;
 
-
 void showLoadableFiles(const std::string &dir);
 
 void truncateSaveForThisVersion(std::string &original, std::string &edited);
@@ -298,7 +297,6 @@ void load_last_save()
 
 }
 
-
 /** Routine to take not of the last save so that load_last_save() func can use it. */
 void note_last_save(const std::string& save_name)
 {
@@ -312,4 +310,24 @@ void note_last_save(const std::string& save_name)
     {
         lastSave.clear();
     }
+}
+
+void auto_save()
+{
+  if (loadedFile.empty())
+  {
+    return;  // no file to save too, can't auto-save, load something or save something first
+  }
+  std::ofstream os;
+  //save into file 
+  os.open(("saves/" + loadedFile + ".dmpsave").c_str());
+  if (os.is_open())
+  {
+    myGame.dumpCharacter(os);
+    mainMessage = "AutoSaved:  "; 
+    mainMessage += loadedFile;
+    loadSuccess = true;
+    note_last_save(loadedFile);
+    os.close();
+  }
 }

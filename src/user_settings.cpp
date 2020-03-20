@@ -3,15 +3,6 @@
 #include <fstream>
 #include <string>
 
-///
-/// \brief insult_mode currently the two valid modes are 'clean' and 'dirty'
-///
-std::string insult_mode;
-
-/**
- * clear screens during usage or not
- */
-bool clearScreens = true;
 
 ///
 /// \brief file
@@ -23,6 +14,7 @@ bool saveUserSettings() {
   if (saveFileStream.is_open()) {
     saveFileStream << "insults=\"" << insult_mode << "\"" << '\n';
     saveFileStream << clearScreens << '\n';
+    saveFileStream << autoSave << '\n';
     return true;
   }
   return false;
@@ -36,22 +28,26 @@ void change_settings() {
     simpleClearScreen();
   int choice = 0;
   bool first_pass = true;
-  while (choice != 3) {
+  while (choice != 4) {
     if (!first_pass && clearScreens)
       simpleClearScreen();
     std::cout << 
       "\n-------- SETTINGS MENU --------"
       "\n 1. Insult Mode: " << insult_mode << 
       "\n 2. Clear Screens: " << (clearScreens ? "On" : "Off") <<
-      "\n 3. Save and exit to " << CYAN << "MAIN MENU" << RESET << 
+      "\n 3. Auto Save: " << (autoSave ? "On" : "Off") <<
+      "\n 4. Save and exit to " << CYAN << "MAIN MENU" << RESET << 
       "\n-------------------------------\n";
-    choice = getNumber("Choice: ", 1, 3);
+    choice = getNumber("Choice: ", 1, 4);
     switch (choice) {
     case 1: {
       insult_mode = insult_mode.compare("dirty") == 0 ? "clean" : "dirty"; // toggle
     } break;
     case 2:
-      clearScreens = clearScreens ? false : true; // toggle
+      clearScreens = !clearScreens; // toggle
+      break;
+      case 3:
+      autoSave = !autoSave; //toggle
     default:
       break;
     }
@@ -81,11 +77,13 @@ void set_user_pref_from_file() {
       std::cout << "insult_mode should be set but failed to be a proper string "
                    "'clean' or 'dirty'\n";
     }
-    // get second variable in insult settings
+    // get second clearScreens boolean setting
     is >> clearScreens;
+    is >> autoSave;
     std::cout << "User settings loaded!\n";
   } else {
     insult_mode = "clean";
     clearScreens = true;
+    autoSave = false;
   }
 }
