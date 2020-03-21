@@ -237,7 +237,6 @@ void Cleric::setClassDetails(const int &l)
       }
     }
   }
-  cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Fighter::setClassDetails(const int &l)
 {
@@ -485,7 +484,6 @@ void Fighter::setClassDetails(const int &l)
       }
     }
   }
-  cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Rogue::setClassDetails(const int &l)
 {
@@ -735,7 +733,7 @@ void Rogue::setClassDetails(const int &l)
       }
     }
   }
-  cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n";
+  // cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n";
 }
 void Wizard::setClassDetails(const int &l)
 {
@@ -955,7 +953,6 @@ void Wizard::setClassDetails(const int &l)
       }
     }
   }
-  cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Barbarian::setClassDetails(const int &l)
 {
@@ -1454,7 +1451,6 @@ void Druid::setClassDetails(const int &l)
       }
     }
   }
-  cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Paladin::setClassDetails(const int &l)
 {
@@ -1874,7 +1870,6 @@ void Sorcerer::setClassDetails(const int &l)
       cout << '\n';
     }
   }
-  cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Bard::setClassDetails(const int &l)
 {
@@ -2278,7 +2273,6 @@ void Monk::setClassDetails(const int &l)
       }
     }
   }
-  cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Ranger::setClassDetails(const int &l)
 {
@@ -2529,7 +2523,6 @@ void Ranger::setClassDetails(const int &l)
       cout << '\n';
     }
   }
-  cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }
 void Warlock::setClassDetails(const int &l)
 {
@@ -2763,5 +2756,4 @@ void Warlock::setClassDetails(const int &l)
       cout << '\n';
     }
   }
-  cout << "\nNew  " << char_class << " named '" << char_name << "' created.\n\n";
 }

@@ -20,7 +20,7 @@ void Campaign::pc_menu()
          << " 1. Build a New Character" << '\n'
          << " 2. View & Export Characters" << '\n'
          << " 3. Edit a Character" << '\n'
-         << " 4. Save Current Work" << '\n'
+         << " 4. " << ((loadSuccess) ? "Save Current Work" : "Save New Work") << '\n'
          << " 5. ";
     if (loadSuccess)
     {
@@ -221,7 +221,10 @@ void Campaign::pc_menu()
         {
           if (valid_name == (*it)->char_name)
           {
+            // show character sheet
             (*it)->character_sheet();
+
+            // prompts to export
             char to_export = getYorN("Export/Print Character? (y/n): ");
             if (to_export == 'Y')
             {
@@ -230,6 +233,7 @@ void Campaign::pc_menu()
               (*it)->exportPrint(printname);
               mainMessage = printname + " exported, check exports folder.";
             }
+                        
             break; //leave the loop if we found the name, no need to check more
           }
         }
@@ -390,9 +394,8 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   new_character->setBackground();
   new_character->setClassDetails(starting_level);
   new_character->setProficiencyBonus();
-
-  character_list.push_back(new_character);
   new_character->initialSkillsSet = true;
+  character_list.push_back(new_character); 
 
   // turn random var back off in case it was on
   is_random = false;
@@ -400,18 +403,8 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   // show character sheet after building is complete
   character_list.back()->character_sheet();
 
-  // ASK IF PLAYER WANTS TO EXPORT
-  char to_export = getYorN("Export/Print This Snapshot? (y/n): ");
-  if (to_export == 'Y')
-  {
-    std::string printname = character_list.back()->char_name + " lvl " + toString(character_list.back()->level) + " " +
-                            character_list.back()->race + " " + character_list.back()->char_class;
-    new_character->exportPrint(printname);
-    mainMessage = printname + " exported, check exports folder. ";
-  }
-
   //update main message to something useful
-  mainMessage += "Don't forget to '4. Save Current Work' or else your characters changes wont be reloadable";
+  if (!autoSave) mainMessage = "Don't forget to '4. Save Current Work' or else your characters changes wont be reloadable";
 }
 
 ofstream &Campaign::dumpCharacter(ofstream &os) const
