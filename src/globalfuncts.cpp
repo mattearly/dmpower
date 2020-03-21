@@ -14,7 +14,8 @@ std::string loadedFile = "";
 Campaign myGame;
 std::string insult_mode;
 bool clearScreens = true;
-bool autoSave = false;
+bool autoSave = true;
+bool autoLoad = true;
 
 void simpleClearScreen()
 {

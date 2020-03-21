@@ -12,6 +12,7 @@ extern std::string mainMessage;
 extern void change_settings();
 extern bool clearScreens;
 extern bool autoSave;
+extern bool autoLoad;
 extern std::string buildNumber;
 extern bool is_random; // for random character gen
 extern void save_file();
