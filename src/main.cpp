@@ -5,7 +5,8 @@ int main()
 
   set_user_pref_from_file();
 
-  load_last_save();
+  if (autoLoad)
+    load_last_save();
 
   menu();
 

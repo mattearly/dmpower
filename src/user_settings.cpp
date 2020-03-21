@@ -15,6 +15,7 @@ bool saveUserSettings() {
     saveFileStream << "insults=\"" << insult_mode << "\"" << '\n';
     saveFileStream << clearScreens << '\n';
     saveFileStream << autoSave << '\n';
+    saveFileStream << autoLoad << '\n';
     return true;
   }
   return false;
@@ -28,7 +29,8 @@ void change_settings() {
     simpleClearScreen();
   int choice = 0;
   bool first_pass = true;
-  while (choice != 4) {
+  int NUMCHOICES = 5;
+  while (choice != NUMCHOICES) {
     if (!first_pass && clearScreens)
       simpleClearScreen();
     std::cout << 
@@ -36,20 +38,27 @@ void change_settings() {
       "\n 1. Insult Mode: " << insult_mode << 
       "\n 2. Clear Screens: " << (clearScreens ? "On" : "Off") <<
       "\n 3. Auto Save: " << (autoSave ? "On" : "Off") <<
-      "\n 4. Save and exit to " << CYAN << "MAIN MENU" << RESET << 
+      "\n 4. Auto Load: " << (autoLoad ? "On" : "Off") <<
+      "\n 5. Save and exit to " << CYAN << "MAIN MENU" << RESET << 
       "\n-------------------------------\n";
-    choice = getNumber("Choice: ", 1, 4);
+    choice = getNumber("Choice: ", 1, NUMCHOICES);
     switch (choice) {
-    case 1: {
-      insult_mode = insult_mode.compare("dirty") == 0 ? "clean" : "dirty"; // toggle
-    } break;
-    case 2:
-      clearScreens = !clearScreens; // toggle
-      break;
+      case 1: {
+        insult_mode = insult_mode.compare("dirty") == 0 ? "clean" : "dirty"; // toggle
+      } break;
+      case 2:
+        clearScreens = !clearScreens; // toggle
+        break;
       case 3:
-      autoSave = !autoSave; //toggle
-    default:
-      break;
+        autoSave = !autoSave; //toggle
+        break;
+      case 4:
+        autoLoad = !autoLoad; //toggle
+        break;
+      case 5:
+        break;
+      default:
+        break;
     }
     first_pass = false;
   }
@@ -80,6 +89,7 @@ void set_user_pref_from_file() {
     // get second clearScreens boolean setting
     is >> clearScreens;
     is >> autoSave;
+    is >> autoLoad;
     std::cout << "User settings loaded!\n";
   } else {
     insult_mode = "clean";
