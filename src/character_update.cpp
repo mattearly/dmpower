@@ -126,7 +126,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
     if (ss != 7)
       pressEnterToContinue();
   } while (ss != 7);
-  mainMessage = "DON'T FORGET TO SAVE!";
+  if (!autoSave) mainMessage = "DON'T FORGET TO SAVE!";
 }
 
 void Generic_Character_Class::updateName(const Campaign &game)
