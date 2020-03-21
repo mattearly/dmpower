@@ -324,8 +324,20 @@ void auto_save()
   if (os.is_open())
   {
     myGame.dumpCharacter(os);
-    mainMessage = "AutoSaved:  "; 
-    mainMessage += loadedFile;
+
+    if (mainMessage.size() < 1)
+    {
+      mainMessage.clear();
+      mainMessage = "Auto Saved to: "; 
+      mainMessage += loadedFile;
+    }
+    else 
+    {
+      mainMessage += ". Auto Saved to: "; 
+      mainMessage += loadedFile;
+    }
+
+ 
     loadSuccess = true;
     note_last_save(loadedFile);
     os.close();
