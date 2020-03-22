@@ -9,7 +9,7 @@ dmpower is a terminal-based Dungeons & Dragons 5th edition toolkit intended for 
 - All 12 core classes fully available. 22 different races, all subraces, meticulously programmed level class trees, levels 1 to 20, supports leveling up, random name suggestions, common stat block options, alignments, all backgrounds + custom option, all skills, 20+ languages, 42 core feats, calculates average hitpoints, calculates spell slots.
 - Save and Load Character Loadouts via file. Exporter for physical document printing.
 - Editor for leveling up existing characters. Also has features more intended for DM's use: Edit stats (min=1, max=30), give feats, give skills, change name, change alignment.
-- Limitations: Character Builder doesn't handle equipment, spell choices, multiclassing, or personality traits. NPC classes (warrior, expert, aristicat) from the dm guide are not included. Some of these limitations may be addressed in future updates.
+- Limitations: Character Builder doesn't handle equipment, spell choices, multiclassing, or personality traits. NPC classes (warrior, expert, aristocrat) from the dm guide are not included. Some of these limitations may be addressed in future updates.
 
 ### Loot and Randomizers
 
