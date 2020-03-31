@@ -117,7 +117,13 @@ void other_tools()
     }
     break;
     default:
-      break;
+    break;
     }
   } while (choice < 6);
+
+  // reset choice back to 0 after leaving this menu
+  if (choice == 6)
+  {
+    choice = 0;
+  }
 }
