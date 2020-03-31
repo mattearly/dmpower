@@ -42,7 +42,7 @@ Dependencies:
 
 - git `git`
 - make `make`
-- C++11 `g++`
+- C++14 `g++`
 - boost filesystem `libboost-filesystem-dev`
 
 Build and Run:
