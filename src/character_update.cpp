@@ -17,7 +17,7 @@ void Generic_Character_Class::updateCharacter(const Campaign &game)
     character_sheet();
 
     cout
-        << "\nEditing " << GREEN << char_name << RESET << ", level " << level << " " << alignment << " " << char_class << "\n\n"
+        << "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n"
         << " 1. LEVEL UP!" << '\n'
         << " 2. Change Name" << '\n'
         << " 3. Change Alignment" << '\n'
