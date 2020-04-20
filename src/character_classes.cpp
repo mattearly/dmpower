@@ -1246,14 +1246,23 @@ void Druid::setClassDetails(const int &l)
   {
     druidic = true;
   }
-  else
-  {
-    std::cout << "unable to learn Druidic lang from class features - already known\n";
-  }
+  // else
+  // {
+  //   std::cout << "unable to learn Druidic lang from class features - already known\n";
+  // }
   if (!spellcasting)
     spellcasting = true;
+    
   if (!wild_shape && l >= 2)
+  {
     wild_shape = true;
+    wild_shape_improvement = .25;
+  }
+  if (wild_shape_improvement == .25 && l >= 4)
+    wild_shape_improvement += .25;
+  if (wild_shape_improvement == .5 && l >= 8)
+    wild_shape_improvement += .5;
+
   if (!druid_circle && l >= 2)
   {
     cout << "Druid Circle:\n\n"
@@ -1269,16 +1278,13 @@ void Druid::setClassDetails(const int &l)
       circle_of_the_moon = true;
     druid_circle = true;
   }
-  if (wild_shape_improvement == .25 && l >= 4)
-    wild_shape_improvement += .25;
   if (druid_circle_feature == 0 && l >= 6)
     druid_circle_feature++;
-  if (wild_shape_improvement == .5 && l >= 8)
-    wild_shape_improvement += .5;
   if (druid_circle_feature == 1 && l >= 10)
     druid_circle_feature++;
   if (druid_circle_feature == 2 && l >= 14)
     druid_circle_feature++;
+
   if (!timeless_body && l >= 18)
     timeless_body = true;
   if (!beast_spells && l >= 18)
