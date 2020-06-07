@@ -2,14 +2,14 @@
 
 dmpower is a terminal-based Dungeons & Dragons 5th edition toolkit intended for Dungeon Masters. Its primary use is to hasten game prep and on the fly assistance. dmpower runs in your terminal window and prompts all available options. I take personal care to make sure everything it presents is accurate and stable. Please raise a ticket if you see something that *might* need addressed.
 
-## Features
+## Core Features
 
-### 5th Edition PC/NPC Characters
+### 5th Edition Player Characters
 
-- All 12 core classes fully available. 22 different races, all subraces, meticulously programmed level class trees, levels 1 to 20, supports leveling up, random name suggestions, common stat block options, alignments, all backgrounds + custom option, all skills, 20+ languages, 42 core feats, calculates average hitpoints, calculates spell slots.
-- Save and Load Character Loadouts via file. Exporter for physical document printing.
-- Editor for leveling up existing characters. Also has features more intended for DM's use: Edit stats (min=1, max=30), give feats, give skills, change name, change alignment.
-- Limitations: Character Builder doesn't handle equipment, spell choices, multiclassing, or personality traits. NPC classes (warrior, expert, aristocrat) from the dm guide are not included. Some of these limitations may be addressed in future updates.
+- All 12 core PHB + DMG classes fully available. 22 different races. all core subraces. meticulously programmed level class trees. My custom integrated level up system supports levels 1 to 20 and includes random name suggestions, common stat block options, all alignments, all backgrounds + custom background option, all skills, enough languages to shake a stick at, and all core feats.  It also gives average HP for both npcs + pcs(pcs start with max first level HP in most common rule), and it tells you all your spell slots for your current level and spec.
+- Save + Load campaigns (which is basically a grouped load of available characters).
+- Character Editor for leveling up existing characters, or breaking some of the rules (intended for DM use to grant additional 'things' for the player). The DM only use feature includes: Edit stats (min=1, max=30), give feats, give skills, change name, change alignment.
+- Limitations: Character Builder doesn't handle equipment, spell memorization choices, multiclassing, or personality traits. NPC classes (warrior, expert, aristocrat) from the DMG are not included. 
 
 ### Loot and Randomizers
 
@@ -17,7 +17,7 @@ dmpower is a terminal-based Dungeons & Dragons 5th edition toolkit intended for 
 - Spellbook Generator to randomize Wizard Spellbooks.
 - All Scrolls generate to spell names of the appropriate level.
 
-### More Various Tools
+## More Various Integrated Tools
 
 - Random Name Generator. Names from [Kisment's list](http://www.dnd.kismetrose.com/pdfs/KismetsFantasyNames.pdf). Custom Editable[config file](data/names.dat).
 - XP Calculator.
@@ -90,10 +90,20 @@ May need homebrew for boost libraries.
 - [Kismet's Name List](http://www.dnd.kismetrose.com/MyCharacterNameList.html)
 - [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
 
-## Other Notes
+## Notes
+
+### Legal
 
 This project and I are not directly affiliated with Wizards of the Coast or Hasbro.
 
 dmpower is not to be used for any form of profit or sale.
 
-For release notes, see the [releases](https://github.com/mattearly/dmpower-dungeons-and-dragons-5e/releases) tab in Github.
+See the [LICENSE](LICENSE) file for more information.
+
+### Development
+
+For rolling release notes and versions, see the [releases](https://github.com/mattearly/dmpower-dungeons-and-dragons-5e/releases) tab in Github.
+
+## Special Thanks
+
+For those getting involved in the project and helping out at times! It does mean a lot. Thanks. -Matt
