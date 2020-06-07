@@ -63,13 +63,11 @@ void save_file()
 
 void load_file()
 {
-  if (clearScreens) simpleClearScreen();
+  if (clearScreens)
+    simpleClearScreen();
   //show list of previous saves
   showLoadableFiles("saves");
-  std::cout << YELLOW << "additional save management commands:" << RESET << '\n';
-  cout << "   combine 2 files: '" << GREEN << "combine SaveToKeep SaveToMergeIn" << RESET << "'\n";
-  cout << "   delete a file: '" << GREEN << "delete SaveToDelete" << RESET << "'\n";
-  std::cout << '\n';
+
   std::string file;
   std::cout << "(leave blank to skip) Load File: ";
   std::getline(std::cin, file, '\n');
@@ -120,7 +118,8 @@ void load_file()
   {
     std::ifstream thefile;
     thefile.open(("saves/" + file + ".dmpsave").c_str());
-    if (thefile.fail()) {
+    if (thefile.fail())
+    {
       std::cout << "Could not open file (fail triggered)\n";
       return;
     }
@@ -129,24 +128,25 @@ void load_file()
       int return_code = myGame.retrieveCharacter(thefile);
 
       // notify user of the result of the load
-      switch(return_code){
-        case 1:
-          mainMessage = "File '" + file + "' loaded.";
-          loadedFile = file;
-          loadSuccess = true;
-          break;
-        case 0:
-          mainMessage = "Failed to load file: " + file + ", failed to set CLASS";
-          break;
-        case -1:
-          mainMessage = "Failed to load file: " + file + ", your save version is too old!";
-          break;
-        case -2:
-          mainMessage = "Failed to load file: " + file + ", this dmpower client is too old!";
-          break;
-        default:
-          mainMessage = "Failed to load file: " + file + ", generic failure";
-          break;
+      switch (return_code)
+      {
+      case 1:
+        mainMessage = "File '" + file + "' loaded.";
+        loadedFile = file;
+        loadSuccess = true;
+        break;
+      case 0:
+        mainMessage = "Failed to load file: " + file + ", failed to set CLASS";
+        break;
+      case -1:
+        mainMessage = "Failed to load file: " + file + ", your save version is too old!";
+        break;
+      case -2:
+        mainMessage = "Failed to load file: " + file + ", this dmpower client is too old!";
+        break;
+      default:
+        mainMessage = "Failed to load file: " + file + ", generic failure";
+        break;
       }
     }
   }
@@ -171,7 +171,7 @@ void showLoadableFiles(const std::string &dir)
   directory_iterator end_itr; // default construction yields past-the-end
 
   std::string edited_ver;
-
+  int number_of_loadable_saves = 0;
   for (directory_iterator itr(dir_path); itr != end_itr; ++itr)
   {
     std::stringstream ss;
@@ -185,11 +185,20 @@ void showLoadableFiles(const std::string &dir)
       continue;
     }
 
+    number_of_loadable_saves++;
     truncateSaveForThisVersion(original_ver, edited_ver);
 
     std::cout << "    " << CYAN << edited_ver << RESET << '\n';
   }
   std::cout << '\n';
+
+  if (number_of_loadable_saves > 0)
+  {
+    std::cout << YELLOW << "additional save management commands:" << RESET << '\n';
+    cout << "   combine 2 files: '" << GREEN << "combine SaveToKeep SaveToMergeIn" << RESET << "'\n";
+    cout << "   delete a file: '" << GREEN << "delete SaveToDelete" << RESET << "'\n";
+    std::cout << '\n';
+  }
 }
 
 void truncateSaveForThisVersion(std::string &original, std::string &edited)
@@ -203,7 +212,7 @@ void truncateSaveForThisVersion(std::string &original, std::string &edited)
 bool mergeSaves(const std::string &keep, const std::string &mergein)
 {
   std::ofstream saveto;
-  saveto.open(("saves/" + keep + ".dmpsave").c_str(), std::ios_base::app);  //open write-to file with append
+  saveto.open(("saves/" + keep + ".dmpsave").c_str(), std::ios_base::app); //open write-to file with append
 
   std::ifstream readfrom;
   readfrom.open(("saves/" + mergein + ".dmpsave").c_str());
@@ -211,7 +220,7 @@ bool mergeSaves(const std::string &keep, const std::string &mergein)
   if (saveto.is_open() && readfrom.is_open())
   {
     std::string tmp;
-    getline(readfrom, tmp);  // eat the first line which is the save version
+    getline(readfrom, tmp); // eat the first line which is the save version
     do
     {
       std::getline(readfrom, tmp);
@@ -228,13 +237,13 @@ bool mergeSaves(const std::string &keep, const std::string &mergein)
   return false;
 }
 
-void load_file(const std::string& filename)
+void load_file(const std::string &filename)
 {
-   if (filename.length() > 0)
+  if (filename.length() > 0)
   {
     std::ifstream thefile;
     thefile.open(("saves/" + filename + ".dmpsave").c_str());
-    if (thefile.fail()) 
+    if (thefile.fail())
     {
       std::cout << "Could not open file (fail triggered)\n";
       return;
@@ -244,25 +253,25 @@ void load_file(const std::string& filename)
       int return_code = myGame.retrieveCharacter(thefile);
 
       // notify user of the result of the load
-      switch(return_code)
+      switch (return_code)
       {
-        case 1:
-          mainMessage = "File '" + filename + "' loaded.";
-          loadedFile = filename;
-          loadSuccess = true;
-          break;
-        case 0:
-          mainMessage = "Failed to load file: " + filename + ", failed to set CLASS";
-          break;
-        case -1:
-          mainMessage = "Failed to load file: " + filename + ", your save version is too old!";
-          break;
-        case -2:
-          mainMessage = "Failed to load file: " + filename + ", this dmpower client is too old!";
-          break;
-        default:
-          mainMessage = "Failed to load file: " + filename + ", generic failure";
-          break;
+      case 1:
+        mainMessage = "File '" + filename + "' loaded.";
+        loadedFile = filename;
+        loadSuccess = true;
+        break;
+      case 0:
+        mainMessage = "Failed to load file: " + filename + ", failed to set CLASS";
+        break;
+      case -1:
+        mainMessage = "Failed to load file: " + filename + ", your save version is too old!";
+        break;
+      case -2:
+        mainMessage = "Failed to load file: " + filename + ", this dmpower client is too old!";
+        break;
+      default:
+        mainMessage = "Failed to load file: " + filename + ", generic failure";
+        break;
       }
     }
   }
@@ -271,55 +280,51 @@ void load_file(const std::string& filename)
 /** Routine to check what the user last saved and load it. Variable last_save is cleared if this fails. */
 void load_last_save()
 {
-    lastSave.clear();
-    std::ifstream fs("./settings/lastSave.dat");
-    if (fs.is_open())
+  lastSave.clear();
+  std::ifstream fs("./settings/lastSave.dat");
+  if (fs.is_open())
+  {
+    std::string holder;
+    std::getline(fs, holder); // should be the first line
+    if (!holder.empty())
     {
-        std::string holder;
-        std::getline(fs, holder); // should be the first line
-        if (!holder.empty())
-        {
-            lastSave = holder;  
-        }
-
-    
-        load_file(lastSave);
-
-
-        //     we only what the first line this is just here to process the rest of the file for later expansion    
-
-        // while (!fs.eof())
-        // {
-        //     std::getline(fs, holder);
-        // }
-        
+      lastSave = holder;
     }
 
+    load_file(lastSave);
+
+    //     we only what the first line this is just here to process the rest of the file for later expansion
+
+    // while (!fs.eof())
+    // {
+    //     std::getline(fs, holder);
+    // }
+  }
 }
 
 /** Routine to take not of the last save so that load_last_save() func can use it. */
-void note_last_save(const std::string& save_name)
+void note_last_save(const std::string &save_name)
 {
-    lastSave = save_name;
-    std::ofstream os("./settings/lastSave.dat");
-    if (os.is_open())
-    {
-        os << lastSave;
-    }
-    else 
-    {
-        lastSave.clear();
-    }
+  lastSave = save_name;
+  std::ofstream os("./settings/lastSave.dat");
+  if (os.is_open())
+  {
+    os << lastSave;
+  }
+  else
+  {
+    lastSave.clear();
+  }
 }
 
 void auto_save()
 {
   if (loadedFile.empty())
   {
-    return;  // no file to save too, can't auto-save, load something or save something first
+    return; // no file to save too, can't auto-save, load something or save something first
   }
   std::ofstream os;
-  //save into file 
+  //save into file
   os.open(("saves/" + loadedFile + ".dmpsave").c_str());
   if (os.is_open())
   {
@@ -328,16 +333,15 @@ void auto_save()
     if (mainMessage.size() < 1)
     {
       mainMessage.clear();
-      mainMessage = "Auto Saved to: "; 
+      mainMessage = "Auto Saved to: ";
       mainMessage += loadedFile;
     }
-    else 
+    else
     {
-      mainMessage += ". Auto Saved to: "; 
+      mainMessage += ". Auto Saved to: ";
       mainMessage += loadedFile;
     }
 
- 
     loadSuccess = true;
     note_last_save(loadedFile);
     os.close();
