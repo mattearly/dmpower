@@ -25,19 +25,21 @@ void menu()
     if (clearScreens) simpleClearScreen();
     cout << "> " << mainMessage << "\n\n";
     mainMessage = "";
-    
-
-    
-    cout << CYAN << "---------- MAIN MENU ----------" << RESET << '\n'
-         << " 1. " << GREEN << "Campaign: '" << loadedFile << "' Characters" << RESET << '\n'
-         << " 2. " << YELLOW << "Generate Loot" << RESET << '\n'
+        
+    cout << CYAN << "---------- MAIN MENU ----------" << RESET << '\n';
+    if (loadedFile.size() > 1)
+    {
+       cout  << " 1. " << GREEN << "Campaign: '" << loadedFile << "' Characters" << RESET << '\n';
+    }
+    else  //loadedFile size == 0
+    {
+       cout  << " 1. " << GREEN << "Build Characters" << RESET << '\n';
+    }
+    cout << " 2. " << YELLOW << "Generate Loot" << RESET << '\n'
          << " 3. " << MAGENTA << "Other Tools" << RESET << '\n'
          << " 4. Settings\n"
          << " 5. " << RED << "Quit dmpower" << RESET << '\n'
          << CYAN << "-------------------------------" << RESET << '\n';
-
-
-
 
     choice = getNumber("Choice: ", 1, 5);
     switch (choice)

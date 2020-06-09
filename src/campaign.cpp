@@ -16,30 +16,42 @@ void Campaign::pc_menu()
       simpleClearScreen();
     cout << ">" << mainMessage << "\n\n";
     mainMessage = "";
-    cout << GREEN << "---------- CHARACTER MANAGER -----------" << RESET << '\n'
-         << " 1. Build a New Character" << '\n'
-         << " 2. View & Export Characters" << '\n'
-         << " 3. Edit a Character" << '\n'
-         << " 4. " << ((loadSuccess) ? "Save Current Work" : "Save New Work") << '\n'
-         << " 5. ";
+    cout << GREEN << "---------- CHARACTER MANAGER -----------" << RESET << '\n';
+
+    if (myGame.character_list.size() != 0) // there are characters, show options
+    {
+      std::cout
+          << " 1. Create Another Character" << '\n'
+          << " 2. Save Work" << '\n'
+          << " 3. View Characters" << '\n'
+          << " 4. Edit a Character" << '\n'
+          << " 5. Delete a Character" << '\n'
+          << " 6. Delete All Characters" << '\n';
+    }
+    else // no characters, show ...
+    {
+      std::cout
+          << " 1. Create Your First Character\n"
+          << "    ...\n";
+    }
+
+    std::cout << " 7. ";
     if (loadSuccess)
     {
-      cout << GREEN << loadedFile << RESET << " file loaded - " << RED << "UNLOAD?" << RESET << '\n';
+      cout << "Unload current file:[" << GREEN << loadedFile << RESET << "]. You will lose all unsaved changes.\n";
     }
     else
     {
-      cout << "Load & Manage Saves" << '\n';
+      cout << "Load Campaign" << '\n';
     }
 
-    cout << " 6. Delete a Character" << '\n';
-    cout << " 7. Delete All Characters" << '\n';
     cout << " 8. Back to " << CYAN << "MAIN MENU" << RESET << '\n';
     cout << GREEN << "----------------------------------------" << RESET << '\n';
     choice = getNumber("Choice: ", 1, 8);
     switch (choice)
     {
     case 1:
-    {
+    { // CREATE A CHARACTER
       if (clearScreens)
         simpleClearScreen();
       cout << "Create Random Character?\n\n";
@@ -186,6 +198,9 @@ void Campaign::pc_menu()
     }
     break;
     case 2:
+      save_file();
+      break;
+    case 3:
     { //VIEW & EXPORT CHARACTER SHEET
       if (character_list.size() < 1)
       {
@@ -233,14 +248,14 @@ void Campaign::pc_menu()
               (*it)->exportPrint(printname);
               mainMessage = printname + " exported, check exports folder.";
             }
-                        
+
             break; //leave the loop if we found the name, no need to check more
           }
         }
       }
     }
     break;
-    case 3:
+    case 4:
     { //EDIT/UPDATE CHARACTER
       if (character_list.size() < 1)
       {
@@ -279,27 +294,12 @@ void Campaign::pc_menu()
         }
       }
       if (autoSave)
-      { 
+      {
         auto_save();
       }
     }
     break;
-    case 4:
-      save_file();
-      break;
     case 5:
-      if (!loadSuccess)
-      {
-        load_file();
-      }
-      else
-      {
-        character_list.clear();
-        loadedFile = "";
-        loadSuccess = false;
-      }
-      break;
-    case 6:
     { //DELETE CHARACTER
       if (character_list.size() < 1)
       {
@@ -331,7 +331,7 @@ void Campaign::pc_menu()
       }
     }
     break;
-    case 7:
+    case 6:
     { //DELETE ALL THE THINGS
       char sure = getYorN("Are you Sure you want to Delete All Player Characters?(y/n):");
       if (sure == 'Y')
@@ -345,6 +345,18 @@ void Campaign::pc_menu()
       }
     }
     break;
+    case 7:
+      if (!loadSuccess)
+      {
+        load_file();
+      }
+      else
+      {
+        character_list.clear();
+        loadedFile = "";
+        loadSuccess = false;
+      }
+      break;
     default:
       break;
     }
@@ -395,7 +407,7 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   new_character->setClassDetails(starting_level);
   new_character->setProficiencyBonus();
   new_character->initialSkillsSet = true;
-  character_list.push_back(new_character); 
+  character_list.push_back(new_character);
 
   // turn random var back off in case it was on
   is_random = false;
@@ -404,7 +416,8 @@ void Campaign::makecharacter(Generic_Character_Class *new_character, int &starti
   character_list.back()->character_sheet();
 
   //update main message to something useful
-  if (!autoSave) mainMessage = "Don't forget to '4. Save Current Work' or else your characters changes wont be reloadable";
+  if (!autoSave)
+    mainMessage = "note: autosave is not on, don\'t forget to save your work.";
 }
 
 ofstream &Campaign::dumpCharacter(ofstream &os) const
@@ -963,7 +976,6 @@ int Campaign::retrieveCharacter(ifstream &ins)
   }
   //else we have a match version, continue.
 
-
   //---------- GET WHICH SAVED CHARACTER # ---------//
   getline(ins, sbuffer);
 
@@ -999,7 +1011,7 @@ int Campaign::retrieveCharacter(ifstream &ins)
     else if (charClassTempVar == "Wizard")
       v = new Wizard;
     else
-      return false;  // character setting failed, don't continue
+      return false; // character setting failed, don't continue
     v->char_class = charClassTempVar;
 
     if (debugRetrieve)
@@ -1044,12 +1056,12 @@ int Campaign::retrieveCharacter(ifstream &ins)
     }
     ins.get(); // absorb newline from previous ins >> charBackgroundprocessor
     getline(ins, v->custom_background_name);
-    
+
     if (debugRetrieve)
     {
       if (v->backgroundofpc == Generic_Character_Class::characterbackground::CUSTOM)
       {
-        std::cout << "custom background name: " << v->custom_background_name << '\n'; 
+        std::cout << "custom background name: " << v->custom_background_name << '\n';
       }
     }
 

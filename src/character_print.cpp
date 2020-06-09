@@ -58,8 +58,6 @@ void Generic_Character_Class::character_sheet() const
   printFeats();
   printResistances();
   printDisadvantages();
-
-  pressEnterToContinue();
 }
 
 void Generic_Character_Class::printClassAbilities() const
@@ -1467,4 +1465,5 @@ void Generic_Character_Class::printDisadvantages() const
   cout << "->" << RED << " Disadvantages: " << RESET;
   if (sunlight_sensitivity)
     cout << "Sunlight Sensitivty" << '\n';
+  cout << '\n';
 }
