@@ -6,7 +6,7 @@ dmpower is a terminal-based Dungeons & Dragons 5th edition toolkit intended for 
 
 ### 5th Edition Player Characters
 
-- All 12 core PHB + DMG classes fully available. 22 different races. all core subraces. meticulously programmed level class trees. My custom integrated level up system supports levels 1 to 20 and includes random name suggestions, common stat block options, all alignments, all backgrounds + custom background option, all skills, enough languages to shake a stick at, and all core feats.  It also gives average HP for both npcs + pcs(pcs start with max first level HP in most common rule), and it tells you all your spell slots for your current level and spec.
+- All 12 core PHB + DMG classes fully available. 22 different races including all core subraces. Meticulously programmed level class trees. My custom integrated level up system supports levels 1 to 20 and includes random name suggestions, common stat block options, all alignments, all backgrounds + custom background option, all skills, enough languages to shake a stick at, and all core feats. It also gives average HP for both npcs + pcs(pcs start with max first level HP in most common rule), and it tells you all your spell slots for your current level and spec.
 - Save + Load campaigns (which is basically a grouped load of available characters).
 - Character Editor for leveling up existing characters, or breaking some of the rules (intended for DM use to grant additional 'things' for the player). The DM only use feature includes: Edit stats (min=1, max=30), give feats, give skills, change name, change alignment.
 - Limitations: Character Builder doesn't handle equipment, spell memorization choices, multiclassing, or personality traits. NPC classes (warrior, expert, aristocrat) from the DMG are not included. 
@@ -47,8 +47,8 @@ Dependencies:
 
 Build and Run:
 
-1. `git clone https://github.com/mattearly/dmpower`  clone this repo (or go to releases and pick a version, or clone however you are comfortable cloning. I would suggest forking if you are going to work on it and make pull requests.)
-2. `cd dmpower/`  change directory to where you downloaded the files
+1. `git clone https://github.com/mattearly/dmpower` clone this repo (or go to releases and pick a version, or clone however you are comfortable cloning. I would suggest forking if you are going to work on it and make pull requests.)
+2. `cd dmpower/` change directory to where you downloaded the files
 3. `make run` use this make command to build the program and run it after the build finishes
 
 Install dependencies if something fails to build, error messages should tell you what you need and it is likely one of the above dependencies.
