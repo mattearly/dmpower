@@ -30,28 +30,30 @@ dmpower is a terminal-based Dungeons & Dragons 5th edition toolkit intended for 
   - Diseases chart
   - Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
 
-## Running dmpower on any OS
+## Build Using CMake
 
-### Run on Linux (easy and optimal)
+### Build & Run on Linux (easy and optimal)
 
-One Liner for debian linux:
-
-````sudo apt-get install git make g++ libboost-filesystem-dev && git clone https://github.com/mattearly/dmpower && cd dmpower && make run````
-
-Dependencies:
+#### Dependencies:
 
 - git `git`
-- make `make`
+- cmake `cmake`
 - C++14 `g++`
 - boost filesystem `libboost-filesystem-dev`
 
-Build and Run:
+#### Build and Run:
 
 1. `git clone https://github.com/mattearly/dmpower` clone this repo (or go to releases and pick a version, or clone however you are comfortable cloning. I would suggest forking if you are going to work on it and make pull requests.)
 2. `cd dmpower/` change directory to where you downloaded the files
 3. `make run` use this make command to build the program and run it after the build finishes
 
 Install dependencies if something fails to build, error messages should tell you what you need and it is likely one of the above dependencies.
+
+#### One Liner:
+
+  *installs dependencies, clones dmpower, configures with cmake, builds into a /build/ dir, runs dmpower* 
+
+````sudo apt-get install git cmake g++ libboost-filesystem-dev && git clone https://github.com/mattearly/dmpower.git && cd dmpower && mkdir build && cd build && cmake ../ && make && ./dmpower````
 
 ### Run on Windows (easy)
 
@@ -63,9 +65,11 @@ Use [Cygwin](https://www.cygwin.com/), or [WSL](https://msdn.microsoft.com/comma
   - [more discussion on this topic](https://stackoverflow.com/questions/51680709/colored-text-output-in-powershell-console-using-ansi-vt100-codes)
 - I have not tested with Visual Studio. Should work but may need some modifications or project setup.
 
+CMake and it should work with Visual Studio
+
 ### Run on Mac (easy and probably optimal)
 
-May need homebrew for boost libraries.
+May need homebrew for boost libraries. Use CMake.
 
 #### Some Screenshots
 
