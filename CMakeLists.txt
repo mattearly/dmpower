@@ -7,31 +7,31 @@ find_package(Boost REQUIRED COMPONENTS filesystem)
 if (Boost_FOUND)
 
     include_directories(${Boost_INCLUDE_DIRS})
-    add_executable(dmpower
-    src/campaign.cpp
-    src/character_background.cpp
-    src/character_classes.cpp
-    src/character_export.cpp
-    src/character_feats.cpp
-    src/character_print.cpp
-    src/character_random_name.cpp
-    src/character_skills.cpp
-    src/character_update.cpp
-    src/characters.cpp
-    src/charts.cpp
-    src/gear.cpp
-    src/gen_dungeon.cpp
-    src/gen_encounter.cpp
-    src/gen_experience.cpp
-    src/gen_insult.cpp
-    src/gen_name.cpp
-    src/gen_reward.cpp
-    src/globalfuncts.cpp
-    src/main.cpp
-    src/menu.cpp
-    src/races.cpp
-    src/save.cpp
-    src/user_settings.cpp
+        add_executable(dmpower
+        src/campaign.cpp
+        src/character_background.cpp
+        src/character_classes.cpp
+        src/character_export.cpp
+        src/character_feats.cpp
+        src/character_print.cpp
+        src/character_random_name.cpp
+        src/character_skills.cpp
+        src/character_update.cpp
+        src/characters.cpp
+        src/charts.cpp
+        src/gear.cpp
+        src/gen_dungeon.cpp
+        src/gen_encounter.cpp
+        src/gen_experience.cpp
+        src/gen_insult.cpp
+        src/gen_name.cpp
+        src/gen_reward.cpp
+        src/globalfuncts.cpp
+        src/main.cpp
+        src/menu.cpp
+        src/races.cpp
+        src/save.cpp
+        src/user_settings.cpp
     )
 
     target_link_libraries(dmpower Boost::filesystem)
