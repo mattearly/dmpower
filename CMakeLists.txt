@@ -7,7 +7,8 @@ find_package(Boost REQUIRED COMPONENTS filesystem)
 if (Boost_FOUND)
 
     include_directories(${Boost_INCLUDE_DIRS})
-        add_executable(dmpower
+    
+    add_executable(dmpower
         src/campaign.cpp
         src/character_background.cpp
         src/character_classes.cpp
