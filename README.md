@@ -75,7 +75,7 @@ May need homebrew for boost libraries. Use CMake.
 
 *Screenshots taken on Windows Cygwin64 with green default text and black background. Your experience will vary depending on your terminal settings.*
 
-[screenshots folder](/img/)
+[screenshots imgur link](https://imgur.com/a/S3t73rI)
 
 ## Sources
 
