@@ -49,7 +49,7 @@ void save_file()
     file = loadedFile;
   }
   //save into file after above is complete
-  os.open(("saves/" + file + ".dmpsave").c_str());
+  os.open((SAVE_DIR + file + ".dmpsave").c_str());
   if (os.is_open())
   {
     myGame.dumpCharacter(os);
@@ -66,7 +66,7 @@ void load_file()
   if (clearScreens)
     simpleClearScreen();
   //show list of previous saves
-  showLoadableFiles("saves");
+  showLoadableFiles(SAVE_DIR);  //check
 
   std::string file;
   std::cout << "(leave blank to skip) Load File: ";
@@ -87,7 +87,7 @@ void load_file()
       bool mergesuccess = mergeSaves(keep, mergein);
       if (mergesuccess)
       {
-        std::string removestuff = "rm saves/" + mergein + ".dmpsave";
+        std::string removestuff = "rm user/saves/" + mergein + ".dmpsave";
         if (system(removestuff.c_str()))
         {
           std::cout << "unable to remove file '" << mergein << "'\n";
@@ -117,7 +117,7 @@ void load_file()
   else if (file.length() > 0)
   {
     std::ifstream thefile;
-    thefile.open(("saves/" + file + ".dmpsave").c_str());
+    thefile.open((SAVE_DIR + file + ".dmpsave").c_str());
     if (thefile.fail())
     {
       std::cout << "Could not open file (fail triggered)\n";
@@ -204,18 +204,19 @@ void showLoadableFiles(const std::string &dir)
 void truncateSaveForThisVersion(std::string &original, std::string &edited)
 {
   edited.clear();
+  std::size_t pos1 = original.find_last_of("/");
   std::size_t pos2 = original.find(".dmpsave");
 
-  edited = original.substr(7, pos2 - 7);
+  edited = original.substr(pos1 + 1, pos2 - pos1 - 1);
 }
 
 bool mergeSaves(const std::string &keep, const std::string &mergein)
 {
   std::ofstream saveto;
-  saveto.open(("saves/" + keep + ".dmpsave").c_str(), std::ios_base::app); //open write-to file with append
+  saveto.open((SAVE_DIR + keep + ".dmpsave").c_str(), std::ios_base::app); //open write-to file with append
 
   std::ifstream readfrom;
-  readfrom.open(("saves/" + mergein + ".dmpsave").c_str());
+  readfrom.open((SAVE_DIR + mergein + ".dmpsave").c_str());
 
   if (saveto.is_open() && readfrom.is_open())
   {
@@ -242,7 +243,7 @@ void load_file(const std::string &filename)
   if (filename.length() > 0)
   {
     std::ifstream thefile;
-    thefile.open(("saves/" + filename + ".dmpsave").c_str());
+    thefile.open((SAVE_DIR + filename + ".dmpsave").c_str());
     if (thefile.fail())
     {
       std::cout << "Could not open file (fail triggered)\n";
@@ -325,7 +326,7 @@ void auto_save()
   }
   std::ofstream os;
   //save into file
-  os.open(("saves/" + loadedFile + ".dmpsave").c_str());
+  os.open((SAVE_DIR + loadedFile + ".dmpsave").c_str());
   if (os.is_open())
   {
     myGame.dumpCharacter(os);

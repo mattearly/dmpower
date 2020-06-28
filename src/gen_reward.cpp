@@ -5706,7 +5706,7 @@ string Magic_Items::GenerateGemstone(const int &amount, const int &value) const
 {
   string gemstring = "error: check code or gemfile";
   ifstream fileOfGems;
-  fileOfGems.open("./data/gems.dat");
+  fileOfGems.open(DATA_DIR + "gems.dat");
   if (fileOfGems.is_open())
   {
     string tmpName = "";
@@ -5850,7 +5850,7 @@ string Magic_Items::GenerateArt(const int &amount, const int &value) const
 {
   string artstring = "error: check code or artfile";
   ifstream fileOfArt;
-  fileOfArt.open("./data/artObjects.dat");
+  fileOfArt.open(DATA_DIR + "artObjects.dat");
   if (fileOfArt.is_open())
   {
     string tmpName = "";

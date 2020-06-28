@@ -8,7 +8,7 @@ void CharacterName::grabRandomName(string &name)
 {
   ifstream fileOfNames;
   string tmpName;
-  fileOfNames.open("./data/names.dat");
+  fileOfNames.open(DATA_DIR + "names.dat");
 
   if (fileOfNames.is_open())
   {

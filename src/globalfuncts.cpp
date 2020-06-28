@@ -11,6 +11,9 @@ std::string saveVersion = "9"; // oldest version the current saves work with
 std::string mainMessage;
 bool loadSuccess = false;
 std::string loadedFile = "";
+const std::string DATA_DIR = "./data/lists/";
+const std::string SAVE_DIR = "./user/saves/";
+const std::string SETTINGS_FILE_DIR = "./user/settings/userSettings.dat";
 Campaign myGame;
 std::string insult_mode;
 bool clearScreens = true;

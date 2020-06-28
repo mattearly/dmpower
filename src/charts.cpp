@@ -77,7 +77,7 @@ void Charts::displayExperienceChart()
 void Charts::displayPoisonSalesChart()
 {
   fstream poisonfile;
-  poisonfile.open("./data/poisonlist.dat");
+  poisonfile.open(DATA_DIR + "poisonlist.dat");
   if (!poisonfile.is_open())
   {
     cout << "Error Opening poisonlist.dat, check your file.\n\n";
@@ -98,7 +98,7 @@ void Charts::displayPoisonSalesChart()
 void Charts::displayDiseaseChart()
 {
   fstream diseasefile;
-  diseasefile.open("./data/diseaselist.dat");
+  diseasefile.open(DATA_DIR + "diseaselist.dat");
   if (!diseasefile.is_open())
   {
     cout << "Error Opening diseaselist.dat, check your file.\n\n";
@@ -122,7 +122,7 @@ void Charts::displayDiseaseChart()
 void Charts::displayMadnessChart()
 {
   fstream madnessfile;
-  madnessfile.open("./data/madnesslist.dat");
+  madnessfile.open(DATA_DIR + "madnesslist.dat");
   if (!madnessfile.is_open())
   {
     cout << "Error Opening madnesslist.dat, check your file.\n\n";
