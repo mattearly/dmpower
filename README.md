@@ -1,14 +1,14 @@
 # dmpower-dungeons-and-dragons-5e
 
-dmpower is a terminal-based Dungeons & Dragons 5th edition toolkit intended for Dungeon Masters. Its primary use is to hasten game prep and on the fly assistance. dmpower runs in your terminal window and prompts all available options. I take personal care to make sure everything it presents is accurate and stable. Please raise a ticket if you see something that *might* need addressed.
+dmpower is a terminal-based Dungeons & Dragons 5th edition toolkit intended for Dungeon Master's use. Its primary use is to hasten game prep and on the fly assistance. dmpower runs in your terminal window and prompts all available options. I take personal care to make sure everything it presents is accurate and stable.
 
 ## Core Features
 
 ### 5th Edition Player Characters
 
-- All 12 core PHB + DMG classes fully available. 22 different races including all core subraces. Meticulously programmed level class trees. My custom integrated level up system supports levels 1 to 20 and includes random name suggestions, common stat block options, all alignments, all backgrounds + custom background option, all skills, enough languages to shake a stick at, and all core feats. It also gives average HP for both npcs + pcs(pcs start with max first level HP in most common rule), and it tells you all your spell slots for your current level and spec.
-- Save + Load campaigns (which is basically a grouped load of available characters).
-- Character Editor for leveling up existing characters, or breaking some of the rules (intended for DM use to grant additional 'things' for the player). The DM only use feature includes: Edit stats (min=1, max=30), give feats, give skills, change name, change alignment.
+- All 12 core PHB + DMG classes fully available. 22 different races including all core subraces. Meticulously programmed level class trees. Custom integrated level up system supports levels 1 to 20.Includes random name suggestions, common stat block options, all alignments, all backgrounds + custom background option, all skills, enough languages to shake a stick at, and all core feats. It also gives average HP for both npcs + pcs(pcs start with max first level HP in most common rule), and it tells you all your spell slots for your current level and spec.
+- Save + Load campaigns (which is basically a grouped load of characters saved to a file).
+- Character Editor for leveling up existing characters, or breaking some of the rules (intended for DM use to grant additional _things_ for the player). The DM only use feature includes: Edit stats (min=1, max=30), give feats, give skills, change name, change alignment.
 - Limitations: Character Builder doesn't handle equipment, spell memorization choices, multiclassing, or personality traits. NPC classes (warrior, expert, aristocrat) from the DMG are not included.
 
 ### Loot and Randomizers
@@ -30,30 +30,28 @@ dmpower is a terminal-based Dungeons & Dragons 5th edition toolkit intended for 
   - Diseases chart
   - Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
 
-## Build Using CMake
+## Build make
 
 ### Build & Run on Linux (easy and optimal)
 
 #### Dependencies
 
 - git `git`
-- cmake `cmake`
+- make `make`
 - C++14 `g++`
 - boost filesystem `libboost-filesystem-dev`
+
+```sudo apt-get install git make g++ libboost-filesystem-dev```
 
 #### Build and Run
 
 1. `git clone https://github.com/mattearly/dmpower` clone this repo (or go to releases and pick a version, or clone however you are comfortable cloning. I would suggest forking if you are going to work on it and make pull requests.)
-2. `cd dmpower/` change directory to where you downloaded the files
+2. `cd dmpower` change directory to where you downloaded the files
 3. `make run` use this make command to build the program and run it after the build finishes
 
+Use `make help` to see other options.
+
 Install dependencies if something fails to build, error messages should tell you what you need and it is likely one of the above dependencies.
-
-#### One Liner
-
-Installs dependencies, clones dmpower, configures with cmake, builds into a /build/ dir, runs dmpower.
-
-````sudo apt-get install git cmake g++ libboost-filesystem-dev && git clone https://github.com/mattearly/dmpower.git && cd dmpower && mkdir build && cd build && cmake ../ && make && ./dmpower````
 
 ### Run on Windows (easy)
 
@@ -63,13 +61,10 @@ Use [Cygwin](https://www.cygwin.com/), or [WSL](https://msdn.microsoft.com/comma
 - In case of using the Powershell terminal, you will need to activate the ansi color escape with this command:
   - `Set-ItemProperty HKCU:\Console VirtualTerminalLevel -Type DWORD 1`
   - [more discussion on this topic](https://stackoverflow.com/questions/51680709/colored-text-output-in-powershell-console-using-ansi-vt100-codes)
-- I have not tested with Visual Studio. Should work but may need some modifications or project setup.
-
-CMake and it should work with Visual Studio
 
 ### Run on Mac (easy and probably optimal)
 
-May need homebrew for boost libraries. Use CMake.
+About the same as Linux afaik. May need homebrew for boost libraries.
 
 #### Some Screenshots
 
