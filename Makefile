@@ -4,8 +4,8 @@
 #  Nutshell: Creates intermediate objects of all .cpp files within src/ folder
 #            and builds them into a single executable (dmpower) on the root directory.
 #  Reuse: You are welcome to reuse this in your project, just change the first line TARGET
-#  your project name and make any other modifications you see fit, and of course give
-#  credit if you do, that would be awesome.
+#         your project name and make any other modifications you see fit, and of course 
+#         give credit if you do, that would be awesome.
 ##########################################################################################
 
 TARGET = dmpower
