@@ -1,6 +1,6 @@
-# dmpower-dungeons-and-dragons-5e
+# dmpower
 
-dmpower is a terminal-based Dungeons & Dragons 5th edition toolkit intended for Dungeon Master's use. Its primary use is to hasten game prep and on the fly assistance. dmpower runs in your terminal window and prompts all available options. I take personal care to make sure everything it presents is accurate and stable.
+A Dungeons & Dragons 5th edition toolkit intended for Dungeon Master's use. Its primary use is to hasten game prep and on the fly assistance. Runs in your terminal window and prompts all available options.
 
 ## Core Features
 
@@ -30,30 +30,25 @@ dmpower is a terminal-based Dungeons & Dragons 5th edition toolkit intended for 
   - Diseases chart
   - Player problem resolution flowchart walkthrough (based off of and credits to the creator for the idea [Resolving Basic Behavioral Problems in your Tabletop RPG Group: A Flowchart](https://www.reddit.com/r/rpg/comments/3avp57/resolving_basic_behavioral_problems_in_your/)
 
-## Build make
-
-### Build & Run on Linux (easy and optimal)
+## Building dmpower
 
 #### Dependencies
 
-- git `git`
 - make `make`
 - C++14 `g++`
 - boost filesystem `libboost-filesystem-dev`
 
-```sudo apt-get install git make g++ libboost-filesystem-dev```
-
-#### Build and Run
+### Run on Linux
 
 1. `git clone https://github.com/mattearly/dmpower` clone this repo (or go to releases and pick a version, or clone however you are comfortable cloning. I would suggest forking if you are going to work on it and make pull requests.)
 2. `cd dmpower` change directory to where you downloaded the files
-3. `make run` use this make command to build the program and run it after the build finishes
+3. `make run` use this make command to build the program and run it after the build finishes. This is the same as just using `make` and then `./dmpower` afterwords.
 
 Use `make help` to see other options.
 
 Install dependencies if something fails to build, error messages should tell you what you need and it is likely one of the above dependencies.
 
-### Run on Windows (easy)
+### Run on Windows
 
 Use [Cygwin](https://www.cygwin.com/), or [WSL](https://msdn.microsoft.com/commandline/wsl/about), or mingw, or Powershell. Pretty much anything you can get the dependencies on it will work with.
 
@@ -62,7 +57,7 @@ Use [Cygwin](https://www.cygwin.com/), or [WSL](https://msdn.microsoft.com/comma
   - `Set-ItemProperty HKCU:\Console VirtualTerminalLevel -Type DWORD 1`
   - [more discussion on this topic](https://stackoverflow.com/questions/51680709/colored-text-output-in-powershell-console-using-ansi-vt100-codes)
 
-### Run on Mac (easy and probably optimal)
+### Run on Mac
 
 About the same as Linux afaik. May need homebrew for boost libraries.
 
@@ -93,15 +88,17 @@ About the same as Linux afaik. May need homebrew for boost libraries.
 
 ### Legal
 
-This project and I are not directly affiliated with Wizards of the Coast or Hasbro.
+This project and I are not affiliated with Wizards of the Coast or Hasbro. If someone from such company sees this and is interested in discussing anything, please contact me.
 
 dmpower is not to be used for any form of profit or sale.
 
-See the [LICENSE](LICENSE) file for more information.
-
 ### Development
 
-For rolling release notes and versions, see the [releases](https://github.com/mattearly/dmpower-dungeons-and-dragons-5e/releases) tab in Github.
+In development branch named build[n].
+
+Master branch has latest release.
+
+New versions are tagged with release notes when pushed to master, see the [tags/releases](https://github.com/mattearly/dmpower/releases) for all versions with release notes.
 
 ## Special Thanks
 
