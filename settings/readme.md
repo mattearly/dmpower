@@ -1,0 +1,1 @@
+file created to keep settings folder on version control
