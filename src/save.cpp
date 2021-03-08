@@ -7,7 +7,6 @@
 #include <sstream>
 #include <boost/filesystem.hpp>
 
-using namespace boost::filesystem;
 using namespace std;
 
 void showLoadableFiles(const std::string &dir);
@@ -156,7 +155,7 @@ void showLoadableFiles(const std::string &dir)
 {
   // boost way of listing files in a directory - only crossplatform version out there maybe
 
-  const path dir_path(dir);
+  const boost::filesystem::path dir_path(dir);
 
   if (!exists(dir_path))
   {
@@ -168,11 +167,11 @@ void showLoadableFiles(const std::string &dir)
     std::cout << "List of loadable saves:\n";
   }
 
-  directory_iterator end_itr; // default construction yields past-the-end
+  boost::filesystem::directory_iterator end_itr; // default construction yields past-the-end
 
   std::string edited_ver;
   int number_of_loadable_saves = 0;
-  for (directory_iterator itr(dir_path); itr != end_itr; ++itr)
+  for (boost::filesystem::directory_iterator itr(dir_path); itr != end_itr; ++itr)
   {
     std::stringstream ss;
     ss << itr->path();
