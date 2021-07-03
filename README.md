@@ -32,7 +32,7 @@ This is something I wrote in college while learning C++ and Computer Science.
 
 ### Loot and Randomizers
 
-- Randomized Loot (based on the charts in the DM Guide). Horde loot is pretty fun to role, and great for populating lairs/dungeons/poi's.
+- Randomized Loot (based on the charts in the DM Guide). Hoard loot is pretty fun to role, and great for populating lairs/dungeons/poi's.
 - Spellbook Generator to assist with the DM's nightmare that is populating an NPC Wizard Spellbook.
 - Scrolls auto-generate to spells.
 
@@ -42,7 +42,7 @@ This is something I wrote in college while learning C++ and Computer Science.
 - XP Calculator.
 - Insult Generator. Has clean and dirty mode. Easily adapted to new words by editing the settings file [data/lists/insults-dirty.dat](data/lists/insults-dirty.dat) or [data/lists/insults-clean.dat](data/lists/insults-clean.dat) - just note that if you change the number of words in that file, it must be adjusted in the code as well, you'll find the number of words hardcoded in [src/gen_insult.cpp](src/gen_insult.cpp) (to be improved later to be more adaptable and automatic for varying sizes like the name generator already does).
 - Random Encounters. Difficulty Generator that accounts for all party member levels and group size, generates an appropriate Challenge Rating even for the oddest of groups. Seeded from -2 to +2 representing _Very Easy_, _Easy_, _Normal_, _Hard_, _Very Hard_. I'm not sure that this is all that useful yet, I would like to add in mob group generators based on location.
-- I threw in some Charts. There always seems to be at least one player interested in using poison. Madness can be useful in many cases (causing scenarios, things for the PC's to deal with, etc).
+- Charts. There always seems to be at least one player interested in using poison. Madness can be useful in many cases (causing scenarios, things for the PC's to deal with, etc).
   - Level Up chart
   - Poison Prices chart
   - Madness chart
@@ -107,7 +107,7 @@ About the same as Linux afaik. May need homebrew for boost libraries.
 
 ### Legal
 
-This project and I are not affiliated with Wizards of the Coast or Hasbro. This project was something I personally made to assist with my DMing. dmpower is not to be used for any form of profit or sale.
+This project and I are not affiliated with Wizards of the Coast or Hasbro. This project was something I personally made to assist with my DMing. Due to the nature of the game data being used for this software, dmpower is not to be used for any form of profit or sale.
 
 ### Development
 
