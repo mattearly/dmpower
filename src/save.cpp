@@ -5,7 +5,18 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <boost/filesystem.hpp>
+#ifdef __has_include
+#  if __has_include(<filesystem>)
+#    include <filesystem>
+#    define c17_filesystem
+#  elif __has_include(<boost/filesystem.hpp>)
+#    include <boost/filesystem.hpp>
+#    define boost_filesystem
+#  else
+     define no_filesystem
+#  endif
+#endif
+
 
 using namespace std;
 
@@ -154,8 +165,14 @@ void load_file()
 void showLoadableFiles(const std::string &dir)
 {
   // boost way of listing files in a directory - only crossplatform version out there maybe
-
+#if defined(no_filesystem)
+  return;
+#elif defined(boost_filesystem)
   const boost::filesystem::path dir_path(dir);
+#elif defined(c17_filesystem)
+  const std::filesystem::path dir_path(dir);
+#endif
+
 
   if (!exists(dir_path))
   {
@@ -167,11 +184,29 @@ void showLoadableFiles(const std::string &dir)
     std::cout << "List of loadable saves:\n";
   }
 
+
+#if defined(boost_filesystem)
+  //magic
+#elif defined(c17_filesystem)
+  //magic
+#endif
+
+
+#if defined(boost_filesystem)
   boost::filesystem::directory_iterator end_itr; // default construction yields past-the-end
+#elif defined(c17_filesystem)
+  std::filesystem::directory_iterator end_itr; // default construction yields past-the-end
+#endif
+
 
   std::string edited_ver;
   int number_of_loadable_saves = 0;
+
+#if defined(boost_filesystem)
   for (boost::filesystem::directory_iterator itr(dir_path); itr != end_itr; ++itr)
+#elif defined(c17_filesystem)
+  for (std::filesystem::directory_iterator itr(dir_path); itr != end_itr; ++itr)
+#endif
   {
     std::stringstream ss;
     ss << itr->path();
