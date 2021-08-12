@@ -1,8 +1,8 @@
 # dmpower
 
-A Dungeons & Dragons 5th edition toolkit intended for Dungeon Master's use. Its primary use is to hasten game prep and on the fly assistance. Runs in your terminal window and prompts all available options.
-
-This is something I wrote in college while learning C++ and Computer Science.
+A Dungeons & Dragons 5th edition toolkit intended for Dungeon Masters.  
+Its primary use is to hasten game prep and on the fly assistance.  
+dmpower runs in a terminal window and prompts all available options.  
 
 ## Core Feature
 
@@ -51,34 +51,11 @@ This is something I wrote in college while learning C++ and Computer Science.
 
 ## Building dmpower
 
+- Use CMake for the toolchain of your preference
+
 #### Dependencies
 
-- make `make`
-- C++14 `g++`
-- boost filesystem `libboost-filesystem-dev`
-
-### Run on Linux
-
-1. `git clone https://github.com/mattearly/dmpower` clone this repo (or go to releases and pick a version, or clone however you are comfortable cloning. I would suggest forking if you are going to work on it and make pull requests.)
-2. `cd dmpower` change directory to where you downloaded the files
-3. `make run` use this make command to build the program and run it after the build finishes. This is the same as just using `make` and then `./dmpower` afterwords.
-
-Use `make help` to see other options.
-
-Install dependencies if something fails to build, error messages should tell you what you need and it is likely one of the above dependencies.
-
-### Run on Windows
-
-Use [Cygwin](https://www.cygwin.com/), or [WSL](https://msdn.microsoft.com/commandline/wsl/about), or mingw, or Powershell. Pretty much anything you can get the dependencies on it will work with.
-
-- If you are using Cygwin, you will need the packages `gcc-core`, `make`, `libboost-devel`, and of course `git` for the git clone command, then it should work just like the linux build and run above.
-- In case of using the Powershell terminal, you will need to activate the ansi color escape with this command:
-  - `Set-ItemProperty HKCU:\Console VirtualTerminalLevel -Type DWORD 1`
-  - [more discussion on this topic](https://stackoverflow.com/questions/51680709/colored-text-output-in-powershell-console-using-ansi-vt100-codes)
-
-### Run on Mac
-
-About the same as Linux afaik. May need homebrew for boost libraries.
+- C++17
 
 #### Some Screenshots
 
