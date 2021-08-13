@@ -12,8 +12,7 @@ std::string mainMessage;
 bool loadSuccess = false;
 std::string loadedFile = "";
 const std::string DATA_DIR = "./data/lists/";
-const std::string SAVE_DIR = "./saves/";
-const std::string SETTINGS_FILE_DIR = "./settings/userSettings.dat";
+
 Campaign myGame;
 std::string insult_mode;
 bool clearScreens = true;
@@ -153,9 +152,8 @@ int randomNumber(const int &start, const int &end)
 
 int getAbilityMod(const int &ability)
 {
-  float tmp = (ability - 10) / 2;
-  int mod = floor(tmp);
-  return mod;
+  float tmp = floor((ability - 10) / 2.f);
+  return static_cast<int>(tmp);
 }
 
 int getNumber(const std::string &message, const int &a, const int &b)

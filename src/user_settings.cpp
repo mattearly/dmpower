@@ -3,8 +3,9 @@
 #include <fstream>
 #include <string>
 
+
 bool saveUserSettings() {
-  std::ofstream saveFileStream(SETTINGS_FILE_DIR);
+  std::ofstream saveFileStream(SETTINGS_SAVE_DIR + "/userSettings.dat");
   if (saveFileStream.is_open()) {
     saveFileStream << "insults=\"" << insult_mode << "\"" << '\n';
     saveFileStream << clearScreens << '\n';
@@ -68,7 +69,7 @@ void change_settings() {
 ///
 void set_user_pref_from_file() {
   std::ifstream is;
-  is.open(SETTINGS_FILE_DIR);
+  is.open((SETTINGS_SAVE_DIR + "/userSettings.dat").c_str());
   if (is.is_open()) {
     std::string readinstring;
 

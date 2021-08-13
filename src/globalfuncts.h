@@ -15,26 +15,25 @@ extern bool autoSave;
 extern bool autoLoad;
 extern std::string buildNumber;
 extern bool is_random; // for random character gen
-extern void save_file();
-extern void load_file();
-extern void load_file(const std::string& filename);
 extern bool quitBuilding;
 extern std::string lastSave;
 extern std::string mainMessage;
 extern std::string loadedFile;
 extern const std::string DATA_DIR;
-extern const std::string SAVE_DIR;
-extern const std::string SETTINGS_FILE_DIR;
-extern void note_last_save(const std::string& save_name);
+extern const std::string CAMPAIGN_SAVE_DIR;
+extern const std::string SETTINGS_SAVE_DIR;
 extern bool loadSuccess;
 extern std::string saveVersion;
 extern std::string insult_mode;
 extern void menu();
 extern void set_user_pref_from_file();
-extern void load_last_save();
-extern void auto_save();
 extern std::string insult_mode;
 extern bool clearScreens;
+
+extern void load_last_save();
+extern void load_file();
+extern void auto_save();
+extern void save_file();
 
 const int LARGEST_INPUT_DIGITS = 3;
 

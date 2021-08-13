@@ -5,217 +5,104 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#ifdef __has_include
-#  if __has_include(<filesystem>)
-#    include <filesystem>
-#    define c17_filesystem
-#  elif __has_include(<boost/filesystem.hpp>)
-#    include <boost/filesystem.hpp>
-#    define boost_filesystem
-#  else
-     define no_filesystem
-#  endif
+#include <filesystem>
+
+#if defined(_WIN32)
+#  include <windows.h>
+#  include <shlobj.h>
+#  include <objbase.h>
+
+
+std::filesystem::path get_user_profile_path() {
+  wchar_t* p;
+  if (S_OK != SHGetKnownFolderPath(FOLDERID_Profile, 0, NULL, &p)) return "";
+  std::filesystem::path result = p;
+  CoTaskMemFree(p);
+  return result;
+}
+
+const std::filesystem::path user_profile_path = get_user_profile_path();
+const std::string os_app_data = "/AppData/Local/dmpower";
+const std::string ROOT_SAVE_DIR = user_profile_path.string() + os_app_data;
+
+#  include <fileapi.h>
+bool create_a_final_dir(const char* path) {
+  bool ret_val = CreateDirectoryA(path, NULL);
+  if (ret_val == 0) {
+    DWORD last_error = GetLastError();
+    if (last_error == ERROR_ALREADY_EXISTS) {
+      // perfectly fine
+    } else if (last_error == ERROR_PATH_NOT_FOUND) {
+      std::cout << "!!!!!!!!DEBUG!!!!!!!!!!!!!\n";
+      std::cout << "path " << ROOT_SAVE_DIR << " NOT FOUND (not final part only?)";
+    }
+  }
+  return ret_val;
+}
+
+
+#elif defined(UNIX)
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <cstdlib>
+char* userprofile = std::getenv("USERPROFILE");
+char* get_user_profile_path() {
+  char* userprofile = std::getenv("USERPROFILE");
+  return userprofile;
+}
+
+const std::string os_app_data = "$HOME/dmpower";
+const char* user_profile_path = get_user_profile_path();
+const std::string ROOT_SAVE_DIR = user_profile_path + os_app_data;
+
+bool create_a_final_dir(const char* path) {
+  const std::string create_path = "mkdir -p " + path;
+  bool ret_val = system(create_path); // Creating a directory
+  if (ret_val == -1)
+    if (errno == EEXIST)
+      ret_val = 0;  // fine
+  cerr << "Error : " << strerror(errno) << endl;
+    else
+      cout << "Directories are created" << endl;
+  return ret_val;  // zero is good
+}
+
+
 #endif
 
+const std::string CAMPAIGN_SAVE_DIR = ROOT_SAVE_DIR + "/saves";
+const std::string SETTINGS_SAVE_DIR = ROOT_SAVE_DIR + "/settings";
 
-using namespace std;
+void truncateSaveForThisVersion(std::string& original, std::string& edited) {
+  edited.clear();
+  std::size_t pos1 = original.find_last_of("/\\");
+  std::size_t pos2 = original.find(".dmpsave");
 
-void showLoadableFiles(const std::string &dir);
-
-void truncateSaveForThisVersion(std::string &original, std::string &edited);
-
-bool mergeSaves(const std::string &keep, const std::string &mergein);
-
-void save_file()
-{
-  if (myGame.character_list.empty())
-  {
-    mainMessage = "Nothing to save - character list empty";
-    return;
-  }
-
-  std::string file;
-  std::ofstream os;
-  if (loadSuccess == false)
-  {
-    std::cout << "Save As: ";
-    bool done_first_pass = false;
-    bool contains_non_alpha = true;
-    do
-    {
-      if (done_first_pass)
-      {
-        std::cout << file << " is an invalid name. Use only characters a-z & A-Z & 0-9\n";
-        std::cout << "Save As: ";
-      }
-      std::getline(std::cin, file, '\n');
-      reduce(file);
-      contains_non_alpha = file.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") != std::string::npos;
-      done_first_pass = true;
-    } while (contains_non_alpha);
-  }
-  else
-  {
-    file = loadedFile;
-  }
-  //save into file after above is complete
-  os.open((SAVE_DIR + file + ".dmpsave").c_str());
-  if (os.is_open())
-  {
-    myGame.dumpCharacter(os);
-    mainMessage = "All data saved in file: " + file;
-    loadSuccess = true;
-    loadedFile = file;
-    note_last_save(loadedFile);
-    os.close();
-  }
+  edited = original.substr(pos1 + 1, pos2 - pos1 - 1);
 }
-
-void load_file()
-{
-  if (clearScreens)
-    simpleClearScreen();
-  //show list of previous saves
-  showLoadableFiles(SAVE_DIR);  //check
-
-  std::string file;
-  std::cout << "(leave blank to skip) Load File: ";
-  std::getline(std::cin, file, '\n');
-  reduce(file);
-
-  //combine saves option
-  // if the word is combine followed by a space,
-  // the next 2 words should be the one to keep and the one to merge in
-  if (file.substr(0, 8) == "combine ")
-  {
-    std::string keep, mergein;
-    if (file.find_first_of(" ", 8) != std::string::npos)
-    {
-      size_t pos1 = file.find_first_of(" ", 8);
-      keep = file.substr(8, pos1 - 8);
-      mergein = file.substr(pos1 + 1);
-      bool mergesuccess = mergeSaves(keep, mergein);
-      if (mergesuccess)
-      {
-        std::string removestuff = "rm user/saves/" + mergein + ".dmpsave";
-        if (system(removestuff.c_str()))
-        {
-          std::cout << "unable to remove file '" << mergein << "'\n";
-        }
-        load_file();
-      }
-    }
-  }
-
-  // delete saves option
-  // if the word is delete followed by a space, the next word should be the file to delete
-  else if (file.substr(0, 7) == "delete ")
-  {
-    std::string fileToRemove;
-    if (file.find_first_not_of(" ", 7) != std::string::npos)
-    {
-      size_t pos1 = file.find_first_of(" ", 7);
-      fileToRemove = file.substr(7, pos1 - 7);
-      std::string removestuff = "rm saves/" + fileToRemove + ".dmpsave";
-      if (system(removestuff.c_str()))
-      {
-        std::cout << "unable to remove file '" << fileToRemove << "'\n";
-      }
-      load_file();
-    }
-  }
-  else if (file.length() > 0)
-  {
-    std::ifstream thefile;
-    thefile.open((SAVE_DIR + file + ".dmpsave").c_str());
-    if (thefile.fail())
-    {
-      std::cout << "Could not open file (fail triggered)\n";
-      return;
-    }
-    if (thefile.is_open())
-    {
-      int return_code = myGame.retrieveCharacter(thefile);
-
-      // notify user of the result of the load
-      switch (return_code)
-      {
-      case 1:
-        mainMessage = "File '" + file + "' loaded.";
-        loadedFile = file;
-        loadSuccess = true;
-        break;
-      case 0:
-        mainMessage = "Failed to load file: " + file + ", failed to set CLASS";
-        break;
-      case -1:
-        mainMessage = "Failed to load file: " + file + ", your save version is too old!";
-        break;
-      case -2:
-        mainMessage = "Failed to load file: " + file + ", this dmpower client is too old!";
-        break;
-      default:
-        mainMessage = "Failed to load file: " + file + ", generic failure";
-        break;
-      }
-    }
-  }
-}
-
-void showLoadableFiles(const std::string &dir)
-{
-  // boost way of listing files in a directory - only crossplatform version out there maybe
-#if defined(no_filesystem)
-  return;
-#elif defined(boost_filesystem)
-  const boost::filesystem::path dir_path(dir);
-#elif defined(c17_filesystem)
+void showLoadableFiles(const std::string& dir) {
   const std::filesystem::path dir_path(dir);
-#endif
 
-
-  if (!exists(dir_path))
-  {
+  if (!exists(dir_path)) {
     std::cout << "showLoadableFiles: path to directory (" << dir << ") does not exist\n";
     return;
-  }
-  else
-  {
+  } else {
     std::cout << "List of loadable saves:\n";
   }
 
-
-#if defined(boost_filesystem)
-  //magic
-#elif defined(c17_filesystem)
-  //magic
-#endif
-
-
-#if defined(boost_filesystem)
-  boost::filesystem::directory_iterator end_itr; // default construction yields past-the-end
-#elif defined(c17_filesystem)
   std::filesystem::directory_iterator end_itr; // default construction yields past-the-end
-#endif
-
 
   std::string edited_ver;
   int number_of_loadable_saves = 0;
 
-#if defined(boost_filesystem)
-  for (boost::filesystem::directory_iterator itr(dir_path); itr != end_itr; ++itr)
-#elif defined(c17_filesystem)
-  for (std::filesystem::directory_iterator itr(dir_path); itr != end_itr; ++itr)
-#endif
-  {
+  for (std::filesystem::directory_iterator itr(dir_path); itr != end_itr; ++itr) {
     std::stringstream ss;
     ss << itr->path();
     std::string original_ver;
     ss >> original_ver;
 
     //ignore anything that is not *.dmpsave
-    if (original_ver.find(".dmpsave") == std::string::npos)
-    {
+    if (original_ver.find(".dmpsave") == std::string::npos) {
       continue;
     }
 
@@ -226,70 +113,64 @@ void showLoadableFiles(const std::string &dir)
   }
   std::cout << '\n';
 
-  if (number_of_loadable_saves > 0)
-  {
+  if (number_of_loadable_saves > 0) {
     std::cout << YELLOW << "additional save management commands:" << RESET << '\n';
-    cout << "   combine 2 files: '" << GREEN << "combine SaveToKeep SaveToMergeIn" << RESET << "'\n";
-    cout << "   delete a file: '" << GREEN << "delete SaveToDelete" << RESET << "'\n";
+    std::cout << "   combine 2 files: '" << GREEN << "combine SaveToKeep SaveToMergeIn" << RESET << "'\n";
+    std::cout << "   delete a file: '" << GREEN << "delete SaveToDelete" << RESET << "'\n";
     std::cout << '\n';
   }
 }
-
-void truncateSaveForThisVersion(std::string &original, std::string &edited)
-{
-  edited.clear();
-  std::size_t pos1 = original.find_last_of("/");
-  std::size_t pos2 = original.find(".dmpsave");
-
-  edited = original.substr(pos1 + 1, pos2 - pos1 - 1);
-}
-
-bool mergeSaves(const std::string &keep, const std::string &mergein)
-{
+bool mergeSaves(const std::string& keep, const std::string& mergein) {
   std::ofstream saveto;
-  saveto.open((SAVE_DIR + keep + ".dmpsave").c_str(), std::ios_base::app); //open write-to file with append
+  saveto.open((CAMPAIGN_SAVE_DIR + "/" + keep + ".dmpsave").c_str(), std::ios_base::app); //open write-to file with append
 
   std::ifstream readfrom;
-  readfrom.open((SAVE_DIR + mergein + ".dmpsave").c_str());
+  readfrom.open((CAMPAIGN_SAVE_DIR + "/" + mergein + ".dmpsave").c_str());
 
-  if (saveto.is_open() && readfrom.is_open())
-  {
+  if (saveto.is_open() && readfrom.is_open()) {
     std::string tmp;
     getline(readfrom, tmp); // eat the first line which is the save version
-    do
-    {
+    do {
       std::getline(readfrom, tmp);
       if (readfrom.eof())
         break;
       saveto << tmp << '\n';
     } while (!readfrom.eof());
     return true;
-  }
-  else
-  {
+  } else {
     std::cout << "Error opening both requested files\n";
   }
   return false;
 }
-
-void load_file(const std::string &filename)
-{
-  if (filename.length() > 0)
-  {
+void createUserFolders() {
+  // create these directories to make sure they exist
+  create_a_final_dir(ROOT_SAVE_DIR.c_str());
+  create_a_final_dir(CAMPAIGN_SAVE_DIR.c_str());
+  create_a_final_dir(SETTINGS_SAVE_DIR.c_str());
+}
+void note_last_save(const std::string& save_name) {
+  /** Routine to take note of the last save so that load_last_save() func can use it. */
+  lastSave = save_name;
+  std::ofstream os((SETTINGS_SAVE_DIR + "/lastSave.dat").c_str());
+  if (os.is_open()) {
+    os << lastSave;
+  } else {
+    lastSave.clear();
+  }
+}
+void load_file(const std::string& filename) {
+  if (filename.length() > 0) {
     std::ifstream thefile;
-    thefile.open((SAVE_DIR + filename + ".dmpsave").c_str());
-    if (thefile.fail())
-    {
+    thefile.open((CAMPAIGN_SAVE_DIR + "/" + filename + ".dmpsave").c_str());
+    if (thefile.fail()) {
       std::cout << "Could not open file (fail triggered)\n";
       return;
     }
-    if (thefile.is_open())
-    {
+    if (thefile.is_open()) {
       int return_code = myGame.retrieveCharacter(thefile);
 
       // notify user of the result of the load
-      switch (return_code)
-      {
+      switch (return_code) {
       case 1:
         mainMessage = "File '" + filename + "' loaded.";
         loadedFile = filename;
@@ -312,17 +193,16 @@ void load_file(const std::string &filename)
   }
 }
 
-/** Routine to check what the user last saved and load it. Variable last_save is cleared if this fails. */
-void load_last_save()
-{
+// called from outside
+
+void load_last_save() {
+  /** Routine to check what the user last saved and load it. Variable last_save is cleared if this fails. */
   lastSave.clear();
-  std::ifstream fs("./settings/lastSave.dat");
-  if (fs.is_open())
-  {
+  std::ifstream fs(SETTINGS_SAVE_DIR + "/lastSave.dat");
+  if (fs.is_open()) {
     std::string holder;
     std::getline(fs, holder); // should be the first line
-    if (!holder.empty())
-    {
+    if (!holder.empty()) {
       lastSave = holder;
     }
 
@@ -336,48 +216,146 @@ void load_last_save()
     // }
   }
 }
+void load_file() {
+  if (clearScreens)
+    simpleClearScreen();
+  //show list of previous saves
+  showLoadableFiles(CAMPAIGN_SAVE_DIR);  //check
 
-/** Routine to take not of the last save so that load_last_save() func can use it. */
-void note_last_save(const std::string &save_name)
-{
-  lastSave = save_name;
-  std::ofstream os("./settings/lastSave.dat");
-  if (os.is_open())
-  {
-    os << lastSave;
+  std::string file;
+  std::cout << "(leave blank to skip) Load File: ";
+  std::getline(std::cin, file, '\n');
+  reduce(file);
+
+  //combine saves option
+  // if the word is combine followed by a space,
+  // the next 2 words should be the one to keep and the one to merge in
+  if (file.substr(0, 8) == "combine ") {
+    std::string keep, mergein;
+    if (file.find_first_of(" ", 8) != std::string::npos) {
+      size_t pos1 = file.find_first_of(" ", 8);
+      keep = file.substr(8, pos1 - 8);
+      mergein = file.substr(pos1 + 1);
+      bool mergesuccess = mergeSaves(keep, mergein);
+      if (mergesuccess) {
+        std::string removestuff = "rm user/saves/" + mergein + ".dmpsave";
+        if (system(removestuff.c_str())) {
+          std::cout << "unable to remove file '" << mergein << "'\n";
+        }
+        load_file();
+      }
+    }
   }
-  else
-  {
-    lastSave.clear();
+
+  // delete saves option
+  // if the word is delete followed by a space, the next word should be the file to delete
+  else if (file.substr(0, 7) == "delete ") {
+    std::cout << "function removed\n";
+    /*std::string fileToRemove;
+    if (file.find_first_not_of(" ", 7) != std::string::npos) {
+      size_t pos1 = file.find_first_of(" ", 7);
+      fileToRemove = file.substr(7, pos1 - 7);
+      std::string removestuff = "rm saves/" + fileToRemove + ".dmpsave";
+      if (system(removestuff.c_str())) {
+        std::cout << "unable to remove file '" << fileToRemove << "'\n";
+      }
+      load_file();
+    }*/
+  } else if (file.length() > 0) {
+    std::ifstream thefile;
+    thefile.open((CAMPAIGN_SAVE_DIR + "/" + file + ".dmpsave").c_str());
+    if (thefile.fail()) {
+      std::cout << "Could not open file (fail triggered)\n";
+      return;
+    }
+    if (thefile.is_open()) {
+      int return_code = myGame.retrieveCharacter(thefile);
+
+      // notify user of the result of the load
+      switch (return_code) {
+      case 1:
+        mainMessage = "File '" + file + "' loaded.";
+        loadedFile = file;
+        loadSuccess = true;
+        break;
+      case 0:
+        mainMessage = "Failed to load file: " + file + ", failed to set CLASS";
+        break;
+      case -1:
+        mainMessage = "Failed to load file: " + file + ", your save version is too old!";
+        break;
+      case -2:
+        mainMessage = "Failed to load file: " + file + ", this dmpower client is too old!";
+        break;
+      default:
+        mainMessage = "Failed to load file: " + file + ", generic failure";
+        break;
+      }
+    }
   }
 }
-
-void auto_save()
-{
-  if (loadedFile.empty())
-  {
+void auto_save() {
+  if (loadedFile.empty()) {
     return; // no file to save too, can't auto-save, load something or save something first
   }
+
+  createUserFolders();
+
   std::ofstream os;
   //save into file
-  os.open((SAVE_DIR + loadedFile + ".dmpsave").c_str());
-  if (os.is_open())
-  {
+  os.open((CAMPAIGN_SAVE_DIR + "/" + loadedFile + ".dmpsave").c_str());
+  if (os.is_open()) {
     myGame.dumpCharacter(os);
 
-    if (mainMessage.size() < 1)
-    {
+    if (mainMessage.size() < 1) {
       mainMessage.clear();
       mainMessage = "Auto Saved to: ";
       mainMessage += loadedFile;
-    }
-    else
-    {
+    } else {
       mainMessage += ". Auto Saved to: ";
       mainMessage += loadedFile;
     }
 
     loadSuccess = true;
+    note_last_save(loadedFile);
+    os.close();
+  }
+}
+void save_file() {
+  if (myGame.character_list.empty()) {
+    mainMessage = "Nothing to save - character list empty";
+    return;
+  }
+
+  createUserFolders();
+
+  // get file save as (with check and reduce) from user
+  std::string file;
+  std::ofstream os;
+  if (loadSuccess == false) {
+    std::cout << "Save As: ";
+    bool done_first_pass = false;
+    bool contains_non_alpha = true;
+    do {
+      if (done_first_pass) {
+        std::cout << file << " is an invalid name. Use only characters a-z & A-Z & 0-9\n";
+        std::cout << "Save As: ";
+      }
+      std::getline(std::cin, file, '\n');
+      reduce(file);
+      contains_non_alpha = file.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") != std::string::npos;
+      done_first_pass = true;
+    } while (contains_non_alpha);
+  } else {
+    file = loadedFile;
+  }
+  //save into save path after above is complete
+  os.open((CAMPAIGN_SAVE_DIR + "/" + file + ".dmpsave").c_str());
+  if (os.is_open()) {
+    myGame.dumpCharacter(os);
+    mainMessage = "All data saved in file: " + file;
+    loadSuccess = true;
+    loadedFile = file;
     note_last_save(loadedFile);
     os.close();
   }
