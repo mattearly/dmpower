@@ -30,6 +30,7 @@ extern void set_user_pref_from_file();
 extern std::string insult_mode;
 extern bool clearScreens;
 
+extern void createUserFolders();
 extern void load_last_save();
 extern void load_file();
 extern void auto_save();

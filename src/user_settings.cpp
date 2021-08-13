@@ -5,6 +5,7 @@
 
 
 bool saveUserSettings() {
+  createUserFolders();
   std::ofstream saveFileStream(SETTINGS_SAVE_DIR + "/userSettings.dat");
   if (saveFileStream.is_open()) {
     saveFileStream << "insults=\"" << insult_mode << "\"" << '\n';
