@@ -69,7 +69,7 @@ Exports go to `%USERPROFILE%/DMpowerExports/`.  Saves and settings go to `%USERP
 
 ##### MAC
 
-Haven't set up set, anyone is welcome to and make a pull request.
+Haven't set up, should be similar to linux.
 
 #### Some Screenshots
 
