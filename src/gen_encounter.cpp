@@ -38,7 +38,7 @@ void Encounter::set_party_level()
     cout << "Enter level of party member #" << i + 1 << "(max=20):";
     tmp += getNumber(1, 20);
   }
-  ave_lvl = floor(tmp / partysize);
+  ave_lvl = static_cast<int>(floor(tmp / static_cast<float>(partysize)));
 }
 
 std::string Encounter::getDifficulty(const int &val)
