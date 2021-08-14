@@ -57,6 +57,20 @@ dmpower runs in a terminal window and prompts all available options.
 
 - C++17
 
+#### Data
+
+##### Windows
+
+Exports go to `%USERPROFILE%/Documents/DMpowerExports/`.  Saves and settings go to `%USERPROFILE%/AppData/Local/dmpower`
+ 
+##### Linux
+
+Exports go to `%USERPROFILE%/DMpowerExports/`.  Saves and settings go to `%USERPROFILE%/.dmpower`
+
+##### MAC
+
+Haven't set up set, anyone is welcome to and make a pull request.
+
 #### Some Screenshots
 
 *Screenshots taken on Windows Cygwin64 with green default text and black background. Your experience will vary depending on your terminal settings.*
