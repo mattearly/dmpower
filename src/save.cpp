@@ -130,26 +130,28 @@ void showLoadableFiles(const std::string& dir) {
   }
 }
 bool mergeSaves(const std::string& keep, const std::string& mergein) {
-  std::ofstream saveto;
-  saveto.open((CAMPAIGN_SAVE_DIR + "/" + keep + ".dmpsave").c_str(), std::ios_base::app); //open write-to file with append
+  std::cout << "mergeSaves function disabled\n";
+  //std::ofstream saveto;
+  //saveto.open((CAMPAIGN_SAVE_DIR + "/" + keep + ".dmpsave").c_str(), std::ios_base::app); //open write-to file with append
 
-  std::ifstream readfrom;
-  readfrom.open((CAMPAIGN_SAVE_DIR + "/" + mergein + ".dmpsave").c_str());
+  //std::ifstream readfrom;
+  //readfrom.open((CAMPAIGN_SAVE_DIR + "/" + mergein + ".dmpsave").c_str());
 
-  if (saveto.is_open() && readfrom.is_open()) {
-    std::string tmp;
-    getline(readfrom, tmp); // eat the first line which is the save version
-    do {
-      std::getline(readfrom, tmp);
-      if (readfrom.eof())
-        break;
-      saveto << tmp << '\n';
-    } while (!readfrom.eof());
-    return true;
-  } else {
-    std::cout << "Error opening both requested files\n";
-  }
-  return false;
+  //if (saveto.is_open() && readfrom.is_open()) {
+  //  std::string tmp;
+  //  getline(readfrom, tmp); // eat the first line which is the save version
+  //  do {
+  //    std::getline(readfrom, tmp);
+  //    if (readfrom.eof())
+  //      break;
+  //    saveto << tmp << '\n';
+  //  } while (!readfrom.eof());
+  //  return true;
+  //} else {
+  //  std::cout << "Error opening both requested files\n";
+  //}
+  //return false;
+  return true;
 }
 void createUserFolders() {
   // create these directories to make sure they exist
