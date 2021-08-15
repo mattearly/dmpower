@@ -10,4 +10,8 @@ add_executable(${PROJECT_NAME} ${SRC_FILES})
 # runtime data
 file(COPY "${PROJECT_SOURCE_DIR}/data/lists/" DESTINATION "${CMAKE_BINARY_DIR}/data/lists/")
 
+if (UNIX)
+    target_link_libraries(${PROJECT_NAME} PRIVATE -lstdc++fs)
+endif()
+
 
