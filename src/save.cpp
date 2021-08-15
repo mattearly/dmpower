@@ -35,7 +35,7 @@ bool create_dir(const char* path) {
       wasSuccessful = true;
     } else if (last_error == ERROR_PATH_NOT_FOUND) {
       std::cout << "!!!!!!!!DEBUG!!!!!!!!!!!!!\n";
-      std::cout << "path " << ROOT_SAVE_DIR << " NOT FOUND (not final part only?)";
+      std::cout << "path: " << path << " NOT FOUND (not final part only?)\n";
     }
   }
   return wasSuccessful;
@@ -78,6 +78,7 @@ bool create_dir(const char* path) {
 
 
 const std::string DOCUMENT_SAVE_DIR = ROOT_SAVE_DIR + user_document_area;
+const std::string APP_DATA_DIR = ROOT_SAVE_DIR + os_app_data;
 const std::string CAMPAIGN_SAVE_DIR = ROOT_SAVE_DIR + os_app_data + "/saves";
 const std::string SETTINGS_SAVE_DIR = ROOT_SAVE_DIR + os_app_data + "/settings";
 
@@ -157,6 +158,9 @@ void createUserFolders() {
   // create these directories to make sure they exist
   if (create_dir(ROOT_SAVE_DIR.c_str()))
     std::cout << ROOT_SAVE_DIR << " now exists" << std::endl;
+
+  if (create_dir(APP_DATA_DIR.c_str()))
+    std::cout << APP_DATA_DIR << " now exists" << std::endl;
 
   if (create_dir(CAMPAIGN_SAVE_DIR.c_str()))
     std::cout << CAMPAIGN_SAVE_DIR << " now exists" << std::endl;
