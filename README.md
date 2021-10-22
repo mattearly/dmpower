@@ -1,32 +1,39 @@
 # dmpower
 
-A Dungeons & Dragons 5th edition toolkit intended for Dungeon Masters.  
+A Dungeons & Dragons 5th edition command line toolkit.
+
+Screenshots: [screenshots imgur link](https://imgur.com/a/S3t73rI)
+*Screenshots taken on Windows Cygwin64 with green default text and black background. Your experience will vary depending on your terminal settings.*
+
 Its primary use is to hasten game prep and on the fly assistance.  
 dmpower runs in a terminal window and prompts all available options.  
+See the books listed near the bottom for what books have been integrated into this tool.
+Please note: This is a just a personal side project thing I did for fun/practice/my own use. There is no funding or support and as such you should not expect anything.
 
 ## Core Feature
 
-### 5th Edition Characters (PCs or NPCs)
+### 5th Edition Character builder and Manager (PCs or NPCs)
 
-- All 12 core PHB + DMG classes fully available. 
-- 22 different races including all core subraces. 
-- Meticulously programmed level class trees. 
-- Integrated level up system supports levels 1 to 20. 
-- Random name suggestions.
-- Common starter stat rolling options (3d6, 4d6 drop lowest, point buy). 
-- All core backgrounds + custom background option
-- All skills
-- Enough languages to shake a stick at.
-- All core feats. 
-- Average HP for both npcs + pcs(pcs start with max first level HP in most common rule)
-- Spell slots for your current level and spec.
-- Save/Load campaigns (which is basically a set of characters).
-- Character Editor for leveling up existing characters.
-- DM Power: Edit stats (min=1, max=30), give feats, give skills, change name, change alignment.
+For Players or Dungeon Masters:
+- Main 12 D&D Character Classes. 
+- 22 different races including core subraces. 
+- Fully programmed level 1-20 class trees and level up system.
+- Common starter stats options (3d6, 4d6 drop lowest, point buy). 
+- Backgrounds + Custom Background Option (4 things of your choice with a custom background name)
+- Feats
+- Skills
+- Languages
+- Standard HP Averaging (mostly as an fyi) (pcs start with max first level HP in most common rule)
+- Spell Slots Auto Calculated by level/class/race features
+- Save/Load with plain text (integrated into user folders on your OS).
+- Export with plain text (saves to documents folder on your OS).
 
-#### Limitations
+For Dungeon Masters:
+- Character Editor with override options: Edit stats (min=1, max=30), give feats, give skills, change name, change alignment.
+- Randomized character option.
 
-- Character Builder doesn't handle equipment, spell memorization choices, multiclassing, or personality traits. NPC classes (warrior, expert, aristocrat) from the DMG are also not included.
+Limitations:
+- Currently, the Character Builder doesn't handle equipment, spell memorization choices, multiclassing, or personality traits. NPC classes (warrior, expert, aristocrat) from the DMG are also not included.
 
 ## Other Features
 
@@ -51,13 +58,13 @@ dmpower runs in a terminal window and prompts all available options.
 
 ## Building dmpower
 
-- Use CMake for the toolchain of your preference
+- Use CMake to generate for the toolchain of your preference
 
 #### Dependencies
 
 - C++17
 
-#### Data
+#### Stored Data and Saves
 
 ##### Windows
 
@@ -71,15 +78,9 @@ Exports go to `%USERPROFILE%/DMpowerExports/`.  Saves and settings go to `%USERP
 
 Haven't set up, should be similar to linux.
 
-#### Some Screenshots
-
-*Screenshots taken on Windows Cygwin64 with green default text and black background. Your experience will vary depending on your terminal settings.*
-
-[screenshots imgur link](https://imgur.com/a/S3t73rI)
-
 ## Sources
 
-### Books
+### Books Currently Integrated  
 
 - [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook)
 - [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide)
@@ -98,7 +99,7 @@ Haven't set up, should be similar to linux.
 
 ### Legal
 
-This project and I are not affiliated with Wizards of the Coast or Hasbro. This project was something I personally made to assist with my DMing. Due to the nature of the game data being used for this software, dmpower is not to be used for any form of profit or sale.
+This project and I are not affiliated with Wizards of the Coast or Hasbro. This project was something I personally made to assist with my own personal dming needs. Due to the nature of the game data being used for this software, dmpower is not to be used for any form of profit or sale and no support is provided.
 
 ### Development
 
