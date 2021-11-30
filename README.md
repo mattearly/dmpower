@@ -1,40 +1,46 @@
-# dmpower
-
+# DMPOWER
 A Dungeons & Dragons 5th edition toolkit intended for Dungeon Masters.  
 Its primary use is to hasten game prep and on the fly assistance.  
 dmpower runs in a terminal window and prompts all available options.  
 
-## Core Feature
+## Main Features
 
-### 5th Edition Characters (PCs or NPCs)
+### 5th Edition Characters Creator and Maintainer
 
-- All 12 core PHB + DMG classes fully available. 
-- 22 different races including all core subraces. 
-- Meticulously programmed level class trees. 
-- Integrated level up system supports levels 1 to 20. 
-- Random name suggestions.
-- Common starter stat rolling options (3d6, 4d6 drop lowest, point buy). 
-- All core backgrounds + custom background option
-- All skills
-- Enough languages to shake a stick at.
-- All core feats. 
-- Average HP for both npcs + pcs(pcs start with max first level HP in most common rule)
-- Spell slots for your current level and spec.
-- Save/Load campaigns (which is basically a set of characters).
-- Character Editor for leveling up existing characters.
-- DM Power: Edit stats (min=1, max=30), give feats, give skills, change name, change alignment.
+- Levels One to Twenty class trees for all twelve core Character Classes
+- Twenty-two different class races.
+- All core skills, feats, variants, langauges, spell slots.
+- All core background choices or use custom background option.
+- Starter stat rolling options:
+  - custom entry 
+  - standard point buy
+  - normal 3d6
+  - high powered 4d6 drop lowest
+- Save/Load sets of characters (Campaigns).
+- Level Up and Editor Tools.
+- Random character gen.
+
+_Example created high powered level 6 Human Warlock_
+
+<img src="docs\Level 6 High Powered Warlock Screenshot 2021-11-30.png" align="center">
+
+_[more screenshots](https://imgur.com/a/S3t73rI)_
 
 #### Limitations
 
-- Character Builder doesn't handle equipment, spell memorization choices, multiclassing, or personality traits. NPC classes (warrior, expert, aristocrat) from the DMG are also not included.
+- Character Manager **does not** handle: 
+  - Equipment
+  - Spell memorization choices
+  - Multiclassing
+  - Personality traits
 
-## Other Features
+## Other Tools Within DMPOWER
 
-### Loot and Randomizers
+### Loot Rollers
 
-- Randomized Loot (based on the charts in the DM Guide). Hoard loot is pretty fun to role, and great for populating lairs/dungeons/poi's.
-- Spellbook Generator to assist with the DM's nightmare that is populating an NPC Wizard Spellbook.
-- Scrolls auto-generate to spells.
+- Randomized Loot Tool. 
+- Spellbook Generator.
+- Scroll Spell Names.
 
 ### More Various Tools
 
@@ -53,29 +59,33 @@ dmpower runs in a terminal window and prompts all available options.
 
 - Use CMake for the toolchain of your preference
 
-#### Dependencies
+- example:
+```bash
+git clone https://github.com/mattearly/dmpower.git
+cd dmpower
+cmake -B build -S .
+cd build
+make
+./dmpower
+```
+
+### Dependencies
 
 - C++17
 
-#### Data
+### Data
 
-##### Windows
+#### Windows
 
 Exports go to `%USERPROFILE%/Documents/DMpowerExports/`.  Saves and settings go to `%USERPROFILE%/AppData/Local/dmpower`
  
-##### Linux
+#### Linux
 
 Exports go to `%USERPROFILE%/DMpowerExports/`.  Saves and settings go to `%USERPROFILE%/.dmpower`
 
-##### MAC
+#### MAC
 
 Haven't set up, should be similar to linux.
-
-#### Some Screenshots
-
-*Screenshots taken on Windows Cygwin64 with green default text and black background. Your experience will vary depending on your terminal settings.*
-
-[screenshots imgur link](https://imgur.com/a/S3t73rI)
 
 ## Sources
 
@@ -98,11 +108,11 @@ Haven't set up, should be similar to linux.
 
 ### Legal
 
-This project and I are not affiliated with Wizards of the Coast or Hasbro. This project was something I personally made to assist with my DMing. Due to the nature of the game data being used for this software, dmpower is not to be used for any form of profit or sale.
+This project and I are not affiliated with Wizards of the Coast or Hasbro. This project was something I personally made to assist with my DMing. Due to the nature of the game data being used for this software, DMPOWER is not to be used for any form of profit or sale.
 
 ### Development
 
-In development branch named buildXX.
+I develop this when I feel like it. :P
 
 Master branch has latest release.
 
@@ -110,4 +120,4 @@ New versions are tagged with release notes when pushed to master, see the [tags/
 
 ## Special Thanks
 
-For those getting involved in the project and helping out at times! It does mean a lot. Thanks. -Matt
+For those getting involved in the project and helping out at times with features and improvements!
