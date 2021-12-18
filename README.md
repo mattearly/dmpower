@@ -1,7 +1,10 @@
 # DMPOWER
 A Dungeons & Dragons 5th edition toolkit intended for Dungeon Masters.  
+
 Its primary use is to hasten game prep and on the fly assistance.  
 dmpower runs in a terminal window and prompts all available options.  
+See the books listed near the bottom for what books have been integrated into this tool.
+Please note: This is a just a personal side project thing I did for fun/practice/my own use. There is no funding or support and as such you should not expect anything.
 
 ## Main Features
 
@@ -57,7 +60,7 @@ _[more screenshots](https://imgur.com/a/S3t73rI)_
 
 ## Building dmpower
 
-- Use CMake for the toolchain of your preference
+- Use CMake to generate for the toolchain of your preference
 
 - example:
 ```bash
@@ -89,7 +92,7 @@ Haven't set up, should be similar to linux.
 
 ## Sources
 
-### Books
+### Books Currently Integrated  
 
 - [Player's Handbook](http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook)
 - [Dungeon Master's Guide](http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide)
@@ -112,11 +115,9 @@ This project and I are not affiliated with Wizards of the Coast or Hasbro. This 
 
 ### Development
 
-I develop this when I feel like it. :P
+Generally, I develop this when I feel like it (usually after dming and realizing I want to add more). :P
 
-Master branch has latest release.
-
-New versions are tagged with release notes when pushed to master, see the [tags/releases](https://github.com/mattearly/dmpower/releases) for all versions with release notes.
+*No longer maintained - the continuation of this project is dmpower2, which is in a private space. Access to dmpower2 is given to supporters.*
 
 ## Special Thanks
 
