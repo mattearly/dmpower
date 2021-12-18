@@ -1,47 +1,49 @@
-# dmpower
-
-A Dungeons & Dragons 5th edition command line toolkit.
-
-Screenshots: [screenshots imgur link](https://imgur.com/a/S3t73rI)
-*Screenshots taken on Windows Cygwin64 with green default text and black background. Your experience will vary depending on your terminal settings.*
+# DMPOWER
+A Dungeons & Dragons 5th edition toolkit intended for Dungeon Masters.  
 
 Its primary use is to hasten game prep and on the fly assistance.  
 dmpower runs in a terminal window and prompts all available options.  
 See the books listed near the bottom for what books have been integrated into this tool.
 Please note: This is a just a personal side project thing I did for fun/practice/my own use. There is no funding or support and as such you should not expect anything.
 
-## Core Feature
+## Main Features
 
-### 5th Edition Character builder and Manager (PCs or NPCs)
+### 5th Edition Characters Creator and Maintainer
 
-For Players or Dungeon Masters:
-- Main 12 D&D Character Classes. 
-- 22 different races including core subraces. 
-- Fully programmed level 1-20 class trees and level up system.
-- Common starter stats options (3d6, 4d6 drop lowest, point buy). 
-- Backgrounds + Custom Background Option (4 things of your choice with a custom background name)
-- Feats
-- Skills
-- Languages
-- Standard HP Averaging (mostly as an fyi) (pcs start with max first level HP in most common rule)
-- Spell Slots Auto Calculated by level/class/race features
-- Save/Load with plain text (integrated into user folders on your OS).
-- Export with plain text (saves to documents folder on your OS).
+- Levels One to Twenty class trees for all twelve core Character Classes
+- Twenty-two different class races.
+- All core skills, feats, variants, langauges, spell slots.
+- All core background choices or use custom background option.
+- Starter stat rolling options:
+  - custom entry 
+  - standard point buy
+  - normal 3d6
+  - high powered 4d6 drop lowest
+- Save/Load sets of characters (Campaigns).
+- Level Up and Editor Tools.
+- Random character gen.
 
-For Dungeon Masters:
-- Character Editor with override options: Edit stats (min=1, max=30), give feats, give skills, change name, change alignment.
-- Randomized character option.
+_Example created high powered level 6 Human Warlock_
 
-Limitations:
-- Currently, the Character Builder doesn't handle equipment, spell memorization choices, multiclassing, or personality traits. NPC classes (warrior, expert, aristocrat) from the DMG are also not included.
+<img src="docs\Level 6 High Powered Warlock Screenshot 2021-11-30.png" align="center">
 
-## Other Features
+_[more screenshots](https://imgur.com/a/S3t73rI)_
 
-### Loot and Randomizers
+#### Limitations
 
-- Randomized Loot (based on the charts in the DM Guide). Hoard loot is pretty fun to role, and great for populating lairs/dungeons/poi's.
-- Spellbook Generator to assist with the DM's nightmare that is populating an NPC Wizard Spellbook.
-- Scrolls auto-generate to spells.
+- Character Manager **does not** handle: 
+  - Equipment
+  - Spell memorization choices
+  - Multiclassing
+  - Personality traits
+
+## Other Tools Within DMPOWER
+
+### Loot Rollers
+
+- Randomized Loot Tool. 
+- Spellbook Generator.
+- Scroll Spell Names.
 
 ### More Various Tools
 
@@ -60,21 +62,31 @@ Limitations:
 
 - Use CMake to generate for the toolchain of your preference
 
-#### Dependencies
+- example:
+```bash
+git clone https://github.com/mattearly/dmpower.git
+cd dmpower
+cmake -B build -S .
+cd build
+make
+./dmpower
+```
+
+### Dependencies
 
 - C++17
 
-#### Stored Data and Saves
+### Data
 
-##### Windows
+#### Windows
 
 Exports go to `%USERPROFILE%/Documents/DMpowerExports/`.  Saves and settings go to `%USERPROFILE%/AppData/Local/dmpower`
  
-##### Linux
+#### Linux
 
 Exports go to `%USERPROFILE%/DMpowerExports/`.  Saves and settings go to `%USERPROFILE%/.dmpower`
 
-##### MAC
+#### MAC
 
 Haven't set up, should be similar to linux.
 
@@ -99,16 +111,14 @@ Haven't set up, should be similar to linux.
 
 ### Legal
 
-This project and I are not affiliated with Wizards of the Coast or Hasbro. This project was something I personally made to assist with my own personal dming needs. Due to the nature of the game data being used for this software, dmpower is not to be used for any form of profit or sale and no support is provided.
+This project and I are not affiliated with Wizards of the Coast or Hasbro. This project was something I personally made to assist with my DMing. Due to the nature of the game data being used for this software, DMPOWER is not to be used for any form of profit or sale.
 
 ### Development
 
-In development branch named buildXX.
+Generally, I develop this when I feel like it (usually after dming and realizing I want to add more). :P
 
-Master branch has latest release.
-
-New versions are tagged with release notes when pushed to master, see the [tags/releases](https://github.com/mattearly/dmpower/releases) for all versions with release notes.
+*No longer maintained - the continuation of this project is dmpower2, which is in a private space. Access to dmpower2 is given to supporters.*
 
 ## Special Thanks
 
-For those getting involved in the project and helping out at times! It does mean a lot. Thanks. -Matt
+For those getting involved in the project and helping out at times with features and improvements!

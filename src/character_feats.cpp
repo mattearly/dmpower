@@ -193,7 +193,7 @@ void Generic_Character_Class::gainAthlete(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -207,7 +207,7 @@ void Generic_Character_Class::gainActor(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -221,7 +221,7 @@ void Generic_Character_Class::gainCharger(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -235,7 +235,7 @@ void Generic_Character_Class::gainCrossbow_expert(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -249,7 +249,7 @@ void Generic_Character_Class::gainDefensive_duelist(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -263,7 +263,7 @@ void Generic_Character_Class::gainDual_wielder(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -277,7 +277,7 @@ void Generic_Character_Class::gainDungeon_delver(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -291,7 +291,7 @@ void Generic_Character_Class::gainDurable(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -305,7 +305,7 @@ void Generic_Character_Class::gainElemental_adept(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -319,7 +319,7 @@ void Generic_Character_Class::gainGrappler(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -333,7 +333,7 @@ void Generic_Character_Class::gainGreat_weapon_master(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -347,7 +347,7 @@ void Generic_Character_Class::gainHealer(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -361,7 +361,7 @@ void Generic_Character_Class::gainHeavily_armored(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -375,7 +375,7 @@ void Generic_Character_Class::gainHeavy_armor_master(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -389,7 +389,7 @@ void Generic_Character_Class::gainInspiring_leader(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -403,7 +403,7 @@ void Generic_Character_Class::gainKeen_mind(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -417,7 +417,7 @@ void Generic_Character_Class::gainLightly_armored(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -431,7 +431,7 @@ void Generic_Character_Class::gainLinguist(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -445,7 +445,7 @@ void Generic_Character_Class::gainLucky(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -459,7 +459,7 @@ void Generic_Character_Class::gainMage_slayer(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -473,7 +473,7 @@ void Generic_Character_Class::gainMagic_initiate(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -487,7 +487,7 @@ void Generic_Character_Class::gainMartial_adept(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -501,7 +501,7 @@ void Generic_Character_Class::gainMedium_armor_master(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -515,7 +515,7 @@ void Generic_Character_Class::gainMobile(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -529,7 +529,7 @@ void Generic_Character_Class::gainModerately_armored(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -543,7 +543,7 @@ void Generic_Character_Class::gainMounted_combatant(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
@@ -557,7 +557,7 @@ void Generic_Character_Class::gainObservant(bool &s)
   }
   else
   {
-    cout << "Feat already known\n.";
+    cout << "Feat already known.\n";
   }
 }
 
