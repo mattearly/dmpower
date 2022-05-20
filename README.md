@@ -117,7 +117,7 @@ This project and I are not affiliated with Wizards of the Coast or Hasbro. This 
 
 Generally, I develop this when I feel like it (usually after dming and realizing I want to add more). :P
 
-*No longer maintained - the continuation of this project is dmpower2, which is in a private space. Access to dmpower2 is given to supporters.*
+*No longer maintained - the continuation of this project is dmpower2, which can be found [here](https://github.com/mattearly/dmpower2)*
 
 ## Special Thanks
 
